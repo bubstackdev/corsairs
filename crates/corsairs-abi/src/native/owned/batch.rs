@@ -38,6 +38,7 @@ struct PreparedModelLoad<'runtime> {
     model: Option<NativeValue>,
     url: NativeValue,
     options: NativeValue,
+    compute: NativeCompute,
     error_release: unsafe extern "C" fn(*mut c_void),
     completion: Option<LoadCompletion>,
 }
@@ -164,6 +165,7 @@ impl NativeSession {
                 model: Some(model),
                 url,
                 options,
+                compute: load_options.compute,
                 error_release,
                 completion: None,
             })
@@ -231,22 +233,23 @@ impl NativeSession {
                         model.address(),
                     )?;
                     let names = self.strings(names)?;
-                    values.push((load.model.take().unwrap(), names));
+                    values.push((load.model.take().unwrap(), names, load.compute));
                 }
                 drop(batch);
                 // Transactional commit: no model is inserted until every result and
                 // native reflection succeeded and every ID has been allocated.
                 let mut prepared = Vec::with_capacity(values.len());
-                for (value, names) in values {
-                    prepared.push((self.id()?, value, names));
+                for (value, names, compute) in values {
+                    prepared.push((self.id()?, value, names, compute));
                 }
                 let mut models = Vec::with_capacity(prepared.len());
-                for (id, value, names) in prepared {
+                for (id, value, names, compute) in prepared {
                     self.models.insert(
                         id,
                         ModelRecord {
                             value,
                             names: names.clone(),
+                            compute,
                         },
                     );
                     models.push(NativeModel {

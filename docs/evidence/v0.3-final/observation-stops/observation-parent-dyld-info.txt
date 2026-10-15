@@ -1,0 +1,10 @@
+target/qualify-v03/observation-parent [arm64]:
+    -segments:
+        load-offset   segment  section       sect-size  seg-size   init/max-prot
+        0x00000000    __TEXT                                16KB    r.x/r.x
+        0x100000460             __text              204
+        0x10000052C             __stubs              48
+        0x10000055C             __cstring            21
+        0x100000574             __unwind_info        88
+        0x00004000    __DATA_CONST                          16KB    rw./rw.
+        0x100004000             __got                40

@@ -1,0 +1,141 @@
+{
+  "checker_sha256": "aaf1fabfb3829894176489eba5ff2414801a2dd57b08e1392f85551fcf8fcbfe",
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n"
+    },
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--list",
+        "--allow-dirty"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/cargo-package"
+      },
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": ".cargo_vcs_info.json\nCargo.lock\nCargo.toml\nCargo.toml.orig\nLICENSE-APACHE\nLICENSE-MIT\nREADME.md\nexamples/feedforward.rs\nexamples/metal_chain.rs\nexamples/native_chain.rs\nexamples/stateful.rs\nmodels/accumulator.aimodel/main.hash\nmodels/accumulator.aimodel/main.mlirb\nmodels/accumulator.aimodel/metadata.json\nmodels/accumulator.mlir\nmodels/feedforward.aimodel/main.hash\nmodels/feedforward.aimodel/main.mlirb\nmodels/feedforward.aimodel/metadata.json\nmodels/feedforward.mlir\nmodels/manifest.json\nsrc/api_error.rs\nsrc/bin/corsairs.rs\nsrc/dtype.rs\nsrc/facade/batch.rs\nsrc/facade/function_batch.rs\nsrc/facade/handles.rs\nsrc/facade/metal.rs\nsrc/facade.rs\nsrc/lib.rs\nsrc/native/arm64.rs\nsrc/native/async_task/pending.rs\nsrc/native/async_task/sync_call.rs\nsrc/native/async_task.rs\nsrc/native/buffer.rs\nsrc/native/errors.rs\nsrc/native/inference.rs\nsrc/native/loader.rs\nsrc/native/metadata.rs\nsrc/native/mod.rs\nsrc/native/model.rs\nsrc/native/owned/batch.rs\nsrc/native/owned/function_batch.rs\nsrc/native/owned/handles.rs\nsrc/native/owned/metal.rs\nsrc/native/owned/run_stream.rs\nsrc/native/owned.rs\nsrc/native/task.rs\nsrc/native/task_create.rs\nsrc/native/tensor.rs\nsrc/native/text.rs\nsrc/native/value.rs\nsrc/worker.rs\ntests/native_metadata.rs\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--allow-dirty"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/cargo-package"
+      },
+      "exit_status": 0,
+      "stderr": "   Packaging corsairs v0.3.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Packaged 53 files, 441.5KiB (100.7KiB compressed)\n   Verifying corsairs v0.3.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs v0.3.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/cargo-package/package/corsairs-0.3.0)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.01s\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "generate-lockfile",
+        "--offline",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "     Locking 1 package to highest Rust 1.99.0 compatible version\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "tree",
+        "--offline",
+        "--locked",
+        "--edges",
+        "features",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": "corsairs-release-consumer v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/consumer)\n\u2514\u2500\u2500 corsairs feature \"default\"\n    \u2514\u2500\u2500 corsairs v0.3.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/extracted/corsairs-0.3.0)\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--bins",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/consumer-target"
+      },
+      "exit_status": 0,
+      "stderr": "   Compiling corsairs v0.3.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/extracted/corsairs-0.3.0)\n   Compiling corsairs-release-consumer v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/consumer)\n    Finished `release` profile [optimized] target(s) in 1.74s\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--bin",
+        "corsairs",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/extracted/corsairs-0.3.0/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/package-target"
+      },
+      "exit_status": 101,
+      "stderr": "error: current package believes it's in a workspace when it's not:\ncurrent:   /Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/extracted/corsairs-0.3.0/Cargo.toml\nworkspace: /Users/zakkeown/Code/aether/lab/corsairs/Cargo.toml\n\nthis may be fixable by adding `target/package-check-v03/corsairs-0.3.0-p9kh6_o6/extracted/corsairs-0.3.0` to the `workspace.members` array of the manifest located at: /Users/zakkeown/Code/aether/lab/corsairs/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n",
+      "stdout": ""
+    }
+  ],
+  "error": "Failed (101): ['cargo', 'build', '--offline', '--locked', '--release', '--examples', '--bin', 'corsairs', '--manifest-path', '/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v03/corsairs-0.3.0-p9kh6_o6/extracted/corsairs-0.3.0/Cargo.toml']",
+  "finished_at": "2026-10-15T21:36:14.505553+00:00",
+  "native_requested": false,
+  "native_validated": false,
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+  "package": "corsairs",
+  "passed": false,
+  "preparation_only": true,
+  "registry_checked": false,
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2",
+  "schema": 1,
+  "started_at": "2026-10-15T21:36:11.490828+00:00",
+  "uploaded": false,
+  "version": "0.3.0"
+}

@@ -1,0 +1,5 @@
+The standalone Swift probe independently reproduced **SIGBUS (signal 10)** in the ordinary CPU CoreAI `function.run(inputs:)` call. The child returned exit status −10 after 0.187 seconds without timing out. Model loading, exact input/output descriptor checks and construction of the empty float32 `[0,1]` input completed. Its last marker is `before_run`; `after_run`, output metadata and the zero-byte Data snapshot were never reached.
+
+The identical broadcast asset therefore fails without Corsairs or Rust linkage. This excludes the Rust binding as a required cause of this specific reproduction; without a faulting backtrace it does not identify the internal failing operation or justify a general empty-broadcast limitation. Both broadcast fixtures remain GPU descriptor rejection probes. The two x+x empty fixtures retain CPU-positive coverage.
+
+`finding.json` pins the source, tool receipt, exact asset provenance, child process report, event stream and parent REA observation. The parent observation includes dyld/debugger stop noise; the SIGBUS determination comes from the Swift child’s subprocess exit status and flushed stage markers.

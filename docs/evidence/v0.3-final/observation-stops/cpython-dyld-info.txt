@@ -1,0 +1,24 @@
+/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12 [arm64]:
+    -segments:
+        load-offset   segment  section       sect-size  seg-size   init/max-prot
+        0x00000000    __TEXT                             12960KB    r.x/r.x
+        0x100004000             __text           8979744
+        0x100894520             __stubs            8064
+        0x1008964A0             __stub_helper      8088
+        0x100898440             __literals         6608
+        0x100899E10             __cstring        592847
+        0x10092B000             __const          3579551
+        0x100C94EA0             __unwind_info     70160
+        0x100CA60B0             __eh_frame         1856
+        0x00CA8000    __DATA_CONST                        1120KB    rw./rw.
+        0x100CA8000             __got               600
+        0x100CA8260             __const          1132584
+        0x100DBCA88             __mod_init_func       8
+        0x00DC0000    __DATA                              1584KB    rw./rw.
+        0x100DC0000             __la_symbol_ptr    5376
+        0x100DC1500             __data           1123240
+        0x100ED38A8             __thread_vars        48
+        0x100ED38D8             PyRuntime        458744
+        0x100F438D0             __thread_bss         16
+        0x100F438E0             __bss             19048
+        0x100F48348             __common           4232

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-15T21:09:03.833939+00:00",
+  "source_frozen": true,
+  "native_executed_by_research_agent": false,
+  "production_modified": false,
+  "source": {
+    "path": "experiments/swift/LargeInputMigrationIsolation.swift",
+    "sha256": "eecd39b5541b164003e1cc562960b1f4e8fc269eedc96ff16aaa7ed4322e54f8",
+    "bytes": 9897
+  },
+  "binary": {
+    "path": "target/rgb345-isolation/migration-probe",
+    "sha256": "3d77c4f2e549972bab6d9f1583dad66606aaa9eef833d29b9913454ff6e5d676",
+    "bytes": 139296
+  },
+  "compile_command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-O",
+    "-warnings-as-errors",
+    "-module-cache-path",
+    "target/rgb345-isolation/module-cache",
+    "experiments/swift/LargeInputMigrationIsolation.swift",
+    "-o",
+    "target/rgb345-isolation/migration-probe"
+  ],
+  "compile_exit_status": 0,
+  "prior_probe_preserved": {
+    "source": {
+      "path": "experiments/swift/LargeOutputIsolation.swift",
+      "sha256": "41bbfea0b5ee8335398b91e0ca61812c027d50ab295d42f760af7101022149e3",
+      "bytes": 11552
+    },
+    "binary": {
+      "path": "target/rgb345-isolation/probe",
+      "sha256": "c68d83d7d5a1f2623e4c875fc9fa477f006ebda3d7ba8663bf447ef6e813f2fc",
+      "bytes": 140600
+    }
+  },
+  "runtime_contract": "Public consuming AsyncValue.init(NDArray), same actual owned stream/queue fence and throwing readiness as prior buffer-auto; immediate full Data snapshot/exact capacity-v2 bytes/SHA.",
+  "root_serial_execution": {
+    "modes": [
+      "ndarray-auto",
+      "ndarray-chain"
+    ],
+    "argv_template": [
+      "target/rgb345-isolation/migration-probe",
+      "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "345,1344,768,3",
+      "MODE",
+      "REPORT"
+    ],
+    "fresh_process_per_mode": true,
+    "recommended_external_timeout_seconds": 90
+  },
+  "memory": {
+    "logical_bytes": 4273274880,
+    "ndarray_auto_minimum_with_snapshot_bytes": 12819824640,
+    "ndarray_chain_minimum_with_snapshot_bytes": 17093099520,
+    "limitations": "Logical input/output/snapshot accounting only. Native migration, physical packing, caches and working storage can increase residency. First snapshot is dropped before the second call; chain retains original input and first ready output."
+  },
+  "input_init": "Same as failing Swift run oracle: NDArray(shape:scalarType:.float32), mutableRawView().withUnsafeMutableBytes fill of every byte, immediate input snapshot/full exact verification before inference.",
+  "chain": "Second AsyncValue consumes a retained ready first NDArray; no unresolved producer is forwarded. It checks2x then4x.",
+  "interpretation": {
+    "ndarray_encode_pass_run_fail": "Run/internal-stream path or its completion/readback interaction is implicated; not proof which internal stage.",
+    "ndarray_encode_fail_buffer_encode_pass": "NDArray storage/input migration or representation is implicated; changing output mode alone is not sufficient."
+  }
+}

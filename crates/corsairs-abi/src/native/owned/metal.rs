@@ -129,12 +129,16 @@ pub(super) struct Store {
     values: HashMap<u64, Rc<ValueRecord>>,
     buffers: HashMap<u64, Rc<BufferRecord>>,
     queues: HashMap<u64, Rc<QueueRecord>>,
+    // Private convenience-run stream, reused across calls/models/generations.
+    // It is separate from the public object stores counted by lifecycle probes.
+    run_queue: Option<Rc<QueueRecord>>,
 }
 impl Store {
     pub(super) fn clear(&mut self) {
         self.values.clear();
         self.buffers.clear();
         self.queues.clear();
+        self.run_queue = None;
     }
 }
 
@@ -212,6 +216,10 @@ impl NativeSession {
             self.metal.buffers.len(),
             self.metal.values.len(),
         )
+    }
+    #[cfg(test)]
+    pub(crate) fn owned_stream_identity(&self) -> Option<usize> {
+        self.metal.run_queue.as_ref().map(|queue| queue.stream.word)
     }
     /// # Safety
     /// All native Metal methods run exclusively on this session's worker.
@@ -561,8 +569,16 @@ impl NativeSession {
             Ok(value)
         }
     }
-    unsafe fn metal_ready(&self, value: &mut NativeValue, mutable: bool) -> Result<NativeValue> {
+    unsafe fn metal_ready_fenced(
+        &self,
+        value: &mut NativeValue,
+        mutable: bool,
+        queue: &QueueRecord,
+    ) -> Result<NativeValue> {
         // SAFETY: Uses verified consuming struct or borrowed class readiness.
+        // Once the getter starts, retain its raw native Error or initialized
+        // result through the actual post-readiness fence. Preflight failures
+        // before starting the getter create no new asynchronous materialization.
         unsafe {
             let tensor = self.metadata(super::super::NDARRAY_METADATA)?;
             let mut result = NativeValue::allocate(self.optional(tensor)?)?;
@@ -571,20 +587,28 @@ impl NativeSession {
             } else {
                 value.ptr().cast::<usize>().read()
             };
-            let outcome=self.runtime.await_native(if mutable {c"$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV7ndArrayAA7NDArrayVSgvgTu"}else{c"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC7ndArrayAA7NDArrayVSgvgTu"},[result.address(),0,0,0],receiver,true)?;
-            if mutable {
-                value.initialized = false;
+            let outcome=self.runtime.await_native(if mutable {c"$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV7ndArrayAA7NDArrayVSgvgTu"}else{c"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC7ndArrayAA7NDArrayVSgvgTu"},[result.address(),0,0,0],receiver,true);
+            if let Ok(outcome) = &outcome {
+                if mutable {
+                    value.initialized = false;
+                }
+                result.initialized = outcome.error == 0;
             }
+            if let Err(problem) = self.metal_fence_record(queue) {
+                eprintln!("cannot establish completion after Metal readiness: {problem}");
+                std::process::abort();
+            }
+            let outcome = outcome?;
             if outcome.error != 0 {
                 return Err(self.failure(outcome.error, "metal_readiness"));
             }
-            result.initialized = true;
             Self::lifecycle(&outcome)?;
             result
                 .take_optional(tensor)?
                 .ok_or_else(|| NativeFailure::Unsupported("encoded value is not NDArray".into()))
         }
     }
+
     unsafe fn metal_info(&self, array: &NativeValue) -> Result<(NativeDType, Vec<usize>)> {
         // SAFETY: Metadata getters borrow a ready, initialized NDArray.
         unsafe {
@@ -630,6 +654,7 @@ impl NativeSession {
         // SAFETY: Borrowed views and buffers stay owned through true completion.
         unsafe {
             let _pool = Pool::new();
+            let gpu = self.function_compute(function)? == NativeCompute::GpuPreferred;
             let queue = self
                 .metal
                 .queues
@@ -640,6 +665,9 @@ impl NativeSession {
                 .functions
                 .get(&function)
                 .ok_or_else(|| invalid("function", function))?;
+            if gpu {
+                super::run_stream::gpu_descriptors(&function.descriptor)?;
+            }
             let mut input_records = Vec::new();
             for (name, input) in inputs {
                 let value = match input {
@@ -679,6 +707,15 @@ impl NativeSession {
                         NativeFailure::InvalidData(format!("unexpected Metal input {name}"))
                     })?;
                 matches_descriptor(value.dtype, &value.shape, d)?;
+                if gpu {
+                    super::run_stream::gpu_shape(value.dtype, &value.shape)?;
+                    match &value.kind {
+                        ValueKind::Buffer(buffer) => super::run_stream::gpu_span(buffer.bytes)?,
+                        ValueKind::Encoded { array, .. } => {
+                            super::handles::validate_gpu_handle(&self.tensor_handle_info(array)?)?
+                        }
+                    }
+                }
                 if input_records
                     .iter()
                     .any(|(n, _): &(String, Rc<ValueRecord>)| *n == name)
@@ -723,6 +760,10 @@ impl NativeSession {
                         ));
                     }
                     matches_descriptor(b.dtype, &b.shape, d)?;
+                    if gpu {
+                        super::run_stream::gpu_shape(b.dtype, &b.shape)?;
+                        super::run_stream::gpu_span(b.bytes)?;
+                    }
                     if input_records
                         .iter()
                         .flat_map(|(_, v)| v.origins.iter())
@@ -869,7 +910,7 @@ impl NativeSession {
             let mut first_error = None;
             for (_, buffer, value, _) in &mut mutable {
                 match self
-                    .metal_ready(value, true)
+                    .metal_ready_fenced(value, true, &queue)
                     .and_then(|array| self.metal_info(&array))
                 {
                     Ok((dtype, shape)) if dtype == buffer.dtype && shape == buffer.shape => {}
@@ -926,9 +967,15 @@ impl NativeSession {
                 let future = optional.take_optional(class_md)?;
                 if let Some(mut future) = future {
                     match self
-                        .metal_ready(&mut future, false)
-                        .and_then(|array| self.metal_info(&array).map(|info| (array, info)))
-                    {
+                        .metal_ready_fenced(&mut future, false, &queue)
+                        .and_then(|array| {
+                            if gpu {
+                                super::handles::validate_gpu_handle(
+                                    &self.tensor_handle_info(&array)?,
+                                )?;
+                            }
+                            self.metal_info(&array).map(|info| (array, info))
+                        }) {
                         Ok((array, (dtype, shape))) => {
                             matches_descriptor(dtype, &shape, descriptor)?;
                             prepared.push((
@@ -972,6 +1019,94 @@ impl NativeSession {
                 result.push((name, info));
             }
             Ok(result)
+        }
+    }
+}
+
+impl NativeSession {
+    /// Stateless native-array execution on one persistent owned stream. Private
+    /// Metal IDs are transaction-local; none cross the facade or survive errors.
+    ///
+    /// # Safety
+    /// Inputs are initialized, validated, retained native arrays in this session.
+    pub(super) unsafe fn encode_native_arrays(
+        &mut self,
+        function: u64,
+        inputs: &[(String, u64)],
+    ) -> Result<Vec<(String, NativeValue, NativeTensorHandle)>> {
+        // SAFETY: All Swift copies/constructors use the calibrated NDArray and
+        // AsyncValue contracts. Existing encode retains arguments and fences
+        // both submission and readiness on success/error before returning.
+        unsafe {
+            let queue = if let Some(queue) = &self.metal.run_queue {
+                Rc::clone(queue)
+            } else {
+                let id = self.metal_queue(None)?;
+                let queue = self.metal.queues.remove(&id).expect("new private queue");
+                self.metal.run_queue = Some(Rc::clone(&queue));
+                queue
+            };
+            let queue_id = self.id()?;
+            self.metal.queues.insert(queue_id, Rc::clone(&queue));
+            let mut private_inputs = Vec::new();
+            let mut private_outputs = Vec::new();
+            let result = (|| {
+                let metadata =
+                    self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCMa")?;
+                let constructor = self.symbol(
+                    c"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAeA7NDArrayVcfC",
+                )?;
+                let mut arguments = Vec::new();
+                for (name, id) in inputs {
+                    let record = &self.tensors[id];
+                    let array = record.value.copy_owned()?;
+                    let mut consumed = array.copy_owned()?;
+                    let mut future = NativeValue::allocate(metadata)?;
+                    let object = arm64::call_sync(
+                        constructor,
+                        [consumed.address(), 0, 0],
+                        ptr::null_mut(),
+                        metadata.pointer,
+                    );
+                    consumed.initialized = false;
+                    if object == 0 {
+                        return Err(NativeFailure::Binding("null NDArray AsyncValue".into()));
+                    }
+                    future.ptr().cast::<usize>().write(object);
+                    future.initialized = true;
+                    let value = Rc::new(ValueRecord {
+                        kind: ValueKind::Encoded { future, array },
+                        queue: Rc::clone(&queue),
+                        dtype: record.info.dtype,
+                        shape: record.info.shape.clone(),
+                        origins: Vec::new(),
+                    });
+                    let id = self.id()?;
+                    self.metal.values.insert(id, value);
+                    private_inputs.push(id);
+                    arguments.push((name.clone(), NativeMetalInput::Value(id)));
+                }
+                let outputs =
+                    self.metal_encode(function, queue_id, arguments, Vec::new(), Vec::new())?;
+                private_outputs.extend(outputs.iter().map(|(_, value)| value.id));
+                let mut arrays = Vec::new();
+                for (name, value) in outputs {
+                    let record = &self.metal.values[&value.id];
+                    let ValueKind::Encoded { array, .. } = &record.kind else {
+                        return Err(NativeFailure::Binding(
+                            "automatic stream output is not native".into(),
+                        ));
+                    };
+                    let info = self.tensor_handle_info(array)?;
+                    arrays.push((name, array.copy_owned()?, info));
+                }
+                Ok(arrays)
+            })();
+            for id in private_outputs.into_iter().chain(private_inputs) {
+                self.metal.values.remove(&id);
+            }
+            self.metal.queues.remove(&queue_id);
+            result
         }
     }
 }

@@ -1,0 +1,128 @@
+{
+  "started_utc": "2026-10-15T21:06:41.384076+00:00",
+  "source_sha256": "41bbfea0b5ee8335398b91e0ca61812c027d50ab295d42f760af7101022149e3",
+  "binary_sha256": "c68d83d7d5a1f2623e4c875fc9fa477f006ebda3d7ba8663bf447ef6e813f2fc",
+  "controller_sha256": "6130c6ca065fb1412781db5109f3eb94205125f49c6f012c115f7757f1f9700b",
+  "model_sha256": {
+    "metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf",
+    "main.mlirb": "c7f4ff1d716ead864ab85ff7d3867e34a43a3660406dd47dba2987a1f98ea16f",
+    "main.hash": "5908b44127cefc47fa9ba38224d57c460d2d4203530129fa4fdb42518f78917f"
+  },
+  "scope": "Independent Swift x+x diagnostics; failed modes are not qualification",
+  "modes": {
+    "auto": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/rgb345-isolation/probe",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+        "345,1344,768,3",
+        "auto",
+        "/private/tmp/corsairs-v03-rgb345-isolation/auto.json"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "stdout": "{\"allowed_compute\":\"SDK gpu-preferred defaults\",\"bytes\":4273274880,\"device\":\"Apple M5 Max\",\"event\":\"prepared\",\"maxBufferLength\":41747087360,\"mode\":\"auto\",\"pattern_version\":2,\"shape\":[345,1344,768,3]}\n{\"event\":\"encode_begin\",\"label\":\"auto\"}\n{\"event\":\"encode_returned\",\"label\":\"auto\"}\n{\"event\":\"stream_complete\",\"label\":\"auto-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"auto-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"auto\"}\n{\"event\":\"stream_complete\",\"label\":\"auto-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"auto-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"auto\"}\n{\"event\":\"stream_complete\",\"label\":\"final\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"final\",\"status\":4}\n{\n  \"bytes\" : 4273274880,\n  \"compute\" : \"gpu-preferred\",\n  \"fence_limit\" : \"empty command status describes this queue fence, not every internal CoreAI command buffer\",\n  \"mode\" : \"auto\",\n  \"passed\" : true,\n  \"pattern_version\" : 2,\n  \"results\" : [\n    {\n      \"factor\" : 2,\n      \"label\" : \"auto\",\n      \"sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n      \"snapshot_source\" : \"ready NDArray rawView, immediate full Data copy\"\n    }\n  ],\n  \"scope\" : \"mechanical x+x allocation\\/readiness isolation; no H3 generation qualification\",\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+      "stderr": "",
+      "report": {
+        "bytes": 4273274880,
+        "compute": "gpu-preferred",
+        "fence_limit": "empty command status describes this queue fence, not every internal CoreAI command buffer",
+        "mode": "auto",
+        "passed": true,
+        "pattern_version": 2,
+        "results": [
+          {
+            "factor": 2,
+            "label": "auto",
+            "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+            "snapshot_source": "ready NDArray rawView, immediate full Data copy"
+          }
+        ],
+        "scope": "mechanical x+x allocation/readiness isolation; no H3 generation qualification",
+        "shape": [
+          345,
+          1344,
+          768,
+          3
+        ]
+      }
+    },
+    "bound": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/rgb345-isolation/probe",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+        "345,1344,768,3",
+        "bound",
+        "/private/tmp/corsairs-v03-rgb345-isolation/bound.json"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "stdout": "{\"allowed_compute\":\"SDK gpu-preferred defaults\",\"bytes\":4273274880,\"device\":\"Apple M5 Max\",\"event\":\"prepared\",\"maxBufferLength\":41747087360,\"mode\":\"bound\",\"pattern_version\":2,\"shape\":[345,1344,768,3]}\n{\"event\":\"encode_begin\",\"label\":\"bound-first\"}\n{\"event\":\"encode_returned\",\"label\":\"bound-first\",\"returned_output_count\":0}\n{\"event\":\"stream_complete\",\"label\":\"bound-first-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"bound-first-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"bound-first\"}\n{\"event\":\"stream_complete\",\"label\":\"bound-first-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"bound-first-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"bound-first\"}\n{\"event\":\"stream_complete\",\"label\":\"final\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"final\",\"status\":4}\n{\n  \"bytes\" : 4273274880,\n  \"compute\" : \"gpu-preferred\",\n  \"fence_limit\" : \"empty command status describes this queue fence, not every internal CoreAI command buffer\",\n  \"mode\" : \"bound\",\n  \"passed\" : true,\n  \"pattern_version\" : 2,\n  \"results\" : [\n    {\n      \"factor\" : 2,\n      \"label\" : \"bound-first\",\n      \"sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n      \"snapshot_source\" : \"explicit shared MTLBuffer contents, immediate full Data copy\"\n    }\n  ],\n  \"scope\" : \"mechanical x+x allocation\\/readiness isolation; no H3 generation qualification\",\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+      "stderr": "",
+      "report": {
+        "bytes": 4273274880,
+        "compute": "gpu-preferred",
+        "fence_limit": "empty command status describes this queue fence, not every internal CoreAI command buffer",
+        "mode": "bound",
+        "passed": true,
+        "pattern_version": 2,
+        "results": [
+          {
+            "factor": 2,
+            "label": "bound-first",
+            "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+            "snapshot_source": "explicit shared MTLBuffer contents, immediate full Data copy"
+          }
+        ],
+        "scope": "mechanical x+x allocation/readiness isolation; no H3 generation qualification",
+        "shape": [
+          345,
+          1344,
+          768,
+          3
+        ]
+      }
+    },
+    "bound-chain": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/rgb345-isolation/probe",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+        "345,1344,768,3",
+        "bound-chain",
+        "/private/tmp/corsairs-v03-rgb345-isolation/bound-chain.json"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "stdout": "{\"allowed_compute\":\"SDK gpu-preferred defaults\",\"bytes\":4273274880,\"device\":\"Apple M5 Max\",\"event\":\"prepared\",\"maxBufferLength\":41747087360,\"mode\":\"bound-chain\",\"pattern_version\":2,\"shape\":[345,1344,768,3]}\n{\"event\":\"encode_begin\",\"label\":\"bound-first\"}\n{\"event\":\"encode_returned\",\"label\":\"bound-first\",\"returned_output_count\":0}\n{\"event\":\"stream_complete\",\"label\":\"bound-first-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"bound-first-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"bound-first\"}\n{\"event\":\"stream_complete\",\"label\":\"bound-first-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"bound-first-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"bound-first\"}\n{\"event\":\"encode_begin\",\"label\":\"bound-second\"}\n{\"event\":\"encode_returned\",\"label\":\"bound-second\",\"returned_output_count\":0}\n{\"event\":\"stream_complete\",\"label\":\"bound-second-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"bound-second-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"bound-second\"}\n{\"event\":\"stream_complete\",\"label\":\"bound-second-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"bound-second-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"bound-second\"}\n{\"event\":\"stream_complete\",\"label\":\"final\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"final\",\"status\":4}\n{\n  \"bytes\" : 4273274880,\n  \"compute\" : \"gpu-preferred\",\n  \"fence_limit\" : \"empty command status describes this queue fence, not every internal CoreAI command buffer\",\n  \"mode\" : \"bound-chain\",\n  \"passed\" : true,\n  \"pattern_version\" : 2,\n  \"results\" : [\n    {\n      \"factor\" : 2,\n      \"label\" : \"bound-first\",\n      \"sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n      \"snapshot_source\" : \"explicit shared MTLBuffer contents, immediate full Data copy\"\n    },\n    {\n      \"factor\" : 4,\n      \"label\" : \"bound-second\",\n      \"sha256\" : \"e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59\",\n      \"snapshot_source\" : \"explicit shared MTLBuffer contents, immediate full Data copy\"\n    }\n  ],\n  \"scope\" : \"mechanical x+x allocation\\/readiness isolation; no H3 generation qualification\",\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+      "stderr": "",
+      "report": {
+        "bytes": 4273274880,
+        "compute": "gpu-preferred",
+        "fence_limit": "empty command status describes this queue fence, not every internal CoreAI command buffer",
+        "mode": "bound-chain",
+        "passed": true,
+        "pattern_version": 2,
+        "results": [
+          {
+            "factor": 2,
+            "label": "bound-first",
+            "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+            "snapshot_source": "explicit shared MTLBuffer contents, immediate full Data copy"
+          },
+          {
+            "factor": 4,
+            "label": "bound-second",
+            "sha256": "e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59",
+            "snapshot_source": "explicit shared MTLBuffer contents, immediate full Data copy"
+          }
+        ],
+        "scope": "mechanical x+x allocation/readiness isolation; no H3 generation qualification",
+        "shape": [
+          345,
+          1344,
+          768,
+          3
+        ]
+      }
+    }
+  }
+}

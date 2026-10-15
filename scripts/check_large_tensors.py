@@ -27,7 +27,7 @@ def save(path, value):
 
 def sources():
     paths = [ROOT / n for n in ["Cargo.toml", "Cargo.lock", "scripts/check_large_tensors.py",
-        "scripts/reference/build_large_fixtures.py", "experiments/rust/large_tensors.rs", "experiments/swift/LargeTensorReference.swift"]]
+        "scripts/reference/build_large_fixtures.py", "scripts/reference/build_gpu_envelope_fixtures.py", "experiments/rust/large_tensors.rs", "experiments/swift/LargeTensorReference.swift"]]
     paths += list((ROOT / "crates").rglob("*.rs")) + list((ROOT / "crates").rglob("Cargo.toml"))
     paths += [p for p in FIXTURES.rglob("*") if p.is_file()]
     return {str(p.relative_to(ROOT)): sha(p) for p in sorted(set(paths))}
@@ -64,11 +64,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--build", action="store_true")
     parser.add_argument("--native", action="store_true")
-    parser.add_argument("--case", choices=["h3-hidden", "h3-rgb124", "h3-rgb345", "limit-f32"], default="h3-hidden")
+    parser.add_argument("--case", choices=["h3-hidden", "h3-rgb124", "h3-rgb173", "h3-rgb345", "gpu-limit-f32", "limit-f32"], default="h3-hidden")
     parser.add_argument("--compute", choices=["cpu", "gpu-preferred"], default="gpu-preferred")
     parser.add_argument("--profile", choices=["debug", "release"], default="release")
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--evidence-subdir", default="immediate-snapshot")
     args = parser.parse_args()
+    if Path(args.evidence_subdir).name != args.evidence_subdir or args.evidence_subdir in [".", ".."]:
+        parser.error("evidence-subdir must be one directory name")
+    evidence = ROOT / "docs/evidence/v0.3-large-tensors" / args.evidence_subdir
     BUILD.mkdir(parents=True, exist_ok=True)
     manifest_path = BUILD / "build-manifest.json"
     fixture = json.loads((FIXTURES / "manifest.json").read_text())
@@ -96,7 +100,7 @@ def main():
             "rustc": command(["rustc", "-Vv"])["stdout"], "swiftc": command(["swiftc", "--version"])["stdout"],
             "os": command(["sw_vers"])["stdout"], "native_executed": False}
         save(manifest_path, manifest)
-        save(ROOT / "docs/evidence/v0.3-large-tensors/build-manifest.json", manifest)
+        save(evidence / "build-manifest.json", manifest)
     else:
         manifest = json.loads(manifest_path.read_text())
         if manifest["source_hashes"] != source_hashes or any(sha(ROOT / p) != h for p, h in manifest["binaries"].items()):
@@ -112,7 +116,7 @@ def main():
         "created_utc": datetime.now(timezone.utc).isoformat(), "build_manifest_sha256": sha(manifest_path),
         "concurrent_native_processes": 1,
         "concurrency_scope": "This checker's child processes only; other host workloads are uncontrolled unless separately recorded.",
-        "swift_readback": "Immediate full byte snapshot before block comparison/hash",
+        "swift_readback": "Immediate full byte snapshot before block comparison/hash; GPU uses owned stream with pre/post readiness fences",
         "scope": fixture["scope"]}
     save(output / "checks.json", report)
     try:
@@ -146,7 +150,7 @@ def main():
     except Exception as error:
         report["error"] = str(error)
     save(output / "checks.json", report)
-    destination = ROOT / f"docs/evidence/v0.3-large-tensors/immediate-snapshot/{args.case}-{args.compute}-{args.profile}.json"
+    destination = evidence / f"{args.case}-{args.compute}-{args.profile}.json"
     save(destination, report)
     print(json.dumps({"passed": report["passed"], "report": str(destination)}), flush=True)
     if not report["passed"]: raise SystemExit(1)

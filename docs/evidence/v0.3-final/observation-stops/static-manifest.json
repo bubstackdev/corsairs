@@ -1,0 +1,828 @@
+{
+  "created_at_utc": "2026-10-15T21:48:01.048257+00:00",
+  "scope": "Static file analysis and retained runtime evidence only; no target execution, no new REA observation, no production/source or historical-evidence modifications.",
+  "artifacts": {
+    "dyld": {
+      "path": "/usr/lib/dyld",
+      "sha256": "be8904b70f95adeb9d244308ca470f939bb89bd32a9b1b05e3f65ac92579e226",
+      "size": 4129840,
+      "slices": [
+        {
+          "cpu": "0x1000007",
+          "cpu_subtype": "0x3",
+          "uuid": "DDF57712-1394-3A6F-9951-B6F8A2B51DA5",
+          "segments": [
+            {
+              "name": "__TEXT",
+              "vmaddr": "0x0",
+              "vmsize": "0xaf000",
+              "end": "0xaf000",
+              "fileoff": "0x0",
+              "filesize": "0xaf000",
+              "maxprot": 5,
+              "initprot": 5
+            },
+            {
+              "name": "__DATA_CONST",
+              "vmaddr": "0xaf000",
+              "vmsize": "0x8000",
+              "end": "0xb7000",
+              "fileoff": "0xaf000",
+              "filesize": "0x8000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA",
+              "vmaddr": "0xb7000",
+              "vmsize": "0x22000",
+              "end": "0xd9000",
+              "fileoff": "0xb7000",
+              "filesize": "0x1000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA_DIRTY",
+              "vmaddr": "0xd9000",
+              "vmsize": "0x4000",
+              "end": "0xdd000",
+              "fileoff": "0xb8000",
+              "filesize": "0x2000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__TPRO_CONST",
+              "vmaddr": "0xdd000",
+              "vmsize": "0x1000",
+              "end": "0xde000",
+              "fileoff": "0xba000",
+              "filesize": "0x1000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__LINKEDIT",
+              "vmaddr": "0xde000",
+              "vmsize": "0x60000",
+              "end": "0x13e000",
+              "fileoff": "0xbb000",
+              "filesize": "0x5e0c0",
+              "maxprot": 1,
+              "initprot": 1
+            }
+          ],
+          "highest_segment_end": "0x13e000"
+        },
+        {
+          "cpu": "0x100000c",
+          "cpu_subtype": "0x80000002",
+          "uuid": "D341DDCB-7969-3A9C-8E03-0CF4751398A9",
+          "segments": [
+            {
+              "name": "__TEXT",
+              "vmaddr": "0x0",
+              "vmsize": "0xc0000",
+              "end": "0xc0000",
+              "fileoff": "0x0",
+              "filesize": "0xc0000",
+              "maxprot": 5,
+              "initprot": 5
+            },
+            {
+              "name": "__DATA_CONST",
+              "vmaddr": "0xc0000",
+              "vmsize": "0x4000",
+              "end": "0xc4000",
+              "fileoff": "0xc0000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__AUTH_CONST",
+              "vmaddr": "0xc4000",
+              "vmsize": "0x8000",
+              "end": "0xcc000",
+              "fileoff": "0xc4000",
+              "filesize": "0x8000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA",
+              "vmaddr": "0xcc000",
+              "vmsize": "0x4000",
+              "end": "0xd0000",
+              "fileoff": "0xcc000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA_DIRTY",
+              "vmaddr": "0xd0000",
+              "vmsize": "0x4000",
+              "end": "0xd4000",
+              "fileoff": "0xd0000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__TPRO_CONST",
+              "vmaddr": "0xd4000",
+              "vmsize": "0x24000",
+              "end": "0xf8000",
+              "fileoff": "0xd4000",
+              "filesize": "0x24000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__LINKEDIT",
+              "vmaddr": "0xf8000",
+              "vmsize": "0x74000",
+              "end": "0x16c000",
+              "fileoff": "0xf8000",
+              "filesize": "0x70490",
+              "maxprot": 1,
+              "initprot": 1
+            }
+          ],
+          "highest_segment_end": "0x16c000"
+        },
+        {
+          "cpu": "0x100000c",
+          "cpu_subtype": "0x8000000c",
+          "uuid": "8831382F-3800-372B-99C1-B23F876C0DA9",
+          "segments": [
+            {
+              "name": "__TEXT",
+              "vmaddr": "0x0",
+              "vmsize": "0xbc000",
+              "end": "0xbc000",
+              "fileoff": "0x0",
+              "filesize": "0xbc000",
+              "maxprot": 5,
+              "initprot": 5
+            },
+            {
+              "name": "__DATA_CONST",
+              "vmaddr": "0xbc000",
+              "vmsize": "0x4000",
+              "end": "0xc0000",
+              "fileoff": "0xbc000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__AUTH_CONST",
+              "vmaddr": "0xc0000",
+              "vmsize": "0x8000",
+              "end": "0xc8000",
+              "fileoff": "0xc0000",
+              "filesize": "0x8000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA",
+              "vmaddr": "0xc8000",
+              "vmsize": "0x4000",
+              "end": "0xcc000",
+              "fileoff": "0xc8000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA_DIRTY",
+              "vmaddr": "0xcc000",
+              "vmsize": "0x4000",
+              "end": "0xd0000",
+              "fileoff": "0xcc000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__TPRO_CONST",
+              "vmaddr": "0xd0000",
+              "vmsize": "0x24000",
+              "end": "0xf4000",
+              "fileoff": "0xd0000",
+              "filesize": "0x24000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__LINKEDIT",
+              "vmaddr": "0xf4000",
+              "vmsize": "0x74000",
+              "end": "0x168000",
+              "fileoff": "0xf4000",
+              "filesize": "0x70430",
+              "maxprot": 1,
+              "initprot": 1
+            }
+          ],
+          "highest_segment_end": "0x168000"
+        }
+      ]
+    },
+    "observation-parent": {
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/qualify-v03/observation-parent",
+      "sha256": "06c2ca004a55a606195ba7a76c42ef92e7fc6ba0127d86c5962047e815dc3463",
+      "size": 33632,
+      "slices": [
+        {
+          "cpu": "0x100000c",
+          "cpu_subtype": "0x0",
+          "uuid": "80174D0A-8850-340E-94E3-A2F6C79941EA",
+          "segments": [
+            {
+              "name": "__PAGEZERO",
+              "vmaddr": "0x0",
+              "vmsize": "0x100000000",
+              "end": "0x100000000",
+              "fileoff": "0x0",
+              "filesize": "0x0",
+              "maxprot": 0,
+              "initprot": 0
+            },
+            {
+              "name": "__TEXT",
+              "vmaddr": "0x100000000",
+              "vmsize": "0x4000",
+              "end": "0x100004000",
+              "fileoff": "0x0",
+              "filesize": "0x4000",
+              "maxprot": 5,
+              "initprot": 5
+            },
+            {
+              "name": "__DATA_CONST",
+              "vmaddr": "0x100004000",
+              "vmsize": "0x4000",
+              "end": "0x100008000",
+              "fileoff": "0x4000",
+              "filesize": "0x4000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__LINKEDIT",
+              "vmaddr": "0x100008000",
+              "vmsize": "0x4000",
+              "end": "0x10000c000",
+              "fileoff": "0x8000",
+              "filesize": "0x360",
+              "maxprot": 1,
+              "initprot": 1
+            }
+          ],
+          "highest_segment_end": "0x10000c000"
+        }
+      ]
+    },
+    "cpython": {
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "size": 18057968,
+      "slices": [
+        {
+          "cpu": "0x100000c",
+          "cpu_subtype": "0x0",
+          "uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+          "segments": [
+            {
+              "name": "__PAGEZERO",
+              "vmaddr": "0x0",
+              "vmsize": "0x100000000",
+              "end": "0x100000000",
+              "fileoff": "0x0",
+              "filesize": "0x0",
+              "maxprot": 0,
+              "initprot": 0
+            },
+            {
+              "name": "__TEXT",
+              "vmaddr": "0x100000000",
+              "vmsize": "0xca8000",
+              "end": "0x100ca8000",
+              "fileoff": "0x0",
+              "filesize": "0xca8000",
+              "maxprot": 5,
+              "initprot": 5
+            },
+            {
+              "name": "__DATA_CONST",
+              "vmaddr": "0x100ca8000",
+              "vmsize": "0x118000",
+              "end": "0x100dc0000",
+              "fileoff": "0xca8000",
+              "filesize": "0x118000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__DATA",
+              "vmaddr": "0x100dc0000",
+              "vmsize": "0x18c000",
+              "end": "0x100f4c000",
+              "fileoff": "0xdc0000",
+              "filesize": "0x184000",
+              "maxprot": 3,
+              "initprot": 3
+            },
+            {
+              "name": "__LINKEDIT",
+              "vmaddr": "0x100f4c000",
+              "vmsize": "0x1f8000",
+              "end": "0x101144000",
+              "fileoff": "0xf44000",
+              "filesize": "0x1f4af0",
+              "maxprot": 1,
+              "initprot": 1
+            }
+          ],
+          "highest_segment_end": "0x101144000"
+        }
+      ]
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "xcrun",
+        "dyld_info",
+        "-segments",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-dyld-info.txt"
+    },
+    {
+      "argv": [
+        "otool",
+        "-l",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-load-commands.txt"
+    },
+    {
+      "argv": [
+        "xcrun",
+        "dwarfdump",
+        "--uuid",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-uuid.txt"
+    },
+    {
+      "argv": [
+        "xcrun",
+        "dyld_info",
+        "-segments",
+        "target/qualify-v03/observation-parent"
+      ],
+      "output": "observation-parent-dyld-info.txt"
+    },
+    {
+      "argv": [
+        "otool",
+        "-l",
+        "target/qualify-v03/observation-parent"
+      ],
+      "output": "observation-parent-load-commands.txt"
+    },
+    {
+      "argv": [
+        "xcrun",
+        "dwarfdump",
+        "--uuid",
+        "target/qualify-v03/observation-parent"
+      ],
+      "output": "observation-parent-uuid.txt"
+    },
+    {
+      "argv": [
+        "xcrun",
+        "dyld_info",
+        "-segments",
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+      ],
+      "output": "cpython-dyld-info.txt"
+    },
+    {
+      "argv": [
+        "otool",
+        "-l",
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+      ],
+      "output": "cpython-load-commands.txt"
+    },
+    {
+      "argv": [
+        "xcrun",
+        "dwarfdump",
+        "--uuid",
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+      ],
+      "output": "cpython-uuid.txt"
+    },
+    {
+      "argv": [
+        "nm",
+        "-arch",
+        "arm64e",
+        "-an",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-arm64e-nm.txt"
+    },
+    {
+      "argv": [
+        "otool",
+        "-arch",
+        "arm64e",
+        "-tvV",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-arm64e-notifier-disassembly.txt",
+      "retention": "only notifier and adjacent instructions retained"
+    },
+    {
+      "argv": [
+        "nm",
+        "-arch",
+        "arm64e.x1",
+        "-an",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-arm64e.x1-nm.txt"
+    },
+    {
+      "argv": [
+        "otool",
+        "-arch",
+        "arm64e.x1",
+        "-tvV",
+        "/usr/lib/dyld"
+      ],
+      "output": "dyld-arm64e.x1-notifier-disassembly.txt",
+      "retention": "only notifier and adjacent instructions retained"
+    },
+    {
+      "argv": [
+        "nm",
+        "-an",
+        "target/qualify-v03/observation-parent"
+      ],
+      "output": "observation-parent-nm.txt"
+    }
+  ],
+  "observations": [
+    {
+      "path": "docs/evidence/v0.3-final/h3-hidden-cpu-native.json",
+      "sha256": "ff485b07e801b0b9080dd3777abb3b11260a49ea7bbe3b57d5dc6a88a6d54274",
+      "evidence_id": "ev_803ff8324e1a0d588f0f07f216fdcdc479e0ad134aeaf552c108b1137bbbb61f",
+      "target": {
+        "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "architecture": "arm64",
+        "arguments": [
+          "-B",
+          "scripts/check_large_tensors.py",
+          "--native",
+          "--case",
+          "h3-hidden",
+          "--compute",
+          "cpu",
+          "--evidence-subdir",
+          "release",
+          "--output",
+          "/private/tmp/corsairs-v03-final-h3-hidden-cpu"
+        ],
+        "environment": {},
+        "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+        "launch_identity": {
+          "loaded_image_sha256": null,
+          "file_device": "16777230",
+          "file_inode": "412775",
+          "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+          "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+          "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+          "stable": true
+        }
+      },
+      "process": {
+        "outcome": "exited",
+        "exit_status": 0,
+        "terminated": true,
+        "other_stops": [
+          "signal SIGSTOP",
+          "signal SIGSTOP",
+          "EXC_BREAKPOINT (code=1, subcode=0x101191940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x101191940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x101191940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)"
+        ],
+        "stdout": {
+          "text": "Swift h3-hidden cpu: 1105477632 bytes\nRust h3-hidden cpu release: owned/native/Metal\n{\"passed\": true, \"report\": \"/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-large-tensors/release/h3-hidden-cpu-release.json\"}\n",
+          "bytes": 224,
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "text": "",
+          "bytes": 0,
+          "truncated": false,
+          "complete": true
+        }
+      },
+      "breakpoints": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "function",
+            "name": "Py_BytesMain",
+            "module": null
+          },
+          "location_count": 1,
+          "locations": [
+            {
+              "load_address": "0x1002fbf70",
+              "file_address": "0x1002fbf70",
+              "module": "python3.12",
+              "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+              "symbol": "Py_BytesMain"
+            }
+          ]
+        }
+      ],
+      "event_count": 0,
+      "coverage": {
+        "status": "complete",
+        "event_limit_reached": false,
+        "resource_limit_reached": false,
+        "unresolved_breakpoints": []
+      }
+    },
+    {
+      "path": "docs/evidence/v0.3-final/h3-hidden-cpu-retry-native.json",
+      "sha256": "5a1a955476e2ad05f00755d8da84943c847a067fb22de6dd1d2f92d6b86df4e4",
+      "evidence_id": "ev_9247fb88096e9534312c011ca39bca1a63112dc6c9002b694f5887be17022380",
+      "target": {
+        "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "architecture": "arm64",
+        "arguments": [
+          "-B",
+          "scripts/check_large_tensors.py",
+          "--native",
+          "--case",
+          "h3-hidden",
+          "--compute",
+          "cpu",
+          "--evidence-subdir",
+          "release",
+          "--output",
+          "/private/tmp/corsairs-v03-final-h3-hidden-cpu-retry"
+        ],
+        "environment": {},
+        "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+        "launch_identity": {
+          "loaded_image_sha256": null,
+          "file_device": "16777230",
+          "file_inode": "412775",
+          "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+          "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+          "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+          "stable": true
+        }
+      },
+      "process": {
+        "outcome": "exited",
+        "exit_status": 0,
+        "terminated": true,
+        "other_stops": [
+          "signal SIGSTOP",
+          "signal SIGSTOP",
+          "EXC_BREAKPOINT (code=1, subcode=0x101191940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x101191940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x101191940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)"
+        ],
+        "stdout": {
+          "text": "Swift h3-hidden cpu: 1105477632 bytes\nRust h3-hidden cpu release: owned/native/Metal\n{\"passed\": true, \"report\": \"/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-large-tensors/release/h3-hidden-cpu-release.json\"}\n",
+          "bytes": 224,
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "text": "",
+          "bytes": 0,
+          "truncated": false,
+          "complete": true
+        }
+      },
+      "breakpoints": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "function",
+            "name": "Py_BytesMain",
+            "module": null
+          },
+          "location_count": 1,
+          "locations": [
+            {
+              "load_address": "0x1002fbf70",
+              "file_address": "0x1002fbf70",
+              "module": "python3.12",
+              "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+              "symbol": "Py_BytesMain"
+            }
+          ]
+        }
+      ],
+      "event_count": 0,
+      "coverage": {
+        "status": "complete",
+        "event_limit_reached": false,
+        "resource_limit_reached": false,
+        "unresolved_breakpoints": []
+      }
+    },
+    {
+      "path": "docs/evidence/v0.3-final/h3-hidden-cpu-parent-native.json",
+      "sha256": "b4ea0e7baa2393e1446dacddd2886f9c2e9b7d7ad1e78324f6853999fd578441",
+      "evidence_id": "ev_8ca17e0d09259c6448af8f13ce4d7d2b041c75e59af941312cd9396fe720569f",
+      "target": {
+        "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/qualify-v03/observation-parent",
+        "sha256": "06c2ca004a55a606195ba7a76c42ef92e7fc6ba0127d86c5962047e815dc3463",
+        "architecture": "arm64",
+        "arguments": [
+          "/Users/zakkeown/.local/bin/python3.12",
+          "-B",
+          "scripts/check_large_tensors.py",
+          "--native",
+          "--case",
+          "h3-hidden",
+          "--compute",
+          "cpu",
+          "--evidence-subdir",
+          "release",
+          "--output",
+          "/private/tmp/corsairs-v03-final-h3-hidden-cpu-parent"
+        ],
+        "environment": {},
+        "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+        "launch_identity": {
+          "loaded_image_sha256": null,
+          "file_device": "16777230",
+          "file_inode": "78081463",
+          "selected_file_sha256": "06c2ca004a55a606195ba7a76c42ef92e7fc6ba0127d86c5962047e815dc3463",
+          "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/qualify-v03/observation-parent",
+          "module_uuid": "80174D0A-8850-340E-94E3-A2F6C79941EA",
+          "stable": true
+        }
+      },
+      "process": {
+        "outcome": "exited",
+        "exit_status": 0,
+        "terminated": true,
+        "other_stops": [
+          "signal SIGSTOP",
+          "signal SIGSTOP",
+          "EXC_BREAKPOINT (code=1, subcode=0x100059940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x100059940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x100059940)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)",
+          "EXC_BREAKPOINT (code=1, subcode=0x100000460)",
+          "EXC_BREAKPOINT (code=1, subcode=0x0)"
+        ],
+        "stdout": {
+          "text": "Swift h3-hidden cpu: 1105477632 bytes\nRust h3-hidden cpu release: owned/native/Metal\n{\"passed\": true, \"report\": \"/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-large-tensors/release/h3-hidden-cpu-release.json\"}\n",
+          "bytes": 224,
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "text": "",
+          "bytes": 0,
+          "truncated": false,
+          "complete": true
+        }
+      },
+      "breakpoints": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "function",
+            "name": "main",
+            "module": null
+          },
+          "location_count": 1,
+          "locations": [
+            {
+              "load_address": "0x100000460",
+              "file_address": "0x100000460",
+              "module": "observation-parent",
+              "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/qualify-v03/observation-parent",
+              "symbol": "main"
+            }
+          ]
+        }
+      ],
+      "event_count": 0,
+      "coverage": {
+        "status": "complete",
+        "event_limit_reached": false,
+        "resource_limit_reached": false,
+        "unresolved_breakpoints": []
+      }
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/apple-oss-distributions/dyld/blob/main/dyld/ExternallyViewableState.cpp",
+      "purpose": "public source defines empty noinline debugger notifier and publishes its pointer; source is not version matched to installed dyld"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/llvm/llvm-project/main/lldb/source/Plugins/DynamicLoader/MacOSX-DYLD/DynamicLoaderMacOS.cpp",
+      "purpose": "public LLDB source installs internal software shared-library-event breakpoint on notifier; not claimed identical to installed Apple LLDB"
+    },
+    {
+      "url": "https://lldb.llvm.org/python_api/lldb.SBThread.html#lldb.SBThread.GetStopReasonDataAtIndex",
+      "purpose": "distinguishes breakpoint ID/location pairs from exception stop data"
+    }
+  ],
+  "address_analysis": [
+    {
+      "target": "observation-parent",
+      "observed": "0x100059940",
+      "inferred_dyld_base": "0x10000c000",
+      "notifier_offset": "0x4d940",
+      "sum": "0x100059940",
+      "matches": true,
+      "classification": "inferred exact arm64e notifier match; no live mapping retained"
+    },
+    {
+      "target": "cpython",
+      "observed": "0x101191940",
+      "inferred_dyld_base": "0x101144000",
+      "notifier_offset": "0x4d940",
+      "sum": "0x101191940",
+      "matches": true,
+      "classification": "inferred exact arm64e notifier match; no live mapping retained"
+    },
+    {
+      "target": "observation-parent",
+      "observed": "0x100000460",
+      "main_symbol": "0x100000460",
+      "requested_breakpoint_load_address": "0x100000460",
+      "classification": "direct requested breakpoint address match, entry event absent"
+    },
+    {
+      "observed": "0x0",
+      "classification": "unclassified; no claim of benignity"
+    }
+  ],
+  "separate_child_result": {
+    "path": "docs/evidence/v0.3-final/h3-hidden-cpu-first-report.json",
+    "sha256": "7acac403c2e8549fa54ffb17608c0102262ecf6d0bb6ebaa3df867c058f4275a",
+    "passed": true,
+    "values": 7,
+    "swift_exit_status": 0,
+    "rust_exit_status": 0,
+    "both_stderr_empty": true,
+    "both_deadlines_false": true
+  },
+  "retained_static_output_sha256": {
+    "cpython-dyld-info.txt": "4a214ce970bce38e62f636a24ddbc5ca5126abee980cf40e7b11cb4785625541",
+    "cpython-load-commands.txt": "9299ee6a7e5b3156856edf789c167b3d29d0698dcdc9d3829c52054575fb5984",
+    "cpython-uuid.txt": "cdde035af907919dc7e3dfbd09a983f1ee68974b9f406131a005c1af60c6a3e6",
+    "dyld-arm64e-nm.txt": "c1bdc59cedb81ae20548ebf138c0978b0455c055f8156f970f273eb71a58b547",
+    "dyld-arm64e-notifier-disassembly.txt": "4dbf70f6a29972992883ab259350cfbc7dd62fdb4d449c932bf3c86683de0299",
+    "dyld-arm64e.x1-nm.txt": "e2112ae1ab6b573696f5c993a9925860f1c491958c265feb4632c114f8c683cd",
+    "dyld-arm64e.x1-notifier-disassembly.txt": "65318e6cb0784d11444ce5e5d47c3b037ee61f9ffdb08558af6d8029fce67469",
+    "dyld-dyld-info.txt": "7867679b9a9545d7a3f3ba8e7b35fb04a3f85dc91eb2e846ca26928d83fe5ea7",
+    "dyld-load-commands.txt": "9404ebc10ad42a429d89780275b68de6f03fb4603865b0267b8d7df7a5fbfe66",
+    "dyld-uuid.txt": "859519f8414f848725c751c66e3bfa93e198ed9e431d7e580c3f8f20b9aa8bda",
+    "observation-parent-dyld-info.txt": "8a2b2aad21f5fd6c915f315c7b44e7c95b92213a99adb3ed5ccbbd2fc4110df6",
+    "observation-parent-load-commands.txt": "06db9c3ecdbca4bc5f7c4007ed993eb84feb2a5108eadc66cc660b32d21c2297",
+    "observation-parent-nm.txt": "d304ce747348647094ab05f4ad96f169874ff55f150e7774bfac4d8206f1f67b",
+    "observation-parent-uuid.txt": "2da7310f99c2fd720b1e9fc2fc8da3f158c04ce16deb4eda5ac8101e42ec7b8d",
+    "research.md": "06da993940ffa0724afa1cbe333cde4f5ba8781b9b4f73809e581ae2c5a7758a"
+  }
+}

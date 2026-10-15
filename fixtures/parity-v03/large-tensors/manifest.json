@@ -68,6 +68,27 @@
       ],
       "bytes": 4294967296,
       "asset": "limit-f32/model.aimodel"
+    },
+    {
+      "name": "gpu-limit-f32",
+      "dtype": "float32",
+      "shape": [
+        536870912
+      ],
+      "bytes": 2147483648,
+      "asset": "gpu-limit-f32/model.aimodel"
+    },
+    {
+      "name": "h3-rgb173",
+      "dtype": "float32",
+      "shape": [
+        173,
+        1344,
+        768,
+        3
+      ],
+      "bytes": 2142830592,
+      "asset": "h3-rgb173/model.aimodel"
     }
   ],
   "native_executed": false,
@@ -90,6 +111,14 @@
     "limit-f32/graph.mlir": "276203d4991ca41629c294f1671d28e8c4912c35dda9eb02bc146b4f5fcfb30a",
     "limit-f32/model.aimodel/main.hash": "06ea5fb3308c002d27c2f2ac8d36d932bfe0c910b12fbff5deef4c64d567e3b6",
     "limit-f32/model.aimodel/main.mlirb": "9f0962ccc33bb9fe00ecce829e035302ff4250cc7177b3dd597148952619ee13",
-    "limit-f32/model.aimodel/metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf"
+    "limit-f32/model.aimodel/metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf",
+    "gpu-limit-f32/graph.mlir": "752a3ef600462bed32d2d45f3272925df4555e056c12e73379f3a813f261154d",
+    "gpu-limit-f32/model.aimodel/main.hash": "89a4c3ecb932609daafed6af216cbc60a8375b67f1e0bb71c40f5d11d2f333d2",
+    "gpu-limit-f32/model.aimodel/main.mlirb": "06d822b2b27d083ef12919d5f7ca62f511bac2244e11a69ee7ddd51b44e79361",
+    "gpu-limit-f32/model.aimodel/metadata.json": "5931cbce0c7ba6817b9da193d0f6f228e896273aed4d33bddff55d976ff566d4",
+    "h3-rgb173/graph.mlir": "7e2f16fc7c59c47d953d1e0762eaa36df3bea77e03f34cd414c5ee696bd3729e",
+    "h3-rgb173/model.aimodel/main.hash": "2b1459aa692e0f9f69d231f593f1469ff311c41e4d276a7285d62ab0d3a0acfd",
+    "h3-rgb173/model.aimodel/main.mlirb": "0bcfd1ae20a92c9771d129e47c0c80d7ed101c41aee39b1c0495d1162b8b4233",
+    "h3-rgb173/model.aimodel/metadata.json": "5931cbce0c7ba6817b9da193d0f6f228e896273aed4d33bddff55d976ff566d4"
   }
 }

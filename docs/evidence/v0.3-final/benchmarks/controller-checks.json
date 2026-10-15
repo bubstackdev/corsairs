@@ -1,0 +1,14 @@
+{
+  "native_executed": false,
+  "coreai_imported": false,
+  "syntax": "passed",
+  "repeated_full_verify": "passed",
+  "synthetic_rust_and_python_valid_reports": "accepted",
+  "executable_symlink_identity": "canonicalized",
+  "negative_reports_rejected": [
+    "wrong_expected_bytes",
+    "missing_exact_check",
+    "wrong_sample_count"
+  ],
+  "verified_reference_payloads": 1170
+}

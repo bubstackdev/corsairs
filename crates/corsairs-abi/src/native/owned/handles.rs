@@ -17,8 +17,8 @@ pub struct NativeHandleRunResult {
 }
 
 pub(super) struct TensorRecord {
-    value: NativeValue,
-    info: NativeTensorHandle,
+    pub(super) value: NativeValue,
+    pub(super) info: NativeTensorHandle,
     // Conservative possible-alias origins, never native pointer identities.
     lineage: Rc<HashSet<u64>>,
 }
@@ -122,7 +122,10 @@ impl NativeSession {
         self.tensors.len()
     }
 
-    unsafe fn tensor_handle_info(&self, value: &NativeValue) -> Result<NativeTensorHandle> {
+    pub(super) unsafe fn tensor_handle_info(
+        &self,
+        value: &NativeValue,
+    ) -> Result<NativeTensorHandle> {
         // SAFETY: Borrowing public NDArray getters on an initialized native value.
         unsafe {
             let shape = self.call(
@@ -181,6 +184,7 @@ impl NativeSession {
         inputs: Vec<(String, u64)>,
         states: Vec<(String, u64)>,
     ) -> Result<NativeHandleRunResult> {
+        let use_stream = self.uses_owned_stream(function)?;
         let descriptor = self
             .functions
             .get(&function)
@@ -200,6 +204,12 @@ impl NativeSession {
         }
         self.validate_handle_group(&inputs, &descriptor.inputs)?;
         self.validate_handle_group(&states, &descriptor.states)?;
+        let gpu = self.function_compute(function)? == NativeCompute::GpuPreferred;
+        if gpu {
+            for (_, id) in inputs.iter().chain(&states) {
+                validate_gpu_handle(&self.tensors[id].info)?;
+            }
+        }
         let mut input_lineage = HashSet::new();
         for (_, id) in &inputs {
             input_lineage.extend(self.tensors[id].lineage.iter().copied());
@@ -241,110 +251,121 @@ impl NativeSession {
             .collect();
         // SAFETY: Validated inputs are immutable; distinct removed states are
         // exclusively owned here. All containers are dropped before restoration.
-        let result = unsafe {
-            (|| -> Result<Vec<(String, NativeValue, NativeTensorHandle)>> {
-                let function = &self.functions[&function];
-                let mut input_views = NativeValue::allocate(
-                    self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV6InputsVMa")?,
-                )?;
-                self.call(
-                    c"$s13CoreAIRuntime17InferenceFunctionV6InputsVAEycfC",
-                    [0; 3],
-                    input_views.ptr(),
-                    0,
-                )?;
-                input_views.initialized = true;
-                for (name, id) in &inputs {
-                    self.insert_input(&mut input_views, &self.tensors[id].value, name)?;
-                }
-                let md =
-                    self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVMa")?;
-                let mut state_views = NativeValue::allocate(md)?;
-                let mut output_views = NativeValue::allocate(md)?;
-                self.call(
-                    c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC",
-                    [0; 3],
-                    state_views.ptr(),
-                    0,
-                )?;
-                state_views.initialized = true;
-                self.call(
-                    c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC",
-                    [0; 3],
-                    output_views.ptr(),
-                    0,
-                )?;
-                output_views.initialized = true;
-                for (name, _, record) in &mut native_states {
-                    self.insert_mutable(&mut state_views, &mut record.value, name)?;
-                }
-                let mut outputs = NativeValue::allocate(
-                    self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV7OutputsVMa")?,
-                )?;
-                let outcome = self.runtime.await_native(c"$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFTu", [outputs.address(), input_views.address(), state_views.address(), output_views.address()], function.value.address(), true)?;
-                state_views.initialized = false;
-                output_views.initialized = false;
-                if outcome.error != 0 {
-                    return Err(self.failure(outcome.error, "run_native"));
-                }
-                outputs.initialized = true;
-                Self::lifecycle(&outcome)?;
-                // All immutable/mutable views end before returned arrays are stored
-                // or any later operation can request another view of their storage.
-                drop(input_views);
-                let value_md = self.metadata(c"$s13CoreAIRuntime14InferenceValueVMa")?;
-                let optional_value_md = self.optional(value_md)?;
-                let tensor_md = self.metadata(super::super::NDARRAY_METADATA)?;
-                let optional_tensor_md = self.optional(tensor_md)?;
-                let mut returned = Vec::new();
-                for expected in &descriptor.outputs {
-                    let key = self.string(&expected.name)?;
-                    let mut optional = NativeValue::allocate(optional_value_md)?;
+        let result = if use_stream {
+            // SAFETY: Stateless inputs have passed full handle/alias validation.
+            // The helper returns owned, ready arrays after actual stream fences.
+            unsafe { self.encode_native_arrays(function, &inputs) }
+        } else {
+            // SAFETY: Validated immutable inputs and distinct removed states
+            // outlive every dependent view and the awaited native call.
+            unsafe {
+                (|| -> Result<Vec<(String, NativeValue, NativeTensorHandle)>> {
+                    let function = &self.functions[&function];
+                    let mut input_views = NativeValue::allocate(
+                        self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV6InputsVMa")?,
+                    )?;
                     self.call(
+                        c"$s13CoreAIRuntime17InferenceFunctionV6InputsVAEycfC",
+                        [0; 3],
+                        input_views.ptr(),
+                        0,
+                    )?;
+                    input_views.initialized = true;
+                    for (name, id) in &inputs {
+                        self.insert_input(&mut input_views, &self.tensors[id].value, name)?;
+                    }
+                    let md =
+                        self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVMa")?;
+                    let mut state_views = NativeValue::allocate(md)?;
+                    let mut output_views = NativeValue::allocate(md)?;
+                    self.call(
+                        c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC",
+                        [0; 3],
+                        state_views.ptr(),
+                        0,
+                    )?;
+                    state_views.initialized = true;
+                    self.call(
+                        c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC",
+                        [0; 3],
+                        output_views.ptr(),
+                        0,
+                    )?;
+                    output_views.initialized = true;
+                    for (name, _, record) in &mut native_states {
+                        self.insert_mutable(&mut state_views, &mut record.value, name)?;
+                    }
+                    let mut outputs = NativeValue::allocate(
+                        self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV7OutputsVMa")?,
+                    )?;
+                    let outcome = self.runtime.await_native(c"$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFTu", [outputs.address(), input_views.address(), state_views.address(), output_views.address()], function.value.address(), true)?;
+                    state_views.initialized = false;
+                    output_views.initialized = false;
+                    if outcome.error != 0 {
+                        return Err(self.failure(outcome.error, "run_native"));
+                    }
+                    outputs.initialized = true;
+                    Self::lifecycle(&outcome)?;
+                    // All immutable/mutable views end before returned arrays are stored
+                    // or any later operation can request another view of their storage.
+                    drop(input_views);
+                    let value_md = self.metadata(c"$s13CoreAIRuntime14InferenceValueVMa")?;
+                    let optional_value_md = self.optional(value_md)?;
+                    let tensor_md = self.metadata(super::super::NDARRAY_METADATA)?;
+                    let optional_tensor_md = self.optional(tensor_md)?;
+                    let mut returned = Vec::new();
+                    for expected in &descriptor.outputs {
+                        let key = self.string(&expected.name)?;
+                        let mut optional = NativeValue::allocate(optional_value_md)?;
+                        self.call(
                         c"$s13CoreAIRuntime17InferenceFunctionV7OutputsV6removeyAA0C5ValueVSgSSF",
                         [key.words[0], key.words[1], 0],
                         optional.ptr(),
                         outputs.address(),
                     )?;
-                    optional.initialized = true;
-                    let mut value = optional.take_optional(value_md)?.ok_or_else(|| {
-                        NativeFailure::Binding(format!(
-                            "native run omitted output {}",
-                            expected.name
-                        ))
-                    })?;
-                    let mut array = NativeValue::allocate(optional_tensor_md)?;
-                    self.call(
-                        c"$s13CoreAIRuntime14InferenceValueV7ndArrayAA7NDArrayVSgvg",
+                        optional.initialized = true;
+                        let mut value = optional.take_optional(value_md)?.ok_or_else(|| {
+                            NativeFailure::Binding(format!(
+                                "native run omitted output {}",
+                                expected.name
+                            ))
+                        })?;
+                        let mut array = NativeValue::allocate(optional_tensor_md)?;
+                        self.call(
+                            c"$s13CoreAIRuntime14InferenceValueV7ndArrayAA7NDArrayVSgvg",
+                            [0; 3],
+                            array.ptr(),
+                            value.address(),
+                        )?;
+                        value.initialized = false;
+                        array.initialized = true;
+                        let array = array.take_optional(tensor_md)?.ok_or_else(|| {
+                            NativeFailure::Unsupported(format!(
+                                "output {} is not NDArray",
+                                expected.name
+                            ))
+                        })?;
+                        let info = self.tensor_handle_info(&array)?;
+                        if gpu {
+                            validate_gpu_handle(&info)?;
+                        }
+                        validate_handle_against(&info, expected)?;
+                        returned.push((expected.name.clone(), array, info));
+                    }
+                    if self.call(
+                        c"$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg",
                         [0; 3],
-                        array.ptr(),
-                        value.address(),
-                    )?;
-                    value.initialized = false;
-                    array.initialized = true;
-                    let array = array.take_optional(tensor_md)?.ok_or_else(|| {
-                        NativeFailure::Unsupported(format!(
-                            "output {} is not NDArray",
-                            expected.name
-                        ))
-                    })?;
-                    let info = self.tensor_handle_info(&array)?;
-                    validate_handle_against(&info, expected)?;
-                    returned.push((expected.name.clone(), array, info));
-                }
-                if self.call(
-                    c"$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg",
-                    [0; 3],
-                    ptr::null_mut(),
-                    outputs.address(),
-                )? != 0
-                {
-                    return Err(NativeFailure::Unsupported(
-                        "native run returned undescribed outputs".into(),
-                    ));
-                }
-                Ok(returned)
-            })()
+                        ptr::null_mut(),
+                        outputs.address(),
+                    )? != 0
+                    {
+                        return Err(NativeFailure::Unsupported(
+                            "native run returned undescribed outputs".into(),
+                        ));
+                    }
+                    Ok(returned)
+                })()
+            }
         };
         let returned_states: Vec<_> = native_states
             .iter()
@@ -411,6 +432,12 @@ impl NativeSession {
         }
         Ok(())
     }
+}
+
+pub(super) fn validate_gpu_handle(info: &NativeTensorHandle) -> Result<()> {
+    super::run_stream::gpu_shape(info.dtype, &info.shape)?;
+    let plan = PackingPlan::new(&info.shape, &info.strides, info.dtype.byte_width())?;
+    super::run_stream::gpu_span(plan.extent)
 }
 
 fn mark_inference_origin(lineage: &mut HashSet<u64>) {
@@ -519,6 +546,22 @@ impl PackingPlan {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn gpu_referenced_span_is_bounded_independently_of_packed_bytes() {
+        let limit = crate::dtype::MAX_GPU_INFERENCE_TENSOR_BYTES;
+        let mut info = NativeTensorHandle {
+            id: 0,
+            dtype: NativeDType::F32,
+            shape: vec![2],
+            strides: vec![(limit / 4 - 1) as isize],
+        };
+        assert!(validate_gpu_handle(&info).is_ok());
+        info.strides[0] += 1;
+        assert!(matches!(
+            validate_gpu_handle(&info),
+            Err(NativeFailure::Unsupported(_))
+        ));
+    }
     fn pack(bytes: &[u8], shape: &[usize], strides: &[isize]) -> Result<Vec<u8>> {
         let plan = PackingPlan::new(shape, strides, 1)?;
         plan.validate_span(bytes.len())?;

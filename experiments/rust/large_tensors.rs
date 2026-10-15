@@ -130,8 +130,10 @@ fn main() -> Result<()> {
             "native-chain",
         )?;
         drop((first, second));
-        drop(function.run_native([("x", input.clone())].into(), TensorHandleMap::new()));
-        runtime.drain().wait()?;
+        for _ in 0..3 {
+            drop(function.run_native([("x", input.clone())].into(), TensorHandleMap::new()));
+            runtime.drain().wait()?;
+        }
         verify(
             input.download().wait()?,
             dtype,
@@ -176,14 +178,16 @@ fn main() -> Result<()> {
             "metal-auto-chain",
         )?;
         drop((first, second));
-        drop(function.encode(
-            &queue,
-            [("x", input.clone())].into(),
-            MetalBufferMap::new(),
-            MetalBufferMap::new(),
-        ));
-        queue.fence().wait()?;
-        runtime.drain().wait()?;
+        for _ in 0..3 {
+            drop(function.encode(
+                &queue,
+                [("x", input.clone())].into(),
+                MetalBufferMap::new(),
+                MetalBufferMap::new(),
+            ));
+            queue.fence().wait()?;
+            runtime.drain().wait()?;
+        }
         verify(
             input.download().wait()?,
             dtype,

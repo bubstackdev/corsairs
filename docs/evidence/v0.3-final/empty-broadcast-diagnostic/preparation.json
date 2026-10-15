@@ -1,0 +1,94 @@
+{
+  "kind": "standalone-swift-empty-broadcast-cpu-preparation",
+  "created_utc": "2026-10-15T21:45:41.898994+00:00",
+  "native_executed": false,
+  "gpu_work_executed": false,
+  "binary": "/private/tmp/corsairs-empty-broadcast-diagnostic/probe",
+  "asset": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel",
+  "input": {
+    "name": "x",
+    "shape": [
+      0,
+      1
+    ],
+    "dtype": "float32",
+    "logical_bytes": 0
+  },
+  "output": {
+    "name": "y",
+    "shape": [
+      0,
+      536870913
+    ],
+    "dtype": "float32",
+    "logical_bytes": 0,
+    "nonzero_extent_bytes": 2147483652
+  },
+  "compile": {
+    "command": [
+      "swiftc",
+      "-parse-as-library",
+      "-O",
+      "-module-cache-path",
+      "/private/tmp/corsairs-empty-broadcast-diagnostic/module-cache",
+      "/private/tmp/corsairs-empty-broadcast-diagnostic/EmptyBroadcastCPU.swift",
+      "-o",
+      "/private/tmp/corsairs-empty-broadcast-diagnostic/probe"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "sha256": {
+    "/private/tmp/corsairs-empty-broadcast-diagnostic/probe": "ca67095274a9a20eef79a4bae72da588b5350efbb1f5269c86a786588cc6fc70",
+    "/private/tmp/corsairs-empty-broadcast-diagnostic/EmptyBroadcastCPU.swift": "53ce9ea786cb809d8df6f526025876931953b6dd5c19df9f724b7bc23da22da1",
+    "/private/tmp/corsairs-empty-broadcast-diagnostic/run.py": "0ddb000289a609e789f093dd07dfe4dfc496904d3c7b88c0e5bb4b7d8c9da1d7",
+    "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/empty-broadcast-diagnostic/EmptyBroadcastCPU.swift": "53ce9ea786cb809d8df6f526025876931953b6dd5c19df9f724b7bc23da22da1",
+    "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/empty-broadcast-diagnostic/run.py": "0ddb000289a609e789f093dd07dfe4dfc496904d3c7b88c0e5bb4b7d8c9da1d7",
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend": "cf81104bf554eef05e28a8bb5285c763f1323b4511b944d755d8bdd6cb8db717",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAI.framework/Versions/A/CoreAI.tbd": "b85577fac3d73908e6b240a72e1734f6638f08cd78b6569f5192a695c7a4dcec",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAI.framework/Versions/A/Modules/CoreAI.swiftmodule/arm64e-apple-macos.swiftinterface": "88383a412e7e4a6e2700f0cc2b8ddae838f2ae2dec694cd4f345b0095c9860ee",
+    "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel/main.hash": "6043b63fb13ebca53c2e531568b275f7452d545cdfca4e65b3cd7ca9383821ba",
+    "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel/main.mlirb": "808945c91b57fb93944d60ca525e10a5a8379ffdb5d41ab66ecf7dfb3a3d7c6a",
+    "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel/metadata.json": "72fd032774030b1f2a31687618a570a531c1a7201e9ce8d8cba85363f14979d8",
+    "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/graph.mlir": "d10e1eb9eab57243ef5e09982dc5f3601815092e0b36034b33fa37719bb54cb9"
+  },
+  "swiftc": {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+    "stderr": "swift-driver version: 1.168.6 "
+  },
+  "os": {
+    "command": [
+      "sw_vers"
+    ],
+    "exit_status": 0,
+    "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "stderr": ""
+  },
+  "linked_libraries": {
+    "command": [
+      "otool",
+      "-L",
+      "/private/tmp/corsairs-empty-broadcast-diagnostic/probe"
+    ],
+    "exit_status": 0,
+    "stdout": "/private/tmp/corsairs-empty-broadcast-diagnostic/probe:\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)\n\t/System/Library/Frameworks/CoreAI.framework/Versions/A/CoreAI (compatibility version 0.0.0, current version 0.0.0)\n\t/System/Library/Frameworks/CryptoKit.framework/Versions/A/CryptoKit (compatibility version 1.0.0, current version 1.0.0)\n\t/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 5027.0.69)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/usr/lib/swift/libswiftCore.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftCoreFoundation.dylib (compatibility version 1.0.0, current version 120.100.0, weak)\n\t/usr/lib/swift/libswiftDispatch.dylib (compatibility version 1.0.0, current version 1605.0.2, weak)\n\t/usr/lib/swift/libswiftIOKit.dylib (compatibility version 1.0.0, current version 1.0.0, weak)\n\t/usr/lib/swift/libswiftMetal.dylib (compatibility version 1.0.0, current version 382.5.3, weak)\n\t/usr/lib/swift/libswiftObjectiveC.dylib (compatibility version 1.0.0, current version 973.1.0, weak)\n\t/usr/lib/swift/libswiftXPC.dylib (compatibility version 1.0.0, current version 167.0.2, weak)\n\t/usr/lib/swift/libswift_Builtin_float.dylib (compatibility version 0.0.0, current version 0.0.0, weak)\n\t/usr/lib/swift/libswift_Concurrency.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftos.dylib (compatibility version 1.0.0, current version 1090.0.0, weak)\n",
+    "stderr": ""
+  },
+  "sdk": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+  "native_command": [
+    "python3",
+    "-B",
+    "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/empty-broadcast-diagnostic/run.py",
+    "--native",
+    "--timeout",
+    "30"
+  ],
+  "scope": "Compilation and pinning only. Ordinary Swift AIModel CPU-only options, verified fixed descriptors, NDArray float32 empty input, InferenceFunction.run(inputs:), immediate output metadata and zero-byte Data snapshot. No Rust/Corsairs code or Metal queue, and no huge payload allocation.",
+  "runtime_identity_limit": "Compiler + SDK interface/stub + OS build are pinned. The OS-shipped runtime resides in the system dyld shared cache and is identified here by OS build, not by a standalone CoreAI dylib SHA."
+}

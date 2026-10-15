@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "started_utc": "2026-10-15T21:52:32.677699+00:00",
+  "build_receipt_sha256": "1a430b3cec8972b5db8b91ed53386d0b6061447068f564702d622f83a1e58ff9",
+  "pairs": [
+    {
+      "backend": "cpu",
+      "passed": true,
+      "report": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/benchmarks/feedforward-cpu.json"
+    },
+    {
+      "backend": "gpu-preferred",
+      "passed": true,
+      "report": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/benchmarks/feedforward-gpu-preferred.json"
+    }
+  ]
+}

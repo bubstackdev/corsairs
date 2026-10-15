@@ -1,0 +1,320 @@
+{
+  "created_utc": "2026-10-15T21:59:04.164227+00:00",
+  "evidence_sha256": {
+    "/private/tmp/corsairs-v03-gpu-rejections/build/build-manifest.json": "08275910862244f13c5814263d2e700d5b69ce6f2f547e328bd29602f1207f20",
+    "docs/evidence/v0.3-final/benchmarks/build.json": "1a430b3cec8972b5db8b91ed53386d0b6061447068f564702d622f83a1e58ff9",
+    "docs/evidence/v0.3-final/benchmarks/checks.json": "94deae66600444e8970a97ddde4ec8cf3060f992ad4bd196b163c409178ac437",
+    "docs/evidence/v0.3-final/benchmarks/feedforward-cpu.json": "0a9c0cbb421acf6782ab41ea2f4b34236c4871fb61dd4ba0fafec4cf315e90df",
+    "docs/evidence/v0.3-final/benchmarks/feedforward-gpu-preferred.json": "0ac281479ca8f9aa44fe682eef264cf140cbac61ac00f7e957b767105273f13e",
+    "docs/evidence/v0.3-final/bf16-debug-native.json": "c87f9e48a98099adda508adff0d2cedd9995e8ebc8070bda4a02613e1a176a6c",
+    "docs/evidence/v0.3-final/bf16-debug.json": "c53ae47201ae6ced5b68d637edf952dfe9957d2e18e143632b5186d971e59dd4",
+    "docs/evidence/v0.3-final/bf16-release-native.json": "9ad62490361acd2fc369bb10869686e3711ab02ec9db9751e6d40d7d038ff10f",
+    "docs/evidence/v0.3-final/bf16-release.json": "613128e1c446e478a77e8cf4ea5c3c87679cc1b5df61a6c20b7c338bbcae981a",
+    "docs/evidence/v0.3-final/bf16/rust-build.json": "97ae81c4efdb1ebbdbf95807de3ddc56f71a3946903a40107e73b6aa12ad50f4",
+    "docs/evidence/v0.3-final/core-build.json": "c26859582ce3dd16763d3206b675a8b3248b42b54d360dbad7cbe46474b6fa4b",
+    "docs/evidence/v0.3-final/core-checks.json": "d4939b460a247e35b971b348af3732931ffd72201215beb5d6e9f79f847d5548",
+    "docs/evidence/v0.3-final/core-native.json": "dd4b33d105fedb9b19ea749650cc023cecd0a46f677ab27f081316d336b75ea3",
+    "docs/evidence/v0.3-final/core.json": "5e2c7dcbc6465ed6c03aacc4c3d94f431d4a084e2c7dd54bd0c19dfe39130bf6",
+    "docs/evidence/v0.3-final/gpu-limit-f32-native.json": "f3fe290e6ff6adf36361fb29f287ac89eb07f11722f12ce4a67f2515ed4a4569",
+    "docs/evidence/v0.3-final/gpu-rejections-final.json": "9377727843030ea5406e0e64a6dd6c019a1c9efb99c9027c25e886a00ad08179",
+    "docs/evidence/v0.3-final/gpu-rejections-retry-native.json": "55069f567480333da6b11081401a9498e7b457b0770ef8af0a4d432d1af0c868",
+    "docs/evidence/v0.3-final/h3-assets.json": "9fd4215e0e2fee019a2d28843585518fc34260d7b7c4ace0556eaefc289b4e1f",
+    "docs/evidence/v0.3-final/h3-hidden-cpu-quiet-native.json": "9b9afb56583b11f18978bf40dccf3c56042afb19d4d0de629bacf1a6265bb703",
+    "docs/evidence/v0.3-final/h3-hidden-gpu-preferred-native.json": "a6463d8c023baf577a61347fb103153083d94d6d76225cb20764d0bcc9aaa593",
+    "docs/evidence/v0.3-final/h3-native.json": "153a40e3c12678eddf30f15fd285caa6f1aeb8369d459d517712ef71f4e4cc30",
+    "docs/evidence/v0.3-final/h3-rgb124-cpu-native.json": "bd70ea533986cce81a9ff95e2e32deba1b934b105c999c47ff7b2fd66c141829",
+    "docs/evidence/v0.3-final/h3-rgb124-gpu-preferred-native.json": "9860e0f0e3e30d3453b5105438b69c83d274268d3bf38e73c714f4854345bf15",
+    "docs/evidence/v0.3-final/h3-rgb173-native.json": "d83bf624cb91948afb57b409b46eea92c5b82a6622eea2ff81406e9fbdb7a2eb",
+    "docs/evidence/v0.3-final/h3-rgb345-cpu-native.json": "d30594f5223276829151f07f123c9fcbd8361ba6ba96c21e4862c55b030aabbb",
+    "docs/evidence/v0.3-final/h3.json": "f19402ee9af532ea9a45190f5fd4dad07704befd2f442e8aefe96febc2aa4afd",
+    "docs/evidence/v0.3-final/krea-build.json": "0da9f0073cb9e463309cbb2ede73fe0ede2f0307d90dac2fcd208d45cdce7a25",
+    "docs/evidence/v0.3-final/krea-checks.json": "647ddb4e474a661f48b37ce8df8a92157ee0087f195bd9d9836564324c8d46ce",
+    "docs/evidence/v0.3-final/krea-native.json": "29e1a258249ea47929a82b153534dc814b0364083d50956b51b05e776a293443",
+    "docs/evidence/v0.3-final/lifecycle-native.json": "09d162f778c1f8f5edcb0d4ada1be59f6b8abc3de09a8f1a814b1553ee7187ac",
+    "docs/evidence/v0.3-final/lifecycle.json": "4828ad67dd65242b8134231938bdc4d11ca5c43595e567be1e0043b3207c2ac8",
+    "docs/evidence/v0.3-final/limit-f32-cpu-quiet-native.json": "70c285dd488d2b0d7e0e3a5a9d2d8d5e4fcc1dc7dda216a2e90af51e179314dc",
+    "docs/evidence/v0.3-final/manifest.json": "c200cc584e3a24fbac09437358191f1bc8e61d787d01aa7c3e04144d6c5e1712",
+    "docs/evidence/v0.3-final/observation-parent-quiet.json": "ee3437b9d48ccbe43d93315d8623ebcd074224bd9ed32078753435e9db15b07b",
+    "docs/evidence/v0.3-final/observation-parent.json": "4e545100493cb1d033a95290eb01ca8fd95d13798057ae83f18eb048c8fd5d2a",
+    "docs/evidence/v0.3-final/package-candidate-native.json": "7d26b8cb35164b9bf7690a384fc252cd64dc46c021265e67e607034f36b0243e",
+    "docs/evidence/v0.3-final/preparation.json": "b4cb5d09507f23317848810ac9527103246820d05822e2e15e1b11a27ebd0ef4",
+    "docs/evidence/v0.3-final/raw-storage-retry-native.json": "a99498277a520dc414ab8925c0e95ecbac2c4caee5b756f6390c24be9539ea81",
+    "docs/evidence/v0.3-final/raw-storage.json": "fa17297c09eb715a410352fb8eaf3f17010ba54d149c61d55268b5ae8f318964",
+    "docs/evidence/v0.3-final/smallbench-final-native.json": "b599650ef1098f636d06cf32e633cc5b5cab2e1cf6257dd8d2c728344672d59c",
+    "docs/evidence/v0.3-final/stress-debug-checks.json": "43881d1bd86689ae84f639e7a85abcb486606962cfadb48b0a15e22710253beb",
+    "docs/evidence/v0.3-final/stress-debug-native.json": "bfa93efe2f66e9dbd09969b17b39c42e8cca0d8c2f116ea2651ce227c8edaba8",
+    "docs/evidence/v0.3-final/stress-debug.json": "3f47641c0755f8079ab0668eb74016857d0a11915bb1d9f6d5310f46ee95dc19",
+    "docs/evidence/v0.3-final/stress-release-checks.json": "ca142bf78fdeeb020f11c48036052076e5430b297bd4676d466230ce9e62ed18",
+    "docs/evidence/v0.3-final/stress-release-retry-native.json": "47f811051fbb8b73a9a221333c9b590bc0d6bf6d3ed544582b9a465432717d5f",
+    "docs/evidence/v0.3-final/stress-release.json": "ab017162f8289ff001befcc5677771e3f1b5919ef69c520a738694b84270ec8f",
+    "docs/evidence/v0.3-large-tensors/release/build-manifest.json": "3ecebd1708fff3acfac7e639d8e8c3d1b4adf4a54d993aa8277e1adcb50d1ce0",
+    "docs/evidence/v0.3-large-tensors/release/gpu-limit-f32-gpu-preferred-release.json": "b9bff9fa7b6cd0f2fd38d3e986dd3435367245d78af22371e8759d432a870ce6",
+    "docs/evidence/v0.3-large-tensors/release/h3-hidden-cpu-release.json": "5ca4a11bc1f3193d880a5f3e6ad33f6d3492e7f14b1843c15df1529ea53f3f8a",
+    "docs/evidence/v0.3-large-tensors/release/h3-hidden-gpu-preferred-release.json": "385efcd66836d0716e1f79087c58c079bc52946212fd792e581c8a914dac6da1",
+    "docs/evidence/v0.3-large-tensors/release/h3-rgb124-cpu-release.json": "2d06293f1e86b6ac749473b3093ddb231170bc65a79e7f3f65f48631d2c7ab44",
+    "docs/evidence/v0.3-large-tensors/release/h3-rgb124-gpu-preferred-release.json": "48d70bd1db4610922ba297e99128748339e35edc485b6c56af1921dd37698c62",
+    "docs/evidence/v0.3-large-tensors/release/h3-rgb173-gpu-preferred-release.json": "31ce10989e344a5022933ca4dcc39b8bf3c2425d4570d8eb77b938def6c68bcb",
+    "docs/evidence/v0.3-large-tensors/release/h3-rgb345-cpu-release.json": "24798a20c0b304c7fe65f0ae75331ded2928d9657032b7526bb074129622b6bd",
+    "docs/evidence/v0.3-large-tensors/release/limit-f32-cpu-release.json": "09d9914e2b123b774e97be08e1ef373850130611c2904586e30222800ef4ac51",
+    "docs/evidence/v0.3/package-verification.json": "dedcc7ffd037d187bea6e498acda379e5aa7659a31c3b27af0976b4086880375",
+    "target/v01-check/build-manifest.json": "7eff073f6ceec8401505941c3f44f6cb8d0301656e3fef6669af6a136f5cf308"
+  },
+  "gaps": [
+    {
+      "error": "[Errno 2] No such file or directory: '/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/package-clean-native.json'",
+      "gate": "package-clean"
+    }
+  ],
+  "gates": {
+    "bf16-debug": {
+      "checks": {
+        "configurations": 46,
+        "exact_values": 104,
+        "native_and_metal_raw": true,
+        "raw_encodings": 65536
+      },
+      "passed": true
+    },
+    "bf16-release": {
+      "checks": {
+        "configurations": 46,
+        "exact_values": 104,
+        "native_and_metal_raw": true,
+        "raw_encodings": 65536
+      },
+      "passed": true
+    },
+    "core": {
+      "checks": {
+        "metal_configurations_each": 64,
+        "native_configurations_each": 32,
+        "profiles": 2,
+        "source_identity_sha256": "bece2e8ac4ba074c55db1ccb1e0ed8f18520dd285cce5ed5f38bda2549e4ab6b"
+      },
+      "passed": true
+    },
+    "freeze": {
+      "checks": {
+        "package_readme_sha256": "51bdb7c7ce560cc76b1e962237b960355b945d1e15348955e8419e6b75a3cab2",
+        "production_files": 42,
+        "production_identity_sha256": "febfa2f8ba44e14a5b46eb9faa6abab1d1eb5c4169b382cb2533c85671a5c733",
+        "source_freeze_sha256": "c200cc584e3a24fbac09437358191f1bc8e61d787d01aa7c3e04144d6c5e1712",
+        "version": "0.3.0"
+      },
+      "passed": true
+    },
+    "gpu-rejections": {
+      "checks": {
+        "inference_calls": 19,
+        "typed_gpu_unsupported": 11
+      },
+      "passed": true
+    },
+    "h3": {
+      "checks": {
+        "exact_measured_iterations_each": 3,
+        "inputs": 15,
+        "phases": 2,
+        "warmup_each": 1
+      },
+      "passed": true
+    },
+    "krea": {
+      "checks": {
+        "exact_hashes": 13,
+        "metal_calls": 32,
+        "model_and_function_peak": 4,
+        "steps": 8
+      },
+      "passed": true
+    },
+    "large-gpu-limit-f32-gpu-preferred": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 2147483648,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-h3-hidden-cpu": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 1105477632,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-h3-hidden-gpu-preferred": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 1105477632,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-h3-rgb124-cpu": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 1535901696,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-h3-rgb124-gpu-preferred": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 1535901696,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-h3-rgb173-gpu-preferred": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 2142830592,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-h3-rgb345-cpu": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 4273274880,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "large-limit-f32-cpu": {
+      "checks": {
+        "abandoned_iterations_per_api": 3,
+        "bytes_each_value": 4294967296,
+        "full_byte_paths": 7
+      },
+      "passed": true
+    },
+    "lifecycle": {
+      "checks": {
+        "cli_tests": 1,
+        "library_tests": 47,
+        "metadata_tests": 2,
+        "native_lifecycle_tests": 6,
+        "pure_library_tests": 41
+      },
+      "passed": true
+    },
+    "package-candidate": {
+      "checks": {
+        "archive": "/Users/zakkeown/Code/aether/lab/corsairs/dist/v0.3.0-candidate/corsairs-0.3.0.crate",
+        "bf16_cli_backends": 2,
+        "bytes": 103084,
+        "clean": false,
+        "files": 53,
+        "native_examples": 8,
+        "readme_sha256": "51bdb7c7ce560cc76b1e962237b960355b945d1e15348955e8419e6b75a3cab2",
+        "sha256": "b486a51612ca351f807c3f622d977988f75215e005328b43acdd20a5525bb391"
+      },
+      "passed": true
+    },
+    "package-clean": {
+      "error": "[Errno 2] No such file or directory: '/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/package-clean-native.json'",
+      "passed": false
+    },
+    "raw-storage": {
+      "checks": {
+        "full_4gib_roundtrips": 6,
+        "maximal_empty_roundtrips": 6,
+        "typed_negatives": 12
+      },
+      "passed": true
+    },
+    "smallbench": {
+      "checks": {
+        "backends": 2,
+        "descriptive_pairs": 2,
+        "languages": 2,
+        "phases_each": 2,
+        "samples_each": 100,
+        "warmup_each": 10
+      },
+      "passed": true
+    },
+    "static": {
+      "checks": {
+        "doctests": 1,
+        "native_ignored_in_pure_run": 6,
+        "pure_tests": 41
+      },
+      "passed": true
+    },
+    "stress-debug": {
+      "checks": {
+        "abandoned_each_kind_each_backend": 100,
+        "load_drop_each_backend": 100,
+        "validated_inferences": 40000
+      },
+      "passed": true
+    },
+    "stress-release": {
+      "checks": {
+        "abandoned_each_kind_each_backend": 100,
+        "load_drop_each_backend": 100,
+        "validated_inferences": 40000
+      },
+      "passed": true
+    }
+  },
+  "native_selection": {},
+  "package_readme_sha256": "51bdb7c7ce560cc76b1e962237b960355b945d1e15348955e8419e6b75a3cab2",
+  "passed": false,
+  "production_sha256": {
+    "Cargo.lock": "92c56e65e2d49a5218901003d954b9e237d9124ed1ab677dff8df7305b6876b3",
+    "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+    "crates/corsairs-abi/Cargo.toml": "a76e3c4aa379ec9af576356ca60917a47be7819428047eadee9a6a8d87f80eb2",
+    "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "crates/corsairs-abi/examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+    "crates/corsairs-abi/examples/native_chain.rs": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+    "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "crates/corsairs-abi/src/bin/corsairs.rs": "5254e992ac8bce53fab0a97df765f2a883ef1900a64bd8b4cb252fdf8f02754e",
+    "crates/corsairs-abi/src/dtype.rs": "5b1d11dfad12328f97a05bb5f02480d88552920db301473ce37700888dc877d4",
+    "crates/corsairs-abi/src/facade.rs": "c683a4ed948d4e80a745980681eee1849733c673d95f5bb50d031a681a3c29a7",
+    "crates/corsairs-abi/src/facade/batch.rs": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+    "crates/corsairs-abi/src/facade/function_batch.rs": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+    "crates/corsairs-abi/src/facade/handles.rs": "7ab9239624bb2e08cb2ee6c48ba19cc84c80666358b815eb4e1b786016072652",
+    "crates/corsairs-abi/src/facade/metal.rs": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+    "crates/corsairs-abi/src/lib.rs": "abae96212730cb19259ce3f2bb4a33e714172aa7ec30fe8585ccfc90e0846593",
+    "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "crates/corsairs-abi/src/native/async_task.rs": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+    "crates/corsairs-abi/src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "crates/corsairs-abi/src/native/async_task/sync_call.rs": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+    "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "crates/corsairs-abi/src/native/loader.rs": "5ab928127646ee2ef9aea3f698ad3fc0da8df344a74506d3752f44296f6df3da",
+    "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "crates/corsairs-abi/src/native/mod.rs": "86f9dd79b5fe8e26070f74a0c9e06783125d6db3d96dc44ab4e1945201be5819",
+    "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "crates/corsairs-abi/src/native/owned.rs": "c4cd3290b62430c32783305c8ac7297beddafc4998e05e843a02457031b9e527",
+    "crates/corsairs-abi/src/native/owned/batch.rs": "afed7d4c972bcb2abad7f56f2926d536c84b76649f028de0812c3d321d137e44",
+    "crates/corsairs-abi/src/native/owned/function_batch.rs": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+    "crates/corsairs-abi/src/native/owned/handles.rs": "f593c3e7c946c5a2e59d6519b8dee5b528b80fa628ff2de46cc41493452e59b7",
+    "crates/corsairs-abi/src/native/owned/metal.rs": "e2ac48cb571f5bb69da31ce8faf38eb2df54f9859100877bcbfcd073770f31c4",
+    "crates/corsairs-abi/src/native/owned/run_stream.rs": "c5867088ad087b1811e915d556b946f26c9fcb0897cf9ec8f35b6e8ad81c22bd",
+    "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "crates/corsairs-abi/src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+    "crates/corsairs-abi/src/worker.rs": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
+    "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+    "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+    "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c"
+  },
+  "published": false,
+  "qualification_identity_sha256": "42adf34ed2e6b8cbbf05fbe797305a0dfae8d803dc242c276ca6e14144892b48",
+  "registry_checked": false,
+  "schema": 1,
+  "scope": "Read-only local pre-publication qualification. Source, member and retained binary identities are reread. External multi-GB asset hashes are checked against retained full-hash preparation receipts, not rehashed here. REA selected-file identity is not a loaded-image digest.",
+  "verifier_sha256": "5754111e174d2590e9b89ebd57d7eeace3221a96cbc76f3e6e7b5eec85166eeb",
+  "version": "0.3.0"
+}

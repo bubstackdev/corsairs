@@ -285,6 +285,74 @@ mod tests {
 
     #[test]
     #[ignore = "requires permitted native Core AI and CORSAIRS_TEST_MODEL x+x fixture"]
+    fn native_gpu_stream_reuses_queue_and_drains_private_handles() {
+        let runtime = Runtime::new().unwrap();
+        let path = std::env::var_os("CORSAIRS_TEST_MODEL").expect("CORSAIRS_TEST_MODEL");
+        let model = runtime
+            .load_model(PathBuf::from(path), Compute::GpuPreferred)
+            .wait()
+            .unwrap();
+        let function = model.load_function("main").wait().unwrap();
+        let input = runtime
+            .upload(Tensor::from_vec([2, 3], vec![1f32; 6]).unwrap())
+            .wait()
+            .unwrap();
+        let mut identity = None;
+        for _ in 0..20 {
+            let owned = function
+                .run(
+                    TensorMap::from([("x", Tensor::from_vec([2, 3], vec![1f32; 6]).unwrap())]),
+                    TensorMap::new(),
+                )
+                .wait()
+                .unwrap();
+            assert_eq!(
+                owned.outputs.get("y").unwrap().to_vec::<f32>().unwrap(),
+                [2.; 6]
+            );
+            drop(function.run_native(
+                TensorHandleMap::from([("x", input.clone())]),
+                TensorHandleMap::new(),
+            ));
+            runtime.drain().wait().unwrap();
+            let (current, tensors, metal) = runtime
+                .worker
+                .submit(|session| {
+                    Ok((
+                        session.owned_stream_identity(),
+                        session.live_tensor_count(),
+                        session.live_metal_counts(),
+                    ))
+                })
+                .wait()
+                .unwrap();
+            assert!(current.is_some());
+            assert_eq!(*identity.get_or_insert(current), current);
+            assert_eq!(tensors, 1);
+            assert_eq!(metal, (0, 0, 0));
+        }
+        assert_eq!(
+            input.download().wait().unwrap().to_vec::<f32>().unwrap(),
+            [1.; 6]
+        );
+        drop((input, function, model));
+        runtime.drain().wait().unwrap();
+        assert_eq!(
+            runtime
+                .worker
+                .submit(|session| Ok((
+                    session.live_counts(),
+                    session.live_tensor_count(),
+                    session.live_metal_counts()
+                )))
+                .wait()
+                .unwrap(),
+            ((0, 0), 0, (0, 0, 0))
+        );
+    }
+
+    #[test]
+    #[ignore = "requires permitted native Core AI and CORSAIRS_TEST_MODEL x+x fixture"]
     fn native_handles_retain_chain_and_release_abandoned_results() {
         let runtime = Runtime::new().unwrap();
         let path = std::env::var_os("CORSAIRS_TEST_MODEL").expect("CORSAIRS_TEST_MODEL");

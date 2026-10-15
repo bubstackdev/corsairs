@@ -1,0 +1,105 @@
+{
+  "kind": "corsairs-v03-gpu-envelope-fixture-authoring",
+  "created_at": "2026-10-15T21:27:00.151438+00:00",
+  "native_inference_executed": false,
+  "gpu_work_executed": false,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "source_pins": {
+    "scripts/reference/build_gpu_envelope_fixtures.py": "c7ab2ee497adc2fd476d393f76f1a769aa14573c8564e5b93c6cf13c9a70d498",
+    "scripts/reference/environment.py": "6851634c107ff5c65dadb5d28064fda70e82537809011eef6d40eb6fd0b61447",
+    "scripts/reference/build_large_fixtures.py": "a145e99aeb0e23caca92bdcc917ae29e3cfd27ac394eaf2533cf6501c92f7610"
+  },
+  "python_executable_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+  "authoring_module": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/__init__.py",
+  "authoring_module_sha256": "5b92b369933aee00efeb1e597b306d6317c266bfeecb58c4928ec88befd08d95",
+  "command": [
+    "/Users/zakkeown/.local/bin/python3.12",
+    "-B",
+    "scripts/reference/build_gpu_envelope_fixtures.py"
+  ],
+  "previous_manifest_sha256": "a8af6c25a402e8f17b186944c6d34ca542b2b592fac24795073c589ce4296f89",
+  "updated_manifest_sha256": "b34e98e096a15d7ef86c3e670d85ae9af9a90d37d012bd71f195332822bdd418",
+  "existing_graph_asset_file_count": 16,
+  "existing_graph_asset_bytes_unchanged": true,
+  "existing_graph_asset_sha256": {
+    "h3-hidden/graph.mlir": "82a378786c250fa7e8804cf900d29254ba0ea6d97257c951342e718825a37057",
+    "h3-hidden/model.aimodel/main.hash": "727303b13d74b6b680c0c3f75c646cd6237525470765308f424bbbeb4f1f1ed5",
+    "h3-hidden/model.aimodel/main.mlirb": "45730c1ebb73fc0c1161b40dd7a8b34b6f6bbf46a5a12bc28818c95016619014",
+    "h3-hidden/model.aimodel/metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf",
+    "h3-rgb124/graph.mlir": "c6af6a58f7a30a924644bc6e02ee0d7a11ee53ed0c70e7add888eca7df5e8b52",
+    "h3-rgb124/model.aimodel/main.hash": "65f1bdecc15b9fe696a6f8f200374f55b5eb5d9dfd21605dbcac3a76995b874f",
+    "h3-rgb124/model.aimodel/main.mlirb": "7a6849db702f0abc07352ae5e1a3c1449fa2d397c6ac6a2262db742d9d8bf86f",
+    "h3-rgb124/model.aimodel/metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf",
+    "h3-rgb345/graph.mlir": "d8cabc2445e196fa15d4c47a5f0561b627b76b0d4f961b91b12b6b67b80c7873",
+    "h3-rgb345/model.aimodel/main.hash": "5908b44127cefc47fa9ba38224d57c460d2d4203530129fa4fdb42518f78917f",
+    "h3-rgb345/model.aimodel/main.mlirb": "c7f4ff1d716ead864ab85ff7d3867e34a43a3660406dd47dba2987a1f98ea16f",
+    "h3-rgb345/model.aimodel/metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf",
+    "limit-f32/graph.mlir": "276203d4991ca41629c294f1671d28e8c4912c35dda9eb02bc146b4f5fcfb30a",
+    "limit-f32/model.aimodel/main.hash": "06ea5fb3308c002d27c2f2ac8d36d932bfe0c910b12fbff5deef4c64d567e3b6",
+    "limit-f32/model.aimodel/main.mlirb": "9f0962ccc33bb9fe00ecce829e035302ff4250cc7177b3dd597148952619ee13",
+    "limit-f32/model.aimodel/metadata.json": "ffc3faaddafedf03ea4468335b1d46b36a8a5190c30e24344fde9b087c4e4faf"
+  },
+  "existing_cases_unchanged": true,
+  "existing_reference_scope_pattern_unchanged": true,
+  "new_cases": [
+    {
+      "name": "gpu-limit-f32",
+      "dtype": "float32",
+      "shape": [
+        536870912
+      ],
+      "bytes": 2147483648,
+      "asset": "gpu-limit-f32/model.aimodel"
+    },
+    {
+      "name": "h3-rgb173",
+      "dtype": "float32",
+      "shape": [
+        173,
+        1344,
+        768,
+        3
+      ],
+      "bytes": 2142830592,
+      "asset": "h3-rgb173/model.aimodel"
+    }
+  ],
+  "new_files_sha256": {
+    "gpu-limit-f32/graph.mlir": "752a3ef600462bed32d2d45f3272925df4555e056c12e73379f3a813f261154d",
+    "gpu-limit-f32/model.aimodel/main.hash": "89a4c3ecb932609daafed6af216cbc60a8375b67f1e0bb71c40f5d11d2f333d2",
+    "gpu-limit-f32/model.aimodel/main.mlirb": "06d822b2b27d083ef12919d5f7ca62f511bac2244e11a69ee7ddd51b44e79361",
+    "gpu-limit-f32/model.aimodel/metadata.json": "5931cbce0c7ba6817b9da193d0f6f228e896273aed4d33bddff55d976ff566d4",
+    "h3-rgb173/graph.mlir": "7e2f16fc7c59c47d953d1e0762eaa36df3bea77e03f34cd414c5ee696bd3729e",
+    "h3-rgb173/model.aimodel/main.hash": "2b1459aa692e0f9f69d231f593f1469ff311c41e4d276a7285d62ab0d3a0acfd",
+    "h3-rgb173/model.aimodel/main.mlirb": "0bcfd1ae20a92c9771d129e47c0c80d7ed101c41aee39b1c0495d1162b8b4233",
+    "h3-rgb173/model.aimodel/metadata.json": "5931cbce0c7ba6817b9da193d0f6f228e896273aed4d33bddff55d976ff566d4"
+  },
+  "new_asset_source_bytes": {
+    "gpu-limit-f32": 547,
+    "h3-rgb173": 549
+  },
+  "scope": "Two mechanical x+x signatures for subsequent GPU envelope qualification. CPU-only authoring, no tensor payload allocation, runtime/model construction, inference, GPU/REA/process-scenario launch or asset rebuild of old cases."
+}

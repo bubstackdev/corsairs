@@ -7,6 +7,12 @@ pub const MAX_TENSOR_RANK: usize = 64;
 /// Maximum tensor storage size (four GiB). For empty tensors, the same
 /// bound applies to the product of nonzero dimensions to reject stride overflow.
 pub const MAX_TENSOR_BYTES: usize = 1usize << 32;
+/// Maximum accepted GPU-preferred inference tensor bytes/referenced span (2 GiB).
+/// Raw storage and CPU-only calls retain the 4 GiB boundary. Dynamic outputs
+/// are checked after readiness; this does not bound graph intermediates or
+/// promise that a model fits GPU memory. Stateful owned/native GPU calls have
+/// the narrower fixed-signature boundary described on `Function::run`.
+pub const MAX_GPU_INFERENCE_TENSOR_BYTES: usize = 1usize << 31;
 
 /// Scalar types supported by Corsairs.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -235,6 +241,14 @@ pub struct Tensor {
 }
 
 pub(crate) fn element_count(shape: &[usize], width: usize) -> Result<usize, Error> {
+    element_count_with_limit(shape, width, MAX_TENSOR_BYTES)
+}
+
+pub(crate) fn element_count_with_limit(
+    shape: &[usize],
+    width: usize,
+    limit: usize,
+) -> Result<usize, Error> {
     if shape.len() > MAX_TENSOR_RANK {
         return Err(Error::TensorLimit(format!(
             "rank exceeds {MAX_TENSOR_RANK}"
@@ -247,9 +261,9 @@ pub(crate) fn element_count(shape: &[usize], width: usize) -> Result<usize, Erro
         }
         if dimension != 0 {
             nonzero = nonzero.checked_mul(dimension).ok_or(Error::ShapeOverflow)?;
-            if nonzero > MAX_TENSOR_BYTES {
+            if nonzero > limit {
                 return Err(Error::TensorLimit(format!(
-                    "storage or nonzero dimensions exceed {MAX_TENSOR_BYTES} bytes"
+                    "storage or nonzero dimensions exceed {limit} bytes"
                 )));
             }
         }

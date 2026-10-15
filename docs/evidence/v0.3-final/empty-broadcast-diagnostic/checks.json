@@ -1,0 +1,75 @@
+{
+  "kind": "standalone-swift-empty-broadcast-cpu-diagnostic",
+  "created_utc": "2026-10-15T21:51:42.035049+00:00",
+  "passed": false,
+  "native_executed": true,
+  "preparation_sha256": "90bd8a893753c857c13e1e5c9bd331ea10d41182fd95d8c99df10707c49286c5",
+  "command": [
+    "/private/tmp/corsairs-empty-broadcast-diagnostic/probe",
+    "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel"
+  ],
+  "exit_status": -10,
+  "signal": 10,
+  "timed_out": false,
+  "timeout_seconds": 30.0,
+  "elapsed_seconds": 0.1866480419994332,
+  "events": [
+    {
+      "asset": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel",
+      "compute": "cpuOnly",
+      "corsairs_linked": false,
+      "event": "start",
+      "ordinary_swift_api": true
+    },
+    {
+      "event": "model_loaded",
+      "functions": [
+        "main"
+      ]
+    },
+    {
+      "dtype": "float32",
+      "event": "descriptor",
+      "function": "main",
+      "input_shape": [
+        0,
+        1
+      ],
+      "inputs": [
+        "x"
+      ],
+      "output_shape": [
+        0,
+        536870913
+      ],
+      "outputs": [
+        "y"
+      ],
+      "states": []
+    },
+    {
+      "event": "input_created",
+      "is_float32": true,
+      "logical_bytes": 0,
+      "shape": [
+        0,
+        1
+      ],
+      "strides": [
+        1,
+        1
+      ]
+    },
+    {
+      "event": "before_run",
+      "execution": "try await function.run(inputs:)"
+    }
+  ],
+  "stdout": "{\"asset\":\"\\/Users\\/zakkeown\\/Code\\/aether\\/lab\\/corsairs\\/fixtures\\/parity-v03\\/gpu-rejections\\/empty-output-over-gpu-limit\\/model.aimodel\",\"compute\":\"cpuOnly\",\"corsairs_linked\":false,\"event\":\"start\",\"ordinary_swift_api\":true}\n{\"event\":\"model_loaded\",\"functions\":[\"main\"]}\n{\"dtype\":\"float32\",\"event\":\"descriptor\",\"function\":\"main\",\"input_shape\":[0,1],\"inputs\":[\"x\"],\"output_shape\":[0,536870913],\"outputs\":[\"y\"],\"states\":[]}\n{\"event\":\"input_created\",\"is_float32\":true,\"logical_bytes\":0,\"shape\":[0,1],\"strides\":[1,1]}\n{\"event\":\"before_run\",\"execution\":\"try await function.run(inputs:)\"}\n",
+  "stderr": "",
+  "last_event": {
+    "event": "before_run",
+    "execution": "try await function.run(inputs:)"
+  },
+  "scope": "Fresh standalone Swift ordinary CoreAI CPU run, same fixed graph and empty input; no Corsairs or Rust code. A crash here demonstrates independent native reproduction. It does not by itself localize the framework internal fault or establish a general empty-broadcast limitation."
+}

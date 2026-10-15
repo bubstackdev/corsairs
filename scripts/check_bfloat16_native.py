@@ -65,8 +65,8 @@ def build(args):
               "native_commands": [[str(binary.relative_to(ROOT)), str(FIXTURES.relative_to(ROOT)),
                                    str((directory / (binary.name + "-output")).relative_to(ROOT))] for binary in binaries]}
     write(directory / "build.json", report)
-    write(ROOT / "docs/evidence/v0.2-bfloat16/rust-build.json", report)
-    print(json.dumps({"native_commands": report["native_commands"], "build": "docs/evidence/v0.2-bfloat16/rust-build.json"}))
+    write(args.evidence_dir / "rust-build.json", report)
+    print(json.dumps({"native_commands": report["native_commands"], "build": str(args.evidence_dir / "rust-build.json")}))
 
 
 def check(args):
@@ -139,6 +139,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="action", required=True)
     compile_parser = subparsers.add_parser("build")
+    compile_parser.add_argument("--evidence-dir", type=Path, default=ROOT / "docs/evidence/v0.2-bfloat16")
     compile_parser.add_argument("--profile", choices=["debug", "release"])
     check_parser = subparsers.add_parser("check")
     check_parser.add_argument("--swift", required=True, type=Path)

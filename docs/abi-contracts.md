@@ -239,3 +239,22 @@ Readback verifies shape, supported dtype, canonical row-major strides for nonemp
 
 Other scalar types and noncontiguous output layouts, native NDArray sharing/copy behavior, shared Metal buffers, image storage, arbitrary Swift closures/async signatures/executors, cancellation, reference-count leak freedom, the broader native error surface, arbitrary inference operators/models, Rust model authoring, other OS/SDK versions, and other architectures remain unverified. Native crashes, traps, allocation aborts, and hangs are not converted into Rust errors. The safe API's validity remains conditional on the recorded macOS 27 arm64 native contracts.
 
+
+## v0.3 stateless GPU completion
+
+Stateless GPU-preferred owned/native calls use an owned persistent ComputeStream
+and queue. Native NDArray values are retained with Swift VWT initializeWithCopy
+(slot 2) into independent value allocations, then passed to the verified consuming
+AsyncValue initializer. Ready outputs retain NDArray storage without a Rust byte
+roundtrip. All temporary IDs are removed on every Result path; the private queue
+survives drain until runtime destruction. Returned errors and initialized optional
+results remain owned until the actual post-readiness stream/queue fence completes.
+A failure to establish completion after submission aborts rather than release
+potentially in-flight owners.
+
+The [compiler/standalone investigation](evidence/v0.3-release-preparation/rgb345-isolation/internal-design.md)
+and [final review](evidence/v0.3-release-preparation/stream-cap-review.md)
+retain the consuming initializer, value-copy, readiness and ownership contracts.
+[Current 4 GiB storage / 2 GiB GPU bounds](v0.3-release.md) supersede the historical
+v0.1 owned-copy size statement above. Stateful convenience GPU signatures retain
+fixed 1 GiB bounds; explicit Metal state bindings remain available.

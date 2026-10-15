@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "started_utc": "2026-10-15T21:36:37.398622+00:00",
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "-B",
+        "scripts/check_v02.py",
+        "--native",
+        "--no-build"
+      ],
+      "status": 0,
+      "timed_out": false,
+      "stdout": "{\"passed\": true, \"native_validated\": true, \"report\": \"/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/checks.json\"}\n",
+      "stderr": ""
+    }
+  ],
+  "manifest_sha256": "c200cc584e3a24fbac09437358191f1bc8e61d787d01aa7c3e04144d6c5e1712"
+}

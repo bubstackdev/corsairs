@@ -2,6 +2,7 @@ import CoreAI
 import CryptoKit
 import Darwin
 import Foundation
+import Metal
 
 enum CapacityError: Error { case failed(String) }
 func require(_ condition: Bool, _ reason: String) throws {
@@ -67,10 +68,34 @@ func verify(_ array: borrowing NDArray, _ shape: [Int], _ bytes: Int, _ width: I
         return digest.finalize().map { String(format: "%02x", $0) }.joined()
     }
 }
-func run(_ function: InferenceFunction, _ input: NDArray) async throws -> NDArray {
-    var outputs = try await function.run(inputs: ["x": input])
-    guard let value = outputs.remove("y"), let array = value.ndArray else { throw CapacityError.failed("missing output") }
-    return array
+func fence(_ stream: ComputeStream, _ queue: any MTLCommandQueue) async throws {
+    await stream.currentWorkCompleted()
+    guard let command = queue.makeCommandBuffer() else { throw CapacityError.failed("fence allocation") }
+    command.commit()
+    command.waitUntilCompleted()
+    try require(command.status == .completed && command.error == nil, "actual queue fence")
+}
+func run(_ function: InferenceFunction, _ input: NDArray,
+         _ stream: ComputeStream?, _ queue: (any MTLCommandQueue)?) async throws -> NDArray {
+    if let stream, let queue {
+        let argument = InferenceFunction.AsyncValue(input)
+        do {
+            var outputs = try function.encode(inputs: ["x": argument], to: stream)
+            try await fence(stream, queue)
+            guard let value = outputs.removeValue(forKey: "y"), let array = try await value.ndArray else {
+                throw CapacityError.failed("missing encoded output")
+            }
+            try await fence(stream, queue)
+            return array
+        } catch {
+            try await fence(stream, queue)
+            throw error
+        }
+    } else {
+        var outputs = try await function.run(inputs: ["x": input])
+        guard let value = outputs.remove("y"), let array = value.ndArray else { throw CapacityError.failed("missing output") }
+        return array
+    }
 }
 @main struct LargeTensorReference {
     static func main() async {
@@ -86,18 +111,29 @@ func run(_ function: InferenceFunction, _ input: NDArray) async throws -> NDArra
         let options: SpecializationOptions = args[4] == "cpu" ? .cpuOnly : SpecializationOptions(preferredComputeUnitKind: .gpu)
         let model = try await AIModel(contentsOf: URL(fileURLWithPath: args[1]), options: options)
         guard let function = try model.loadFunction(named: "main") else { throw CapacityError.failed("function") }
+        let queue: (any MTLCommandQueue)?
+        let stream: ComputeStream?
+        if args[4] == "cpu" { queue = nil; stream = nil }
+        else {
+            guard let device = MTLCreateSystemDefaultDevice(), let created = device.makeCommandQueue() else {
+                throw CapacityError.failed("Metal queue")
+            }
+            queue = created
+            stream = ComputeStream(commandQueue: created)
+        }
         print("{\"event\":\"allocated\",\"bytes\":\(bytes)}")
         var input = NDArray(shape: shape, scalarType: width == 2 ? .bfloat16 : .float32)
         fill(&input, bytes, width)
         let inputHash = try verify(input, shape, bytes, width, 1)
-        let first = try await run(function, input)
+        let first = try await run(function, input, stream, queue)
         let doubleHash = try verify(first, shape, bytes, width, 2)
         print("{\"event\":\"double_complete\",\"bytes\":\(bytes)}")
-        let second = try await run(function, first)
+        let second = try await run(function, first, stream, queue)
         let chainHash = try verify(second, shape, bytes, width, 4)
         let report: [String: Any] = ["passed": true, "case": args[5], "compute": args[4], "dtype": args[2],
             "shape": shape, "bytes": bytes, "input_sha256": inputHash, "double_sha256": doubleHash,
-            "chain_sha256": chainHash, "production_helper": false]
+            "chain_sha256": chainHash, "production_helper": false,
+            "execution": args[4] == "cpu" ? "run" : "encode on persistent owned stream, fences before/after readiness"]
         let data = try JSONSerialization.data(withJSONObject: report, options: [.sortedKeys, .prettyPrinted])
         try data.write(to: URL(fileURLWithPath: args[6]))
         print(String(decoding: data, as: UTF8.self))

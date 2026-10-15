@@ -1,0 +1,12 @@
+{
+  "purpose": "Debugger observation parent only; unchanged native checker executes as untraced child. Native child errors propagate unchanged.",
+  "source": "experiments/c/release_runner.c",
+  "source_sha256": "d82a3c3177395af89bd22cd4e2a9e51dc6c6abc1f458c7ae56fe40cb755bfdbf",
+  "binary": "target/qualify-v03/observation-parent",
+  "binary_sha256": "06c2ca004a55a606195ba7a76c42ef92e7fc6ba0127d86c5962047e815dc3463",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "exit_status_checks": {
+    "true": 0,
+    "false": 1
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "created_utc": "2026-10-15T21:38:11.413172+00:00",
+  "native_executed": false,
+  "scope": "Full read-only SHA256 of existing H3 benchmark assets, inputs and goldens; no CoreAI/Python native binding import or model call.",
+  "cases": [
+    {
+      "case_file": "docs/evidence/v0.3-benchmarks/cases/h3-cached-128.json",
+      "case_sha256": "ce78b70501c8e15f9d5de715d8b25bcfa4f359ddf762c58c680a8fc548ddf9b5",
+      "name": "h3-cached-128",
+      "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/block-cached-128.aimodel",
+      "model_resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/block-cached-128.aimodel",
+      "model_main_mlirb_sha256": "98c139221ce3febf5dccc29747fb1c05f79345ecfa34e4b2023c4da5dd7102d2",
+      "model_main_hash": "98c139221ce3febf5dccc29747fb1c05f79345ecfa34e4b2023c4da5dd7102d2",
+      "model_bytes": 770740698,
+      "matches_declared_main_hash": true,
+      "matches_case_asset_hash": true,
+      "case_asset_hash": null,
+      "files": [
+        {
+          "group": "inputs",
+          "name": "hidden",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/hidden.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-128/hidden.raw",
+          "bytes": 1376256,
+          "expected_sha256": "bb40c01a1cddb08081f6ac02bc141f5e824ddacd8d51e56c467f657b336d243b",
+          "actual_sha256": "bb40c01a1cddb08081f6ac02bc141f5e824ddacd8d51e56c467f657b336d243b",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "temb",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-modulations.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-128/gpu-modulations.raw",
+          "bytes": 580608,
+          "expected_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "actual_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "tags",
+          "path": "/private/tmp/corsairs-v03-benchmark-inputs/tags-128.i32",
+          "resolved": "/private/tmp/corsairs-v03-benchmark-inputs/tags-128.i32",
+          "bytes": 512,
+          "expected_sha256": "69db3805d64f2c159126a69ca6430e58f82fbdb7c69fdf4d3a87e4ff39847826",
+          "actual_sha256": "69db3805d64f2c159126a69ca6430e58f82fbdb7c69fdf4d3a87e4ff39847826",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "cos",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/cos.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-128/cos.raw",
+          "bytes": 49152,
+          "expected_sha256": "0b68547fed3816ac869f385dab60bb7d1bfb26baf6bfe0257cece8200df9392d",
+          "actual_sha256": "0b68547fed3816ac869f385dab60bb7d1bfb26baf6bfe0257cece8200df9392d",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "sin",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/sin.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-128/sin.raw",
+          "bytes": 49152,
+          "expected_sha256": "9aa0c3ead09265ead9abb22326f29b810423237a659db03ea4393aacdbf75f6d",
+          "actual_sha256": "9aa0c3ead09265ead9abb22326f29b810423237a659db03ea4393aacdbf75f6d",
+          "passed": true
+        },
+        {
+          "group": "outputs",
+          "name": "hidden_out",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-cached.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-128/gpu-cached.raw",
+          "bytes": 1376256,
+          "expected_sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+          "actual_sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+          "passed": true
+        }
+      ],
+      "source_record": {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-128.json",
+        "sha256": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+        "expected_sha256": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "case_file": "docs/evidence/v0.3-benchmarks/cases/h3-cached-19350.json",
+      "case_sha256": "efc9f90d62efe5363d0507ea171e3e6e063fe6b4aa8b11a8f0f011c619fc47ef",
+      "name": "h3-cached-19350",
+      "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/block-cached-19350.aimodel",
+      "model_resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/block-cached-19350.aimodel",
+      "model_main_mlirb_sha256": "8be1b4ccdc3a94ea56f43c46bda9984678ff6768692b68e6ba8bff2f8963f4b3",
+      "model_main_hash": "8be1b4ccdc3a94ea56f43c46bda9984678ff6768692b68e6ba8bff2f8963f4b3",
+      "model_bytes": 770740746,
+      "matches_declared_main_hash": true,
+      "matches_case_asset_hash": true,
+      "case_asset_hash": null,
+      "files": [
+        {
+          "group": "inputs",
+          "name": "hidden",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+          "bytes": 208051200,
+          "expected_sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7",
+          "actual_sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "temb",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-modulations.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/gpu-modulations.raw",
+          "bytes": 580608,
+          "expected_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "actual_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "tags",
+          "path": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19350.i32",
+          "resolved": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19350.i32",
+          "bytes": 77400,
+          "expected_sha256": "a675f60e6762afd76d0e1e70b780399a4ad1ab1479a7c1d7b5a5eb4b70f9ed70",
+          "actual_sha256": "a675f60e6762afd76d0e1e70b780399a4ad1ab1479a7c1d7b5a5eb4b70f9ed70",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "cos",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+          "bytes": 7430400,
+          "expected_sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583",
+          "actual_sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "sin",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+          "bytes": 7430400,
+          "expected_sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de",
+          "actual_sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de",
+          "passed": true
+        },
+        {
+          "group": "outputs",
+          "name": "hidden_out",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-cached.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/gpu-cached.raw",
+          "bytes": 208051200,
+          "expected_sha256": "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+          "actual_sha256": "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+          "passed": true
+        }
+      ],
+      "source_record": {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-19350.json",
+        "sha256": "85c986824d38ecdffc3e736e93fd82ba394cf53754a97ec96c7439e8de0a142c",
+        "expected_sha256": "85c986824d38ecdffc3e736e93fd82ba394cf53754a97ec96c7439e8de0a142c",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "case_file": "docs/evidence/v0.3-benchmarks/cases/h3-functional-19333.json",
+      "case_sha256": "d89730177407fcf28e35d120eb56a264f7515404e1e6702f0e740331d60b99e5",
+      "name": "h3-functional-19333",
+      "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+      "model_resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+      "model_main_mlirb_sha256": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+      "model_main_hash": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+      "model_bytes": 14685,
+      "matches_declared_main_hash": true,
+      "matches_case_asset_hash": true,
+      "case_asset_hash": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+      "files": [
+        {
+          "group": "inputs",
+          "name": "hidden",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+          "bytes": 207868416,
+          "expected_sha256": "e046eee9d693027a451fdcd990f0001cc46148b3c809a47306585ecb6cc0f7e3",
+          "actual_sha256": "e046eee9d693027a451fdcd990f0001cc46148b3c809a47306585ecb6cc0f7e3",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "temb",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+          "bytes": 193536,
+          "expected_sha256": "ae84a1b668bc5bf276822de1e910d8362397b72db2c68f05c4de6c2868e01acc",
+          "actual_sha256": "ae84a1b668bc5bf276822de1e910d8362397b72db2c68f05c4de6c2868e01acc",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "tags",
+          "path": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+          "resolved": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+          "bytes": 77332,
+          "expected_sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09",
+          "actual_sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "cos",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+          "bytes": 7423872,
+          "expected_sha256": "3043a8d7dfd60f9d78638c17d4684057ae11227483f4c39703785e76568756a1",
+          "actual_sha256": "3043a8d7dfd60f9d78638c17d4684057ae11227483f4c39703785e76568756a1",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "sin",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+          "bytes": 7423872,
+          "expected_sha256": "69ab61a3e60a5889ac8cd4c878a0aed004211063ff60607eedbb4a07b603de42",
+          "actual_sha256": "69ab61a3e60a5889ac8cd4c878a0aed004211063ff60607eedbb4a07b603de42",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w0",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "bytes": 10752,
+          "expected_sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f",
+          "actual_sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w1",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "bytes": 77070336,
+          "expected_sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6",
+          "actual_sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w2",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "bytes": 77070336,
+          "expected_sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937",
+          "actual_sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w3",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "bytes": 77070336,
+          "expected_sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc",
+          "actual_sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w4",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "bytes": 256,
+          "expected_sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519",
+          "actual_sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w5",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "bytes": 256,
+          "expected_sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058",
+          "actual_sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w6",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "bytes": 77070336,
+          "expected_sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6",
+          "actual_sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w7",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "bytes": 10752,
+          "expected_sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872",
+          "actual_sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w8",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "bytes": 308281344,
+          "expected_sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d",
+          "actual_sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w9",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "bytes": 154140672,
+          "expected_sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f",
+          "actual_sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f",
+          "passed": true
+        },
+        {
+          "group": "outputs",
+          "name": "hidden_out",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw",
+          "bytes": 207868416,
+          "expected_sha256": "8a54a3add9162492963b1d864ec4406a492a40ef003c99f55c541f0c474c9a38",
+          "actual_sha256": "8a54a3add9162492963b1d864ec4406a492a40ef003c99f55c541f0c474c9a38",
+          "passed": true
+        }
+      ],
+      "source_inventory": {
+        "path": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/aether-audit/functional-benchmark-inputs.json",
+        "sha256": "ec0a51c38abbc48450cfb65c0b32a157c8ec08280e152d9de545c14bf330eec2",
+        "expected_sha256": "ec0a51c38abbc48450cfb65c0b32a157c8ec08280e152d9de545c14bf330eec2",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "case_file": "docs/evidence/v0.3-benchmarks/cases/h3-functional-19350.json",
+      "case_sha256": "78dfe1e492df89279d9e26dd7419a6929c808256a2368fd002c03610c99e76ab",
+      "name": "h3-functional-19350",
+      "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/block-functional-19350.aimodel",
+      "model_resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/block-functional-19350.aimodel",
+      "model_main_mlirb_sha256": "c421d571f94e376c233616c8580ce99578d13d11d851d8fe36c3c005b8b5a494",
+      "model_main_hash": "c421d571f94e376c233616c8580ce99578d13d11d851d8fe36c3c005b8b5a494",
+      "model_bytes": 14685,
+      "matches_declared_main_hash": true,
+      "matches_case_asset_hash": true,
+      "case_asset_hash": null,
+      "files": [
+        {
+          "group": "inputs",
+          "name": "hidden",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+          "bytes": 208051200,
+          "expected_sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7",
+          "actual_sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "temb",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-modulations.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/gpu-modulations.raw",
+          "bytes": 580608,
+          "expected_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "actual_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "tags",
+          "path": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19350.i32",
+          "resolved": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19350.i32",
+          "bytes": 77400,
+          "expected_sha256": "a675f60e6762afd76d0e1e70b780399a4ad1ab1479a7c1d7b5a5eb4b70f9ed70",
+          "actual_sha256": "a675f60e6762afd76d0e1e70b780399a4ad1ab1479a7c1d7b5a5eb4b70f9ed70",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "cos",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+          "bytes": 7430400,
+          "expected_sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583",
+          "actual_sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "sin",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+          "bytes": 7430400,
+          "expected_sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de",
+          "actual_sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w0",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "bytes": 10752,
+          "expected_sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f",
+          "actual_sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w1",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "bytes": 77070336,
+          "expected_sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6",
+          "actual_sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w2",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "bytes": 77070336,
+          "expected_sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937",
+          "actual_sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w3",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "bytes": 77070336,
+          "expected_sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc",
+          "actual_sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w4",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "bytes": 256,
+          "expected_sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519",
+          "actual_sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w5",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "bytes": 256,
+          "expected_sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058",
+          "actual_sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w6",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "bytes": 77070336,
+          "expected_sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6",
+          "actual_sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w7",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "bytes": 10752,
+          "expected_sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872",
+          "actual_sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w8",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "bytes": 308281344,
+          "expected_sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d",
+          "actual_sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d",
+          "passed": true
+        },
+        {
+          "group": "inputs",
+          "name": "w9",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "bytes": 154140672,
+          "expected_sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f",
+          "actual_sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f",
+          "passed": true
+        },
+        {
+          "group": "outputs",
+          "name": "hidden_out",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-functional.raw",
+          "resolved": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/block-19350/gpu-functional.raw",
+          "bytes": 208051200,
+          "expected_sha256": "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+          "actual_sha256": "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+          "passed": true
+        }
+      ],
+      "source_record": {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-19350.json",
+        "sha256": "85c986824d38ecdffc3e736e93fd82ba394cf53754a97ec96c7439e8de0a142c",
+        "expected_sha256": "85c986824d38ecdffc3e736e93fd82ba394cf53754a97ec96c7439e8de0a142c",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "unique_files_hashed": 40,
+  "passed": true
+}

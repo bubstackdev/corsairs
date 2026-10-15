@@ -1,0 +1,48 @@
+{
+  "kind": "independent-empty-broadcast-cpu-attribution",
+  "created_utc": "2026-10-15T21:55:47.506327+00:00",
+  "independent_swift_reproduces_sigbus": true,
+  "child_exit_status": -10,
+  "signal": 10,
+  "signal_name": "SIGBUS",
+  "timed_out": false,
+  "elapsed_seconds": 0.1866480419994332,
+  "last_completed_stage": "before_run",
+  "completed_stages": [
+    "start",
+    "model_loaded",
+    "descriptor",
+    "input_created",
+    "before_run"
+  ],
+  "did_not_reach": [
+    "after_run",
+    "output_metadata",
+    "before_zero_data_snapshot",
+    "output_snapshot"
+  ],
+  "observation": "The standalone Swift process loaded the identical graph CPU-only, checked fixed x/y descriptors, constructed empty float32[0,1], then terminated with SIGBUS after the before_run marker and before function.run returned. No output metadata or Data readback was attempted.",
+  "attribution": "Reproduced independently through ordinary CoreAI Swift APIs without linking Corsairs/Rust. The Rust binding is not required to reproduce this specific fault. Evidence bounds the failure to the Swift run call interval; no faulting instruction/backtrace is retained, so it does not identify a particular CoreAI internal component or establish that every empty broadcast fails.",
+  "qualification_scope": "Keep both broadcast fixtures as GPU descriptor rejection probes. The two original x+x empty fixtures remain CPU-positive; no blanket CPU empty-tensor exclusion is inferred.",
+  "observer_scope": "Parent REA observation records wrapper exit1 and resolves the own observation_error symbol without hits; other dyld/debugger stops remain in raw observation. Native child SIGBUS is recorded by Python subprocess return status, independently of interpreting those parent stops.",
+  "provenance_sha256": {
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic/preparation.json": "90bd8a893753c857c13e1e5c9bd331ea10d41182fd95d8c99df10707c49286c5",
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic/EmptyBroadcastCPU.swift": "53ce9ea786cb809d8df6f526025876931953b6dd5c19df9f724b7bc23da22da1",
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic/run.py": "0ddb000289a609e789f093dd07dfe4dfc496904d3c7b88c0e5bb4b7d8c9da1d7",
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic/checks.json": "f57a6582267dca4f690a45c4826df9237123003809efbe1516c9e2bef39da723",
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic/events.jsonl": "2557e75e9d912fedb1ad6e381a947663784d2776a6fa80283ce7c043713a658b",
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/evidence/v0.3-final/empty-broadcast-diagnostic-native.json": "bdfe15e17e044f123da92b20fbeb10995f3d6e6f66f574931b2ac7b43662d862",
+    "docs/evidence/v0.3-final/gpu-rejections-first.json": "df02dcdaca7428535804aed4dbc0cb06df25282772ecc13d44cdc7e56b205556",
+    "docs/evidence/v0.3-final/gpu-rejections-final.json": "c43b73841b4f1d592a957fc4df15a28a662ffec5e57e434ed20c0fa73f2a54b1",
+    "docs/evidence/v0.3-final/gpu-rejections-final-build.json": "08275910862244f13c5814263d2e700d5b69ce6f2f547e328bd29602f1207f20"
+  },
+  "gpu_final_independent_check": {
+    "inference_checks": 19,
+    "positive_empty_results": 8,
+    "typed_gpu_unsupported": 11,
+    "binary_and_all_source_pins_match": true,
+    "strict_observer_retry_pending": true
+  },
+  "new_native_execution_performed_for_this_review": false
+}

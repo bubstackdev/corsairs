@@ -27,6 +27,7 @@ mod handles;
 pub use handles::NativeTensorHandle;
 mod metal;
 pub use metal::{NativeMetalInput, NativeMetalObject, NativeMetalTensor};
+mod run_stream;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum NativeDType {
@@ -198,6 +199,20 @@ impl NativeValue {
     fn address(&self) -> usize {
         self.ptr() as usize
     }
+    unsafe fn copy_owned(&self) -> Result<Self> {
+        // SAFETY: The source is initialized and its session/framework remain
+        // live. Swift's initializeWithCopy creates an independent value owner;
+        // it does not borrow this allocation or copy the tensor's payload bytes.
+        unsafe {
+            debug_assert!(self.initialized);
+            let mut value = Self::allocate(self.metadata)?;
+            let copy: unsafe extern "C" fn(*mut c_void, *mut c_void, *mut c_void) -> *mut c_void =
+                mem::transmute(self.metadata.witness(2));
+            copy(value.ptr(), self.ptr(), self.metadata.pointer as _);
+            value.initialized = true;
+            Ok(value)
+        }
+    }
     unsafe fn take_optional(&mut self, payload: NativeMetadata) -> Result<Option<Self>> {
         // SAFETY: The caller supplies the exact initialized Optional<Payload>.
         unsafe {
@@ -257,6 +272,7 @@ struct FunctionRecord {
 struct ModelRecord {
     value: NativeValue,
     names: Vec<String>,
+    compute: NativeCompute,
 }
 
 /// Thread-confined native object store. Its DTOs contain no native addresses.
@@ -503,6 +519,7 @@ impl NativeSession {
                 ModelRecord {
                     value: model,
                     names: names.clone(),
+                    compute: load_options.compute,
                 },
             );
             Ok(NativeModel {
@@ -1075,6 +1092,17 @@ impl NativeSession {
         states: Vec<(String, NativeTensor)>,
         output_views: Vec<(String, NativeTensor)>,
     ) -> Result<NativeRunResult> {
+        if self.uses_owned_stream(function)? {
+            if !output_views.is_empty() {
+                return Err(NativeFailure::Unsupported(
+                    "owned output views are unavailable on the GPU stream path; use explicit Metal bindings".into(),
+                ));
+            }
+            // SAFETY: The helper validates and retains every native owner until
+            // stream completion, including when the public future is abandoned.
+            return unsafe { self.run_owned_on_stream(function, inputs, states) };
+        }
+        let gpu = self.function_compute(function)? == NativeCompute::GpuPreferred;
         // SAFETY: Complete validation precedes native tensor construction. All
         // native argument allocations outlive both child and task completion.
         unsafe {
@@ -1179,12 +1207,18 @@ impl NativeSession {
                     let array = array.take_optional(tensor_md)?.ok_or_else(|| {
                         NativeFailure::Unsupported(format!("output {name} is not NDArray"))
                     })?;
+                    if gpu {
+                        handles::validate_gpu_handle(&self.tensor_handle_info(&array)?)?;
+                    }
                     let tensor = self.read_tensor(&array)?;
                     validate_against(&tensor, descriptor)?;
                     returned.push((name.clone(), tensor));
                 } else if let Some((_, tensor)) =
                     native_output_views.iter().find(|(n, _)| n == name)
                 {
+                    if gpu {
+                        handles::validate_gpu_handle(&self.tensor_handle_info(tensor)?)?;
+                    }
                     let tensor = self.read_tensor(tensor)?;
                     validate_against(&tensor, descriptor)?;
                     returned.push((name.clone(), tensor));
@@ -1207,6 +1241,9 @@ impl NativeSession {
             }
             let mut returned_states = Vec::new();
             for (name, tensor) in &native_states {
+                if gpu {
+                    handles::validate_gpu_handle(&self.tensor_handle_info(tensor)?)?;
+                }
                 returned_states.push((name.clone(), self.read_tensor(tensor)?));
             }
             Ok(NativeRunResult {

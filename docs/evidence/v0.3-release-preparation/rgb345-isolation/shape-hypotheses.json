@@ -1,0 +1,88 @@
+{
+  "native_executed": false,
+  "math_only": true,
+  "rows": [
+    {
+      "N": 124,
+      "shape": [
+        124,
+        1344,
+        768,
+        3
+      ],
+      "logical_rgb_bytes": 1535901696,
+      "hypothetical_16_byte_row_padded_bytes": 2047868928,
+      "hypothetical_64_byte_row_padded_bytes": 8191475712
+    },
+    {
+      "N": 260,
+      "shape": [
+        260,
+        1344,
+        768,
+        3
+      ],
+      "logical_rgb_bytes": 3220439040,
+      "hypothetical_16_byte_row_padded_bytes": 4293918720,
+      "hypothetical_64_byte_row_padded_bytes": 17175674880
+    },
+    {
+      "N": 261,
+      "shape": [
+        261,
+        1344,
+        768,
+        3
+      ],
+      "logical_rgb_bytes": 3232825344,
+      "hypothetical_16_byte_row_padded_bytes": 4310433792,
+      "hypothetical_64_byte_row_padded_bytes": 17241735168
+    },
+    {
+      "N": 345,
+      "shape": [
+        345,
+        1344,
+        768,
+        3
+      ],
+      "logical_rgb_bytes": 4273274880,
+      "hypothetical_16_byte_row_padded_bytes": 5697699840,
+      "hypothetical_64_byte_row_padded_bytes": 22790799360
+    }
+  ],
+  "same_logical_bytes_shape_candidates": [
+    [
+      1068318720
+    ],
+    [
+      345,
+      1344,
+      2304
+    ],
+    [
+      345,
+      3,
+      1344,
+      768
+    ],
+    [
+      1,
+      345,
+      1344,
+      2304
+    ]
+  ],
+  "hypothesis_boundary": "No evidence that this CoreAI x+x uses MPSNDArray16-byte rows or MTLTensorMachineLearning64-byte strides. These are discriminating hypotheses, not observed physical sizes.",
+  "native_imports": {
+    "path": "docs/evidence/v0.3-release-preparation/rgb345-isolation/native-imports.txt",
+    "sha256": "1e69bcb29bccfdd770570c0dcfb989142ceab112a23e9851a8ff55a948c880c5",
+    "command": [
+      "xcrun",
+      "dyld_info",
+      "-imports",
+      "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime"
+    ],
+    "finding": "MTLTensorDescriptor/Extents imports present. No direct MPSNDArray/MPSGraph/MPSImage name found in this import table. Indirect framework usage or statically linked implementations are not excluded."
+  }
+}

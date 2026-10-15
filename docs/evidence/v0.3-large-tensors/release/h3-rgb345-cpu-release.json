@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "case": {
+    "name": "h3-rgb345",
+    "dtype": "float32",
+    "shape": [
+      345,
+      1344,
+      768,
+      3
+    ],
+    "bytes": 4273274880,
+    "asset": "h3-rgb345/model.aimodel"
+  },
+  "compute": "cpu",
+  "profile": "release",
+  "created_utc": "2026-10-15T21:47:13.827899+00:00",
+  "build_manifest_sha256": "3ecebd1708fff3acfac7e639d8e8c3d1b4adf4a54d993aa8277e1adcb50d1ce0",
+  "concurrent_native_processes": 1,
+  "concurrency_scope": "This checker's child processes only; other host workloads are uncontrolled unless separately recorded.",
+  "swift_readback": "Immediate full byte snapshot before block comparison/hash; GPU uses owned stream with pre/post readiness fences",
+  "scope": "Mechanical tensor capacity and x+x arithmetic only; no H3 attention, decoder, temporal chunking or generation equivalence.",
+  "swift_process": {
+    "command": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/target/large-check/swift-oracle",
+      "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "float32",
+      "345,1344,768,3",
+      "cpu",
+      "h3-rgb345",
+      "/private/tmp/corsairs-v03-final-h3-rgb345-cpu/swift.json"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 7.4835833339893725,
+    "timed_out": false,
+    "stdout": "{\"event\":\"allocated\",\"bytes\":4273274880}\n{\"event\":\"double_complete\",\"bytes\":4273274880}\n{\n  \"bytes\" : 4273274880,\n  \"case\" : \"h3-rgb345\",\n  \"chain_sha256\" : \"e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59\",\n  \"compute\" : \"cpu\",\n  \"double_sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n  \"dtype\" : \"float32\",\n  \"execution\" : \"run\",\n  \"input_sha256\" : \"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\n  \"passed\" : true,\n  \"production_helper\" : false,\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+    "stderr": ""
+  },
+  "swift": {
+    "bytes": 4273274880,
+    "case": "h3-rgb345",
+    "chain_sha256": "e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59",
+    "compute": "cpu",
+    "double_sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+    "dtype": "float32",
+    "execution": "run",
+    "input_sha256": "32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af",
+    "passed": true,
+    "production_helper": false,
+    "shape": [
+      345,
+      1344,
+      768,
+      3
+    ]
+  },
+  "rust_process": {
+    "command": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/target/large-check/driver-release",
+      "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "float32",
+      "345,1344,768,3",
+      "cpu"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 63.242319167009555,
+    "timed_out": false,
+    "stdout": "{\"event\":\"begin\",\"bytes\":4273274880,\"compute\":\"cpu\"}\n{\"event\":\"value\",\"label\":\"owned\",\"bytes\":4273274880,\"factor\":2,\"sha256\":\"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"native\",\"bytes\":4273274880,\"factor\":2,\"sha256\":\"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"native-chain\",\"bytes\":4273274880,\"factor\":4,\"sha256\":\"e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"native-after-abandoned\",\"bytes\":4273274880,\"factor\":1,\"sha256\":\"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"metal-bound\",\"bytes\":4273274880,\"factor\":2,\"sha256\":\"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"metal-auto-chain\",\"bytes\":4273274880,\"factor\":4,\"sha256\":\"e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"metal-after-abandoned\",\"bytes\":4273274880,\"factor\":1,\"sha256\":\"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\"passed\":true}\n{\"event\":\"complete\",\"values\":7,\"bytes\":4273274880,\"passed\":true}\n",
+    "stderr": ""
+  },
+  "values": [
+    {
+      "event": "value",
+      "label": "owned",
+      "bytes": 4273274880,
+      "factor": 2,
+      "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "native",
+      "bytes": 4273274880,
+      "factor": 2,
+      "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "native-chain",
+      "bytes": 4273274880,
+      "factor": 4,
+      "sha256": "e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "native-after-abandoned",
+      "bytes": 4273274880,
+      "factor": 1,
+      "sha256": "32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "metal-bound",
+      "bytes": 4273274880,
+      "factor": 2,
+      "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "metal-auto-chain",
+      "bytes": 4273274880,
+      "factor": 4,
+      "sha256": "e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "metal-after-abandoned",
+      "bytes": 4273274880,
+      "factor": 1,
+      "sha256": "32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af",
+      "passed": true
+    }
+  ],
+  "native_validated": true,
+  "child_max_rss_bytes": 25663356928,
+  "rss_scope": "Darwin cumulative completed-child maximum for this fresh checker, including both independent Swift and Rust processes. Not a per-Rust peak, Metal allocation counter or repeated-residency guarantee."
+}

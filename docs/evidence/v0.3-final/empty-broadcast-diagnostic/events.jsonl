@@ -1,0 +1,5 @@
+{"asset":"\/Users\/zakkeown\/Code\/aether\/lab\/corsairs\/fixtures\/parity-v03\/gpu-rejections\/empty-output-over-gpu-limit\/model.aimodel","compute":"cpuOnly","corsairs_linked":false,"event":"start","ordinary_swift_api":true}
+{"event":"model_loaded","functions":["main"]}
+{"dtype":"float32","event":"descriptor","function":"main","input_shape":[0,1],"inputs":["x"],"output_shape":[0,536870913],"outputs":["y"],"states":[]}
+{"event":"input_created","is_float32":true,"logical_bytes":0,"shape":[0,1],"strides":[1,1]}
+{"event":"before_run","execution":"try await function.run(inputs:)"}

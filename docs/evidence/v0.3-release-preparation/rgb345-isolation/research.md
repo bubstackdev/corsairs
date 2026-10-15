@@ -1,0 +1,42 @@
+# Long RGB GPU failure: allocation and input isolation
+
+This investigation compiles diagnostic Swift sources and reads retained evidence. It makes no production changes and launches no native/GPU target; the root agent owns serial execution. [The first manifest](probe-build-manifest.json) and [migration manifest](migration-build-manifest.json) pin separate frozen sources/binaries and account for expected payload memory.
+
+## Observations
+
+1. The [quiet-host immediate Swift run](../../v0.3-large-tensors/immediate-snapshot/h3-rgb345-gpu-preferred-release.json) fails its first output snapshot at block 3160 for F32 `[345,1344,768,3]`, 4,273,274,880 logical bytes. Rust does not execute in that failed gate. The [flat exact-4-GiB case](../../v0.3-large-tensors/immediate-snapshot/limit-f32-gpu-preferred-release.json) passes immediate Swift readback and all seven Rust paths. CPU-only passes the RGB shape. Contention alone and a uniform logical-byte GPU ceiling therefore do not explain the retained results.
+2. Earlier [copy diagnostics](../../v0.3-large-tensors/rgb345-copy-diagnostic.stdout) show exact host input and native upload/download, followed by a changing partial result. That supports outstanding writing/materialization as a hypothesis. A mismatch offset not divisible by four does **not** itself prove a torn F32 store: low zero bytes of an unwritten float can match before its nonzero high byte differs.
+3. The earlier [Metal diagnostic](../../v0.3-large-tensors/diagnostic-sources/results.json) has one exact bound output followed by an automatic-output timeout/GPU errors. It ran in the older contended window. Its bound output is retained by production as `ValueKind::Buffer`, so the second call again uses an explicit MetalBuffer input; it is not an unresolved AsyncValue-input dependency test.
+4. New [isolated child reports](checks.json) exit zero for **buffer→automatic**, **buffer→bound**, and **bound→bound**, including immediate full snapshots, exact hashes at 2× and 4×, and all reported actual-queue fences at completed/status 4 with no error. The [outer REA record](native.json), Evidence `ev_3e14f2f73581fc5978189c758190cb8ba9939b63f591eda051a74fb1dec492a6`, also contains an `EXC_BREAKPOINT` other-stop, despite clean child results. Root is retaining this as diagnostic evidence pending a clean rerun, rather than suppressing that limitation.
+5. The separate [migration children](migration-checks.json) then pass **NDArray→encode automatic** and **ready NDArray→encode chain**, with immediate full 2× hash `d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513` and 4× hash `e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59`. Their [outer REA record](migration-native.json), Evidence `ev_437167bfe9e4e0815097a380d86237498f6f1f8d8e467dd7824c6aef32a890e0`, exits zero and records only SIGSTOP. Every reported queue fence completes without error. This reproduces the failing run's NDArray initialization/pattern while changing inference to an explicitly owned stream with readiness and fences.
+
+The new observations establish working explicit-stream paths for both MetalBuffer and NDArray inputs, including automatic outputs and ready-NDArray chaining. They weaken a universal channel-three indexing overflow, automatic-output-size ceiling, or unavoidable host-NDArray migration defect. The remaining contrast implicates the **run/internal completion path or its interaction with readback**. This does not identify a definitive SDK defect or prove which internal stage remains outstanding.
+
+## Installed contracts and static evidence
+
+The pinned macOS 27 SDK CoreAIRuntime interface provides:
+
+- Line 24: `AsyncValue.init(_ ndArray: consuming NDArray)`; its async throwing `ndArray` getter is at line 31.
+- Lines 41–48: ComputeStream constructed from an application command queue and `currentWorkCompleted()`.
+- Lines 59–67: explicit-buffer AsyncMutableValue construction and consuming async throwing readiness.
+- Lines 94–102: encode on a supplied stream and the two async run overloads.
+
+The exact constructor lowering is retained in [the original compiler assembly](../../v0.2-metal-proof/metal.s) at `arrayInput` and [SIL](../../v0.2-metal-proof/metal.sil): `$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAeA7NDArrayVcfC` consumes NDArray storage in x0, takes class metadata in x20, and returns an owned object in x0. The [prior view/continuation audit](../../v0.3-large-tensors/view-contracts/README.md) found full-width counts and shared asynchronous completion helpers for both run overloads. It did not establish that every internal GPU or materialization stage is covered by that completion point.
+
+Official API references: [encode](https://developer.apple.com/documentation/coreai/inferencefunction/encode(inputs:states:outputviews:to:)), [ComputeStream](https://developer.apple.com/documentation/coreai/computestream), [Metal tensor strides](https://developer.apple.com/documentation/metal/mtltensordescriptor/strides), [MPSNDArray](https://developer.apple.com/documentation/metalperformanceshaders/mpsndarray). The SDK/header paths and hashes, rather than JavaScript-only documentation rendering, support the static details below.
+
+## Shape/padding hypothesis: useful test, unproven implementation
+
+The installed MPSNDArray header, lines 198–229, describes a potentially padded innermost row, generally aligned to 16 bytes. If that representation were used for RGB F32 rows, C=3 could occupy four floats. That hypothetical physical size is 5,697,699,840 bytes for N=345 and 2,047,868,928 for N=124. N=260 and N=261 straddle 4 GiB in that hypothetical representation. [shape-hypotheses.json](shape-hypotheses.json) records the exact arithmetic and equal-logical-byte flattened/NCHW controls.
+
+There is **no evidence that this CoreAI graph uses that MPS representation**. Its retained [direct import table](native-imports.txt) includes MTLTensorDescriptor/Extents and no direct MPSNDArray/MPSGraph import; indirect usage remains possible. Metal's installed MTLTensor header instead requires a 64-byte second stride for the MachineLearning usage option (lines 240–258). That is conditional and also does not establish CoreAI's selected layout. Both tested logical F32 element counts are below the MPS descriptor's documented `2**31` element bound. No general byte limit follows from these headers.
+
+## Next discriminator and release strategy
+
+The frozen migration probe adds **NDArray→encode automatic**, matching the failing run oracle's NDArray allocation, mutableRawView fill and complete input verification, while keeping the passing probe's explicit stream, fences, throwing readiness and immediate snapshot. Its optional chain consumes a retained ready first NDArray into a new AsyncValue and checks 4×. Root executed both modes in fresh processes, with the passing results above. The binaries and source pins remain unchanged.
+
+- The observed NDArray→encode pass supports a session-owned queue/stream encode route as a production repair candidate. Keep actual stream completion, throwing readiness, **a second actual stream/queue fence after readiness**, and native lifetimes. [The integration assessment](internal-design.md) separates this from the existing run path.
+- Current `metal_encode` fences after encoding but before readiness; it does not yet perform that second fence. Reusing it therefore requires this addition on success and on readiness/metadata-validation failure paths before dependent resources are released.
+- Equal-byte flattened/NCHW controls and N=260/261 RGB remain optional investigation of the failing run implementation; they are no longer prerequisites for qualifying the demonstrated explicit-stream repair. No physical padding claim is established.
+
+A shape-specific rejection or blanket 4-GiB GPU guarantee would be premature. If no corrected execution path is qualified, a defensible narrower release keeps enlarged storage/CPU capacity separate from the existing GPU execution envelope and rejects unsupported GPU requests **before dispatch**. A guard must cover inputs, states and resolved output descriptors; unknown dynamic output bounds cannot be safely inferred from small inputs or rejected only after a dangerous execution. This is a release-policy fallback, not a discovered backend limit. Successful mechanical x+x does not qualify arbitrary H3 decoder internals or complete-generation memory residency.

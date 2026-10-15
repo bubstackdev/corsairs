@@ -6,7 +6,10 @@
 //! pending work survives a dropped future.
 //! Supports static and dynamic signatures and owned contiguous float16,
 //! bfloat16, float32, int32, int64, and bool tensors, with rank at most 64 and
-//! storage at most 4 GiB per tensor. GPU preference permits native fallback.
+//! storage at most 4 GiB per tensor. GPU-preferred inference accepts at most
+//! 2 GiB per concrete tensor and referenced storage span; dynamic results are
+//! checked after completion. Stateful owned/native GPU calls require fixed
+//! signatures within 1 GiB. GPU preference permits native fallback.
 //!
 //! ```no_run
 //! use corsairs::{Runtime, Compute, Tensor, TensorMap};
@@ -33,7 +36,8 @@ mod worker;
 
 pub use api_error::Error;
 pub use dtype::{
-    BFloat16, DType, Float16, MAX_TENSOR_BYTES, MAX_TENSOR_RANK, Tensor, TensorElement,
+    BFloat16, DType, Float16, MAX_GPU_INFERENCE_TENSOR_BYTES, MAX_TENSOR_BYTES, MAX_TENSOR_RANK,
+    Tensor, TensorElement,
 };
 #[cfg(feature = "abi-research")]
 pub use facade::FunctionBatchLoadReport;

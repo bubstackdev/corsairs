@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-15T21:06:24.580006+00:00",
+  "source_frozen": true,
+  "native_executed_by_research_agent": false,
+  "production_modified": false,
+  "source": {
+    "path": "experiments/swift/LargeOutputIsolation.swift",
+    "sha256": "41bbfea0b5ee8335398b91e0ca61812c027d50ab295d42f760af7101022149e3",
+    "bytes": 11552
+  },
+  "binary": {
+    "path": "target/rgb345-isolation/probe",
+    "sha256": "c68d83d7d5a1f2623e4c875fc9fa477f006ebda3d7ba8663bf447ef6e813f2fc",
+    "bytes": 140600
+  },
+  "compile_command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-O",
+    "-warnings-as-errors",
+    "-module-cache-path",
+    "target/rgb345-isolation/module-cache",
+    "experiments/swift/LargeOutputIsolation.swift",
+    "-o",
+    "target/rgb345-isolation/probe"
+  ],
+  "compile_exit_status": 0,
+  "sdk": {
+    "path": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface",
+    "sha256": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd",
+    "bytes": 63831
+  },
+  "supporting_headers": [
+    {
+      "path": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLTensor.h",
+      "sha256": "6eb530b64f80c91da1715ac3e4e93c77fae26a68eeeebd79f7d66b68d12b982b",
+      "bytes": 24574
+    },
+    {
+      "path": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/Headers/MPSNDArray.h",
+      "sha256": "def688e117d738abd495fd824cabba5628f3a4eac9e70b728d102e0fb370a909",
+      "bytes": 35652
+    }
+  ],
+  "root_serial_execution": {
+    "modes": [
+      "auto",
+      "bound",
+      "bound-chain"
+    ],
+    "argv_template": [
+      "target/rgb345-isolation/probe",
+      "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "345,1344,768,3",
+      "MODE",
+      "REPORT"
+    ],
+    "fresh_process_per_mode": true,
+    "recommended_external_timeout_seconds": 90,
+    "timeout_meaning": "Failed/incomplete observation; retain all phase events and stderr, never mark a timeout as pass."
+  },
+  "completion_contract": "Application-owned queue and ComputeStream; currentWorkCompleted + empty actual-queue command buffer wait before/after throwing ndArray readiness; no sleeps. Empty fence error/status describes itself, not every internal CoreAI command.",
+  "modes": {
+    "auto": {
+      "input": "original owned shared MTLBuffer",
+      "output": "fresh automatic AsyncValue",
+      "snapshot": "ready NDArray rawView immediate Data copy",
+      "factor": 2,
+      "application_buffer_bytes": 4273274880,
+      "snapshot_bytes": 4273274880,
+      "minimum_including_logical_output_bytes": 12819824640
+    },
+    "bound": {
+      "input": "original owned shared MTLBuffer",
+      "output": "fresh explicit shared MTLBuffer",
+      "snapshot": "actual explicit MTLBuffer contents immediate Data copy",
+      "factor": 2,
+      "application_buffer_bytes": 8546549760,
+      "snapshot_bytes": 4273274880,
+      "accounted_peak_bytes": 12819824640
+    },
+    "bound-chain": {
+      "input": "original owned shared MTLBuffer -> first explicit buffer -> distinct second explicit buffer",
+      "output": "explicit shared MTLBuffer on both calls",
+      "snapshot": "each actual bound buffer, immediately after completion/readiness",
+      "factors": [
+        2,
+        4
+      ],
+      "application_buffer_bytes_peak": 12819824640,
+      "one_snapshot_bytes": 4273274880,
+      "accounted_peak_bytes": 17093099520
+    }
+  },
+  "memory_limitations": "These are accounted logical/application payloads, not peak RSS or GPU allocation guarantees. Runtime specialization, physical padding, residency, automatic output backing/host materialization and allocator overhead are unknown; actual memory can be higher. First snapshot is out of scope before second bound allocation/call.",
+  "validation": "Exact all-byte finite nonzero pattern v2 and full SHA256; checks ready NDArray shape,dtype,row-major strides. Bound readback tests the actual application buffer, avoiding replacement-allocation ambiguity. First compile failed borrowed capture in metadata condition; split into local getter values, final compile exit0; no execution occurred.",
+  "test_scope": "x+x mechanical allocation/chaining isolation only. GPU-preferred is not a claim all operations execute exclusively on GPU."
+}

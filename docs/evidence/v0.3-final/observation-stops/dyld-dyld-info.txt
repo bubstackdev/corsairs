@@ -1,0 +1,79 @@
+/usr/lib/dyld [x86_64]:
+    -segments:
+        load-offset   segment  section       sect-size  seg-size   init/max-prot
+        0x00000000    __TEXT                               700KB    r.x/r.x
+        0x00001000             __text           612464
+        0x00096880             __const            8280
+        0x000988E0             __cstring         72148
+        0x000AA2C0             __info_plist       1251
+        0x000AA7A4             __unwind_info      8592
+        0x000AC938             __eh_frame         8904
+        0x000AF000    __DATA_CONST                          32KB    rw./rw.
+        0x000AF000             __const           31376
+        0x000B6A90             __got                24
+        0x000B7000    __DATA                               136KB    rw./rw.
+        0x000B7000             __data              456
+        0x000B71C8             __crash_info        328
+        0x000B7340             __common           2288
+        0x000B7C30             __bss            132560
+        0x000D9000    __DATA_DIRTY                          16KB    rw./rw.
+        0x000D9000             __all_image_info    368
+        0x000D9170             __data             7176
+        0x000DAD80             __common           6544
+        0x000DC710             __bss               168
+        0x000DD000    __TPRO_CONST                           4KB    rw./rw.
+        0x000DD000             __data                8
+/usr/lib/dyld [arm64e]:
+    -segments:
+        load-offset   segment  section       sect-size  seg-size   init/max-prot
+        0x00000000    __TEXT                               768KB    r.x/r.x
+        0x00001000             __text           678548
+        0x000A6AA0             __const            6712
+        0x000A84D8             __cstring         80006
+        0x000BBD5E             __info_plist       1251
+        0x000BC244             __unwind_info     13472
+        0x000C0000    __DATA_CONST                          16KB    rw./rw.
+        0x000C0000             __const           11216
+        0x000C4000    __AUTH_CONST                          32KB    rw./rw.
+        0x000C4000             __const           25360
+        0x000CA310             __auth_ptr          152
+        0x000CC000    __DATA                                16KB    rw./rw.
+        0x000CC000             __data              456
+        0x000CC1C8             __crash_info        328
+        0x000CC340             __common           2288
+        0x000CCC30             __bss              1304
+        0x000D0000    __DATA_DIRTY                          16KB    rw./rw.
+        0x000D0000             __data             7200
+        0x000D1C20             __all_image_info    368
+        0x000D1DC0             __common           6528
+        0x000D3740             __bss                72
+        0x000D4000    __TPRO_CONST                         144KB    rw./rw.
+        0x000D4000             __data              225
+        0x000D40F0             __allocator      131072
+/usr/lib/dyld [arm64e.x1]:
+    -segments:
+        load-offset   segment  section       sect-size  seg-size   init/max-prot
+        0x00000000    __TEXT                               752KB    r.x/r.x
+        0x00001000             __text           659144
+        0x000A1ED0             __const            6712
+        0x000A3908             __cstring         80006
+        0x000B718E             __info_plist       1251
+        0x000B7674             __unwind_info     13688
+        0x000BC000    __DATA_CONST                          16KB    rw./rw.
+        0x000BC000             __const           11216
+        0x000C0000    __AUTH_CONST                          32KB    rw./rw.
+        0x000C0000             __const           25360
+        0x000C6310             __auth_ptr          152
+        0x000C8000    __DATA                                16KB    rw./rw.
+        0x000C8000             __data              456
+        0x000C81C8             __crash_info        328
+        0x000C8340             __common           2288
+        0x000C8C30             __bss              1304
+        0x000CC000    __DATA_DIRTY                          16KB    rw./rw.
+        0x000CC000             __data             7200
+        0x000CDC20             __all_image_info    368
+        0x000CDDC0             __common           6528
+        0x000CF740             __bss                72
+        0x000D0000    __TPRO_CONST                         144KB    rw./rw.
+        0x000D0000             __data              225
+        0x000D00F0             __allocator      131072

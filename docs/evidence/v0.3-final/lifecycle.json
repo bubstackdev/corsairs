@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "started_utc": "2026-10-15T21:36:25.260906+00:00",
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/native_metadata-e3ff23875f78f873",
+        "--include-ignored",
+        "--test-threads=1"
+      ],
+      "status": 0,
+      "timed_out": false,
+      "stdout": "\nrunning 2 tests\ntest missing_symbol_is_an_error_without_invocation ... ok\ntest repeated_metadata_has_canonical_identity ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/corsairs_lab-5c2e49415dff255b",
+        "--include-ignored",
+        "--test-threads=1"
+      ],
+      "status": 0,
+      "timed_out": false,
+      "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/corsairs-a3938abfdd5b6b44",
+        "--include-ignored",
+        "--test-threads=1"
+      ],
+      "status": 0,
+      "timed_out": false,
+      "stdout": "\nrunning 1 test\ntest tests::reshape_override_requires_an_explicit_boolean ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/corsairs-2b3940b308f8e5b3",
+        "--include-ignored",
+        "--test-threads=1"
+      ],
+      "status": 0,
+      "timed_out": false,
+      "stdout": "\nrunning 47 tests\ntest dtype::tests::bfloat16_all_encodings_widen_and_roundtrip_exactly ... ok\ntest dtype::tests::bfloat16_rounds_ties_boundaries_and_keeps_nan_class ... ok\ntest dtype::tests::half_exhaustive_bit_roundtrip ... ok\ntest dtype::tests::half_ieee_boundaries_and_ties ... ok\ntest dtype::tests::large_tensor_capacity_and_overflow_are_checked_without_allocating ... ok\ntest dtype::tests::scalar_and_empty_shapes_have_consistent_counts ... ok\ntest dtype::tests::tensor_rejects_invalid_storage_before_native_calls ... ok\ntest facade::batch::tests::native_batch_joins_errors_and_releases_dropped_future_models ... ok\ntest facade::function_batch::tests::native_function_batch_join_and_drop_cleanup ... ok\ntest facade::handles::tests::native_gpu_stream_reuses_queue_and_drains_private_handles ... ok\ntest facade::handles::tests::native_handles_retain_chain_and_release_abandoned_results ... ok\ntest facade::metal::tests::native_metal_import_reuse_abandoned_futures_and_cleanup ... ok\ntest facade::metal::tests::public_metal_handles_and_jobs_are_send_sync ... ok\ntest facade::tests::load_options_preserve_defaults_and_explicit_false ... ok\ntest facade::tests::mixed_fixed_and_dynamic_dimensions_validate_concrete_tensors ... ok\ntest facade::tests::native_dropped_futures_release_model_and_function_handles ... ok\ntest facade::tests::public_handles_and_owned_results_are_send_sync ... ok\ntest facade::tests::signatures_reject_names_dtype_and_shape_before_execution ... ok\ntest native::loader::tests::concurrent_first_lookups_resolve_once ... ok\ntest native::loader::tests::owns_names_and_keys_by_content ... ok\ntest native::loader::tests::retries_failed_resolutions ... ok\ntest native::owned::dynamic_signature_tests::dynamic_dimensions_accept_concrete_calls_without_relaxing_fixed_dimensions ... ok\ntest native::owned::dynamic_signature_tests::native_empty_storage_keeps_the_nonzero_dimension_guard ... ok\ntest native::owned::handles::tests::contiguous_copy_distinguishes_transpose_padding_and_broadcast ... ok\ntest native::owned::handles::tests::gpu_referenced_span_is_bounded_independently_of_packed_bytes ... ok\ntest native::owned::handles::tests::handles_scalar_empty_and_rejects_bad_extents ... ok\ntest native::owned::handles::tests::offsets_are_bytes_for_multibyte_elements ... ok\ntest native::owned::handles::tests::packs_padding_transpose_and_broadcast ... ok\ntest native::owned::handles::tests::strided_extents_cross_gib_boundaries_but_stop_at_the_shared_limit ... ok\ntest native::owned::handles::tests::unrelated_inference_outputs_remain_possible_aliases ... ok\ntest native::owned::metal::tests::aliases_share_object_origin_and_check_only_overlapping_bytes ... ok\ntest native::owned::metal::tests::large_metal_extents_use_the_shared_tensor_boundary ... ok\ntest native::owned::metal::tests::metal_storage_counts_cover_scalar_empty_and_limits ... ok\ntest native::owned::run_stream::tests::gpu_inference_boundary_covers_all_widths_and_empty_overflow_without_allocating ... ok\ntest native::owned::run_stream::tests::gpu_stateless_calls_use_stream_even_for_dynamic_outputs ... ok\ntest native::owned::run_stream::tests::stateful_gpu_preserves_fixed_envelope_and_rejects_unbounded_dispatch ... ok\ntest worker::tests::abandoned_drain_still_executes_cleanup ... ok\ntest worker::tests::drain_defers_later_work_without_releasing_held_results ... ok\ntest worker::tests::drain_does_not_wait_for_new_work_ahead_of_causal_cleanup ... ok\ntest worker::tests::drain_includes_abandoned_results_and_error_capture_release_cascades ... ok\ntest worker::tests::drain_includes_cleanup_from_completion_callbacks ... ok\ntest worker::tests::dropping_future_does_not_release_running_request ... ok\ntest worker::tests::panicked_worker_resolves_queued_and_later_requests ... ok\ntest worker::tests::panicking_drain_waker_resolves_queued_and_later_requests ... ok\ntest worker::tests::reentrant_waker_cannot_block_its_worker ... ok\ntest worker::tests::reentrant_waker_cannot_wait_for_a_drain ... ok\ntest worker::tests::worker_keeps_non_send_state_on_its_own_thread ... ok\n\ntest result: ok. 47 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s\n\n",
+      "stderr": ""
+    }
+  ],
+  "manifest_sha256": "c200cc584e3a24fbac09437358191f1bc8e61d787d01aa7c3e04144d6c5e1712"
+}

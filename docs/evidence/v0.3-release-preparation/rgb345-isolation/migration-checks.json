@@ -1,0 +1,87 @@
+{
+  "started_utc": "2026-10-15T21:09:53.505691+00:00",
+  "build_manifest_sha256": "a8d8af72e9dbabbef0756dfb470ae063fda0516b721a36e67c8e275d42b595c6",
+  "controller_sha256": "27c96634bca65ce03b674432570406529818f63d01a09c56447ad0f33b21e80a",
+  "modes": {
+    "ndarray-auto": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/rgb345-isolation/migration-probe",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+        "345,1344,768,3",
+        "ndarray-auto",
+        "/private/tmp/corsairs-v03-rgb345-migration/ndarray-auto.json"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "stdout": "{\"bytes\":4273274880,\"device\":\"Apple M5 Max\",\"event\":\"input_verified\",\"input_sha256\":\"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\"maxBufferLength\":41747087360,\"mode\":\"ndarray-auto\",\"pattern_version\":2,\"shape\":[345,1344,768,3]}\n{\"event\":\"encode_begin\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"encode_returned\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"stream_complete\",\"label\":\"ndarray-auto-first-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"ndarray-auto-first-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"stream_complete\",\"label\":\"ndarray-auto-first-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"ndarray-auto-first-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"stream_complete\",\"label\":\"final\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"final\",\"status\":4}\n{\n  \"bytes\" : 4273274880,\n  \"compute\" : \"gpu-preferred\",\n  \"fence_limit\" : \"empty command status describes this queue fence, not every internal CoreAI command buffer\",\n  \"input_sha256\" : \"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\n  \"mode\" : \"ndarray-auto\",\n  \"passed\" : true,\n  \"pattern_version\" : 2,\n  \"results\" : [\n    {\n      \"factor\" : 2,\n      \"label\" : \"ndarray-auto-first\",\n      \"sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n      \"snapshot_source\" : \"ready NDArray rawView, immediate full Data copy\"\n    }\n  ],\n  \"scope\" : \"mechanical x+x NDArray input\\/migration isolation; no H3 generation qualification\",\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+      "stderr": "",
+      "report": {
+        "bytes": 4273274880,
+        "compute": "gpu-preferred",
+        "fence_limit": "empty command status describes this queue fence, not every internal CoreAI command buffer",
+        "input_sha256": "32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af",
+        "mode": "ndarray-auto",
+        "passed": true,
+        "pattern_version": 2,
+        "results": [
+          {
+            "factor": 2,
+            "label": "ndarray-auto-first",
+            "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+            "snapshot_source": "ready NDArray rawView, immediate full Data copy"
+          }
+        ],
+        "scope": "mechanical x+x NDArray input/migration isolation; no H3 generation qualification",
+        "shape": [
+          345,
+          1344,
+          768,
+          3
+        ]
+      }
+    },
+    "ndarray-chain": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/rgb345-isolation/migration-probe",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+        "345,1344,768,3",
+        "ndarray-chain",
+        "/private/tmp/corsairs-v03-rgb345-migration/ndarray-chain.json"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "stdout": "{\"bytes\":4273274880,\"device\":\"Apple M5 Max\",\"event\":\"input_verified\",\"input_sha256\":\"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\"maxBufferLength\":41747087360,\"mode\":\"ndarray-chain\",\"pattern_version\":2,\"shape\":[345,1344,768,3]}\n{\"event\":\"encode_begin\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"encode_returned\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"stream_complete\",\"label\":\"ndarray-auto-first-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"ndarray-auto-first-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"stream_complete\",\"label\":\"ndarray-auto-first-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"ndarray-auto-first-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"ndarray-auto-first\"}\n{\"event\":\"encode_begin\",\"label\":\"ndarray-auto-second\"}\n{\"event\":\"encode_returned\",\"label\":\"ndarray-auto-second\"}\n{\"event\":\"stream_complete\",\"label\":\"ndarray-auto-second-before-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"ndarray-auto-second-before-readiness\",\"status\":4}\n{\"event\":\"throwing_readiness_complete\",\"label\":\"ndarray-auto-second\"}\n{\"event\":\"stream_complete\",\"label\":\"ndarray-auto-second-after-readiness\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"ndarray-auto-second-after-readiness\",\"status\":4}\n{\"bytes\":4273274880,\"event\":\"snapshot_complete\",\"label\":\"ndarray-auto-second\"}\n{\"event\":\"stream_complete\",\"label\":\"final\"}\n{\"error\":null,\"event\":\"queue_fence\",\"label\":\"final\",\"status\":4}\n{\n  \"bytes\" : 4273274880,\n  \"compute\" : \"gpu-preferred\",\n  \"fence_limit\" : \"empty command status describes this queue fence, not every internal CoreAI command buffer\",\n  \"input_sha256\" : \"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\n  \"mode\" : \"ndarray-chain\",\n  \"passed\" : true,\n  \"pattern_version\" : 2,\n  \"results\" : [\n    {\n      \"factor\" : 2,\n      \"label\" : \"ndarray-auto-first\",\n      \"sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n      \"snapshot_source\" : \"ready NDArray rawView, immediate full Data copy\"\n    },\n    {\n      \"factor\" : 4,\n      \"label\" : \"ndarray-auto-second\",\n      \"sha256\" : \"e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59\",\n      \"snapshot_source\" : \"ready NDArray rawView, immediate full Data copy\"\n    }\n  ],\n  \"scope\" : \"mechanical x+x NDArray input\\/migration isolation; no H3 generation qualification\",\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+      "stderr": "",
+      "report": {
+        "bytes": 4273274880,
+        "compute": "gpu-preferred",
+        "fence_limit": "empty command status describes this queue fence, not every internal CoreAI command buffer",
+        "input_sha256": "32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af",
+        "mode": "ndarray-chain",
+        "passed": true,
+        "pattern_version": 2,
+        "results": [
+          {
+            "factor": 2,
+            "label": "ndarray-auto-first",
+            "sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+            "snapshot_source": "ready NDArray rawView, immediate full Data copy"
+          },
+          {
+            "factor": 4,
+            "label": "ndarray-auto-second",
+            "sha256": "e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59",
+            "snapshot_source": "ready NDArray rawView, immediate full Data copy"
+          }
+        ],
+        "scope": "mechanical x+x NDArray input/migration isolation; no H3 generation qualification",
+        "shape": [
+          345,
+          1344,
+          768,
+          3
+        ]
+      }
+    }
+  }
+}

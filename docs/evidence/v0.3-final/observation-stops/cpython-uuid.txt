@@ -1,0 +1,1 @@
+UUID: 4C4C4443-5555-3144-A1DF-64FEFA96526F (arm64) /Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12

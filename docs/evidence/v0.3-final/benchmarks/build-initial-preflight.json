@@ -1,0 +1,299 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-10-15T21:42:18.700623+00:00",
+  "native_executed": false,
+  "frozen": {
+    "qualify_manifest_sha256": "c200cc584e3a24fbac09437358191f1bc8e61d787d01aa7c3e04144d6c5e1712",
+    "production_sources": {
+      "Cargo.lock": "92c56e65e2d49a5218901003d954b9e237d9124ed1ab677dff8df7305b6876b3",
+      "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+      "crates/corsairs-abi/Cargo.toml": "a76e3c4aa379ec9af576356ca60917a47be7819428047eadee9a6a8d87f80eb2",
+      "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+      "crates/corsairs-abi/examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+      "crates/corsairs-abi/examples/native_chain.rs": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+      "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+      "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+      "crates/corsairs-abi/src/bin/corsairs.rs": "5254e992ac8bce53fab0a97df765f2a883ef1900a64bd8b4cb252fdf8f02754e",
+      "crates/corsairs-abi/src/dtype.rs": "5b1d11dfad12328f97a05bb5f02480d88552920db301473ce37700888dc877d4",
+      "crates/corsairs-abi/src/facade/batch.rs": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+      "crates/corsairs-abi/src/facade/function_batch.rs": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+      "crates/corsairs-abi/src/facade/handles.rs": "7ab9239624bb2e08cb2ee6c48ba19cc84c80666358b815eb4e1b786016072652",
+      "crates/corsairs-abi/src/facade/metal.rs": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+      "crates/corsairs-abi/src/facade.rs": "c683a4ed948d4e80a745980681eee1849733c673d95f5bb50d031a681a3c29a7",
+      "crates/corsairs-abi/src/lib.rs": "abae96212730cb19259ce3f2bb4a33e714172aa7ec30fe8585ccfc90e0846593",
+      "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+      "crates/corsairs-abi/src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+      "crates/corsairs-abi/src/native/async_task/sync_call.rs": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+      "crates/corsairs-abi/src/native/async_task.rs": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+      "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+      "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+      "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+      "crates/corsairs-abi/src/native/loader.rs": "5ab928127646ee2ef9aea3f698ad3fc0da8df344a74506d3752f44296f6df3da",
+      "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+      "crates/corsairs-abi/src/native/mod.rs": "86f9dd79b5fe8e26070f74a0c9e06783125d6db3d96dc44ab4e1945201be5819",
+      "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+      "crates/corsairs-abi/src/native/owned/batch.rs": "afed7d4c972bcb2abad7f56f2926d536c84b76649f028de0812c3d321d137e44",
+      "crates/corsairs-abi/src/native/owned/function_batch.rs": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+      "crates/corsairs-abi/src/native/owned/handles.rs": "f593c3e7c946c5a2e59d6519b8dee5b528b80fa628ff2de46cc41493452e59b7",
+      "crates/corsairs-abi/src/native/owned/metal.rs": "e2ac48cb571f5bb69da31ce8faf38eb2df54f9859100877bcbfcd073770f31c4",
+      "crates/corsairs-abi/src/native/owned/run_stream.rs": "c5867088ad087b1811e915d556b946f26c9fcb0897cf9ec8f35b6e8ad81c22bd",
+      "crates/corsairs-abi/src/native/owned.rs": "c4cd3290b62430c32783305c8ac7297beddafc4998e05e843a02457031b9e527",
+      "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+      "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+      "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+      "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+      "crates/corsairs-abi/src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+      "crates/corsairs-abi/src/worker.rs": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
+      "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+      "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+      "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+      "scripts/qualify_v03.py": "3ba44bf57cc98f44fbe6cae14b8df96ee9251ad36520f5a4eb5c4cc60705556c"
+    },
+    "files": {
+      "scripts/benchmark_final_v03.py": "5504f6b8c08eaae3916a46b822bc3744bcde3402e172d39d51140de9a17032f2",
+      "scripts/reference/benchmark_v03.py": "4b2abe152fc91060711a967ce8a28ccb880ce7aacdd903b75c047dd230b1a9e5",
+      "scripts/reference/environment.py": "6851634c107ff5c65dadb5d28064fda70e82537809011eef6d40eb6fd0b61447",
+      "experiments/rust/benchmark_v03.rs": "85ca275cef182433f0e6c1ebc7dc07d5948196baea092d7d3295b6c244f1760d",
+      "target/qualify-v03/manifest.json": "c200cc584e3a24fbac09437358191f1bc8e61d787d01aa7c3e04144d6c5e1712",
+      "target/qualify-v03/benchmark": "8cbe145d797d6e766e6113adee78c632ec0ccb29f41b1e0dc7515e06acf251a6",
+      "target/large-check/cargo/release/libcorsairs.rlib": "6462eb35ad926df40b2408d30768fab85d08bde846465907c376a3ce34ba3267"
+    }
+  },
+  "environment": {
+    "python_executable": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+    "python_executable_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+    "python_version": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "reference_identity": {
+      "coreai_core": "1.0.0b3",
+      "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+      "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+      "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+      "executable": "/Users/zakkeown/.local/bin/python3.12",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "ml-dtypes": "0.6.0",
+        "pillow": "12.3.0",
+        "typing-extensions": "4.16.0",
+        "yuvio": "1.6",
+        "psutil": "7.2.2"
+      },
+      "package_roots": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+        "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+        "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+        "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+        "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+        "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+        "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+      ]
+    },
+    "distributions": {
+      "coreai-core": {
+        "version": "1.0.0b3",
+        "root": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+        "record": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai_core-1.0.0b3.dist-info/RECORD",
+        "record_sha256": "1d49ab5b20da41f4128bcd08b8b5ec06570bcb8e2b8b5b6e76e019d6bc038e26",
+        "verified_hashed_payloads": 85,
+        "verified_payloads_aggregate_sha256": "9bcb6d5a455c0dac99279517b21d22a50779fb80046238eb3ae8de22da4b7fdb",
+        "missing_external_cli_entrypoints": []
+      },
+      "numpy": {
+        "version": "2.3.5",
+        "root": "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+        "record": "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33/numpy-2.3.5.dist-info/RECORD",
+        "record_sha256": "35d1c23dce4fa1c5e7bbc80810bcf292a83c50505a9103421064ee0c840db717",
+        "verified_hashed_payloads": 896,
+        "verified_payloads_aggregate_sha256": "921ecd44e4e7a2ecaf3471ca5f738ae3a9c077ad1983748b20570312bfbc39dc",
+        "missing_external_cli_entrypoints": []
+      },
+      "ml_dtypes": {
+        "version": "0.6.0",
+        "root": "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+        "record": "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG/ml_dtypes-0.6.0.dist-info/RECORD",
+        "record_sha256": "5c6c705e009b25f04a408dd9b65866df40bead5f58d8be5f97bfd89f0c783cd2",
+        "verified_hashed_payloads": 9,
+        "verified_payloads_aggregate_sha256": "cce6005b1673a3a372587c98f501001cd0edabf327a6606b8ef1b37693152b56",
+        "missing_external_cli_entrypoints": []
+      },
+      "typing_extensions": {
+        "version": "4.16.0",
+        "root": "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+        "record": "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx/typing_extensions-4.16.0.dist-info/RECORD",
+        "record_sha256": "44dcf97810bea7b84bcd83890b6674bbcc2f4c5ef899a4887f15d524bdf6bb97",
+        "verified_hashed_payloads": 4,
+        "verified_payloads_aggregate_sha256": "e5d26fe9136f351cfa4bb870137917ec72bc48f983d8c1539bec9858264365dd",
+        "missing_external_cli_entrypoints": []
+      },
+      "pillow": {
+        "version": "12.3.0",
+        "root": "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+        "record": "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew/pillow-12.3.0.dist-info/RECORD",
+        "record_sha256": "8eb8a737461ae19bbad47193386c8311392c93e87108bbdd8d20d8fcaef5c6a5",
+        "verified_hashed_payloads": 138,
+        "verified_payloads_aggregate_sha256": "3301ef121b5d47663b12cc93a9e831c4e3f5c3df467020d45d9fe937700b74fa",
+        "missing_external_cli_entrypoints": []
+      },
+      "yuvio": {
+        "version": "1.6",
+        "root": "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+        "record": "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w/yuvio-1.6.dist-info/RECORD",
+        "record_sha256": "0f4e0f0e5018793ee5d28e13cb1b620e1cf401bf977d462e1b314be10f29d198",
+        "verified_hashed_payloads": 23,
+        "verified_payloads_aggregate_sha256": "d7553085f7fa756eda2e4ef43cb0795484444a3ee27b78a4ad45ecd87410f154",
+        "missing_external_cli_entrypoints": []
+      },
+      "psutil": {
+        "version": "7.2.2",
+        "root": "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g",
+        "record": "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g/psutil-7.2.2.dist-info/RECORD",
+        "record_sha256": "f7f7d239fd0bd713c722f24875c1f8217947e8c576dfda94621e9fa6b7ab4541",
+        "verified_hashed_payloads": 15,
+        "verified_payloads_aggregate_sha256": "aaaafc6b22cc8de7066e22f9b826c73bfcd3111c3c44c7623a2be17ea4dee6e7",
+        "missing_external_cli_entrypoints": []
+      }
+    },
+    "scope": "Version/RECORD plus every available hashed payload verified without native imports; only missing external CLI entrypoints may be excluded."
+  },
+  "cases": [
+    {
+      "case": {
+        "schema": 1,
+        "name": "feedforward",
+        "model": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel",
+        "function": "main",
+        "compute": "cpu",
+        "expect_frequent_reshapes": null,
+        "warmup": 10,
+        "samples": 100,
+        "inputs": [
+          {
+            "file": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/x.bin",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32",
+            "strides": [
+              3,
+              1
+            ],
+            "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+            "name": "x"
+          }
+        ],
+        "outputs": [
+          {
+            "file": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/goldens/cpu/feedforward/step0-outputs-y.bin",
+            "dtype": "float32",
+            "shape": [
+              2,
+              2
+            ],
+            "strides": [
+              2,
+              1
+            ],
+            "sha256": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+            "name": "y"
+          }
+        ],
+        "source_suite_sha256": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+        "backend_goldens_sha256": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+      },
+      "case_file": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/cases/feedforward-cpu.json",
+      "case_file_sha256": "150cc5e32e335976f8d630572f651b1ec486e8d80cbe00278c4d722bee3350f1",
+      "model_main_mlirb_sha256": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+      "files": {
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/goldens/cpu/feedforward/step0-outputs-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/suite.json": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/backend-goldens.json": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+      }
+    },
+    {
+      "case": {
+        "schema": 1,
+        "name": "feedforward",
+        "model": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel",
+        "function": "main",
+        "compute": "gpu-preferred",
+        "expect_frequent_reshapes": null,
+        "warmup": 10,
+        "samples": 100,
+        "inputs": [
+          {
+            "file": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/x.bin",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32",
+            "strides": [
+              3,
+              1
+            ],
+            "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+            "name": "x"
+          }
+        ],
+        "outputs": [
+          {
+            "file": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/goldens/gpu-preferred/feedforward/step0-outputs-y.bin",
+            "dtype": "float32",
+            "shape": [
+              2,
+              2
+            ],
+            "strides": [
+              2,
+              1
+            ],
+            "sha256": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+            "name": "y"
+          }
+        ],
+        "source_suite_sha256": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+        "backend_goldens_sha256": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+      },
+      "case_file": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/cases/feedforward-gpu-preferred.json",
+      "case_file_sha256": "937730be2b663a423140019a318f3b58f4d42a329430fb2c401c05fe946eedb1",
+      "model_main_mlirb_sha256": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+      "files": {
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/feedforward/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/goldens/gpu-preferred/feedforward/step0-outputs-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/suite.json": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/backend-goldens.json": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+      }
+    }
+  ],
+  "warmup": 10,
+  "samples": 100,
+  "phases": [
+    "owned_run",
+    "native_run_download"
+  ],
+  "orders": {
+    "cpu": [
+      "rust",
+      "python"
+    ],
+    "gpu-preferred": [
+      "python",
+      "rust"
+    ]
+  },
+  "native_command": [
+    "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+    "-I",
+    "-B",
+    "/Users/zakkeown/Code/aether/lab/corsairs/scripts/benchmark_final_v03.py",
+    "--native"
+  ],
+  "limits": "One final descriptive pair per setting; raw within-arm samples retained. No repeated-pair distribution/confidence, stable-clocks, full-render or universal speedup claim. H3 Python omitted; final qualification already collects current Rust H3 timings."
+}

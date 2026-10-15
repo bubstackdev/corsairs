@@ -1,0 +1,187 @@
+{
+  "kind": "corsairs-v03-gpu-descriptor-rejection-fixtures",
+  "created_utc": "2026-10-15T21:35:33.912865+00:00",
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "native_inference_executed": false,
+  "gpu_work_executed": false,
+  "host_storage_limit_bytes": 4294967296,
+  "gpu_inference_limit_bytes": 2147483648,
+  "scope": "Mechanical fixed descriptors for predispatch GPU rejection and exact-boundary empty success. Nonempty output-over-limit graph is GPU-rejection-only: never execute its CPU path or allocate its output. All prepared inputs have zero/four payload bytes. Logical empty shape guards include nonzero dimension extent.",
+  "source_sha256": {
+    "scripts/reference/build_gpu_rejection_fixtures.py": "db195c531e84f631c05fb72aedf1a9084e38f28d9fd1e972ee8ff4cb813eda94",
+    "scripts/reference/environment.py": "6851634c107ff5c65dadb5d28064fda70e82537809011eef6d40eb6fd0b61447"
+  },
+  "tool_sha256": {
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/__init__.py": "5b92b369933aee00efeb1e597b306d6317c266bfeecb58c4928ec88befd08d95",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/_ops.py": "2750d8e4b7540216b16122ea5b4b5d2d8bedccaeeca486c049fec9fb4b3e7feb",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/_registry.py": "303fcd846daa62af1c170579fdb66b7a265a67a8930c60e022064ff07c166374",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/asset.py": "f69894cdd60530de13f0e1aa93909c8b9175e16927781b486014b22371eeba82",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/attribute.py": "0479fc8c3bebecf4902df9914335b69c8a804ecea3e1650569d0903c8d0a9ada",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/constant.py": "6e5816ba1a880e8a5648913c9a52b2678d721b0074bf4c7e245ccfa8da198232",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/constraints.py": "7f3dbfa12e2e8f178ef14eba4862025b54dd37d8864ca9abb57121e95d05e58b",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/context.py": "80cadaa9cb751073de80de3bf33d4cbb77ddc73df3142046f6899d19d940669e",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/coreai_types.py": "24f4636457a6bea418fd1f92a18640dc693925f290d2228673522ba474979f0e",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/debuginfo.py": "2a28c779bb469b88750172bfba59e6d3fa1f80b937cd211e0ac7dfbd00f4d1a6",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/dtype.py": "52093088cd97c002dd9d77098a87a4c60ea1429ce3964159be64a13f901816d3",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/elementwise_binary_ops.py": "93fadad57c8101601b5fc70761f90c341c3a1126c3ad849dbe33586c8e22ed99",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/elementwise_unary_ops.py": "2b345ac507e87de290cc25a8782e5e832929e2fabb142af8a514de9fce33e701",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/func.py": "f7ebbca655ebe744885aefbc6f55b6e9c39ed0927a1c7b31412b3ca6774dd521",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/graph.py": "8274a19a30e7cff9b52fbbfd406d55f1f418b8ea85cd3cf2048ba5e5e7394c8e",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/graph_builder.py": "f74323c184359285e292f2ca4920707cfba5b8d396f89a662f7b98d8bbdbefcd",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/ir_object.py": "508bade31ec642ed0c6606a0310164a9790fe6e81117961f40ee81251c4b9851",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/metal.py": "5bfd0ad7caf91d4ac952ac4b75884f95727621f533f79d85405d2bbe5dcf24b4",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/module.py": "ab121671d2f756f98d55c3130b85d01f9721d6d10dd004458483f9415ba5839c",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/namespace.py": "c651847e048426c1d31c228059faa0f389eb03c56ab0443b4922292b728f1bac",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/operation.py": "7bd47fcbe3c8318bc3ca12f326762b5b5d1e39cf05aef127b5018de26ca489b1",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/reduction_ops.py": "c2b00afabca4275b0ff39690157e008b96f1f5960737b874692642bfdfdfb922",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/tensor_type.py": "0816f5c8ff00115d828ea5f6753cff493519f08fd21785d1066c30dfeb6be4e8",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/type.py": "933c7dbb9aada7b5679d7f042e4020610a75e51d84ab1a2d2e3d8143149e0c9f",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/authoring/types.py": "79b66d3543c125e984e054f878aaca4a5a7e1853cc675d9c162bfccfb7edaac0",
+    "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/_compiler/_mlir_libs/_mlir.cpython-312-darwin.so": "e18b291336929b53c468dc1039bc76cf37de385ebe66c1ae5fd803731c86d492",
+    "/Users/zakkeown/.local/bin/python3.12": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+  },
+  "cases": [
+    {
+      "name": "empty-at-gpu-limit",
+      "operation": "double",
+      "input_shape": [
+        0,
+        536870912
+      ],
+      "output_shape": [
+        0,
+        536870912
+      ],
+      "gpu_reject": false,
+      "cpu_run": true,
+      "dtype": "float32",
+      "function": "main",
+      "input_name": "x",
+      "output_name": "y",
+      "asset": "empty-at-gpu-limit/model.aimodel",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "input_nonzero_extent_bytes": 2147483648,
+      "output_nonzero_extent_bytes": 2147483648,
+      "model_source_bytes": 549
+    },
+    {
+      "name": "empty-over-gpu-limit",
+      "operation": "double",
+      "input_shape": [
+        0,
+        536870913
+      ],
+      "output_shape": [
+        0,
+        536870913
+      ],
+      "gpu_reject": true,
+      "cpu_run": true,
+      "dtype": "float32",
+      "function": "main",
+      "input_name": "x",
+      "output_name": "y",
+      "asset": "empty-over-gpu-limit/model.aimodel",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "input_nonzero_extent_bytes": 2147483652,
+      "output_nonzero_extent_bytes": 2147483652,
+      "model_source_bytes": 549
+    },
+    {
+      "name": "empty-output-over-gpu-limit",
+      "operation": "broadcast",
+      "input_shape": [
+        0,
+        1
+      ],
+      "output_shape": [
+        0,
+        536870913
+      ],
+      "gpu_reject": true,
+      "cpu_run": true,
+      "dtype": "float32",
+      "function": "main",
+      "input_name": "x",
+      "output_name": "y",
+      "asset": "empty-output-over-gpu-limit/model.aimodel",
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "input_nonzero_extent_bytes": 4,
+      "output_nonzero_extent_bytes": 2147483652,
+      "model_source_bytes": 698
+    },
+    {
+      "name": "nonempty-output-over-gpu-limit",
+      "operation": "broadcast",
+      "input_shape": [
+        1
+      ],
+      "output_shape": [
+        536870913
+      ],
+      "gpu_reject": true,
+      "cpu_run": false,
+      "dtype": "float32",
+      "function": "main",
+      "input_name": "x",
+      "output_name": "y",
+      "asset": "nonempty-output-over-gpu-limit/model.aimodel",
+      "input_bytes": 4,
+      "output_bytes": 2147483652,
+      "input_nonzero_extent_bytes": 4,
+      "output_nonzero_extent_bytes": 2147483652,
+      "model_source_bytes": 696
+    }
+  ],
+  "sha256": {
+    "empty-at-gpu-limit/graph.mlir": "506f7673a3a3e6e6fed161c048117e51045a64132c9e729f7103a91c1c010c19",
+    "empty-at-gpu-limit/model.aimodel/main.hash": "cadbceb3e0819054877f399678e4a7e24f591e2c7a51c5017180ab5659465db4",
+    "empty-at-gpu-limit/model.aimodel/main.mlirb": "0be9b48956b30ff192884b9c0a7d215809c4e62a41aa5d8326d9caec788ac219",
+    "empty-at-gpu-limit/model.aimodel/metadata.json": "72fd032774030b1f2a31687618a570a531c1a7201e9ce8d8cba85363f14979d8",
+    "empty-output-over-gpu-limit/graph.mlir": "d10e1eb9eab57243ef5e09982dc5f3601815092e0b36034b33fa37719bb54cb9",
+    "empty-output-over-gpu-limit/model.aimodel/main.hash": "6043b63fb13ebca53c2e531568b275f7452d545cdfca4e65b3cd7ca9383821ba",
+    "empty-output-over-gpu-limit/model.aimodel/main.mlirb": "808945c91b57fb93944d60ca525e10a5a8379ffdb5d41ab66ecf7dfb3a3d7c6a",
+    "empty-output-over-gpu-limit/model.aimodel/metadata.json": "72fd032774030b1f2a31687618a570a531c1a7201e9ce8d8cba85363f14979d8",
+    "empty-over-gpu-limit/graph.mlir": "79def7c1a75807f47224902e22cb05e313e252094c6cc252fa3d93d2b7eb16fd",
+    "empty-over-gpu-limit/model.aimodel/main.hash": "0064ae75bfaedd70722c0e813d2250126c6a0b6840bf7f9d2ff1912dfb21e40d",
+    "empty-over-gpu-limit/model.aimodel/main.mlirb": "15a4323179fdddb82e18fdbe28f3944affd31325558c1ee1a4f6c4c63e022163",
+    "empty-over-gpu-limit/model.aimodel/metadata.json": "72fd032774030b1f2a31687618a570a531c1a7201e9ce8d8cba85363f14979d8",
+    "nonempty-output-over-gpu-limit/graph.mlir": "e401422e3627e83d7809200a5b07306e987da5c7c50d4524a69145ab11fbc0b2",
+    "nonempty-output-over-gpu-limit/model.aimodel/main.hash": "ed94e8e6411e2e1809d5dd048078ac53a6eb5c2e9dbcb9c77ec5c892bc598985",
+    "nonempty-output-over-gpu-limit/model.aimodel/main.mlirb": "7b9f2f79d8e82e3f7ec2b0aa5ce80d17417170729be837fa604a33f2d952aa05",
+    "nonempty-output-over-gpu-limit/model.aimodel/metadata.json": "72fd032774030b1f2a31687618a570a531c1a7201e9ce8d8cba85363f14979d8"
+  },
+  "reproduce": [
+    "/Users/zakkeown/.local/bin/python3.12",
+    "-B",
+    "scripts/reference/build_gpu_rejection_fixtures.py",
+    "--output",
+    "FRESH_DIRECTORY"
+  ]
+}

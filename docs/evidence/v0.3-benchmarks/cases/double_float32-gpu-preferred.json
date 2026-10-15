@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "name": "double_float32",
+  "model": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel",
+  "function": "main",
+  "compute": "gpu-preferred",
+  "expect_frequent_reshapes": null,
+  "warmup": 10,
+  "samples": 100,
+  "inputs": [
+    {
+      "file": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/x.bin",
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "float32",
+      "strides": [
+        3,
+        1
+      ],
+      "sha256": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738",
+      "name": "x"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/goldens/gpu-preferred/double_float32/step0-outputs-y.bin",
+      "dtype": "float32",
+      "shape": [
+        2,
+        3
+      ],
+      "strides": [
+        3,
+        1
+      ],
+      "sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+      "name": "y"
+    }
+  ],
+  "source_suite_sha256": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+  "backend_goldens_sha256": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+}

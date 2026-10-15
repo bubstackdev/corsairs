@@ -1,0 +1,154 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_a79e868ea9a570c65aa93ac569e09199f77bf35271c62975c62b2e6155b05e74\",\"subject\":{\"name\":\"python3.12\",\"digest\":{\"sha256\":\"2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22\"},\"format\":\"mach-o\",\"architecture\":\"arm64\",\"local_path\":\"/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12\"},\"provider\":{\"id\":\"native-macos\",\"name\":\"macOS native inspection utilities\",\"version\":null},\"analysis_profile\":null,\"predicate_type\":\"rea.analysis\",\"operation\":\"observe_native_calls\",\"parameters\":{\"breakpoints\":[{\"kind\":\"function\",\"name\":\"Py_BytesMain\"}],\"arguments\":[\"-B\",\"-c\",\"import subprocess,sys,pathlib\\nroot=pathlib.Path.cwd();dest=root/'docs/evidence/v0.3-large-tensors/regressions'\\nfor name,mode in [('h3','block128'),('krea','native-chain')]:\\n target=root/f'target/{name}-check';(dest/f'{name}-build-manifest.json').write_bytes((target/'build-manifest.json').read_bytes())\\n p=subprocess.run([sys.executable,'-B',f'scripts/check_{name}.py','--native','--no-build','--mode',mode,'--timeout','100','--output',f'/private/tmp/corsairs-v03-{name}-native-regression'],timeout=140)\\n (dest/f'{name}-checks.json').write_bytes((target/'checks.json').read_bytes())\\n if p.returncode:raise SystemExit(p.returncode)\\n\"],\"environment\":{},\"working_directory\":\"/Users/zakkeown/Code/aether/lab/corsairs\",\"duration_ms\":300000,\"max_events\":4,\"argument_registers\":1,\"backtrace_frames\":0},\"raw_result\":null,\"normalized_result\":{\"target\":{\"path\":\"/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12\",\"sha256\":\"2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22\",\"architecture\":\"arm64\",\"arguments\":[\"-B\",\"-c\",\"import subprocess,sys,pathlib\\nroot=pathlib.Path.cwd();dest=root/'docs/evidence/v0.3-large-tensors/regressions'\\nfor name,mode in [('h3','block128'),('krea','native-chain')]:\\n target=root/f'target/{name}-check';(dest/f'{name}-build-manifest.json').write_bytes((target/'build-manifest.json').read_bytes())\\n p=subprocess.run([sys.executable,'-B',f'scripts/check_{name}.py','--native','--no-build','--mode',mode,'--timeout','100','--output',f'/private/tmp/corsairs-v03-{name}-native-regression'],timeout=140)\\n (dest/f'{name}-checks.json').write_bytes((target/'checks.json').read_bytes())\\n if p.returncode:raise SystemExit(p.returncode)\\n\"],\"environment\":{},\"working_directory\":\"/Users/zakkeown/Code/aether/lab/corsairs\",\"launch_identity\":{\"loaded_image_sha256\":null,\"file_device\":\"16777230\",\"file_inode\":\"412775\",\"selected_file_sha256\":\"2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22\",\"module_path\":\"/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12\",\"module_uuid\":\"4C4C4443-5555-3144-A1DF-64FEFA96526F\",\"stable\":true}},\"debugger\":{\"path\":\"/Applications/Xcode.app/Contents/Developer/usr/bin/lldb\",\"sha256\":\"ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab\",\"version\":\"lldb-2103.0.34.103\"},\"process\":{\"pid\":28627,\"outcome\":\"exited\",\"exit_status\":1,\"exit_description\":null,\"terminated\":true,\"elapsed_ms\":1458.292,\"stdout\":{\"text\":\"Verifying external H3 source: forge/assets/block-live-128.aimodel (1.29 GB)\\nVerifying external H3 source: forge/assets/block-cached-128.aimodel (0.77 GB)\\nVerifying external H3 source: forge/assets/block-modulation-128.aimodel (0.52 GB)\\n\",\"bytes\":236,\"truncated\":false,\"complete\":true},\"stderr\":{\"text\":\"--no-build rejected changed H3 sources/binary/library\\n\",\"bytes\":54,\"truncated\":false,\"complete\":true},\"other_stops\":[\"signal SIGSTOP\"]},\"breakpoints\":[{\"index\":0,\"request\":{\"kind\":\"function\",\"name\":\"Py_BytesMain\",\"module\":null},\"location_count\":1,\"locations\":[{\"load_address\":\"0x1002fbf70\",\"file_address\":\"0x1002fbf70\",\"module\":\"python3.12\",\"module_path\":\"/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12\",\"symbol\":\"Py_BytesMain\"}]}],\"events\":[],\"coverage\":{\"status\":\"complete\",\"event_limit_reached\":false,\"resource_limit_reached\":false,\"unresolved_breakpoints\":[]},\"limitations\":[\"Only entries are observed; return values, floating-point and stack-passed arguments are not captured.\",\"Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.\",\"Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.\",\"Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.\",\"The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.\",\"The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.\",\"The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown.\"]},\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"Only entries are observed; return values, floating-point and stack-passed arguments are not captured.\",\"Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.\",\"Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.\",\"Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.\",\"The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.\",\"The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.\",\"The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown.\"],\"locations\":[{\"kind\":\"artifact-path\",\"path\":\"/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_a79e868ea9a570c65aa93ac569e09199f77bf35271c62975c62b2e6155b05e74",
+    "subject": {
+      "name": "python3.12",
+      "digest": {
+        "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+      },
+      "format": "mach-o",
+      "architecture": "arm64",
+      "local_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+    },
+    "provider": {
+      "id": "native-macos",
+      "name": "macOS native inspection utilities",
+      "version": null
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "observe_native_calls",
+    "parameters": {
+      "breakpoints": [
+        {
+          "kind": "function",
+          "name": "Py_BytesMain"
+        }
+      ],
+      "arguments": [
+        "-B",
+        "-c",
+        "import subprocess,sys,pathlib\nroot=pathlib.Path.cwd();dest=root/'docs/evidence/v0.3-large-tensors/regressions'\nfor name,mode in [('h3','block128'),('krea','native-chain')]:\n target=root/f'target/{name}-check';(dest/f'{name}-build-manifest.json').write_bytes((target/'build-manifest.json').read_bytes())\n p=subprocess.run([sys.executable,'-B',f'scripts/check_{name}.py','--native','--no-build','--mode',mode,'--timeout','100','--output',f'/private/tmp/corsairs-v03-{name}-native-regression'],timeout=140)\n (dest/f'{name}-checks.json').write_bytes((target/'checks.json').read_bytes())\n if p.returncode:raise SystemExit(p.returncode)\n"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "duration_ms": 300000,
+      "max_events": 4,
+      "argument_registers": 1,
+      "backtrace_frames": 0
+    },
+    "raw_result": null,
+    "normalized_result": {
+      "target": {
+        "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "architecture": "arm64",
+        "arguments": [
+          "-B",
+          "-c",
+          "import subprocess,sys,pathlib\nroot=pathlib.Path.cwd();dest=root/'docs/evidence/v0.3-large-tensors/regressions'\nfor name,mode in [('h3','block128'),('krea','native-chain')]:\n target=root/f'target/{name}-check';(dest/f'{name}-build-manifest.json').write_bytes((target/'build-manifest.json').read_bytes())\n p=subprocess.run([sys.executable,'-B',f'scripts/check_{name}.py','--native','--no-build','--mode',mode,'--timeout','100','--output',f'/private/tmp/corsairs-v03-{name}-native-regression'],timeout=140)\n (dest/f'{name}-checks.json').write_bytes((target/'checks.json').read_bytes())\n if p.returncode:raise SystemExit(p.returncode)\n"
+        ],
+        "environment": {},
+        "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+        "launch_identity": {
+          "loaded_image_sha256": null,
+          "file_device": "16777230",
+          "file_inode": "412775",
+          "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+          "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+          "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+          "stable": true
+        }
+      },
+      "debugger": {
+        "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+        "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+        "version": "lldb-2103.0.34.103"
+      },
+      "process": {
+        "pid": 28627,
+        "outcome": "exited",
+        "exit_status": 1,
+        "exit_description": null,
+        "terminated": true,
+        "elapsed_ms": 1458.292,
+        "stdout": {
+          "text": "Verifying external H3 source: forge/assets/block-live-128.aimodel (1.29 GB)\nVerifying external H3 source: forge/assets/block-cached-128.aimodel (0.77 GB)\nVerifying external H3 source: forge/assets/block-modulation-128.aimodel (0.52 GB)\n",
+          "bytes": 236,
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "text": "--no-build rejected changed H3 sources/binary/library\n",
+          "bytes": 54,
+          "truncated": false,
+          "complete": true
+        },
+        "other_stops": [
+          "signal SIGSTOP"
+        ]
+      },
+      "breakpoints": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "function",
+            "name": "Py_BytesMain",
+            "module": null
+          },
+          "location_count": 1,
+          "locations": [
+            {
+              "load_address": "0x1002fbf70",
+              "file_address": "0x1002fbf70",
+              "module": "python3.12",
+              "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+              "symbol": "Py_BytesMain"
+            }
+          ]
+        }
+      ],
+      "events": [],
+      "coverage": {
+        "status": "complete",
+        "event_limit_reached": false,
+        "resource_limit_reached": false,
+        "unresolved_breakpoints": []
+      },
+      "limitations": [
+        "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+        "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+        "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+        "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+        "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+        "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+        "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+      ]
+    },
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ],
+    "locations": [
+      {
+        "kind": "artifact-path",
+        "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+      }
+    ],
+    "evidence_links": []
+  }
+}

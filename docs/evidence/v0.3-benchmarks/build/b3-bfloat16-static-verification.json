@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "inspected_utc": "2026-10-15T20:34:06.210218+00:00",
+  "native_coreai_execution": false,
+  "scope": "Static shipped public b3 BF16 input/output interop support; dynamic paired benchmark correctness remains a separate gate.",
+  "reference_wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+  "files": {
+    ".local/reference/coreai-b3/coreai/runtime/_ndarray.py": {
+      "sha256": "34e9493f73a145bac1028066364ac8067c134ecb744c2a668ffe5536152d2914",
+      "evidence": [
+        "lines12/22 import ml_dtypes and map runtime bfloat16 to ml_dtypes.bfloat16",
+        "NDArray.__init__ forwards the provided NumPy array directly to native _NDArray with Bytes storage default",
+        "lines114-145 numpy() first tries DLPack, then catches unsupported view errors and reads the raw native buffer with the mapped BF16 dtype; contiguous path shares storage and noncontiguous path packs bytes"
+      ]
+    },
+    ".local/reference/coreai-b3/coreai/runtime/_coreai_runtime_os.cpython-312-darwin.so": {
+      "sha256": "440fc1e151338b09d1a0809830f5fd5b1c4d4c998b7d8cf061851d829fd8fb71",
+      "evidence": [
+        "OS extension imports CoreAIRuntime.NDArray.ScalarType.bfloat16 enum case",
+        "String literal numpy.dtype[bfloat16] at __TEXT virtual address0x5f540",
+        "Native dtype classifier compares that string at0x397ac..0x397e4; successful equality branches load the bfloat16 enum case at0x397f0/0x39800 then branch to the shared dtype success path0x39850"
+      ]
+    }
+  },
+  "disassembly_excerpt": {
+    "path": "docs/evidence/v0.3-benchmarks/build/b3-bfloat16-constructor-disassembly.txt",
+    "sha256": "0c302c469e132905db96da1bff07e73d37fe65911c2add502b95b30f56ba6426",
+    "tool": "otool -tvV",
+    "range": "0x396d0..0x39874"
+  },
+  "conclusion": "The shipped b3 public wrapper and OS extension explicitly support ml_dtypes BF16 construction and raw BF16 NumPy readback. The five-dtype v0.1 Rust test subset was not a claim that b3 supported only five host types. No cast or harness/binary modification is needed.",
+  "limits": [
+    "This is static control-flow/source evidence, not an executed constructor roundtrip. Actual H3 benchmark output must still match fixed exact expected bytes.",
+    "No _numpy_interop.py is present in this installed wheel; the native classifier and _ndarray.py implement the relevant paths."
+  ]
+}

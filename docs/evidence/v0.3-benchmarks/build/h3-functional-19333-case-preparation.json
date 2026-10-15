@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-10-15T20:33:30.079612+00:00",
+  "native_execution_performed": false,
+  "frozen_harness_changed": false,
+  "case": "docs/evidence/v0.3-benchmarks/cases/h3-functional-19333.json",
+  "case_sha256": "d89730177407fcf28e35d120eb56a264f7515404e1e6702f0e740331d60b99e5",
+  "source_inventory_sha256": "ec0a51c38abbc48450cfb65c0b32a157c8ec08280e152d9de545c14bf330eec2",
+  "inputs": 15,
+  "output_shape": [
+    1,
+    19333,
+    5376
+  ],
+  "tags": {
+    "source": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/tags.raw",
+    "source_sha256": "0ea1d9794511da9835c1e42fd078baf750f1e3aaf20729f158b800369f13ff8a",
+    "source_bytes": 154664,
+    "elements": 19333,
+    "min": 0,
+    "max": 2,
+    "destination": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+    "destination_sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09",
+    "destination_bytes": 77332,
+    "conversion": "Every signed int64 checked within int32 range, converted little-endian, then widened/read-back and compared elementwise; source untouched."
+  },
+  "verification_scope": "Original packet hash and tag source/payload rehashed; tag conversion exact; every selected file length matches shape/scalar width. Other large file hashes retained from original audit/Swift records and will be verified by benchmark arms before timing."
+}

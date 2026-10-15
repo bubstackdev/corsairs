@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-15T20:41:47.606413+00:00",
+  "method": "Manual successful-path expansion of inspected source; counts are explicit Corsairs dlsym calls, not measurements or calls internal to Apple code.",
+  "assumptions": {
+    "inputs": 1,
+    "outputs": 1,
+    "states": 0,
+    "explicit_output_views": 0,
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "input_rank": 2,
+    "output_rank": 2,
+    "both_output_optionals": "Some",
+    "executor_pin": "already initialized",
+    "errors": false
+  },
+  "ordered_phases": [
+    {
+      "phase": "input_tensor",
+      "dlsym_calls": 13,
+      "symbols": [
+        "$s13CoreAIRuntime7NDArrayVMa",
+        "$s13CoreAIRuntime7NDArrayV10ScalarTypeOMa",
+        "$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float32yA2EmFWC",
+        "$sSiN",
+        "$sSaMa",
+        "swift_bridgeObjectRelease",
+        "$sSayxSiciM",
+        "$sSa9repeating5countSayxGx_SitcfC",
+        "$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC",
+        "$s13CoreAIRuntime7NDArrayV14MutableRawViewVMa",
+        "$s13CoreAIRuntime7NDArrayV14mutableRawViewAC07MutableeF0VyF",
+        "$s13CoreAIRuntime7NDArrayV14MutableRawViewV6_startSvyF",
+        "$s13CoreAIRuntime7NDArrayV14MutableRawViewV16storageByteCountSiyF"
+      ]
+    },
+    {
+      "phase": "inputs_container",
+      "dlsym_calls": 2,
+      "symbols": [
+        "$s13CoreAIRuntime17InferenceFunctionV6InputsVMa",
+        "$s13CoreAIRuntime17InferenceFunctionV6InputsVAEycfC"
+      ]
+    },
+    {
+      "phase": "input_view_insert",
+      "dlsym_calls": 3,
+      "symbols": [
+        "$s13CoreAIRuntime7NDArrayV7RawViewVMa",
+        "$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF",
+        "$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryAA7NDArrayV7RawViewVn_SStF"
+      ]
+    },
+    {
+      "phase": "empty_mutable_containers",
+      "dlsym_calls": 3,
+      "symbols": [
+        "$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVMa",
+        "$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC",
+        "$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC"
+      ]
+    },
+    {
+      "phase": "outputs_container",
+      "dlsym_calls": 1,
+      "symbols": [
+        "$s13CoreAIRuntime17InferenceFunctionV7OutputsVMa"
+      ]
+    },
+    {
+      "phase": "native_task_support",
+      "dlsym_calls": 10,
+      "symbols": [
+        "swift_task_create",
+        "swift_job_run",
+        "swift_task_getCurrent",
+        "swift_task_alloc",
+        "swift_task_dealloc",
+        "swift_retain",
+        "swift_release",
+        "swift_errorRelease",
+        "$sytN",
+        "$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFTu"
+      ]
+    },
+    {
+      "phase": "output_projection_metadata",
+      "dlsym_calls": 4,
+      "symbols": [
+        "$s13CoreAIRuntime14InferenceValueVMa",
+        "$sSqMa",
+        "$s13CoreAIRuntime7NDArrayVMa",
+        "$sSqMa"
+      ]
+    },
+    {
+      "phase": "output_projection",
+      "dlsym_calls": 2,
+      "symbols": [
+        "$s13CoreAIRuntime17InferenceFunctionV7OutputsV6removeyAA0C5ValueVSgSSF",
+        "$s13CoreAIRuntime14InferenceValueV7ndArrayAA7NDArrayVSgvg"
+      ]
+    },
+    {
+      "phase": "output_shape",
+      "dlsym_calls": 6,
+      "symbols": [
+        "$s13CoreAIRuntime7NDArrayV5shapeSaySiGvg",
+        "swift_bridgeObjectRelease",
+        "$sSiN",
+        "$sSa5countSivg",
+        "$sSayxSicig",
+        "$sSayxSicig"
+      ]
+    },
+    {
+      "phase": "output_strides",
+      "dlsym_calls": 6,
+      "symbols": [
+        "$s13CoreAIRuntime7NDArrayV7stridesSaySiGvg",
+        "swift_bridgeObjectRelease",
+        "$sSiN",
+        "$sSa5countSivg",
+        "$sSayxSicig",
+        "$sSayxSicig"
+      ]
+    },
+    {
+      "phase": "output_dtype",
+      "dlsym_calls": 5,
+      "symbols": [
+        "$s13CoreAIRuntime7NDArrayV10ScalarTypeOMa",
+        "$s13CoreAIRuntime7NDArrayV10scalarTypeAC06ScalarE0Ovg",
+        "$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float16yA2EmFWC",
+        "$s13CoreAIRuntime7NDArrayV10ScalarTypeO8bfloat16yA2EmFWC",
+        "$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float32yA2EmFWC"
+      ]
+    },
+    {
+      "phase": "output_bytes",
+      "dlsym_calls": 3,
+      "symbols": [
+        "$s13CoreAIRuntime7NDArrayV7RawViewVMa",
+        "$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF",
+        "$s13CoreAIRuntime7NDArrayV7RawViewV5bytess0D4SpanVvg"
+      ]
+    },
+    {
+      "phase": "remaining_outputs_check",
+      "dlsym_calls": 1,
+      "symbols": [
+        "$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg"
+      ]
+    }
+  ],
+  "total_dlsym_calls": 59,
+  "distinct_symbol_names": 44,
+  "nominal_metadata_accessor_calls": 11,
+  "generic_metadata_accessor_calls": 3,
+  "enum_case_symbol_lookups": 4,
+  "native_task_support_and_entry_lookups": 10,
+  "native_value_alloc_zeroed_calls": 14,
+  "native_value_allocation_breakdown": {
+    "input_tensor_scalar_mutable_view": 3,
+    "input_container": 1,
+    "input_raw_view": 1,
+    "state_and_output_containers": 2,
+    "outputs": 1,
+    "optional_and_taken_output_value_array": 4,
+    "readback_scalar_and_raw_view": 2
+  },
+  "additional_paths": {
+    "run_native_same_signature": {
+      "dlsym_calls": 43,
+      "host_payload_copy": false,
+      "note": "Retained input already uploaded; still rebuilds views/task and inspects output shape,strides,dtype."
+    },
+    "separate_handle_download_same_output": {
+      "dlsym_calls": 20,
+      "host_payload_copy": true,
+      "note": "Plus a separate worker request; read_packed repeats tensor_handle_info."
+    },
+    "dtype_case_scan_lookups": {
+      "float16": 1,
+      "bfloat16": 2,
+      "float32": 3,
+      "int32": 4,
+      "int64": 5,
+      "bool": 6
+    }
+  },
+  "not_counted": [
+    "Apple/framework/runtime internal dlsym calls or metadata work",
+    "dlopen once-only executor pin",
+    "native Swift calls themselves, including VWT destruction",
+    "allocation internals",
+    "failure-only ErrorSupport loading",
+    "model/function load and descriptor inspection"
+  ]
+}

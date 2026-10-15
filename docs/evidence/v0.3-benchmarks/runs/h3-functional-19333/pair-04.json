@@ -1,0 +1,857 @@
+{
+  "passed": true,
+  "case": {
+    "schema": 1,
+    "name": "h3-functional-19333",
+    "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+    "function": "block",
+    "compute": "gpu-preferred",
+    "expect_frequent_reshapes": null,
+    "inputs": [
+      {
+        "name": "hidden",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+        "sha256": "e046eee9d693027a451fdcd990f0001cc46148b3c809a47306585ecb6cc0f7e3"
+      },
+      {
+        "name": "temb",
+        "dtype": "bfloat16",
+        "shape": [
+          6,
+          3,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+        "sha256": "ae84a1b668bc5bf276822de1e910d8362397b72db2c68f05c4de6c2868e01acc"
+      },
+      {
+        "name": "tags",
+        "dtype": "int32",
+        "shape": [
+          19333
+        ],
+        "file": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+        "sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09"
+      },
+      {
+        "name": "cos",
+        "dtype": "float32",
+        "shape": [
+          19333,
+          96
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+        "sha256": "3043a8d7dfd60f9d78638c17d4684057ae11227483f4c39703785e76568756a1"
+      },
+      {
+        "name": "sin",
+        "dtype": "float32",
+        "shape": [
+          19333,
+          96
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+        "sha256": "69ab61a3e60a5889ac8cd4c878a0aed004211063ff60607eedbb4a07b603de42"
+      },
+      {
+        "name": "w0",
+        "dtype": "bfloat16",
+        "shape": [
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+        "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f"
+      },
+      {
+        "name": "w1",
+        "dtype": "bfloat16",
+        "shape": [
+          7168,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+        "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6"
+      },
+      {
+        "name": "w2",
+        "dtype": "bfloat16",
+        "shape": [
+          7168,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+        "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937"
+      },
+      {
+        "name": "w3",
+        "dtype": "bfloat16",
+        "shape": [
+          7168,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+        "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc"
+      },
+      {
+        "name": "w4",
+        "dtype": "bfloat16",
+        "shape": [
+          128
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+        "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519"
+      },
+      {
+        "name": "w5",
+        "dtype": "bfloat16",
+        "shape": [
+          128
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+        "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058"
+      },
+      {
+        "name": "w6",
+        "dtype": "bfloat16",
+        "shape": [
+          5376,
+          7168
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+        "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6"
+      },
+      {
+        "name": "w7",
+        "dtype": "bfloat16",
+        "shape": [
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+        "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872"
+      },
+      {
+        "name": "w8",
+        "dtype": "bfloat16",
+        "shape": [
+          28672,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+        "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d"
+      },
+      {
+        "name": "w9",
+        "dtype": "bfloat16",
+        "shape": [
+          5376,
+          14336
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+        "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "hidden_out",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw",
+        "sha256": "8a54a3add9162492963b1d864ec4406a492a40ef003c99f55c541f0c474c9a38"
+      }
+    ],
+    "warmup": 3,
+    "samples": 10,
+    "source_inventory": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/aether-audit/functional-benchmark-inputs.json",
+    "source_inventory_sha256": "ec0a51c38abbc48450cfb65c0b32a157c8ec08280e152d9de545c14bf330eec2",
+    "asset_main_mlirb_sha256": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+    "tags_conversion": {
+      "source": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/tags.raw",
+      "source_sha256": "0ea1d9794511da9835c1e42fd078baf750f1e3aaf20729f158b800369f13ff8a",
+      "source_bytes": 154664,
+      "elements": 19333,
+      "min": 0,
+      "max": 2,
+      "destination": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+      "destination_sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09",
+      "destination_bytes": 77332,
+      "conversion": "Every signed int64 checked within int32 range, converted little-endian, then widened/read-back and compared elementwise; source untouched."
+    },
+    "parameter_bytes": 770725376,
+    "input_runtime_bytes": 993712404,
+    "scope": "Original outer-model CPU preparation with provided golden text features and actual initial-noise/layout packet; one first block and first timestep only. No generation trajectory or decode.",
+    "options_scope": "Paired Rust/Python default reshape hint; historical application/Swift case used explicit true. No full trajectory or generation claim."
+  },
+  "case_file_sha256": "d89730177407fcf28e35d120eb56a264f7515404e1e6702f0e740331d60b99e5",
+  "pair": 4,
+  "order": [
+    "python",
+    "rust"
+  ],
+  "started_utc": "2026-10-15T20:46:33.795251+00:00",
+  "output": "/private/tmp/corsairs-v03-benchmarks/h3-functional-19333/pair-04",
+  "build_manifest_sha256": "ccb4129c0365301ec833451cb9982a0b84447cdf6437fa07e853546c1c25788d",
+  "controller_sha256": "3d0103b3940977632b09cb6cfdebddc65c6d763755d4887ee2feebeccc05d73e",
+  "binaries": {
+    "/Users/zakkeown/Code/aether/lab/corsairs/target/benchmark-v03": "1fc68c6dcd49d0f16f355d96a907c7a33a328a4b3f5e770719c0d844ce251a5c",
+    "/Users/zakkeown/Code/aether/lab/corsairs/target/large-check/cargo/release/libcorsairs.rlib": "f31257dfcf78b69114d87d59744a1797c7add6992dedbcf868dcab005c46fc8b"
+  },
+  "cooldown_seconds": 30,
+  "quiet_window": "User reserved GPU after completing/stopping Aether work. No benchmark GPU concurrency or cache purge. Recorded cooldown is experimental spacing, not fixed clocks or controlled ambient temperature.",
+  "processes": {
+    "python": {
+      "command": [
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "-I",
+        "-B",
+        "/Users/zakkeown/Code/aether/lab/corsairs/scripts/reference/benchmark_v03.py",
+        "--case",
+        "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/cases/h3-functional-19333.json",
+        "--output-dir",
+        "/private/tmp/corsairs-v03-benchmarks/h3-functional-19333/pair-04",
+        "--phases",
+        "native_run_download"
+      ],
+      "pid": 27654,
+      "exit_status": 0,
+      "timed_out": false,
+      "seconds": 8.568577582998842,
+      "stdout": "{\"passed\": true, \"report\": \"/private/tmp/corsairs-v03-benchmarks/h3-functional-19333/pair-04/h3-functional-19333-python.json\"}\n",
+      "stderr": "",
+      "host_before": {
+        "utc": "2026-10-15T20:47:03.800263+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                  1527421.\nPages active:                                 429813.\nPages inactive:                              1815779.\nPages speculative:                             31390.\nPages throttled:                                   0.\nPages wired down:                             288534.\nPages purgeable:                               19658.\n\"Translation faults\":                     1195876446.\nPages copy-on-write:                        20546177.\nPages zero filled:                         768414414.\nPages reactivated:                          67598940.\nPages purged:                                7043417.\nFile-backed pages:                           1926172.\nAnonymous pages:                              350810.\nPages stored in compressor:                    85045.\nPages occupied by compressor:                  40871.\nDecompressions:                             61908559.\nCompressions:                               90033564.\nPageins:                                   590043076.\nPageouts:                                    8991773.\nSwapins:                                     9386863.\nSwapouts:                                   10638567.\nPages tagged:                                 160602.\nPages tagged resident:                        146392.\nPages tagged compressed:                       14210.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8159.\nPages tag-storage free:                        15937.\nPages tag-storage non-tag pageable:           106930.\nPages tag-storage non-tag wired:                  19.\nBytes of compressed tags:                    2025408.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086429.\n",
+          "stderr": ""
+        }
+      },
+      "host_after": {
+        "utc": "2026-10-15T20:47:12.385629+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                  1429729.\nPages active:                                 433800.\nPages inactive:                              1815785.\nPages speculative:                            122129.\nPages throttled:                                   0.\nPages wired down:                             291495.\nPages purgeable:                               23244.\n\"Translation faults\":                     1196398589.\nPages copy-on-write:                        20547334.\nPages zero filled:                         769283126.\nPages reactivated:                          67598940.\nPages purged:                                7043993.\nFile-backed pages:                           2016917.\nAnonymous pages:                              354797.\nPages stored in compressor:                    85048.\nPages occupied by compressor:                  40871.\nDecompressions:                             61908574.\nCompressions:                               90033564.\nPageins:                                   590058975.\nPageouts:                                    8991773.\nSwapins:                                     9386871.\nSwapouts:                                   10638567.\nPages tagged:                                 160540.\nPages tagged resident:                        146330.\nPages tagged compressed:                       14210.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8159.\nPages tag-storage free:                        15738.\nPages tag-storage non-tag pageable:           107125.\nPages tag-storage non-tag wired:                  23.\nBytes of compressed tags:                    2025408.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086429.\n",
+          "stderr": ""
+        }
+      }
+    },
+    "rust": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/benchmark-v03",
+        "--model",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+        "--function",
+        "block",
+        "--backend",
+        "gpu-preferred",
+        "--reshape",
+        "default",
+        "--warmup",
+        "3",
+        "--samples",
+        "10",
+        "--output",
+        "/private/tmp/corsairs-v03-benchmarks/h3-functional-19333/pair-04/h3-functional-19333-rust.json",
+        "--phases",
+        "native_run_download",
+        "--input",
+        "hidden",
+        "bfloat16",
+        "1,19333,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+        "--input",
+        "temb",
+        "bfloat16",
+        "6,3,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+        "--input",
+        "tags",
+        "int32",
+        "19333",
+        "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+        "--input",
+        "cos",
+        "float32",
+        "19333,96",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+        "--input",
+        "sin",
+        "float32",
+        "19333,96",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+        "--input",
+        "w0",
+        "bfloat16",
+        "5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+        "--input",
+        "w1",
+        "bfloat16",
+        "7168,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+        "--input",
+        "w2",
+        "bfloat16",
+        "7168,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+        "--input",
+        "w3",
+        "bfloat16",
+        "7168,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+        "--input",
+        "w4",
+        "bfloat16",
+        "128",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+        "--input",
+        "w5",
+        "bfloat16",
+        "128",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+        "--input",
+        "w6",
+        "bfloat16",
+        "5376,7168",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+        "--input",
+        "w7",
+        "bfloat16",
+        "5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+        "--input",
+        "w8",
+        "bfloat16",
+        "28672,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+        "--input",
+        "w9",
+        "bfloat16",
+        "5376,14336",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+        "--expected",
+        "hidden_out",
+        "bfloat16",
+        "1,19333,5376",
+        "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw"
+      ],
+      "pid": 27673,
+      "exit_status": 0,
+      "timed_out": false,
+      "seconds": 10.74487691700051,
+      "stdout": "{\"passed\":true,\"report\":\"/private/tmp/corsairs-v03-benchmarks/h3-functional-19333/pair-04/h3-functional-19333-rust.json\"}\n",
+      "stderr": "",
+      "host_before": {
+        "utc": "2026-10-15T20:47:42.403502+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                  1213863.\nPages active:                                 569080.\nPages inactive:                              1815901.\nPages speculative:                            205521.\nPages throttled:                                   0.\nPages wired down:                             288611.\nPages purgeable:                               18929.\n\"Translation faults\":                     1196587407.\nPages copy-on-write:                        20548603.\nPages zero filled:                         769443088.\nPages reactivated:                          67599234.\nPages purged:                                7044194.\nFile-backed pages:                           2131513.\nAnonymous pages:                              458989.\nPages stored in compressor:                    85005.\nPages occupied by compressor:                  40833.\nDecompressions:                             61908692.\nCompressions:                               90033564.\nPageins:                                   590100756.\nPageouts:                                    8991773.\nSwapins:                                     9386925.\nSwapouts:                                   10638567.\nPages tagged:                                 160549.\nPages tagged resident:                        146339.\nPages tagged compressed:                       14210.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8159.\nPages tag-storage free:                        15028.\nPages tag-storage non-tag pageable:           107839.\nPages tag-storage non-tag wired:                  19.\nBytes of compressed tags:                    2025408.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086429.\n",
+          "stderr": ""
+        }
+      },
+      "host_after": {
+        "utc": "2026-10-15T20:47:53.165772+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   911254.\nPages active:                                 810478.\nPages inactive:                              1816071.\nPages speculative:                            206439.\nPages throttled:                                   0.\nPages wired down:                             348709.\nPages purgeable:                               82623.\n\"Translation faults\":                     1196810759.\nPages copy-on-write:                        20549824.\nPages zero filled:                         770009540.\nPages reactivated:                          67599258.\nPages purged:                                7044585.\nFile-backed pages:                           2133481.\nAnonymous pages:                              699497.\nPages stored in compressor:                    84991.\nPages occupied by compressor:                  40822.\nDecompressions:                             61908718.\nCompressions:                               90033564.\nPageins:                                   590102582.\nPageouts:                                    8991773.\nSwapins:                                     9386937.\nSwapouts:                                   10638567.\nPages tagged:                                 160698.\nPages tagged resident:                        146488.\nPages tagged compressed:                       14210.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8159.\nPages tag-storage free:                        14632.\nPages tag-storage non-tag pageable:           108239.\nPages tag-storage non-tag wired:                  15.\nBytes of compressed tags:                    2025408.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086429.\n",
+          "stderr": ""
+        }
+      }
+    }
+  },
+  "python": {
+    "schema": 1,
+    "language": "python-b3",
+    "reference": {
+      "coreai_core": "1.0.0b3",
+      "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+      "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+      "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+      "executable": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "ml-dtypes": "0.6.0",
+        "pillow": "12.3.0",
+        "typing-extensions": "4.16.0",
+        "yuvio": "1.6",
+        "psutil": "7.2.2"
+      },
+      "package_roots": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+        "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+        "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+        "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+        "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+        "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+        "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+      ]
+    },
+    "os_backed": true,
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "case": {
+      "schema": 1,
+      "name": "h3-functional-19333",
+      "model": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+      "function": "block",
+      "compute": "gpu-preferred",
+      "expect_frequent_reshapes": null,
+      "inputs": [
+        {
+          "name": "hidden",
+          "dtype": "bfloat16",
+          "shape": [
+            1,
+            19333,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+          "sha256": "e046eee9d693027a451fdcd990f0001cc46148b3c809a47306585ecb6cc0f7e3"
+        },
+        {
+          "name": "temb",
+          "dtype": "bfloat16",
+          "shape": [
+            6,
+            3,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+          "sha256": "ae84a1b668bc5bf276822de1e910d8362397b72db2c68f05c4de6c2868e01acc"
+        },
+        {
+          "name": "tags",
+          "dtype": "int32",
+          "shape": [
+            19333
+          ],
+          "file": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+          "sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09"
+        },
+        {
+          "name": "cos",
+          "dtype": "float32",
+          "shape": [
+            19333,
+            96
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+          "sha256": "3043a8d7dfd60f9d78638c17d4684057ae11227483f4c39703785e76568756a1"
+        },
+        {
+          "name": "sin",
+          "dtype": "float32",
+          "shape": [
+            19333,
+            96
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+          "sha256": "69ab61a3e60a5889ac8cd4c878a0aed004211063ff60607eedbb4a07b603de42"
+        },
+        {
+          "name": "w0",
+          "dtype": "bfloat16",
+          "shape": [
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f"
+        },
+        {
+          "name": "w1",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6"
+        },
+        {
+          "name": "w2",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937"
+        },
+        {
+          "name": "w3",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc"
+        },
+        {
+          "name": "w4",
+          "dtype": "bfloat16",
+          "shape": [
+            128
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519"
+        },
+        {
+          "name": "w5",
+          "dtype": "bfloat16",
+          "shape": [
+            128
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058"
+        },
+        {
+          "name": "w6",
+          "dtype": "bfloat16",
+          "shape": [
+            5376,
+            7168
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6"
+        },
+        {
+          "name": "w7",
+          "dtype": "bfloat16",
+          "shape": [
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872"
+        },
+        {
+          "name": "w8",
+          "dtype": "bfloat16",
+          "shape": [
+            28672,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d"
+        },
+        {
+          "name": "w9",
+          "dtype": "bfloat16",
+          "shape": [
+            5376,
+            14336
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hidden_out",
+          "dtype": "bfloat16",
+          "shape": [
+            1,
+            19333,
+            5376
+          ],
+          "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw",
+          "sha256": "8a54a3add9162492963b1d864ec4406a492a40ef003c99f55c541f0c474c9a38"
+        }
+      ],
+      "warmup": 3,
+      "samples": 10,
+      "source_inventory": "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/aether-audit/functional-benchmark-inputs.json",
+      "source_inventory_sha256": "ec0a51c38abbc48450cfb65c0b32a157c8ec08280e152d9de545c14bf330eec2",
+      "asset_main_mlirb_sha256": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+      "tags_conversion": {
+        "source": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/tags.raw",
+        "source_sha256": "0ea1d9794511da9835c1e42fd078baf750f1e3aaf20729f158b800369f13ff8a",
+        "source_bytes": 154664,
+        "elements": 19333,
+        "min": 0,
+        "max": 2,
+        "destination": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+        "destination_sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09",
+        "destination_bytes": 77332,
+        "conversion": "Every signed int64 checked within int32 range, converted little-endian, then widened/read-back and compared elementwise; source untouched."
+      },
+      "parameter_bytes": 770725376,
+      "input_runtime_bytes": 993712404,
+      "scope": "Original outer-model CPU preparation with provided golden text features and actual initial-noise/layout packet; one first block and first timestep only. No generation trajectory or decode.",
+      "options_scope": "Paired Rust/Python default reshape hint; historical application/Swift case used explicit true. No full trajectory or generation claim."
+    },
+    "case_file_sha256": "d89730177407fcf28e35d120eb56a264f7515404e1e6702f0e740331d60b99e5",
+    "backend": "gpu-preferred",
+    "expect_frequent_reshapes": null,
+    "phases": [
+      {
+        "phase": "native_run_download",
+        "warmup": 3,
+        "samples": 10,
+        "median_ns": 582978437.5,
+        "p95_ns": 657899542,
+        "min_ns": 551784125,
+        "max_ns": 657899542,
+        "samples_ns": [
+          558363875,
+          551784125,
+          558758458,
+          558706167,
+          561985750,
+          603971125,
+          610955500,
+          617856958,
+          657899542,
+          636020375
+        ],
+        "every_iteration_exact": true,
+        "boundary": "copy handle dictionary, submit/await retained output, numpy+tobytes every output"
+      }
+    ],
+    "passed": true,
+    "unavailable_phases": [],
+    "timing_clock": "time.perf_counter_ns",
+    "cleanup": "exact validation/diagnostic readback, result decref and asyncio.sleep(0) outside every interval; Python has no public worker drain",
+    "limits": "Sequential warm stateless calls; persistent native inputs prepared outside timing; no public Python Metal equivalent; no cache purge or performance threshold",
+    "model_main_mlirb_sha256": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+    "allowed_compute_units": [
+      "CPU",
+      "Neural Engine",
+      "GPU"
+    ],
+    "preferred_compute_unit": "GPU",
+    "model_load_ns": 4531125,
+    "function_load_ns": 88781416
+  },
+  "rust": {
+    "schema": 1,
+    "language": "rust",
+    "public_api_only": true,
+    "passed": true,
+    "backend": "gpu-preferred",
+    "expect_frequent_reshapes": null,
+    "model": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+    "function": "block",
+    "model_main_mlirb_sha256": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+    "model_load_ns": 5974959,
+    "function_load_ns": 97294250,
+    "inputs": [
+      {
+        "name": "hidden",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+        "sha256": "e046eee9d693027a451fdcd990f0001cc46148b3c809a47306585ecb6cc0f7e3"
+      },
+      {
+        "name": "temb",
+        "dtype": "bfloat16",
+        "shape": [
+          6,
+          3,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+        "sha256": "ae84a1b668bc5bf276822de1e910d8362397b72db2c68f05c4de6c2868e01acc"
+      },
+      {
+        "name": "tags",
+        "dtype": "int32",
+        "shape": [
+          19333
+        ],
+        "file": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19333.i32",
+        "sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09"
+      },
+      {
+        "name": "cos",
+        "dtype": "float32",
+        "shape": [
+          19333,
+          96
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+        "sha256": "3043a8d7dfd60f9d78638c17d4684057ae11227483f4c39703785e76568756a1"
+      },
+      {
+        "name": "sin",
+        "dtype": "float32",
+        "shape": [
+          19333,
+          96
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+        "sha256": "69ab61a3e60a5889ac8cd4c878a0aed004211063ff60607eedbb4a07b603de42"
+      },
+      {
+        "name": "w0",
+        "dtype": "bfloat16",
+        "shape": [
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+        "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f"
+      },
+      {
+        "name": "w1",
+        "dtype": "bfloat16",
+        "shape": [
+          7168,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+        "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6"
+      },
+      {
+        "name": "w2",
+        "dtype": "bfloat16",
+        "shape": [
+          7168,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+        "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937"
+      },
+      {
+        "name": "w3",
+        "dtype": "bfloat16",
+        "shape": [
+          7168,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+        "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc"
+      },
+      {
+        "name": "w4",
+        "dtype": "bfloat16",
+        "shape": [
+          128
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+        "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519"
+      },
+      {
+        "name": "w5",
+        "dtype": "bfloat16",
+        "shape": [
+          128
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+        "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058"
+      },
+      {
+        "name": "w6",
+        "dtype": "bfloat16",
+        "shape": [
+          5376,
+          7168
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+        "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6"
+      },
+      {
+        "name": "w7",
+        "dtype": "bfloat16",
+        "shape": [
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+        "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872"
+      },
+      {
+        "name": "w8",
+        "dtype": "bfloat16",
+        "shape": [
+          28672,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+        "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d"
+      },
+      {
+        "name": "w9",
+        "dtype": "bfloat16",
+        "shape": [
+          5376,
+          14336
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+        "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f"
+      }
+    ],
+    "expected_outputs": [
+      {
+        "name": "hidden_out",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ],
+        "file": "/Volumes/Scratch/atelier/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw",
+        "sha256": "8a54a3add9162492963b1d864ec4406a492a40ef003c99f55c541f0c474c9a38"
+      }
+    ],
+    "phases": [
+      {
+        "phase": "native_run_download",
+        "boundary": "clone handle map, submit retained native run, wait, download every output",
+        "warmup": 3,
+        "samples": 10,
+        "median_ns": 651258562.5,
+        "p95_ns": 686357750,
+        "min_ns": 563172542,
+        "max_ns": 686357750,
+        "samples_ns": [
+          563283208,
+          563172542,
+          567742916,
+          572811542,
+          625347375,
+          677169750,
+          686357750,
+          681821375,
+          680981750,
+          677910458
+        ],
+        "every_iteration_exact": true
+      }
+    ],
+    "timing_clock": "std::time::Instant",
+    "cleanup": "exact validation, diagnostic readback, output drop and Runtime::drain outside every measured interval",
+    "limits": "Sequential warm stateless calls; persistent retained/Metal inputs and buffers prepared outside timing; no pipeline/device concurrency claim; loading observed separately without cache purge"
+  }
+}

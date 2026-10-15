@@ -1,0 +1,12 @@
+{
+  "bundle": ".local/native-freeze/h3-production/bundle.json",
+  "diagnostic": false,
+  "frames": 124,
+  "height": 544,
+  "passed": false,
+  "prompt": "integrated_multimodal_description: A painted paper bird unfolds its wings and gently lifts from a wooden desk. One continuous camera shot.\n\noverall_soundscape: Soft paper rustling and quiet room tone.\n\nnon_diegetic_music: No music.",
+  "provided_conditioning_and_noise": false,
+  "schema": 1,
+  "scope": "full source-precision H3 T2VA Rust orchestration, both decoders, 50 joint evaluations",
+  "width": 960
+}

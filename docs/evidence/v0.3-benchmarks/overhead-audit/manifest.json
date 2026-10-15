@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-15T20:42:37.188092+00:00",
+  "native_executed_for_audit": false,
+  "source_review": "Read-only. No production source or benchmark harness modifications.",
+  "frozen_library_build_manifest": {
+    "path": "docs/evidence/v0.3-benchmarks/build/frozen-library-build-manifest.json",
+    "sha256": "20b5c3e7569f59314200c61d90da56bff196ff1e69d876140f0a108af89eb2c8",
+    "bytes": 11155
+  },
+  "reviewed_files": {
+    "crates/corsairs-abi/src/facade.rs": {
+      "sha256": "c683a4ed948d4e80a745980681eee1849733c673d95f5bb50d031a681a3c29a7",
+      "bytes": 24444,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/facade/handles.rs": {
+      "sha256": "e5f53d41cbee1f4c105a9ea1df911a4ec22b3904520a4f6d5fe3ebf098e79b34",
+      "bytes": 14196,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/worker.rs": {
+      "sha256": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
+      "bytes": 24513,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/dtype.rs": {
+      "sha256": "50fb4b83dc851eb71b5c34194eb4e12ae1ae5bc10b17e8419897cfeb17ca20f0",
+      "bytes": 18446,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/owned.rs": {
+      "sha256": "a78e7f1b2ea22840695aced9b2e48cb1367540144e6716cef2ad9f969fc0246f",
+      "bytes": 52719,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/owned/handles.rs": {
+      "sha256": "fcb2a9d9af45389ef7b9aac369cbac2772b5449087a8a2f0b742eee40205f810",
+      "bytes": 24336,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/loader.rs": {
+      "sha256": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+      "bytes": 2212,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/mod.rs": {
+      "sha256": "86f9dd79b5fe8e26070f74a0c9e06783125d6db3d96dc44ab4e1945201be5819",
+      "bytes": 3526,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/metadata.rs": {
+      "sha256": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+      "bytes": 3082,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/async_task.rs": {
+      "sha256": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+      "bytes": 10613,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/async_task/pending.rs": {
+      "sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+      "bytes": 15081,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/task_create.rs": {
+      "sha256": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+      "bytes": 1030,
+      "matches_frozen_library_build_manifest": true
+    },
+    "crates/corsairs-abi/src/native/text.rs": {
+      "sha256": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+      "bytes": 1670,
+      "matches_frozen_library_build_manifest": true
+    },
+    "scripts/reference/benchmark.py": {
+      "sha256": "fb3074cc5d019c1627160e3624871781fce49707a4e2339279a70667ed0c98a7",
+      "bytes": 8043
+    },
+    "scripts/reference/benchmark_v03.py": {
+      "sha256": "4b2abe152fc91060711a967ce8a28ccb880ce7aacdd903b75c047dd230b1a9e5",
+      "bytes": 13428
+    },
+    "experiments/rust/benchmark_v03.rs": {
+      "sha256": "85ca275cef182433f0e6c1ebc7dc07d5948196baea092d7d3295b6c244f1760d",
+      "bytes": 17121
+    },
+    "crates/corsairs-abi/src/bin/corsairs.rs": {
+      "sha256": "5254e992ac8bce53fab0a97df765f2a883ef1900a64bd8b4cb252fdf8f02754e",
+      "bytes": 11936,
+      "matches_frozen_library_build_manifest": true
+    }
+  },
+  "python_original_wrapper_files": {
+    ".local/reference/coreai-b3/coreai/runtime/_inference_function.py": {
+      "sha256": "359851402fcb4d583136f269a5ffc52c6ea2aa5ab2c36e3ae85e6853d7cc1f89",
+      "bytes": 3263,
+      "matches_wheel_record": true
+    },
+    ".local/reference/coreai-b3/coreai/runtime/_ndarray.py": {
+      "sha256": "34e9493f73a145bac1028066364ac8067c134ecb744c2a668ffe5536152d2914",
+      "bytes": 6725,
+      "matches_wheel_record": true
+    },
+    ".local/reference/coreai-b3/coreai/runtime/_coreai_runtime_os.cpython-312-darwin.so": {
+      "sha256": "440fc1e151338b09d1a0809830f5fd5b1c4d4c998b7d8cf061851d829fd8fb71",
+      "bytes": 541384,
+      "matches_wheel_record": true
+    }
+  },
+  "python_wheel": {
+    "path": ".local/reference/wheels/coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9"
+  },
+  "lookup_probe": {
+    "source": {
+      "path": "experiments/c/dlsym_owned_run.c",
+      "sha256": "98a75e282a57f9fa64623c79198cac9b9a679f010113b2f0282da6a5da326f5d",
+      "bytes": 6711
+    },
+    "binary": {
+      "path": "target/benchmark-overhead/dlsym-owned-run",
+      "sha256": "dc0ef609e1a3265b1276ecccf88c3f16c3d69897251a29baca27ab8be5e52a48",
+      "bytes": 34272
+    },
+    "build_command": [
+      "xcrun",
+      "clang",
+      "-O3",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "experiments/c/dlsym_owned_run.c",
+      "-o",
+      "target/benchmark-overhead/dlsym-owned-run"
+    ],
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2), arm64-apple-darwin27.0.0",
+    "build_exit_status": 0,
+    "executed": false,
+    "root_coordinated_execution_command": [
+      "target/benchmark-overhead/dlsym-owned-run",
+      "100000"
+    ],
+    "method": "Exact ordered 59-symbol success-path list, including duplicates; production CoreAI path and dlopen flags6; CLOCK_MONOTONIC_RAW;1000 warmup batches; every timed lookup checked against initial address; cached volatile pointer-table control measured separately.",
+    "limitations": [
+      "No resolved function or metadata accessor is called. Loading CoreAI can still initialize its image.",
+      "Initial dlopen, initial59resolutions, warmup and final dlclose excluded.",
+      "Control includes pointer-table reads but not the lookup equality branch. Probe is evidence for lookup cost only, not whole-run attribution.",
+      "One cached-control interval precedes one lookup interval; order/thermal/scheduling effects need repeated coordinated runs."
+    ]
+  },
+  "existing_tiny_observation": {
+    "path": "docs/evidence/v0.3-benchmarks/tiny-baseline/roundtrips.json",
+    "sha256": "24b72d35f78df31f5702e89bdab4c659612f24fe494307d76d73bf6837930ec1",
+    "bytes": 29789,
+    "measurements_copied_from_retained_report": [
+      {
+        "backend": "cpu",
+        "python_median_us": 65.875,
+        "rust_median_us": 1078.333
+      },
+      {
+        "backend": "gpu-preferred",
+        "python_median_us": 453.541,
+        "rust_median_us": 1479.958
+      }
+    ],
+    "causal_attribution": "Not established by source audit."
+  },
+  "next_profile_targets": [
+    "dlsym/dyld symbol lookup stacks on corsairs-coreai worker",
+    "worker channel/park/unpark and native completion waits",
+    "Swift task allocation/completion and task TLS checks",
+    "native tensor constructor/mutableRawView/rawView and allocation routines",
+    "output dimension subscript calls and enum tag classification"
+  ]
+}

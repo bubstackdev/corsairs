@@ -1,0 +1,178 @@
+{
+  "name": "h3-functional-19350",
+  "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/block-functional-19350.aimodel",
+  "function": "block",
+  "compute": "gpu-preferred",
+  "expect_frequent_reshapes": null,
+  "inputs": [
+    {
+      "name": "hidden",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        19350,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+      "sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7"
+    },
+    {
+      "name": "temb",
+      "dtype": "bfloat16",
+      "shape": [
+        6,
+        9,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-modulations.raw",
+      "sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817"
+    },
+    {
+      "name": "tags",
+      "dtype": "int32",
+      "shape": [
+        19350
+      ],
+      "file": "/private/tmp/corsairs-v03-benchmark-inputs/tags-19350.i32",
+      "sha256": "a675f60e6762afd76d0e1e70b780399a4ad1ab1479a7c1d7b5a5eb4b70f9ed70"
+    },
+    {
+      "name": "cos",
+      "dtype": "float32",
+      "shape": [
+        19350,
+        96
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+      "sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583"
+    },
+    {
+      "name": "sin",
+      "dtype": "float32",
+      "shape": [
+        19350,
+        96
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+      "sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de"
+    },
+    {
+      "name": "w0",
+      "dtype": "bfloat16",
+      "shape": [
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+      "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f"
+    },
+    {
+      "name": "w1",
+      "dtype": "bfloat16",
+      "shape": [
+        7168,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+      "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6"
+    },
+    {
+      "name": "w2",
+      "dtype": "bfloat16",
+      "shape": [
+        7168,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+      "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937"
+    },
+    {
+      "name": "w3",
+      "dtype": "bfloat16",
+      "shape": [
+        7168,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+      "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc"
+    },
+    {
+      "name": "w4",
+      "dtype": "bfloat16",
+      "shape": [
+        128
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+      "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519"
+    },
+    {
+      "name": "w5",
+      "dtype": "bfloat16",
+      "shape": [
+        128
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+      "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058"
+    },
+    {
+      "name": "w6",
+      "dtype": "bfloat16",
+      "shape": [
+        5376,
+        7168
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+      "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6"
+    },
+    {
+      "name": "w7",
+      "dtype": "bfloat16",
+      "shape": [
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+      "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872"
+    },
+    {
+      "name": "w8",
+      "dtype": "bfloat16",
+      "shape": [
+        28672,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+      "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d"
+    },
+    {
+      "name": "w9",
+      "dtype": "bfloat16",
+      "shape": [
+        5376,
+        14336
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+      "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "hidden_out",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        19350,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-functional.raw",
+      "sha256": "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a"
+    }
+  ],
+  "warmup": 3,
+  "samples": 10,
+  "source_record": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-19350.json",
+  "source_record_sha256": "85c986824d38ecdffc3e736e93fd82ba394cf53754a97ec96c7439e8de0a142c",
+  "tags_source_sha256": "4f8a0aca81ed37a194ed1b8fab5e1eda0a9285dec79efadcca3d21a6b6d149a5",
+  "tags_conversion": "Checked exact int64 to int32 narrowing; original input file remains unchanged.",
+  "scope": "Original block0 source-BF16 weights as runtime inputs, synthetic19350row hidden. Paired defaultreshape hint; app uses true. Not a full generation.",
+  "export_record_sha256": "3c3fafca238fa76ca2b02344543d79847be2b38342ddcdfe0c050f83b8e8356f",
+  "parameter_bytes": 770725376
+}

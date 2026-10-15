@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-10-15T20:30:09.319776+00:00",
+  "status": "compiled_not_native_executed_by_harness_author",
+  "public_api_only": true,
+  "rust_forbid_unsafe": true,
+  "files": {
+    "experiments/rust/benchmark_v03.rs": {
+      "sha256": "85ca275cef182433f0e6c1ebc7dc07d5948196baea092d7d3295b6c244f1760d",
+      "bytes": 17121,
+      "snapshot": "docs/evidence/v0.3-benchmarks/build/sources/experiments/rust/benchmark_v03.rs"
+    },
+    "scripts/reference/benchmark_v03.py": {
+      "sha256": "4b2abe152fc91060711a967ce8a28ccb880ce7aacdd903b75c047dd230b1a9e5",
+      "bytes": 13428,
+      "snapshot": "docs/evidence/v0.3-benchmarks/build/sources/scripts/reference/benchmark_v03.py"
+    },
+    "scripts/reference/environment.py": {
+      "sha256": "6851634c107ff5c65dadb5d28064fda70e82537809011eef6d40eb6fd0b61447",
+      "bytes": 2853,
+      "snapshot": "docs/evidence/v0.3-benchmarks/build/sources/scripts/reference/environment.py"
+    }
+  },
+  "binary": {
+    "path": "target/benchmark-v03",
+    "sha256": "1fc68c6dcd49d0f16f355d96a907c7a33a328a4b3f5e770719c0d844ce251a5c",
+    "bytes": 1415456
+  },
+  "library": {
+    "path": "target/large-check/cargo/release/libcorsairs.rlib",
+    "sha256": "f31257dfcf78b69114d87d59744a1797c7add6992dedbcf868dcab005c46fc8b",
+    "build_manifest": "frozen-library-build-manifest.json",
+    "build_manifest_sha256": "20b5c3e7569f59314200c61d90da56bff196ff1e69d876140f0a108af89eb2c8",
+    "all_frozen_source_hashes_match_current": true,
+    "source_file_count": 62,
+    "features": [
+      "default"
+    ]
+  },
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "build_command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-D",
+    "warnings",
+    "-O",
+    "experiments/rust/benchmark_v03.rs",
+    "--extern",
+    "corsairs=target/large-check/cargo/release/libcorsairs.rlib",
+    "-L",
+    "dependency=target/large-check/cargo/release/deps",
+    "-o",
+    "target/benchmark-v03"
+  ],
+  "build_exit_status": 0,
+  "build_stdout": "",
+  "build_stderr": "",
+  "python_checks": {
+    "ast_parse": "passed",
+    "all_seven_case_schemas": "passed",
+    "rust_argv_generation": "passed; no CoreAI import/launch",
+    "requires_native_qualification": true
+  },
+  "case_files": {
+    "docs/evidence/v0.3-benchmarks/cases/double_float32-cpu.json": {
+      "sha256": "7a470aa5230c72a8e822e4f4a4fc41c7d8ac217d7a95938bb1666609bd724c4b",
+      "bytes": 1186
+    },
+    "docs/evidence/v0.3-benchmarks/cases/double_float32-gpu-preferred.json": {
+      "sha256": "85cc411d46fc50d67bde61b71aef53dab4f24bf371b7d7ddf1678006147edfb9",
+      "bytes": 1206
+    },
+    "docs/evidence/v0.3-benchmarks/cases/feedforward-cpu.json": {
+      "sha256": "150cc5e32e335976f8d630572f651b1ec486e8d80cbe00278c4d722bee3350f1",
+      "bytes": 1174
+    },
+    "docs/evidence/v0.3-benchmarks/cases/feedforward-gpu-preferred.json": {
+      "sha256": "937730be2b663a423140019a318f3b58f4d42a329430fb2c401c05fe946eedb1",
+      "bytes": 1194
+    },
+    "docs/evidence/v0.3-benchmarks/cases/h3-cached-128.json": {
+      "sha256": "ce78b70501c8e15f9d5de715d8b25bcfa4f359ddf762c58c680a8fc548ddf9b5",
+      "bytes": 2632
+    },
+    "docs/evidence/v0.3-benchmarks/cases/h3-cached-19350.json": {
+      "sha256": "efc9f90d62efe5363d0507ea171e3e6e063fe6b4aa8b11a8f0f011c619fc47ef",
+      "bytes": 2660
+    },
+    "docs/evidence/v0.3-benchmarks/cases/h3-functional-19350.json": {
+      "sha256": "78dfe1e492df89279d9e26dd7419a6929c808256a2368fd002c03610c99e76ab",
+      "bytes": 5766
+    }
+  },
+  "protocol": "PROTOCOL.md",
+  "limits": [
+    "No native benchmark run performed by this author. Parent coordinates all native launches.",
+    "Rust and Python await-return phases contain no extra explicit GPU fence beyond the respective public API; Metal encode phases include the public fence/readiness contract.",
+    "Correctness readback, result release and per-iteration cleanup are excluded from every timed interval."
+  ]
+}

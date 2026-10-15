@@ -1,0 +1,763 @@
+{
+  "kind": "corsairs-aether-h3-independent-source-performance-audit",
+  "created_at": "2026-10-15T20:26:13.031645+00:00",
+  "native_execution_performed": false,
+  "external_files_modified": false,
+  "scope": "Read-only current/frozen Aether H3 integration and retained passive sample, compared to matching Corsairs worker/Metal/native async source and pinned published b3 Python wrappers. No GPU work, profiler invocation, package import or performance rerun.",
+  "identity": {
+    "frozen_manifest_sha256": "cddc95ab42900c27d413f8aa0644e76f27871e23f510c91ec1d9ed81f0d30cc9",
+    "frozen_binary_sha256": "ec135d7a62662f0b7cbdb10e0bd8ab9e855b2a449551b14cc9cb36f869122e50",
+    "binary_matches_current_release_example": true,
+    "frozen_bundle_sha256": "31b7011343599a4f5c4fded70fd8fe6d65faf7a961c27364d7399aa4c87871fc",
+    "frozen_source_count": 66,
+    "all_current_and_frozen_sources_match_manifest": true,
+    "source_pins": {
+      "aether/src/error.rs": {
+        "sha256": "570b261a2e4be18045b585155f62489abe528ac521684844c4399a1b223b834c",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/error.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/error.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/lib.rs": {
+        "sha256": "7210f69bbf28155f4511cd91d6ec98af06202e5328e4ccbe1538dc467560db58",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/lib.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/lib.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/image.rs": {
+        "sha256": "955a8ed6adb7da96c34ae44286a096af78c4874a2b953fb057fa5ba1d1822912",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/image.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/image.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/audio_video.rs": {
+        "sha256": "e13251fc603cd46848b2bc8a4e53b1d37efe6746f4b4ef0842b91188bd6fa265",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/audio_video.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/audio_video.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/layout.rs": {
+        "sha256": "d5cf83be46a2164a5d5586f2e1e849b7f4b765fd7e759f188f1e5f7b19e03cfa",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/layout.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/layout.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/mod.rs": {
+        "sha256": "667263511701799eb66971fcef0f5aa8cf27b9a39137d9a8c4e87594edce9959",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/mod.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/mod.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/lab.rs": {
+        "sha256": "23f4729f18eef51e29495dd943447aa136b6bb98cc315a0559930cbe75bd9784",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/lab.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/lab.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/contract.rs": {
+        "sha256": "bdc6dd28240995b2b77483a1c98ee05498119ad1573ea882444d160beaa685db",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/contract.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/contract.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/decode.rs": {
+        "sha256": "282c740cf5ffdcc8370e0a35ba26c0020796a58344838c9857b0e66d0aadbe53",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/decode.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/decode.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/assets.rs": {
+        "sha256": "d98ba8e76b27c199fa7329c2184628578f5bdf1539d81fc6a03e088e5d44e2de",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/assets.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/assets.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/pipeline.rs": {
+        "sha256": "1361d5254e94e863a420a1e45e795e3300740c6e73db313a4ba402b27fde3fb4",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/pipeline.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/krea/mod.rs": {
+        "sha256": "8ed28972df60fbf9021cb8a7d927cbb8d56c953830320d8aa77cfad679cdb024",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/krea/mod.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/krea/mod.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/krea/prompt.rs": {
+        "sha256": "e3c2fc5f296b4c782237736e94214931ca52925f3599eff53b4b26cd81106c3e",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/krea/prompt.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/krea/prompt.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/krea/math.rs": {
+        "sha256": "631cf985cfe1b6d76fee8770916354a9bf55b017631c949542d04c618a840702",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/krea/math.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/krea/math.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/krea/assets.rs": {
+        "sha256": "88d50fa573a0f79563164c54b059ce29abde4f1a9305fbb23be98a7ffcf34f0b",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/krea/assets.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/krea/assets.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/krea/pipeline.rs": {
+        "sha256": "90263ecb88bbf40b4a91055e58efc9735cf827de69547bfa0885a2e76c0c8bdc",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/krea/pipeline.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/krea/pipeline.rs",
+        "current_matches_frozen": true
+      },
+      "aether/src/h3/lab/backbone.rs": {
+        "sha256": "432ec51d6d3975d3c946d3e902b1bd24c50e06d2ade1440c0067e049d7e2727d",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/lab/backbone.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/src/h3/lab/backbone.rs",
+        "current_matches_frozen": true
+      },
+      "aether/examples/h3_generate.rs": {
+        "sha256": "81ca3f41c5398e3cc26342d93fa95d6bd672e5620b952fb3c375d3ec3f166e8f",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/examples/h3_generate.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/examples/h3_generate.rs",
+        "current_matches_frozen": true
+      },
+      "aether/examples/h3_qualify.rs": {
+        "sha256": "7cadfda9c9e4a4f85390046124634d1ffb59b44ef9d0e1cbca5124119803ec65",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/examples/h3_qualify.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/examples/h3_qualify.rs",
+        "current_matches_frozen": true
+      },
+      "aether/examples/render.rs": {
+        "sha256": "0d825c2e372f99927d6e575ae699cd6e3df2f14dd9333f493bd1fff164d8e80c",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/examples/render.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/examples/render.rs",
+        "current_matches_frozen": true
+      },
+      "aether/examples/parity.rs": {
+        "sha256": "17419c7a3bc66d6da0e04660544c8be86bd207adc00bfa5abbfed36d5b8d64cd",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/examples/parity.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/examples/parity.rs",
+        "current_matches_frozen": true
+      },
+      "aether/forge/h3_export.py": {
+        "sha256": "baaebbfee09a60f597a5e8d46b0db2893fe3f274ce8d00a1e19a7bbb40b007af",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/forge/h3_export.py",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/forge/h3_export.py",
+        "current_matches_frozen": true
+      },
+      "aether/forge/h3_oracles.py": {
+        "sha256": "295b2e52117b7ca9dd82a5ee8f8490408214388368277c67b75b6f5c7b43c009",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/forge/h3_oracles.py",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/forge/h3_oracles.py",
+        "current_matches_frozen": true
+      },
+      "aether/Cargo.toml": {
+        "sha256": "612ef19bf7dd3aa27ff72877cc67d6e41c6cf318a81d9c70bb4aba58722d870e",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/Cargo.toml",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/Cargo.toml",
+        "current_matches_frozen": true
+      },
+      "aether/Cargo.lock": {
+        "sha256": "a5ebbf74f185adb94f678aaa78a8b676aed9ad62ea6fe4cb37261a4a064724ca",
+        "current_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/Cargo.lock",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/aether/Cargo.lock",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/Cargo.toml": {
+        "sha256": "2dc6e7a757d5bc7840b7d01802a0416144776c37c42f145945ebe68329ddac97",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/Cargo.toml",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-lab/Cargo.toml": {
+        "sha256": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab/Cargo.toml",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-lab/Cargo.toml",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-lab/src/main.rs": {
+        "sha256": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab/src/main.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-lab/src/main.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/tests/native_metadata.rs": {
+        "sha256": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/tests/native_metadata.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/tests/native_metadata.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/examples/feedforward.rs": {
+        "sha256": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/examples/feedforward.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/examples/feedforward.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/examples/native_chain.rs": {
+        "sha256": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/examples/native_chain.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/examples/native_chain.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/examples/metal_chain.rs": {
+        "sha256": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/examples/metal_chain.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/examples/metal_chain.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/examples/stateful.rs": {
+        "sha256": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/examples/stateful.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/examples/stateful.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/dtype.rs": {
+        "sha256": "50fb4b83dc851eb71b5c34194eb4e12ae1ae5bc10b17e8419897cfeb17ca20f0",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/dtype.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/dtype.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/api_error.rs": {
+        "sha256": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/api_error.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/api_error.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/lib.rs": {
+        "sha256": "a73e4a95239c423aa04b91fe6c98669153d84f8dad0129a65a438022690a8bf6",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/lib.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/facade.rs": {
+        "sha256": "c683a4ed948d4e80a745980681eee1849733c673d95f5bb50d031a681a3c29a7",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/facade.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/facade.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/worker.rs": {
+        "sha256": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/worker.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/worker.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/arm64.rs": {
+        "sha256": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/arm64.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/arm64.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/task_create.rs": {
+        "sha256": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/task_create.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/task_create.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/async_task.rs": {
+        "sha256": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/async_task.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/async_task.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/metadata.rs": {
+        "sha256": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/metadata.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/metadata.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/owned.rs": {
+        "sha256": "a78e7f1b2ea22840695aced9b2e48cb1367540144e6716cef2ad9f969fc0246f",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/owned.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/task.rs": {
+        "sha256": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/task.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/task.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/mod.rs": {
+        "sha256": "86f9dd79b5fe8e26070f74a0c9e06783125d6db3d96dc44ab4e1945201be5819",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/mod.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/mod.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/value.rs": {
+        "sha256": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/value.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/value.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/errors.rs": {
+        "sha256": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/errors.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/errors.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/buffer.rs": {
+        "sha256": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/buffer.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/buffer.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/text.rs": {
+        "sha256": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/text.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/text.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/loader.rs": {
+        "sha256": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/loader.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/loader.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/inference.rs": {
+        "sha256": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/inference.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/inference.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/model.rs": {
+        "sha256": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/model.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/model.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/tensor.rs": {
+        "sha256": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/tensor.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/tensor.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/bin/corsairs.rs": {
+        "sha256": "5254e992ac8bce53fab0a97df765f2a883ef1900a64bd8b4cb252fdf8f02754e",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/bin/corsairs.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/bin/corsairs.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/facade/function_batch.rs": {
+        "sha256": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/facade/function_batch.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/facade/function_batch.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/facade/batch.rs": {
+        "sha256": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/facade/batch.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/facade/batch.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/facade/handles.rs": {
+        "sha256": "e5f53d41cbee1f4c105a9ea1df911a4ec22b3904520a4f6d5fe3ebf098e79b34",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/facade/handles.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/facade/handles.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/facade/metal.rs": {
+        "sha256": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/facade/metal.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/facade/metal.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/owned/function_batch.rs": {
+        "sha256": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/function_batch.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/owned/function_batch.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/owned/batch.rs": {
+        "sha256": "1b8674ad189d579b8476ec86f45d1927f678dfd80680406c0020cf6e8c028c58",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/batch.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/owned/batch.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/owned/handles.rs": {
+        "sha256": "fcb2a9d9af45389ef7b9aac369cbac2772b5449087a8a2f0b742eee40205f810",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/handles.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/owned/handles.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/owned/metal.rs": {
+        "sha256": "a2629dd4160390d353c0bed332ff33e96c19cdc8c1ce2c8bec2c1149b580f5e7",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/owned/metal.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/async_task/pending.rs": {
+        "sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/async_task/pending.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/async_task/pending.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/crates/corsairs-abi/src/native/async_task/sync_call.rs": {
+        "sha256": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/async_task/sync_call.rs",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/crates/corsairs-abi/src/native/async_task/sync_call.rs",
+        "current_matches_frozen": true
+      },
+      "corsairs/Cargo.toml": {
+        "sha256": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/Cargo.toml",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/Cargo.toml",
+        "current_matches_frozen": true
+      },
+      "corsairs/Cargo.lock": {
+        "sha256": "f9393fee2b72c685899a9db7d50d0bd8f497f547d39aaf74ef99e5628a5d42d9",
+        "current_file": "/Users/zakkeown/Code/aether/lab/corsairs/Cargo.lock",
+        "frozen_file": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/sources/corsairs/Cargo.lock",
+        "current_matches_frozen": true
+      }
+    },
+    "published_python": "coreai-core 1.0.0b3",
+    "published_python_source_sha256": {
+      ".local/reference/coreai-b3/coreai/runtime/__init__.py": "289807108554823b533ac67c4dc27ec58f71a3c6deb3d640eedf2e9efcbfafec",
+      ".local/reference/coreai-b3/coreai/runtime/_aimodel.py": "90d7fe60004760409f167c8a9e273e53c8522f7116e20bdedac85df0006da10a",
+      ".local/reference/coreai-b3/coreai/runtime/_ndarray.py": "34e9493f73a145bac1028066364ac8067c134ecb744c2a668ffe5536152d2914",
+      ".local/reference/coreai-b3/coreai/runtime/_inference_function.py": "359851402fcb4d583136f269a5ffc52c6ea2aa5ab2c36e3ae85e6853d7cc1f89",
+      ".local/reference/coreai-b3/coreai/runtime/_specialization_options.py": "e0c55929156bc7c8f179ee2750bdc02cf7dda077b27444b40c4ea184acd9dc11",
+      ".local/reference/coreai-b3/coreai_core-1.0.0b3.dist-info/METADATA": "380bfeef81a69cf2f67ccc89eb1db1abb224e4495b56c276be7fecb14fa27534"
+    }
+  },
+  "observed": {
+    "initial_report_passed": false,
+    "termination_status": "stopped_at_user_request",
+    "completed_generation": false,
+    "completed_steps": 22,
+    "planned_steps": 50,
+    "event_count": 173,
+    "event_counts": {
+      "conditioner_layer": 50,
+      "encoded": 1,
+      "modulation": 50,
+      "weights_loaded": 50,
+      "step": 22
+    },
+    "last_event": {
+      "audio_sha256": "5e5a617858f2e60921a4ce48a806734050d36e7396de234080fd6e741872c546",
+      "event": "step",
+      "index": 21,
+      "video_sha256": "2982b5e6a31407bf9ac7c96c01edcd95639c0e13c4bf1853e7bcf09603f3d0d2"
+    },
+    "decoder_events": 0,
+    "stage_timestamps_present": false,
+    "final_elapsed_seconds_present": false,
+    "sample_physical_footprint_verbatim": "44.3G, peak44.4G",
+    "sample_worker_stack_observations": {
+      "total_samples": 1621,
+      "metal_fence_native_join_condvar_samples": 1598,
+      "metal_output_readiness_condvar_samples": 14,
+      "scope": "One approximately1.6-second retained CPU stack sample; wait stacks are not a GPU utilization, GPU execution-time, paging, fence-overhead or whole-render attribution."
+    },
+    "launch_time_from_sample": "2026-10-15T13:52:37.252000-06:00",
+    "termination_invocation_utc": "2026-10-15T20:19:13.785000+00:00",
+    "derived_partial_wall_interval_seconds": 1596.533,
+    "wall_interval_scope": "Derived from sampled launch time and retained kill invocation; includes all startup and22 completed steps plus any interrupted step. Not per-step timing, final render time or throughput.",
+    "termination_evidence_id": "ev_23fac2f37c4aa754a14bb148d3a6df624a1e6235d2793282eea8c24da2f4d636"
+  },
+  "source_derived": {
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "clip_seconds": 5.166666666666667,
+    "text_rows": 49,
+    "video_latent_rows": 18870,
+    "audio_latent_rows": 414,
+    "joint_hidden_rows": 19333,
+    "hidden_dtype": "bfloat16",
+    "hidden_bytes_per_pingpong_buffer": 207868416,
+    "weights_dtype": "bfloat16",
+    "authoritative_latents_and_scheduler": "float32",
+    "rotary_dtype": "float32",
+    "compute": "GpuPreferred",
+    "expect_frequent_reshapes": true,
+    "backend_all_gpu_execution_proven": false,
+    "weights_uploaded_once_bytes": 38536268800,
+    "parameter_tensors": 500,
+    "model_source_streams_verified_by_application": 108,
+    "model_bytecode_total_stat_only_bytes": 88279632094,
+    "bytecode_sizes_scope": "Filesystem lengths only; this audit does not rehash88.28GB of model bytecode or38.54GB of parameter contents. The application hashes streams on its execution path.",
+    "model_files_stat_only": {
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/prepare.aimodel/main.mlirb": 1599338159,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/time.aimodel/main.mlirb": 63343706,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/heads.aimodel/main.mlirb": 60722739,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/audio-decoder.aimodel/main.mlirb": 519136248,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/video-decoder.aimodel/main.mlirb": 9699496325,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/body-1.aimodel/main.mlirb": 14684,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/body-2.aimodel/main.mlirb": 14684,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-0.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-1.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-2.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-3.aimodel/main.mlirb": 520421125,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-4.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-5.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-6.aimodel/main.mlirb": 520421125,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-7.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-8.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-9.aimodel/main.mlirb": 520421125,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-10.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-11.aimodel/main.mlirb": 520421125,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-12.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-13.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-14.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-15.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-16.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-17.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-18.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-19.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-20.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-21.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-22.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-23.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-24.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-25.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-26.aimodel/main.mlirb": 520421125,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-27.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-28.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-29.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-30.aimodel/main.mlirb": 520421122,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-31.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-32.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-33.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-34.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-35.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-36.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-37.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-38.aimodel/main.mlirb": 520421125,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-39.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-40.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-41.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-42.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-43.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-44.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-45.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-46.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-47.aimodel/main.mlirb": 520421123,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-48.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/modulation-49.aimodel/main.mlirb": 520421124,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-embedding.aimodel/main.mlirb": 1555875935,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-0.aimodel/main.mlirb": 975212666,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-1.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-2.aimodel/main.mlirb": 975212672,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-3.aimodel/main.mlirb": 975212666,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-4.aimodel/main.mlirb": 975212670,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-5.aimodel/main.mlirb": 975212670,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-6.aimodel/main.mlirb": 975212670,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-7.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-8.aimodel/main.mlirb": 975212665,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-9.aimodel/main.mlirb": 975212665,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-10.aimodel/main.mlirb": 975212670,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-11.aimodel/main.mlirb": 975212667,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-12.aimodel/main.mlirb": 975212666,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-13.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-14.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-15.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-16.aimodel/main.mlirb": 975212667,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-17.aimodel/main.mlirb": 975212672,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-18.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-19.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-20.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-21.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-22.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-23.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-24.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-25.aimodel/main.mlirb": 975212667,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-26.aimodel/main.mlirb": 975212667,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-27.aimodel/main.mlirb": 975212665,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-28.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-29.aimodel/main.mlirb": 975212666,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-30.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-31.aimodel/main.mlirb": 975212665,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-32.aimodel/main.mlirb": 975212670,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-33.aimodel/main.mlirb": 975212673,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-34.aimodel/main.mlirb": 975212665,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-35.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-36.aimodel/main.mlirb": 975212667,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-37.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-38.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-39.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-40.aimodel/main.mlirb": 975212666,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-41.aimodel/main.mlirb": 975212670,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-42.aimodel/main.mlirb": 975212669,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-43.aimodel/main.mlirb": 975212672,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-44.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-45.aimodel/main.mlirb": 975212668,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-46.aimodel/main.mlirb": 975212671,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-47.aimodel/main.mlirb": 975212666,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-48.aimodel/main.mlirb": 975212667,
+      "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-diagnostic/models/conditioner-49.aimodel/main.mlirb": 975212669
+    },
+    "conditioner_owned_calls": 51,
+    "conditioner_stage_load_drop_drain_sequence": true,
+    "time_embedding_owned_calls": 50,
+    "modulation_owned_calls": 2500,
+    "modulation_model_loads": 50,
+    "modulation_cached_host_bytes": 958003200,
+    "weights_reuploaded_per_step": false,
+    "body_hidden_owned_roundtrip_per_block": false,
+    "body_cardinalities": [
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "body_model_loads_expected_for_full_schedule": 2,
+    "prepare_and_heads_retained_across_steps": true,
+    "per_step": {
+      "encoded_model_calls": 52,
+      "body_encoded_calls": 50,
+      "table_uploads": 50,
+      "public_worker_operations_excluding_releases_and_model_changes": 109,
+      "metal_fence_helper_calls": 161,
+      "fence_helper_breakdown": {
+        "video_audio_writes": 2,
+        "prepare_encode_pre_and_post": 2,
+        "tags_upload": 1,
+        "50_table_uploads": 50,
+        "50_body_encodes_pre_and_post": 100,
+        "heads_temb_and_indices_uploads": 2,
+        "heads_encode_pre_and_post": 2,
+        "velocity_downloads": 2
+      },
+      "native_async_children_from_fences_and_readiness": 214,
+      "source_count_scope": "52 encodes each have2 fence helpers; uploads/writes/downloads add57 helpers. Each helper awaits native stream completion and commits/waits an empty command buffer.53 output readiness getters add53 async calls. Counts are derived for successful control flow, not measured timestamps.",
+      "latent_upload_bytes": 7299072,
+      "velocity_download_bytes": 7299072
+    },
+    "full_schedule_derived": {
+      "body_calls": 2500,
+      "encoded_calls": 2600,
+      "fence_helper_calls": 8050,
+      "native_async_children_from_fences_and_readiness": 10700
+    },
+    "decoders_if_reached": {
+      "owned_audio_decode_calls": 1,
+      "owned_video_decode_windows": 7,
+      "frames_per_window": 22,
+      "video_output_bytes_per_window": 137871360,
+      "stitched_f32_video_bytes": 777093120,
+      "observed_executed": false
+    }
+  },
+  "hypotheses_not_measured": [
+    {
+      "candidate": "Per-block completion barriers and Swift task/wrapper setup amplify launch/synchronization overhead across2600 encodes.",
+      "support": "161 helper fences per source step; passive sample catches worker waiting in a fence.",
+      "remaining_unknown": "How much waiting is redundant boundary cost versus required GPU/backend work or other GPU users; no timing decomposition."
+    },
+    {
+      "candidate": "Startup integrity hashing,50 conditioner loads and2500 owned modulation calls dominate a substantial startup phase.",
+      "support": "Application verifies108 asset streams and hashes/uploads38.54GB raw body parameters; setup loops complete before step0.",
+      "remaining_unknown": "No per-stage timestamps distinguish hashing, disk I/O, specialization, arithmetic and copies."
+    },
+    {
+      "candidate": "True frequent-reshape hint may change specialization tradeoffs for fixed profiles.",
+      "support": "Same true override used for every asset.",
+      "remaining_unknown": "No matched true/false/default measurement; not established as incorrect or causal."
+    },
+    {
+      "candidate": "Large resident weights, backend graph execution and external GPU contention may dominate steady steps.",
+      "support": "38.54GB resident body parameters,207.87MB pingpong tensors,50blocks\u00d750evaluations; sample includes MPSGraph/AGX work.",
+      "remaining_unknown": "No GPU timeline, counters, thermal/load record, memory-pressure/page-fault attribution or matched quiet-host baseline."
+    }
+  ],
+  "python_comparison": {
+    "source_observed": "Published Python passes existing v._tensor objects into the native function, awaits one compiled binding call, then wraps native output arrays. NDArray.numpy normally returns shared views for contiguous supported types.",
+    "rust_observed": "Owned Function.run reconstructs native arrays and copies outputs. Aether uses this for conditioner/time/modulation/decoders, but uses persistent Metal buffers for the body. Metal encode eagerly completes each call with extra stream/command-buffer fences and readiness getters. Worker submits owned operations through an mpsc queue and native adapter creates/joins Swift task contexts; no fixed sleep/poll timeout found.",
+    "unknown": "Compiled Python extension scheduling/fence internals are opaque to this source audit. No same-model/same-options Python or Swift timing exists for this production render. Native runtime selection must be matched; wheelmacOS27 defaults to OS unless overridden, dev-path imports may choose bundled runtime without USE_OS_COREAI."
+  },
+  "sources": {
+    "geometry": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/contract.rs:18",
+    "schedule_50": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/contract.rs:93",
+    "gpu_hint": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/assets.rs:19",
+    "integrity": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/assets.rs:175",
+    "parameter_read_and_hash": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/assets.rs:59",
+    "conditioner_owned": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:137",
+    "time_modulation": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:336",
+    "persistent_weight_upload": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:389",
+    "persistent_hidden": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:410",
+    "body_reload_condition": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:420",
+    "step_encodes": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:431",
+    "host_velocity_scheduler": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:507",
+    "decoder_boundary": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:533",
+    "owned_video_decode": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:586",
+    "finite_conversion_and_hash": "/Users/zakkeown/Code/aether/lab/aether-prototype/src/h3/pipeline.rs:710",
+    "journal_without_timestamps": "/Users/zakkeown/Code/aether/lab/aether-prototype/examples/h3_generate.rs:85",
+    "elapsed_only_at_return": "/Users/zakkeown/Code/aether/lab/aether-prototype/examples/h3_generate.rs:210",
+    "metal_pre_fence": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs:751",
+    "metal_post_fence": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs:858",
+    "fence_implementation": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs:270",
+    "upload_fence": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs:413",
+    "download_fence": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs:467",
+    "output_readiness": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/owned/metal.rs:870",
+    "worker_queue": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/worker.rs:173",
+    "task_allocation": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/async_task/pending.rs:207",
+    "condition_wait": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/async_task/pending.rs:102",
+    "dynamic_symbols": "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/native/loader.rs:39",
+    "python_reused_native_inputs": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py:24",
+    "python_native_await": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py:87",
+    "python_numpy_view": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/runtime/_ndarray.py:114",
+    "python_runtime_selection": "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/runtime/__init__.py:44"
+  },
+  "follow_up_without_claiming_result": [
+    "Before any authorized quiet-host rerun, retain per-phase monotonic timestamps and per-call encode/upload/fence/readiness durations with GPU/CPU/host bytes separated.",
+    "Use identicalassets/shape/BF16/F32/options/backend for a component-level Swift/Python-versus-Rust comparison; separate loading from steady inference.",
+    "Evaluate safe batched submission/completion or combined graphs only after measuring the barrier share and retaining all buffers/errors through the final completion.",
+    "Do not attribute the stopped26.6-minute attempt to Rust overhead, extrapolate final throughput, or claim decoder costs without those measurements."
+  ],
+  "retained_small_evidence_sha256": {
+    "frozen-manifest.json": "cddc95ab42900c27d413f8aa0644e76f27871e23f510c91ec1d9ed81f0d30cc9",
+    "production-stop.json": "98738e7a916f446f0b3bd36f833ff22143e179de1f67e9d8468f146f28ade354",
+    "production-events.jsonl": "1bfd8ee4c374b6cb7ace879992e42e170c4fcccf8f54e3a306ceb7491c452347",
+    "production-sample.txt": "2cd0a1966a40e2afa724904074a62216b3d9c3c411b3137d4132919c09d02e6c",
+    "frozen-bundle.json": "31b7011343599a4f5c4fded70fd8fe6d65faf7a961c27364d7399aa4c87871fc",
+    "production-report.json": "39c34284d36413645f49969a33d363bea95a29e4f0a99d232bf20b3f07e945c9"
+  }
+}

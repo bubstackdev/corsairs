@@ -1,0 +1,191 @@
+{
+  "units": "milliseconds",
+  "statistic": "Range and median of per-process medians; no confidence intervals",
+  "groups": {
+    "feedforward-cpu": {
+      "phase": "owned_run",
+      "pairs": [
+        1,
+        2,
+        3
+      ],
+      "arms": {
+        "rust": {
+          "process_medians": [
+            1.1384165,
+            1.134292,
+            1.1411465
+          ],
+          "median_of_medians": 1.1384165,
+          "median_range": [
+            1.134292,
+            1.1411465
+          ],
+          "process_p95s": [
+            1.172292,
+            1.155792,
+            1.166625
+          ]
+        },
+        "python": {
+          "process_medians": [
+            0.0707085,
+            0.072146,
+            0.0720205
+          ],
+          "median_of_medians": 0.0720205,
+          "median_range": [
+            0.0707085,
+            0.072146
+          ],
+          "process_p95s": [
+            0.102417,
+            0.100875,
+            0.091541
+          ]
+        }
+      }
+    },
+    "feedforward-gpu-preferred": {
+      "phase": "owned_run",
+      "pairs": [
+        1,
+        2,
+        3
+      ],
+      "arms": {
+        "rust": {
+          "process_medians": [
+            1.5326665,
+            1.5195415,
+            1.5270415
+          ],
+          "median_of_medians": 1.5270415,
+          "median_range": [
+            1.5195415,
+            1.5326665
+          ],
+          "process_p95s": [
+            2.67025,
+            1.803083,
+            1.730333
+          ]
+        },
+        "python": {
+          "process_medians": [
+            0.500188,
+            0.501979,
+            0.4988125
+          ],
+          "median_of_medians": 0.500188,
+          "median_range": [
+            0.4988125,
+            0.501979
+          ],
+          "process_p95s": [
+            1.167333,
+            1.256667,
+            1.275583
+          ]
+        }
+      }
+    },
+    "h3-functional-19333": {
+      "phase": "native_run_download",
+      "pairs": [
+        3,
+        4
+      ],
+      "arms": {
+        "rust": {
+          "process_medians": [
+            539.6073335,
+            651.2585625
+          ],
+          "median_of_medians": 595.432948,
+          "median_range": [
+            539.6073335,
+            651.2585625
+          ],
+          "process_p95s": [
+            598.121875,
+            686.35775
+          ]
+        },
+        "python": {
+          "process_medians": [
+            559.298792,
+            582.9784375
+          ],
+          "median_of_medians": 571.13861475,
+          "median_range": [
+            559.298792,
+            582.9784375
+          ],
+          "process_p95s": [
+            626.953417,
+            657.899542
+          ]
+        }
+      }
+    },
+    "krea-first-segment": {
+      "phase": "native_run_download",
+      "pairs": [
+        1,
+        2
+      ],
+      "arms": {
+        "rust": {
+          "process_medians": [
+            547.011667,
+            530.9489795
+          ],
+          "median_of_medians": 538.98032325,
+          "median_range": [
+            530.9489795,
+            547.011667
+          ],
+          "process_p95s": [
+            615.071458,
+            607.364541
+          ]
+        },
+        "python": {
+          "process_medians": [
+            547.041458,
+            536.578
+          ],
+          "median_of_medians": 541.8097290000001,
+          "median_range": [
+            536.578,
+            547.041458
+          ],
+          "process_p95s": [
+            602.69,
+            595.644625
+          ]
+        }
+      }
+    }
+  },
+  "source_reports": {
+    "docs/evidence/v0.3-benchmarks/runs/feedforward-cpu/pair-01.json": "60e57f3f6eadff7dc69ead325c077f89de43d0353fba283a7550d60a46bafed4",
+    "docs/evidence/v0.3-benchmarks/runs/feedforward-cpu/pair-02.json": "af74ba0b4963324c78c2b37fd3742dff83328be0222e782194fb0aa69161f122",
+    "docs/evidence/v0.3-benchmarks/runs/feedforward-cpu/pair-03.json": "54dda89f328eb97f5737652e1e1d9dd573c15d9024297416923095e35c6be729",
+    "docs/evidence/v0.3-benchmarks/runs/feedforward-gpu-preferred/pair-01.json": "84c139ed2b7b6e4c7ea75dd70c031251687da61d712a60d2b567afa22b976c3f",
+    "docs/evidence/v0.3-benchmarks/runs/feedforward-gpu-preferred/pair-02.json": "3e765a4bfb8d0316f7b60ddb5e941d2473e0481be0592ba707fccc932a447985",
+    "docs/evidence/v0.3-benchmarks/runs/feedforward-gpu-preferred/pair-03.json": "5dd0807c112f1581dd4324f58353ad61a9e3867e343e845a426cf699ffd5f9ae",
+    "docs/evidence/v0.3-benchmarks/runs/h3-functional-19333/pair-03.json": "d1b69191ac52901130f34148470884045ccac6792ebf33daa4d2bc64f1e3fa8a",
+    "docs/evidence/v0.3-benchmarks/runs/h3-functional-19333/pair-04.json": "de1a20c9e71f7ca5aba97647247ec3fb9be94fa87a79283a4762bbbefe0d6ab9",
+    "docs/evidence/v0.3-benchmarks/runs/krea-first-segment/pair-01.json": "f89ac906b89acea2f16fecc39c266e215ea39209f40eb09b539695bb8ced72cd",
+    "docs/evidence/v0.3-benchmarks/runs/krea-first-segment/pair-02.json": "6ca2c80e02c093826a18e366e97b5aa4cdd4bef8de5c30def3bed84ab2cd46a6"
+  },
+  "exclusions": [
+    "H3 pair1: initial single-phase run without cooldown, retained separately",
+    "H3 pair2: exploratory fixed-order phase sweep with drift, retained separately",
+    "Single-language Metal runs: no public Python equivalent",
+    "Sampled Rust profiling loop: instrumented diagnostic",
+    "Published external results: unmatched models/hardware/precision/schedules"
+  ]
+}

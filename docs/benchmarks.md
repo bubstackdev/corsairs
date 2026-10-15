@@ -1,5 +1,10 @@
 # Benchmarks
 
+The [v0.3 matched Python measurements](v0.3-benchmarks.md) cover full-size H3,
+Krea, small-call phases, published benchmark context and the symbol-lookup
+overhead profile. Large-graph calls have similar latency; tiny Rust calls retain
+about 1 ms of avoidable overhead. The historical results below remain unchanged.
+
 The v0.1 safe Rust path had higher round-trip latency than the published Python bindings in the recorded tiny feedforward workload below. The v0.2 Krea pairs recorded lower native-carry generation intervals in each pair, with high variance and mixed RSS results. Separate preparation pairs recorded shorter batch-loading intervals with higher child RSS. These measurements establish no general performance guarantee.
 
 ## v0.1 tiny feedforward workload

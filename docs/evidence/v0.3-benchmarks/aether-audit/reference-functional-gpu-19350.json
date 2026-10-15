@@ -1,0 +1,221 @@
+{
+  "allSampleHashesIdentical" : true,
+  "arms" : [
+    "cached",
+    "functional"
+  ],
+  "block" : 0,
+  "blockLoadSeconds" : {
+    "cached" : 1.6480463329999999,
+    "functional" : 0.116240709
+  },
+  "cacheBytes" : 580608,
+  "cacheSHA256" : "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+  "crossBackendRelativeL2LimitPredefined" : 0.02,
+  "device" : "Apple M5 Max",
+  "exactCandidateGatePassed" : true,
+  "expectFrequentReshapesByArm" : {
+    "cached" : true,
+    "functional" : true
+  },
+  "experimentType" : "exact-path-qualification",
+  "indexInputCoercion" : "Torch int64 to Core AI int32, checked exact and in range",
+  "kind" : "coreai-original-weight-single-block",
+  "liveCachedByteIdentical" : true,
+  "liveVsCached" : {
+    "cosine" : 1,
+    "finite" : true,
+    "maxAbs" : 0,
+    "relativeL2" : 0
+  },
+  "modulationBuildAndReadbackSeconds" : 0.014884667000000001,
+  "modulationLoadSeconds" : 1.165554167,
+  "os" : "Version 27.0.1 (Build 26A434)",
+  "peakRSSBytes" : 5636030464,
+  "rows" : 19350,
+  "samples" : [
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 12473368576,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.56787983399999997,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : true
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13452607488,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.55889729200000005,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : true
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13660667904,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.55426554100000003,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : true
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13868728320,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.55699166700000002,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : true
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.558835792,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.55248329200000001,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.55498520799999995,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.55926062499999996,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.56579308299999997,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.59924587500000004,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.57776579100000003,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.59026645899999997,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.59522724999999999,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.62210241700000002,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "functional",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.62917404099999996,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    },
+    {
+      "arm" : "cached",
+      "metalAllocatedBytes" : 13866631168,
+      "outputSHA256" : "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+      "seconds" : 0.64767862499999995,
+      "thermalState" : 0,
+      "vsCPU" : {
+        "scope" : "CPU reference skipped at this shape"
+      },
+      "warmup" : false
+    }
+  ],
+  "schemaVersion" : 1,
+  "scope" : "Synthetic hidden states and real checkpoint weights; one block only, not a full generation.",
+  "sourceTensorSHA256" : "865b6c7ca63083235961df46d4b6feaf2094dcd66261316945e0609f989ea654",
+  "trackedMetalBytesAfterLoadByArm" : {
+    "cached" : 4825186304,
+    "functional" : 9125576704
+  }
+}

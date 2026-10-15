@@ -8,7 +8,7 @@ The v0.1 release targets Apple Silicon macOS 27. It provides a bounded inference
 
 The published v0.2 adds dynamic signatures, per-model reshape settings, [retained native tensors](docs/native-tensors.md), [Metal interoperability](docs/metal-ownership.md), and [concurrent model/function loading](docs/parallel-loads.md). The [Krea acceptance run](docs/v0.2-krea.md) matches Swift's encoded text, all eight latent steps, and decoded pixels. [BF16 tensors](docs/bfloat16-abi.md) and [transitive cleanup draining](docs/runtime-drain.md) also pass [H3's original-weight block, all 50 schedule pairs, and staged synthetic backbone](docs/v0.2-h3.md). See [the v0.2 publication record](docs/v0.2-release.md).
 
-Current v0.3 development qualifies a [larger checked tensor boundary](docs/v0.3-large-tensors.md) for H3's long hidden tensors and RGB outputs. The published v0.2 limit remains 1 GiB.
+Current v0.3 development raises the [checked tensor boundary](docs/v0.3-large-tensors.md) to 4 GiB. CPU capacity gates pass; GPU hidden, short RGB and flat 4 GiB gates pass, while long RGB fails independently in Swift. The published v0.2 limit remains 1 GiB.
 
 ## Use
 
@@ -79,7 +79,7 @@ The [pinned b3 inventory and fixtures](fixtures/parity-v01/README.md) contain si
 
 The complete [debug](docs/evidence/v0.1/checks-debug.json) and [release](docs/evidence/v0.1/checks-release.json) reports each record 10,000 stateless and 10,000 stateful inferences per compute selection, plus 100 load/drop and 100 of each future-drop case per selection: 80,000 checked stress inferences across both profiles. [Malformed-asset recovery](docs/evidence/v0.1/malformed-assets.json), [native handle cleanup](docs/evidence/v0.1/native-malformed-and-drops.json), [binary16 conversion](docs/evidence/v0.1-float16-conversion.json), and [the scoped safety review](docs/evidence/v0.1-safety-review.md) provide additional evidence for the recorded subset.
 
-The [initial benchmark](docs/benchmarks.md) found higher Rust round-trip latency than Python for the tiny feed-forward fixture: CPU-only medians approximately 1.17 ms versus 69 µs and GPU-preferred approximately 1.65 ms versus 530 µs. These measurements support no speedup claim. The report retains sample methodology, cache-warm loading observations, and its limits.
+The [current benchmarks](docs/v0.3-benchmarks.md) compare the published Python b3 wheel on identical H3/Krea assets: large-graph calls have similar latency. Tiny Rust calls retain about 1 ms of symbol-lookup overhead. The report includes repeated measurements, profiles and published Python benchmark context; [historical results](docs/benchmarks.md) remain available. These observations support no general speedup claim.
 
 ```sh
 cargo test --offline -p corsairs --no-default-features

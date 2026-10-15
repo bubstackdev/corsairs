@@ -1,0 +1,851 @@
+{
+  "kind": "aether-h3-functional-component-benchmark-input-inventory",
+  "created_at": "2026-10-15T20:30:11.118608+00:00",
+  "native_execution_performed": false,
+  "local_lab_root": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab",
+  "records_sha256": {
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-export-19350.json": "3c3fafca238fa76ca2b02344543d79847be2b38342ddcdfe0c050f83b8e8356f",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-gpu-19350.json": "3686632720273ea2113e23391e346e636aba0b51eabaa74f4d45dcbc7cfba6cd",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-19350.json": "b222c4e8287472560338c57428a21fc5d34d12de3d71c7fd0009196ddc1c8475",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-export-19333.json": "fe2ef2d1550aa48e2ad9cecfb880ebc28a55ab9288538a23923620bb15c77804",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/packed-first-gpu-19333.json": "513b8be7747bea42e3fdd40ae9bd17ee416d46ddd96a16dec1d21e5ae71bb4f8",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/packed-block-text-first.json": "c6595e1e3ed7c0b3bfba3a70ed85aff6f5b282570146d366e1cc576c7c0c0ede",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-backbone-parameters.json": "09b14a87978a64ce5e547b11d04d1c96a285c8a82596325dbd9f04f75b08b70f"
+  },
+  "cases": [
+    {
+      "name": "functional-block0-19350",
+      "asset": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/block-functional-19350.aimodel",
+      "asset_main_mlirb_sha256": "c421d571f94e376c233616c8580ce99578d13d11d851d8fe36c3c005b8b5a494",
+      "function": "block",
+      "compute": "gpu-preferred",
+      "expect_frequent_reshapes": true,
+      "inputs": [
+        {
+          "name": "hidden",
+          "shape": [
+            1,
+            19350,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/block-19350/hidden.raw",
+          "sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+          "bytes": 208051200,
+          "runtime_dtype": "bfloat16"
+        },
+        {
+          "name": "temb",
+          "dtype": "bfloat16",
+          "runtime_dtype": "bfloat16",
+          "shape": [
+            6,
+            9,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-modulations.raw",
+          "bytes": 580608,
+          "sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+          "scope": "Use native Swift GPU modulation table, not CPU cachedTemb.modulations.raw."
+        },
+        {
+          "name": "tags",
+          "shape": [
+            19350
+          ],
+          "dtype": "int64",
+          "file": "forge/fixtures/block-19350/tags.raw",
+          "sha256": "4f8a0aca81ed37a194ed1b8fab5e1eda0a9285dec79efadcca3d21a6b6d149a5",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/tags.raw",
+          "bytes": 154800,
+          "runtime_dtype": "int32",
+          "conversion": "checked exact int64->int32",
+          "runtime_bytes": 77400,
+          "runtime_sha256": "a675f60e6762afd76d0e1e70b780399a4ad1ab1479a7c1d7b5a5eb4b70f9ed70",
+          "min": 0,
+          "max": 8
+        },
+        {
+          "name": "cos",
+          "shape": [
+            19350,
+            96
+          ],
+          "dtype": "float32",
+          "file": "forge/fixtures/block-19350/cos.raw",
+          "sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+          "bytes": 7430400,
+          "runtime_dtype": "float32"
+        },
+        {
+          "name": "sin",
+          "shape": [
+            19350,
+            96
+          ],
+          "dtype": "float32",
+          "file": "forge/fixtures/block-19350/sin.raw",
+          "sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+          "bytes": 7430400,
+          "runtime_dtype": "float32"
+        },
+        {
+          "name": "w0",
+          "shape": [
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w0.raw",
+          "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f",
+          "parameter": "block.norm1.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "bytes": 10752,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w0.raw"
+        },
+        {
+          "name": "w1",
+          "shape": [
+            7168,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w1.raw",
+          "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6",
+          "parameter": "block.attn.to_q.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w1.raw"
+        },
+        {
+          "name": "w2",
+          "shape": [
+            7168,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w2.raw",
+          "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937",
+          "parameter": "block.attn.to_k.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w2.raw"
+        },
+        {
+          "name": "w3",
+          "shape": [
+            7168,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w3.raw",
+          "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc",
+          "parameter": "block.attn.to_v.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w3.raw"
+        },
+        {
+          "name": "w4",
+          "shape": [
+            128
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w4.raw",
+          "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519",
+          "parameter": "block.attn.norm_q.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "bytes": 256,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w4.raw"
+        },
+        {
+          "name": "w5",
+          "shape": [
+            128
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w5.raw",
+          "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058",
+          "parameter": "block.attn.norm_k.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "bytes": 256,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w5.raw"
+        },
+        {
+          "name": "w6",
+          "shape": [
+            5376,
+            7168
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w6.raw",
+          "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6",
+          "parameter": "block.attn.to_out.0.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w6.raw"
+        },
+        {
+          "name": "w7",
+          "shape": [
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w7.raw",
+          "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872",
+          "parameter": "block.norm2.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "bytes": 10752,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w7.raw"
+        },
+        {
+          "name": "w8",
+          "shape": [
+            28672,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w8.raw",
+          "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d",
+          "parameter": "block.ff.net.0.proj.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "bytes": 308281344,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w8.raw"
+        },
+        {
+          "name": "w9",
+          "shape": [
+            5376,
+            14336
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w9.raw",
+          "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f",
+          "parameter": "block.ff.net.2.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "bytes": 154140672,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w9.raw"
+        }
+      ],
+      "output": {
+        "name": "hidden_out",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19350,
+          5376
+        ],
+        "bytes": 208051200,
+        "swift_sha256": "f02ea0a551bac61416825e2d070fb13bd9cc5160794cbda6966f301c98ebe92a",
+        "swift_raw_file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/gpu-functional.raw"
+      },
+      "input_runtime_bytes": 994295384,
+      "weight_input_bytes": 770725376,
+      "reference_records": [
+        "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-19350.json",
+        "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-export-19350.json",
+        "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-gpu-19350.json"
+      ],
+      "historical_native_medians_seconds": {
+        "cached": 0.578029771,
+        "functional": 0.588505833
+      },
+      "historical_timing_boundary": "Preinitialized retained NDArray inputs; await Swift function.run, remove output/getNDArray, copy full raw output bytes; stop clock before output hash/comparison. Loading, source verification, parameter allocation and table generation are outside the per-call interval. Tests/Block.swift:220-234. Two warmups per arm and6 measured samples each.",
+      "scope": "Synthetic hidden states and real checkpoint weights; one block only, not a full generation.",
+      "verification_scope": "Small records, GPU table, tags conversion and asset bytecode rehashed; other large input/weight/output lengths checked against records but bytes not rehashed in this source audit."
+    },
+    {
+      "name": "functional-block0-19333",
+      "asset": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/packed-text-first-functional.aimodel",
+      "asset_main_mlirb_sha256": "159a873013e46fa3c18b04cebcd052c162f499ba6267a5f6dcdb7a825b56867e",
+      "function": "block",
+      "compute": "gpu-preferred",
+      "expect_frequent_reshapes": true,
+      "inputs": [
+        {
+          "name": "hidden",
+          "shape": [
+            1,
+            19333,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/packed-block-text-first/hidden.raw",
+          "sha256": "e046eee9d693027a451fdcd990f0001cc46148b3c809a47306585ecb6cc0f7e3",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/hidden.raw",
+          "bytes": 207868416,
+          "runtime_dtype": "bfloat16"
+        },
+        {
+          "name": "temb",
+          "dtype": "bfloat16",
+          "runtime_dtype": "bfloat16",
+          "shape": [
+            6,
+            3,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-modulations.raw",
+          "bytes": 193536,
+          "sha256": "ae84a1b668bc5bf276822de1e910d8362397b72db2c68f05c4de6c2868e01acc",
+          "scope": "Use native Swift GPU modulation table, not CPU cachedTemb.modulations.raw."
+        },
+        {
+          "name": "tags",
+          "shape": [
+            19333
+          ],
+          "dtype": "int64",
+          "file": "forge/fixtures/packed-block-text-first/tags.raw",
+          "sha256": "0ea1d9794511da9835c1e42fd078baf750f1e3aaf20729f158b800369f13ff8a",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/tags.raw",
+          "bytes": 154664,
+          "runtime_dtype": "int32",
+          "conversion": "checked exact int64->int32",
+          "runtime_bytes": 77332,
+          "runtime_sha256": "463ed0cabc457b9c2b3bb6965c464e18a9ffbfd7897ac2850aff87d4b8b45e09",
+          "min": 0,
+          "max": 2
+        },
+        {
+          "name": "cos",
+          "shape": [
+            19333,
+            96
+          ],
+          "dtype": "float32",
+          "file": "forge/fixtures/packed-block-text-first/cos.raw",
+          "sha256": "3043a8d7dfd60f9d78638c17d4684057ae11227483f4c39703785e76568756a1",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/cos.raw",
+          "bytes": 7423872,
+          "runtime_dtype": "float32"
+        },
+        {
+          "name": "sin",
+          "shape": [
+            19333,
+            96
+          ],
+          "dtype": "float32",
+          "file": "forge/fixtures/packed-block-text-first/sin.raw",
+          "sha256": "69ab61a3e60a5889ac8cd4c878a0aed004211063ff60607eedbb4a07b603de42",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/sin.raw",
+          "bytes": 7423872,
+          "runtime_dtype": "float32"
+        },
+        {
+          "name": "w0",
+          "shape": [
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w0.raw",
+          "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f",
+          "parameter": "block.norm1.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w0.raw",
+          "bytes": 10752,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w0.raw"
+        },
+        {
+          "name": "w1",
+          "shape": [
+            7168,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w1.raw",
+          "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6",
+          "parameter": "block.attn.to_q.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w1.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w1.raw"
+        },
+        {
+          "name": "w2",
+          "shape": [
+            7168,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w2.raw",
+          "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937",
+          "parameter": "block.attn.to_k.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w2.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w2.raw"
+        },
+        {
+          "name": "w3",
+          "shape": [
+            7168,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w3.raw",
+          "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc",
+          "parameter": "block.attn.to_v.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w3.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w3.raw"
+        },
+        {
+          "name": "w4",
+          "shape": [
+            128
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w4.raw",
+          "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519",
+          "parameter": "block.attn.norm_q.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w4.raw",
+          "bytes": 256,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w4.raw"
+        },
+        {
+          "name": "w5",
+          "shape": [
+            128
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w5.raw",
+          "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058",
+          "parameter": "block.attn.norm_k.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w5.raw",
+          "bytes": 256,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w5.raw"
+        },
+        {
+          "name": "w6",
+          "shape": [
+            5376,
+            7168
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w6.raw",
+          "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6",
+          "parameter": "block.attn.to_out.0.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w6.raw",
+          "bytes": 77070336,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w6.raw"
+        },
+        {
+          "name": "w7",
+          "shape": [
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w7.raw",
+          "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872",
+          "parameter": "block.norm2.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w7.raw",
+          "bytes": 10752,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w7.raw"
+        },
+        {
+          "name": "w8",
+          "shape": [
+            28672,
+            5376
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w8.raw",
+          "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d",
+          "parameter": "block.ff.net.0.proj.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w8.raw",
+          "bytes": 308281344,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w8.raw"
+        },
+        {
+          "name": "w9",
+          "shape": [
+            5376,
+            14336
+          ],
+          "dtype": "bfloat16",
+          "file": "forge/fixtures/functional-weights-0/w9.raw",
+          "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f",
+          "parameter": "block.ff.net.2.weight",
+          "runtime_dtype": "bfloat16",
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-weights-0/w9.raw",
+          "bytes": 154140672,
+          "production_block0_alternative_path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w9.raw"
+        }
+      ],
+      "output": {
+        "name": "hidden_out",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ],
+        "bytes": 207868416,
+        "swift_sha256": "8a54a3add9162492963b1d864ec4406a492a40ef003c99f55c541f0c474c9a38",
+        "swift_raw_file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/packed-block-text-first/gpu-functional.raw"
+      },
+      "input_runtime_bytes": 993712404,
+      "weight_input_bytes": 770725376,
+      "reference_records": [
+        "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/packed-block-text-first.json",
+        "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-export-19333.json",
+        "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/packed-first-gpu-19333.json"
+      ],
+      "historical_native_medians_seconds": {
+        "live": 0.5726242914999999,
+        "functional": 0.5596598955000001
+      },
+      "historical_timing_boundary": "Preinitialized retained NDArray inputs; await Swift function.run, remove output/getNDArray, copy full raw output bytes; stop clock before output hash/comparison. Loading, source verification, parameter allocation and table generation are outside the per-call interval. Tests/Block.swift:220-234. Two warmups per arm and6 measured samples each.",
+      "scope": "Original outer-model CPU preparation with provided golden text features and actual initial-noise/layout packet; one first block and first timestep only. No generation trajectory or decode.",
+      "verification_scope": "Small records, GPU table, tags conversion and asset bytecode rehashed; other large input/weight/output lengths checked against records but bytes not rehashed in this source audit."
+    }
+  ],
+  "production_body_schemas_source_derived": [
+    {
+      "cardinality": 1,
+      "asset": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/body-1.aimodel",
+      "function": "main",
+      "asset_main_mlirb_sha256": "432c473e80a64e2befa9268f0c35aa73a4e82cbec3401bd00858455ac4fa9f95",
+      "inputs": [
+        {
+          "name": "hidden",
+          "dtype": "bfloat16",
+          "shape": [
+            1,
+            19333,
+            5376
+          ]
+        },
+        {
+          "name": "temb",
+          "dtype": "bfloat16",
+          "shape": [
+            6,
+            3,
+            5376
+          ]
+        },
+        {
+          "name": "tags",
+          "dtype": "int32",
+          "shape": [
+            19333
+          ],
+          "semantics": "adaln_indices = deduplicated timestep index*3 + modality token tag"
+        },
+        {
+          "name": "cos",
+          "dtype": "float32",
+          "shape": [
+            19333,
+            96
+          ]
+        },
+        {
+          "name": "sin",
+          "dtype": "float32",
+          "shape": [
+            19333,
+            96
+          ]
+        },
+        {
+          "name": "w0",
+          "dtype": "bfloat16",
+          "shape": [
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w0.raw",
+          "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f"
+        },
+        {
+          "name": "w1",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w1.raw",
+          "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6"
+        },
+        {
+          "name": "w2",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w2.raw",
+          "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937"
+        },
+        {
+          "name": "w3",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w3.raw",
+          "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc"
+        },
+        {
+          "name": "w4",
+          "dtype": "bfloat16",
+          "shape": [
+            128
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w4.raw",
+          "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519"
+        },
+        {
+          "name": "w5",
+          "dtype": "bfloat16",
+          "shape": [
+            128
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w5.raw",
+          "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058"
+        },
+        {
+          "name": "w6",
+          "dtype": "bfloat16",
+          "shape": [
+            5376,
+            7168
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w6.raw",
+          "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6"
+        },
+        {
+          "name": "w7",
+          "dtype": "bfloat16",
+          "shape": [
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w7.raw",
+          "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872"
+        },
+        {
+          "name": "w8",
+          "dtype": "bfloat16",
+          "shape": [
+            28672,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w8.raw",
+          "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d"
+        },
+        {
+          "name": "w9",
+          "dtype": "bfloat16",
+          "shape": [
+            5376,
+            14336
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w9.raw",
+          "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f"
+        }
+      ],
+      "output": {
+        "name": "hidden_out",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ]
+      },
+      "source_shape_derivation": "/Users/zakkeown/Code/aether/lab/aether-prototype/forge/h3_export.py:158-168",
+      "native_execution_of_this_production_asset_not_performed_by_audit": true,
+      "available_payloads": "Closest exact-shape retained input packet is cases[1] packed first-step, cardinality1. Production used generated conditioning/RNG and its actual body hidden/tables were not saved. No actual later-step cardinality2 raw packet found in the retained production report/events.",
+      "golden_scope": "Historical lab block golden belongs to a different exported asset. Verify output against a same-asset Python/Swift arm before assuming bit equality for production body1/main."
+    },
+    {
+      "cardinality": 2,
+      "asset": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/h3-production/models/body-2.aimodel",
+      "function": "main",
+      "asset_main_mlirb_sha256": "25a77a42a248dbf9e2ecfd44602b1670ed116e07cade730a02c1d3b86738b8b7",
+      "inputs": [
+        {
+          "name": "hidden",
+          "dtype": "bfloat16",
+          "shape": [
+            1,
+            19333,
+            5376
+          ]
+        },
+        {
+          "name": "temb",
+          "dtype": "bfloat16",
+          "shape": [
+            6,
+            6,
+            5376
+          ]
+        },
+        {
+          "name": "tags",
+          "dtype": "int32",
+          "shape": [
+            19333
+          ],
+          "semantics": "adaln_indices = deduplicated timestep index*3 + modality token tag"
+        },
+        {
+          "name": "cos",
+          "dtype": "float32",
+          "shape": [
+            19333,
+            96
+          ]
+        },
+        {
+          "name": "sin",
+          "dtype": "float32",
+          "shape": [
+            19333,
+            96
+          ]
+        },
+        {
+          "name": "w0",
+          "dtype": "bfloat16",
+          "shape": [
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w0.raw",
+          "sha256": "5e32e4d7379a9f9302755af395ed50b5b998352a221dc2c99204a85dd9f9b49f"
+        },
+        {
+          "name": "w1",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w1.raw",
+          "sha256": "3154924ad8a54fca52db1ada6668b8d4b5d24ea96a342fc5b87a81c0cdf6c4d6"
+        },
+        {
+          "name": "w2",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w2.raw",
+          "sha256": "e6166da9d56db86d16c5d4ff0deb7ea5b54ebe4195f625df6e7479bbcd9aa937"
+        },
+        {
+          "name": "w3",
+          "dtype": "bfloat16",
+          "shape": [
+            7168,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w3.raw",
+          "sha256": "ac1b89c668605c77b8048697088a0ac5dd94f235c2ccaf9f7ded6bf99a3ceecc"
+        },
+        {
+          "name": "w4",
+          "dtype": "bfloat16",
+          "shape": [
+            128
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w4.raw",
+          "sha256": "34a3f13557a2c0a9af260e48d431041e381779a0f61616cfe9800ec839693519"
+        },
+        {
+          "name": "w5",
+          "dtype": "bfloat16",
+          "shape": [
+            128
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w5.raw",
+          "sha256": "8991949ddea3bc2136a0fcf0b980fa63bd0df760207e3116f7ce96df4e6ca058"
+        },
+        {
+          "name": "w6",
+          "dtype": "bfloat16",
+          "shape": [
+            5376,
+            7168
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w6.raw",
+          "sha256": "822cb426aaebe57d3d219b3c4f6855ca5c13821cb84ebe0a7474fe3a87869fd6"
+        },
+        {
+          "name": "w7",
+          "dtype": "bfloat16",
+          "shape": [
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w7.raw",
+          "sha256": "a2c513ec459414e211a3d37f77c1f556f11117f56516b22eb5912f8ff5f98872"
+        },
+        {
+          "name": "w8",
+          "dtype": "bfloat16",
+          "shape": [
+            28672,
+            5376
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w8.raw",
+          "sha256": "49587044f325aae73f046c4cda9637052670227ec3c2c289359d9d1ebf29f95d"
+        },
+        {
+          "name": "w9",
+          "dtype": "bfloat16",
+          "shape": [
+            5376,
+            14336
+          ],
+          "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/functional-backbone/0/w9.raw",
+          "sha256": "e19d4e1649e4b55b1931842e5cc4bb46892c2e635b9315b2996630a86284e88f"
+        }
+      ],
+      "output": {
+        "name": "hidden_out",
+        "dtype": "bfloat16",
+        "shape": [
+          1,
+          19333,
+          5376
+        ]
+      },
+      "source_shape_derivation": "/Users/zakkeown/Code/aether/lab/aether-prototype/forge/h3_export.py:158-168",
+      "native_execution_of_this_production_asset_not_performed_by_audit": true,
+      "available_payloads": "Closest exact-shape retained input packet is cases[1] packed first-step, cardinality1. Production used generated conditioning/RNG and its actual body hidden/tables were not saved. No actual later-step cardinality2 raw packet found in the retained production report/events.",
+      "golden_scope": "Historical lab block golden belongs to a different exported asset. Verify output against a same-asset Python/Swift arm before assuming bit equality for production body1/main."
+    }
+  ],
+  "parameters_all_blocks_manifest": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/functional-backbone-parameters.json",
+  "production_parameters_manifest": "/Users/zakkeown/Code/aether/lab/aether-prototype/.local/native-freeze/h3-production/bundle.json#/parameters",
+  "benchmark_boundaries_to_keep_distinct": [
+    "Retained NDArray Rust run_native plus explicit output download can compare Python retained NDArray call plus an explicit full output copy. Owned Rust run with cloned weight tensors measures a different host-copy boundary and is not Aether body residency.",
+    "Actual production Metal path requires a paired Swift Metal/ComputeStream arm to measure its additional completion barriers separately from backend arithmetic.",
+    "Loading/warmup/source hashing must be outside steady-call intervals and reported separately; match saved inputs, hint, OS Core AI backend, output copy and correctness gate.",
+    "Isolated block medians do not measure38.54GB full weight residency, the complete50-step trajectory or competing GPU workloads."
+  ]
+}

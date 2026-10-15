@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "researched_at_utc": "2026-10-15T20:26:26.807329+00:00",
+  "scope": "Published original measurements only; no local native execution, benchmark, or model loading.",
+  "native_executed": false,
+  "conclusion": {
+    "matched_coreai_b3_h3_or_krea_m5_max_64gb_found": false,
+    "claim_boundary": "No match found within the retained searches and inspected sources; not an exhaustive absence claim.",
+    "rust_vs_python_speed_ratio_supported": false
+  },
+  "sources": [
+    {
+      "id": "ultralytics",
+      "publisher": "Ultralytics (original benchmark publisher)",
+      "url": "https://docs.ultralytics.com/integrations/coreai/#measured-performance",
+      "pinned_source_url": "https://github.com/ultralytics/ultralytics/blob/46f7dd3edaa04ca02d4cf12b33c57de1e9d34c4e/docs/en/integrations/coreai.md",
+      "source_revision": "46f7dd3edaa04ca02d4cf12b33c57de1e9d34c4e",
+      "source_last_commit_or_modified_utc": "2026-10-01T00:21:25Z",
+      "downloaded_source_sha256": "cccc114668f58503c3088b4f4e7afcc8fe856dc6497406a44cf5c27f3bd1cbaa"
+    },
+    {
+      "id": "h3",
+      "publisher": "skymars13 (original benchmark publisher)",
+      "url": "https://github.com/skymars13/minimax-h3-mlx-64gb",
+      "pinned_source_url": "https://github.com/skymars13/minimax-h3-mlx-64gb/blob/b788e667c62f63c358c705b6490295b9b62597a3/README.md",
+      "source_revision": "b788e667c62f63c358c705b6490295b9b62597a3",
+      "source_last_commit_or_modified_utc": "2026-08-11T05:36:01Z",
+      "downloaded_source_sha256": "057ffcc9f6ecebd582d9bcff01fcc9453c8fa74223b22f36df778173753318ad"
+    },
+    {
+      "id": "krea",
+      "publisher": "00cyre (checkpoint and original benchmark publisher)",
+      "url": "https://huggingface.co/00cyre/Krea-2-Turbo-Distill4-mflux-q8",
+      "pinned_source_url": "https://huggingface.co/00cyre/Krea-2-Turbo-Distill4-mflux-q8/blob/0cf3660684591954465013c4302c768b365f886d/README.md",
+      "source_revision": "0cf3660684591954465013c4302c768b365f886d",
+      "source_last_commit_or_modified_utc": "2026-09-20T20:35:34Z",
+      "downloaded_source_sha256": "8429baa21357cb8917ebacb2d4f6bf0c1bed61ab6651e2af7d74c681fffabd00"
+    },
+    {
+      "id": "zoo",
+      "publisher": "john-rocky (original benchmark publisher, not Apple)",
+      "url": "https://john-rocky.github.io/coreai-model-zoo/knowledge/apple-models-bench.html",
+      "pinned_source_url": "https://github.com/john-rocky/coreai-model-zoo/blob/e680060e50ec9e33584f0e1ba15d9c4f243fab4d/knowledge/apple-models-bench.md",
+      "source_revision": "e680060e50ec9e33584f0e1ba15d9c4f243fab4d",
+      "source_last_commit_or_modified_utc": "2026-09-15T06:48:31Z",
+      "downloaded_source_sha256": "f180969080c0d6765af65350aaf28db1626cb106c0e8aa4b32867d70b1c74a56"
+    },
+    {
+      "id": "apple-readme",
+      "publisher": "Apple",
+      "url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/README.md",
+      "pinned_source_url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/README.md",
+      "source_revision": "90cc644367f27338c1ed512b9c4b68eb513d4317",
+      "source_last_commit_or_modified_utc": "2026-10-15T20:20:56Z",
+      "downloaded_source_sha256": "6b3eb4aed94248554365b3ad628c639b21818126b6e5e4ffc904126424070e3f"
+    },
+    {
+      "id": "apple-models",
+      "publisher": "Apple",
+      "url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/models/README.md",
+      "pinned_source_url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/models/README.md",
+      "source_revision": "90cc644367f27338c1ed512b9c4b68eb513d4317",
+      "source_last_commit_or_modified_utc": "2026-10-15T20:20:56Z",
+      "downloaded_source_sha256": "eb6b55b924b987316158b010a69a8b70092c9a868ccd2a5bb803f3bcb71cff78"
+    },
+    {
+      "id": "apple-flux2",
+      "publisher": "Apple",
+      "url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/models/flux2/README.md",
+      "pinned_source_url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/models/flux2/README.md",
+      "source_revision": "90cc644367f27338c1ed512b9c4b68eb513d4317",
+      "source_last_commit_or_modified_utc": "2026-10-15T20:20:56Z",
+      "downloaded_source_sha256": "96a299e175868529d65b024467c89699f3eb1cced3322e0ddb25710db5f6403d"
+    },
+    {
+      "id": "apple-benchmark",
+      "publisher": "Apple",
+      "url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/swift/Sources/Tools/benchmark/BenchmarkMain.swift",
+      "pinned_source_url": "https://github.com/apple/coreai-models/blob/90cc644367f27338c1ed512b9c4b68eb513d4317/swift/Sources/Tools/benchmark/BenchmarkMain.swift",
+      "source_revision": "90cc644367f27338c1ed512b9c4b68eb513d4317",
+      "source_last_commit_or_modified_utc": "2026-10-15T20:20:56Z",
+      "downloaded_source_sha256": "fafe6cf8a81ea807815e642f9aa33fc9cd99faaeb4d35c8374f960ff9024ccef"
+    }
+  ],
+  "measurements": [
+    {
+      "id": "exact-b3-yolo",
+      "source_id": "ultralytics",
+      "runtime": "Python CoreAI",
+      "model": "YOLO26n detection, raw head nms=None",
+      "precision": "FP16; quantize=16",
+      "input": {
+        "image_size_setting": 640,
+        "batch": 1,
+        "sample": "bus.jpg"
+      },
+      "diffusion_steps": null,
+      "hardware": {
+        "machine": "Mac mini",
+        "soc": "Apple M4",
+        "cpu": "4P+6E",
+        "gpu_cores": 10,
+        "ane_cores": 16,
+        "memory_gb": 16
+      },
+      "software": {
+        "macos": "27.0",
+        "python": "3.13",
+        "ultralytics": "8.4.168",
+        "coreai_torch": "0.4.3",
+        "coreai_core": "1.0.0b3"
+      },
+      "results": [
+        {
+          "compute_preference": "cpu_only",
+          "total_ms": 16.8,
+          "preprocess_ms": 0.6,
+          "inference_ms": 15.9,
+          "postprocess_ms": 0.3
+        },
+        {
+          "compute_preference": "neural_engine",
+          "total_ms": 2.8,
+          "preprocess_ms": 0.6,
+          "inference_ms": 2.0,
+          "postprocess_ms": 0.2
+        }
+      ],
+      "method": "Mean of 15 predict calls after 3 warmups; fresh process per model/compute setting; alternating CPU/accelerator order in one sequential sweep.",
+      "timing_boundary": "Preprocessing + inference + postprocessing; warmup/load excluded.",
+      "comparison_limit": "Exact b3 Python version match, but different model, hardware and accelerator preference. Placement is framework-controlled; no verified ANE-only claim."
+    },
+    {
+      "id": "h3-same-hardware-mlx",
+      "source_id": "h3",
+      "runtime": "Python MLX; PipeNetwork/minimax-h3-mlx derivative",
+      "model": "MiniMax-H3 33B video+audio",
+      "precision": "6-bit quantized DiT; repository setup uses an 8-bit Qwen3-VL-32B text encoder",
+      "input": {
+        "task": "image-to-video",
+        "clip_seconds": 10,
+        "resolution_as_published": "544x960",
+        "seed": "identical across comparisons"
+      },
+      "hardware": {
+        "machine": "MacBook Pro",
+        "soc": "Apple M5 Max",
+        "memory_gb": 64,
+        "gpu_cores": null
+      },
+      "software": {
+        "macos": null,
+        "python": null,
+        "mlx": "recent; exact version unspecified",
+        "coreai_core": null
+      },
+      "results": [
+        {
+          "steps": 15,
+          "variant": "baseline",
+          "wall_minutes": 31.3
+        },
+        {
+          "steps": 15,
+          "variant": "step skipping, threshold 0.15, at most 2 consecutive skips",
+          "wall_minutes": 16.6
+        },
+        {
+          "steps": 8,
+          "variant": "runtime Turbo v4 LoRA + skipping",
+          "wall_minutes": 14.9
+        },
+        {
+          "steps": 4,
+          "variant": "runtime Turbo v4 LoRA",
+          "wall_minutes": 10.5
+        }
+      ],
+      "method": "Same-machine back-to-back, same seed; sample count unspecified.",
+      "timing_boundary": "Publisher labels wall clock; load, conditioning, decoding, encoding and cold/warm inclusion are unspecified.",
+      "comparison_limit": "Same SoC/memory, but not CoreAI, BF16 or the same graph/schedule. Full video measurements cannot be compared with a block-forward or per-step timer."
+    },
+    {
+      "id": "krea-python-mlx",
+      "source_id": "krea",
+      "runtime": "Python mflux / MLX",
+      "model": "Krea-2-Turbo-Distill4-mflux-q8; 4-step LoRA fused at scale 1.0",
+      "precision": "8-bit quantized checkpoint",
+      "input": {
+        "resolution": "832x1216",
+        "seed": 42,
+        "guidance": 1.0,
+        "cfg": false,
+        "sampler": "er_sde on mflux schedule"
+      },
+      "hardware": {
+        "soc": "Apple M5 Pro",
+        "gpu_cores": 20,
+        "memory_gib": 48
+      },
+      "software": {
+        "macos": "26.5.1",
+        "python": null,
+        "mflux": "0.19.2",
+        "mlx": "0.32.2",
+        "coreai_core": null
+      },
+      "results": [
+        {
+          "variant": "prefused checkpoint",
+          "steps": 4,
+          "load_seconds": 2.751,
+          "render_seconds": 29.05
+        },
+        {
+          "variant": "q8 base + LoRA baked at load",
+          "steps": 4,
+          "load_seconds": 11.118,
+          "render_seconds": 29.55,
+          "render_statistic": "median of 3"
+        }
+      ],
+      "additional_measurement": {
+        "variant": "persona stack; corrected ComfyUI beta(0.6,0.6), Euler ancestral, shift 1.15",
+        "resolution": "1024x1280",
+        "steps_4_warm_median_seconds": 42.41,
+        "steps_4_n": 4,
+        "steps_4_range_seconds": [
+          41.83,
+          43.98
+        ],
+        "steps_8_seconds": 84.15,
+        "steps_8_statistic": null
+      },
+      "timing_boundary": "Load and render reported separately; exact render stage boundaries and prefused sample count unspecified.",
+      "comparison_limit": "Different SoC, quantization, distilled/adapted weights and schedule. Additional 8-step row also uses a persona stack. Not a CoreAI binding-overhead measurement."
+    },
+    {
+      "id": "official-recipe-community-python",
+      "source_id": "zoo",
+      "runtime": "Python CoreAI; binding version unspecified",
+      "model": "CLIP ViT-base-patch32, joint image+text, official Apple export recipe",
+      "precision": "FP16",
+      "input": {
+        "synthetic": "from exported function descriptors",
+        "shape": null
+      },
+      "diffusion_steps": null,
+      "hardware": {
+        "machine": "MacBook Pro",
+        "soc": "Apple M4 Max",
+        "memory_gb": 128
+      },
+      "software": {
+        "macos": "27 beta",
+        "python": null,
+        "coreai_core": null,
+        "export_revision": null
+      },
+      "results": [
+        {
+          "compute_preference": "GPU",
+          "median_ms": 6.31
+        },
+        {
+          "compute_preference": "ANE",
+          "median_ms": 3.68
+        }
+      ],
+      "method": "3 warmups + 20 timed runs; single-inference median.",
+      "timing_boundary": "Single inference; exact synchronization/materialization boundary unspecified.",
+      "comparison_limit": "Original community measurement of Apple recipe, not Apple-published results; no exact b3 claim; different workload/hardware."
+    }
+  ],
+  "official_sources_checked": {
+    "apple_coreai_models_revision": "90cc644367f27338c1ed512b9c4b68eb513d4317",
+    "readmes": [
+      "README.md",
+      "models/README.md",
+      "models/flux2/README.md"
+    ],
+    "finding": "Inspected README files provide recipes/instructions, without a hardware-qualified CoreAI-b3 H3/Krea timing table.",
+    "benchmark_tool": {
+      "path": "swift/Sources/Tools/benchmark/BenchmarkMain.swift",
+      "language": "Swift",
+      "workload": "LLM",
+      "defaults": {
+        "prompt_tokens": 512,
+        "generation_tokens": 1024,
+        "trials": 5
+      },
+      "finding": "Benchmark implementation, not published measured H3/Krea results."
+    },
+    "recursive_tree_check": "GitHub tree response was not truncated; no Krea/MiniMax paths found. This is a path check, not a full repository content audit.",
+    "other_inspected_pages": [
+      "https://pypi.org/project/coreai-core/1.0.0b3/",
+      "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "https://huggingface.co/krea/Krea-2-Turbo"
+    ]
+  },
+  "search_boundary": {
+    "engine": "web search",
+    "date": "2026-10-15",
+    "query_count": 24,
+    "queries": [
+      "\"coreai-core\" benchmark latency",
+      "\"coreai\" \"Krea\" benchmark Apple",
+      "\"Core AI\" \"MiniMax H3\" benchmark",
+      "\"coreai-models\" benchmark",
+      "\"Krea 2\" \"CoreAI\"",
+      "\"Krea2\" \"M5\" benchmark",
+      "\"MiniMax-H3\" \"CoreAI\"",
+      "\"coreai-core\" \"M5\" benchmark",
+      "site:github.com/apple/coreai-models \"benchmark\" \"ms\"",
+      "site:github.com \"coreai-core\" \"Krea\" latency",
+      "site:huggingface.co \"MiniMax-H3\" \"M5\" speed",
+      "site:github.com \"coreai-core\" \"latency\" benchmark",
+      "\"coreai-core\" \"1.0.0b3\" \"benchmark\" \"Krea\"",
+      "\"MiniMax H3\" \"M5 Max\" \"64\"",
+      "\"Krea-2-Turbo\" \"Core AI\" benchmark",
+      "\"coreai-core\" performance seconds diffusion",
+      "site:github.com/apple/coreai-models \"ms\" \"Sana\"",
+      "site:github.com/apple/coreai-models \"seconds\" \"FLUX\"",
+      "site:pypi.org/project/coreai-core \"performance\"",
+      "\"coreai-core\" \"benchmark\" \"diffusion\"",
+      "\"Krea-2-Turbo\" \"coreai_core\"",
+      "\"MiniMax-H3\" \"coreai\" latency",
+      "site:github.com/apple/coreai-models \"latency\" \"throughput\"",
+      "site:developer.apple.com \"Core AI\" \"M5\" benchmark"
+    ],
+    "inclusion": "Apple, model authors, or original benchmark publishers only; secondary news and unattributed aggregations excluded."
+  },
+  "use_in_local_report": "Compare local Corsairs only with a local Python b3 run of identical artifact, input bytes, precision, compute options, steps and output-readiness/timing boundaries. Published rows above are contextual, not denominators for a language speed ratio."
+}

@@ -44,9 +44,9 @@
     "experiments/rust/h3_driver.rs": "e00285db16000ad26b40d46a2d916c98ad98b0075f423fa01dd4eb231fa1f918",
     "scripts/check_h3.py": "9d3e94ca7c34109dbdc85905dce951cd9abaa43220cb16f8484618615d832418",
     "scripts/check_krea.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
-    "target/h3-check/data.rs": "79b8fb96c5657cea96a302c35230c84b200b80b7a828cf779a40941c81b3c01b"
+    "target/h3-check/data.rs": "68c06a1a9b4b6b77db4472ae5a4883ea40e61e3a154947a9483f5f2e656ae365"
   },
-  "binary_sha256": "4b6e4eeb090127a5eaaaffff9f63e270c07bb75f202f25589294b6ddcaf31f56",
+  "binary_sha256": "2bb093b349d025151ce293fd83d8ef4284e240e3bfcf3e7ee7d6402ea8b00180",
   "rlib_sha256": "f31257dfcf78b69114d87d59744a1797c7add6992dedbcf868dcab005c46fc8b",
   "cargo_target_directory": "/Users/zakkeown/Code/aether/lab/corsairs/target/h3-check/cargo",
   "cargo_features": [],

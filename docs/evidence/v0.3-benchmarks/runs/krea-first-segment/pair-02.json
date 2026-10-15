@@ -1,0 +1,656 @@
+{
+  "passed": true,
+  "case": {
+    "schema": 1,
+    "name": "krea-first-segment",
+    "model": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel",
+    "model_main_mlirb_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+    "model_main_mlirb_bytes": 3704868693,
+    "function": "segment",
+    "compute": "gpu-preferred",
+    "expect_frequent_reshapes": null,
+    "warmup": 3,
+    "samples": 10,
+    "inputs": [
+      {
+        "name": "latents",
+        "dtype": "float16",
+        "shape": [
+          4032,
+          64
+        ],
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+        "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380"
+      },
+      {
+        "name": "text_embeds",
+        "dtype": "float16",
+        "shape": [
+          20,
+          30720
+        ],
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+        "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce"
+      },
+      {
+        "name": "sigma",
+        "dtype": "float32",
+        "shape": [
+          1
+        ],
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+        "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+      },
+      {
+        "name": "rope_image",
+        "dtype": "float32",
+        "shape": [
+          4032,
+          2,
+          128
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/rope_image.f32",
+        "sha256": "807e11d7ccea4eb73acf59e4a63169c8bb08e1e0d0e0ea1d15f420ef0ada167e"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "text_1",
+        "dtype": "float32",
+        "shape": [
+          20,
+          6144
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/text.f32",
+        "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c"
+      },
+      {
+        "name": "image_1",
+        "dtype": "float32",
+        "shape": [
+          4032,
+          6144
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/image.f32",
+        "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734"
+      },
+      {
+        "name": "cond",
+        "dtype": "float32",
+        "shape": [
+          8,
+          6144
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/cond.f32",
+        "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713"
+      }
+    ],
+    "scope": "One unchanged fixed Krea step0/segment0, saved provided-text/noise/rope fixtures and sigma=1. Three exact original Swift F32 carries, including94.5MiB image_1. No full generation, encoder, scheduler update or decoder. Both paired arms omit the reshape hint because public Python b3 cannot set it; production/retained acceptance uses explicit true. Exact correctness under the omitted hint remains to be tested; do not relax the output gate.",
+    "provenance": {
+      "native_executed": false,
+      "external_files_modified": false,
+      "source_hashes": {
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/data.rs": "39d6e6823a7929dc41fea7f392d13aa30b28a3901b863ef6c06e19f13f1c7aae",
+        "/Users/zakkeown/Code/aether/lab/corsairs/scripts/check_krea.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/krea_driver.rs": "d51716ebc6d86b85b32f46e9c8c1a2b1ec6ef989b8ae7a05d45e2ca138a2ed28",
+        "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/dtype.rs": "50fb4b83dc851eb71b5c34194eb4e12ae1ae5bc10b17e8419897cfeb17ca20f0",
+        "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/krea-first-segment/prepare_inputs.py": "bf9a6abbd30495cbc1455dab3435be1e765555e7541618e401e9afc51a88a20c",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json": "4a5d6e6311c0bffe4c658f872bf6c768e17c6fb427d431498891a9658032192f",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/corsairs-readiness/summary.json": "c7c537485dbcd6d3b6e93eee58eac4ac1197ae7ae90328086a6fcbb271043658"
+      },
+      "source_model_hash_fully_verified": true,
+      "float16_conversions": [
+        {
+          "source_file": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/noise.f32",
+          "source_sha256": "946d62cbf0cbe41a2260a5becf44fde4e44793609503b8b5c743aaa456bfb73a",
+          "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+          "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380",
+          "scalars": 258048,
+          "source_dtype": "float32",
+          "dtype": "float16",
+          "source_bytes": 1032192,
+          "bytes": 516096,
+          "every_scalar_matches_struct_binary16": true,
+          "finite": true,
+          "axis_permutation": false,
+          "conversion": "Exact little-endian binary32 -> binary16, round-to-nearest ties-to-even; signed zeros preserved; no scaling, clipping or axis permutation."
+        },
+        {
+          "source_file": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/text.f32",
+          "source_sha256": "440ed8b4c7020699e9a7f38964ba29f924bb423a685db5f1ca4779691d81dacc",
+          "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+          "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce",
+          "scalars": 614400,
+          "source_dtype": "float32",
+          "dtype": "float16",
+          "source_bytes": 2457600,
+          "bytes": 1228800,
+          "every_scalar_matches_struct_binary16": true,
+          "finite": true,
+          "axis_permutation": false,
+          "conversion": "Exact little-endian binary32 -> binary16, round-to-nearest ties-to-even; signed zeros preserved; no scaling, clipping or axis permutation."
+        }
+      ],
+      "sigma": {
+        "value": 1.0,
+        "binary32_bits": 1065353216,
+        "source": "TIMESTEP_BITS[0] in target/krea-check/data.rs",
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+        "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+      },
+      "source_noise_shape": [
+        84,
+        48,
+        64
+      ],
+      "denoiser_latent_shape": [
+        4032,
+        64
+      ],
+      "packing": "C-order flatten84*48 rows to4032 rows; same scalar order as existing Krea driver halves(), no axis permutation.",
+      "output_source_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json",
+      "source_acceptance_reshape_hint": true,
+      "benchmark_reshape_hint": null,
+      "input_bytes": 5873668,
+      "output_bytes": 99778560,
+      "derived_directory": "/private/tmp/corsairs-v03-krea-first-fihjlw6z"
+    }
+  },
+  "case_file_sha256": "34601819d3af3fe150b97ab36df92fc9e44b040c275654fe9debc4655db9633a",
+  "pair": 2,
+  "order": [
+    "python",
+    "rust"
+  ],
+  "started_utc": "2026-10-15T20:49:09.788726+00:00",
+  "output": "/private/tmp/corsairs-v03-benchmarks/krea-first-segment/pair-02",
+  "build_manifest_sha256": "ccb4129c0365301ec833451cb9982a0b84447cdf6437fa07e853546c1c25788d",
+  "controller_sha256": "3d0103b3940977632b09cb6cfdebddc65c6d763755d4887ee2feebeccc05d73e",
+  "binaries": {
+    "/Users/zakkeown/Code/aether/lab/corsairs/target/benchmark-v03": "1fc68c6dcd49d0f16f355d96a907c7a33a328a4b3f5e770719c0d844ce251a5c",
+    "/Users/zakkeown/Code/aether/lab/corsairs/target/large-check/cargo/release/libcorsairs.rlib": "f31257dfcf78b69114d87d59744a1797c7add6992dedbcf868dcab005c46fc8b"
+  },
+  "cooldown_seconds": 15,
+  "quiet_window": "User reserved GPU after completing/stopping Aether work. No benchmark GPU concurrency or cache purge. Recorded cooldown is experimental spacing, not fixed clocks or controlled ambient temperature.",
+  "processes": {
+    "python": {
+      "command": [
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "-I",
+        "-B",
+        "/Users/zakkeown/Code/aether/lab/corsairs/scripts/reference/benchmark_v03.py",
+        "--case",
+        "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/cases/krea-first-segment.json",
+        "--output-dir",
+        "/private/tmp/corsairs-v03-benchmarks/krea-first-segment/pair-02",
+        "--phases",
+        "native_run_download"
+      ],
+      "pid": 27897,
+      "exit_status": 0,
+      "timed_out": false,
+      "seconds": 9.273081333994924,
+      "stdout": "{\"passed\": true, \"report\": \"/private/tmp/corsairs-v03-benchmarks/krea-first-segment/pair-02/krea-first-segment-python.json\"}\n",
+      "stderr": "",
+      "host_before": {
+        "utc": "2026-10-15T20:49:24.795250+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   559500.\nPages active:                                 486795.\nPages inactive:                              2501422.\nPages speculative:                            256888.\nPages throttled:                                   0.\nPages wired down:                             288405.\nPages purgeable:                               14174.\n\"Translation faults\":                     1198728325.\nPages copy-on-write:                        20558754.\nPages zero filled:                         771053372.\nPages reactivated:                          67599366.\nPages purged:                                7045170.\nFile-backed pages:                           2882615.\nAnonymous pages:                              362490.\nPages stored in compressor:                    84988.\nPages occupied by compressor:                  40799.\nDecompressions:                             61909648.\nCompressions:                               90033564.\nPageins:                                   590841976.\nPageouts:                                    8991773.\nSwapins:                                     9387444.\nSwapouts:                                   10638567.\nPages tagged:                                 160680.\nPages tagged resident:                        146476.\nPages tagged compressed:                       14204.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8158.\nPages tag-storage free:                        12404.\nPages tag-storage non-tag pageable:           110463.\nPages tag-storage non-tag wired:                  19.\nBytes of compressed tags:                    2023296.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086435.\n",
+          "stderr": ""
+        }
+      },
+      "host_after": {
+        "utc": "2026-10-15T20:49:34.094304+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   376853.\nPages active:                                 498138.\nPages inactive:                              2501453.\nPages speculative:                            256912.\nPages throttled:                                   0.\nPages wired down:                             459428.\nPages purgeable:                               14960.\n\"Translation faults\":                     1199382414.\nPages copy-on-write:                        20559812.\nPages zero filled:                         771535440.\nPages reactivated:                          67599366.\nPages purged:                                7045170.\nFile-backed pages:                           2897378.\nAnonymous pages:                              359125.\nPages stored in compressor:                    85143.\nPages occupied by compressor:                  40897.\nDecompressions:                             61909802.\nCompressions:                               90033564.\nPageins:                                   591068163.\nPageouts:                                    8991773.\nSwapins:                                     9387565.\nSwapouts:                                   10638567.\nPages tagged:                                 160647.\nPages tagged resident:                        146445.\nPages tagged compressed:                       14202.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8158.\nPages tag-storage free:                        13381.\nPages tag-storage non-tag pageable:           109483.\nPages tag-storage non-tag wired:                  22.\nBytes of compressed tags:                    2022656.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086437.\n",
+          "stderr": ""
+        }
+      }
+    },
+    "rust": {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/benchmark-v03",
+        "--model",
+        "/Volumes/Scratch/atelier/krea-lab/forge/fixed-first/tower-first.aimodel",
+        "--function",
+        "segment",
+        "--backend",
+        "gpu-preferred",
+        "--reshape",
+        "default",
+        "--warmup",
+        "3",
+        "--samples",
+        "10",
+        "--output",
+        "/private/tmp/corsairs-v03-benchmarks/krea-first-segment/pair-02/krea-first-segment-rust.json",
+        "--phases",
+        "native_run_download",
+        "--input",
+        "latents",
+        "float16",
+        "4032,64",
+        "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+        "--input",
+        "text_embeds",
+        "float16",
+        "20,30720",
+        "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+        "--input",
+        "sigma",
+        "float32",
+        "1",
+        "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+        "--input",
+        "rope_image",
+        "float32",
+        "4032,2,128",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/rope_image.f32",
+        "--expected",
+        "text_1",
+        "float32",
+        "20,6144",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/text.f32",
+        "--expected",
+        "image_1",
+        "float32",
+        "4032,6144",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/image.f32",
+        "--expected",
+        "cond",
+        "float32",
+        "8,6144",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/cond.f32"
+      ],
+      "pid": 27914,
+      "exit_status": 0,
+      "timed_out": false,
+      "seconds": 14.788044541994168,
+      "stdout": "{\"passed\":true,\"report\":\"/private/tmp/corsairs-v03-benchmarks/krea-first-segment/pair-02/krea-first-segment-rust.json\"}\n",
+      "stderr": "",
+      "host_before": {
+        "utc": "2026-10-15T20:49:49.112251+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   563773.\nPages active:                                 482519.\nPages inactive:                              2501489.\nPages speculative:                            256885.\nPages throttled:                                   0.\nPages wired down:                             288235.\nPages purgeable:                               13790.\n\"Translation faults\":                     1199397074.\nPages copy-on-write:                        20560765.\nPages zero filled:                         771544325.\nPages reactivated:                          67599366.\nPages purged:                                7045170.\nFile-backed pages:                           2882675.\nAnonymous pages:                              358218.\nPages stored in compressor:                    85173.\nPages occupied by compressor:                  40908.\nDecompressions:                             61909826.\nCompressions:                               90033564.\nPageins:                                   591068211.\nPageouts:                                    8991773.\nSwapins:                                     9387590.\nSwapouts:                                   10638567.\nPages tagged:                                 160477.\nPages tagged resident:                        146275.\nPages tagged compressed:                       14202.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8158.\nPages tag-storage free:                        13528.\nPages tag-storage non-tag pageable:           109339.\nPages tag-storage non-tag wired:                  19.\nBytes of compressed tags:                    2022656.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086437.\n",
+          "stderr": ""
+        }
+      },
+      "host_after": {
+        "utc": "2026-10-15T20:50:03.926109+00:00",
+        "thermal": {
+          "status": 0,
+          "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+          "stderr": ""
+        },
+        "virtual_memory": {
+          "status": 0,
+          "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   563771.\nPages active:                                 483037.\nPages inactive:                              2501527.\nPages speculative:                            256916.\nPages throttled:                                   0.\nPages wired down:                             287635.\nPages purgeable:                               14450.\n\"Translation faults\":                     1199904950.\nPages copy-on-write:                        20561565.\nPages zero filled:                         771880958.\nPages reactivated:                          67599394.\nPages purged:                                7045173.\nFile-backed pages:                           2882762.\nAnonymous pages:                              358718.\nPages stored in compressor:                    85146.\nPages occupied by compressor:                  40923.\nDecompressions:                             61909954.\nCompressions:                               90033564.\nPageins:                                   591294413.\nPageouts:                                    8991773.\nSwapins:                                     9387625.\nSwapouts:                                   10638567.\nPages tagged:                                 160556.\nPages tagged resident:                        146354.\nPages tagged compressed:                       14202.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 8158.\nPages tag-storage free:                        13420.\nPages tag-storage non-tag pageable:           109447.\nPages tag-storage non-tag wired:                  19.\nBytes of compressed tags:                    2022656.\nTagged compressions:                         1151180.\nTagged decompressions:                       1086437.\n",
+          "stderr": ""
+        }
+      }
+    }
+  },
+  "python": {
+    "schema": 1,
+    "language": "python-b3",
+    "reference": {
+      "coreai_core": "1.0.0b3",
+      "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+      "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+      "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+      "executable": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "ml-dtypes": "0.6.0",
+        "pillow": "12.3.0",
+        "typing-extensions": "4.16.0",
+        "yuvio": "1.6",
+        "psutil": "7.2.2"
+      },
+      "package_roots": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+        "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+        "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+        "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+        "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+        "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+        "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+      ]
+    },
+    "os_backed": true,
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "case": {
+      "schema": 1,
+      "name": "krea-first-segment",
+      "model": "/Volumes/Scratch/atelier/krea-lab/forge/fixed-first/tower-first.aimodel",
+      "model_main_mlirb_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+      "model_main_mlirb_bytes": 3704868693,
+      "function": "segment",
+      "compute": "gpu-preferred",
+      "expect_frequent_reshapes": null,
+      "warmup": 3,
+      "samples": 10,
+      "inputs": [
+        {
+          "name": "latents",
+          "dtype": "float16",
+          "shape": [
+            4032,
+            64
+          ],
+          "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+          "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380"
+        },
+        {
+          "name": "text_embeds",
+          "dtype": "float16",
+          "shape": [
+            20,
+            30720
+          ],
+          "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+          "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce"
+        },
+        {
+          "name": "sigma",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+          "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+        },
+        {
+          "name": "rope_image",
+          "dtype": "float32",
+          "shape": [
+            4032,
+            2,
+            128
+          ],
+          "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/rope_image.f32",
+          "sha256": "807e11d7ccea4eb73acf59e4a63169c8bb08e1e0d0e0ea1d15f420ef0ada167e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_1",
+          "dtype": "float32",
+          "shape": [
+            20,
+            6144
+          ],
+          "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/text.f32",
+          "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c"
+        },
+        {
+          "name": "image_1",
+          "dtype": "float32",
+          "shape": [
+            4032,
+            6144
+          ],
+          "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/image.f32",
+          "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734"
+        },
+        {
+          "name": "cond",
+          "dtype": "float32",
+          "shape": [
+            8,
+            6144
+          ],
+          "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/cond.f32",
+          "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713"
+        }
+      ],
+      "scope": "One unchanged fixed Krea step0/segment0, saved provided-text/noise/rope fixtures and sigma=1. Three exact original Swift F32 carries, including94.5MiB image_1. No full generation, encoder, scheduler update or decoder. Both paired arms omit the reshape hint because public Python b3 cannot set it; production/retained acceptance uses explicit true. Exact correctness under the omitted hint remains to be tested; do not relax the output gate.",
+      "provenance": {
+        "native_executed": false,
+        "external_files_modified": false,
+        "source_hashes": {
+          "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/data.rs": "39d6e6823a7929dc41fea7f392d13aa30b28a3901b863ef6c06e19f13f1c7aae",
+          "/Users/zakkeown/Code/aether/lab/corsairs/scripts/check_krea.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
+          "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/krea_driver.rs": "d51716ebc6d86b85b32f46e9c8c1a2b1ec6ef989b8ae7a05d45e2ca138a2ed28",
+          "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/dtype.rs": "50fb4b83dc851eb71b5c34194eb4e12ae1ae5bc10b17e8419897cfeb17ca20f0",
+          "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/krea-first-segment/prepare_inputs.py": "bf9a6abbd30495cbc1455dab3435be1e765555e7541618e401e9afc51a88a20c",
+          "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+          "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json": "4a5d6e6311c0bffe4c658f872bf6c768e17c6fb427d431498891a9658032192f",
+          "/Users/zakkeown/Code/atelier/lab/krea-lab/records/corsairs-readiness/summary.json": "c7c537485dbcd6d3b6e93eee58eac4ac1197ae7ae90328086a6fcbb271043658"
+        },
+        "source_model_hash_fully_verified": true,
+        "float16_conversions": [
+          {
+            "source_file": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/noise.f32",
+            "source_sha256": "946d62cbf0cbe41a2260a5becf44fde4e44793609503b8b5c743aaa456bfb73a",
+            "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+            "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380",
+            "scalars": 258048,
+            "source_dtype": "float32",
+            "dtype": "float16",
+            "source_bytes": 1032192,
+            "bytes": 516096,
+            "every_scalar_matches_struct_binary16": true,
+            "finite": true,
+            "axis_permutation": false,
+            "conversion": "Exact little-endian binary32 -> binary16, round-to-nearest ties-to-even; signed zeros preserved; no scaling, clipping or axis permutation."
+          },
+          {
+            "source_file": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/text.f32",
+            "source_sha256": "440ed8b4c7020699e9a7f38964ba29f924bb423a685db5f1ca4779691d81dacc",
+            "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+            "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce",
+            "scalars": 614400,
+            "source_dtype": "float32",
+            "dtype": "float16",
+            "source_bytes": 2457600,
+            "bytes": 1228800,
+            "every_scalar_matches_struct_binary16": true,
+            "finite": true,
+            "axis_permutation": false,
+            "conversion": "Exact little-endian binary32 -> binary16, round-to-nearest ties-to-even; signed zeros preserved; no scaling, clipping or axis permutation."
+          }
+        ],
+        "sigma": {
+          "value": 1.0,
+          "binary32_bits": 1065353216,
+          "source": "TIMESTEP_BITS[0] in target/krea-check/data.rs",
+          "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+          "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+        },
+        "source_noise_shape": [
+          84,
+          48,
+          64
+        ],
+        "denoiser_latent_shape": [
+          4032,
+          64
+        ],
+        "packing": "C-order flatten84*48 rows to4032 rows; same scalar order as existing Krea driver halves(), no axis permutation.",
+        "output_source_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json",
+        "source_acceptance_reshape_hint": true,
+        "benchmark_reshape_hint": null,
+        "input_bytes": 5873668,
+        "output_bytes": 99778560,
+        "derived_directory": "/private/tmp/corsairs-v03-krea-first-fihjlw6z"
+      }
+    },
+    "case_file_sha256": "34601819d3af3fe150b97ab36df92fc9e44b040c275654fe9debc4655db9633a",
+    "backend": "gpu-preferred",
+    "expect_frequent_reshapes": null,
+    "phases": [
+      {
+        "phase": "native_run_download",
+        "warmup": 3,
+        "samples": 10,
+        "median_ns": 536578000.0,
+        "p95_ns": 595644625,
+        "min_ns": 523053625,
+        "max_ns": 595644625,
+        "samples_ns": [
+          523368375,
+          523053625,
+          524330083,
+          527704375,
+          534382958,
+          538773042,
+          543944542,
+          555232292,
+          584339250,
+          595644625
+        ],
+        "every_iteration_exact": true,
+        "boundary": "copy handle dictionary, submit/await retained output, numpy+tobytes every output"
+      }
+    ],
+    "passed": true,
+    "unavailable_phases": [],
+    "timing_clock": "time.perf_counter_ns",
+    "cleanup": "exact validation/diagnostic readback, result decref and asyncio.sleep(0) outside every interval; Python has no public worker drain",
+    "limits": "Sequential warm stateless calls; persistent native inputs prepared outside timing; no public Python Metal equivalent; no cache purge or performance threshold",
+    "model_main_mlirb_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+    "allowed_compute_units": [
+      "Neural Engine",
+      "GPU",
+      "CPU"
+    ],
+    "preferred_compute_unit": "GPU",
+    "model_load_ns": 4628917,
+    "function_load_ns": 705506084
+  },
+  "rust": {
+    "schema": 1,
+    "language": "rust",
+    "public_api_only": true,
+    "passed": true,
+    "backend": "gpu-preferred",
+    "expect_frequent_reshapes": null,
+    "model": "/Volumes/Scratch/atelier/krea-lab/forge/fixed-first/tower-first.aimodel",
+    "function": "segment",
+    "model_main_mlirb_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+    "model_load_ns": 4829583,
+    "function_load_ns": 714366333,
+    "inputs": [
+      {
+        "name": "latents",
+        "dtype": "float16",
+        "shape": [
+          4032,
+          64
+        ],
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+        "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380"
+      },
+      {
+        "name": "text_embeds",
+        "dtype": "float16",
+        "shape": [
+          20,
+          30720
+        ],
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+        "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce"
+      },
+      {
+        "name": "sigma",
+        "dtype": "float32",
+        "shape": [
+          1
+        ],
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+        "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+      },
+      {
+        "name": "rope_image",
+        "dtype": "float32",
+        "shape": [
+          4032,
+          2,
+          128
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/rope_image.f32",
+        "sha256": "807e11d7ccea4eb73acf59e4a63169c8bb08e1e0d0e0ea1d15f420ef0ada167e"
+      }
+    ],
+    "expected_outputs": [
+      {
+        "name": "text_1",
+        "dtype": "float32",
+        "shape": [
+          20,
+          6144
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/text.f32",
+        "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c"
+      },
+      {
+        "name": "image_1",
+        "dtype": "float32",
+        "shape": [
+          4032,
+          6144
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/image.f32",
+        "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734"
+      },
+      {
+        "name": "cond",
+        "dtype": "float32",
+        "shape": [
+          8,
+          6144
+        ],
+        "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/cond.f32",
+        "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713"
+      }
+    ],
+    "phases": [
+      {
+        "phase": "native_run_download",
+        "boundary": "clone handle map, submit retained native run, wait, download every output",
+        "warmup": 3,
+        "samples": 10,
+        "median_ns": 530948979.5,
+        "p95_ns": 607364541,
+        "min_ns": 517837375,
+        "max_ns": 607364541,
+        "samples_ns": [
+          517837375,
+          518828167,
+          519778584,
+          520285583,
+          525589042,
+          536308917,
+          556664208,
+          577517042,
+          601350000,
+          607364541
+        ],
+        "every_iteration_exact": true
+      }
+    ],
+    "timing_clock": "std::time::Instant",
+    "cleanup": "exact validation, diagnostic readback, output drop and Runtime::drain outside every measured interval",
+    "limits": "Sequential warm stateless calls; persistent retained/Metal inputs and buffers prepared outside timing; no pipeline/device concurrency claim; loading observed separately without cache purge"
+  }
+}

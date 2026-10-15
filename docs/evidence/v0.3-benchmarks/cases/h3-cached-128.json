@@ -1,0 +1,80 @@
+{
+  "name": "h3-cached-128",
+  "model": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/block-cached-128.aimodel",
+  "function": "block",
+  "compute": "gpu-preferred",
+  "expect_frequent_reshapes": null,
+  "inputs": [
+    {
+      "name": "hidden",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        128,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/hidden.raw",
+      "sha256": "bb40c01a1cddb08081f6ac02bc141f5e824ddacd8d51e56c467f657b336d243b"
+    },
+    {
+      "name": "temb",
+      "dtype": "bfloat16",
+      "shape": [
+        6,
+        9,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-modulations.raw",
+      "sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817"
+    },
+    {
+      "name": "tags",
+      "dtype": "int32",
+      "shape": [
+        128
+      ],
+      "file": "/private/tmp/corsairs-v03-benchmark-inputs/tags-128.i32",
+      "sha256": "69db3805d64f2c159126a69ca6430e58f82fbdb7c69fdf4d3a87e4ff39847826"
+    },
+    {
+      "name": "cos",
+      "dtype": "float32",
+      "shape": [
+        128,
+        96
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/cos.raw",
+      "sha256": "0b68547fed3816ac869f385dab60bb7d1bfb26baf6bfe0257cece8200df9392d"
+    },
+    {
+      "name": "sin",
+      "dtype": "float32",
+      "shape": [
+        128,
+        96
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/sin.raw",
+      "sha256": "9aa0c3ead09265ead9abb22326f29b810423237a659db03ea4393aacdbf75f6d"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "hidden_out",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        128,
+        5376
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-cached.raw",
+      "sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70"
+    }
+  ],
+  "warmup": 3,
+  "samples": 10,
+  "source_record": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-128.json",
+  "source_record_sha256": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+  "tags_source_sha256": "ee38448f15ef9860276544e3df2b15b9d807d207db86f5116cba6e1eaede96b5",
+  "tags_conversion": "Checked exact int64 to int32 narrowing; original input file remains unchanged.",
+  "scope": "Synthetic hidden states and original block0 checkpoint weights. Paired Rust/Python default reshape hint; application uses explicit true. Not a full H3 generation."
+}

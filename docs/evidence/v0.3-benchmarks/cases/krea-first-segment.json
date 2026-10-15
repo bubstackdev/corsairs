@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "name": "krea-first-segment",
+  "model": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel",
+  "model_main_mlirb_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+  "model_main_mlirb_bytes": 3704868693,
+  "function": "segment",
+  "compute": "gpu-preferred",
+  "expect_frequent_reshapes": null,
+  "warmup": 3,
+  "samples": 10,
+  "inputs": [
+    {
+      "name": "latents",
+      "dtype": "float16",
+      "shape": [
+        4032,
+        64
+      ],
+      "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+      "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380"
+    },
+    {
+      "name": "text_embeds",
+      "dtype": "float16",
+      "shape": [
+        20,
+        30720
+      ],
+      "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+      "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce"
+    },
+    {
+      "name": "sigma",
+      "dtype": "float32",
+      "shape": [
+        1
+      ],
+      "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+      "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    },
+    {
+      "name": "rope_image",
+      "dtype": "float32",
+      "shape": [
+        4032,
+        2,
+        128
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/rope_image.f32",
+      "sha256": "807e11d7ccea4eb73acf59e4a63169c8bb08e1e0d0e0ea1d15f420ef0ada167e"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "text_1",
+      "dtype": "float32",
+      "shape": [
+        20,
+        6144
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/text.f32",
+      "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c"
+    },
+    {
+      "name": "image_1",
+      "dtype": "float32",
+      "shape": [
+        4032,
+        6144
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/image.f32",
+      "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734"
+    },
+    {
+      "name": "cond",
+      "dtype": "float32",
+      "shape": [
+        8,
+        6144
+      ],
+      "file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/cond.f32",
+      "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713"
+    }
+  ],
+  "scope": "One unchanged fixed Krea step0/segment0, saved provided-text/noise/rope fixtures and sigma=1. Three exact original Swift F32 carries, including94.5MiB image_1. No full generation, encoder, scheduler update or decoder. Both paired arms omit the reshape hint because public Python b3 cannot set it; production/retained acceptance uses explicit true. Exact correctness under the omitted hint remains to be tested; do not relax the output gate.",
+  "provenance": {
+    "native_executed": false,
+    "external_files_modified": false,
+    "source_hashes": {
+      "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/data.rs": "39d6e6823a7929dc41fea7f392d13aa30b28a3901b863ef6c06e19f13f1c7aae",
+      "/Users/zakkeown/Code/aether/lab/corsairs/scripts/check_krea.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
+      "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/krea_driver.rs": "d51716ebc6d86b85b32f46e9c8c1a2b1ec6ef989b8ae7a05d45e2ca138a2ed28",
+      "/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/dtype.rs": "50fb4b83dc851eb71b5c34194eb4e12ae1ae5bc10b17e8419897cfeb17ca20f0",
+      "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-benchmarks/krea-first-segment/prepare_inputs.py": "bf9a6abbd30495cbc1455dab3435be1e765555e7541618e401e9afc51a88a20c",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json": "4a5d6e6311c0bffe4c658f872bf6c768e17c6fb427d431498891a9658032192f",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/records/corsairs-readiness/summary.json": "c7c537485dbcd6d3b6e93eee58eac4ac1197ae7ae90328086a6fcbb271043658"
+    },
+    "source_model_hash_fully_verified": true,
+    "float16_conversions": [
+      {
+        "source_file": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/noise.f32",
+        "source_sha256": "946d62cbf0cbe41a2260a5becf44fde4e44793609503b8b5c743aaa456bfb73a",
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/latents.f16",
+        "sha256": "520f45978c4b81612e8787ecbad01b5b85eb79b600be9fd902d97941ef527380",
+        "scalars": 258048,
+        "source_dtype": "float32",
+        "dtype": "float16",
+        "source_bytes": 1032192,
+        "bytes": 516096,
+        "every_scalar_matches_struct_binary16": true,
+        "finite": true,
+        "axis_permutation": false,
+        "conversion": "Exact little-endian binary32 -> binary16, round-to-nearest ties-to-even; signed zeros preserved; no scaling, clipping or axis permutation."
+      },
+      {
+        "source_file": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/text.f32",
+        "source_sha256": "440ed8b4c7020699e9a7f38964ba29f924bb423a685db5f1ca4779691d81dacc",
+        "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/text-embeds.f16",
+        "sha256": "7864d055ab264d588a1d6a85f8549b3216beea8d3f5f18635e67db0879a6c1ce",
+        "scalars": 614400,
+        "source_dtype": "float32",
+        "dtype": "float16",
+        "source_bytes": 2457600,
+        "bytes": 1228800,
+        "every_scalar_matches_struct_binary16": true,
+        "finite": true,
+        "axis_permutation": false,
+        "conversion": "Exact little-endian binary32 -> binary16, round-to-nearest ties-to-even; signed zeros preserved; no scaling, clipping or axis permutation."
+      }
+    ],
+    "sigma": {
+      "value": 1.0,
+      "binary32_bits": 1065353216,
+      "source": "TIMESTEP_BITS[0] in target/krea-check/data.rs",
+      "file": "/private/tmp/corsairs-v03-krea-first-fihjlw6z/sigma.f32",
+      "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    },
+    "source_noise_shape": [
+      84,
+      48,
+      64
+    ],
+    "denoiser_latent_shape": [
+      4032,
+      64
+    ],
+    "packing": "C-order flatten84*48 rows to4032 rows; same scalar order as existing Krea driver halves(), no axis permutation.",
+    "output_source_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json",
+    "source_acceptance_reshape_hint": true,
+    "benchmark_reshape_hint": null,
+    "input_bytes": 5873668,
+    "output_bytes": 99778560,
+    "derived_directory": "/private/tmp/corsairs-v03-krea-first-fihjlw6z"
+  }
+}

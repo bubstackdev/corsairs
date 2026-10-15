@@ -1,0 +1,40 @@
+{
+  "passed": false,
+  "case": {
+    "name": "h3-rgb345",
+    "dtype": "float32",
+    "shape": [
+      345,
+      1344,
+      768,
+      3
+    ],
+    "bytes": 4273274880,
+    "asset": "h3-rgb345/model.aimodel"
+  },
+  "compute": "gpu-preferred",
+  "profile": "release",
+  "created_utc": "2026-10-15T20:28:42.484539+00:00",
+  "build_manifest_sha256": "20b5c3e7569f59314200c61d90da56bff196ff1e69d876140f0a108af89eb2c8",
+  "concurrent_native_processes": 1,
+  "concurrency_scope": "This checker's child processes only; other host workloads are uncontrolled unless separately recorded.",
+  "swift_readback": "Immediate full byte snapshot before block comparison/hash",
+  "scope": "Mechanical tensor capacity and x+x arithmetic only; no H3 attention, decoder, temporal chunking or generation equivalence.",
+  "swift_process": {
+    "command": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/target/large-check/swift-oracle",
+      "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "float32",
+      "345,1344,768,3",
+      "gpu-preferred",
+      "h3-rgb345",
+      "/private/tmp/corsairs-quiet-rgb345-gpu/swift.json"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 11.507469374999346,
+    "timed_out": false,
+    "stdout": "{\"event\":\"allocated\",\"bytes\":4273274880}\n",
+    "stderr": "failed(\"byte mismatch at block 3160\")\n"
+  },
+  "error": "swift failed (1, timeout=False): failed(\"byte mismatch at block 3160\")\n"
+}

@@ -5,8 +5,11 @@
   "publication_status_source": "Maintainer's message in this session",
   "crate_url": "https://crates.io/crates/corsairs/0.1.0",
   "source_repository": "https://github.com/bubstackdev/corsairs",
-  "independent_registry_verification": "Not yet established; web access was unavailable and a direct API request returned HTTP 403.",
+  "independent_registry_verification": "Cargo fetched corsairs 0.1.0 as a fresh registry dependency and cargo check passed.",
   "local_release_archive_sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f",
-  "registry_archive_checksum_verified": false,
-  "prepublication_evidence": "release-verification.json"
+  "registry_archive_checksum_verified": true,
+  "prepublication_evidence": "release-verification.json",
+  "registry_archive_sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f",
+  "registry_archive_identical_to_validated_candidate": true,
+  "registry_consumer_evidence": "registry-consumer.json"
 }

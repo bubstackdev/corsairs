@@ -1,0 +1,2 @@
+Swift/ErrorType.swift:254: Fatal error: Error raised at top level: main.CapacityError.failed("byte mismatch at block 1064")
+2026-10-15 13:51:00.518712-0600 corsairs-large-swift-fast[12428:1296027] Swift/ErrorType.swift:254: Fatal error: Error raised at top level: main.CapacityError.failed("byte mismatch at block 1064")

@@ -5,8 +5,8 @@
 //! Tensors and returned state use owned Rust storage or retained native handles;
 //! pending work survives a dropped future.
 //! Supports static and dynamic signatures and owned contiguous float16,
-//! float32, int32, int64, and bool tensors, with rank at most 64 and storage
-//! at most 1 GiB per tensor. GPU preference permits native fallback.
+//! bfloat16, float32, int32, int64, and bool tensors, with rank at most 64 and
+//! storage at most 4 GiB per tensor. GPU preference permits native fallback.
 //!
 //! ```no_run
 //! use corsairs::{Runtime, Compute, Tensor, TensorMap};

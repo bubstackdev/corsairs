@@ -1,0 +1,16 @@
+{
+  "production_sources_unchanged": true,
+  "production_source_count": 39,
+  "old_manifest_sha256": "62e9408272c0c125d0f9cbe2910e7f565b565ba116449be7ce38a1c9001a0e64",
+  "new_manifest_sha256": "c8f9ea1f906ee8c1b6d74d5a9259fe101c47cc6fe38423a75c3048db28af7337",
+  "changed_sources": [
+    "experiments/rust/large_tensors.rs",
+    "experiments/swift/LargeTensorReference.swift",
+    "fixtures/parity-v03/large-tensors/h3-hidden/model.aimodel/metadata.json",
+    "fixtures/parity-v03/large-tensors/h3-rgb124/model.aimodel/metadata.json",
+    "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel/metadata.json",
+    "fixtures/parity-v03/large-tensors/limit-f32/model.aimodel/metadata.json",
+    "fixtures/parity-v03/large-tensors/manifest.json",
+    "scripts/reference/build_large_fixtures.py"
+  ]
+}

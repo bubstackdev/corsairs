@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "scope": "Raw native storage only; no inference/model/Metal queue. Six exact4GiB full roundtrips, six maximal-empty roundtrips, twelve pre-runtime typed rejections.",
+  "build_manifest_sha256": "9617cd43807c7df49274068ee56d9a9450540b5a73adcdabdf561be1fa210698",
+  "process_sha256": "d8651e60b3c8ac604fb1148d5844053847a260a922153cf471ebf2a64e2b31c5",
+  "summary": {
+    "event": "complete",
+    "selected_dtypes": 6,
+    "full_round_trips": 6,
+    "empty_round_trips": 6,
+    "typed_negative_cases": 12,
+    "passed": true
+  }
+}

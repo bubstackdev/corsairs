@@ -1,0 +1,48 @@
+[
+  {
+    "name": "swift-dictionary-fast-gpu",
+    "command": [
+      "/private/tmp/corsairs-large-swift-dictionary-fast",
+      "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "float32",
+      "345,1344,768,3",
+      "gpu-preferred",
+      "h3-rgb345",
+      "/private/tmp/corsairs-large-fence-diagnostic/swift-gpu.json"
+    ],
+    "exit_status": -11,
+    "seconds": 10.635515166002733,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "name": "swift-dictionary-fast-cpu",
+    "command": [
+      "/private/tmp/corsairs-large-swift-dictionary-fast",
+      "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "float32",
+      "345,1344,768,3",
+      "cpu",
+      "h3-rgb345",
+      "/private/tmp/corsairs-large-fence-diagnostic/swift-cpu.json"
+    ],
+    "exit_status": 0,
+    "seconds": 9.09728933400038,
+    "stdout": "{\"event\":\"allocated\",\"bytes\":4273274880}\n{\"event\":\"double_complete\",\"bytes\":4273274880}\n{\n  \"bytes\" : 4273274880,\n  \"case\" : \"h3-rgb345\",\n  \"chain_sha256\" : \"e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59\",\n  \"compute\" : \"cpu\",\n  \"double_sha256\" : \"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\n  \"dtype\" : \"float32\",\n  \"input_sha256\" : \"32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af\",\n  \"passed\" : true,\n  \"production_helper\" : false,\n  \"shape\" : [\n    345,\n    1344,\n    768,\n    3\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "name": "metal-only-gpu",
+    "command": [
+      "/private/tmp/corsairs-large-metal-only",
+      "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "float32",
+      "345,1344,768,3",
+      "gpu-preferred"
+    ],
+    "exit_status": "timeout",
+    "seconds": 121.60531187499873,
+    "stdout": "{\"event\":\"begin\",\"bytes\":4273274880,\"compute\":\"gpu-preferred\"}\n{\"event\":\"value\",\"label\":\"metal-bound\",\"bytes\":4273274880,\"factor\":2,\"sha256\":\"d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513\",\"passed\":true}\n",
+    "stderr": "2026-10-15 13:53:04.608687-0600 corsairs-large-metal-only[15021:1324294] IOGPUMetalError: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.608792-0600 corsairs-large-metal-only[15021:1324294] Execution of the command buffer was aborted due to an error during execution. Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.608833-0600 corsairs-large-metal-only[15021:1324294] IOGPUMetalError: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.608984-0600 corsairs-large-metal-only[15021:1324294] IOGPUMetalError: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.609175-0600 corsairs-large-metal-only[15021:1324294] Execution of the command buffer was aborted due to an error during execution. Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.609369-0600 corsairs-large-metal-only[15021:1324294] IOGPUMetalError: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.609716-0600 corsairs-large-metal-only[15021:1324294] IOGPUMetalError: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.609962-0600 corsairs-large-metal-only[15021:1324294] Execution of the command buffer was aborted due to an error during execution. Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n2026-10-15 13:53:04.609975-0600 corsairs-large-metal-only[15021:1324294] IOGPUMetalError: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)\n"
+  }
+]

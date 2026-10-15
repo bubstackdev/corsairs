@@ -1,0 +1,10 @@
+{
+  "native_executed": false,
+  "source_build": "build-manifest.json",
+  "source_build_sha256": "62e9408272c0c125d0f9cbe2910e7f565b565ba116449be7ce38a1c9001a0e64",
+  "sha256": {
+    "experiments/rust/large_metal_extents.rs": "2676ed9d2cea0bd3173663b997fa44f4a5be58d8824011ff97a0209eaf93136d",
+    "target/large-check/cargo/release/libcorsairs.rlib": "f31257dfcf78b69114d87d59744a1797c7add6992dedbcf868dcab005c46fc8b",
+    "/private/tmp/corsairs-large-metal-extents": "6724e33223c0d0c34ca6e0b1d9dafdd7bd3df80afd89b1e9cf7953149d8d62dd"
+  }
+}

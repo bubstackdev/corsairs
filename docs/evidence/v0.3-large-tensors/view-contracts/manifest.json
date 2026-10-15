@@ -1,0 +1,101 @@
+{
+  "native_executed": false,
+  "production_modified": false,
+  "purpose": "Read-only compiler/SDK/shipped-native contract audit after large output immediate-snapshot discrepancy. Native behavior is established only by separately linked root observations.",
+  "image": {
+    "path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+    "architecture": "arm64e",
+    "uuid": "E2B84906-28D2-39A3-AEF3-9E1AAE1363D7",
+    "complete_extracted_image_sha256": null
+  },
+  "files_sha256": {
+    "docs/evidence/v0.3-large-tensors/view-contracts/Views.swift": "003505b8dd5d5ead8cd836739835ede5f84b462d1e0e57e194b9f3708397b9e3",
+    "docs/evidence/v0.3-large-tensors/view-contracts/views.ll": "39f97cc03b295b87bcb7da3f96343b3e943caa96216edc3b1a40aa4af5e7d22d",
+    "docs/evidence/v0.3-large-tensors/view-contracts/raw-view-native.s": "f6cc95c611bc8ce03b1213804bfba4e5f60133e7e28d2bf9f0943e85708681d2",
+    "docs/evidence/v0.3-large-tensors/view-contracts/raw-view-span-helper.s": "987e0244bb1cec793cc118b46bcae714c9099eae245a8da875f7bb8e3d2c8d8e",
+    "docs/evidence/v0.3-large-tensors/view-contracts/ranges.json": "7352218a350b04f597455329e64c9960e810300b5da354f1f971b0cf25d753b8",
+    "docs/evidence/v0.3-large-tensors/view-contracts/run-overloads-native.s": "d6301bf6ead2baa08e345654851af62c22c598b6692425d9262714dde6137581",
+    "docs/evidence/v0.3-large-tensors/view-contracts/run-dictionary-inner.s": "8fb3d09126adc71aecef9c2176af21e4d869782b574b04d3e044e4aea888a205",
+    "docs/evidence/v0.3-large-tensors/view-contracts/run-common-wait.s": "9ca0321399fabc953d819c5479c48ac169afc6658d6ddd3d0ced4afdc51acd0c",
+    "docs/evidence/v0.3-large-tensors/view-contracts/run-common-wait-continuations.s": "dd05a85ea40ea4d2bc65419b2c356084c82910351c0f6340573cdfad889f884c",
+    "docs/evidence/v0.3-large-tensors/view-contracts/audit-manifest.json": "33ac891e76bd4add46f83d0b0e0fca87c39fae7e2d5c6c59f6b5b7f5561ffdb9"
+  },
+  "sdk": {
+    "path": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface",
+    "sha256": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd",
+    "lines": {
+      "run_inputs": 98,
+      "run_dictionary": 102,
+      "inference_value_ndarray": 137,
+      "mutable_raw_start_count": [
+        649,
+        651
+      ],
+      "mutable_raw_closure": [
+        665,
+        666
+      ],
+      "mutable_raw_span": [
+        725,
+        727
+      ],
+      "raw_bytes": 998,
+      "raw_closure": 1009
+    }
+  },
+  "commands": [
+    [
+      "xcrun",
+      "swiftc",
+      "-O",
+      "-parse-as-library",
+      "-module-name",
+      "ViewAudit",
+      "-module-cache-path",
+      "/private/tmp/corsairs-large-view-contracts/cache",
+      "-emit-ir",
+      "/private/tmp/corsairs-large-view-contracts/Views.swift",
+      "-o",
+      "/private/tmp/corsairs-large-view-contracts/views.ll"
+    ],
+    [
+      "xcrun",
+      "dyld_info",
+      "-exports",
+      "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime"
+    ],
+    [
+      "xcrun",
+      "dyld_info",
+      "-function_starts",
+      "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime"
+    ],
+    [
+      "xcrun",
+      "dyld_info",
+      "-uuid",
+      "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime"
+    ],
+    [
+      "xcrun",
+      "dyld_info",
+      "-disassemble",
+      "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime"
+    ]
+  ],
+  "native_disassembly_selection": "Filtered current cache disassembly by exported-address/function-start ranges. run-overloads-native.s contains the selected overload regions; run-dictionary-inner.s includes the complete selected dictionary inner region. Branch-target helper meanings are inference unless named by an export/comment.",
+  "official_docs": [
+    "https://developer.apple.com/documentation/coreai/inferencefunction/run(inputs:states:outputviews:)-14emi",
+    "https://developer.apple.com/documentation/coreai/inferencefunction/run(inputs:states:outputviews:)-mqfb",
+    "https://developer.apple.com/documentation/coreai/integrating-on-device-ai-models-in-your-app-with-core-ai",
+    "https://developer.apple.com/documentation/coreai/computestream",
+    "https://developer.apple.com/documentation/coreai/inferencefunction/encode(inputs:states:outputviews:to:)"
+  ],
+  "limitations": [
+    "No native target was launched by this investigation.",
+    "The installed cache image UUID/path, rather than a full extracted-image SHA-256, identifies inspected native code.",
+    "Static pointer/control-flow matching does not prove GPU/CPU visibility or background-copy completion.",
+    "Private helper names/semantics are only inferred unless an exported symbol resolves them.",
+    "No public NDArray wait/host-copy completion API was found within the inspected complete CoreAIRuntime Swift interface; this is a bounded SDK search, not an assertion that no private API exists."
+  ]
+}

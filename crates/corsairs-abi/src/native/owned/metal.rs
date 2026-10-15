@@ -979,6 +979,26 @@ impl NativeSession {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn large_metal_extents_use_the_shared_tensor_boundary() {
+        assert_eq!(
+            count(NativeDType::Bf16, &[1, 102816, 5376]).unwrap(),
+            1_105_477_632
+        );
+        assert_eq!(
+            count(NativeDType::F32, &[124, 1344, 768, 3]).unwrap(),
+            1_535_901_696
+        );
+        assert_eq!(
+            count(NativeDType::F32, &[345, 1344, 768, 3]).unwrap(),
+            4_273_274_880
+        );
+        let limit = crate::dtype::MAX_TENSOR_BYTES;
+        assert_eq!(count(NativeDType::F32, &[limit / 4]).unwrap(), limit);
+        assert!(count(NativeDType::F32, &[limit / 4 + 1]).is_err());
+        assert!(count(NativeDType::F32, &[0, limit / 4 + 1]).is_err());
+    }
     #[test]
     fn aliases_share_object_origin_and_check_only_overlapping_bytes() {
         assert!(overlaps_ranges((1, 0, 24), (1, 0, 24)));

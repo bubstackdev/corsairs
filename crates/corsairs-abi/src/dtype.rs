@@ -4,9 +4,9 @@ use std::fmt;
 
 /// Maximum supported tensor rank.
 pub const MAX_TENSOR_RANK: usize = 64;
-/// Maximum tensor storage size (one GiB). For empty tensors, the same
+/// Maximum tensor storage size (four GiB). For empty tensors, the same
 /// bound applies to the product of nonzero dimensions to reject stride overflow.
-pub const MAX_TENSOR_BYTES: usize = 1 << 30;
+pub const MAX_TENSOR_BYTES: usize = 1usize << 32;
 
 /// Scalar types supported by Corsairs.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -390,6 +390,32 @@ impl Tensor {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn large_tensor_capacity_and_overflow_are_checked_without_allocating() {
+        for (shape, width, bytes) in [
+            (vec![1, 102816, 5376], 2, 1_105_477_632),
+            (vec![124, 1344, 768, 3], 4, 1_535_901_696),
+            (vec![345, 1344, 768, 3], 4, 4_273_274_880),
+        ] {
+            assert_eq!(element_count(&shape, width).unwrap() * width, bytes);
+        }
+        for dtype in [
+            DType::Bool,
+            DType::Float16,
+            DType::BFloat16,
+            DType::Float32,
+            DType::Int32,
+            DType::Int64,
+        ] {
+            let width = dtype.byte_width();
+            let maximum = MAX_TENSOR_BYTES / width;
+            assert_eq!(element_count(&[maximum], width).unwrap(), maximum);
+            assert!(element_count(&[maximum + 1], width).is_err());
+            assert!(Tensor::zeros(dtype, [0, maximum + 1]).is_err());
+            assert!(element_count(&[isize::MAX as usize, 2], width).is_err());
+            assert!(element_count(&[1; MAX_TENSOR_RANK + 1], width).is_err());
+        }
+    }
     #[test]
     fn bfloat16_all_encodings_widen_and_roundtrip_exactly() {
         let values: Vec<_> = (0..=u16::MAX).map(BFloat16::from_bits).collect();

@@ -1,0 +1,193 @@
+{
+  "kind": "corsairs-v03-large-tensor-independent-static-pattern-audit",
+  "created_at": "2026-10-15T19:46:27.041152+00:00",
+  "passed": true,
+  "native_execution_performed": false,
+  "conclusion": "No source-pattern, expected-arithmetic, graph-shape, fixture-identity or checker-hash mismatch found for current pattern-v2. The 4,273,274,880-byte Swift input/2x/4x hashes independently match; Rust owned-output failure remains real and unresolved by this audit.",
+  "method": "Standard-library Python derived IEEE binary32/BF16 encodings from integer sign, bit_length, exact significands and little-endian serialization, then streamed 1 MiB blocks through hashlib SHA-256. No floating arithmetic, Core AI, native target, NumPy or production generator was called. Hashing completed for all four cases; historical-v1 reports were then excluded by build identity.",
+  "pattern_version": 2,
+  "pattern": "Per 1 MiB block i: seed=1+(i%251), [seed,-seed,1,-1,2,-2,64,-64] repeated; factors 1/2/4.",
+  "all_finite_nonzero_and_exact": true,
+  "block_period_alignment_verified": true,
+  "build_manifest_sha256": "c8f9ea1f906ee8c1b6d74d5a9259fe101c47cc6fe38423a75c3048db28af7337",
+  "source_file_count": 62,
+  "all_pinned_sources_match": true,
+  "all_pinned_binaries_match": true,
+  "fixture_manifest_sha256": "a8af6c25a402e8f17b186944c6d34ca542b2b592fac24795073c589ce4296f89",
+  "all_fixture_files_match_manifest": true,
+  "cases": [
+    {
+      "name": "h3-hidden",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        102816,
+        5376
+      ],
+      "bytes": 1105477632,
+      "full_blocks": 1054,
+      "tail_bytes": 278528,
+      "period_bytes": 16,
+      "graph_sha256": "82a378786c250fa7e8804cf900d29254ba0ea6d97257c951342e718825a37057",
+      "asset_bytecode_sha256": "45730c1ebb73fc0c1161b40dd7a8b34b6f6bbf46a5a12bc28818c95016619014",
+      "asset_hash_matches_bytecode": true,
+      "integer_derived_hashes": {
+        "input_sha256": "59bb17ad52ea80517cb3f8bcc65e48b22f9b8f7cdb6ca8e00ef10863d05cbe0a",
+        "double_sha256": "9ab6fb94f0fe00516973b92ff8f8098c521f843833415b10e43b99ffbdaa57ea",
+        "chain_sha256": "6da72fb06a3f8b9605dd3d3377fd694a90f9f360b4fe2490f81ab3a1b935fbc7"
+      },
+      "reference_comparisons": [
+        {
+          "report": "docs/evidence/v0.3-large-tensors/h3-hidden-cpu-release.json",
+          "report_sha256": "0c01484da14821d866e35ef0c89b3aa872f77290a30bb89d1b5374b80d44ad4b",
+          "oracle_hashes_match": true,
+          "rust_value_paths": 7,
+          "rust_passed": true
+        },
+        {
+          "report": "docs/evidence/v0.3-large-tensors/h3-hidden-gpu-preferred-release.json",
+          "report_sha256": "753d3e52e7dd4588f4cdb90736fdffd3fa6bb94403779d3717308520bd518442",
+          "oracle_hashes_match": true,
+          "rust_value_paths": 7,
+          "rust_passed": true
+        }
+      ],
+      "current_native_reference_available": true
+    },
+    {
+      "name": "h3-rgb124",
+      "dtype": "float32",
+      "shape": [
+        124,
+        1344,
+        768,
+        3
+      ],
+      "bytes": 1535901696,
+      "full_blocks": 1464,
+      "tail_bytes": 786432,
+      "period_bytes": 32,
+      "graph_sha256": "c6af6a58f7a30a924644bc6e02ee0d7a11ee53ed0c70e7add888eca7df5e8b52",
+      "asset_bytecode_sha256": "7a6849db702f0abc07352ae5e1a3c1449fa2d397c6ac6a2262db742d9d8bf86f",
+      "asset_hash_matches_bytecode": true,
+      "integer_derived_hashes": {
+        "input_sha256": "44fe57733dec909e85fa2ee76f56260f00b05d54465ed0043f204ed4c8d80b6e",
+        "double_sha256": "13a03ae1469fe5f45a64d9b301f6a84187325ec07ab34687c5e3c8c9407212da",
+        "chain_sha256": "5c6765574561d798e6abb7c0abb711e4cfe2f0b43f496e1506ebc7222b6237b1"
+      },
+      "reference_comparisons": [
+        {
+          "report": "docs/evidence/v0.3-large-tensors/h3-rgb124-cpu-release.json",
+          "report_sha256": "9e27933469103d843cc06fe36cfabbb560c545f1293c0b047a0c0e2e53bf2e2c",
+          "oracle_hashes_match": true,
+          "rust_value_paths": 7,
+          "rust_passed": true
+        },
+        {
+          "report": "docs/evidence/v0.3-large-tensors/h3-rgb124-gpu-preferred-release.json",
+          "report_sha256": "7677d6ee41983cee5d73b35351b677f923770d6cfac0929fa62cf7856bd455e2",
+          "oracle_hashes_match": true,
+          "rust_value_paths": 7,
+          "rust_passed": true
+        }
+      ],
+      "current_native_reference_available": true
+    },
+    {
+      "name": "h3-rgb345",
+      "dtype": "float32",
+      "shape": [
+        345,
+        1344,
+        768,
+        3
+      ],
+      "bytes": 4273274880,
+      "full_blocks": 4075,
+      "tail_bytes": 327680,
+      "period_bytes": 32,
+      "graph_sha256": "d8cabc2445e196fa15d4c47a5f0561b627b76b0d4f961b91b12b6b67b80c7873",
+      "asset_bytecode_sha256": "c7f4ff1d716ead864ab85ff7d3867e34a43a3660406dd47dba2987a1f98ea16f",
+      "asset_hash_matches_bytecode": true,
+      "integer_derived_hashes": {
+        "input_sha256": "32cd1bf3dc20b0e917b40a1d8b51941cb1db38973755421aa000c87943a5a0af",
+        "double_sha256": "d224230f3b7b2a6a19a2e2b0c3ecf012126f5f5032033c98f3e605d2cc79c513",
+        "chain_sha256": "e68895784f20daa76c61bf2666ec8f67e4935e7fd3f06e050cc9b7cd1d431f59"
+      },
+      "reference_comparisons": [
+        {
+          "report": "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/swift.json",
+          "report_sha256": "7ceb75c8c1449ff7ee9bc388f26c96d5d312054f44d8d264e1f8b3c6a655c52c",
+          "oracle_hashes_match": true,
+          "rust_value_paths": 0,
+          "rust_passed": false,
+          "scope": "Swift succeeds; Rust fails its first owned-output comparison before emitting a value digest."
+        }
+      ],
+      "current_native_reference_available": true
+    },
+    {
+      "name": "limit-f32",
+      "dtype": "float32",
+      "shape": [
+        1073741824
+      ],
+      "bytes": 4294967296,
+      "full_blocks": 4096,
+      "tail_bytes": 0,
+      "period_bytes": 32,
+      "graph_sha256": "276203d4991ca41629c294f1671d28e8c4912c35dda9eb02bc146b4f5fcfb30a",
+      "asset_bytecode_sha256": "9f0962ccc33bb9fe00ecce829e035302ff4250cc7177b3dd597148952619ee13",
+      "asset_hash_matches_bytecode": true,
+      "integer_derived_hashes": {
+        "input_sha256": "eeae4e63752a1c8038127462da3a8cbc0f0d9a031576b9413a70121c98bb88c6",
+        "double_sha256": "d27060ad5641e455bc09f0a8d202edefdcdd58069677556730851031e7d54fba",
+        "chain_sha256": "f473464b4e215a3d92dd1873e11e6a6a7c76972c3a1636c25c7436d4fe62dc02"
+      },
+      "reference_comparisons": [],
+      "current_native_reference_available": false
+    }
+  ],
+  "excluded_historical_reports": [
+    {
+      "report": "docs/evidence/v0.3-large-tensors/limit-f32-gpu-preferred-release.json",
+      "report_sha256": "73a5926091ff09bb6d4808b5ed5b1a7f0b0d8b72a37de0cea8360e47d2a8f616",
+      "build_manifest_sha256": "62e9408272c0c125d0f9cbe2910e7f565b565ba116449be7ce38a1c9001a0e64",
+      "reason": "Historical signed-zero pattern-v1 build; not current pattern-v2 coverage."
+    }
+  ],
+  "failure_context": {
+    "case": "h3-rgb345",
+    "path": "owned",
+    "first_reported_failing_block": 2200,
+    "block_start_byte_offset": 2306867200,
+    "block_seed": 193,
+    "expected_first_eight_f32_values_at_2x": [
+      386,
+      -386,
+      2,
+      -2,
+      4,
+      -4,
+      128,
+      -128
+    ],
+    "scope": "First differing byte within block2200 was not retained by this original driver. This audit confirms mathematical pattern/reference digests and pinned checker sources, but does not establish which native input/output allocation/copy stage changes bytes."
+  },
+  "retained_failure_files_sha256": {
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/swift.json": "7ceb75c8c1449ff7ee9bc388f26c96d5d312054f44d8d264e1f8b3c6a655c52c",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/rust.stderr": "df64e9b2995232a96eb4f3bfef535fa724fb76b2a1e218b7c3bb9fb2879f69e5",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/rust-process.json": "a8c64b26a8bc88e5e73ef5c935016bc64dc2f171c9f144d372f5fdad81b0a8ed",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/rust.stdout": "091065079e0e790fcb3f83924fab599440b98a5ec21e5d0c0400819d999ba58f",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/swift-process.json": "be869d36efd3836241d43e5bfc2e4e2d2cdaeca51969f0e741598429d08c2bbb",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/checks.json": "8b0dcd0f4b43eda7adbe24f027c7f1ca0c7f3265c9783cc6848ca7f7884c88b0",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/swift.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/private/tmp/corsairs-large-h3-rgb345-gpu-preferred-release/swift.stdout": "186a1c0d2b4b96cee70204079433a926c10c9dfbb1f05bc070cf5c80ca807144"
+  },
+  "limits": [
+    "No new Core AI execution or direct multi-gigabyte result-byte inspection.",
+    "Pattern repeats every 251 MiB and within each block; it detects wrap at 1/2/4 GiB but is not unique at every byte offset.",
+    "Top-level limit-f32 report still belongs to initial signed-zero v1; its hashes differ legitimately from v2. The v2 4 GiB flat expectations here have no current native execution result.",
+    "The failed aggregate checks.json does not embed the successful Swift oracle; independent Swift success is retained separately in swift.json and swift-process.json."
+  ]
+}

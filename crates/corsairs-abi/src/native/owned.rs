@@ -981,12 +981,9 @@ impl NativeSession {
             )?;
             scalar.initialized = true;
             let dtype = self.dtype(&scalar)?;
-            let expected = stride
-                .checked_mul(dtype.byte_width())
-                .filter(|n| *n <= 1 << 30)
-                .ok_or_else(|| {
-                    NativeFailure::Unsupported("output byte count exceeds limit".into())
-                })?;
+            let expected = crate::dtype::element_count(&shape, dtype.byte_width())
+                .map_err(|e| NativeFailure::Unsupported(e.to_string()))?
+                * dtype.byte_width();
             let mut view =
                 NativeValue::allocate(self.metadata(c"$s13CoreAIRuntime7NDArrayV7RawViewVMa")?)?;
             self.call(
@@ -1220,17 +1217,10 @@ impl NativeSession {
     }
 }
 fn validate_tensor(tensor: &NativeTensor) -> Result<()> {
-    if tensor.shape.len() > 64 || tensor.shape.iter().any(|d| *d > isize::MAX as usize) {
-        return Err(NativeFailure::InvalidData(
-            "tensor rank/dimensions are unsupported".into(),
-        ));
-    }
-    let bytes = tensor
-        .shape
-        .iter()
-        .try_fold(tensor.dtype.byte_width(), |n, d| n.checked_mul(*d))
-        .filter(|n| *n <= 1 << 30)
-        .ok_or_else(|| NativeFailure::InvalidData("tensor byte count exceeds limit".into()))?;
+    let width = tensor.dtype.byte_width();
+    let bytes = crate::dtype::element_count(&tensor.shape, width)
+        .map_err(|e| NativeFailure::InvalidData(e.to_string()))?
+        * width;
     if bytes != tensor.bytes.len() {
         return Err(NativeFailure::InvalidData(
             "tensor shape/dtype/byte count mismatch".into(),
@@ -1288,6 +1278,21 @@ fn validate_group(
 #[cfg(test)]
 mod dynamic_signature_tests {
     use super::*;
+
+    #[test]
+    fn native_empty_storage_keeps_the_nonzero_dimension_guard() {
+        let limit = crate::dtype::MAX_TENSOR_BYTES;
+        let mut tensor = NativeTensor {
+            dtype: NativeDType::F32,
+            shape: vec![0, limit / 4],
+            bytes: vec![],
+        };
+        assert!(validate_tensor(&tensor).is_ok());
+        tensor.shape[1] += 1;
+        assert!(validate_tensor(&tensor).is_err());
+        tensor.shape = vec![isize::MAX as usize, 2];
+        assert!(validate_tensor(&tensor).is_err());
+    }
 
     #[test]
     fn dynamic_dimensions_accept_concrete_calls_without_relaxing_fixed_dimensions() {

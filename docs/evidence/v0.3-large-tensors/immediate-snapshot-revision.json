@@ -1,0 +1,22 @@
+{
+  "before_manifest_sha256": "c8f9ea1f906ee8c1b6d74d5a9259fe101c47cc6fe38423a75c3048db28af7337",
+  "after_manifest_sha256": "20b5c3e7569f59314200c61d90da56bff196ff1e69d876140f0a108af89eb2c8",
+  "production_files_identical": 39,
+  "unchanged_rust_binaries": {
+    "target/large-check/cargo/debug/libcorsairs.rlib": true,
+    "target/large-check/driver-debug": true,
+    "target/large-check/cargo/release/libcorsairs.rlib": true,
+    "target/large-check/driver-release": true
+  },
+  "changed_test_files": {
+    "experiments/swift/LargeTensorReference.swift": {
+      "before": "12265ae7e80475798188ba2e1d1ab391ba79a9ab8c59f2781b4f20b525f0e01c",
+      "after": "ee065b73b228c312ef2d21226aa2af2ece33f72b6f3e79d840b523653dbb9c6a"
+    },
+    "scripts/check_large_tensors.py": {
+      "before": "a2eb06d808ca49481d531eee0e48ec3ceb428c5c1796fdba0fb71ef7d4135a66",
+      "after": "c107a55b6f848c1ebe713e32f2e256fc395e337427c5a009a6406a7109a83767"
+    }
+  },
+  "reason": "Snapshot Swift output immediately; slow comparison against live native memory concealed long-RGB GPU failures. Retain all failed child observations."
+}

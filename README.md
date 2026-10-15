@@ -6,7 +6,9 @@ Corsairs loads `.aimodel` assets, inspects function signatures, and executes nam
 
 The v0.1 release targets Apple Silicon macOS 27. It provides a bounded inference subset of `coreai-core 1.0.0b3`; complete runtime and graph-authoring parity remains the longer-term objective. Debug and release each passed all 32 differential configurations, 16 negative cases, and 40,000 checked stress inferences. The [release archive](dist/corsairs-0.1.0.crate) also passed extracted-package and isolated-consumer examples. See [the release gates and publication record](docs/v0.1-release.md).
 
-The current v0.2 candidate adds dynamic signatures, per-model reshape settings, [retained native tensors](docs/native-tensors.md), [Metal interoperability](docs/metal-ownership.md), and [concurrent model/function loading](docs/parallel-loads.md). The [Krea acceptance run](docs/v0.2-krea.md) matches Swift's encoded text, all eight latent steps, and decoded pixels. [BF16 tensors](docs/bfloat16-abi.md) and [transitive cleanup draining](docs/runtime-drain.md) also pass [H3's original-weight block, all 50 schedule pairs, and staged synthetic backbone](docs/v0.2-h3.md). These changes are not in the published v0.1 crate. See [the v0.2 release gates](docs/v0.2-release.md).
+The published v0.2 adds dynamic signatures, per-model reshape settings, [retained native tensors](docs/native-tensors.md), [Metal interoperability](docs/metal-ownership.md), and [concurrent model/function loading](docs/parallel-loads.md). The [Krea acceptance run](docs/v0.2-krea.md) matches Swift's encoded text, all eight latent steps, and decoded pixels. [BF16 tensors](docs/bfloat16-abi.md) and [transitive cleanup draining](docs/runtime-drain.md) also pass [H3's original-weight block, all 50 schedule pairs, and staged synthetic backbone](docs/v0.2-h3.md). See [the v0.2 publication record](docs/v0.2-release.md).
+
+Current v0.3 development qualifies a [larger checked tensor boundary](docs/v0.3-large-tensors.md) for H3's long hidden tensors and RGB outputs. The published v0.2 limit remains 1 GiB.
 
 ## Use
 
@@ -15,7 +17,7 @@ Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.
 Add [Corsairs from crates.io](https://crates.io/crates/corsairs) to a Rust project:
 
 ```sh
-cargo add corsairs@0.1.0
+cargo add corsairs@0.2.0
 ```
 
 Source: [bubstackdev/corsairs](https://github.com/bubstackdev/corsairs).

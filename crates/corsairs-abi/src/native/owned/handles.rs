@@ -85,14 +85,20 @@ impl NativeSession {
                 ));
             }
             let mut bytes = vec![0; plan.output_bytes];
-            for (element, offset) in plan.offsets().enumerate() {
-                // SAFETY: Each byte range was checked against the native span;
-                // nonnegative strides use its logical origin. No typed aliases.
-                ptr::copy_nonoverlapping(
-                    (start as *const u8).add(offset),
-                    bytes.as_mut_ptr().add(element * plan.width),
-                    plan.width,
-                );
+            if plan.output_bytes != 0 && plan.contiguous() {
+                // SAFETY: The checked row-major layout covers exactly the
+                // validated span, and Rust owns a separate destination buffer.
+                ptr::copy_nonoverlapping(start as *const u8, bytes.as_mut_ptr(), plan.output_bytes);
+            } else {
+                for (element, offset) in plan.offsets().enumerate() {
+                    // SAFETY: Each byte range was checked against the native span;
+                    // nonnegative strides use its logical origin. No typed aliases.
+                    ptr::copy_nonoverlapping(
+                        (start as *const u8).add(offset),
+                        bytes.as_mut_ptr().add(element * plan.width),
+                        plan.width,
+                    );
+                }
             }
             Ok(NativeTensor {
                 dtype: info.dtype,
@@ -467,7 +473,7 @@ impl PackingPlan {
                 })
                 .and_then(|offset| offset.checked_mul(width))
                 .and_then(|offset| offset.checked_add(width))
-                .filter(|n| *n <= 1 << 30)
+                .filter(|n| *n <= crate::dtype::MAX_TENSOR_BYTES)
                 .ok_or_else(|| {
                     NativeFailure::Unsupported("native strided storage extent exceeds limit".into())
                 })?
@@ -487,6 +493,16 @@ impl PackingPlan {
             ));
         }
         Ok(())
+    }
+    fn contiguous(&self) -> bool {
+        let mut expected = 1usize;
+        for (&size, &stride) in self.shape.iter().zip(&self.strides).rev() {
+            if size > 1 && stride != expected {
+                return false;
+            }
+            expected *= size;
+        }
+        true
     }
     fn offsets(&self) -> impl Iterator<Item = usize> + '_ {
         (0..self.output_bytes / self.width).map(|mut index| {
@@ -536,6 +552,38 @@ mod tests {
         assert_eq!(plan.offsets().collect::<Vec<_>>(), [0, 4, 12, 16]);
         assert!(plan.validate_span(19).is_err());
         plan.validate_span(20).unwrap();
+    }
+
+    #[test]
+    fn contiguous_copy_distinguishes_transpose_padding_and_broadcast() {
+        for (shape, strides, contiguous) in [
+            (vec![], vec![], true),
+            (vec![2, 3], vec![3, 1], true),
+            (vec![2, 1, 3], vec![3, 99, 1], true),
+            (vec![3, 2], vec![1, 3], false),
+            (vec![2, 3], vec![4, 1], false),
+            (vec![2, 3], vec![0, 1], false),
+        ] {
+            let plan = PackingPlan::new(&shape, &strides, 2).unwrap();
+            assert_eq!(plan.contiguous(), contiguous, "{shape:?} {strides:?}");
+            if contiguous {
+                assert_eq!(plan.extent, plan.output_bytes);
+            }
+        }
+    }
+
+    #[test]
+    fn strided_extents_cross_gib_boundaries_but_stop_at_the_shared_limit() {
+        let boundary = crate::dtype::MAX_TENSOR_BYTES;
+        let plan = PackingPlan::new(&[2], &[(boundary / 2 - 1) as isize], 2).unwrap();
+        assert_eq!(plan.output_bytes, 4);
+        assert_eq!(plan.extent, boundary);
+        assert_eq!(plan.offsets().collect::<Vec<_>>(), [0, boundary - 2]);
+        assert!(!plan.contiguous());
+        plan.validate_span(boundary).unwrap();
+        assert!(plan.validate_span(boundary - 1).is_err());
+        assert!(PackingPlan::new(&[2], &[(boundary / 2) as isize], 2).is_err());
+        assert!(PackingPlan::new(&[0, boundary], &[0, 1], 2).is_err());
     }
 
     #[test]

@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "recording": "Summary of completed commands observed in this session; full stdout is available in session tool results, not retained in this file.",
+  "source_build_manifest_sha256": "20b5c3e7569f59314200c61d90da56bff196ff1e69d876140f0a108af89eb2c8",
+  "production_unchanged_since_build": true,
+  "commands": [
+    {
+      "command": "cargo test --workspace --all-features --offline",
+      "exit_status": 0,
+      "library": {
+        "passed": 34,
+        "ignored_native": 5,
+        "failed": 0
+      },
+      "cli": {
+        "passed": 1
+      },
+      "abi_metadata": {
+        "passed": 2
+      },
+      "doctests": {
+        "passed": 1
+      }
+    },
+    {
+      "command": "cargo clippy --workspace --all-targets --all-features --offline -- -D warnings",
+      "exit_status": 0
+    },
+    {
+      "command": "cargo fmt --all -- --check",
+      "exit_status": 0
+    },
+    {
+      "command": "cargo doc --workspace --all-features --no-deps --offline",
+      "exit_status": 0
+    },
+    {
+      "command": "python3 -B scripts/check_v02.py --profiles debug release",
+      "exit_status": 0,
+      "native_executed": false,
+      "purpose": "Build existing dynamic, native and Metal regression executables against v0.3 sources; native GPU run awaits quiet window."
+    }
+  ]
+}

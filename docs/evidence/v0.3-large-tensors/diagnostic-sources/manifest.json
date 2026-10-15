@@ -1,0 +1,71 @@
+{
+  "purpose": "Diagnostic experiments; failed GPU observations are not passing qualification.",
+  "production_build_manifest_sha256": "c8f9ea1f906ee8c1b6d74d5a9259fe101c47cc6fe38423a75c3048db28af7337",
+  "sha256": {
+    "/private/tmp/corsairs-large-swift-fast.swift": "3e1521f2e05219db299841903a9a9ebb5c49a140cdff1788beb42b0cdf09faa7",
+    "/private/tmp/corsairs-large-swift-dictionary-fast.swift": "c71ff2805e4a14709c56e1cdb5dcb3d710c477dc1d424efbc58fca0054b0da99",
+    "/private/tmp/corsairs-large-metal-only.rs": "2e6015b4c04445156e8c66c6228c21ed7f0b7851142074e9f9870f581273c078",
+    "/private/tmp/corsairs-large-fence-diagnostic.py": "9893c3c7ec43c5729b62346094a2e2768f28147e0eb8cb1e2be1393f6c5834ee",
+    "/private/tmp/corsairs-large-swift-fast.stderr": "fd0ed06222bb57b195ec01fe36d43ef8f0563e780e5ff3c75a610a2a06345759",
+    "/private/tmp/corsairs-large-fence-diagnostic/results.json": "2aa054731c89616b685b1bb4b4db4cadbc4db1b65ee7ca4670afc8a1b1633bdb",
+    "/private/tmp/corsairs-large-swift-fast": "511dccf19758f9029f47c91f8c58e06b2389f9798a5eff0cb1e3603751aa5b9d",
+    "/private/tmp/corsairs-large-swift-dictionary-fast": "1e56bb5c8762bdea11addede8448948e1b5e18d7a1378e6f63a333697d12be36",
+    "/private/tmp/corsairs-large-metal-only": "b44cdaf19cd3500f620888d8deb8d4f3b6ff557b621a68af7256f6b0b0a8dc5f",
+    "/private/tmp/corsairs-large-diagnostic-rust": "d66309bb4f36333379a1d4c5bde1370017cb561268477787cef68dcc6a48f679"
+  },
+  "compile_commands": [
+    [
+      "rustc",
+      "--edition=2024",
+      "-Dwarnings",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/corsairs-large-diagnostic.rs",
+      "--extern",
+      "corsairs=target/large-check/cargo/release/libcorsairs.rlib",
+      "-L",
+      "dependency=target/large-check/cargo/release/deps",
+      "-o",
+      "/private/tmp/corsairs-large-diagnostic-rust"
+    ],
+    [
+      "swiftc",
+      "-parse-as-library",
+      "-O",
+      "-module-cache-path",
+      "target/large-check/module-cache",
+      "/private/tmp/corsairs-large-swift-fast.swift",
+      "-o",
+      "/private/tmp/corsairs-large-swift-fast"
+    ],
+    [
+      "swiftc",
+      "-parse-as-library",
+      "-O",
+      "-module-cache-path",
+      "target/large-check/module-cache",
+      "/private/tmp/corsairs-large-swift-dictionary-fast.swift",
+      "-o",
+      "/private/tmp/corsairs-large-swift-dictionary-fast"
+    ],
+    [
+      "rustc",
+      "--edition=2024",
+      "-Dwarnings",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/corsairs-large-metal-only.rs",
+      "--extern",
+      "corsairs=target/large-check/cargo/release/libcorsairs.rlib",
+      "-L",
+      "dependency=target/large-check/cargo/release/deps",
+      "-o",
+      "/private/tmp/corsairs-large-metal-only"
+    ]
+  ],
+  "limitations": [
+    "Independent Aether H3 generation was later observed on this host; its contribution to failed GPU observations is unknown.",
+    "Diagnostic observations retain failures/timeouts, not passing qualification.",
+    "Only the explicit Metal binding completed exactly; its subsequent automatic output chain timed out with native GPU errors."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "cases": [
+    {
+      "name": "h3-hidden",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        102816,
+        5376
+      ],
+      "bytes": 1105477632,
+      "asset": "h3-hidden/model.aimodel"
+    },
+    {
+      "name": "h3-rgb124",
+      "dtype": "float32",
+      "shape": [
+        124,
+        1344,
+        768,
+        3
+      ],
+      "bytes": 1535901696,
+      "asset": "h3-rgb124/model.aimodel"
+    },
+    {
+      "name": "h3-rgb345",
+      "dtype": "float32",
+      "shape": [
+        345,
+        1344,
+        768,
+        3
+      ],
+      "bytes": 4273274880,
+      "asset": "h3-rgb345/model.aimodel"
+    },
+    {
+      "name": "limit-f32",
+      "dtype": "float32",
+      "shape": [
+        1073741824
+      ],
+      "bytes": 4294967296,
+      "asset": "limit-f32/model.aimodel"
+    }
+  ],
+  "native_executed": false,
+  "scope": "Mechanical tensor capacity and x+x arithmetic only; no H3 attention, decoder, temporal chunking or generation equivalence.",
+  "pattern": "1 MiB blocks; seed=1+(block_index%251); eight scalars [seed,-seed,1,-1,0,-0,64,-64] repeated. Powers of two preserve exact BF16/F32 values. Offset-varying blocks detect wrap at 1/2/4 GiB.",
+  "sha256": {
+    "h3-hidden/graph.mlir": "82a378786c250fa7e8804cf900d29254ba0ea6d97257c951342e718825a37057",
+    "h3-hidden/model.aimodel/main.hash": "727303b13d74b6b680c0c3f75c646cd6237525470765308f424bbbeb4f1f1ed5",
+    "h3-hidden/model.aimodel/main.mlirb": "45730c1ebb73fc0c1161b40dd7a8b34b6f6bbf46a5a12bc28818c95016619014",
+    "h3-hidden/model.aimodel/metadata.json": "657dc0511cfe21d7d9d443a9b23c39901baa66ddc7d1d3e0f36788a30535571c",
+    "h3-rgb124/graph.mlir": "c6af6a58f7a30a924644bc6e02ee0d7a11ee53ed0c70e7add888eca7df5e8b52",
+    "h3-rgb124/model.aimodel/main.hash": "65f1bdecc15b9fe696a6f8f200374f55b5eb5d9dfd21605dbcac3a76995b874f",
+    "h3-rgb124/model.aimodel/main.mlirb": "7a6849db702f0abc07352ae5e1a3c1449fa2d397c6ac6a2262db742d9d8bf86f",
+    "h3-rgb124/model.aimodel/metadata.json": "657dc0511cfe21d7d9d443a9b23c39901baa66ddc7d1d3e0f36788a30535571c",
+    "h3-rgb345/graph.mlir": "d8cabc2445e196fa15d4c47a5f0561b627b76b0d4f961b91b12b6b67b80c7873",
+    "h3-rgb345/model.aimodel/main.hash": "5908b44127cefc47fa9ba38224d57c460d2d4203530129fa4fdb42518f78917f",
+    "h3-rgb345/model.aimodel/main.mlirb": "c7f4ff1d716ead864ab85ff7d3867e34a43a3660406dd47dba2987a1f98ea16f",
+    "h3-rgb345/model.aimodel/metadata.json": "657dc0511cfe21d7d9d443a9b23c39901baa66ddc7d1d3e0f36788a30535571c",
+    "limit-f32/graph.mlir": "276203d4991ca41629c294f1671d28e8c4912c35dda9eb02bc146b4f5fcfb30a",
+    "limit-f32/model.aimodel/main.hash": "06ea5fb3308c002d27c2f2ac8d36d932bfe0c910b12fbff5deef4c64d567e3b6",
+    "limit-f32/model.aimodel/main.mlirb": "9f0962ccc33bb9fe00ecce829e035302ff4250cc7177b3dd597148952619ee13",
+    "limit-f32/model.aimodel/metadata.json": "657dc0511cfe21d7d9d443a9b23c39901baa66ddc7d1d3e0f36788a30535571c"
+  }
+}

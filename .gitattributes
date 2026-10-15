@@ -8,3 +8,5 @@
 # Retain generated evidence verbatim, including compiler-emitted final blanks.
 docs/evidence/**/*.sil -text whitespace=-blank-at-eof
 fixtures/parity-v02/**/graph.mlir -text whitespace=-blank-at-eof
+fixtures/parity-v03/**/graph.mlir -text whitespace=-blank-at-eof
+docs/evidence/v0.3-large-tensors/view-contracts/*.s -text whitespace=-blank-at-eol,-blank-at-eof

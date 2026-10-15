@@ -1,0 +1,21 @@
+{
+  "passed": false,
+  "case": {
+    "name": "h3-hidden",
+    "dtype": "bfloat16",
+    "shape": [
+      1,
+      102816,
+      5376
+    ],
+    "bytes": 1105477632,
+    "asset": "h3-hidden/model.aimodel"
+  },
+  "compute": "cpu",
+  "profile": "release",
+  "created_utc": "2026-10-15T19:34:12.401892+00:00",
+  "build_manifest_sha256": "62e9408272c0c125d0f9cbe2910e7f565b565ba116449be7ce38a1c9001a0e64",
+  "concurrent_native_processes": 1,
+  "scope": "Mechanical tensor capacity and x+x arithmetic only; no H3 attention, decoder, temporal chunking or generation equivalence.",
+  "error": "swift failed (-5): Swift/ErrorType.swift:254: Fatal error: Error raised at top level: main.CapacityError.failed(\"byte mismatch at block 0\")\n2026-10-15 13:34:13.201379-0600 swift-oracle[25136:1134729] Swift/ErrorType.swift:254: Fatal error: Error raised at top level: main.CapacityError.failed(\"byte mismatch at block 0\")\n"
+}

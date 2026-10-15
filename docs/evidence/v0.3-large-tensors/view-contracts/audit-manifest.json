@@ -1,0 +1,28 @@
+{
+  "native_executed": false,
+  "production_modified": false,
+  "image": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+  "image_uuid": "E2B84906-28D2-39A3-AEF3-9E1AAE1363D7",
+  "image_architecture": "arm64e",
+  "native_disassembly_source": "xcrun dyld_info -disassemble (current installed dyld cache; no target launch)",
+  "files_sha256": {
+    "/private/tmp/corsairs-large-view-contracts/Views.swift": "003505b8dd5d5ead8cd836739835ede5f84b462d1e0e57e194b9f3708397b9e3",
+    "/private/tmp/corsairs-large-view-contracts/views.ll": "39f97cc03b295b87bcb7da3f96343b3e943caa96216edc3b1a40aa4af5e7d22d",
+    "/private/tmp/corsairs-large-view-contracts/raw-view-native.s": "f6cc95c611bc8ce03b1213804bfba4e5f60133e7e28d2bf9f0943e85708681d2",
+    "/private/tmp/corsairs-large-view-contracts/raw-view-span-helper.s": "987e0244bb1cec793cc118b46bcae714c9099eae245a8da875f7bb8e3d2c8d8e",
+    "/private/tmp/corsairs-large-view-contracts/ranges.json": "7352218a350b04f597455329e64c9960e810300b5da354f1f971b0cf25d753b8",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd"
+  },
+  "inspected_project_files_sha256": {
+    "crates/corsairs-abi/src/native/owned.rs": "a78e7f1b2ea22840695aced9b2e48cb1367540144e6716cef2ad9f969fc0246f",
+    "crates/corsairs-abi/src/native/owned/handles.rs": "fcb2a9d9af45389ef7b9aac369cbac2772b5449087a8a2f0b742eee40205f810",
+    "crates/corsairs-abi/src/native/async_task.rs": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+    "crates/corsairs-abi/src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a"
+  },
+  "limitations": [
+    "Current cache image path/UUID recorded; a complete extracted dylib SHA-256 was not obtained.",
+    "Disassembly compares pointer acquisition/control flow; it does not execute or establish allocation contents/GPU coherence.",
+    "No native task was launched or production file changed."
+  ]
+}

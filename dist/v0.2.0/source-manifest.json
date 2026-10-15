@@ -1,8 +1,8 @@
 {
-  "archive_sha256": "4d3cf3ce0895cff49f624132d558117a914d5407e0cf07a66fcf21607aa4dec3",
+  "archive_sha256": "5cb0757cfcb9098ae1bf2a54f63c7cf063696dd64a7e26730ccb915b8ebfc17e",
   "tested_source_identity_sha256": "3ff97ad3492669e0f790c75e9e675228c8f6a9598d64e9e0b4fff6e075eaf4a5",
   "packaged_files_sha256": {
-    ".cargo_vcs_info.json": "c2f3b7651772dea7ddc597fe5bd9558951a9f356afc971444097a89b1f7c9eb4",
+    ".cargo_vcs_info.json": "2fb0ff5eeb3f06817754ed567cf9c008e623446524ae129d707494586f3288a6",
     "Cargo.lock": "8fd7eae2e994340de433e2be0d02e0573c0e3b92a2286928f3fe83dc973e58a4",
     "Cargo.toml": "f3462e9184f3cd6c00707efc7a85522707d12daa70beaf2abf731090efe3c92d",
     "Cargo.toml.orig": "269374f88bafd7a551459a62bae9781623c89aebd5045e58bbab97c3f354e661",
@@ -54,5 +54,6 @@
     "src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
     "src/worker.rs": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
     "tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d"
-  }
+  },
+  "source_commit": "e46d421932602f3e117cdce65056ca782e9f55e2"
 }

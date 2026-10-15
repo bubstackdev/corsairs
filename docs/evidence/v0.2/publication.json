@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "published": true,
+  "source_commit": "e46d421932602f3e117cdce65056ca782e9f55e2",
+  "tag": "v0.2.0",
+  "crate_url": "https://crates.io/crates/corsairs/0.2.0",
+  "github_release_url": "https://github.com/bubstackdev/corsairs/releases/tag/v0.2.0",
+  "registry_archive_sha256": "5cb0757cfcb9098ae1bf2a54f63c7cf063696dd64a7e26730ccb915b8ebfc17e",
+  "archive_bytes": 95658,
+  "registry_checksum_verified": true,
+  "pre_commit_candidate_sha256": "4d3cf3ce0895cff49f624132d558117a914d5407e0cf07a66fcf21607aa4dec3",
+  "changed_archive_members": [
+    ".cargo_vcs_info.json"
+  ],
+  "package_verification": "cargo package --offline --locked -p corsairs succeeded from clean tagged commit",
+  "cargo_crates_io_dry_run": "Blocked by session DNS restriction on index.crates.io; not recorded as passing.",
+  "upload_method": "Authenticated PUT through the documented Cargo Registry Web API, using a stored Cargo publishing credential via a private temporary curl header file; token never logged and temporary file removed.",
+  "upload_http_status": 200,
+  "warnings": {
+    "invalid_categories": [],
+    "invalid_badges": [],
+    "other": []
+  },
+  "registry_protocol_reference": "https://doc.rust-lang.org/cargo/reference/registry-web-api.html#publish",
+  "consumer": "Fresh crates.io dependency =0.2.0 downloaded with Cargo and cargo check passed; native run recorded separately."
+}

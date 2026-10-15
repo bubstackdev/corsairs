@@ -1,0 +1,16 @@
+{
+  "case": "double_float32",
+  "backend": "gpu-preferred",
+  "negative_case": "missing_asset",
+  "os_backed": true,
+  "status": "expected_error",
+  "allowed_compute_units": [
+    "GPU",
+    "CPU",
+    "Neural Engine"
+  ],
+  "preferred_compute_unit": "GPU",
+  "error_type": "RuntimeError",
+  "error": "Failed to load model with specialization from '/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.).",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/aether/lab/corsairs/scripts/reference/run_suite.py\", line 65, in run_child\n    model = await AIModel.load(model_path, options)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3/coreai/runtime/_aimodel.py\", line 52, in load\n    instance._model = await _AIModel.load_with_specialization(  # noqa: SLF001\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Failed to load model with specialization from '/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.).\n"
+}

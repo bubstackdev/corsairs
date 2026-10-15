@@ -1,0 +1,1266 @@
+{
+  "evidence_id": "ev_9267999708fea2b6af4a030b4feb4672ff76e47a4c26549d9ca00a7e46518785",
+  "subject": {
+    "name": "libCoreAIReference.dylib",
+    "digest": {
+      "sha256": "323c20efce96f9c66d9932652d69aba4914fc0232f41b970e34449db7bb8883f"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/private/tmp/corsairs-sdk-preflight-5pghj387/libCoreAIReference.dylib"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_macho",
+  "parameters": {},
+  "raw_result": null,
+  "normalized_result": {
+    "format": "mach-o",
+    "endian": null,
+    "word_size": 64,
+    "file_type": "6",
+    "flags": [
+      "0x00100085"
+    ],
+    "uuid": "75F9976C-5E24-3C8D-A38A-A0DE881C5C0D",
+    "entrypoints": {
+      "items": [],
+      "total": 0,
+      "exhaustive": true,
+      "limitations": []
+    },
+    "architectures": {
+      "items": [
+        {
+          "name": "arm64",
+          "cpu_type": null,
+          "cpu_subtype": null,
+          "file_offset": null,
+          "size": null,
+          "alignment": null
+        }
+      ],
+      "total": 1,
+      "exhaustive": true,
+      "limitations": []
+    },
+    "build_metadata": {
+      "items": [
+        {
+          "platform": "1",
+          "minimum_os": "27.0",
+          "sdk": "27.0",
+          "tools": [
+            {
+              "name": "3",
+              "version": "27037.1"
+            }
+          ]
+        }
+      ],
+      "total": 1,
+      "exhaustive": true,
+      "limitations": []
+    },
+    "load_commands": {
+      "items": [
+        {
+          "index": 0,
+          "kind": "LC_SEGMENT_64",
+          "fields": {
+            "cmd": "LC_SEGMENT_64",
+            "cmdsize": 792,
+            "segname": "__TEXT",
+            "vmaddr": 0,
+            "vmsize": 16384,
+            "fileoff": 0,
+            "filesize": 16384,
+            "maxprot": 5,
+            "initprot": 5,
+            "nsects": 9,
+            "flags": 0
+          }
+        },
+        {
+          "index": 1,
+          "kind": "LC_SEGMENT_64",
+          "fields": {
+            "cmd": "LC_SEGMENT_64",
+            "cmdsize": 312,
+            "segname": "__DATA_CONST",
+            "vmaddr": 16384,
+            "vmsize": 16384,
+            "fileoff": 16384,
+            "filesize": 16384,
+            "maxprot": 3,
+            "initprot": 3,
+            "nsects": 3,
+            "flags": 16
+          }
+        },
+        {
+          "index": 2,
+          "kind": "LC_SEGMENT_64",
+          "fields": {
+            "cmd": "LC_SEGMENT_64",
+            "cmdsize": 152,
+            "segname": "__DATA",
+            "vmaddr": 32768,
+            "vmsize": 16384,
+            "fileoff": 32768,
+            "filesize": 16384,
+            "maxprot": 3,
+            "initprot": 3,
+            "nsects": 1,
+            "flags": 0
+          }
+        },
+        {
+          "index": 3,
+          "kind": "LC_SEGMENT_64",
+          "fields": {
+            "cmd": "LC_SEGMENT_64",
+            "cmdsize": 72,
+            "segname": "__LINKEDIT",
+            "vmaddr": 49152,
+            "vmsize": 16384,
+            "fileoff": 49152,
+            "filesize": 9192,
+            "maxprot": 1,
+            "initprot": 1,
+            "nsects": 0,
+            "flags": 0
+          }
+        },
+        {
+          "index": 4,
+          "kind": "LC_ID_DYLIB",
+          "fields": {
+            "cmd": "LC_ID_DYLIB",
+            "cmdsize": 96,
+            "name": "/private/tmp/corsairs-sdk-preflight-5pghj387/libCoreAIReference.dylib (offset 24)",
+            "time stamp": "1 Wed Dec 31 17:00:01 1969",
+            "current version": "0.0.0",
+            "compatibility version": "0.0.0"
+          }
+        },
+        {
+          "index": 5,
+          "kind": "LC_DYLD_CHAINED_FIXUPS",
+          "fields": {
+            "cmd": "LC_DYLD_CHAINED_FIXUPS",
+            "cmdsize": 16,
+            "dataoff": 49152,
+            "datasize": 2024
+          }
+        },
+        {
+          "index": 6,
+          "kind": "LC_DYLD_EXPORTS_TRIE",
+          "fields": {
+            "cmd": "LC_DYLD_EXPORTS_TRIE",
+            "cmdsize": 16,
+            "dataoff": 51176,
+            "datasize": 296
+          }
+        },
+        {
+          "index": 7,
+          "kind": "LC_SYMTAB",
+          "fields": {
+            "cmd": "LC_SYMTAB",
+            "cmdsize": 24,
+            "symoff": 51496,
+            "nsyms": 87,
+            "stroff": 53152,
+            "strsize": 4576
+          }
+        },
+        {
+          "index": 8,
+          "kind": "LC_DYSYMTAB",
+          "fields": {
+            "cmd": "LC_DYSYMTAB",
+            "cmdsize": 80,
+            "ilocalsym": 0,
+            "nlocalsym": 34,
+            "iextdefsym": 34,
+            "nextdefsym": 6,
+            "iundefsym": 40,
+            "nundefsym": 47,
+            "tocoff": 0,
+            "ntoc": 0,
+            "modtaboff": 0,
+            "nmodtab": 0,
+            "extrefsymoff": 0,
+            "nextrefsyms": 0,
+            "indirectsymoff": 52888,
+            "nindirectsyms": 66,
+            "extreloff": 0,
+            "nextrel": 0,
+            "locreloff": 0,
+            "nlocrel": 0
+          }
+        },
+        {
+          "index": 9,
+          "kind": "LC_UUID",
+          "fields": {
+            "cmd": "LC_UUID",
+            "cmdsize": 24,
+            "uuid": "75F9976C-5E24-3C8D-A38A-A0DE881C5C0D"
+          }
+        },
+        {
+          "index": 10,
+          "kind": "LC_BUILD_VERSION",
+          "fields": {
+            "cmd": "LC_BUILD_VERSION",
+            "cmdsize": 32,
+            "platform": 1,
+            "minos": "27.0",
+            "sdk": "27.0",
+            "ntools": 1,
+            "tool": 3,
+            "version": "27037.1"
+          }
+        },
+        {
+          "index": 11,
+          "kind": "LC_SOURCE_VERSION",
+          "fields": {
+            "cmd": "LC_SOURCE_VERSION",
+            "cmdsize": 16,
+            "version": "0.0"
+          }
+        },
+        {
+          "index": 12,
+          "kind": "LC_LOAD_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_DYLIB",
+            "cmdsize": 56,
+            "name": "/usr/lib/libSystem.B.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "1359.0.0",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 13,
+          "kind": "LC_LOAD_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_DYLIB",
+            "cmdsize": 88,
+            "name": "/System/Library/Frameworks/CoreAI.framework/Versions/A/CoreAI (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "0.0.0",
+            "compatibility version": "0.0.0"
+          }
+        },
+        {
+          "index": 14,
+          "kind": "LC_LOAD_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_DYLIB",
+            "cmdsize": 96,
+            "name": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "5027.0.69",
+            "compatibility version": "300.0.0"
+          }
+        },
+        {
+          "index": 15,
+          "kind": "LC_LOAD_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_DYLIB",
+            "cmdsize": 64,
+            "name": "/usr/lib/swift/libswiftCore.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "0.0.0",
+            "compatibility version": "0.0.0"
+          }
+        },
+        {
+          "index": 16,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 72,
+            "name": "/usr/lib/swift/libswiftCoreFoundation.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "120.100.0",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 17,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 64,
+            "name": "/usr/lib/swift/libswiftDispatch.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "1605.0.2",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 18,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 64,
+            "name": "/usr/lib/swift/libswiftIOKit.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "1.0.0",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 19,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 64,
+            "name": "/usr/lib/swift/libswiftMetal.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "382.5.3",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 20,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 64,
+            "name": "/usr/lib/swift/libswiftObjectiveC.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "973.1.0",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 21,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 64,
+            "name": "/usr/lib/swift/libswiftXPC.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "167.0.2",
+            "compatibility version": "1.0.0"
+          }
+        },
+        {
+          "index": 22,
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_WEAK_DYLIB",
+            "cmdsize": 72,
+            "name": "/usr/lib/swift/libswift_Builtin_float.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "0.0.0",
+            "compatibility version": "0.0.0"
+          }
+        },
+        {
+          "index": 23,
+          "kind": "LC_LOAD_DYLIB",
+          "fields": {
+            "cmd": "LC_LOAD_DYLIB",
+            "cmdsize": 72,
+            "name": "/usr/lib/swift/libswift_Concurrency.dylib (offset 24)",
+            "time stamp": "2 Wed Dec 31 17:00:02 1969",
+            "current version": "0.0.0",
+            "compatibility version": "0.0.0"
+          }
+        },
+        {
+          "index": 24,
+          "kind": "LC_FUNCTION_STARTS",
+          "fields": {
+            "cmd": "LC_FUNCTION_STARTS",
+            "cmdsize": 16,
+            "dataoff": 51472,
+            "datasize": 24
+          }
+        },
+        {
+          "index": 25,
+          "kind": "LC_DATA_IN_CODE",
+          "fields": {
+            "cmd": "LC_DATA_IN_CODE",
+            "cmdsize": 16,
+            "dataoff": 51496,
+            "datasize": 0
+          }
+        },
+        {
+          "index": 26,
+          "kind": "LC_CODE_SIGNATURE",
+          "fields": {
+            "cmd": "LC_CODE_SIGNATURE",
+            "cmdsize": 16,
+            "dataoff": 57728,
+            "datasize": 616
+          }
+        }
+      ],
+      "total": 27,
+      "exhaustive": true,
+      "limitations": []
+    },
+    "dependencies": {
+      "items": [
+        {
+          "path": "/private/tmp/corsairs-sdk-preflight-5pghj387/libCoreAIReference.dylib",
+          "kind": "LC_ID_DYLIB",
+          "current_version": "0.0.0",
+          "compatibility_version": "0.0.0"
+        },
+        {
+          "path": "/usr/lib/libSystem.B.dylib",
+          "kind": "LC_LOAD_DYLIB",
+          "current_version": "1359.0.0",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/System/Library/Frameworks/CoreAI.framework/Versions/A/CoreAI",
+          "kind": "LC_LOAD_DYLIB",
+          "current_version": "0.0.0",
+          "compatibility_version": "0.0.0"
+        },
+        {
+          "path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+          "kind": "LC_LOAD_DYLIB",
+          "current_version": "5027.0.69",
+          "compatibility_version": "300.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftCore.dylib",
+          "kind": "LC_LOAD_DYLIB",
+          "current_version": "0.0.0",
+          "compatibility_version": "0.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftCoreFoundation.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "120.100.0",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftDispatch.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "1605.0.2",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftIOKit.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "1.0.0",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftMetal.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "382.5.3",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftObjectiveC.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "973.1.0",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswiftXPC.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "167.0.2",
+          "compatibility_version": "1.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswift_Builtin_float.dylib",
+          "kind": "LC_LOAD_WEAK_DYLIB",
+          "current_version": "0.0.0",
+          "compatibility_version": "0.0.0"
+        },
+        {
+          "path": "/usr/lib/swift/libswift_Concurrency.dylib",
+          "kind": "LC_LOAD_DYLIB",
+          "current_version": "0.0.0",
+          "compatibility_version": "0.0.0"
+        }
+      ],
+      "total": 13,
+      "exhaustive": true,
+      "limitations": []
+    },
+    "imports": {
+      "items": [
+        {
+          "name": "__swiftImmortalRefCount",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss20__StaticArrayStorageCN",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "___chkstk_darwin",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libSystem"
+        },
+        {
+          "name": "_$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVMa",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKF",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFTu",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime17InferenceFunctionV7OutputsVMa",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7AIModelV0A11AIDelegatesE10contentsOf7optionsAC10Foundation3URLV_AD21SpecializationOptionsVtYaKcfC",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7AIModelV0A11AIDelegatesE10contentsOf7optionsAC10Foundation3URLV_AD21SpecializationOptionsVtYaKcfCTu",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float32yA2EmFWC",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7NDArrayV10ScalarTypeOMa",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7NDArrayVMa",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s13CoreAIRuntime7NDArrayVMn",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s15CoreAIDelegates21SpecializationOptionsV7defaultACvgZ",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s15CoreAIDelegates21SpecializationOptionsVMa",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "CoreAI"
+        },
+        {
+          "name": "_$s10Foundation3URLVMa",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "Foundation"
+        },
+        {
+          "name": "_$sSS4hash4intoys6HasherVz_tF",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss18_DictionaryStorageC8allocate8capacityAByxq_GSi_tFZ",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss18_DictionaryStorageCMn",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss23_ContiguousArrayStorageCMn",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss27_stringCompareWithSmolCheck__9expectingSbs11_StringGutsV_ADs01_G16ComparisonResultOtF",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss6HasherV5_seedABSi_tcfC",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_$ss6HasherV9_finalizeSiyF",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "__swiftEmptyDictionarySingleton",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_allocObject",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_bridgeObjectRelease",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_bridgeObjectRetain",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_deallocClassInstance",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_getTypeByMangledNameInContext2",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_release",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_retain",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_setDeallocating",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswiftCore"
+        },
+        {
+          "name": "_swift_task_alloc",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswift_Concurrency"
+        },
+        {
+          "name": "_swift_task_dealloc",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswift_Concurrency"
+        },
+        {
+          "name": "_swift_task_switch",
+          "address": null,
+          "weak": null,
+          "reexport": null,
+          "source": "libswift_Concurrency"
+        }
+      ],
+      "total": null,
+      "exhaustive": false,
+      "limitations": [
+        "dyld_info textual imports may omit chained or toolchain-unsupported metadata."
+      ]
+    },
+    "exports": {
+      "items": [
+        {
+          "name": "_$s15CoreAIReference10makeTensor0A9AIRuntime7NDArrayVyF",
+          "address": "0xa38",
+          "weak": null,
+          "reexport": false,
+          "source": null
+        },
+        {
+          "name": "_$s15CoreAIReference14selectFunctiony0A9AIRuntime09InferenceD0VSgAC7AIModelV_SStKF",
+          "address": "0xabc",
+          "weak": null,
+          "reexport": false,
+          "source": null
+        },
+        {
+          "name": "_$s15CoreAIReference8runModelySi0A9AIRuntime17InferenceFunctionV_AC7NDArrayVtYaKF",
+          "address": "0xc94",
+          "weak": null,
+          "reexport": false,
+          "source": null
+        },
+        {
+          "name": "_$s15CoreAIReference8runModelySi0A9AIRuntime17InferenceFunctionV_AC7NDArrayVtYaKFTu",
+          "address": "0x1418",
+          "weak": null,
+          "reexport": false,
+          "source": null
+        },
+        {
+          "name": "_$s15CoreAIReference9loadModely0A9AIRuntime7AIModelV10Foundation3URLVYaKF",
+          "address": "0xae4",
+          "weak": null,
+          "reexport": false,
+          "source": null
+        },
+        {
+          "name": "_$s15CoreAIReference9loadModely0A9AIRuntime7AIModelV10Foundation3URLVYaKFTu",
+          "address": "0x1410",
+          "weak": null,
+          "reexport": false,
+          "source": null
+        }
+      ],
+      "total": null,
+      "exhaustive": false,
+      "limitations": [
+        "Merged nm/dyld_info results may be incomplete for stripped binaries."
+      ]
+    },
+    "segments": {
+      "items": [
+        {
+          "name": "__TEXT",
+          "vm_address": "0x0",
+          "vm_size": 16384,
+          "file_offset": 0,
+          "file_size": 16384,
+          "maximum_permissions": {
+            "read": true,
+            "write": false,
+            "execute": true,
+            "raw": "5"
+          },
+          "initial_permissions": {
+            "read": true,
+            "write": false,
+            "execute": true,
+            "raw": "5"
+          },
+          "sections": {
+            "items": [
+              {
+                "segment": "__TEXT",
+                "name": "__text",
+                "address": "0xa38",
+                "size": 2144,
+                "file_offset": 2616,
+                "alignment": 4,
+                "flags": [
+                  "2147484672"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__stubs",
+                "address": "0x1298",
+                "size": 348,
+                "file_offset": 4760,
+                "alignment": 4,
+                "flags": [
+                  "2147484680"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__const",
+                "address": "0x1400",
+                "size": 58,
+                "file_offset": 5120,
+                "alignment": 16,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__swift5_typeref",
+                "address": "0x143a",
+                "size": 43,
+                "file_offset": 5178,
+                "alignment": 2,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__swift_as_entry",
+                "address": "0x1468",
+                "size": 8,
+                "file_offset": 5224,
+                "alignment": 4,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__swift_as_ret",
+                "address": "0x1470",
+                "size": 8,
+                "file_offset": 5232,
+                "alignment": 4,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__swift_as_cont",
+                "address": "0x1478",
+                "size": 20,
+                "file_offset": 5240,
+                "alignment": 4,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__unwind_info",
+                "address": "0x148c",
+                "size": 184,
+                "file_offset": 5260,
+                "alignment": 4,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__TEXT",
+                "name": "__eh_frame",
+                "address": "0x1548",
+                "size": 232,
+                "file_offset": 5448,
+                "alignment": 8,
+                "flags": [
+                  "1744830475"
+                ]
+              }
+            ],
+            "total": 9,
+            "exhaustive": true,
+            "limitations": []
+          }
+        },
+        {
+          "name": "__DATA_CONST",
+          "vm_address": "0x4000",
+          "vm_size": 16384,
+          "file_offset": 16384,
+          "file_size": 16384,
+          "maximum_permissions": {
+            "read": true,
+            "write": true,
+            "execute": false,
+            "raw": "3"
+          },
+          "initial_permissions": {
+            "read": true,
+            "write": true,
+            "execute": false,
+            "raw": "3"
+          },
+          "sections": {
+            "items": [
+              {
+                "segment": "__DATA_CONST",
+                "name": "__const",
+                "address": "0x4000",
+                "size": 104,
+                "file_offset": 16384,
+                "alignment": 8,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__DATA_CONST",
+                "name": "__objc_imageinfo",
+                "address": "0x4068",
+                "size": 8,
+                "file_offset": 16488,
+                "alignment": 4,
+                "flags": [
+                  "0"
+                ]
+              },
+              {
+                "segment": "__DATA_CONST",
+                "name": "__got",
+                "address": "0x4070",
+                "size": 296,
+                "file_offset": 16496,
+                "alignment": 8,
+                "flags": [
+                  "6"
+                ]
+              }
+            ],
+            "total": 3,
+            "exhaustive": true,
+            "limitations": []
+          }
+        },
+        {
+          "name": "__DATA",
+          "vm_address": "0x8000",
+          "vm_size": 16384,
+          "file_offset": 32768,
+          "file_size": 16384,
+          "maximum_permissions": {
+            "read": true,
+            "write": true,
+            "execute": false,
+            "raw": "3"
+          },
+          "initial_permissions": {
+            "read": true,
+            "write": true,
+            "execute": false,
+            "raw": "3"
+          },
+          "sections": {
+            "items": [
+              {
+                "segment": "__DATA",
+                "name": "__data",
+                "address": "0x8000",
+                "size": 24,
+                "file_offset": 32768,
+                "alignment": 8,
+                "flags": [
+                  "0"
+                ]
+              }
+            ],
+            "total": 1,
+            "exhaustive": true,
+            "limitations": []
+          }
+        },
+        {
+          "name": "__LINKEDIT",
+          "vm_address": "0xc000",
+          "vm_size": 16384,
+          "file_offset": 49152,
+          "file_size": 9192,
+          "maximum_permissions": {
+            "read": true,
+            "write": false,
+            "execute": false,
+            "raw": "1"
+          },
+          "initial_permissions": {
+            "read": true,
+            "write": false,
+            "execute": false,
+            "raw": "1"
+          },
+          "sections": {
+            "items": [],
+            "total": 0,
+            "exhaustive": true,
+            "limitations": []
+          }
+        }
+      ],
+      "total": 4,
+      "exhaustive": true,
+      "limitations": []
+    },
+    "provenance": [
+      {
+        "tool": "file",
+        "command": [
+          "/usr/bin/file",
+          "-b",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "8014815e1028410f48966f1880f99c842a5678cf2fcaa010e8d7e9e498f651d0",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 54,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "lipo",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo",
+          "-detailed_info",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "f9fefcc95e50e31a65e72f7c186d9da5938a6ec267f3c3fa4bf5074b6a20f020",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 206,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "otool",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/llvm-otool",
+          "-h",
+          "-l",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "8353ad3c42743a93e9ca7d0d4e9d3df22305252d169c42c543ee22eeb8c33809",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 8352,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "nm",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/llvm-nm",
+          "-gjU",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "82e9189ec1a359699d4b680601c0a2930a9cbea7376c7320947dff5e9862cfa8",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 455,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "dyld_info",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dyld_info",
+          "-imports",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "1312aaaac28bd7636fcd1b9347328db80003de8f6da27a03126b0ae716c3cf62",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 3163,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "dyld_info",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dyld_info",
+          "-exports",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "1312aaaac28bd7636fcd1b9347328db80003de8f6da27a03126b0ae716c3cf62",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 695,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "dwarfdump",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/llvm-dwarfdump",
+          "--uuid",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "4aa5dcbab821ed16cbc51c0f291a7cc17d3de12b228fb8dd8d7c23999976deaa",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 121,
+        "stderr_bytes": 0
+      },
+      {
+        "tool": "vtool",
+        "command": [
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/vtool",
+          "-show-build",
+          "$ARTIFACT"
+        ],
+        "tool_version": null,
+        "version_reason": "Tool exposes no uniform stable version flag; executable SHA-256 is a prelaunch file sample and does not prove atomic OS image binding.",
+        "executable_sha256": "0ac654efe667ee9fb542f929884918e91c0d166bcfb75f128c35479a2a57c71c",
+        "exit": {
+          "code": 0,
+          "signal": null
+        },
+        "stdout_bytes": 216,
+        "stderr_bytes": 0
+      }
+    ],
+    "limitations": [
+      "Imports and exports combine dyld_info and nm; stripped or toolchain-hidden symbols may be absent.",
+      "vtool output is retained as provenance but only otool build metadata is normalized."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Imports and exports combine dyld_info and nm; stripped or toolchain-hidden symbols may be absent.",
+    "vtool output is retained as provenance but only otool build metadata is normalized."
+  ],
+  "locations": [
+    {
+      "kind": "file-offset-range",
+      "start": 0,
+      "end": 16384
+    },
+    {
+      "kind": "file-offset-range",
+      "start": 16384,
+      "end": 32768
+    },
+    {
+      "kind": "file-offset-range",
+      "start": 32768,
+      "end": 49152
+    },
+    {
+      "kind": "file-offset-range",
+      "start": 49152,
+      "end": 58344
+    }
+  ],
+  "evidence_links": []
+}

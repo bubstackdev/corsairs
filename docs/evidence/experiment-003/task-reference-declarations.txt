@@ -1,0 +1,2 @@
+target triple = "arm64-apple-macosx27.0.0"
+declare swiftcc %swift.async_task_and_context @swift_task_create(i64, ptr, ptr, ptr, ptr) local_unnamed_addr #13

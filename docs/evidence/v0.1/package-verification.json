@@ -1,0 +1,235 @@
+{
+  "started_at": "2026-10-15T16:12:19.781866+00:00",
+  "native_requested": true,
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--list"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "Cargo.lock\nCargo.toml\nCargo.toml.orig\nLICENSE-APACHE\nLICENSE-MIT\nREADME.md\nexamples/feedforward.rs\nexamples/stateful.rs\nmodels/accumulator.aimodel/main.hash\nmodels/accumulator.aimodel/main.mlirb\nmodels/accumulator.aimodel/metadata.json\nmodels/accumulator.mlir\nmodels/feedforward.aimodel/main.hash\nmodels/feedforward.aimodel/main.mlirb\nmodels/feedforward.aimodel/metadata.json\nmodels/feedforward.mlir\nmodels/manifest.json\nsrc/api_error.rs\nsrc/bin/corsairs.rs\nsrc/dtype.rs\nsrc/facade.rs\nsrc/lib.rs\nsrc/native/arm64.rs\nsrc/native/async_task.rs\nsrc/native/buffer.rs\nsrc/native/errors.rs\nsrc/native/inference.rs\nsrc/native/loader.rs\nsrc/native/metadata.rs\nsrc/native/mod.rs\nsrc/native/model.rs\nsrc/native/owned.rs\nsrc/native/task.rs\nsrc/native/task_create.rs\nsrc/native/tensor.rs\nsrc/native/text.rs\nsrc/native/value.rs\nsrc/worker.rs\ntests/native_metadata.rs\n",
+      "stderr": "warning: manifest has no documentation, homepage or repository\n  |\n  = note: see https://doc.rust-lang.org/cargo/reference/manifest.html#package-metadata for more info\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "warning: manifest has no documentation, homepage or repository\n  |\n  = note: see https://doc.rust-lang.org/cargo/reference/manifest.html#package-metadata for more info\n   Packaging corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Packaged 39 files, 223.8KiB (56.2KiB compressed)\n   Verifying corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.28s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "generate-lockfile",
+        "--offline",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "     Locking 1 package to highest Rust 1.99.0 compatible version\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "tree",
+        "--offline",
+        "--locked",
+        "--edges",
+        "features",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "corsairs-release-consumer v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer)\n\u2514\u2500\u2500 corsairs feature \"default\"\n    \u2514\u2500\u2500 corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer-target"
+      },
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "   Compiling corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0)\n   Compiling corsairs-release-consumer v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer)\n    Finished `release` profile [optimized] target(s) in 0.81s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--bin",
+        "corsairs",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/package-target"
+      },
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "   Compiling corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0)\n    Finished `release` profile [optimized] target(s) in 0.87s\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/package-target/release/examples/feedforward"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "feedforward: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/package-target/release/examples/stateful"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "step0: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\nstep1: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0]\nstep2: [3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer-target/release/examples/feedforward"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "feedforward: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer-target/release/examples/stateful"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "step0: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\nstep1: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0]\nstep2: [3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/package-target/release/corsairs",
+        "inspect",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0/models/feedforward.aimodel",
+        "--compute",
+        "gpu-preferred"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "{\"model\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0/models/feedforward.aimodel\",\"compute\":\"gpu-preferred\",\"functions\":[{\"name\":\"main\",\"inputs\":[{\"name\":\"x\",\"dtype\":\"float32\",\"shape\":[2,3]}],\"outputs\":[{\"name\":\"y\",\"dtype\":\"float32\",\"shape\":[2,2]}],\"states\":[]}]}\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "uploaded": false,
+  "registry_checked": false,
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+  "archive": {
+    "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.1.0.crate",
+    "sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f",
+    "bytes": 57533
+  },
+  "packaged_files_sha256": {
+    "Cargo.lock": "adc5df942686f126004d270d2eed265322d2a1f7d70ec73cfe1eae7099d913b2",
+    "Cargo.toml": "2b72e49664ec67e218c1c83437b734443c2098d97b787f1729a397ae500c165d",
+    "Cargo.toml.orig": "fc1462215c2f204daf9c88e87b2f68467de4ec4879098cb1fbdd79e90dc3f35e",
+    "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+    "LICENSE-MIT": "f37d4d2a5d37de7e96a8322147d86af08df29d87d01bdf3034396979b2a39154",
+    "README.md": "79281a303e5896ec3f634bcaa1ffd3eb7d6d5375f6d171f197d90090c9539b57",
+    "examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "models/accumulator.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+    "models/accumulator.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+    "models/accumulator.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "models/accumulator.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+    "models/feedforward.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+    "models/feedforward.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+    "models/feedforward.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "models/feedforward.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+    "models/manifest.json": "fccd4ff0aee73cc62a522a508eb997b35386a45fba93fe20ec8cbb0f5b1018a2",
+    "src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "src/bin/corsairs.rs": "f17e16dda5f5538520bbd882aa6035a1f1d665cc9a4b37ea5d793951f0f14b83",
+    "src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+    "src/facade.rs": "ebf89fd656655060ee7f802174354eeecd0b8d2978081e4fe3d9e50307d9db8d",
+    "src/lib.rs": "0a85411dba5fd96e141d3ad995bd1eab3145dd8600c4c074ed994825020b8a37",
+    "src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "src/native/async_task.rs": "1c46d8392654afcf8a47b303f85d9530bdfee44b0c59367951477c4895980eb3",
+    "src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "src/native/mod.rs": "37e748db47a5fc9d1cbfa4f52fe6f4aa1d847f8147f1c2a255e40a9b10b1ba27",
+    "src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "src/native/owned.rs": "dd40b26ca8318cf2c4224467b8aa32227a92c24b95d8f4face2bee2fb68b146e",
+    "src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+    "src/worker.rs": "4ea071c49640f57eae0627d94b390aff866c028e02eb73bfa24002da212b08aa",
+    "tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d"
+  },
+  "tested_source_identity_sha256": "dff0fc8ebf7cfd38eda61a9fc4425bbb9eadb0bd9fa0961d4cd6a6a5cca707ab",
+  "consumer": {
+    "manifest": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check/consumer/Cargo.toml",
+    "default_features_only": true,
+    "examples_forbid_unsafe": true
+  },
+  "native_binary_sha256": {
+    "target/package-check/package-target/release/examples/feedforward": "68be1a682dbf4a55df1484b59942cac488f8f69b10e0ee45217f7a873402265d",
+    "target/package-check/package-target/release/examples/stateful": "efec37fe8d2d952cf6504ae5cff5eb71715c191592961da1f4c40931dec9321e",
+    "target/package-check/consumer-target/release/examples/feedforward": "1cc7a6a77a869022208fdd38a2b04292a0c2fa9ea8a6a55f4eb9a08fac75891f",
+    "target/package-check/consumer-target/release/examples/stateful": "8e4fe57bdb7b95f87780b692ed8ae6951078d478b7d6023f6e4bcdab41064c76"
+  },
+  "candidate": "/Users/zakkeown/Code/aether/lab/corsairs/dist/corsairs-0.1.0.crate",
+  "native_validated": true
+}

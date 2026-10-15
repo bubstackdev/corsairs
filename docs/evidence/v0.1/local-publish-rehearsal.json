@@ -1,0 +1,122 @@
+{
+  "purpose": "Local alternate-registry publish dry-run; not crates.io verification",
+  "cargo_home": "/private/tmp/corsairs-local-publish-n7to_zgn/cargo-home",
+  "target_directory": "/private/tmp/corsairs-local-publish-n7to_zgn/target",
+  "registry_index": "file:///private/tmp/corsairs-local-publish-n7to_zgn/index",
+  "registry_api": "https://corsairs-local-rehearsal.invalid",
+  "credentials": "No token supplied; token environment variables removed; isolated Cargo home",
+  "steps": [
+    {
+      "command": [
+        "git",
+        "init",
+        "--quiet"
+      ],
+      "cwd": "/private/tmp/corsairs-local-publish-n7to_zgn/index",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "add",
+        "config.json"
+      ],
+      "cwd": "/private/tmp/corsairs-local-publish-n7to_zgn/index",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "user.name=Corsairs local registry fixture",
+        "-c",
+        "user.email=fixture@invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Local dry-run registry fixture"
+      ],
+      "cwd": "/private/tmp/corsairs-local-publish-n7to_zgn/index",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "publish",
+        "-p",
+        "corsairs",
+        "--dry-run",
+        "--locked",
+        "--registry",
+        "corsairs-local-rehearsal",
+        "--config",
+        "registries.corsairs-local-rehearsal.index=\"file:///private/tmp/corsairs-local-publish-n7to_zgn/index\""
+      ],
+      "cwd": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "    Updating `corsairs-local-rehearsal` index\n   Packaging corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Packaged 39 files, 223.2KiB (55.9KiB compressed)\n   Verifying corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs v0.1.0 (/private/tmp/corsairs-local-publish-n7to_zgn/target/package/corsairs-0.1.0)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.71s\n   Uploading corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\nwarning: aborting upload due to dry run\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "publish",
+        "-p",
+        "corsairs",
+        "--dry-run",
+        "--locked",
+        "--registry",
+        "corsairs-local-rehearsal",
+        "--config",
+        "registries.corsairs-local-rehearsal.index=\"file:///private/tmp/corsairs-local-publish-n7to_zgn/index\""
+      ],
+      "cwd": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "    Updating `corsairs-local-rehearsal` index\n   Packaging corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Packaged 39 files, 223.8KiB (56.2KiB compressed)\n   Verifying corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs v0.1.0 (/private/tmp/corsairs-local-publish-n7to_zgn/target/package/corsairs-0.1.0)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s\n   Uploading corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\nwarning: aborting upload due to dry run\n",
+      "final_candidate": true
+    }
+  ],
+  "passed": true,
+  "cargo": "cargo 1.99.0 (5f94df478 2026-08-27) (Homebrew)",
+  "cargo_commit": "5f94df4789f005f9a352888e8355ffc645b7ed0e",
+  "environment": {
+    "CARGO_HOME": "/private/tmp/corsairs-local-publish-n7to_zgn/cargo-home",
+    "CARGO_TARGET_DIR": "/private/tmp/corsairs-local-publish-n7to_zgn/target",
+    "CARGO_NET_RETRY": "0",
+    "CARGO_HTTP_TIMEOUT": "5"
+  },
+  "archive": {
+    "path": "/private/tmp/corsairs-local-publish-n7to_zgn/target/package/tmp-crate/corsairs-0.1.0.crate",
+    "bytes": 57533,
+    "sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f"
+  },
+  "source_references": {
+    "publish_and_dry_run_branch": "https://github.com/rust-lang/cargo/blob/5f94df4789f005f9a352888e8355ffc645b7ed0e/src/ops/registry/cargo_publish.rs#L119-L131",
+    "no_upload_branch": "https://github.com/rust-lang/cargo/blob/5f94df4789f005f9a352888e8355ffc645b7ed0e/src/ops/registry/cargo_publish.rs#L611-L628",
+    "http_client_creation": "https://github.com/rust-lang/cargo/blob/5f94df4789f005f9a352888e8355ffc645b7ed0e/src/context/mod.rs#L1818-L1823",
+    "offline_guard": "https://github.com/rust-lang/cargo/blob/5f94df4789f005f9a352888e8355ffc645b7ed0e/src/util/network/http.rs#L61-L68",
+    "registry_factory_current_upstream": "https://github.com/rust-lang/cargo/blob/master/src/ops/registry/mod.rs#L100-L146"
+  },
+  "interpretation": {
+    "local_packaging_compilation_and_transmit_preparation_passed": true,
+    "crates_io_checked": false,
+    "name_availability_checked": false,
+    "authentication_checked": false,
+    "uploaded": false,
+    "limitation": "Alternate local file Git registry only; does not establish crates.io API/index/account/name readiness. No --no-verify was used."
+  },
+  "distribution_candidate": {
+    "path": "dist/corsairs-0.1.0.crate",
+    "bytes": 57533,
+    "sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f",
+    "matches_rehearsal_archive": true
+  },
+  "final_package_readme_sha256": "79281a303e5896ec3f634bcaa1ffd3eb7d6d5375f6d171f197d90090c9539b57"
+}

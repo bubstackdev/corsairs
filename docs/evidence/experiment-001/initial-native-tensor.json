@@ -1,0 +1,228 @@
+{
+  "evidence_id": "ev_e765cb686e37518628e29418ccc0826a7fa973d5fffe13582c75b3eece6d380c",
+  "subject": {
+    "name": "corsairs-lab",
+    "digest": {
+      "sha256": "9d6c9e2c8326fddc1df2f1ab3d5a3528cb4416ef858e86a5f30eeaeb775999de"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "MTLCreateSystemDefaultDevice"
+      },
+      {
+        "kind": "function",
+        "name": "$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC"
+      }
+    ],
+    "arguments": [
+      "tensor",
+      "1"
+    ],
+    "environment": {
+      "CORSAIRS_TRACE": "1"
+    },
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 5000,
+    "max_events": 10,
+    "argument_registers": 3,
+    "backtrace_frames": 4
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+      "sha256": "9d6c9e2c8326fddc1df2f1ab3d5a3528cb4416ef858e86a5f30eeaeb775999de",
+      "architecture": "arm64",
+      "arguments": [
+        "tensor",
+        "1"
+      ],
+      "environment": {
+        "CORSAIRS_TRACE": "1"
+      },
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "77429692",
+        "selected_file_sha256": "9d6c9e2c8326fddc1df2f1ab3d5a3528cb4416ef858e86a5f30eeaeb775999de",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "module_uuid": "25833EF1-0C24-3F1F-BBB6-899D1088C3E2",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 35355,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 1267.87,
+      "stdout": {
+        "text": "TensorReport { cycles: 1, shape: [2, 2], scalar_tag: 29, initialized: 1, destroyed: 1 }\n",
+        "bytes": 88,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "tensor: symbols ready, scalar tag=29, flags=0x2200000\ntensor: inject scalar\ntensor: construct shape array\ntensor: construct NDArray\ntensor: read shape\ntensor: read array count\ntensor: read array elements\ntensor: read scalar\ntensor: destroy tensor\n",
+        "bytes": 247,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "MTLCreateSystemDefaultDevice",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x1a883f55c",
+            "file_address": "0x18d55755c",
+            "module": "Metal",
+            "module_path": "/System/Library/Frameworks/Metal.framework/Versions/A/Metal",
+            "symbol": "MTLCreateSystemDefaultDevice"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "request": {
+          "kind": "function",
+          "name": "$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x2c5e69224",
+            "file_address": "0x2aab81224",
+            "module": "CoreAIRuntime",
+            "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+            "symbol": "CoreAIRuntime.NDArray.init(shape: Swift.Array<Swift.Int>, scalarType: CoreAIRuntime.NDArray.ScalarType) -> CoreAIRuntime.NDArray"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "sequence": 0,
+        "elapsed_ms": 1189.404,
+        "thread_id": 534927,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5e69224",
+        "file_address": "0x2aab81224",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.init(shape: Swift.Array<Swift.Int>, scalarType: CoreAIRuntime.NDArray.ScalarType) -> CoreAIRuntime.NDArray",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x1006f8a00"
+          },
+          {
+            "name": "x1",
+            "value": "0x1006f55a0"
+          },
+          {
+            "name": "x2",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100004aa8",
+            "file_address": "0x100004aa8",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          },
+          {
+            "load_address": "0x100005b00",
+            "file_address": "0x100005b00",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "<corsairs_abi::Runtime>::tensor_probe"
+          },
+          {
+            "load_address": "0x100001a28",
+            "file_address": "0x100001a28",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_lab::main"
+          },
+          {
+            "load_address": "0x100002c74",
+            "file_address": "0x100002c74",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "<fn() -> core::result::Result<(), alloc::boxed::Box<dyn core::error::Error>> as core::ops::function::FnOnce<()>>::call_once"
+          }
+        ]
+      }
+    ],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab"
+    }
+  ],
+  "evidence_links": []
+}

@@ -1,0 +1,5 @@
+target triple = "arm64-apple-macosx27.0.0"
+define swiftcc i64 @"$s12ABIReference6ObjectC7computeys6UInt64VAFF"(i64 %0, ptr swiftself %1) #0 {
+define swiftcc i64 @"$s12ABIReference8throwingys6UInt64VADKF"(i64 %0, ptr swiftself %1, ptr noalias swifterror captures(none) dereferenceable(8) %2) #0 {
+define swifttailcc void @"$s12ABIReference12asyncExampleys6UInt64VADYaF"(ptr swiftasync %0, i64 %1) #7 {
+define swiftcc void @"$s12ABIReference9aggregateyAA3BigVADF"(ptr noalias sret(%T12ABIReference3BigV) captures(none) %0, ptr noalias captures(none) dereferenceable(40) %1) #0 {

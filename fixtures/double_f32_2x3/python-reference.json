@@ -1,0 +1,36 @@
+{
+  "model_functions": [
+    "main"
+  ],
+  "os_backed": true,
+  "specialization": "cpu_only",
+  "input_shape": [
+    2,
+    3
+  ],
+  "input_dtype": "float32",
+  "output_shape": [
+    2,
+    3
+  ],
+  "output_dtype": "float32",
+  "output_strides": [
+    3,
+    1
+  ],
+  "values": [
+    [
+      2.0,
+      -4.0,
+      0.0
+    ],
+    [
+      1.0,
+      200.0,
+      -0.5
+    ]
+  ],
+  "actual_sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+  "expected_sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+  "exact_bytes_match": true
+}

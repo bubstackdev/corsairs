@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-15",
+  "status": "compiler output and static linkage only; no Core AI native call executed",
+  "source_directories": [
+    "/private/tmp/corsairs-swift-abi-l8x00k5c",
+    "/private/tmp/corsairs-sdk-preflight-5pghj387"
+  ],
+  "files": {
+    "CoreAIReference.swift": "55b9cf7df282fd3316f32c0a2e7af4965e21787251b671c48b8cd70baa73ac2a",
+    "SwiftAggregateReference.swift": "14b91c76d1712996411cb2c1c4e15be3c40e418fac3a1f03cf8d67b77699ed7d",
+    "SwiftConventionReference.swift": "98bc0c3d0203aa4c3df6f39ebb4a92cf82a5425bf5dbffc2dca863e9cb6d3e5d",
+    "aggregate-reproduction.json": "6acb583530671547fb85c15f505cb120d9557ac6cc95a48d04bed39e825678d7",
+    "compiler-observations.json": "327572d33beb1271c68da58d45c7b545591695b3afb86bd91a8fc9cd846e240e",
+    "coreai-commands.txt": "b235271b00f4beff3e1c662e173d811fdc4440aa46c50d4a18e21adbc95fd396",
+    "coreai-declarations.txt": "b7060c8c9351373d927d0118c66c463fd30c2862a39a31344c21f5edfa239f6d",
+    "rust-basic.rs": "9c7605c9254a6128024cf022277a0ee9e9651565135b7e2663791771646e95bf",
+    "rust-gated.rs": "cf5668165a2cc7495c6dab6fb17c76b4b23e36deaebf82d38b679dca70fbfeaa",
+    "rust-lowering.ll": "502c6443503617b9a0225c7b911693e284f6c3397c9767bde59963b45117e929",
+    "rust-lowering.rs": "caadb7e01063eed36dbee1126c1cd6739db3878675c624f3c73099950c406ab3",
+    "swift-aggregate-definitions.txt": "fe4df6852f22cb06ffdcde1e19693470c511a794588a3cae04c0d6fd258b2498",
+    "swift-convention-definitions.txt": "2e756e2b945b29adea51382d015d3d77650b83689cae474eef9f0fb020c9a4ea"
+  },
+  "sdk_interfaces": {
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/CoreAI.framework/Versions/A/Modules/CoreAI.swiftmodule/arm64e-apple-macos.swiftinterface": "88383a412e7e4a6e2700f0cc2b8ddae838f2ae2dec694cd4f345b0095c9860ee",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/Modules/CoreAIDelegates.swiftmodule/arm64e-apple-macos.swiftinterface": "cf66ad72fab3fd71bf6c7cf2e5d96cfb8b1ebd9d4345ab8a2cfbb4f611db032c",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIAsset.framework/Versions/A/Modules/CoreAIAsset.swiftmodule/arm64e-apple-macos.swiftinterface": "72bca5cc9d4847c9a76b3514d30cd1395e3ac2876104b60bdbcd158e8ae77e5d"
+  }
+}

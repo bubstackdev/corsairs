@@ -1,0 +1,59 @@
+sil_stage raw
+
+import Builtin
+import Swift
+import SwiftShims
+
+import Foundation
+
+@inline(never) public func makeString(_ bytes: UnsafePointer<Int8>) -> String
+
+@inline(never) public func makeFileURL(_ bytes: UnsafePointer<Int8>) -> URL
+
+// makeString(_:)
+// Isolation: unspecified
+sil [noinline] [ossa] @$s9StringABI04makeA0ySSSPys4Int8VGF : $@convention(thin) (UnsafePointer<Int8>) -> @owned String {
+// %0 "bytes"                                     // users: %4, %1
+bb0(%0 : $UnsafePointer<Int8>):
+  debug_value %0, let, name "bytes", argno 1      // id: %1
+  %2 = metatype $@thin String.Type                // user: %4
+  // function_ref String.init(cString:)
+  %3 = function_ref @$sSS7cStringSSSPys4Int8VG_tcfC : $@convention(method) (UnsafePointer<Int8>, @thin String.Type) -> @owned String // user: %4
+  %4 = apply %3(%0, %2) : $@convention(method) (UnsafePointer<Int8>, @thin String.Type) -> @owned String // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s9StringABI04makeA0ySSSPys4Int8VGF'
+
+// String.init(cString:)
+// Isolation: unspecified
+sil @$sSS7cStringSSSPys4Int8VG_tcfC : $@convention(method) (UnsafePointer<Int8>, @thin String.Type) -> @owned String
+
+// makeFileURL(_:)
+// Isolation: unspecified
+sil [noinline] [ossa] @$s9StringABI11makeFileURLy10Foundation0E0VSPys4Int8VGF : $@convention(thin) (UnsafePointer<Int8>) -> @out URL {
+// %0 "$return_value"                             // user: %8
+// %1 "bytes"                                     // users: %6, %2
+bb0(%0 : $*URL, %1 : $UnsafePointer<Int8>):
+  debug_value %1, let, name "bytes", argno 1      // id: %2
+  %3 = metatype $@thin URL.Type                   // user: %8
+  %4 = metatype $@thin String.Type                // user: %6
+  // function_ref String.init(cString:)
+  %5 = function_ref @$sSS7cStringSSSPys4Int8VG_tcfC : $@convention(method) (UnsafePointer<Int8>, @thin String.Type) -> @owned String // user: %6
+  %6 = apply %5(%1, %4) : $@convention(method) (UnsafePointer<Int8>, @thin String.Type) -> @owned String // users: %9, %8
+  // function_ref URL.init(fileURLWithPath:)
+  %7 = function_ref @$s10Foundation3URLV15fileURLWithPathACSSh_tcfC : $@convention(method) (@guaranteed String, @thin URL.Type) -> @out URL // user: %8
+  %8 = apply %7(%0, %6, %3) : $@convention(method) (@guaranteed String, @thin URL.Type) -> @out URL
+  destroy_value %6                                // id: %9
+  %10 = tuple ()                                  // user: %11
+  return %10                                      // id: %11
+} // end sil function '$s9StringABI11makeFileURLy10Foundation0E0VSPys4Int8VGF'
+
+// URL.init(fileURLWithPath:)
+// Isolation: unspecified
+sil [available 10.10] @$s10Foundation3URLV15fileURLWithPathACSSh_tcfC : $@convention(method) (@guaranteed String, @thin URL.Type) -> @out URL
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'StringABI/StringReference.swift' => '/private/tmp/corsairs-throwing-ndwdx2v2/StringReference.swift'
+
+

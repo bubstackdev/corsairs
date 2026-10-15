@@ -1,0 +1,13 @@
+[package]
+name = "corsairs-lab"
+version = "0.0.0"
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+corsairs-abi = { package = "corsairs", path = "../corsairs-abi", features = ["abi-research"] }
+
+[lints]
+workspace = true
+

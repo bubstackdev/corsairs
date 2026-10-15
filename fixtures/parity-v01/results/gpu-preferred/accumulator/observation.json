@@ -1,0 +1,189 @@
+{
+  "case": "accumulator",
+  "backend": "gpu-preferred",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "GPU",
+    "CPU",
+    "Neural Engine"
+  ],
+  "preferred_compute_unit": "GPU",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": [
+      "accumulator"
+    ]
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/accumulator/step0-y.bin",
+          "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "1.0",
+            "1.0",
+            "1.0",
+            "1.0",
+            "1.0",
+            "1.0"
+          ]
+        }
+      },
+      "state_after": {
+        "accumulator": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/accumulator/step0-state-accumulator.bin",
+          "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "1.0",
+            "1.0",
+            "1.0",
+            "1.0",
+            "1.0",
+            "1.0"
+          ]
+        }
+      }
+    },
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/accumulator/step1-y.bin",
+          "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "3.0",
+            "3.0",
+            "3.0",
+            "3.0",
+            "3.0",
+            "3.0"
+          ]
+        }
+      },
+      "state_after": {
+        "accumulator": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/accumulator/step1-state-accumulator.bin",
+          "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "3.0",
+            "3.0",
+            "3.0",
+            "3.0",
+            "3.0",
+            "3.0"
+          ]
+        }
+      }
+    },
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/accumulator/step2-y.bin",
+          "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "3.0",
+            "4.0",
+            "5.0",
+            "6.0",
+            "7.0",
+            "8.0"
+          ]
+        }
+      },
+      "state_after": {
+        "accumulator": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/accumulator/step2-state-accumulator.bin",
+          "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "3.0",
+            "4.0",
+            "5.0",
+            "6.0",
+            "7.0",
+            "8.0"
+          ]
+        }
+      }
+    }
+  ]
+}

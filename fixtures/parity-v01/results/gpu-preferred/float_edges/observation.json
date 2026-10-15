@@ -1,0 +1,54 @@
+{
+  "case": "float_edges",
+  "backend": "gpu-preferred",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "mismatch",
+  "allowed_compute_units": [
+    "CPU",
+    "GPU",
+    "Neural Engine"
+  ],
+  "preferred_compute_unit": "GPU",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/float_edges/step0-y.bin",
+          "sha256": "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7",
+          "exact_bytes": false,
+          "comparison": "ieee-special",
+          "passed": false,
+          "values": [
+            "0.0",
+            "-0.0",
+            "inf",
+            "-inf",
+            "nan",
+            "0.0"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

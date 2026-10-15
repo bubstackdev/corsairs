@@ -1,0 +1,31 @@
+{
+  "retained_at_utc": "2026-10-15T16:07:10.604809+00:00",
+  "status": "Existing independent compiler outputs retained without recompilation or execution.",
+  "original_directory": "/private/tmp/corsairs-owned-api",
+  "source_matches_original_scratch": true,
+  "module": "OwnedABI",
+  "target_from_ir": "arm64-apple-macosx27.0.0",
+  "sdk_version_from_ir": "27.0",
+  "optimization_from_ir": "unoptimized; SwiftOnoneSupport linked",
+  "scope": [
+    "GPU specialization option construction",
+    "function and operand descriptor getters",
+    "resilient Descriptor enum projection",
+    "consuming mutable view insertion"
+  ],
+  "files_sha256": {
+    "docs/evidence/v0.1/owned-reference.ll": "631d2ff70043cda0c03b0bee8710815a119a196952ab6e7fd4ca4554aa0ef724",
+    "docs/evidence/v0.1/owned-reference.sil": "2f5a6f53b624330f7f412c89af0166595738882ebf01c1ef85b1ee9e359d9e93",
+    "docs/evidence/v0.1/owned-reference.s": "7cea8c8b76dfd779e68c707ce1a25bd55972b5896e458d348f6fc6f20101b928",
+    "experiments/swift/OwnedReference.swift": "be304e4eb322e9c2d916ac7eddf3d653dbfdf6874e90d54ec40c8e518bcd24bf"
+  },
+  "limitations": [
+    "Original shell command log was not retained. Reproduction commands below are supplied for replay, not claimed as an execution log.",
+    "Compiler output establishes lowering and ownership; native execution is evidenced separately by checks-debug.json and checks-release.json."
+  ],
+  "reproduction_commands": [
+    "xcrun swiftc -Onone -parse-as-library -module-name OwnedABI -target arm64-apple-macosx27.0 -module-cache-path /private/tmp/corsairs-owned-reference-cache -emit-ir experiments/swift/OwnedReference.swift -o /private/tmp/corsairs-owned-reference.ll",
+    "xcrun swiftc -Onone -parse-as-library -module-name OwnedABI -target arm64-apple-macosx27.0 -module-cache-path /private/tmp/corsairs-owned-reference-cache -emit-sil experiments/swift/OwnedReference.swift -o /private/tmp/corsairs-owned-reference.sil",
+    "xcrun swiftc -Onone -parse-as-library -module-name OwnedABI -target arm64-apple-macosx27.0 -module-cache-path /private/tmp/corsairs-owned-reference-cache -emit-assembly experiments/swift/OwnedReference.swift -o /private/tmp/corsairs-owned-reference.s"
+  ]
+}

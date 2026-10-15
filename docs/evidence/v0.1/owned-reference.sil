@@ -1,0 +1,328 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+import CoreAI
+
+@inline(never) public func gpuOptions() -> SpecializationOptions
+
+@inline(never) public func functionDescriptor(_ f: borrowing InferenceFunction) -> InferenceFunctionDescriptor
+
+@inline(never) public func descriptorName(_ d: borrowing InferenceFunctionDescriptor) -> String
+
+@inline(never) public func inputNames(_ d: borrowing InferenceFunctionDescriptor) -> [String]
+
+@inline(never) public func outputNames(_ d: borrowing InferenceFunctionDescriptor) -> [String]
+
+@inline(never) public func stateNames(_ d: borrowing InferenceFunctionDescriptor) -> [String]
+
+@inline(never) public func inputDescriptor(_ d: borrowing InferenceFunctionDescriptor, _ n: borrowing String) -> InferenceValue.Descriptor?
+
+@inline(never) public func outputDescriptor(_ d: borrowing InferenceFunctionDescriptor, _ n: borrowing String) -> InferenceValue.Descriptor?
+
+@inline(never) public func stateDescriptor(_ d: borrowing InferenceFunctionDescriptor, _ n: borrowing String) -> InferenceValue.Descriptor?
+
+@inline(never) public func ndarrayDescriptor(_ d: consuming InferenceValue.Descriptor) -> NDArrayDescriptor?
+
+@inline(never) public func shape(_ d: borrowing NDArrayDescriptor) -> [Int]
+
+@inline(never) public func scalar(_ d: borrowing NDArrayDescriptor) -> NDArray.ScalarType
+
+@inline(never) public func insertMutable(_ array: inout NDArray, _ n: borrowing String)
+
+// gpuOptions()
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI10gpuOptions15CoreAIDelegates014SpecializationD0VyF : $@convention(thin) () -> @out SpecializationOptions {
+// %0 "$return_value"                             // user: %5
+bb0(%0 : $*SpecializationOptions):
+  %1 = metatype $@thin SpecializationOptions.Type // user: %5
+  %2 = alloc_stack $ComputeUnitKind               // users: %6, %5, %3
+  inject_enum_addr %2, #ComputeUnitKind.gpu!enumelt // id: %3
+  // function_ref SpecializationOptions.init(preferredComputeUnitKind:)
+  %4 = function_ref @$s15CoreAIDelegates21SpecializationOptionsV24preferredComputeUnitKindAcA0fgH0O_tcfC : $@convention(method) (@in ComputeUnitKind, @thin SpecializationOptions.Type) -> @out SpecializationOptions // user: %5
+  %5 = apply %4(%0, %2, %1) : $@convention(method) (@in ComputeUnitKind, @thin SpecializationOptions.Type) -> @out SpecializationOptions
+  dealloc_stack %2                                // id: %6
+  %7 = tuple ()                                   // user: %8
+  return %7                                       // id: %8
+} // end sil function '$s8OwnedABI10gpuOptions15CoreAIDelegates014SpecializationD0VyF'
+
+// SpecializationOptions.init(preferredComputeUnitKind:)
+// Isolation: unspecified
+sil [available 27.0] @$s15CoreAIDelegates21SpecializationOptionsV24preferredComputeUnitKindAcA0fgH0O_tcfC : $@convention(method) (@in ComputeUnitKind, @thin SpecializationOptions.Type) -> @out SpecializationOptions
+
+// functionDescriptor(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI18functionDescriptory13CoreAIRuntime017InferenceFunctionD0VAC0gH0VF : $@convention(thin) (@in_guaranteed InferenceFunction) -> @out InferenceFunctionDescriptor {
+// %0 "$return_value"                             // user: %4
+// %1 "f"                                         // users: %4, %2
+bb0(%0 : $*InferenceFunctionDescriptor, %1 : @noImplicitCopy $*InferenceFunction):
+  debug_value [moveable_value_debuginfo] %1, let, name "f", argno 1, expr op_deref // id: %2
+  // function_ref InferenceFunction.descriptor.getter
+  %3 = function_ref @$s13CoreAIRuntime17InferenceFunctionV10descriptorAA0cD10DescriptorVvg : $@convention(method) (@in_guaranteed InferenceFunction) -> @out InferenceFunctionDescriptor // user: %4
+  %4 = apply %3(%0, %1) : $@convention(method) (@in_guaranteed InferenceFunction) -> @out InferenceFunctionDescriptor
+  %5 = tuple ()                                   // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s8OwnedABI18functionDescriptory13CoreAIRuntime017InferenceFunctionD0VAC0gH0VF'
+
+// InferenceFunction.descriptor.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV10descriptorAA0cD10DescriptorVvg : $@convention(method) (@in_guaranteed InferenceFunction) -> @out InferenceFunctionDescriptor
+
+// descriptorName(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI14descriptorNameySS13CoreAIRuntime27InferenceFunctionDescriptorVF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor) -> @owned String {
+// %0 "d"                                         // users: %3, %1
+bb0(%0 : @noImplicitCopy $*InferenceFunctionDescriptor):
+  debug_value [moveable_value_debuginfo] %0, let, name "d", argno 1, expr op_deref // id: %1
+  // function_ref InferenceFunctionDescriptor.name.getter
+  %2 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV4nameSSvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned String // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned String // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s8OwnedABI14descriptorNameySS13CoreAIRuntime27InferenceFunctionDescriptorVF'
+
+// InferenceFunctionDescriptor.name.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV4nameSSvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned String
+
+// inputNames(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI10inputNamesySaySSG13CoreAIRuntime27InferenceFunctionDescriptorVF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> {
+// %0 "d"                                         // users: %3, %1
+bb0(%0 : @noImplicitCopy $*InferenceFunctionDescriptor):
+  debug_value [moveable_value_debuginfo] %0, let, name "d", argno 1, expr op_deref // id: %1
+  // function_ref InferenceFunctionDescriptor.inputNames.getter
+  %2 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV10inputNamesSaySSGvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s8OwnedABI10inputNamesySaySSG13CoreAIRuntime27InferenceFunctionDescriptorVF'
+
+// InferenceFunctionDescriptor.inputNames.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV10inputNamesSaySSGvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String>
+
+// outputNames(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI11outputNamesySaySSG13CoreAIRuntime27InferenceFunctionDescriptorVF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> {
+// %0 "d"                                         // users: %3, %1
+bb0(%0 : @noImplicitCopy $*InferenceFunctionDescriptor):
+  debug_value [moveable_value_debuginfo] %0, let, name "d", argno 1, expr op_deref // id: %1
+  // function_ref InferenceFunctionDescriptor.outputNames.getter
+  %2 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV11outputNamesSaySSGvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s8OwnedABI11outputNamesySaySSG13CoreAIRuntime27InferenceFunctionDescriptorVF'
+
+// InferenceFunctionDescriptor.outputNames.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV11outputNamesSaySSGvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String>
+
+// stateNames(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI10stateNamesySaySSG13CoreAIRuntime27InferenceFunctionDescriptorVF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> {
+// %0 "d"                                         // users: %3, %1
+bb0(%0 : @noImplicitCopy $*InferenceFunctionDescriptor):
+  debug_value [moveable_value_debuginfo] %0, let, name "d", argno 1, expr op_deref // id: %1
+  // function_ref InferenceFunctionDescriptor.stateNames.getter
+  %2 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV10stateNamesSaySSGvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s8OwnedABI10stateNamesySaySSG13CoreAIRuntime27InferenceFunctionDescriptorVF'
+
+// InferenceFunctionDescriptor.stateNames.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV10stateNamesSaySSGvg : $@convention(method) (@in_guaranteed InferenceFunctionDescriptor) -> @owned Array<String>
+
+// inputDescriptor(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI15inputDescriptory13CoreAIRuntime14InferenceValueV0D0OSgAC0g8FunctionD0V_SStF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor, @guaranteed String) -> @out Optional<InferenceValue.Descriptor> {
+// %0 "$return_value"                             // user: %6
+// %1 "d"                                         // users: %6, %3
+// %2 "n"                                         // users: %6, %4
+bb0(%0 : $*Optional<InferenceValue.Descriptor>, %1 : @noImplicitCopy $*InferenceFunctionDescriptor, %2 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "d", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "n", argno 2 // id: %4
+  // function_ref InferenceFunctionDescriptor.inputDescriptor(of:)
+  %5 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV05inputE02ofAA0C5ValueV0E0OSgSS_tF : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor> // user: %6
+  %6 = apply %5(%0, %2, %1) : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor>
+  %7 = tuple ()                                   // user: %8
+  return %7                                       // id: %8
+} // end sil function '$s8OwnedABI15inputDescriptory13CoreAIRuntime14InferenceValueV0D0OSgAC0g8FunctionD0V_SStF'
+
+// InferenceFunctionDescriptor.inputDescriptor(of:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV05inputE02ofAA0C5ValueV0E0OSgSS_tF : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor>
+
+// outputDescriptor(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI16outputDescriptory13CoreAIRuntime14InferenceValueV0D0OSgAC0g8FunctionD0V_SStF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor, @guaranteed String) -> @out Optional<InferenceValue.Descriptor> {
+// %0 "$return_value"                             // user: %6
+// %1 "d"                                         // users: %6, %3
+// %2 "n"                                         // users: %6, %4
+bb0(%0 : $*Optional<InferenceValue.Descriptor>, %1 : @noImplicitCopy $*InferenceFunctionDescriptor, %2 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "d", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "n", argno 2 // id: %4
+  // function_ref InferenceFunctionDescriptor.outputDescriptor(of:)
+  %5 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV06outputE02ofAA0C5ValueV0E0OSgSS_tF : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor> // user: %6
+  %6 = apply %5(%0, %2, %1) : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor>
+  %7 = tuple ()                                   // user: %8
+  return %7                                       // id: %8
+} // end sil function '$s8OwnedABI16outputDescriptory13CoreAIRuntime14InferenceValueV0D0OSgAC0g8FunctionD0V_SStF'
+
+// InferenceFunctionDescriptor.outputDescriptor(of:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV06outputE02ofAA0C5ValueV0E0OSgSS_tF : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor>
+
+// stateDescriptor(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI15stateDescriptory13CoreAIRuntime14InferenceValueV0D0OSgAC0g8FunctionD0V_SStF : $@convention(thin) (@in_guaranteed InferenceFunctionDescriptor, @guaranteed String) -> @out Optional<InferenceValue.Descriptor> {
+// %0 "$return_value"                             // user: %6
+// %1 "d"                                         // users: %6, %3
+// %2 "n"                                         // users: %6, %4
+bb0(%0 : $*Optional<InferenceValue.Descriptor>, %1 : @noImplicitCopy $*InferenceFunctionDescriptor, %2 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "d", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "n", argno 2 // id: %4
+  // function_ref InferenceFunctionDescriptor.stateDescriptor(of:)
+  %5 = function_ref @$s13CoreAIRuntime27InferenceFunctionDescriptorV05stateE02ofAA0C5ValueV0E0OSgSS_tF : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor> // user: %6
+  %6 = apply %5(%0, %2, %1) : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor>
+  %7 = tuple ()                                   // user: %8
+  return %7                                       // id: %8
+} // end sil function '$s8OwnedABI15stateDescriptory13CoreAIRuntime14InferenceValueV0D0OSgAC0g8FunctionD0V_SStF'
+
+// InferenceFunctionDescriptor.stateDescriptor(of:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime27InferenceFunctionDescriptorV05stateE02ofAA0C5ValueV0E0OSgSS_tF : $@convention(method) (@guaranteed String, @in_guaranteed InferenceFunctionDescriptor) -> @out Optional<InferenceValue.Descriptor>
+
+// ndarrayDescriptor(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI17ndarrayDescriptory13CoreAIRuntime07NDArrayD0VSgAC14InferenceValueV0D0OnF : $@convention(thin) (@in InferenceValue.Descriptor) -> @out Optional<NDArrayDescriptor> {
+// %0 "$return_value"                             // users: %26, %22, %16, %14
+// %1 "d"                                         // user: %3
+bb0(%0 : $*Optional<NDArrayDescriptor>, %1 : @noImplicitCopy @_eagerMove $*InferenceValue.Descriptor):
+  %2 = alloc_stack [var_decl] [moveable_value_debuginfo] $InferenceValue.Descriptor, var, name "d", type $@moveOnly InferenceValue.Descriptor // users: %3, %4, %30
+  copy_addr [take] %1 to [init] %2                // id: %3
+  %4 = begin_access [modify] [static] %2          // users: %6, %8
+  %5 = alloc_stack $InferenceValue.Descriptor     // users: %28, %27, %24, %21, %19, %10, %9, %6
+  copy_addr [take] %4 to [init] %5                // id: %6
+  debug_value [moveable_value_debuginfo] undef : $*InferenceValue.Descriptor, var, name "d", expr op_deref // id: %7
+  end_access %4                                   // id: %8
+  switch_enum_addr %5, case #InferenceValue.Descriptor.ndArray!enumelt: bb1, case #InferenceValue.Descriptor.image!enumelt: bb2, default bb3 // id: %9
+
+bb1:                                              // Preds: bb0
+  %10 = unchecked_take_enum_data_addr %5, #InferenceValue.Descriptor.ndArray!enumelt // user: %12
+  %11 = alloc_stack [lexical] [var_decl] $NDArrayDescriptor, let, name "d" // users: %18, %17, %15, %13, %12
+  copy_addr [take] %10 to [init] %11              // id: %12
+  debug_value %11, let, name "d", expr op_deref   // id: %13
+  %14 = init_enum_data_addr %0, #Optional.some!enumelt // user: %15
+  copy_addr %11 to [init] %14                     // id: %15
+  inject_enum_addr %0, #Optional.some!enumelt     // id: %16
+  destroy_addr %11                                // id: %17
+  dealloc_stack %11                               // id: %18
+  dealloc_stack %5                                // id: %19
+  br bb4                                          // id: %20
+
+bb2:                                              // Preds: bb0
+  %21 = unchecked_take_enum_data_addr %5, #InferenceValue.Descriptor.image!enumelt // user: %23
+  inject_enum_addr %0, #Optional.none!enumelt     // id: %22
+  destroy_addr %21                                // id: %23
+  dealloc_stack %5                                // id: %24
+  br bb4                                          // id: %25
+
+bb3:                                              // Preds: bb0
+  inject_enum_addr %0, #Optional.none!enumelt     // id: %26
+  destroy_addr %5                                 // id: %27
+  dealloc_stack %5                                // id: %28
+  br bb4                                          // id: %29
+
+bb4:                                              // Preds: bb3 bb2 bb1
+  dealloc_stack %2                                // id: %30
+  %31 = tuple ()                                  // user: %32
+  return %31                                      // id: %32
+} // end sil function '$s8OwnedABI17ndarrayDescriptory13CoreAIRuntime07NDArrayD0VSgAC14InferenceValueV0D0OnF'
+
+// shape(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI5shapeySaySiG13CoreAIRuntime17NDArrayDescriptorVF : $@convention(thin) (@in_guaranteed NDArrayDescriptor) -> @owned Array<Int> {
+// %0 "d"                                         // users: %3, %1
+bb0(%0 : @noImplicitCopy $*NDArrayDescriptor):
+  debug_value [moveable_value_debuginfo] %0, let, name "d", argno 1, expr op_deref // id: %1
+  // function_ref NDArrayDescriptor.shape.getter
+  %2 = function_ref @$s13CoreAIRuntime17NDArrayDescriptorV5shapeSaySiGvg : $@convention(method) (@in_guaranteed NDArrayDescriptor) -> @owned Array<Int> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed NDArrayDescriptor) -> @owned Array<Int> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s8OwnedABI5shapeySaySiG13CoreAIRuntime17NDArrayDescriptorVF'
+
+// NDArrayDescriptor.shape.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17NDArrayDescriptorV5shapeSaySiGvg : $@convention(method) (@in_guaranteed NDArrayDescriptor) -> @owned Array<Int>
+
+// scalar(_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI6scalary13CoreAIRuntime7NDArrayV10ScalarTypeOAC0F10DescriptorVF : $@convention(thin) (@in_guaranteed NDArrayDescriptor) -> @out NDArray.ScalarType {
+// %0 "$return_value"                             // user: %4
+// %1 "d"                                         // users: %4, %2
+bb0(%0 : $*NDArray.ScalarType, %1 : @noImplicitCopy $*NDArrayDescriptor):
+  debug_value [moveable_value_debuginfo] %1, let, name "d", argno 1, expr op_deref // id: %2
+  // function_ref NDArrayDescriptor.scalarType.getter
+  %3 = function_ref @$s13CoreAIRuntime17NDArrayDescriptorV10scalarTypeAA0C0V06ScalarF0Ovg : $@convention(method) (@in_guaranteed NDArrayDescriptor) -> @out NDArray.ScalarType // user: %4
+  %4 = apply %3(%0, %1) : $@convention(method) (@in_guaranteed NDArrayDescriptor) -> @out NDArray.ScalarType
+  %5 = tuple ()                                   // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s8OwnedABI6scalary13CoreAIRuntime7NDArrayV10ScalarTypeOAC0F10DescriptorVF'
+
+// NDArrayDescriptor.scalarType.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17NDArrayDescriptorV10scalarTypeAA0C0V06ScalarF0Ovg : $@convention(method) (@in_guaranteed NDArrayDescriptor) -> @out NDArray.ScalarType
+
+// insertMutable(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8OwnedABI13insertMutableyy13CoreAIRuntime7NDArrayVz_SStF : $@convention(thin) (@inout NDArray, @guaranteed String) -> () {
+// %0 "array"                                     // users: %9, %2
+// %1 "n"                                         // users: %15, %3
+bb0(%0 : $*NDArray, %1 : @noImplicitCopy $String):
+  debug_value %0, var, name "array", argno 1, expr op_deref // id: %2
+  debug_value [moveable_value_debuginfo] %1, let, name "n", argno 2 // id: %3
+  %4 = alloc_stack [lexical] [var_decl] $InferenceFunction.MutableViews, var, name "views", type $InferenceFunction.MutableViews // users: %7, %13, %20, %21
+  %5 = metatype $@thin InferenceFunction.MutableViews.Type // user: %7
+  // function_ref InferenceFunction.MutableViews.init()
+  %6 = function_ref @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews // user: %7
+  %7 = apply %6(%4, %5) : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+  %8 = alloc_stack $NDArray.MutableRawView        // users: %11, %15, %12, %18
+  %9 = begin_access [modify] [static] %0          // users: %16, %12, %11
+  // function_ref NDArray.mutableRawView()
+  %10 = function_ref @$s13CoreAIRuntime7NDArrayV14mutableRawViewAC07MutableeF0VyF : $@convention(method) (@inout NDArray) -> @lifetime(borrow address_for_deps 0) @out NDArray.MutableRawView // user: %11
+  %11 = apply %10(%8, %9) : $@convention(method) (@inout NDArray) -> @lifetime(borrow address_for_deps 0) @out NDArray.MutableRawView
+  mark_dependence_addr [nonescaping] %8 on %9     // id: %12
+  %13 = begin_access [modify] [static] %4         // users: %15, %17
+  // function_ref InferenceFunction.MutableViews.insert(_:for:)
+  %14 = function_ref @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryAA7NDArrayV0E7RawViewVn_SStF : $@convention(method) (@in NDArray.MutableRawView, @guaranteed String, @lifetime(copy 0, copy 2) @inout InferenceFunction.MutableViews) -> () // user: %15
+  %15 = apply %14(%8, %1, %13) : $@convention(method) (@in NDArray.MutableRawView, @guaranteed String, @lifetime(copy 0, copy 2) @inout InferenceFunction.MutableViews) -> ()
+  end_access %9                                   // id: %16
+  end_access %13                                  // id: %17
+  dealloc_stack %8                                // id: %18
+  debug_value undef : $*InferenceFunction.MutableViews, var, name "views", expr op_deref // id: %19
+  destroy_addr %4                                 // id: %20
+  dealloc_stack %4                                // id: %21
+  %22 = tuple ()                                  // user: %23
+  return %22                                      // id: %23
+} // end sil function '$s8OwnedABI13insertMutableyy13CoreAIRuntime7NDArrayVz_SStF'
+
+// InferenceFunction.MutableViews.init()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+
+// NDArray.mutableRawView()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV14mutableRawViewAC07MutableeF0VyF : $@convention(method) (@inout NDArray) -> @lifetime(borrow address_for_deps 0) @out NDArray.MutableRawView
+
+// InferenceFunction.MutableViews.insert(_:for:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryAA7NDArrayV0E7RawViewVn_SStF : $@convention(method) (@in NDArray.MutableRawView, @guaranteed String, @lifetime(copy 0, copy 2) @inout InferenceFunction.MutableViews) -> ()
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'OwnedABI/OwnedReference.swift' => '/private/tmp/corsairs-owned-api/OwnedReference.swift'
+
+

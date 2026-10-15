@@ -1,0 +1,48 @@
+_$s4main10taskReturnyyYaF:              ; @"$s4main10taskReturnyyYaF"
+	.cfi_startproc
+; %bb.0:
+	ldr	x0, [x22, #8]
+	br	x0
+	.cfi_endproc
+                                        ; -- End function
+	.globl	_$s4main18taskThrowingReturnyyYaKF ; -- Begin function $s4main18taskThrowingReturnyyYaKF
+	.p2align	2
+_$s4main18taskThrowingReturnyyYaKF:     ; @"$s4main18taskThrowingReturnyyYaKF"
+	.cfi_startproc
+; %bb.0:
+_$s4main18taskThrowingReturnyyYaKF:     ; @"$s4main18taskThrowingReturnyyYaKF"
+	.cfi_startproc
+; %bb.0:
+	ldr	x0, [x22, #8]
+	mov	x20, #0                         ; =0x0
+	br	x0
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	_$sxIeAgHr_xs5Error_pIegHrzo_s8SendableRzs5NeverORs_r0_lTRyt_Tg5 ; -- Begin function $sxIeAgHr_xs5Error_pIegHrzo_s8SendableRzs5NeverORs_r0_lTRyt_Tg5
+	.globl	_$sxIeAgHr_xs5Error_pIegHrzo_s8SendableRzs5NeverORs_r0_lTRyt_Tg5
+	.weak_definition	_$sxIeAgHr_xs5Error_pIegHrzo_s8SendableRzs5NeverORs_r0_lTRyt_Tg5
+	.p2align	2
+_$s4main10taskReturnyyYaFTu:
+	.long	_$s4main10taskReturnyyYaF-_$s4main10taskReturnyyYaFTu
+	.long	16                              ; 0x10
+
+	.globl	_$s4main18taskThrowingReturnyyYaKFTu ; @"$s4main18taskThrowingReturnyyYaKFTu"
+	.p2align	3, 0x0
+_$s4main18taskThrowingReturnyyYaKFTu:
+	.long	_$s4main18taskThrowingReturnyyYaKF-_$s4main18taskThrowingReturnyyYaKFTu
+	.long	16                              ; 0x10
+
+	.private_extern	___swift_reflection_version ; @__swift_reflection_version
+	.globl	___swift_reflection_version
+_$s4main18taskThrowingReturnyyYaKFTu:
+	.long	_$s4main18taskThrowingReturnyyYaKF-_$s4main18taskThrowingReturnyyYaKFTu
+	.long	16                              ; 0x10
+
+	.private_extern	___swift_reflection_version ; @__swift_reflection_version
+	.globl	___swift_reflection_version
+	.weak_definition	___swift_reflection_version
+	.p2align	1, 0x0
+___swift_reflection_version:
+	.short	3                               ; 0x3
+
+	.section	__TEXT,__swift_as_entry,coalesced,no_dead_strip

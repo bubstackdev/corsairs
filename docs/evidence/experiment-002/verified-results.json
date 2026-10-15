@@ -1,0 +1,123 @@
+{
+  "buffer_reference": {
+    "content_bits": [
+      [
+        1065353216,
+        3223322624,
+        0,
+        2147483648
+      ],
+      [
+        2139095040,
+        4286578688,
+        2143363909,
+        1
+      ],
+      [
+        2139095039,
+        8388608,
+        1051372203,
+        4290847557
+      ]
+    ],
+    "is_float32": true,
+    "shape": [
+      2,
+      2
+    ]
+  },
+  "error_reference": {
+    "caught": true,
+    "error_type": "CoreAIDelegates.AIModelCacheError"
+  },
+  "verified": {
+    "rust-debug-buffer": {
+      "evidence_id": "ev_24c84228d3326f4cce1579d00716058ef9e0560e3703358749beba9cbd89018a",
+      "binary_sha256": "b6abdc5b4245291f18dba1a0b33722262f86bb89dc059f7795d342b8a5d019a3",
+      "result": {
+        "cycles": 1000,
+        "shape": [
+          2,
+          2
+        ],
+        "scalar_tag": 29,
+        "initialized": 1000,
+        "destroyed": 1000,
+        "content_bits": [
+          [
+            1065353216,
+            3223322624,
+            0,
+            2147483648
+          ],
+          [
+            2139095040,
+            4286578688,
+            2143363909,
+            1
+          ],
+          [
+            2139095039,
+            8388608,
+            1051372203,
+            4290847557
+          ]
+        ]
+      }
+    },
+    "rust-release-buffer": {
+      "evidence_id": "ev_86dc909a267243c65bb43b84da5d74170c92d61d8a0236ab1ad1bdde6b7559f2",
+      "binary_sha256": "2fc49992a2d46e7d92351b47b7ce226f575704e50d5610c5efd41ab68ce4afa8",
+      "result": {
+        "cycles": 1000,
+        "shape": [
+          2,
+          2
+        ],
+        "scalar_tag": 29,
+        "initialized": 1000,
+        "destroyed": 1000,
+        "content_bits": [
+          [
+            1065353216,
+            3223322624,
+            0,
+            2147483648
+          ],
+          [
+            2139095040,
+            4286578688,
+            2143363909,
+            1
+          ],
+          [
+            2139095039,
+            8388608,
+            1051372203,
+            4290847557
+          ]
+        ]
+      }
+    },
+    "rust-debug-bookmark-error": {
+      "evidence_id": "ev_6b29852c72c3021a41590bc3b16238475ad5f3be3e8d194410534838c9eab7d4",
+      "binary_sha256": "b6abdc5b4245291f18dba1a0b33722262f86bb89dc059f7795d342b8a5d019a3",
+      "result": {
+        "attempts": 1000,
+        "caught": 1000,
+        "released": 1000,
+        "error_type": "CoreAIDelegates.AIModelCacheError"
+      }
+    },
+    "rust-release-bookmark-error": {
+      "evidence_id": "ev_9a3e236d201141784bc88da3c9b45d0169b8571b66f5159b2666cbfcf92b8fb8",
+      "binary_sha256": "2fc49992a2d46e7d92351b47b7ce226f575704e50d5610c5efd41ab68ce4afa8",
+      "result": {
+        "attempts": 1000,
+        "caught": 1000,
+        "released": 1000,
+        "error_type": "CoreAIDelegates.AIModelCacheError"
+      }
+    }
+  }
+}

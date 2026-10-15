@@ -1,0 +1,10 @@
+{
+  "distribution": "coreai-core",
+  "version": "1.0.0b3",
+  "filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+  "url": "https://files.pythonhosted.org/packages/40/af/4a807a56030a2fe3cf18a83dae6a5871fcb89f9831e1e9e32b0ac30832db/coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+  "size": 21371930,
+  "sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+  "digest_source": "https://pypi.org/pypi/coreai-core/1.0.0b3/json",
+  "license": "BSD-3-Clause"
+}

@@ -1,0 +1,219 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+import CoreAI
+
+import Foundation
+
+@inline(never) public func loadCPUOptions(_ url: URL) async throws -> AIModel
+
+@inline(never) public func modelNames(_ model: borrowing AIModel) -> [String]
+
+@inline(never) public func namesCount(_ names: borrowing [String]) -> Int
+
+@inline(never) public func nameAt(_ names: borrowing [String], _ index: Int) -> String
+
+@inline(never) public func nulTerminatedUTF8(_ string: borrowing String) -> ContiguousArray<Int8>
+
+@inline(never) public func utf8Count(_ bytes: borrowing ContiguousArray<Int8>) -> Int
+
+@inline(never) public func utf8At(_ bytes: borrowing ContiguousArray<Int8>, _ index: Int) -> Int8
+
+@inline(never) public func consumeNames(_ names: __owned [String])
+
+@inline(never) public func consumeCString(_ bytes: __owned ContiguousArray<Int8>)
+
+@inline(never) public func consumeString(_ string: __owned String)
+
+// loadCPUOptions(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI14loadCPUOptionsy13CoreAIRuntime7AIModelV10Foundation3URLVYaKF : $@convention(thin) @async (@in_guaranteed URL) -> (@out AIModel, @error any Error) {
+// %0 "$return_value"                             // user: %14
+// %1 "url"                                       // users: %8, %2
+bb0(%0 : $*AIModel, %1 : $*URL):
+  debug_value %1, let, name "url", argno 1, expr op_deref // id: %2
+  debug_value undef : $any Error, var, name "$error", argno 2 // id: %3
+  %4 = enum $Optional<any Actor>, #Optional.none!enumelt // users: %21, %5
+  hop_to_executor %4                              // id: %5
+  %6 = metatype $@thin AIModel.Type               // user: %14
+  %7 = alloc_stack $URL                           // users: %17, %14, %23, %8
+  copy_addr %1 to [init] %7                       // id: %8
+  %9 = metatype $@thin SpecializationOptions.Type // user: %12
+  %10 = alloc_stack $SpecializationOptions        // users: %16, %14, %22, %12
+  // function_ref static SpecializationOptions.cpuOnly.getter
+  %11 = function_ref @$s15CoreAIDelegates21SpecializationOptionsV7cpuOnlyACvgZ : $@convention(method) (@thin SpecializationOptions.Type) -> @out SpecializationOptions // user: %12
+  %12 = apply %11(%10, %9) : $@convention(method) (@thin SpecializationOptions.Type) -> @out SpecializationOptions
+  // function_ref AIModel.init(contentsOf:options:)
+  %13 = function_ref @$s13CoreAIRuntime7AIModelV0A11AIDelegatesE10contentsOf7optionsAC10Foundation3URLV_AD21SpecializationOptionsVtYaKcfC : $@convention(method) @async (@in URL, @in SpecializationOptions, @thin AIModel.Type) -> (@out AIModel, @error any Error) // user: %14
+  try_apply %13(%0, %7, %10, %6) : $@convention(method) @async (@in URL, @in SpecializationOptions, @thin AIModel.Type) -> (@out AIModel, @error any Error), normal bb1, error bb2 // id: %14
+
+bb1(%15 : $()):                                   // Preds: bb0
+  dealloc_stack %10                               // id: %16
+  dealloc_stack %7                                // id: %17
+  %18 = tuple ()                                  // user: %19
+  return %18                                      // id: %19
+
+// %20                                            // user: %24
+bb2(%20 : $any Error):                            // Preds: bb0
+  hop_to_executor %4                              // id: %21
+  dealloc_stack %10                               // id: %22
+  dealloc_stack %7                                // id: %23
+  throw %20                                       // id: %24
+} // end sil function '$s11LoadGateABI14loadCPUOptionsy13CoreAIRuntime7AIModelV10Foundation3URLVYaKF'
+
+// static SpecializationOptions.cpuOnly.getter
+// Isolation: unspecified
+sil [available 27.0] @$s15CoreAIDelegates21SpecializationOptionsV7cpuOnlyACvgZ : $@convention(method) (@thin SpecializationOptions.Type) -> @out SpecializationOptions
+
+// AIModel.init(contentsOf:options:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7AIModelV0A11AIDelegatesE10contentsOf7optionsAC10Foundation3URLV_AD21SpecializationOptionsVtYaKcfC : $@convention(method) @async (@in URL, @in SpecializationOptions, @thin AIModel.Type) -> (@out AIModel, @error any Error)
+
+// modelNames(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI10modelNamesySaySSG13CoreAIRuntime7AIModelVF : $@convention(thin) (@in_guaranteed AIModel) -> @owned Array<String> {
+// %0 "model"                                     // users: %3, %1
+bb0(%0 : @noImplicitCopy $*AIModel):
+  debug_value [moveable_value_debuginfo] %0, let, name "model", argno 1, expr op_deref // id: %1
+  // function_ref AIModel.functionNames.getter
+  %2 = function_ref @$s13CoreAIRuntime7AIModelV13functionNamesSaySSGvg : $@convention(method) (@in_guaranteed AIModel) -> @owned Array<String> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed AIModel) -> @owned Array<String> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI10modelNamesySaySSG13CoreAIRuntime7AIModelVF'
+
+// AIModel.functionNames.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7AIModelV13functionNamesSaySSGvg : $@convention(method) (@in_guaranteed AIModel) -> @owned Array<String>
+
+// namesCount(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI10namesCountySiSaySSGF : $@convention(thin) (@guaranteed Array<String>) -> Int {
+// %0 "names"                                     // users: %3, %1
+bb0(%0 : @noImplicitCopy $Array<String>):
+  debug_value [moveable_value_debuginfo] %0, let, name "names", argno 1 // id: %1
+  // function_ref Array.count.getter
+  %2 = function_ref @$sSa5countSivg : $@convention(method) <τ_0_0> (@guaranteed Array<τ_0_0>) -> Int // user: %3
+  %3 = apply %2<String>(%0) : $@convention(method) <τ_0_0> (@guaranteed Array<τ_0_0>) -> Int // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI10namesCountySiSaySSGF'
+
+// Array.count.getter
+// Isolation: unspecified
+sil [_semantics "array.get_count"] @$sSa5countSivg : $@convention(method) <Element> (@guaranteed Array<Element>) -> Int
+
+// nameAt(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI6nameAtySSSaySSG_SitF : $@convention(thin) (@guaranteed Array<String>, Int) -> @owned String {
+// %0 "names"                                     // users: %6, %2
+// %1 "index"                                     // users: %6, %3
+bb0(%0 : @noImplicitCopy $Array<String>, %1 : $Int):
+  debug_value [moveable_value_debuginfo] %0, let, name "names", argno 1 // id: %2
+  debug_value %1, let, name "index", argno 2      // id: %3
+  %4 = alloc_stack $String                        // users: %7, %8, %6
+  // function_ref Array.subscript.getter
+  %5 = function_ref @$sSayxSicig : $@convention(method) <τ_0_0> (Int, @guaranteed Array<τ_0_0>) -> @out τ_0_0 // user: %6
+  %6 = apply %5<String>(%4, %1, %0) : $@convention(method) <τ_0_0> (Int, @guaranteed Array<τ_0_0>) -> @out τ_0_0
+  %7 = load %4                                    // user: %9
+  dealloc_stack %4                                // id: %8
+  return %7                                       // id: %9
+} // end sil function '$s11LoadGateABI6nameAtySSSaySSG_SitF'
+
+// Array.subscript.getter
+// Isolation: unspecified
+sil @$sSayxSicig : $@convention(method) <Element> (Int, @guaranteed Array<Element>) -> @out Element
+
+// nulTerminatedUTF8(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI17nulTerminatedUTF8ys15ContiguousArrayVys4Int8VGSSF : $@convention(thin) (@guaranteed String) -> @owned ContiguousArray<Int8> {
+// %0 "string"                                    // users: %3, %1
+bb0(%0 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %0, let, name "string", argno 1 // id: %1
+  // function_ref String.utf8CString.getter
+  %2 = function_ref @$sSS11utf8CStrings15ContiguousArrayVys4Int8VGvg : $@convention(method) (@guaranteed String) -> @owned ContiguousArray<Int8> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@guaranteed String) -> @owned ContiguousArray<Int8> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI17nulTerminatedUTF8ys15ContiguousArrayVys4Int8VGSSF'
+
+// String.utf8CString.getter
+// Isolation: unspecified
+sil [readonly] [_semantics "string.getUTF8CString"] @$sSS11utf8CStrings15ContiguousArrayVys4Int8VGvg : $@convention(method) (@guaranteed String) -> @owned ContiguousArray<Int8>
+
+// utf8Count(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI9utf8CountySis15ContiguousArrayVys4Int8VGF : $@convention(thin) (@guaranteed ContiguousArray<Int8>) -> Int {
+// %0 "bytes"                                     // users: %3, %1
+bb0(%0 : @noImplicitCopy $ContiguousArray<Int8>):
+  debug_value [moveable_value_debuginfo] %0, let, name "bytes", argno 1 // id: %1
+  // function_ref ContiguousArray.count.getter
+  %2 = function_ref @$ss15ContiguousArrayV5countSivg : $@convention(method) <τ_0_0> (@guaranteed ContiguousArray<τ_0_0>) -> Int // user: %3
+  %3 = apply %2<Int8>(%0) : $@convention(method) <τ_0_0> (@guaranteed ContiguousArray<τ_0_0>) -> Int // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI9utf8CountySis15ContiguousArrayVys4Int8VGF'
+
+// ContiguousArray.count.getter
+// Isolation: unspecified
+sil @$ss15ContiguousArrayV5countSivg : $@convention(method) <Element> (@guaranteed ContiguousArray<Element>) -> Int
+
+// utf8At(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI6utf8Atys4Int8Vs15ContiguousArrayVyADG_SitF : $@convention(thin) (@guaranteed ContiguousArray<Int8>, Int) -> Int8 {
+// %0 "bytes"                                     // users: %6, %2
+// %1 "index"                                     // users: %6, %3
+bb0(%0 : @noImplicitCopy $ContiguousArray<Int8>, %1 : $Int):
+  debug_value [moveable_value_debuginfo] %0, let, name "bytes", argno 1 // id: %2
+  debug_value %1, let, name "index", argno 2      // id: %3
+  %4 = alloc_stack $Int8                          // users: %7, %8, %6
+  // function_ref ContiguousArray.subscript.getter
+  %5 = function_ref @$ss15ContiguousArrayVyxSicig : $@convention(method) <τ_0_0> (Int, @guaranteed ContiguousArray<τ_0_0>) -> @out τ_0_0 // user: %6
+  %6 = apply %5<Int8>(%4, %1, %0) : $@convention(method) <τ_0_0> (Int, @guaranteed ContiguousArray<τ_0_0>) -> @out τ_0_0
+  %7 = load %4                                    // user: %9
+  dealloc_stack %4                                // id: %8
+  return %7                                       // id: %9
+} // end sil function '$s11LoadGateABI6utf8Atys4Int8Vs15ContiguousArrayVyADG_SitF'
+
+// ContiguousArray.subscript.getter
+// Isolation: unspecified
+sil @$ss15ContiguousArrayVyxSicig : $@convention(method) <Element> (Int, @guaranteed ContiguousArray<Element>) -> @out Element
+
+// consumeNames(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI12consumeNamesyySaySSGnF : $@convention(thin) (@owned Array<String>) -> () {
+// %0 "names"                                     // users: %2, %1
+bb0(%0 : $Array<String>):
+  debug_value %0, let, name "names", argno 1      // id: %1
+  release_value %0                                // id: %2
+  %3 = tuple ()                                   // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI12consumeNamesyySaySSGnF'
+
+// consumeCString(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI14consumeCStringyys15ContiguousArrayVys4Int8VGnF : $@convention(thin) (@owned ContiguousArray<Int8>) -> () {
+// %0 "bytes"                                     // users: %2, %1
+bb0(%0 : $ContiguousArray<Int8>):
+  debug_value %0, let, name "bytes", argno 1      // id: %1
+  release_value %0                                // id: %2
+  %3 = tuple ()                                   // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI14consumeCStringyys15ContiguousArrayVys4Int8VGnF'
+
+// consumeString(_:)
+// Isolation: unspecified
+sil [noinline] @$s11LoadGateABI13consumeStringyySSnF : $@convention(thin) (@owned String) -> () {
+// %0 "string"                                    // users: %2, %1
+bb0(%0 : $String):
+  debug_value %0, let, name "string", argno 1     // id: %1
+  release_value %0                                // id: %2
+  %3 = tuple ()                                   // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s11LoadGateABI13consumeStringyySSnF'
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'LoadGateABI/LoadReference.swift' => '/private/tmp/corsairs-suspend-gate/LoadReference.swift'
+
+

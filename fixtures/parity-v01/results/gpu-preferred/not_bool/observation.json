@@ -1,0 +1,54 @@
+{
+  "case": "not_bool",
+  "backend": "gpu-preferred",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU",
+    "Neural Engine",
+    "GPU"
+  ],
+  "preferred_compute_unit": "GPU",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "bool",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/gpu-preferred/not_bool/step0-y.bin",
+          "sha256": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "False",
+            "True",
+            "False",
+            "True",
+            "True",
+            "False"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

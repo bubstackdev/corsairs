@@ -1,0 +1,13 @@
+target triple = "arm64-apple-macosx27.0.0"
+declare swiftcc %swift.metadata_response @"$s13CoreAIRuntime7NDArrayV10ScalarTypeOMa"(i64) local_unnamed_addr #1
+declare swiftcc void @"$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC"(ptr noalias sret(%swift.opaque), ptr, ptr noalias) local_unnamed_addr #1
+declare swiftcc void @"$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF"(ptr noalias sret(%swift.opaque), i64, ptr, ptr noalias swiftself, ptr noalias swifterror captures(none) dereferenceable(8)) local_unnamed_addr #1
+declare swiftcc %swift.metadata_response @"$s15CoreAIDelegates21SpecializationOptionsVMa"(i64) local_unnamed_addr #1
+declare swiftcc void @"$s15CoreAIDelegates21SpecializationOptionsV7defaultACvgZ"(ptr noalias sret(%swift.opaque)) local_unnamed_addr #1
+declare swifttailcc void @"$s13CoreAIRuntime7AIModelV0A11AIDelegatesE10contentsOf7optionsAC10Foundation3URLV_AD21SpecializationOptionsVtYaKcfC"(ptr noalias, ptr swiftasync, ptr noalias, ptr noalias) local_unnamed_addr #1
+declare swiftcc %swift.metadata_response @"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVMa"(i64) local_unnamed_addr #1
+declare swiftcc %swift.metadata_response @"$s13CoreAIRuntime17InferenceFunctionV7OutputsVMa"(i64) local_unnamed_addr #1
+declare swiftcc %swift.metadata_response @"$s13CoreAIRuntime7NDArrayVMa"(i64) local_unnamed_addr #1
+declare swiftcc void @"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC"(ptr noalias sret(%swift.opaque)) local_unnamed_addr #1
+declare swifttailcc void @"$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKF"(ptr noalias, ptr swiftasync, ptr, ptr noalias, ptr noalias, ptr noalias swiftself) local_unnamed_addr #1
+declare swiftcc i64 @"$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg"(ptr noalias swiftself) local_unnamed_addr #1

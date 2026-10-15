@@ -1,0 +1,40 @@
+{
+  "reference": {
+    "is_float32": true,
+    "shape": [
+      2,
+      2
+    ]
+  },
+  "results": {
+    "rust-debug-tensor": {
+      "evidence_id": "ev_f5dbcdbab7c472551b4182741b222859f420cf71ff15a04fdbbe4203eb465321",
+      "result": {
+        "cycles": 1000,
+        "shape": [
+          2,
+          2
+        ],
+        "scalar_tag": 29,
+        "initialized": 1000,
+        "destroyed": 1000
+      },
+      "binary_sha256": "29d51a96f2fba5109732652ddbb100ef8dab15791197eb9102a905ead90addac"
+    },
+    "rust-release-tensor": {
+      "evidence_id": "ev_d2aead3b121bd2cba4414780313ac4d1d2951d49d261cc70bf5ed1b85f26b95c",
+      "result": {
+        "cycles": 1000,
+        "shape": [
+          2,
+          2
+        ],
+        "scalar_tag": 29,
+        "initialized": 1000,
+        "destroyed": 1000
+      },
+      "binary_sha256": "500bb81a8b03385e57070280b2a5e64a329883339271efcb0c7748f8078fb50e"
+    }
+  },
+  "status": "matched shape/dtype and completed destruction loops; contents not tested"
+}

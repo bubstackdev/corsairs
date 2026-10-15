@@ -1,0 +1,146 @@
+{
+  "evidence_id": "ev_aa8895eb0b6e944028605d0460fc540a6f8ac0506f9c7dc73e8c053d5b3a4550",
+  "subject": {
+    "name": "python3.12",
+    "digest": {
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "Py_BytesMain"
+      }
+    ],
+    "arguments": [
+      "-I",
+      "-B",
+      "/private/tmp/corsairs-double-fixture-d3DDzd/run_python_reference.py"
+    ],
+    "environment": {},
+    "working_directory": "/private/tmp/corsairs-double-fixture-d3DDzd",
+    "duration_ms": 20000,
+    "max_events": 4,
+    "argument_registers": 2,
+    "backtrace_frames": 1
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "architecture": "arm64",
+      "arguments": [
+        "-I",
+        "-B",
+        "/private/tmp/corsairs-double-fixture-d3DDzd/run_python_reference.py"
+      ],
+      "environment": {},
+      "working_directory": "/private/tmp/corsairs-double-fixture-d3DDzd",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "412775",
+        "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 39165,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 1871.769,
+      "stdout": {
+        "text": "OS-backed extension: True\nFunctions: ['main']\nDescriptor: main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []\n{\n  \"model_functions\": [\n    \"main\"\n  ],\n  \"os_backed\": true,\n  \"specialization\": \"cpu_only\",\n  \"input_shape\": [\n    2,\n    3\n  ],\n  \"input_dtype\": \"float32\",\n  \"output_shape\": [\n    2,\n    3\n  ],\n  \"output_dtype\": \"float32\",\n  \"output_strides\": [\n    3,\n    1\n  ],\n  \"values\": [\n    [\n      2.0,\n      -4.0,\n      0.0\n    ],\n    [\n      1.0,\n      200.0,\n      -0.5\n    ]\n  ],\n  \"actual_sha256\": \"7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df\",\n  \"expected_sha256\": \"7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df\",\n  \"exact_bytes_match\": true\n}\n",
+        "bytes": 692,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "Py_BytesMain",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x1002fbf70",
+            "file_address": "0x1002fbf70",
+            "module": "python3.12",
+            "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+            "symbol": "Py_BytesMain"
+          }
+        ]
+      }
+    ],
+    "events": [],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+    }
+  ],
+  "evidence_links": []
+}

@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "fixture_count": 16,
+  "cases": [
+    {
+      "case": "double_float16",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "double_float32",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "double_int32",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "double_int64",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "not_bool",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "matmul",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "reduce_sum",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "gather",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "reshape",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "feedforward",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "named_add",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "float_edges",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "int64_edges",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "scalar",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "empty",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    },
+    {
+      "case": "accumulator",
+      "asset_valid": true,
+      "source_reload_has_main": true,
+      "summary": "AIModelAssetSummary:\n  _compatibility_version: 27.0\n  functions: [\"main\"]",
+      "apple_bytecode_digest_match": true
+    }
+  ]
+}

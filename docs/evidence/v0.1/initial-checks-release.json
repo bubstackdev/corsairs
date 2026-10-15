@@ -1,0 +1,468 @@
+{
+  "started_at": "2026-10-15T16:00:49.846332+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "native_requested": true,
+  "public_api_only": true,
+  "driver_forbids_unsafe": true,
+  "profiles": [
+    "release"
+  ],
+  "stress": {
+    "stateless_and_stateful_each": 10000,
+    "load_drop": 100,
+    "dropped_each_kind": 100,
+    "per_backend_per_profile": true
+  },
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v01-check/driver-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01",
+        "parity"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.5673912500060396,
+      "stdout": "{\"event\":\"parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_asset\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_function\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_input\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"unknown_input\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"wrong_shape\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"wrong_dtype\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_state\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"wrong_state_shape\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_asset\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_function\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_input\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"unknown_input\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"wrong_shape\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"wrong_dtype\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"missing_state\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"negative\",\"name\":\"wrong_state_shape\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"complete\",\"mode\":\"parity\",\"failed\":0,\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "gather",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "empty",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_asset",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_function",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_input",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "unknown_input",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "wrong_shape",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "wrong_dtype",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_state",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "wrong_state_shape",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_asset",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_function",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_input",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "unknown_input",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "wrong_shape",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "wrong_dtype",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "missing_state",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "negative",
+          "name": "wrong_state_shape",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "complete",
+          "mode": "parity",
+          "failed": 0,
+          "passed": true
+        }
+      ],
+      "native_complete": true
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v01-check/driver-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01",
+        "stress",
+        "10000",
+        "100",
+        "100"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 70.87704266700166,
+      "stdout": "{\"event\":\"stress\",\"name\":\"lifecycle\",\"backend\":\"cpu\",\"passed\":true,\"error\":null}\n{\"event\":\"stress\",\"name\":\"lifecycle\",\"backend\":\"gpu-preferred\",\"passed\":true,\"error\":null}\n{\"event\":\"stress_counts\",\"stateless_per_backend\":10000,\"stateful_per_backend\":10000,\"load_drop_per_backend\":100,\"abandoned_each_kind_per_backend\":100}\n{\"event\":\"complete\",\"mode\":\"stress\",\"failed\":0,\"passed\":true}\n",
+      "stderr": "Context leak detected, CoreAnalytics returned false\nContext leak detected, CoreAnalytics returned false\nContext leak detected, CoreAnalytics returned false\nContext leak detected, CoreAnalytics returned false\n",
+      "events": [
+        {
+          "event": "stress",
+          "name": "lifecycle",
+          "backend": "cpu",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "stress",
+          "name": "lifecycle",
+          "backend": "gpu-preferred",
+          "passed": true,
+          "error": null
+        },
+        {
+          "event": "stress_counts",
+          "stateless_per_backend": 10000,
+          "stateful_per_backend": 10000,
+          "load_drop_per_backend": 100,
+          "abandoned_each_kind_per_backend": 100
+        },
+        {
+          "event": "complete",
+          "mode": "stress",
+          "failed": 0,
+          "passed": true
+        }
+      ],
+      "native_complete": true
+    }
+  ],
+  "passed": true,
+  "fixtures": {
+    "cases": 32,
+    "negative_cases": 16,
+    "golden_tensors": 42,
+    "generated_sha256": "3e6d622734b35a8a33af7f03eb12fc8b6a3364869f050742ae1fc6428d48929b",
+    "suite_sha256": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+    "goldens_sha256": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+  },
+  "source_hashes": {
+    "Cargo.lock": "f85607a45ae16f1cba754949775de971369d69fef6e704b0f244c8e89817f443",
+    "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+    "crates/corsairs-abi/Cargo.toml": "fc1462215c2f204daf9c88e87b2f68467de4ec4879098cb1fbdd79e90dc3f35e",
+    "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "crates/corsairs-abi/src/bin/corsairs.rs": "f17e16dda5f5538520bbd882aa6035a1f1d665cc9a4b37ea5d793951f0f14b83",
+    "crates/corsairs-abi/src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+    "crates/corsairs-abi/src/facade.rs": "89f2241128fff9e78b99d2a4c171e98cc31f1b876f55c03dff091a5dae6404ca",
+    "crates/corsairs-abi/src/lib.rs": "f5bb52861a129eaccd1148cbca365f9104af2d933e0a29eff9f797fee8123815",
+    "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "crates/corsairs-abi/src/native/async_task.rs": "1c46d8392654afcf8a47b303f85d9530bdfee44b0c59367951477c4895980eb3",
+    "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "crates/corsairs-abi/src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "crates/corsairs-abi/src/native/mod.rs": "37e748db47a5fc9d1cbfa4f52fe6f4aa1d847f8147f1c2a255e40a9b10b1ba27",
+    "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "crates/corsairs-abi/src/native/owned.rs": "dd40b26ca8318cf2c4224467b8aa32227a92c24b95d8f4face2bee2fb68b146e",
+    "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "crates/corsairs-abi/src/native/value.rs": "f9fae0bf23c2b0b007069c0a0490955aa2ef243e22418d6e66996521d0c9f6ad",
+    "crates/corsairs-abi/src/worker.rs": "4ea071c49640f57eae0627d94b390aff866c028e02eb73bfa24002da212b08aa",
+    "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+    "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+    "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+    "experiments/rust/v01_driver.rs": "1835da696b9f27fba3952482b6afc5969399e41e626b6ba7690cadf0e796954f",
+    "scripts/check_v01.py": "e01f4a79cf9c5c7773d85e8fd03f64cc2c47078af66a38b13c660b4096c6534d",
+    "target/v01-check/cases.rs": "3e6d622734b35a8a33af7f03eb12fc8b6a3364869f050742ae1fc6428d48929b"
+  },
+  "source_identity_sha256": "4f48935393cfc10ce1867fee030de42a4403ebc917c5003c64ad8dd6cefd4585",
+  "compiler": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)",
+  "build_manifest_sha256": "6e48b5a61093756ad56fa1a26f0f5e855d32168c4e3322b0c2a12cdf4e45a550",
+  "driver_sha256": {
+    "release": "ee7fa0bf2a9e92c01e40341fed9ba314aaa3702f257dea8f517b3d8495bf48ea"
+  },
+  "native_validated": true
+}

@@ -1,0 +1,73 @@
+{
+  "model": "/private/tmp/corsairs-double-fixture-d3DDzd/double_f32_2x3.aimodel",
+  "function": "main",
+  "input_name": "x",
+  "output_name": "y",
+  "shape": [
+    2,
+    3
+  ],
+  "dtype": "float32",
+  "inputs": [
+    1.0,
+    -2.0,
+    0.0,
+    0.5,
+    100.0,
+    -0.25
+  ],
+  "expected_outputs": [
+    2.0,
+    -4.0,
+    0.0,
+    1.0,
+    200.0,
+    -0.5
+  ],
+  "expected_basis": "Exact binary32 arithmetic for x + x; no rounding for these values",
+  "python_reference_execution": "Shell attempted: CPU-only load failed CoreAIDelegates.AIModelCacheError error 0; native launch pending",
+  "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+  "python_executable": "/Users/zakkeown/.local/bin/python3.12",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "packages": {
+    "coreai-core": "1.0.0b2",
+    "numpy": "2.3.5",
+    "ml-dtypes": "0.6.0",
+    "typing-extensions": "4.16.0",
+    "pillow": "12.3.0",
+    "yuvio": "1.6",
+    "psutil": "7.2.2"
+  },
+  "package_roots": [
+    "/Users/zakkeown/.cache/uv/archive-v0/LBs_td0hqU20OP4_",
+    "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+    "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+    "/Users/zakkeown/.cache/uv/archive-v0/qIlLwKwPLBB3seBO",
+    "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+    "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+    "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+  ],
+  "sha256": {
+    "build_fixture.py": "83245b603871269ecc3adff4898b19d668aa3e913525fa9a5077b85c352956e6",
+    "double_f32_2x3.aimodel/main.hash": "6932d3cd347e1a8b24a858e8fda760075364ce48e225ecd0d4d028b5f9f39d22",
+    "double_f32_2x3.aimodel/main.mlirb": "97996248c9b6a5b7ca3d347154d495d8a44f62a6f773803b7b9e97028ff16d43",
+    "double_f32_2x3.aimodel/metadata.json": "66aebf5881626e78fdfaf7cef6b266f5f8c6b21cf493fe8ec4d95c9c11009948",
+    "double_f32_2x3.mlir": "10217a22d93eedd03875802a96851577cf2c92980ab7e6af21912475f3e21c42",
+    "expected.f32le": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "input.f32le": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738",
+    "run_python_reference.py": "2427b26bbadf1e8b349f67bc36d6f3f9cfa6a55646889661852d56e0892e6211"
+  },
+  "limits": [
+    "Prepared with cached coreai-core 1.0.0b2, not published parity baseline 1.0.0b3",
+    "Original wheel archive hash unavailable; exact cached native library and asset hashes retained",
+    "Asset metadata embeds creation time, so repeated builds need not have identical bytes"
+  ],
+  "cached_artifact_sha256": {
+    "coreai_core-1.0.0b2.dist-info/METADATA": "aee81cecb2e17eeb521fd4e3b6a5c6787dba672471d1f46b32163b8066df1c12",
+    "coreai_core-1.0.0b2.dist-info/RECORD": "48b950b2f582f61ddde2accf5a5e7589a0a95ba38291f7c544e294d265d2311c",
+    "coreai/runtime/_coreai_runtime_os.cpython-312-darwin.so": "da909ef79101acdbf53702abfdd52aad1b9b3bef38131666584653568fc5ed95",
+    "coreai/runtime/_coreai_runtime.cpython-312-darwin.so": "5348e83702946104cf3d7fb9febdb4d50c589c853a922f72dc1a81e2366dc154",
+    "coreai/_compiler/_mlir_libs/_mlir.cpython-312-darwin.so": "a7b27b061f1c24e9a04f2517352165fcbce8b5d8b7014a2a0309430c8ac7a35c"
+  },
+  "os_build": "26A434"
+}

@@ -1,0 +1,52 @@
+{
+  "case": "reshape",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            3,
+            2
+          ],
+          "strides": [
+            2,
+            1
+          ],
+          "file": "results/cpu/reshape/step0-y.bin",
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "1.0",
+            "-2.0",
+            "3.0",
+            "0.0",
+            "5.0",
+            "-1.0"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/.local/bin/python3.12",
+        "-I",
+        "-B",
+        "scripts/check_malformed.py",
+        "--native"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"passed\": true, \"native_requested\": true, \"report\": \"/Users/zakkeown/Code/aether/lab/corsairs/target/malformed-assets/checks.json\"}\n",
+      "stderr": "",
+      "executable_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/corsairs-6f9c12d84023a194",
+        "--ignored",
+        "--exact",
+        "facade::tests::native_dropped_futures_release_model_and_function_handles",
+        "--nocapture"
+      ],
+      "exit_status": 0,
+      "stdout": "\nrunning 1 test\ntest facade::tests::native_dropped_futures_release_model_and_function_handles ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.19s\n\n",
+      "stderr": "",
+      "executable_sha256": "3cacd4987e562d3e9aead204fc38460a134f4844eb5e7ce6272c7312380cc572"
+    }
+  ],
+  "passed": true
+}

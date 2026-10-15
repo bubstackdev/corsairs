@@ -1,0 +1,405 @@
+{
+  "evidence_id": "ev_b6cde794c152d218bbaebd819970d5f9a5500c918e537a20a8b24dd1956c7d67",
+  "subject": {
+    "name": "corsairs-lab",
+    "digest": {
+      "sha256": "712ee5735c87f5ec133309ba70cb2da6fc338e9d5d3e1320adf0090ea67c1386"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "corsairs_async_prepare"
+      },
+      {
+        "kind": "function",
+        "name": "corsairs_async_returned"
+      },
+      {
+        "kind": "function",
+        "name": "corsairs_async_signal"
+      }
+    ],
+    "arguments": [
+      "infer",
+      "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel"
+    ],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 15000,
+    "max_events": 16,
+    "argument_registers": 3,
+    "backtrace_frames": 1
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+      "sha256": "712ee5735c87f5ec133309ba70cb2da6fc338e9d5d3e1320adf0090ea67c1386",
+      "architecture": "arm64",
+      "arguments": [
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "77462958",
+        "selected_file_sha256": "712ee5735c87f5ec133309ba70cb2da6fc338e9d5d3e1320adf0090ea67c1386",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "module_uuid": "83382C25-14D7-3268-A65D-C3CCA91F5C44",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 40706,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 1173.209,
+      "stdout": {
+        "text": "{\"cycles\":1,\"completed\":1,\"output_shape\":[2, 3],\"output_strides\":[3, 1],\"is_float32\":true,\"output_bits\":[1073741824, 3229614080, 0, 1065353216, 1128792064, 3204448256],\"exact_bytes_match\":true,\"output_count\":1,\"remaining_outputs\":0}\n",
+        "bytes": 233,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "corsairs_async_prepare",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x100011c44",
+            "file_address": "0x100011c44",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_prepare"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "request": {
+          "kind": "function",
+          "name": "corsairs_async_returned",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x100011ff0",
+            "file_address": "0x100011ff0",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_returned"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "request": {
+          "kind": "function",
+          "name": "corsairs_async_signal",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x100012350",
+            "file_address": "0x100012350",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_signal"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "sequence": 0,
+        "elapsed_ms": 1072.513,
+        "thread_id": 64424509441,
+        "breakpoint_index": 0,
+        "load_address": "0x100011c44",
+        "file_address": "0x100011c44",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "symbol": "corsairs_async_prepare",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x100690940"
+          },
+          {
+            "name": "x1",
+            "value": "0x100690928"
+          },
+          {
+            "name": "x2",
+            "value": "0x100011954"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100011968",
+            "file_address": "0x100011968",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_entry"
+          }
+        ]
+      },
+      {
+        "sequence": 1,
+        "elapsed_ms": 1084.426,
+        "thread_id": 64424509441,
+        "breakpoint_index": 1,
+        "load_address": "0x100011ff0",
+        "file_address": "0x100011ff0",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "symbol": "corsairs_async_returned",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x100690940"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          },
+          {
+            "name": "x2",
+            "value": "0x2ed94d5f8"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x1000119ac",
+            "file_address": "0x1000119ac",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_resume"
+          }
+        ]
+      },
+      {
+        "sequence": 2,
+        "elapsed_ms": 1088.521,
+        "thread_id": 604463,
+        "breakpoint_index": 2,
+        "load_address": "0x100012350",
+        "file_address": "0x100012350",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "symbol": "corsairs_async_signal",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x7c450081f0"
+          },
+          {
+            "name": "x1",
+            "value": "0x200000003"
+          },
+          {
+            "name": "x2",
+            "value": "0x10000000015"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x2c8467c50",
+            "file_address": "0x2ad17fc50",
+            "module": "libswift_Concurrency.dylib",
+            "module_path": "/usr/lib/swift/libswift_Concurrency.dylib",
+            "symbol": "swift::runJobInEstablishedExecutorContext(swift::Job*, swift::SerialExecutorRef, swift::TaskExecutorRef)"
+          }
+        ]
+      },
+      {
+        "sequence": 3,
+        "elapsed_ms": 1095.683,
+        "thread_id": 64424509442,
+        "breakpoint_index": 0,
+        "load_address": "0x100011c44",
+        "file_address": "0x100011c44",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "symbol": "corsairs_async_prepare",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x7c450840f0"
+          },
+          {
+            "name": "x1",
+            "value": "0x7c450840d8"
+          },
+          {
+            "name": "x2",
+            "value": "0x100011954"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100011968",
+            "file_address": "0x100011968",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_entry"
+          }
+        ]
+      },
+      {
+        "sequence": 4,
+        "elapsed_ms": 1100.363,
+        "thread_id": 64424509442,
+        "breakpoint_index": 1,
+        "load_address": "0x100011ff0",
+        "file_address": "0x100011ff0",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "symbol": "corsairs_async_returned",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x7c450840f0"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          },
+          {
+            "name": "x2",
+            "value": "0x200000003"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x1000119ac",
+            "file_address": "0x1000119ac",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_async_resume"
+          }
+        ]
+      },
+      {
+        "sequence": 5,
+        "elapsed_ms": 1104.326,
+        "thread_id": 604463,
+        "breakpoint_index": 2,
+        "load_address": "0x100012350",
+        "file_address": "0x100012350",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "symbol": "corsairs_async_signal",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x7c450081f0"
+          },
+          {
+            "name": "x1",
+            "value": "0x200000003"
+          },
+          {
+            "name": "x2",
+            "value": "0x10000000015"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x2c8467c50",
+            "file_address": "0x2ad17fc50",
+            "module": "libswift_Concurrency.dylib",
+            "module_path": "/usr/lib/swift/libswift_Concurrency.dylib",
+            "symbol": "swift::runJobInEstablishedExecutorContext(swift::Job*, swift::SerialExecutorRef, swift::TaskExecutorRef)"
+          }
+        ]
+      }
+    ],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab"
+    }
+  ],
+  "evidence_links": []
+}

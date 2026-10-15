@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "--crate-type=lib",
+        "--emit=llvm-ir",
+        "-O",
+        "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/abi/rust-lowering.rs",
+        "-o",
+        "/private/tmp/corsairs-retained-probes-dhdmglj0/rust.ll"
+      ],
+      "environment_overrides": {
+        "RUSTC_BOOTSTRAP": "1"
+      },
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-parse-as-library",
+        "-emit-ir",
+        "-O",
+        "-module-cache-path",
+        "/private/tmp/corsairs-retained-probes-dhdmglj0/module-cache",
+        "/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/abi/SwiftAggregateReference.swift",
+        "-o",
+        "/private/tmp/corsairs-retained-probes-dhdmglj0/swift.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "rust_declarations": [
+    "declare swiftcc void @aggregate3(ptr dead_on_unwind noalias nofree noundef writable sret([24 x i8]) align 8 captures(address) dereferenceable(24), ptr noalias nofree noundef align 8 captures(address) dead_on_return dereferenceable(24)) unnamed_addr #0",
+    "declare swiftcc noundef i64 @instance(i64 noundef, ptr noundef) unnamed_addr #0"
+  ],
+  "swift_definitions": [
+    "define swiftcc i64 @\"$s5swift6TripleV1as6UInt64Vvg\"(i64 returned %0, i64 %1, i64 %2) #0 {",
+    "define swiftcc void @\"$s5swift6TripleV1as6UInt64Vvs\"(i64 %0, ptr swiftself writeonly captures(none) dereferenceable(24) initializes((0, 8)) %1) #1 {",
+    "define swiftcc { ptr, ptr } @\"$s5swift6TripleV1as6UInt64VvM\"(ptr noalias dereferenceable(32) %0, ptr swiftself captures(none) dereferenceable(24) %1) #2 {",
+    "define swiftcc i64 @\"$s5swift6TripleV1bs6UInt64Vvg\"(i64 %0, i64 returned %1, i64 %2) #0 {",
+    "define swiftcc void @\"$s5swift6TripleV1bs6UInt64Vvs\"(i64 %0, ptr swiftself writeonly captures(none) dereferenceable(24) initializes((8, 16)) %1) #1 {",
+    "define swiftcc { ptr, ptr } @\"$s5swift6TripleV1bs6UInt64VvM\"(ptr noalias dereferenceable(32) %0, ptr swiftself captures(none) dereferenceable(24) %1) #2 {",
+    "define swiftcc i64 @\"$s5swift6TripleV1cs6UInt64Vvg\"(i64 %0, i64 %1, i64 returned %2) #0 {",
+    "define swiftcc void @\"$s5swift6TripleV1cs6UInt64Vvs\"(i64 %0, ptr swiftself writeonly captures(none) dereferenceable(24) initializes((16, 24)) %1) #1 {",
+    "define swiftcc { ptr, ptr } @\"$s5swift6TripleV1cs6UInt64VvM\"(ptr noalias dereferenceable(32) %0, ptr swiftself captures(none) dereferenceable(24) %1) #2 {",
+    "define swiftcc { i64, i64, i64 } @\"$s5swift10aggregate3yAA6TripleVADF\"(i64 %0, i64 %1, i64 %2) #0 {",
+    "define swiftcc %swift.metadata_response @\"$s5swift6TripleVMa\"(i64 %0) #7 {"
+  ]
+}

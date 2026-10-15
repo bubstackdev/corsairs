@@ -1,0 +1,2 @@
+xcrun swiftc -parse-as-library -O -module-name CoreAIReference -module-cache-path /private/tmp/corsairs-sdk-preflight-5pghj387/module-cache -emit-ir /private/tmp/corsairs-sdk-preflight-5pghj387/CoreAIReference.swift -o /private/tmp/corsairs-sdk-preflight-5pghj387/CoreAIReference.ll
+xcrun swiftc -parse-as-library -O -module-name CoreAIReference -module-cache-path /private/tmp/corsairs-sdk-preflight-5pghj387/module-cache -emit-library /private/tmp/corsairs-sdk-preflight-5pghj387/CoreAIReference.swift -o /private/tmp/corsairs-sdk-preflight-5pghj387/libCoreAIReference.dylib

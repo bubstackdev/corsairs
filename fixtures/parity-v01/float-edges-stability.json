@@ -1,0 +1,22 @@
+{
+  "same_backend_bytes": true,
+  "case": "float_edges",
+  "backend": "gpu-preferred",
+  "initial_report": "python-results.initial.json",
+  "initial_report_sha256": "1f91f23373fd141392a3f1b38cf0f9fdd6b94c29d01ce083e987cfd84522758b",
+  "repeat_report": "python-results-float_edges-gpu-preferred.json",
+  "repeat_report_sha256": "82a15743c1ff7d3362eed6a17fd4fba41a7ccdb876d1eadc895127a0e6d64488",
+  "frozen_file": "goldens/gpu-preferred/float_edges/step0-outputs-y.bin",
+  "repeat_file": "results/gpu-preferred/float_edges/step0-y.bin",
+  "output_sha256": "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7",
+  "output_f32_bits": [
+    "00000000",
+    "80000000",
+    "7f800000",
+    "ff800000",
+    "7fc00000",
+    "00000000"
+  ],
+  "reference_to_math": "mismatch retained: subnormal flush; NaN payload canonicalization also observed",
+  "scope": "One independent repeated Python invocation on the recorded host; no portability or universal determinism claim"
+}

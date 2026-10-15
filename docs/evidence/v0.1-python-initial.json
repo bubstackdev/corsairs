@@ -1,0 +1,150 @@
+{
+  "evidence_id": "ev_37762236aa3554426798b9074114b0a8b67a8ad653a39c33a5536b67db5d929f",
+  "subject": {
+    "name": "python3.12",
+    "digest": {
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "Py_BytesMain"
+      }
+    ],
+    "arguments": [
+      "-I",
+      "-B",
+      "/Users/zakkeown/Code/aether/lab/corsairs/scripts/reference/run_suite.py",
+      "--timeout",
+      "15"
+    ],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 55000,
+    "max_events": 4,
+    "argument_registers": 1,
+    "backtrace_frames": 1
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "architecture": "arm64",
+      "arguments": [
+        "-I",
+        "-B",
+        "/Users/zakkeown/Code/aether/lab/corsairs/scripts/reference/run_suite.py",
+        "--timeout",
+        "15"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "412775",
+        "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 42146,
+      "outcome": "exited",
+      "exit_status": 1,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 11285.327,
+      "stdout": {
+        "text": "cpu double_float16 valid: passed\ncpu double_float32 valid: passed\ncpu double_int32 valid: passed\ncpu double_int64 valid: passed\ncpu not_bool valid: passed\ncpu matmul valid: passed\ncpu reduce_sum valid: passed\ncpu gather valid: passed\ncpu reshape valid: passed\ncpu feedforward valid: passed\ncpu named_add valid: passed\ncpu float_edges valid: passed\ncpu int64_edges valid: passed\ncpu scalar valid: passed\ncpu empty valid: passed\ncpu accumulator valid: passed\ngpu-preferred double_float16 valid: passed\ngpu-preferred double_float32 valid: passed\ngpu-preferred double_int32 valid: passed\ngpu-preferred double_int64 valid: passed\ngpu-preferred not_bool valid: passed\ngpu-preferred matmul valid: passed\ngpu-preferred reduce_sum valid: passed\ngpu-preferred gather valid: passed\ngpu-preferred reshape valid: passed\ngpu-preferred feedforward valid: passed\ngpu-preferred named_add valid: passed\ngpu-preferred float_edges valid: mismatch\ngpu-preferred int64_edges valid: passed\ngpu-preferred scalar valid: passed\ngpu-preferred empty valid: passed\ngpu-preferred accumulator valid: passed\ncpu double_float32 missing_asset: expected_error\ncpu double_float32 missing_function: expected_error\ncpu double_float32 missing_input: expected_error\ncpu double_float32 unknown_input: expected_error\ncpu double_float32 wrong_shape: expected_error\ncpu double_float32 wrong_dtype: expected_error\ncpu accumulator missing_state: expected_error\ncpu accumulator wrong_state_shape: expected_error\ngpu-preferred double_float32 missing_asset: expected_error\ngpu-preferred double_float32 missing_function: expected_error\ngpu-preferred double_float32 missing_input: expected_error\ngpu-preferred double_float32 unknown_input: expected_error\ngpu-preferred double_float32 wrong_shape: expected_error\ngpu-preferred double_float32 wrong_dtype: expected_error\ngpu-preferred accumulator missing_state: expected_error\ngpu-preferred accumulator wrong_state_shape: expected_error\n{\"complete\": true, \"invocations\": 48, \"passed\": false}\n",
+        "bytes": 1989,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "Py_BytesMain",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x1002fbf70",
+            "file_address": "0x1002fbf70",
+            "module": "python3.12",
+            "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+            "symbol": "Py_BytesMain"
+          }
+        ]
+      }
+    ],
+    "events": [],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+    }
+  ],
+  "evidence_links": []
+}

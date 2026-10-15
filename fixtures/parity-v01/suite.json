@@ -1,0 +1,938 @@
+{
+  "schema": 1,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/qIlLwKwPLBB3seBO",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "cases": [
+    {
+      "name": "double_float16",
+      "category": "arithmetic",
+      "model": "double_float16/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "double_float16/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "0c61642b50fd5472d32a0075d74484fe5436538924d4bb05fb968b52104ca5b4"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "double_float16/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "double_float32",
+      "category": "arithmetic",
+      "model": "double_float32/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "double_float32/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "double_float32/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "double_int32",
+      "category": "arithmetic",
+      "model": "double_int32/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "double_int32/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "3a00edf03807a20d8c3a90b8ab21226892ba42b74e94a05a510da32bae2da4cb"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "double_int32/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "double_int64",
+      "category": "arithmetic",
+      "model": "double_int64/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "double_int64/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "edadf20164b7daef0e81829b64be94ad36fe73bd188e5b6d2f0e90deec35aa8e"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "double_int64/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "not_bool",
+      "category": "arithmetic",
+      "model": "not_bool/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "not_bool/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "bool",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "4be4656d02d7d66839900d55b06fd34b9b09c3c0c2c39466ff29ebc0bb85b300"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "not_bool/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "bool",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "matmul",
+      "category": "matmul",
+      "model": "matmul/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "matmul/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "matmul/expected-y.bin",
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "float32",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "reduce_sum",
+      "category": "reduction",
+      "model": "reduce_sum/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "reduce_sum/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "reduce_sum/expected-y.bin",
+          "shape": [
+            2,
+            1
+          ],
+          "dtype": "float32",
+          "strides": [
+            1,
+            1
+          ],
+          "sha256": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "gather",
+      "category": "indexing",
+      "model": "gather/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "gather/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "gather/expected-y.bin",
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "float32",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "reshape",
+      "category": "shape",
+      "model": "reshape/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "reshape/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "reshape/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "float32",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "feedforward",
+      "category": "feedforward",
+      "model": "feedforward/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "feedforward/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "feedforward/expected-y.bin",
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "float32",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "named_add",
+      "category": "named-inputs",
+      "model": "named_add/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "named_add/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+        },
+        "addend": {
+          "file": "named_add/addend.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "b9313fd89d3ef25017a9fec61b2941f0b300d7f4320181bf5ed6abdbd2aec1b0"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "named_add/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float_edges",
+      "category": "edge-values",
+      "model": "float_edges/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float_edges/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "5eedc578bed285b5c299476c11187ff095decc8c02232d0536aafecea09c09a6"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float_edges/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8"
+        }
+      },
+      "comparison": "ieee-special",
+      "notes": [
+        "NaN payload equality is not required; NaN class, infinities, signed zero and finite results are checked separately."
+      ],
+      "state": {}
+    },
+    {
+      "name": "int64_edges",
+      "category": "edge-values",
+      "model": "int64_edges/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int64_edges/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "06481632b32dd1d0ea18a31804430a61a2083771aee6e1f219b82e87322567ad"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int64_edges/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "scalar",
+      "category": "boundary-shape",
+      "model": "scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "scalar/x.bin",
+          "shape": [],
+          "dtype": "float32",
+          "strides": [],
+          "sha256": "e21712a06022eecab9f5bd25414b4af9adeb316bb03947134cea060c78afd2d9"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "float32",
+          "strides": [],
+          "sha256": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "empty",
+      "category": "boundary-shape",
+      "model": "empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Boundary probe: reference rejection is retained as an unsupported shape outcome, not success."
+      ],
+      "state": {}
+    },
+    {
+      "name": "accumulator",
+      "category": "named-state",
+      "model": "accumulator/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "accumulator/step0-x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "accumulator/step0-expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+        }
+      },
+      "comparison": "exact",
+      "state": {
+        "accumulator": {
+          "file": "accumulator/initial-state.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0"
+        }
+      },
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "accumulator/step0-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "accumulator/step0-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "accumulator/step0-expected-state.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "accumulator/step1-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f3e5da6ea1f0f7e1d62f0cc41df540d185f74ad92135f4cb7c270a1cb4a50243"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "accumulator/step1-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "accumulator/step1-expected-state.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "accumulator/step2-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "e2c0a71510b5394df7773b63fb5f54372b84c3564e67811bde7d665be227976d"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "accumulator/step2-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "accumulator/step2-expected-state.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "float32",
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf"
+            }
+          }
+        }
+      ],
+      "notes": [
+        "State fixture uses b3 private raw GraphOp/read_handle/write_handle/create_token authoring; runtime invocation uses published API."
+      ]
+    }
+  ],
+  "sha256": {
+    "accumulator/graph.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+    "accumulator/initial-state.bin": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+    "accumulator/model.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+    "accumulator/model.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+    "accumulator/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "accumulator/step0-expected-state.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "accumulator/step0-expected-y.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "accumulator/step0-x.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "accumulator/step1-expected-state.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "accumulator/step1-expected-y.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "accumulator/step1-x.bin": "f3e5da6ea1f0f7e1d62f0cc41df540d185f74ad92135f4cb7c270a1cb4a50243",
+    "accumulator/step2-expected-state.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "accumulator/step2-expected-y.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "accumulator/step2-x.bin": "e2c0a71510b5394df7773b63fb5f54372b84c3564e67811bde7d665be227976d",
+    "double_float16/expected-y.bin": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+    "double_float16/graph.mlir": "55f45d8c2347551bf04c8a87a7fec5762f214c905cf2245c4e0402e8238b11ba",
+    "double_float16/model.aimodel/main.hash": "0f230ae06062db57f3abe50aadccb30b4e72d88db6637f9f15dc1d32eb2ed3c2",
+    "double_float16/model.aimodel/main.mlirb": "eedc980e1661ba4441c1487ddcdf89b2e9c061967587f7d26f816225f290bfb6",
+    "double_float16/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "double_float16/x.bin": "0c61642b50fd5472d32a0075d74484fe5436538924d4bb05fb968b52104ca5b4",
+    "double_float32/expected-y.bin": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "double_float32/graph.mlir": "cfa2e456e858b04b95e15fdfa508f6b56dd1eeb48bfda0c47f76b99f8d8db31b",
+    "double_float32/model.aimodel/main.hash": "d551e44b426135026146160f0c5e6b4cf5d90f85f9e6cfec1c152fc031949557",
+    "double_float32/model.aimodel/main.mlirb": "28912df365f40e74bbbdea6eb4033c4683c5f851e6f6821e5218c9ad8d1bf93d",
+    "double_float32/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "double_float32/x.bin": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738",
+    "double_int32/expected-y.bin": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+    "double_int32/graph.mlir": "9f34cf15ef3c05b57bb370a2010927d09a87d12699a565cd9fdea76b1243d57e",
+    "double_int32/model.aimodel/main.hash": "3dbb6ab825464f54d6e50b308e8b240dff6267c36dd7cc7719e0a0e70764970a",
+    "double_int32/model.aimodel/main.mlirb": "f86e0e5eaaa73dcd89a6a915822f4773aa963bf4971774d67f2d8144e4560dbf",
+    "double_int32/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "double_int32/x.bin": "3a00edf03807a20d8c3a90b8ab21226892ba42b74e94a05a510da32bae2da4cb",
+    "double_int64/expected-y.bin": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+    "double_int64/graph.mlir": "848b319965b51d3b34af83b663bbe3d13935865daf3e3bf78837bc13af4a52b1",
+    "double_int64/model.aimodel/main.hash": "21f5cd49f44b0b052869548979e76163253eddb7536873e7d463d330f1c0f31f",
+    "double_int64/model.aimodel/main.mlirb": "2322b76f88e908ee7899162e3be20431593a4d878dd18b3d5a88f77f448c2e1f",
+    "double_int64/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "double_int64/x.bin": "edadf20164b7daef0e81829b64be94ad36fe73bd188e5b6d2f0e90deec35aa8e",
+    "empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "empty/graph.mlir": "e4daf61610338f3ac139cc610b53afffc79e9982c0e5d37e974fcc8d4d7c2679",
+    "empty/model.aimodel/main.hash": "1115ff1b367fa90f8c6069badeb25d01c702c69c6a9b8f0b79ce75dde37c631f",
+    "empty/model.aimodel/main.mlirb": "a4e97bbda9d5b15c45b687c5a3df91ea2b7202049ef1d637279ffde753c83d24",
+    "empty/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "feedforward/expected-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+    "feedforward/graph.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+    "feedforward/model.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+    "feedforward/model.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+    "feedforward/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "feedforward/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "float_edges/expected-y.bin": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8",
+    "float_edges/graph.mlir": "cfa2e456e858b04b95e15fdfa508f6b56dd1eeb48bfda0c47f76b99f8d8db31b",
+    "float_edges/model.aimodel/main.hash": "d551e44b426135026146160f0c5e6b4cf5d90f85f9e6cfec1c152fc031949557",
+    "float_edges/model.aimodel/main.mlirb": "28912df365f40e74bbbdea6eb4033c4683c5f851e6f6821e5218c9ad8d1bf93d",
+    "float_edges/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "float_edges/x.bin": "5eedc578bed285b5c299476c11187ff095decc8c02232d0536aafecea09c09a6",
+    "gather/expected-y.bin": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+    "gather/graph.mlir": "2da2050c01bb1a993718459f21ad213290e13210af2146d2b83ebe9a004d716c",
+    "gather/model.aimodel/main.hash": "cc81c4d93055c9adb0765fadbd56e29d0180e35727651b6f3639f5525dd71f49",
+    "gather/model.aimodel/main.mlirb": "d82424bcc1b2d9594151ccf8578105ed190c6df11faa6dba3953208d7d414039",
+    "gather/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "gather/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "int64_edges/expected-y.bin": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+    "int64_edges/graph.mlir": "848b319965b51d3b34af83b663bbe3d13935865daf3e3bf78837bc13af4a52b1",
+    "int64_edges/model.aimodel/main.hash": "21f5cd49f44b0b052869548979e76163253eddb7536873e7d463d330f1c0f31f",
+    "int64_edges/model.aimodel/main.mlirb": "2322b76f88e908ee7899162e3be20431593a4d878dd18b3d5a88f77f448c2e1f",
+    "int64_edges/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "int64_edges/x.bin": "06481632b32dd1d0ea18a31804430a61a2083771aee6e1f219b82e87322567ad",
+    "matmul/expected-y.bin": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+    "matmul/graph.mlir": "eb13cff7d98fad9559dab97188141ae5b8156013286f4432107a52ce35d31f0a",
+    "matmul/model.aimodel/main.hash": "a58936f3d891ad38e784405cc3185ba869ecbe7bdcd8143934220ba5c91b0e28",
+    "matmul/model.aimodel/main.mlirb": "507605d44bed9f3664b16b97c862a285c4f96e8b4e08d1f273d74d3f4a566680",
+    "matmul/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "matmul/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "named_add/addend.bin": "b9313fd89d3ef25017a9fec61b2941f0b300d7f4320181bf5ed6abdbd2aec1b0",
+    "named_add/expected-y.bin": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+    "named_add/graph.mlir": "51e1688b5e1be674b28253ff7c01d71c66a3d371acb5ceb5f82b62ecbbd4a2f9",
+    "named_add/model.aimodel/main.hash": "65bb3d6f0266f37265904f2329c6f25aa2e0fd80d0c446b170c138bb9e83f5bc",
+    "named_add/model.aimodel/main.mlirb": "89b1ef1e374891f97d997f23fa66438381df013cc956dd96bf20ae5c15da177b",
+    "named_add/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "named_add/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "not_bool/expected-y.bin": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+    "not_bool/graph.mlir": "8519e011a99b5db8e85f01b2ec2aaa60e04d17f83ee188d534fdf3e5c8c8e082",
+    "not_bool/model.aimodel/main.hash": "51212f519060e46fb2a5f03005d4c8035eddaedf3b321093f2fd073df8961cd1",
+    "not_bool/model.aimodel/main.mlirb": "5d2354f1ab74fab5ccf562528c99be96cd1224c2e809d1cb38614838d0d10a04",
+    "not_bool/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "not_bool/x.bin": "4be4656d02d7d66839900d55b06fd34b9b09c3c0c2c39466ff29ebc0bb85b300",
+    "reduce_sum/expected-y.bin": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+    "reduce_sum/graph.mlir": "0a03b348416b5090c8391d267ffcaf716fc9456f86672e5c2bb579278bbe820c",
+    "reduce_sum/model.aimodel/main.hash": "602ea3ed64eba0d4b04cbabdde911b3240752eb2fbf180c3e2933702ee1d04d5",
+    "reduce_sum/model.aimodel/main.mlirb": "b85c79174d793553527420dec9cbb680a9b58de90e0faa69f50d444c620bd3f4",
+    "reduce_sum/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "reduce_sum/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "reshape/expected-y.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "reshape/graph.mlir": "d214d73d866d1fce98277288b465e32a02eb844c5a99c456fc6e0bc16f96fcfe",
+    "reshape/model.aimodel/main.hash": "3cff514fe5e29c64fc979062bade6dfdd3208a1ef51831a58a37821b050f82f8",
+    "reshape/model.aimodel/main.mlirb": "a411e5972f43dfa06e1799c055b9c3789a9ea4f53275765741629b033c054a25",
+    "reshape/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "reshape/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "scalar/expected-y.bin": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+    "scalar/graph.mlir": "64ebe6886379e708df494d56cf20bae8d1f97770436787abe2aca86ea2fbe71a",
+    "scalar/model.aimodel/main.hash": "1d44d638c572b96736e6d5d0878b1a6d80f4a2cd3d22a01bf9030bceefa322bf",
+    "scalar/model.aimodel/main.mlirb": "382e2fd05cd9b6939ec0b96e5a476ff24fa7236b78bb14244df68ab2d32fcde0",
+    "scalar/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "scalar/x.bin": "e21712a06022eecab9f5bd25414b4af9adeb316bb03947134cea060c78afd2d9"
+  },
+  "negative_cases": [
+    "missing_asset",
+    "missing_function",
+    "missing_input",
+    "unknown_input",
+    "wrong_shape",
+    "wrong_dtype",
+    "missing_state",
+    "wrong_state_shape"
+  ],
+  "limitations": [
+    "CPU-only and GPU-preferred are preferences; actual delegated backend must be recorded separately.",
+    "Prepared models and NumPy expectations are not Rust parity evidence until native reference and Rust differential runs pass."
+  ]
+}

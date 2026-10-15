@@ -1,0 +1,31 @@
+{
+  "local_release_candidate_ready": true,
+  "version": "0.1.0",
+  "tested_source_identity_sha256": "dff0fc8ebf7cfd38eda61a9fc4425bbb9eadb0bd9fa0961d4cd6a6a5cca707ab",
+  "archive": "dist/corsairs-0.1.0.crate",
+  "archive_sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f",
+  "archive_bytes": 57533,
+  "archive_files": 39,
+  "checks": {
+    "current_source_matches_native_test_manifest": true,
+    "debug_native_differential_and_stress": "checks-debug.json",
+    "release_native_differential_and_stress": "checks-release.json",
+    "format_clippy_tests_and_warning_free_docs": "final-rust-checks.json",
+    "malformed_asset_errors_and_recovery": "malformed-assets.json",
+    "native_handle_cleanup": "native-malformed-and-drops.json",
+    "package_and_isolated_consumer_native_examples": "package-verification.json",
+    "local_publish_rehearsal": "local-publish-rehearsal.json",
+    "local_rehearsal_archive_matches_candidate": true,
+    "release_checklist_has_no_unchecked_local_gates": true,
+    "primary_markdown_files_with_verified_local_links": 8
+  },
+  "license": "MIT OR Apache-2.0",
+  "uploaded": false,
+  "crates_io_connected_dry_run_passed": false,
+  "registry_name_availability_verified": false,
+  "pre_upload_actions": [
+    "Run the genuine crates.io dry-run in an environment that can resolve its index host.",
+    "Verify current registry name availability and select the publishing account."
+  ],
+  "performance": "The recorded tiny-model benchmark is slower than Python; no speedup is claimed."
+}

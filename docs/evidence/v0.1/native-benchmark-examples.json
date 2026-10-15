@@ -1,0 +1,57 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/.local/bin/python3.12",
+        "-I",
+        "-B",
+        "scripts/reference/benchmark.py",
+        "--rust-cli",
+        "target/release/corsairs"
+      ],
+      "expected_exit": 0,
+      "exit_status": 0,
+      "seconds": 1.2709852499974659,
+      "stdout": "{\"compute\": \"cpu\", \"python_median_us\": 69.125, \"python_p95_us\": 104.833, \"iterations\": 100, \"python_over_rust_median\": 0.059003433082211315}\n{\"compute\": \"gpu-preferred\", \"python_median_us\": 529.833, \"python_p95_us\": 1250.292, \"iterations\": 100, \"python_over_rust_median\": 0.32148441553004303}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/.local/bin/python3.12",
+        "-I",
+        "-B",
+        "scripts/reference/run_suite.py",
+        "--case",
+        "float_edges",
+        "--backend",
+        "gpu-preferred"
+      ],
+      "expected_exit": 1,
+      "exit_status": 1,
+      "seconds": 0.37933283299935283,
+      "stdout": "gpu-preferred float_edges valid: mismatch\n{\"complete\": true, \"invocations\": 1, \"passed\": false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/examples/feedforward"
+      ],
+      "expected_exit": 0,
+      "exit_status": 0,
+      "seconds": 0.22177283400378656,
+      "stdout": "feedforward: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/examples/stateful"
+      ],
+      "expected_exit": 0,
+      "exit_status": 0,
+      "seconds": 0.19468641700223088,
+      "stdout": "step0: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\nstep1: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0]\nstep2: [3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,8 @@
+target triple = "arm64-apple-macosx27.0.0"
+declare swiftcc %swift.metadata_response @"$s13CoreAIRuntime7NDArrayV14MutableRawViewVMa"(i64) local_unnamed_addr #1
+declare swiftcc void @"$s13CoreAIRuntime7NDArrayV14mutableRawViewAC07MutableeF0VyF"(ptr noalias sret(%swift.opaque), ptr swiftself) local_unnamed_addr #1
+declare swiftcc ptr @"$s13CoreAIRuntime7NDArrayV14MutableRawViewV6_startSvyF"(ptr noalias swiftself) local_unnamed_addr #1
+declare swiftcc i64 @"$s13CoreAIRuntime7NDArrayV14MutableRawViewV16storageByteCountSiyF"(ptr noalias swiftself) local_unnamed_addr #1
+declare swiftcc %swift.metadata_response @"$s13CoreAIRuntime7NDArrayV7RawViewVMa"(i64) local_unnamed_addr #1
+declare swiftcc void @"$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF"(ptr noalias sret(%swift.opaque), ptr noalias swiftself) local_unnamed_addr #1
+declare swiftcc { i64, i64 } @"$s13CoreAIRuntime7NDArrayV7RawViewV5bytess0D4SpanVvg"(ptr noalias swiftself) local_unnamed_addr #1

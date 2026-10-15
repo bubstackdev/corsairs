@@ -1,0 +1,978 @@
+{
+  "timestamp": "2026-10-15T15:15:56.309566+00:00",
+  "status": "passed",
+  "results": {
+    "metadata_matches_swift": true,
+    "error_type_matches_swift": true,
+    "error_cycles": 1000,
+    "task_lifecycle_checked": true,
+    "task_cycles": 1000,
+    "suspension_checked": true,
+    "async_model_error_checked": true,
+    "model_loading_checked": true,
+    "inference_matches_swift_and_recorded_python": true,
+    "tensor_checked": true,
+    "buffer_checked": true,
+    "cycles": 1000
+  },
+  "commands": [
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "--version"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+      "stderr": "swift-driver version: 1.168.6 "
+    },
+    {
+      "command": [
+        "xcrun",
+        "--show-sdk-path"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "scripts/calibrate.py"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "PASS: Known aggregate mismatch reproduced; no diagnostic function executed.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.10s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--workspace"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\ntest missing_symbol_is_an_error_without_invocation ... ok\ntest repeated_metadata_has_canonical_identity ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.08s\n     Running unittests src/lib.rs (target/debug/deps/corsairs_abi-a97173ffbdf4dda4)\n     Running tests/native_metadata.rs (target/debug/deps/native_metadata-250d9436822281fe)\n     Running unittests src/main.rs (target/debug/deps/corsairs_lab-3e46fa3e8778cacc)\n   Doc-tests corsairs_abi\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--workspace"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--workspace",
+        "--release"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Finished `release` profile [optimized] target(s) in 0.00s\n"
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/MetadataReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/metadata-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TensorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/BufferReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/buffer-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/ErrorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-sil",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/ErrorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference.sil"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TaskReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-assembly",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TaskReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference.s"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TaskRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "clang",
+        "-O2",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/c/SuspensionReference.c",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/suspension-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/suspension-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "ok=1 entries=1 resumes=1 identity_matches=2 completion_tls_clear=1 caller_tls_clear=1 changed_thread=0 yield_context_size=80\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/LoadReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-sil",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/LoadReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference.sil"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/LoadRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/SuspensionReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/suspension-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/InferenceReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-sil",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/InferenceReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference.sil"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/InferenceRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "cpuOnly"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "{\"description\":\"failedToSpecialize(\\\"Asset at file:\\/\\/\\/Users\\/zakkeown\\/Code\\/aether\\/lab\\/corsairs\\/target\\/experiments\\/check\\/intentionally-absent.aimodel is malformed: Missing hash file\\\")\",\"error_type\":\"CoreAIDelegates.AIModelCacheError\",\"loaded\":false,\"mode\":\"cpuOnly\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"body_has_current_task\":true,\"completed\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/ErrorRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"caught\":true,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-Onone",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TensorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference-onone.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/metadata-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "[{\"alignment\":8,\"name\":\"NDArray\",\"size\":49,\"stride\":56},{\"alignment\":1,\"name\":\"ScalarType\",\"size\":1,\"stride\":1},{\"alignment\":8,\"name\":\"AIModel\",\"size\":8,\"stride\":8},{\"alignment\":8,\"name\":\"InferenceFunction\",\"size\":1160,\"stride\":1160}]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "metadata"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "[\n{\"name\":\"NDArray\",\"size\":49,\"stride\":56,\"alignment\":8,\"kind\":512,\"address\":12576312872}\n,{\"name\":\"ScalarType\",\"size\":1,\"stride\":1,\"alignment\":1,\"kind\":513,\"address\":12576321016}\n,{\"name\":\"AIModel\",\"size\":8,\"stride\":8,\"alignment\":8,\"kind\":512,\"address\":12576305784}\n,{\"name\":\"InferenceFunction\",\"size\":1160,\"stride\":1160,\"alignment\":8,\"kind\":512,\"address\":12535800720}\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "tensor",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "buffer",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "bookmark-error",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"bookmark-error cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "task",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"task cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "suspend",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"suspend cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"model cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"inference cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "bookmark-error",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"attempts\":1000,\"caught\":1000,\"released\":1000,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "task",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"bodies_executed\":1000,\"task_identity_matches\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "suspend",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"resumes\":1000,\"task_identity_matches\":2000,\"resumed_on_other_thread\":999,\"native_completions\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":0,\"destroyed\":0,\"caught\":1000,\"errors_released\":1000,\"function_names\":[],\"error_type\":\"CoreAIDelegates.AIModelCacheError\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "metadata"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "[\n{\"name\":\"NDArray\",\"size\":49,\"stride\":56,\"alignment\":8,\"kind\":512,\"address\":12576312872}\n,{\"name\":\"ScalarType\",\"size\":1,\"stride\":1,\"alignment\":1,\"kind\":513,\"address\":12576321016}\n,{\"name\":\"AIModel\",\"size\":8,\"stride\":8,\"alignment\":8,\"kind\":512,\"address\":12576305784}\n,{\"name\":\"InferenceFunction\",\"size\":1160,\"stride\":1160,\"alignment\":8,\"kind\":512,\"address\":12535800720}\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "tensor",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "buffer",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "bookmark-error",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"bookmark-error cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "task",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"task cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "suspend",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"suspend cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"model cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"inference cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "bookmark-error",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"attempts\":1000,\"caught\":1000,\"released\":1000,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "task",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"bodies_executed\":1000,\"task_identity_matches\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "suspend",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"resumes\":1000,\"task_identity_matches\":2000,\"resumed_on_other_thread\":999,\"native_completions\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":0,\"destroyed\":0,\"caught\":1000,\"errors_released\":1000,\"function_names\":[],\"error_type\":\"CoreAIDelegates.AIModelCacheError\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "cpuOnly"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"function_names\":[\"main\"],\"loaded\":true,\"mode\":\"cpuOnly\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":1000,\"destroyed\":1000,\"caught\":0,\"errors_released\":0,\"function_names\":[\"main\"],\"error_type\":\"\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":1000,\"destroyed\":1000,\"caught\":0,\"errors_released\":0,\"function_names\":[\"main\"],\"error_type\":\"\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"exact_bytes_match\":true,\"function\":\"main\",\"is_float32\":true,\"output_count\":1,\"output_shape\":[2,3],\"output_strides\":[3,1],\"remaining_outputs\":0,\"values\":[2,-4,0,1,200,-0.5]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"completed\":1000,\"output_shape\":[2, 3],\"output_strides\":[3, 1],\"is_float32\":true,\"output_bits\":[1073741824, 3229614080, 0, 1065353216, 1128792064, 3204448256],\"exact_bytes_match\":true,\"output_count\":1,\"remaining_outputs\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"completed\":1000,\"output_shape\":[2, 3],\"output_strides\":[3, 1],\"is_float32\":true,\"output_bits\":[1073741824, 3229614080, 0, 1065353216, 1128792064, 3204448256],\"exact_bytes_match\":true,\"output_count\":1,\"remaining_outputs\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TensorRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"is_float32\":true,\"shape\":[2,2]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "tensor",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "tensor",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/BufferReference.swift",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/BufferRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/buffer-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/buffer-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"content_bits\":[[1065353216,3223322624,0,2147483648],[2139095040,4286578688,2143363909,1],[2139095039,8388608,1051372203,4290847557]],\"is_float32\":true,\"shape\":[2,2]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "buffer",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[[1065353216, 3223322624, 0, 2147483648], [2139095040, 4286578688, 2143363909, 1], [2139095039, 8388608, 1051372203, 4290847557]]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "buffer",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[[1065353216, 3223322624, 0, 2147483648], [2139095040, 4286578688, 2143363909, 1], [2139095039, 8388608, 1051372203, 4290847557]]}\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "crates/corsairs-abi/Cargo.toml": "bdede35821e84e04717e98e013d1e5d0cb44791fdc87a69812fcad2df95bff0b",
+    "crates/corsairs-abi/src/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "crates/corsairs-abi/src/async_task.rs": "3d1245631cc7f4c7113ebaeda06c30abb2d66247c3cde1a1e9438c3e7eaf2825",
+    "crates/corsairs-abi/src/buffer.rs": "d7f9966b17204ea87abfee00056a7c7d277215285d542e10d5ed537af8e51d95",
+    "crates/corsairs-abi/src/errors.rs": "b3dfcac5849fcfab245fbb20e80f134a7b3855e38c1838db10695a4c29ae0249",
+    "crates/corsairs-abi/src/inference.rs": "f6cea20e338111d097f18755a0486f6859e3ad049219a0ca69ab2bcd0d95b3cf",
+    "crates/corsairs-abi/src/lib.rs": "67fa9083f2dfb9091f6948717ca5f24cbae1316abbb56524aa18d7c325791bbf",
+    "crates/corsairs-abi/src/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "crates/corsairs-abi/src/metadata.rs": "0d41c29cdafa8abb48ccad88d65e6c0ab2ccfb0d2e7d5c42aad892d07d792d7f",
+    "crates/corsairs-abi/src/model.rs": "b6828140008fc555b4623a09335cbe98d6726a5abb797630cf326605f3eeec5a",
+    "crates/corsairs-abi/src/task.rs": "37354fcc16284e02571719b358b3cf727fe878ef22d12d579ef8bc717bc44625",
+    "crates/corsairs-abi/src/tensor.rs": "72ba443d185e2214f937d83c4a417e1a91b37b42850c059c9fe9a7c21ae1e2d2",
+    "crates/corsairs-abi/src/value.rs": "39afc859c193865ccaa04c85c107227dae0dd3c8d9c9dbd1951937dc5f347e45",
+    "crates/corsairs-abi/tests/native_metadata.rs": "25915a3889a03e6b288c34018fd1dc627314b65385ff1887f20c460ffddfe86a",
+    "crates/corsairs-lab/Cargo.toml": "323fc9557769a3d32b26ef5e3d90cdfcc40e5d75899fbfd77b2b22273c8ced24",
+    "crates/corsairs-lab/src/main.rs": "1fcaa8aa0db71d735b5fe114d4dd14582d2d46e290a424f2a0f750b8d3bc9846",
+    "experiments/c/CompletionReference.c": "9c2a79a46dd9705bf529d974e8fa6d31181350e004b770f8eb881d1249112f80",
+    "experiments/c/SuspensionReference.c": "496c607e1ee38aa6ac4f46e03ad208cc2708b1de108875b6e3734751748596e6",
+    "experiments/rust/call_lowering.rs": "eed5868fadae103ee3d717f69942a63ef1dd78f50a6e760f8778a28ac7fd9c07",
+    "experiments/swift/BufferReference.swift": "793383fcc3acf63c46740d75473356cbf42ece91889683bef9b7b9c1e2c72247",
+    "experiments/swift/BufferRunReference.swift": "781ba5718d013c32babf87cebba17b77193f866e69e58d489901d0598880235c",
+    "experiments/swift/ConventionReference.swift": "e7e9834bdd8ac5cd19d91f54b942bad2ab8040b7416c77eb11b85ce1b5260cab",
+    "experiments/swift/ErrorReference.swift": "15c50de3aae997e80a94ee4693ad35506febfe1b08a3544261387b0d247bbcff",
+    "experiments/swift/ErrorRunReference.swift": "87e677af7cd743f886fe47b8d09417656c07939e64ccb7a6a6a73ef9be86414c",
+    "experiments/swift/InferenceReference.swift": "e0f350b4492546e090983c12a404bd8f0d0082412b8bc48706ea2cd92247723d",
+    "experiments/swift/InferenceRunReference.swift": "062ff3ccd29c3e5e102827d3322760180a8cb5a2f68e45282d8055f99065569c",
+    "experiments/swift/LoadReference.swift": "23eea98d00f2b3e2b8ea7b6531aa4c3c27c56b0fd460fa33a4c4792737da6272",
+    "experiments/swift/LoadRunReference.swift": "0ef9e124aff7301580227bae54bce2a7273d8d3c230ddbff2167560d0f72192c",
+    "experiments/swift/MetadataReference.swift": "f1bfdb3f2194cd45e2709ff8107b16aec2f5d00e8a3938cfc6633e3c863d24c4",
+    "experiments/swift/SuspensionReference.swift": "3a11ece500421b6455158c2fec6c90d37671a2b9263c48b3730ebf69a2a2df71",
+    "experiments/swift/TaskReference.swift": "330758cfc3168a7821f0aeeebf7e46814e5b28123fae96e0c39cff269078f369",
+    "experiments/swift/TaskRunReference.swift": "5eb301a8d253048e8105a215facb811121dbbd1079b6e6d7970cadeeb2657131",
+    "experiments/swift/TensorReference.swift": "3fb81ed92792897e4c8d5233aa5f79d995025dfc4478a25c4c841b600d12ff0a",
+    "experiments/swift/TensorRunReference.swift": "3ee0a02fd10f8388efe5393530bb3ddc89982c97eb5d387d01c8b979f42ad868",
+    "scripts/calibrate.py": "e3f8ad8449c62c1bc2fd968c33dd0a23bfd51450d3b5168346511010758c8385",
+    "scripts/check.py": "fd5b5bf958bcf955653813f919f0eb95beef8ad384d6be43ff832f587c343842",
+    "fixtures/double_f32_2x3/build_fixture.py": "83245b603871269ecc3adff4898b19d668aa3e913525fa9a5077b85c352956e6",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel/main.hash": "6932d3cd347e1a8b24a858e8fda760075364ce48e225ecd0d4d028b5f9f39d22",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel/main.mlirb": "97996248c9b6a5b7ca3d347154d495d8a44f62a6f773803b7b9e97028ff16d43",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel/metadata.json": "66aebf5881626e78fdfaf7cef6b266f5f8c6b21cf493fe8ec4d95c9c11009948",
+    "fixtures/double_f32_2x3/double_f32_2x3.mlir": "10217a22d93eedd03875802a96851577cf2c92980ab7e6af21912475f3e21c42",
+    "fixtures/double_f32_2x3/expected.f32le": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/double_f32_2x3/input.f32le": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738",
+    "fixtures/double_f32_2x3/manifest.json": "1b7899dddc48c726bdd8e98709ba2e74873541b94627290792601f173df2b886",
+    "fixtures/double_f32_2x3/python-reference.json": "b7723f17378ab9a226ce4744a2a9630917f6c6e0d3603c8e29a3c2d1840222f0",
+    "fixtures/double_f32_2x3/run_python_reference.py": "2427b26bbadf1e8b349f67bc36d6f3f9cfa6a55646889661852d56e0892e6211"
+  }
+}

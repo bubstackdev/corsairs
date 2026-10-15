@@ -1,0 +1,51 @@
+{
+  "status": "observed",
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "--crate-type=lib",
+        "--emit=llvm-ir",
+        "-O",
+        "experiments/rust/call_lowering.rs",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/calibration/rust.ll"
+      ],
+      "environment_overrides": {
+        "RUSTC_BOOTSTRAP": "1"
+      },
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-parse-as-library",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/calibration/swift-cache",
+        "-emit-ir",
+        "experiments/swift/ConventionReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/calibration/swift.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "rust_declarations": [
+    "declare swiftcc void @aggregate3(ptr dead_on_unwind noalias nofree noundef writable sret([24 x i8]) align 8 captures(address) dereferenceable(24), ptr noalias nofree noundef align 8 captures(address) dead_on_return dereferenceable(24)) unnamed_addr #0",
+    "declare swiftcc noundef i64 @instance(i64 noundef, ptr noundef) unnamed_addr #0"
+  ],
+  "swift_definitions": [
+    "define swiftcc { i64, i64, i64 } @\"$s5swift10aggregate3yAA6TripleVADF\"(i64 %0, i64 %1, i64 %2) #0 {",
+    "define swiftcc i64 @\"$s5swift6ObjectC7computeys6UInt64VAFF\"(i64 returned %0, ptr readnone swiftself captures(none) %1) #0 {",
+    "define swiftcc i64 @\"$s5swift8throwingys6UInt64VADKF\"(i64 returned %0, ptr readnone swiftself captures(none) %1, ptr noalias swifterror captures(none) dereferenceable(8) %2) #3 {",
+    "define swifttailcc void @\"$s5swift12asyncExampleys6UInt64VADYaF\"(ptr swiftasync %0, i64 %1) #10 {"
+  ],
+  "aggregate_mismatch_reproduced": true
+}

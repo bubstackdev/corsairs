@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "maintainer_report_date": "2026-10-15",
+  "maintainer_report": "Completed crates.io account setup, checked name availability, logged in, ran the connected dry-run, and published corsairs 0.1.0.",
+  "publication_status_source": "Maintainer's message in this session",
+  "crate_url": "https://crates.io/crates/corsairs/0.1.0",
+  "source_repository": "https://github.com/bubstackdev/corsairs",
+  "independent_registry_verification": "Not yet established; web access was unavailable and a direct API request returned HTTP 403.",
+  "local_release_archive_sha256": "2d9d4e0f3d827b6dbb7b03a9ce0285c9e33d2ffd0e1dfcffe5cfd6fd9215cf5f",
+  "registry_archive_checksum_verified": false,
+  "prepublication_evidence": "release-verification.json"
+}

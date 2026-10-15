@@ -1,0 +1,347 @@
+{
+  "evidence_id": "ev_4eabaf7250e36ac6ff2ae7b29642a9034b7bb3ce402f4f6e2c587f04252a8ff6",
+  "subject": {
+    "name": "corsairs-lab",
+    "digest": {
+      "sha256": "269f0c7aacd6efaff92d2ab5f1155dae3cedb653a463418df5c50863112e6a88"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "$s13CoreAIRuntime7NDArrayV14mutableRawViewAC07MutableeF0VyF"
+      },
+      {
+        "kind": "function",
+        "name": "$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF"
+      }
+    ],
+    "arguments": [
+      "buffer",
+      "1"
+    ],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 10000,
+    "max_events": 20,
+    "argument_registers": 0,
+    "backtrace_frames": 2
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+      "sha256": "269f0c7aacd6efaff92d2ab5f1155dae3cedb653a463418df5c50863112e6a88",
+      "architecture": "arm64",
+      "arguments": [
+        "buffer",
+        "1"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "77437192",
+        "selected_file_sha256": "269f0c7aacd6efaff92d2ab5f1155dae3cedb653a463418df5c50863112e6a88",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "module_uuid": "52F4D586-53BC-318D-8F60-97BE8C0D7444",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 36581,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 826.976,
+      "stdout": {
+        "text": "{\"cycles\":1,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1,\"destroyed\":1,\"content_bits\":[[1065353216, 3223322624, 0, 2147483648], [2139095040, 4286578688, 2143363909, 1], [2139095039, 8388608, 1051372203, 4290847557]]}\n",
+        "bytes": 219,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "$s13CoreAIRuntime7NDArrayV14mutableRawViewAC07MutableeF0VyF",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x2c5e687bc",
+            "file_address": "0x2aab807bc",
+            "module": "CoreAIRuntime",
+            "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+            "symbol": "CoreAIRuntime.NDArray.mutableRawView() -> CoreAIRuntime.NDArray.MutableRawView"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "request": {
+          "kind": "function",
+          "name": "$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x2c5e68d38",
+            "file_address": "0x2aab80d38",
+            "module": "CoreAIRuntime",
+            "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+            "symbol": "CoreAIRuntime.NDArray.rawView() -> CoreAIRuntime.NDArray.RawView"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "sequence": 0,
+        "elapsed_ms": 738.834,
+        "thread_id": 554234,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5e687bc",
+        "file_address": "0x2aab807bc",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.mutableRawView() -> CoreAIRuntime.NDArray.MutableRawView",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": [
+          {
+            "load_address": "0x100006d60",
+            "file_address": "0x100006d60",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync_pair"
+          },
+          {
+            "load_address": "0x100006e40",
+            "file_address": "0x100006e40",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          }
+        ]
+      },
+      {
+        "sequence": 1,
+        "elapsed_ms": 742.881,
+        "thread_id": 554234,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5e68d38",
+        "file_address": "0x2aab80d38",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.rawView() -> CoreAIRuntime.NDArray.RawView",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": [
+          {
+            "load_address": "0x100006d60",
+            "file_address": "0x100006d60",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync_pair"
+          },
+          {
+            "load_address": "0x100006e40",
+            "file_address": "0x100006e40",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          }
+        ]
+      },
+      {
+        "sequence": 2,
+        "elapsed_ms": 746.715,
+        "thread_id": 554234,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5e687bc",
+        "file_address": "0x2aab807bc",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.mutableRawView() -> CoreAIRuntime.NDArray.MutableRawView",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": [
+          {
+            "load_address": "0x100006d60",
+            "file_address": "0x100006d60",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync_pair"
+          },
+          {
+            "load_address": "0x100006e40",
+            "file_address": "0x100006e40",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          }
+        ]
+      },
+      {
+        "sequence": 3,
+        "elapsed_ms": 750.607,
+        "thread_id": 554234,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5e68d38",
+        "file_address": "0x2aab80d38",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.rawView() -> CoreAIRuntime.NDArray.RawView",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": [
+          {
+            "load_address": "0x100006d60",
+            "file_address": "0x100006d60",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync_pair"
+          },
+          {
+            "load_address": "0x100006e40",
+            "file_address": "0x100006e40",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          }
+        ]
+      },
+      {
+        "sequence": 4,
+        "elapsed_ms": 754.411,
+        "thread_id": 554234,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5e687bc",
+        "file_address": "0x2aab807bc",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.mutableRawView() -> CoreAIRuntime.NDArray.MutableRawView",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": [
+          {
+            "load_address": "0x100006d60",
+            "file_address": "0x100006d60",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync_pair"
+          },
+          {
+            "load_address": "0x100006e40",
+            "file_address": "0x100006e40",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          }
+        ]
+      },
+      {
+        "sequence": 5,
+        "elapsed_ms": 758.245,
+        "thread_id": 554234,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5e68d38",
+        "file_address": "0x2aab80d38",
+        "module": "CoreAIRuntime",
+        "module_path": "/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime",
+        "symbol": "CoreAIRuntime.NDArray.rawView() -> CoreAIRuntime.NDArray.RawView",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": [
+          {
+            "load_address": "0x100006d60",
+            "file_address": "0x100006d60",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync_pair"
+          },
+          {
+            "load_address": "0x100006e40",
+            "file_address": "0x100006e40",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+            "symbol": "corsairs_abi::arm64::call_sync"
+          }
+        ]
+      }
+    ],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab"
+    }
+  ],
+  "evidence_links": []
+}

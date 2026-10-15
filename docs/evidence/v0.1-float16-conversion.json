@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "passed": true,
+  "generated_utc": "2026-10-15T15:54:31.184505+00:00",
+  "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+  "python_executable": "/Users/zakkeown/.local/bin/python3.12",
+  "reference": {
+    "name": "numpy",
+    "version": "2.3.5",
+    "module": "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33/numpy/__init__.py",
+    "conversion_extension": "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33/numpy/_core/_multiarray_umath.cpython-312-darwin.so",
+    "extension_sha256": "96ce8cda1e4f1a3107e5c945b68bcd970c3de09019fc19beda4cc0319609de09"
+  },
+  "seed": 12613025,
+  "rng": "CPython random.Random(seed).getrandbits(32)",
+  "families_before_deduplication": {
+    "exact_half_values": 63488,
+    "half_neighbors": 126974,
+    "all_half_midpoint_neighborhoods": 190458,
+    "exponent_and_explicit_boundaries": 6706,
+    "seeded_uniform_u32": 1000000
+  },
+  "unique_vectors": 1386555,
+  "strict_finite_or_infinity_vectors": 1382598,
+  "nan_vectors": 3957,
+  "nan_policy": "NaN payloads excluded from NumPy equality; Rust conversion must preserve NaN class and sign",
+  "source_sha256": {
+    "experiments/rust/float16_conversion.rs": "eb4fb6b1ae86abb7b671857f4532ec86a2b7a1f86408b1839d22388c9311992a",
+    "crates/corsairs-abi/src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+    "scripts/check_float16.py": "5f77627056ea53a176fc2f8db86bf48925097c826a582ebd5f5adf0752bc5038"
+  },
+  "vectors": {
+    "inputs_f32le": {
+      "file": "target/float16-conversion/inputs.f32le",
+      "bytes": 5546220,
+      "sha256": "e42c63af813935c86685014eca7f7ac1c81510daab6c4dd304fe27915266427f",
+      "gzip_file": "target/float16-conversion/inputs.f32le.gz",
+      "gzip_sha256": "da0974e24a3ac5d9e7178714c5ee66910b92248053408f64b34bc9a8b3208b01"
+    },
+    "numpy_f16le": {
+      "file": "target/float16-conversion/numpy.f16le",
+      "bytes": 2773110,
+      "sha256": "8be64a33015c47ca08febea012dea9e55ae3bdf85533e921c753aa448f09f49c",
+      "gzip_file": "target/float16-conversion/numpy.f16le.gz",
+      "gzip_sha256": "abdabc49a32592301c2352d09141ba45dcb6c8833c57a061c45e3da7e4d9ce9b"
+    },
+    "numpy_widened_f32le": {
+      "file": "target/float16-conversion/numpy-widened.f32le",
+      "bytes": 5546220,
+      "sha256": "60405fc56b6f0879e922072c1d97d6a2917bcddef8118a8b8b70ce29b78bd39d",
+      "gzip_file": "target/float16-conversion/numpy-widened.f32le.gz",
+      "gzip_sha256": "36cdebcc5a3c8fea6e5cb6dce141bd1f9347ce012161efc2a401e949a4b8c144"
+    }
+  },
+  "profiles": {
+    "debug": {
+      "finite_or_infinity_half_mismatches": 0,
+      "finite_or_infinity_widened_mismatches": 0,
+      "nan_class_mismatches": 0,
+      "nan_sign_mismatches": 0,
+      "first_mismatches": [],
+      "half_vector": {
+        "file": "target/float16-conversion/rust-debug.f16le",
+        "bytes": 2773110,
+        "sha256": "92837bb1a0bbb4b2e92e8a49b5e77a31a10ad175e6a798af48c5188f362417a4",
+        "gzip_file": "target/float16-conversion/rust-debug.f16le.gz",
+        "gzip_sha256": "881dd3518dd6b2dc6195a81fbbcaea7a943e957abd4264bb3906bb3ede2f5846"
+      },
+      "widened_vector": {
+        "file": "target/float16-conversion/rust-debug-widened.f32le",
+        "bytes": 5546220,
+        "sha256": "7d3003f95fae4df3efdfdb23600dbba9a18c807ff1e319ada9af4b4f8c6afa46",
+        "gzip_file": "target/float16-conversion/rust-debug-widened.f32le.gz",
+        "gzip_sha256": "e23945711df8103d6b58749e49c2cdb8ec45d96be5a36a86afac2346edc22271"
+      }
+    },
+    "release": {
+      "finite_or_infinity_half_mismatches": 0,
+      "finite_or_infinity_widened_mismatches": 0,
+      "nan_class_mismatches": 0,
+      "nan_sign_mismatches": 0,
+      "first_mismatches": [],
+      "half_vector": {
+        "file": "target/float16-conversion/rust-release.f16le",
+        "bytes": 2773110,
+        "sha256": "92837bb1a0bbb4b2e92e8a49b5e77a31a10ad175e6a798af48c5188f362417a4",
+        "gzip_file": "target/float16-conversion/rust-release.f16le.gz",
+        "gzip_sha256": "881dd3518dd6b2dc6195a81fbbcaea7a943e957abd4264bb3906bb3ede2f5846"
+      },
+      "widened_vector": {
+        "file": "target/float16-conversion/rust-release-widened.f32le",
+        "bytes": 5546220,
+        "sha256": "7d3003f95fae4df3efdfdb23600dbba9a18c807ff1e319ada9af4b4f8c6afa46",
+        "gzip_file": "target/float16-conversion/rust-release-widened.f32le.gz",
+        "gzip_sha256": "e23945711df8103d6b58749e49c2cdb8ec45d96be5a36a86afac2346edc22271"
+      }
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/bin/cargo",
+        "build",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--message-format=json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.1.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"profile\":{\"opt_level\":\"0\",\"debuginfo\":2,\"debug_assertions\":true,\"overflow_checks\":true,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/aether/lab/corsairs/target/debug/libcorsairs.rlib\",\"/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/libcorsairs-bc2663a9afd303f0.rmeta\"],\"executable\":null,\"fresh\":true}\n{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.1.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/bin/corsairs.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true},\"profile\":{\"opt_level\":\"0\",\"debuginfo\":2,\"debug_assertions\":true,\"overflow_checks\":true,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs\"],\"executable\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs\",\"fresh\":true}\n{\"reason\":\"build-finished\",\"success\":true}\n",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2024",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/float16_conversion.rs",
+        "--extern",
+        "corsairs=/Users/zakkeown/Code/aether/lab/corsairs/target/debug/libcorsairs.rlib",
+        "-L",
+        "dependency=/Users/zakkeown/Code/aether/lab/corsairs/target/debug",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/float16-debug"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/float16-debug",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/inputs.f32le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/rust-debug.f16le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/rust-debug-widened.f32le"
+      ],
+      "returncode": 0,
+      "stdout": "{\"converted\":1386555}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/cargo",
+        "build",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--message-format=json",
+        "--release"
+      ],
+      "returncode": 0,
+      "stdout": "{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.1.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"profile\":{\"opt_level\":\"3\",\"debuginfo\":0,\"debug_assertions\":false,\"overflow_checks\":false,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/aether/lab/corsairs/target/release/libcorsairs.rlib\",\"/Users/zakkeown/Code/aether/lab/corsairs/target/release/deps/libcorsairs-847d4e9ce1c97bbf.rmeta\"],\"executable\":null,\"fresh\":true}\n{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.1.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/bin/corsairs.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true},\"profile\":{\"opt_level\":\"3\",\"debuginfo\":0,\"debug_assertions\":false,\"overflow_checks\":false,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs\"],\"executable\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs\",\"fresh\":true}\n{\"reason\":\"build-finished\",\"success\":true}\n",
+      "stderr": "    Finished `release` profile [optimized] target(s) in 0.00s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2024",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/float16_conversion.rs",
+        "--extern",
+        "corsairs=/Users/zakkeown/Code/aether/lab/corsairs/target/release/libcorsairs.rlib",
+        "-L",
+        "dependency=/Users/zakkeown/Code/aether/lab/corsairs/target/release",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/float16-release",
+        "-C",
+        "opt-level=3"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/float16-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/inputs.f32le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/rust-release.f16le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/float16-conversion/rust-release-widened.f32le"
+      ],
+      "returncode": 0,
+      "stdout": "{\"converted\":1386555}\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,1518 @@
+{
+  "schema": 1,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/qIlLwKwPLBB3seBO",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "native_execution_successes": 32,
+  "negative_reference_errors": 16,
+  "cases": [
+    {
+      "case": "double_float16",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/double_float16/step0-outputs-y.bin",
+              "dtype": "float16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "double_float32",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/double_float32/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "double_int32",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/double_int32/step0-outputs-y.bin",
+              "dtype": "int32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "double_int64",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/double_int64/step0-outputs-y.bin",
+              "dtype": "int64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "not_bool",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/not_bool/step0-outputs-y.bin",
+              "dtype": "bool",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "matmul",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/matmul/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "reduce_sum",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/reduce_sum/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                1
+              ],
+              "strides": [
+                1,
+                1
+              ],
+              "sha256": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "gather",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/gather/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "reshape",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/reshape/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "feedforward",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/feedforward/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "named_add",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x",
+          "addend"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/named_add/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "float_edges",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/float_edges/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "int64_edges",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/int64_edges/step0-outputs-y.bin",
+              "dtype": "int64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "scalar",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/scalar/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [],
+              "strides": [],
+              "sha256": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "empty",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/empty/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "accumulator",
+      "backend": "cpu",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": [
+          "accumulator"
+        ]
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/accumulator/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "goldens/cpu/accumulator/step0-state_after-accumulator.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          }
+        },
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/accumulator/step1-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "goldens/cpu/accumulator/step1-state_after-accumulator.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160"
+            }
+          }
+        },
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/cpu/accumulator/step2-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "goldens/cpu/accumulator/step2-state_after-accumulator.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "double_float16",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/double_float16/step0-outputs-y.bin",
+              "dtype": "float16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "double_float32",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/double_float32/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "double_int32",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/double_int32/step0-outputs-y.bin",
+              "dtype": "int32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "double_int64",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/double_int64/step0-outputs-y.bin",
+              "dtype": "int64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "not_bool",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/not_bool/step0-outputs-y.bin",
+              "dtype": "bool",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "matmul",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/matmul/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "reduce_sum",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/reduce_sum/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                1
+              ],
+              "strides": [
+                1,
+                1
+              ],
+              "sha256": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "gather",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/gather/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "reshape",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/reshape/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "feedforward",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/feedforward/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "sha256": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "named_add",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x",
+          "addend"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/named_add/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "float_edges",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "mismatch",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/float_edges/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "int64_edges",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/int64_edges/step0-outputs-y.bin",
+              "dtype": "int64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "scalar",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/scalar/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [],
+              "strides": [],
+              "sha256": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "empty",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/empty/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "state_after": {}
+        }
+      ]
+    },
+    {
+      "case": "accumulator",
+      "backend": "gpu-preferred",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": [
+          "accumulator"
+        ]
+      },
+      "reference_to_math": "passed",
+      "native_reference_execution": "completed",
+      "rust_to_python_comparison": "exact bytes, dtype, shape, strides and state after every step",
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/accumulator/step0-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "goldens/gpu-preferred/accumulator/step0-state_after-accumulator.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b"
+            }
+          }
+        },
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/accumulator/step1-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "goldens/gpu-preferred/accumulator/step1-state_after-accumulator.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160"
+            }
+          }
+        },
+        {
+          "outputs": {
+            "y": {
+              "file": "goldens/gpu-preferred/accumulator/step2-outputs-y.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "goldens/gpu-preferred/accumulator/step2-state_after-accumulator.bin",
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "negative_cases": [
+    {
+      "backend": "cpu",
+      "case": "double_float32",
+      "negative_case": "missing_asset",
+      "python_error_type": "RuntimeError",
+      "python_error": "Failed to load model with specialization from '/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.)."
+    },
+    {
+      "backend": "cpu",
+      "case": "double_float32",
+      "negative_case": "missing_function",
+      "python_error_type": "KeyError",
+      "python_error": "\"No function named 'does-not-exist'\""
+    },
+    {
+      "backend": "cpu",
+      "case": "double_float32",
+      "negative_case": "missing_input",
+      "python_error_type": "RuntimeError",
+      "python_error": "x"
+    },
+    {
+      "backend": "cpu",
+      "case": "double_float32",
+      "negative_case": "unknown_input",
+      "python_error_type": "RuntimeError",
+      "python_error": "unknown is not a declared input of this function."
+    },
+    {
+      "backend": "cpu",
+      "case": "double_float32",
+      "negative_case": "wrong_shape",
+      "python_error_type": "RuntimeError",
+      "python_error": "x has an invalid shape: [3, 2], expected: [2, 3]"
+    },
+    {
+      "backend": "cpu",
+      "case": "double_float32",
+      "negative_case": "wrong_dtype",
+      "python_error_type": "RuntimeError",
+      "python_error": "x has an invalid scalar type: int32, expected: float32"
+    },
+    {
+      "backend": "cpu",
+      "case": "accumulator",
+      "negative_case": "missing_state",
+      "python_error_type": "RuntimeError",
+      "python_error": "Missing state view for accumulator."
+    },
+    {
+      "backend": "cpu",
+      "case": "accumulator",
+      "negative_case": "wrong_state_shape",
+      "python_error_type": "RuntimeError",
+      "python_error": "accumulator has an invalid shape: [3, 2], expected: [2, 3]"
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "double_float32",
+      "negative_case": "missing_asset",
+      "python_error_type": "RuntimeError",
+      "python_error": "Failed to load model with specialization from '/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.)."
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "double_float32",
+      "negative_case": "missing_function",
+      "python_error_type": "KeyError",
+      "python_error": "\"No function named 'does-not-exist'\""
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "double_float32",
+      "negative_case": "missing_input",
+      "python_error_type": "RuntimeError",
+      "python_error": "x"
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "double_float32",
+      "negative_case": "unknown_input",
+      "python_error_type": "RuntimeError",
+      "python_error": "unknown is not a declared input of this function."
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "double_float32",
+      "negative_case": "wrong_shape",
+      "python_error_type": "RuntimeError",
+      "python_error": "x has an invalid shape: [3, 2], expected: [2, 3]"
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "double_float32",
+      "negative_case": "wrong_dtype",
+      "python_error_type": "RuntimeError",
+      "python_error": "x has an invalid scalar type: int32, expected: float32"
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "accumulator",
+      "negative_case": "missing_state",
+      "python_error_type": "RuntimeError",
+      "python_error": "Missing state view for accumulator."
+    },
+    {
+      "backend": "gpu-preferred",
+      "case": "accumulator",
+      "negative_case": "wrong_state_shape",
+      "python_error_type": "RuntimeError",
+      "python_error": "accumulator has an invalid shape: [3, 2], expected: [2, 3]"
+    }
+  ],
+  "source_observations": "python-results.initial.json",
+  "source_observations_sha256": "1f91f23373fd141392a3f1b38cf0f9fdd6b94c29d01ce083e987cfd84522758b",
+  "python_to_math_mismatches": [
+    {
+      "backend": "gpu-preferred",
+      "case": "float_edges",
+      "input_f32_bits": [
+        "00000000",
+        "80000000",
+        "7f800000",
+        "ff800000",
+        "7fc12345",
+        "00000001"
+      ],
+      "cpu_and_math_output_f32_bits": [
+        "00000000",
+        "80000000",
+        "7f800000",
+        "ff800000",
+        "7fc12345",
+        "00000002"
+      ],
+      "gpu_preferred_output_f32_bits": [
+        "00000000",
+        "80000000",
+        "7f800000",
+        "ff800000",
+        "7fc00000",
+        "00000000"
+      ],
+      "interpretation": "Observed subnormal flush and NaN payload canonicalization in GPU-preferred configuration; exact delegate unproven."
+    }
+  ],
+  "rules": [
+    "Never replace mathematical expected files with backend observations.",
+    "Rust comparisons use the identical pinned model/input/backend and exact frozen Python bytes.",
+    "Backend preference does not prove which delegate executed an individual operation.",
+    "Native traps, timeouts or unsupported failures cannot become successful goldens."
+  ]
+}

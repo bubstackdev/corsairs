@@ -1,0 +1,48 @@
+{
+  "case": "reduce_sum",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            1
+          ],
+          "strides": [
+            1,
+            1
+          ],
+          "file": "results/cpu/reduce_sum/step0-y.bin",
+          "sha256": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "2.0",
+            "4.0"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

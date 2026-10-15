@@ -1,0 +1,293 @@
+{
+  "evidence_id": "ev_9a3e236d201141784bc88da3c9b45d0169b8571b66f5159b2666cbfcf92b8fb8",
+  "subject": {
+    "name": "corsairs-lab",
+    "digest": {
+      "sha256": "2fc49992a2d46e7d92351b47b7ce226f575704e50d5610c5efd41ab68ce4afa8"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "main"
+      }
+    ],
+    "arguments": [
+      "bookmark-error",
+      "1000"
+    ],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 10000,
+    "max_events": 8,
+    "argument_registers": 0,
+    "backtrace_frames": 0
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+      "sha256": "2fc49992a2d46e7d92351b47b7ce226f575704e50d5610c5efd41ab68ce4afa8",
+      "architecture": "arm64",
+      "arguments": [
+        "bookmark-error",
+        "1000"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "77445487",
+        "selected_file_sha256": "2fc49992a2d46e7d92351b47b7ce226f575704e50d5610c5efd41ab68ce4afa8",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "module_uuid": "D1080F18-0B7F-3393-86F5-6D5B9AD8020B",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 37569,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 807.715,
+      "stdout": {
+        "text": "{\"attempts\":1000,\"caught\":1000,\"released\":1000,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+        "bytes": 97,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "main",
+          "module": null
+        },
+        "location_count": 20,
+        "locations": [
+          {
+            "load_address": "0x100002324",
+            "file_address": "0x100002324",
+            "module": "corsairs-lab",
+            "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+            "symbol": "main"
+          },
+          {
+            "load_address": "0x19dc92b2c",
+            "file_address": "0x1829aab2c",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "Foundation.BundleCache.State.main() -> Swift.Optional<Foundation._NSSwiftBundle>"
+          },
+          {
+            "load_address": "0x19dd8c660",
+            "file_address": "0x182aa4660",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "__C.NSOperationQueue.DelayReadyOperation.main() -> ()"
+          },
+          {
+            "load_address": "0x19dd8c960",
+            "file_address": "0x182aa4960",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "@objc __C.NSOperationQueue.DelayReadyOperation.main() -> ()"
+          },
+          {
+            "load_address": "0x19d31d1bc",
+            "file_address": "0x1820351bc",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "-[NSBlockOperation main]"
+          },
+          {
+            "load_address": "0x19d332dbc",
+            "file_address": "0x18204adbc",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "-[NSThread main]"
+          },
+          {
+            "load_address": "0x19d344e84",
+            "file_address": "0x18205ce84",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "-[NSInvocationOperation main]"
+          },
+          {
+            "load_address": "0x19d3457c0",
+            "file_address": "0x18205d7c0",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "-[NSOperation main]"
+          },
+          {
+            "load_address": "0x19d48f770",
+            "file_address": "0x1821a7770",
+            "module": "Foundation",
+            "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+            "symbol": "-[_NSBarrierOperation main]"
+          },
+          {
+            "load_address": "0x23ce74500",
+            "file_address": "0x221b8c500",
+            "module": "MetalPerformanceShadersGraph",
+            "module_path": "/System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph",
+            "symbol": "nlsat::explain::imp::main(unsigned int, sat::literal const*)"
+          },
+          {
+            "load_address": "0x19f9275ec",
+            "file_address": "0x18463f5ec",
+            "module": "Security",
+            "module_path": "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+            "symbol": "Security::OSXCode::main()"
+          },
+          {
+            "load_address": "0x19fd80374",
+            "file_address": "0x184a98374",
+            "module": "CarbonCore",
+            "module_path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore",
+            "symbol": "main"
+          },
+          {
+            "load_address": "0x1b88465fc",
+            "file_address": "0x19d55e5fc",
+            "module": "CoreSymbolication",
+            "module_path": "/System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication",
+            "symbol": "CSCppExceptionSafeThread::main()"
+          },
+          {
+            "load_address": "0x1b83bf550",
+            "file_address": "0x19d0d7550",
+            "module": "BoardServices",
+            "module_path": "/System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices",
+            "symbol": "+[BSServiceQuality main]"
+          },
+          {
+            "load_address": "0x1ba538398",
+            "file_address": "0x19f250398",
+            "module": "AppSupport",
+            "module_path": "/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport",
+            "symbol": "-[_CPPowerAssertionThread main]"
+          },
+          {
+            "load_address": "0x1ba53cc84",
+            "file_address": "0x19f254c84",
+            "module": "AppSupport",
+            "module_path": "/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport",
+            "symbol": "-[CPDistributedMessagingAsyncOperation main]"
+          },
+          {
+            "load_address": "0x237d89fc0",
+            "file_address": "0x21caa1fc0",
+            "module": "ExtensionFoundation",
+            "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+            "symbol": "static ExtensionFoundation.AppExtension.main() throws -> ()"
+          },
+          {
+            "load_address": "0x237e01f7c",
+            "file_address": "0x21cb19f7c",
+            "module": "ExtensionFoundation",
+            "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+            "symbol": "static ExtensionFoundation._AppExtension.main() throws -> ()"
+          },
+          {
+            "load_address": "0x237d6b714",
+            "file_address": "0x21ca83714",
+            "module": "ExtensionFoundation",
+            "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+            "symbol": "-[EXFrameworkScanner main]"
+          },
+          {
+            "load_address": "0x237d7b1ac",
+            "file_address": "0x21ca931ac",
+            "module": "ExtensionFoundation",
+            "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+            "symbol": "+[EXPKService main]"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "sequence": 0,
+        "elapsed_ms": 184.533,
+        "thread_id": 564747,
+        "breakpoint_index": 0,
+        "load_address": "0x100002324",
+        "file_address": "0x100002324",
+        "module": "corsairs-lab",
+        "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "symbol": "main",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [],
+        "backtrace": []
+      }
+    ],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab"
+    }
+  ],
+  "evidence_links": []
+}

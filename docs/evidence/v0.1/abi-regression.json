@@ -1,0 +1,1266 @@
+{
+  "timestamp": "2026-10-15T16:03:18.128941+00:00",
+  "status": "passed",
+  "results": {
+    "metadata_matches_swift": true,
+    "error_type_matches_swift": true,
+    "error_cycles": 1000,
+    "task_lifecycle_checked": true,
+    "task_cycles": 1000,
+    "suspension_checked": true,
+    "async_model_error_checked": true,
+    "model_loading_checked": true,
+    "inference_matches_swift_and_recorded_python": true,
+    "tensor_checked": true,
+    "buffer_checked": true,
+    "cycles": 1000
+  },
+  "commands": [
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "--version"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+      "stderr": "swift-driver version: 1.168.6 "
+    },
+    {
+      "command": [
+        "xcrun",
+        "--show-sdk-path"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "scripts/calibrate.py"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "PASS: Known aggregate mismatch reproduced; no diagnostic function executed.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Checking corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Checking corsairs-lab v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.25s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--workspace"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "\nrunning 11 tests\ntest facade::tests::native_dropped_futures_release_model_and_function_handles ... ignored, requires native Core AI services; CORSAIRS_TEST_MODEL points to a float32[2,3] x+x asset\ntest facade::tests::public_handles_and_owned_results_are_send_sync ... ok\ntest dtype::tests::half_ieee_boundaries_and_ties ... ok\ntest dtype::tests::scalar_and_empty_shapes_have_consistent_counts ... ok\ntest dtype::tests::tensor_rejects_invalid_storage_before_native_calls ... ok\ntest facade::tests::signatures_reject_names_dtype_and_shape_before_execution ... ok\ntest worker::tests::worker_keeps_non_send_state_on_its_own_thread ... ok\ntest worker::tests::dropping_future_does_not_release_running_request ... ok\ntest worker::tests::reentrant_waker_cannot_block_its_worker ... ok\ntest worker::tests::panicked_worker_resolves_queued_and_later_requests ... ok\ntest dtype::tests::half_exhaustive_bit_roundtrip ... ok\n\ntest result: ok. 10 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\ntest missing_symbol_is_an_error_without_invocation ... ok\ntest repeated_metadata_has_canonical_identity ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest crates/corsairs-abi/src/lib.rs - (line 6) - compile ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nall doctests ran in 0.27s; merged doctests compilation took 0.12s\n",
+      "stderr": "   Compiling corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs-lab v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.75s\n     Running unittests src/lib.rs (target/debug/deps/corsairs-66af35280701577d)\n     Running unittests src/bin/corsairs.rs (target/debug/deps/corsairs-a85ac3c09d005d71)\n     Running tests/native_metadata.rs (target/debug/deps/native_metadata-56b06f3ff96d8dcb)\n     Running unittests src/main.rs (target/debug/deps/corsairs_lab-a5572bcfa5f2237a)\n   Doc-tests corsairs\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--workspace"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "   Compiling corsairs-lab v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--workspace",
+        "--release"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "   Compiling corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs-lab v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab)\n    Finished `release` profile [optimized] target(s) in 0.96s\n"
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/MetadataReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/metadata-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TensorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/BufferReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/buffer-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/ErrorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-sil",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/ErrorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference.sil"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TaskReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-assembly",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TaskReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference.s"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TaskRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "clang",
+        "-O2",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/c/SuspensionReference.c",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/suspension-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/suspension-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "ok=1 entries=1 resumes=1 identity_matches=2 completion_tls_clear=1 caller_tls_clear=1 changed_thread=0 yield_context_size=80\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/LoadReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-sil",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/LoadReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference.sil"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/LoadRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/SuspensionReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/suspension-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/InferenceReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-sil",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/InferenceReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference.sil"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/InferenceRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "cpuOnly"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "{\"description\":\"failedToSpecialize(\\\"Asset at file:\\/\\/\\/Users\\/zakkeown\\/Code\\/aether\\/lab\\/corsairs\\/target\\/experiments\\/check\\/intentionally-absent.aimodel is malformed: Missing hash file\\\")\",\"error_type\":\"CoreAIDelegates.AIModelCacheError\",\"loaded\":false,\"mode\":\"cpuOnly\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/task-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"body_has_current_task\":true,\"completed\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/ErrorRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/error-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"caught\":true,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-Onone",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "-emit-ir",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TensorReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference-onone.ll"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/metadata-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "[{\"alignment\":8,\"name\":\"NDArray\",\"size\":49,\"stride\":56},{\"alignment\":1,\"name\":\"ScalarType\",\"size\":1,\"stride\":1},{\"alignment\":8,\"name\":\"AIModel\",\"size\":8,\"stride\":8},{\"alignment\":8,\"name\":\"InferenceFunction\",\"size\":1160,\"stride\":1160}]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "metadata"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "[\n{\"name\":\"NDArray\",\"size\":49,\"stride\":56,\"alignment\":8,\"kind\":512,\"address\":12576312872}\n,{\"name\":\"ScalarType\",\"size\":1,\"stride\":1,\"alignment\":1,\"kind\":513,\"address\":12576321016}\n,{\"name\":\"AIModel\",\"size\":8,\"stride\":8,\"alignment\":8,\"kind\":512,\"address\":12576305784}\n,{\"name\":\"InferenceFunction\",\"size\":1160,\"stride\":1160,\"alignment\":8,\"kind\":512,\"address\":12535800720}\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "tensor",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "buffer",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "bookmark-error",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"bookmark-error cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "task",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"task cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "suspend",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"suspend cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"model cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"inference cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "bookmark-error",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"attempts\":1000,\"caught\":1000,\"released\":1000,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "task",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"bodies_executed\":1000,\"task_identity_matches\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "suspend",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"resumes\":1000,\"task_identity_matches\":2000,\"resumed_on_other_thread\":999,\"native_completions\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":0,\"destroyed\":0,\"caught\":1000,\"errors_released\":1000,\"function_names\":[],\"error_type\":\"CoreAIDelegates.AIModelCacheError\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "metadata"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "[\n{\"name\":\"NDArray\",\"size\":49,\"stride\":56,\"alignment\":8,\"kind\":512,\"address\":12576312872}\n,{\"name\":\"ScalarType\",\"size\":1,\"stride\":1,\"alignment\":1,\"kind\":513,\"address\":12576321016}\n,{\"name\":\"AIModel\",\"size\":8,\"stride\":8,\"alignment\":8,\"kind\":512,\"address\":12576305784}\n,{\"name\":\"InferenceFunction\",\"size\":1160,\"stride\":1160,\"alignment\":8,\"kind\":512,\"address\":12535800720}\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "tensor",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "buffer",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"tensor cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "bookmark-error",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"bookmark-error cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "task",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"task cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "suspend",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"suspend cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"model cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "0"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: Error(\"inference cycles must be between 1 and 1000000\")\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "bookmark-error",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"attempts\":1000,\"caught\":1000,\"released\":1000,\"error_type\":\"CoreAIDelegates.AIModelCacheError\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "task",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"bodies_executed\":1000,\"task_identity_matches\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "suspend",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"resumes\":1000,\"task_identity_matches\":2000,\"resumed_on_other_thread\":999,\"native_completions\":1000,\"tls_restored\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/intentionally-absent.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":0,\"destroyed\":0,\"caught\":1000,\"errors_released\":1000,\"function_names\":[],\"error_type\":\"CoreAIDelegates.AIModelCacheError\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/load-reference",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "cpuOnly"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"function_names\":[\"main\"],\"loaded\":true,\"mode\":\"cpuOnly\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":1000,\"destroyed\":1000,\"caught\":0,\"errors_released\":0,\"function_names\":[\"main\"],\"error_type\":\"\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "model",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"loaded\":1000,\"destroyed\":1000,\"caught\":0,\"errors_released\":0,\"function_names\":[\"main\"],\"error_type\":\"\",\"native_completions\":1000}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/inference-reference",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"exact_bytes_match\":true,\"function\":\"main\",\"is_float32\":true,\"output_count\":1,\"output_shape\":[2,3],\"output_strides\":[3,1],\"remaining_outputs\":0,\"values\":[2,-4,0,1,200,-0.5]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"completed\":1000,\"output_shape\":[2, 3],\"output_strides\":[3, 1],\"is_float32\":true,\"output_bits\":[1073741824, 3229614080, 0, 1065353216, 1128792064, 3204448256],\"exact_bytes_match\":true,\"output_count\":1,\"remaining_outputs\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "infer",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"completed\":1000,\"output_shape\":[2, 3],\"output_strides\":[3, 1],\"is_float32\":true,\"output_bits\":[1073741824, 3229614080, 0, 1065353216, 1128792064, 3204448256],\"exact_bytes_match\":true,\"output_count\":1,\"remaining_outputs\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/TensorRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/tensor-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"is_float32\":true,\"shape\":[2,2]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "tensor",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "tensor",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/swift-cache",
+        "-parse-as-library",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/BufferReference.swift",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/BufferRunReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/buffer-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/experiments/check/buffer-reference"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"content_bits\":[[1065353216,3223322624,0,2147483648],[2139095040,4286578688,2143363909,1],[2139095039,8388608,1051372203,4290847557]],\"is_float32\":true,\"shape\":[2,2]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/debug/corsairs-lab",
+        "buffer",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[[1065353216, 3223322624, 0, 2147483648], [2139095040, 4286578688, 2143363909, 1], [2139095039, 8388608, 1051372203, 4290847557]]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs-lab",
+        "buffer",
+        "1000"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "stdout": "{\"cycles\":1000,\"shape\":[2, 2],\"scalar_tag\":29,\"initialized\":1000,\"destroyed\":1000,\"content_bits\":[[1065353216, 3223322624, 0, 2147483648], [2139095040, 4286578688, 2143363909, 1], [2139095039, 8388608, 1051372203, 4290847557]]}\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "crates/corsairs-abi/Cargo.toml": "fc1462215c2f204daf9c88e87b2f68467de4ec4879098cb1fbdd79e90dc3f35e",
+    "crates/corsairs-abi/LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+    "crates/corsairs-abi/LICENSE-MIT": "f37d4d2a5d37de7e96a8322147d86af08df29d87d01bdf3034396979b2a39154",
+    "crates/corsairs-abi/README.md": "4372294ac36dcba23896f496058a3f5bc823c5dc2e823e061e3ea353b9070526",
+    "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "crates/corsairs-abi/models/accumulator.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+    "crates/corsairs-abi/models/accumulator.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+    "crates/corsairs-abi/models/accumulator.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "crates/corsairs-abi/models/accumulator.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+    "crates/corsairs-abi/models/feedforward.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+    "crates/corsairs-abi/models/feedforward.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+    "crates/corsairs-abi/models/feedforward.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "crates/corsairs-abi/models/feedforward.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+    "crates/corsairs-abi/models/manifest.json": "fccd4ff0aee73cc62a522a508eb997b35386a45fba93fe20ec8cbb0f5b1018a2",
+    "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "crates/corsairs-abi/src/bin/corsairs.rs": "f17e16dda5f5538520bbd882aa6035a1f1d665cc9a4b37ea5d793951f0f14b83",
+    "crates/corsairs-abi/src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+    "crates/corsairs-abi/src/facade.rs": "89f2241128fff9e78b99d2a4c171e98cc31f1b876f55c03dff091a5dae6404ca",
+    "crates/corsairs-abi/src/lib.rs": "f5bb52861a129eaccd1148cbca365f9104af2d933e0a29eff9f797fee8123815",
+    "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "crates/corsairs-abi/src/native/async_task.rs": "1c46d8392654afcf8a47b303f85d9530bdfee44b0c59367951477c4895980eb3",
+    "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "crates/corsairs-abi/src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "crates/corsairs-abi/src/native/mod.rs": "37e748db47a5fc9d1cbfa4f52fe6f4aa1d847f8147f1c2a255e40a9b10b1ba27",
+    "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "crates/corsairs-abi/src/native/owned.rs": "dd40b26ca8318cf2c4224467b8aa32227a92c24b95d8f4face2bee2fb68b146e",
+    "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "crates/corsairs-abi/src/native/value.rs": "f9fae0bf23c2b0b007069c0a0490955aa2ef243e22418d6e66996521d0c9f6ad",
+    "crates/corsairs-abi/src/worker.rs": "4ea071c49640f57eae0627d94b390aff866c028e02eb73bfa24002da212b08aa",
+    "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+    "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+    "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+    "experiments/c/CompletionReference.c": "9c2a79a46dd9705bf529d974e8fa6d31181350e004b770f8eb881d1249112f80",
+    "experiments/c/SuspensionReference.c": "496c607e1ee38aa6ac4f46e03ad208cc2708b1de108875b6e3734751748596e6",
+    "experiments/rust/call_lowering.rs": "eed5868fadae103ee3d717f69942a63ef1dd78f50a6e760f8778a28ac7fd9c07",
+    "experiments/rust/float16_conversion.rs": "eb4fb6b1ae86abb7b671857f4532ec86a2b7a1f86408b1839d22388c9311992a",
+    "experiments/rust/v01_driver.rs": "1835da696b9f27fba3952482b6afc5969399e41e626b6ba7690cadf0e796954f",
+    "experiments/swift/BufferReference.swift": "793383fcc3acf63c46740d75473356cbf42ece91889683bef9b7b9c1e2c72247",
+    "experiments/swift/BufferRunReference.swift": "781ba5718d013c32babf87cebba17b77193f866e69e58d489901d0598880235c",
+    "experiments/swift/ConventionReference.swift": "e7e9834bdd8ac5cd19d91f54b942bad2ab8040b7416c77eb11b85ce1b5260cab",
+    "experiments/swift/ErrorReference.swift": "15c50de3aae997e80a94ee4693ad35506febfe1b08a3544261387b0d247bbcff",
+    "experiments/swift/ErrorRunReference.swift": "87e677af7cd743f886fe47b8d09417656c07939e64ccb7a6a6a73ef9be86414c",
+    "experiments/swift/InferenceReference.swift": "e0f350b4492546e090983c12a404bd8f0d0082412b8bc48706ea2cd92247723d",
+    "experiments/swift/InferenceRunReference.swift": "062ff3ccd29c3e5e102827d3322760180a8cb5a2f68e45282d8055f99065569c",
+    "experiments/swift/LoadReference.swift": "23eea98d00f2b3e2b8ea7b6531aa4c3c27c56b0fd460fa33a4c4792737da6272",
+    "experiments/swift/LoadRunReference.swift": "0ef9e124aff7301580227bae54bce2a7273d8d3c230ddbff2167560d0f72192c",
+    "experiments/swift/MetadataReference.swift": "f1bfdb3f2194cd45e2709ff8107b16aec2f5d00e8a3938cfc6633e3c863d24c4",
+    "experiments/swift/OwnedReference.swift": "be304e4eb322e9c2d916ac7eddf3d653dbfdf6874e90d54ec40c8e518bcd24bf",
+    "experiments/swift/SuspensionReference.swift": "3a11ece500421b6455158c2fec6c90d37671a2b9263c48b3730ebf69a2a2df71",
+    "experiments/swift/TaskReference.swift": "330758cfc3168a7821f0aeeebf7e46814e5b28123fae96e0c39cff269078f369",
+    "experiments/swift/TaskRunReference.swift": "5eb301a8d253048e8105a215facb811121dbbd1079b6e6d7970cadeeb2657131",
+    "experiments/swift/TensorReference.swift": "3fb81ed92792897e4c8d5233aa5f79d995025dfc4478a25c4c841b600d12ff0a",
+    "experiments/swift/TensorRunReference.swift": "3ee0a02fd10f8388efe5393530bb3ddc89982c97eb5d387d01c8b979f42ad868",
+    "scripts/calibrate.py": "e3f8ad8449c62c1bc2fd968c33dd0a23bfd51450d3b5168346511010758c8385",
+    "scripts/check.py": "fd5b5bf958bcf955653813f919f0eb95beef8ad384d6be43ff832f587c343842",
+    "scripts/check_float16.py": "5f77627056ea53a176fc2f8db86bf48925097c826a582ebd5f5adf0752bc5038",
+    "scripts/check_v01.py": "e01f4a79cf9c5c7773d85e8fd03f64cc2c47078af66a38b13c660b4096c6534d",
+    "scripts/reference/README.md": "116a3f520e9017191a765a97cbd347c1acb2bd7d1b6c86a875d06c50ba11e2d5",
+    "scripts/reference/acquire.py": "642709c81fe6faea20ae52242538abc20a3e3b9e465667b9b845a2d114ae97a8",
+    "scripts/reference/benchmark.py": "fb3074cc5d019c1627160e3624871781fce49707a4e2339279a70667ed0c98a7",
+    "scripts/reference/build_fixtures.py": "cf54213535aab2e80b99cbde926f1f2c436be58403214a5d77044279f9773cfe",
+    "scripts/reference/environment.py": "6851634c107ff5c65dadb5d28064fda70e82537809011eef6d40eb6fd0b61447",
+    "scripts/reference/freeze_goldens.py": "eb980b3b8e51d3224d0568c204cb73ea34614c2dd1e84c02443c0f7549d5e85a",
+    "scripts/reference/inventory.py": "72b4cfbdfc3982a7352de029211360d33229f2c1ad4bd564f2c7992e7378c7f3",
+    "scripts/reference/run_suite.py": "bd24c0d08d9c4fb009bdfcd946fd5b275dc935deada150d394a8d862a188d9e5",
+    "scripts/reference/verify_fixtures.py": "28adddc6626d0ae1fefdfcbcce9b11c31566a64b3b7249067603148b2b199c33",
+    "fixtures/double_f32_2x3/README.md": "752bd27a0dd724be68bd279dd6dbdaac2d55625e6271ce624d71f20344c5dedf",
+    "fixtures/double_f32_2x3/build_fixture.py": "83245b603871269ecc3adff4898b19d668aa3e913525fa9a5077b85c352956e6",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel/main.hash": "6932d3cd347e1a8b24a858e8fda760075364ce48e225ecd0d4d028b5f9f39d22",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel/main.mlirb": "97996248c9b6a5b7ca3d347154d495d8a44f62a6f773803b7b9e97028ff16d43",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel/metadata.json": "66aebf5881626e78fdfaf7cef6b266f5f8c6b21cf493fe8ec4d95c9c11009948",
+    "fixtures/double_f32_2x3/double_f32_2x3.mlir": "10217a22d93eedd03875802a96851577cf2c92980ab7e6af21912475f3e21c42",
+    "fixtures/double_f32_2x3/expected.f32le": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/double_f32_2x3/input.f32le": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738",
+    "fixtures/double_f32_2x3/manifest.json": "1b7899dddc48c726bdd8e98709ba2e74873541b94627290792601f173df2b886",
+    "fixtures/double_f32_2x3/python-reference.json": "b7723f17378ab9a226ce4744a2a9630917f6c6e0d3603c8e29a3c2d1840222f0",
+    "fixtures/double_f32_2x3/run_python_reference.py": "2427b26bbadf1e8b349f67bc36d6f3f9cfa6a55646889661852d56e0892e6211",
+    "fixtures/parity-v01/API-INVENTORY.md": "ae6a4c7ae90ffe02dc1e3c0cc8b0b31eca455f7be4dcb4442137ed2ca8eaacbe",
+    "fixtures/parity-v01/BACKEND-SEMANTICS.md": "c202933d0d2f0385ad60aa7da50be84eb7fd7f156825853782c3d639daf5b0ef",
+    "fixtures/parity-v01/README.md": "d363dec72ceb62f779498619f8dbcdc4812510d631235d4a18ed43b27db219ce",
+    "fixtures/parity-v01/accumulator/graph.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+    "fixtures/parity-v01/accumulator/initial-state.bin": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+    "fixtures/parity-v01/accumulator/model.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+    "fixtures/parity-v01/accumulator/model.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+    "fixtures/parity-v01/accumulator/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/accumulator/step0-expected-state.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/accumulator/step0-expected-y.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/accumulator/step0-x.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/accumulator/step1-expected-state.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/accumulator/step1-expected-y.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/accumulator/step1-x.bin": "f3e5da6ea1f0f7e1d62f0cc41df540d185f74ad92135f4cb7c270a1cb4a50243",
+    "fixtures/parity-v01/accumulator/step2-expected-state.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/accumulator/step2-expected-y.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/accumulator/step2-x.bin": "e2c0a71510b5394df7773b63fb5f54372b84c3564e67811bde7d665be227976d",
+    "fixtures/parity-v01/api-inventory.json": "3e2c7a21a91d0b52c70793eeb233f7c4e8532714ec83bb8c38b7567826e09a92",
+    "fixtures/parity-v01/backend-goldens.json": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da",
+    "fixtures/parity-v01/double_float16/expected-y.bin": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+    "fixtures/parity-v01/double_float16/graph.mlir": "55f45d8c2347551bf04c8a87a7fec5762f214c905cf2245c4e0402e8238b11ba",
+    "fixtures/parity-v01/double_float16/model.aimodel/main.hash": "0f230ae06062db57f3abe50aadccb30b4e72d88db6637f9f15dc1d32eb2ed3c2",
+    "fixtures/parity-v01/double_float16/model.aimodel/main.mlirb": "eedc980e1661ba4441c1487ddcdf89b2e9c061967587f7d26f816225f290bfb6",
+    "fixtures/parity-v01/double_float16/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/double_float16/x.bin": "0c61642b50fd5472d32a0075d74484fe5436538924d4bb05fb968b52104ca5b4",
+    "fixtures/parity-v01/double_float32/expected-y.bin": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/parity-v01/double_float32/graph.mlir": "cfa2e456e858b04b95e15fdfa508f6b56dd1eeb48bfda0c47f76b99f8d8db31b",
+    "fixtures/parity-v01/double_float32/model.aimodel/main.hash": "d551e44b426135026146160f0c5e6b4cf5d90f85f9e6cfec1c152fc031949557",
+    "fixtures/parity-v01/double_float32/model.aimodel/main.mlirb": "28912df365f40e74bbbdea6eb4033c4683c5f851e6f6821e5218c9ad8d1bf93d",
+    "fixtures/parity-v01/double_float32/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/double_float32/x.bin": "1f5273d49543d4b6726329571c3b4c67e8b9f2fec6d9923a68100c490ff8a738",
+    "fixtures/parity-v01/double_int32/expected-y.bin": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+    "fixtures/parity-v01/double_int32/graph.mlir": "9f34cf15ef3c05b57bb370a2010927d09a87d12699a565cd9fdea76b1243d57e",
+    "fixtures/parity-v01/double_int32/model.aimodel/main.hash": "3dbb6ab825464f54d6e50b308e8b240dff6267c36dd7cc7719e0a0e70764970a",
+    "fixtures/parity-v01/double_int32/model.aimodel/main.mlirb": "f86e0e5eaaa73dcd89a6a915822f4773aa963bf4971774d67f2d8144e4560dbf",
+    "fixtures/parity-v01/double_int32/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/double_int32/x.bin": "3a00edf03807a20d8c3a90b8ab21226892ba42b74e94a05a510da32bae2da4cb",
+    "fixtures/parity-v01/double_int64/expected-y.bin": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+    "fixtures/parity-v01/double_int64/graph.mlir": "848b319965b51d3b34af83b663bbe3d13935865daf3e3bf78837bc13af4a52b1",
+    "fixtures/parity-v01/double_int64/model.aimodel/main.hash": "21f5cd49f44b0b052869548979e76163253eddb7536873e7d463d330f1c0f31f",
+    "fixtures/parity-v01/double_int64/model.aimodel/main.mlirb": "2322b76f88e908ee7899162e3be20431593a4d878dd18b3d5a88f77f448c2e1f",
+    "fixtures/parity-v01/double_int64/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/double_int64/x.bin": "edadf20164b7daef0e81829b64be94ad36fe73bd188e5b6d2f0e90deec35aa8e",
+    "fixtures/parity-v01/empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/parity-v01/empty/graph.mlir": "e4daf61610338f3ac139cc610b53afffc79e9982c0e5d37e974fcc8d4d7c2679",
+    "fixtures/parity-v01/empty/model.aimodel/main.hash": "1115ff1b367fa90f8c6069badeb25d01c702c69c6a9b8f0b79ce75dde37c631f",
+    "fixtures/parity-v01/empty/model.aimodel/main.mlirb": "a4e97bbda9d5b15c45b687c5a3df91ea2b7202049ef1d637279ffde753c83d24",
+    "fixtures/parity-v01/empty/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/parity-v01/feedforward/expected-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+    "fixtures/parity-v01/feedforward/graph.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+    "fixtures/parity-v01/feedforward/model.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+    "fixtures/parity-v01/feedforward/model.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+    "fixtures/parity-v01/feedforward/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/feedforward/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/float_edges/expected-y.bin": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8",
+    "fixtures/parity-v01/float_edges/graph.mlir": "cfa2e456e858b04b95e15fdfa508f6b56dd1eeb48bfda0c47f76b99f8d8db31b",
+    "fixtures/parity-v01/float_edges/model.aimodel/main.hash": "d551e44b426135026146160f0c5e6b4cf5d90f85f9e6cfec1c152fc031949557",
+    "fixtures/parity-v01/float_edges/model.aimodel/main.mlirb": "28912df365f40e74bbbdea6eb4033c4683c5f851e6f6821e5218c9ad8d1bf93d",
+    "fixtures/parity-v01/float_edges/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/float_edges/x.bin": "5eedc578bed285b5c299476c11187ff095decc8c02232d0536aafecea09c09a6",
+    "fixtures/parity-v01/gather/expected-y.bin": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+    "fixtures/parity-v01/gather/graph.mlir": "2da2050c01bb1a993718459f21ad213290e13210af2146d2b83ebe9a004d716c",
+    "fixtures/parity-v01/gather/model.aimodel/main.hash": "cc81c4d93055c9adb0765fadbd56e29d0180e35727651b6f3639f5525dd71f49",
+    "fixtures/parity-v01/gather/model.aimodel/main.mlirb": "d82424bcc1b2d9594151ccf8578105ed190c6df11faa6dba3953208d7d414039",
+    "fixtures/parity-v01/gather/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/gather/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/goldens/cpu/accumulator/step0-outputs-y.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/goldens/cpu/accumulator/step0-state_after-accumulator.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/goldens/cpu/accumulator/step1-outputs-y.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/goldens/cpu/accumulator/step1-state_after-accumulator.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/goldens/cpu/accumulator/step2-outputs-y.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/goldens/cpu/accumulator/step2-state_after-accumulator.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/goldens/cpu/double_float16/step0-outputs-y.bin": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+    "fixtures/parity-v01/goldens/cpu/double_float32/step0-outputs-y.bin": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/parity-v01/goldens/cpu/double_int32/step0-outputs-y.bin": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+    "fixtures/parity-v01/goldens/cpu/double_int64/step0-outputs-y.bin": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+    "fixtures/parity-v01/goldens/cpu/empty/step0-outputs-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/parity-v01/goldens/cpu/feedforward/step0-outputs-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+    "fixtures/parity-v01/goldens/cpu/float_edges/step0-outputs-y.bin": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8",
+    "fixtures/parity-v01/goldens/cpu/gather/step0-outputs-y.bin": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+    "fixtures/parity-v01/goldens/cpu/int64_edges/step0-outputs-y.bin": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+    "fixtures/parity-v01/goldens/cpu/matmul/step0-outputs-y.bin": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+    "fixtures/parity-v01/goldens/cpu/named_add/step0-outputs-y.bin": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+    "fixtures/parity-v01/goldens/cpu/not_bool/step0-outputs-y.bin": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+    "fixtures/parity-v01/goldens/cpu/reduce_sum/step0-outputs-y.bin": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+    "fixtures/parity-v01/goldens/cpu/reshape/step0-outputs-y.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/goldens/cpu/scalar/step0-outputs-y.bin": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+    "fixtures/parity-v01/goldens/gpu-preferred/accumulator/step0-outputs-y.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/goldens/gpu-preferred/accumulator/step0-state_after-accumulator.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/goldens/gpu-preferred/accumulator/step1-outputs-y.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/goldens/gpu-preferred/accumulator/step1-state_after-accumulator.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/goldens/gpu-preferred/accumulator/step2-outputs-y.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/goldens/gpu-preferred/accumulator/step2-state_after-accumulator.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/goldens/gpu-preferred/double_float16/step0-outputs-y.bin": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+    "fixtures/parity-v01/goldens/gpu-preferred/double_float32/step0-outputs-y.bin": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/parity-v01/goldens/gpu-preferred/double_int32/step0-outputs-y.bin": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+    "fixtures/parity-v01/goldens/gpu-preferred/double_int64/step0-outputs-y.bin": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+    "fixtures/parity-v01/goldens/gpu-preferred/empty/step0-outputs-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/parity-v01/goldens/gpu-preferred/feedforward/step0-outputs-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+    "fixtures/parity-v01/goldens/gpu-preferred/float_edges/step0-outputs-y.bin": "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7",
+    "fixtures/parity-v01/goldens/gpu-preferred/gather/step0-outputs-y.bin": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+    "fixtures/parity-v01/goldens/gpu-preferred/int64_edges/step0-outputs-y.bin": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+    "fixtures/parity-v01/goldens/gpu-preferred/matmul/step0-outputs-y.bin": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+    "fixtures/parity-v01/goldens/gpu-preferred/named_add/step0-outputs-y.bin": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+    "fixtures/parity-v01/goldens/gpu-preferred/not_bool/step0-outputs-y.bin": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+    "fixtures/parity-v01/goldens/gpu-preferred/reduce_sum/step0-outputs-y.bin": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+    "fixtures/parity-v01/goldens/gpu-preferred/reshape/step0-outputs-y.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/goldens/gpu-preferred/scalar/step0-outputs-y.bin": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+    "fixtures/parity-v01/int64_edges/expected-y.bin": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+    "fixtures/parity-v01/int64_edges/graph.mlir": "848b319965b51d3b34af83b663bbe3d13935865daf3e3bf78837bc13af4a52b1",
+    "fixtures/parity-v01/int64_edges/model.aimodel/main.hash": "21f5cd49f44b0b052869548979e76163253eddb7536873e7d463d330f1c0f31f",
+    "fixtures/parity-v01/int64_edges/model.aimodel/main.mlirb": "2322b76f88e908ee7899162e3be20431593a4d878dd18b3d5a88f77f448c2e1f",
+    "fixtures/parity-v01/int64_edges/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/int64_edges/x.bin": "06481632b32dd1d0ea18a31804430a61a2083771aee6e1f219b82e87322567ad",
+    "fixtures/parity-v01/matmul/expected-y.bin": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+    "fixtures/parity-v01/matmul/graph.mlir": "eb13cff7d98fad9559dab97188141ae5b8156013286f4432107a52ce35d31f0a",
+    "fixtures/parity-v01/matmul/model.aimodel/main.hash": "a58936f3d891ad38e784405cc3185ba869ecbe7bdcd8143934220ba5c91b0e28",
+    "fixtures/parity-v01/matmul/model.aimodel/main.mlirb": "507605d44bed9f3664b16b97c862a285c4f96e8b4e08d1f273d74d3f4a566680",
+    "fixtures/parity-v01/matmul/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/matmul/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/named_add/addend.bin": "b9313fd89d3ef25017a9fec61b2941f0b300d7f4320181bf5ed6abdbd2aec1b0",
+    "fixtures/parity-v01/named_add/expected-y.bin": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+    "fixtures/parity-v01/named_add/graph.mlir": "51e1688b5e1be674b28253ff7c01d71c66a3d371acb5ceb5f82b62ecbbd4a2f9",
+    "fixtures/parity-v01/named_add/model.aimodel/main.hash": "65bb3d6f0266f37265904f2329c6f25aa2e0fd80d0c446b170c138bb9e83f5bc",
+    "fixtures/parity-v01/named_add/model.aimodel/main.mlirb": "89b1ef1e374891f97d997f23fa66438381df013cc956dd96bf20ae5c15da177b",
+    "fixtures/parity-v01/named_add/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/named_add/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/not_bool/expected-y.bin": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+    "fixtures/parity-v01/not_bool/graph.mlir": "8519e011a99b5db8e85f01b2ec2aaa60e04d17f83ee188d534fdf3e5c8c8e082",
+    "fixtures/parity-v01/not_bool/model.aimodel/main.hash": "51212f519060e46fb2a5f03005d4c8035eddaedf3b321093f2fd073df8961cd1",
+    "fixtures/parity-v01/not_bool/model.aimodel/main.mlirb": "5d2354f1ab74fab5ccf562528c99be96cd1224c2e809d1cb38614838d0d10a04",
+    "fixtures/parity-v01/not_bool/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/not_bool/x.bin": "4be4656d02d7d66839900d55b06fd34b9b09c3c0c2c39466ff29ebc0bb85b300",
+    "fixtures/parity-v01/preparation-checks.json": "fac3f1ff549f4e02600adfb3355f76f0e56147bd356ded86be06ca178c86fa95",
+    "fixtures/parity-v01/python-benchmark.json": "1083fe4fc04fe093cea6df6551859c7aa87f4f9ed0d7ab20ef862003f74304d3",
+    "fixtures/parity-v01/python-results-float_edges-gpu-preferred.json": "82a15743c1ff7d3362eed6a17fd4fba41a7ccdb876d1eadc895127a0e6d64488",
+    "fixtures/parity-v01/python-results.initial.json": "1f91f23373fd141392a3f1b38cf0f9fdd6b94c29d01ce083e987cfd84522758b",
+    "fixtures/parity-v01/python-results.json": "1f91f23373fd141392a3f1b38cf0f9fdd6b94c29d01ce083e987cfd84522758b",
+    "fixtures/parity-v01/reduce_sum/expected-y.bin": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+    "fixtures/parity-v01/reduce_sum/graph.mlir": "0a03b348416b5090c8391d267ffcaf716fc9456f86672e5c2bb579278bbe820c",
+    "fixtures/parity-v01/reduce_sum/model.aimodel/main.hash": "602ea3ed64eba0d4b04cbabdde911b3240752eb2fbf180c3e2933702ee1d04d5",
+    "fixtures/parity-v01/reduce_sum/model.aimodel/main.mlirb": "b85c79174d793553527420dec9cbb680a9b58de90e0faa69f50d444c620bd3f4",
+    "fixtures/parity-v01/reduce_sum/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/reduce_sum/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/reference-lock.json": "8f3fe171fc0bd9975fa7fde5955999b4dd712489804812a30609432d781d6c1e",
+    "fixtures/parity-v01/reference-pypi.json": "db66e8feca555f67fe433f1d62c6ce61ec791999a59c89e4ad2cb25e9c32e868",
+    "fixtures/parity-v01/reshape/expected-y.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/reshape/graph.mlir": "d214d73d866d1fce98277288b465e32a02eb844c5a99c456fc6e0bc16f96fcfe",
+    "fixtures/parity-v01/reshape/model.aimodel/main.hash": "3cff514fe5e29c64fc979062bade6dfdd3208a1ef51831a58a37821b050f82f8",
+    "fixtures/parity-v01/reshape/model.aimodel/main.mlirb": "a411e5972f43dfa06e1799c055b9c3789a9ea4f53275765741629b033c054a25",
+    "fixtures/parity-v01/reshape/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/reshape/x.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/results/cpu/accumulator/missing_state/observation.json": "afeccaecaafa1a43d964edcaabafda944632aad68714e6bab0fbdbaff6effc6f",
+    "fixtures/parity-v01/results/cpu/accumulator/observation.json": "e283880024151ef0afc5411b6d3c402acfe61657a1bedaa4d19b5c36ddab7297",
+    "fixtures/parity-v01/results/cpu/accumulator/step0-state-accumulator.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/results/cpu/accumulator/step0-y.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/results/cpu/accumulator/step1-state-accumulator.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/results/cpu/accumulator/step1-y.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/results/cpu/accumulator/step2-state-accumulator.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/results/cpu/accumulator/step2-y.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/results/cpu/accumulator/wrong_state_shape/observation.json": "76b7485a92f996c9429b1e9123a5930210b994033de9ce099a1702575e932efc",
+    "fixtures/parity-v01/results/cpu/double_float16/observation.json": "b200129ef72743e87260bdaa5922adb87143dee79cf812a89861f315b83e44dc",
+    "fixtures/parity-v01/results/cpu/double_float16/step0-y.bin": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+    "fixtures/parity-v01/results/cpu/double_float32/missing_asset/observation.json": "aa25dd8fcecc9230e4836e4946bd0d79560a9a24d539be676dbf8a0bf0191654",
+    "fixtures/parity-v01/results/cpu/double_float32/missing_function/observation.json": "fc19643f8197a63f76a24de71f485f66dc6b680d4cbc640661ab19730906d023",
+    "fixtures/parity-v01/results/cpu/double_float32/missing_input/observation.json": "d637ab4f3d6abdad79fe31df625b9edf1dfd55666a53f923c7e5ff72f0f6fdfa",
+    "fixtures/parity-v01/results/cpu/double_float32/observation.json": "442b0c4da76e7d9d0dbd680d42f286a8c39fe6cf6f0ff2d50ee7d66a9c378765",
+    "fixtures/parity-v01/results/cpu/double_float32/step0-y.bin": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/parity-v01/results/cpu/double_float32/unknown_input/observation.json": "06e21fdb69b66e0f12122d11d6e1744df38302834a0464c67f2cd54d68a945d9",
+    "fixtures/parity-v01/results/cpu/double_float32/wrong_dtype/observation.json": "8423f230a919dc37b1440053f54e312110b15877131898ae1d978b58a67e46f3",
+    "fixtures/parity-v01/results/cpu/double_float32/wrong_shape/observation.json": "59b24ad3a633f9512abe43e400f2cb338bb7743a19fed6fb1af72932d860586a",
+    "fixtures/parity-v01/results/cpu/double_int32/observation.json": "fd9f61860c35fe22f489ace11201cfdd09a2552ce0d9fa564bab1c4806085e9b",
+    "fixtures/parity-v01/results/cpu/double_int32/step0-y.bin": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+    "fixtures/parity-v01/results/cpu/double_int64/observation.json": "c7dcc83e06b92040386a933931107d95d11bf96b71bbc3853e795422e74b5d2c",
+    "fixtures/parity-v01/results/cpu/double_int64/step0-y.bin": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+    "fixtures/parity-v01/results/cpu/empty/observation.json": "c6929ca380301baf2a0413bfe3523f414078693825ce899993937c4763c78ed0",
+    "fixtures/parity-v01/results/cpu/empty/step0-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/parity-v01/results/cpu/feedforward/observation.json": "d4f369568041032e04a6ebc476691745da308190d75bc4e1e3ce44eeb27b05b0",
+    "fixtures/parity-v01/results/cpu/feedforward/step0-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+    "fixtures/parity-v01/results/cpu/float_edges/observation.json": "f4b8aa7992e29a10c51a735405657d6937df657d4e1d1f6106ad623a008139ce",
+    "fixtures/parity-v01/results/cpu/float_edges/step0-y.bin": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8",
+    "fixtures/parity-v01/results/cpu/gather/observation.json": "473705e3dcf44d030076bfc47d3a21281f1752934fe8d145a2cb953681671200",
+    "fixtures/parity-v01/results/cpu/gather/step0-y.bin": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+    "fixtures/parity-v01/results/cpu/int64_edges/observation.json": "7ea13e8a260c4eab93350460559af0ac166b77ae55c61d679c1ea23299416cf9",
+    "fixtures/parity-v01/results/cpu/int64_edges/step0-y.bin": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+    "fixtures/parity-v01/results/cpu/matmul/observation.json": "b1a10d83192b8dc4863601a65da380c8f418dbde7a0320fa1797e39eaeaa51ae",
+    "fixtures/parity-v01/results/cpu/matmul/step0-y.bin": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+    "fixtures/parity-v01/results/cpu/named_add/observation.json": "a68dceaa8347c7be56ae6253e79690b096e126837a08ac5768e9d5103b749b34",
+    "fixtures/parity-v01/results/cpu/named_add/step0-y.bin": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+    "fixtures/parity-v01/results/cpu/not_bool/observation.json": "ed5bbe4c1e0fcb4cdc46339385a285f3b3aa5adb7e5167fd201caf98461c50df",
+    "fixtures/parity-v01/results/cpu/not_bool/step0-y.bin": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+    "fixtures/parity-v01/results/cpu/reduce_sum/observation.json": "7315c1799ce8c86b2aa9418732034533cc931e1b66c37198f6fa5cf4f3c8a6b3",
+    "fixtures/parity-v01/results/cpu/reduce_sum/step0-y.bin": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+    "fixtures/parity-v01/results/cpu/reshape/observation.json": "9ab495270968b31e72c8a8bff2d46c8b06402b6e8e38b4a338b3e7b7970cc111",
+    "fixtures/parity-v01/results/cpu/reshape/step0-y.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/results/cpu/scalar/observation.json": "80762667bab1051530f624462761eeab5c8ce2d9d06fd7e22fb3f783d4d9aa37",
+    "fixtures/parity-v01/results/cpu/scalar/step0-y.bin": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/missing_state/observation.json": "655cf2257dbd1bf3f005e3f8fb140611a77b30ce550c6cfb88e0a1fb9e1e025e",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/observation.json": "78a7f38e2b68ac5bd2db5fb489b63bd460a45dc1baa1413a3a294da597aa661e",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/step0-state-accumulator.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/step0-y.bin": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/step1-state-accumulator.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/step1-y.bin": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/step2-state-accumulator.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/step2-y.bin": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+    "fixtures/parity-v01/results/gpu-preferred/accumulator/wrong_state_shape/observation.json": "f8208cdb2aeb854d989ff71f318572c01e7623b56f560d7987787f37788a425a",
+    "fixtures/parity-v01/results/gpu-preferred/double_float16/observation.json": "ded3676f75b3a37ee535545b3528d0e9458b6a222cdbd20fcad999c9a355548c",
+    "fixtures/parity-v01/results/gpu-preferred/double_float16/step0-y.bin": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/missing_asset/observation.json": "c5dfd51e1946effc85c0c22173b4a1adca7c622186fd31792285f0cadc23758c",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/missing_function/observation.json": "b52d9a102c0d71f4064b8121b081a46bd4ec2e4a2f7cd1c1fafdfccf75dac8c5",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/missing_input/observation.json": "1c7328d0ba7909c91b65e2ad50b0206778f45281272fdf2abec07ab85f657ada",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/observation.json": "1c7b5300a008fb647972760bc8758a5279e23355cdebfd4f973ecf733427d418",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/step0-y.bin": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/unknown_input/observation.json": "4ccbcf472ddb6d8ed5b229b0e96c668ee5052463377157829cf650df6445c6aa",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/wrong_dtype/observation.json": "3be30d5e40081f258c126e6e9894cb3f1d0186d77c9d325d45bd66462ebe1479",
+    "fixtures/parity-v01/results/gpu-preferred/double_float32/wrong_shape/observation.json": "5890f4698f19be9bbb04567729cf6ff6a3318f67c8bf761195f47968302eb3bc",
+    "fixtures/parity-v01/results/gpu-preferred/double_int32/observation.json": "997988be834e3b04cab852e5a33d8c541400dfbf2700ced7abdbeb028fd1393e",
+    "fixtures/parity-v01/results/gpu-preferred/double_int32/step0-y.bin": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+    "fixtures/parity-v01/results/gpu-preferred/double_int64/observation.json": "460a48158fcf0906b73d1a4f4e9f668f1e5148b885df84d75109d912b60dd871",
+    "fixtures/parity-v01/results/gpu-preferred/double_int64/step0-y.bin": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+    "fixtures/parity-v01/results/gpu-preferred/empty/observation.json": "5faa4cdb443f1925a5784cba923afac50a26129ae466a5882a61640b4a8b7bcd",
+    "fixtures/parity-v01/results/gpu-preferred/empty/step0-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/parity-v01/results/gpu-preferred/feedforward/observation.json": "88dc464c3b37f0bc21afdeabbff263fbfed0c1bed0200bbaf912fc8ebb1b59ad",
+    "fixtures/parity-v01/results/gpu-preferred/feedforward/step0-y.bin": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+    "fixtures/parity-v01/results/gpu-preferred/float_edges/observation.json": "f51bab9d111cd6e33ca74d9fe1ffade3342efac56b8ba5b6d0402ec7c2811937",
+    "fixtures/parity-v01/results/gpu-preferred/float_edges/step0-y.bin": "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7",
+    "fixtures/parity-v01/results/gpu-preferred/gather/observation.json": "f557a501465598bd23cf3600367547c4ef6f21e1591392aefd33146996998b32",
+    "fixtures/parity-v01/results/gpu-preferred/gather/step0-y.bin": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+    "fixtures/parity-v01/results/gpu-preferred/int64_edges/observation.json": "7dadb7631680eab78e29745c91d5d0f726c3ec65ec06a7bc4b73206f6aed39ef",
+    "fixtures/parity-v01/results/gpu-preferred/int64_edges/step0-y.bin": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+    "fixtures/parity-v01/results/gpu-preferred/matmul/observation.json": "8761f17aa7be30a797cbe785026e301d55e77342ef6ed1cde16d1e5203a93126",
+    "fixtures/parity-v01/results/gpu-preferred/matmul/step0-y.bin": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+    "fixtures/parity-v01/results/gpu-preferred/named_add/observation.json": "d1d6eeadcdbea4fab2646912a8d63fbc1f1a6c3d1dec3e5908f17e5380bf1d09",
+    "fixtures/parity-v01/results/gpu-preferred/named_add/step0-y.bin": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+    "fixtures/parity-v01/results/gpu-preferred/not_bool/observation.json": "333eb97b65395c7d962c9139518a802ecbbb4f75c500022e9d995fe5cfce7588",
+    "fixtures/parity-v01/results/gpu-preferred/not_bool/step0-y.bin": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+    "fixtures/parity-v01/results/gpu-preferred/reduce_sum/observation.json": "fa2b803944e1bc8cd91809a50260b7ed007aaddc306ce25b7b87e75520d9c19e",
+    "fixtures/parity-v01/results/gpu-preferred/reduce_sum/step0-y.bin": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+    "fixtures/parity-v01/results/gpu-preferred/reshape/observation.json": "0afcc4d67cea373c9cac2dc0eb857d065fb9642d171b5a6fbbbc4579bd2a6336",
+    "fixtures/parity-v01/results/gpu-preferred/reshape/step0-y.bin": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+    "fixtures/parity-v01/results/gpu-preferred/scalar/observation.json": "861f47276ff0053e1660e2d92b72527ecbb346e8d21b33ddbacbb44312636662",
+    "fixtures/parity-v01/results/gpu-preferred/scalar/step0-y.bin": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+    "fixtures/parity-v01/scalar/expected-y.bin": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+    "fixtures/parity-v01/scalar/graph.mlir": "64ebe6886379e708df494d56cf20bae8d1f97770436787abe2aca86ea2fbe71a",
+    "fixtures/parity-v01/scalar/model.aimodel/main.hash": "1d44d638c572b96736e6d5d0878b1a6d80f4a2cd3d22a01bf9030bceefa322bf",
+    "fixtures/parity-v01/scalar/model.aimodel/main.mlirb": "382e2fd05cd9b6939ec0b96e5a476ff24fa7236b78bb14244df68ab2d32fcde0",
+    "fixtures/parity-v01/scalar/model.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "fixtures/parity-v01/scalar/x.bin": "e21712a06022eecab9f5bd25414b4af9adeb316bb03947134cea060c78afd2d9",
+    "fixtures/parity-v01/suite.json": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f"
+  }
+}

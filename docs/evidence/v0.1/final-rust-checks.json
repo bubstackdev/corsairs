@@ -1,0 +1,100 @@
+{
+  "source_identity_sha256": "dff0fc8ebf7cfd38eda61a9fc4425bbb9eadb0bd9fa0961d4cd6a6a5cca707ab",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "    Checking corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Checking corsairs-lab v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--all-targets",
+        "--no-default-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "    Checking corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.19s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--workspace"
+      ],
+      "exit_status": 0,
+      "stdout": "\nrunning 11 tests\ntest facade::tests::native_dropped_futures_release_model_and_function_handles ... ignored, requires native Core AI services; CORSAIRS_TEST_MODEL points to a float32[2,3] x+x asset\ntest facade::tests::public_handles_and_owned_results_are_send_sync ... ok\ntest dtype::tests::half_ieee_boundaries_and_ties ... ok\ntest dtype::tests::scalar_and_empty_shapes_have_consistent_counts ... ok\ntest dtype::tests::tensor_rejects_invalid_storage_before_native_calls ... ok\ntest facade::tests::signatures_reject_names_dtype_and_shape_before_execution ... ok\ntest worker::tests::worker_keeps_non_send_state_on_its_own_thread ... ok\ntest worker::tests::reentrant_waker_cannot_block_its_worker ... ok\ntest worker::tests::dropping_future_does_not_release_running_request ... ok\ntest worker::tests::panicked_worker_resolves_queued_and_later_requests ... ok\ntest dtype::tests::half_exhaustive_bit_roundtrip ... ok\n\ntest result: ok. 10 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\ntest missing_symbol_is_an_error_without_invocation ... ok\ntest repeated_metadata_has_canonical_identity ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest crates/corsairs-abi/src/lib.rs - (line 9) - compile ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nall doctests ran in 0.27s; merged doctests compilation took 0.12s\n",
+      "stderr": "   Compiling corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs-lab v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.68s\n     Running unittests src/lib.rs (target/debug/deps/corsairs-66af35280701577d)\n     Running unittests src/bin/corsairs.rs (target/debug/deps/corsairs-a85ac3c09d005d71)\n     Running tests/native_metadata.rs (target/debug/deps/native_metadata-56b06f3ff96d8dcb)\n     Running unittests src/main.rs (target/debug/deps/corsairs_lab-a5572bcfa5f2237a)\n   Doc-tests corsairs\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--no-default-features"
+      ],
+      "exit_status": 0,
+      "stdout": "\nrunning 11 tests\ntest facade::tests::native_dropped_futures_release_model_and_function_handles ... ignored, requires native Core AI services; CORSAIRS_TEST_MODEL points to a float32[2,3] x+x asset\ntest dtype::tests::half_ieee_boundaries_and_ties ... ok\ntest dtype::tests::scalar_and_empty_shapes_have_consistent_counts ... ok\ntest dtype::tests::tensor_rejects_invalid_storage_before_native_calls ... ok\ntest facade::tests::public_handles_and_owned_results_are_send_sync ... ok\ntest facade::tests::signatures_reject_names_dtype_and_shape_before_execution ... ok\ntest worker::tests::panicked_worker_resolves_queued_and_later_requests ... ok\ntest worker::tests::reentrant_waker_cannot_block_its_worker ... ok\ntest worker::tests::dropping_future_does_not_release_running_request ... ok\ntest worker::tests::worker_keeps_non_send_state_on_its_own_thread ... ok\ntest dtype::tests::half_exhaustive_bit_roundtrip ... ok\n\ntest result: ok. 10 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest crates/corsairs-abi/src/lib.rs - (line 9) - compile ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nall doctests ran in 0.27s; merged doctests compilation took 0.12s\n",
+      "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s\n     Running unittests src/lib.rs (target/debug/deps/corsairs-6f9c12d84023a194)\n     Running unittests src/bin/corsairs.rs (target/debug/deps/corsairs-d756f718ed5233ba)\n   Doc-tests corsairs\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "doc",
+        "--offline",
+        "--workspace",
+        "--no-deps"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": " Documenting corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s\n   Generated /Users/zakkeown/Code/aether/lab/corsairs/target/doc/corsairs/index.html and 1 other file\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "doc",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--no-default-features",
+        "--no-deps"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": " Documenting corsairs v0.1.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s\n   Generated /Users/zakkeown/Code/aether/lab/corsairs/target/doc/corsairs/index.html\n"
+    }
+  ],
+  "passed": true
+}

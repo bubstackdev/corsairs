@@ -1,0 +1,27 @@
+[package]
+name = "corsairs"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish = true
+description = "Safe Rust inference with Apple Core AI on Apple Silicon"
+license = "MIT OR Apache-2.0"
+keywords = ["coreai", "inference", "apple", "machine-learning"]
+categories = ["science"]
+readme = "README.md"
+
+[features]
+default = []
+# Development probes expose unsafe ABI experiments; not part of the safe API.
+abi-research = []
+
+[package.metadata.docs.rs]
+default-target = "aarch64-apple-darwin"
+targets = []
+
+[[test]]
+name = "native_metadata"
+required-features = ["abi-research"]
+
+[lints]
+workspace = true

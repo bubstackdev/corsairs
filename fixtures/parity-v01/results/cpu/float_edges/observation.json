@@ -1,0 +1,52 @@
+{
+  "case": "float_edges",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float32",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/cpu/float_edges/step0-y.bin",
+          "sha256": "cebc55884945964a49d2b3cca4635eef1ee7f97f6a142b155fb809a3a042d1a8",
+          "exact_bytes": true,
+          "comparison": "ieee-special",
+          "passed": true,
+          "values": [
+            "0.0",
+            "-0.0",
+            "inf",
+            "-inf",
+            "nan",
+            "2.802596928649634e-45"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

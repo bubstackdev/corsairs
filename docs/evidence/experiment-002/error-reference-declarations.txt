@@ -1,0 +1,6 @@
+target triple = "arm64-apple-macosx27.0.0"
+declare swiftcc void @"$s11CoreAIAsset12AIModelAssetV10contentsOfAC10Foundation3URLV_tKcfC"(ptr noalias sret(%swift.opaque), ptr noalias, ptr swiftself, ptr noalias swifterror captures(none) dereferenceable(8)) local_unnamed_addr #1
+declare swiftcc void @"$s11CoreAIAsset12AIModelAssetV7summary19includingStatisticsAC7SummaryVSgSb_tKF"(ptr noalias sret(%swift.opaque), i1, ptr noalias swiftself, ptr noalias swifterror captures(none) dereferenceable(8)) local_unnamed_addr #1
+declare swiftcc void @"$s13CoreAIRuntime7AIModelV0A11AIDelegatesE17resolvingBookmarkACSg10Foundation4DataV_tKcfC"(ptr noalias sret(%swift.opaque), i64, i64, ptr swiftself, ptr noalias swifterror captures(none) dereferenceable(8)) local_unnamed_addr #1
+declare void @swift_getErrorValue(ptr, ptr, ptr) local_unnamed_addr #2
+declare ptr @swift_getDynamicType(ptr, ptr, i1) local_unnamed_addr #3

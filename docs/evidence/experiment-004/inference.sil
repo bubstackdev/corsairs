@@ -1,0 +1,988 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+import CoreAI
+
+import Foundation
+
+@inline(never) public func loadFunction(_ model: borrowing AIModel, _ name: borrowing String) throws -> InferenceFunction?
+
+@inline(never) public func runDictionary(_ function: borrowing InferenceFunction, _ inputs: borrowing [String : NDArray]) async throws -> InferenceFunction.Outputs
+
+@inline(never) public func runView(_ function: borrowing InferenceFunction, _ array: borrowing NDArray, _ name: borrowing String) async throws -> InferenceFunction.Outputs
+
+@inline(never) public func oneDictionary(_ name: borrowing String, _ array: borrowing NDArray) -> [String : NDArray]
+
+@inline(never) public func emptyDictionary() -> [String : NDArray]
+
+@inline(never) public func dictionaryUpdate(_ dictionary: inout [String : NDArray], _ name: borrowing String, _ array: borrowing NDArray)
+
+@inline(never) public func removeOutput(_ outputs: inout InferenceFunction.Outputs, _ name: borrowing String) -> InferenceValue?
+
+@inline(never) public func outputArray(_ value: consuming InferenceValue) -> NDArray?
+
+@inline(never) public func outputCount(_ outputs: borrowing InferenceFunction.Outputs) -> Int
+
+@inline(never) public func shape23() -> [Int]
+
+@inline(never) public func shapeOf(_ array: borrowing NDArray) -> [Int]
+
+@inline(never) public func stridesOf(_ array: borrowing NDArray) -> [Int]
+
+@inline(never) public func scalarOf(_ array: borrowing NDArray) -> NDArray.ScalarType
+
+@inline(never) public func unwrapFunction(_ value: consuming InferenceFunction?) -> InferenceFunction
+
+@inline(never) public func unwrapValue(_ value: consuming InferenceValue?) -> InferenceValue
+
+@inline(never) public func unwrapArray(_ value: consuming NDArray?) -> NDArray
+
+@inline(never) public func emptyDictionaryCapacity() -> [String : NDArray]
+
+@inline(never) public func dictionaryReplace(_ dictionary: inout [String : NDArray], _ name: consuming String, _ array: consuming NDArray) -> NDArray?
+
+@inline(never) public func dictionaryLookup(_ dictionary: borrowing [String : NDArray], _ name: borrowing String) -> NDArray?
+
+@inline(never) public func consumeDictionary(_ dictionary: __owned [String : NDArray])
+
+@inline(never) public func dictionaryType<K, V>(_: K.Type, _: V.Type) -> any Any.Type where K : Hashable
+
+// loadFunction(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI12loadFunctiony13CoreAIRuntime0aE0VSgAC7AIModelV_SStKF : $@convention(thin) (@in_guaranteed AIModel, @guaranteed String) -> (@out Optional<InferenceFunction>, @error any Error) {
+// %0 "$return_value"                             // user: %7
+// %1 "model"                                     // users: %7, %3
+// %2 "name"                                      // users: %7, %4
+bb0(%0 : $*Optional<InferenceFunction>, %1 : @noImplicitCopy $*AIModel, %2 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "model", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "name", argno 2 // id: %4
+  debug_value undef : $any Error, var, name "$error", argno 3 // id: %5
+  // function_ref AIModel.loadFunction(named:)
+  %6 = function_ref @$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error) // user: %7
+  try_apply %6(%0, %2, %1) : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error), normal bb1, error bb2 // id: %7
+
+bb1(%8 : $()):                                    // Preds: bb0
+  %9 = tuple ()                                   // user: %10
+  return %9                                       // id: %10
+
+// %11                                            // user: %12
+bb2(%11 : $any Error):                            // Preds: bb0
+  throw %11                                       // id: %12
+} // end sil function '$s16InferenceGateABI12loadFunctiony13CoreAIRuntime0aE0VSgAC7AIModelV_SStKF'
+
+// AIModel.loadFunction(named:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error)
+
+// runDictionary(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI13runDictionaryy13CoreAIRuntime0A8FunctionV7OutputsVAE_SDySSAC7NDArrayVGtYaKF : $@convention(thin) @async (@in_guaranteed InferenceFunction, @guaranteed Dictionary<String, NDArray>) -> (@out InferenceFunction.Outputs, @error any Error) {
+// %0 "$return_value"                             // user: %17
+// %1 "function"                                  // users: %30, %27, %20, %9, %17, %3
+// %2 "inputs"                                    // users: %29, %26, %19, %8, %17, %4
+bb0(%0 : $*InferenceFunction.Outputs, %1 : @noImplicitCopy $*InferenceFunction, %2 : @noImplicitCopy $Dictionary<String, NDArray>):
+  debug_value [moveable_value_debuginfo] %1, let, name "function", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "inputs", argno 2 // id: %4
+  debug_value undef : $any Error, var, name "$error", argno 3 // id: %5
+  %6 = enum $Optional<any Actor>, #Optional.none!enumelt // users: %28, %7
+  hop_to_executor %6                              // id: %7
+  debug_value [moveable_value_debuginfo] %2, let, name "inputs", argno 2 // id: %8
+  debug_value [moveable_value_debuginfo] %1, let, name "function", argno 1, expr op_deref // id: %9
+  // function_ref default argument 1 of InferenceFunction.run(inputs:states:outputViews:)
+  %10 = function_ref @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFfA0_ : $@convention(thin) () -> @out InferenceFunction.MutableViews // user: %12
+  %11 = alloc_stack $InferenceFunction.MutableViews // users: %12, %17, %22, %32
+  %12 = apply %10(%11) : $@convention(thin) () -> @out InferenceFunction.MutableViews
+  // function_ref default argument 2 of InferenceFunction.run(inputs:states:outputViews:)
+  %13 = function_ref @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFfA1_ : $@convention(thin) () -> @out InferenceFunction.MutableViews // user: %15
+  %14 = alloc_stack $InferenceFunction.MutableViews // users: %15, %17, %21, %31
+  %15 = apply %13(%14) : $@convention(thin) () -> @out InferenceFunction.MutableViews
+  // function_ref InferenceFunction.run(inputs:states:outputViews:)
+  %16 = function_ref @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKF : $@convention(method) @async (@guaranteed Dictionary<String, NDArray>, @in InferenceFunction.MutableViews, @in InferenceFunction.MutableViews, @in_guaranteed InferenceFunction) -> (@out InferenceFunction.Outputs, @error any Error) // user: %17
+  try_apply %16(%0, %2, %11, %14, %1) : $@convention(method) @async (@guaranteed Dictionary<String, NDArray>, @in InferenceFunction.MutableViews, @in InferenceFunction.MutableViews, @in_guaranteed InferenceFunction) -> (@out InferenceFunction.Outputs, @error any Error), normal bb1, error bb2 // id: %17
+
+bb1(%18 : $()):                                   // Preds: bb0
+  debug_value [moveable_value_debuginfo] %2, let, name "inputs", argno 2 // id: %19
+  debug_value [moveable_value_debuginfo] %1, let, name "function", argno 1, expr op_deref // id: %20
+  dealloc_stack %14                               // id: %21
+  dealloc_stack %11                               // id: %22
+  %23 = tuple ()                                  // user: %24
+  return %23                                      // id: %24
+
+// %25                                            // user: %33
+bb2(%25 : $any Error):                            // Preds: bb0
+  debug_value [moveable_value_debuginfo] %2, let, name "inputs", argno 2 // id: %26
+  debug_value [moveable_value_debuginfo] %1, let, name "function", argno 1, expr op_deref // id: %27
+  hop_to_executor %6                              // id: %28
+  debug_value [moveable_value_debuginfo] %2, let, name "inputs", argno 2 // id: %29
+  debug_value [moveable_value_debuginfo] %1, let, name "function", argno 1, expr op_deref // id: %30
+  dealloc_stack %14                               // id: %31
+  dealloc_stack %11                               // id: %32
+  throw %25                                       // id: %33
+} // end sil function '$s16InferenceGateABI13runDictionaryy13CoreAIRuntime0A8FunctionV7OutputsVAE_SDySSAC7NDArrayVGtYaKF'
+
+// default argument 1 of InferenceFunction.run(inputs:states:outputViews:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFfA0_ : $@convention(thin) () -> @out InferenceFunction.MutableViews {
+[%0: write v**]
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+// %0                                             // user: %3
+bb0(%0 : $*InferenceFunction.MutableViews):
+  %1 = metatype $@thin InferenceFunction.MutableViews.Type // user: %3
+  // function_ref InferenceFunction.MutableViews.init()
+  %2 = function_ref @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews // user: %3
+  %3 = apply %2(%0, %1) : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+  %4 = tuple ()                                   // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFfA0_'
+
+// default argument 2 of InferenceFunction.run(inputs:states:outputViews:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFfA1_ : $@convention(thin) () -> @out InferenceFunction.MutableViews {
+[%0: write v**]
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+// %0                                             // user: %3
+bb0(%0 : $*InferenceFunction.MutableViews):
+  %1 = metatype $@thin InferenceFunction.MutableViews.Type // user: %3
+  // function_ref InferenceFunction.MutableViews.init()
+  %2 = function_ref @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews // user: %3
+  %3 = apply %2(%0, %1) : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+  %4 = tuple ()                                   // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKFfA1_'
+
+// InferenceFunction.run(inputs:states:outputViews:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVSDySSAA7NDArrayVG_AC07MutableI0VnANntYaKF : $@convention(method) @async (@guaranteed Dictionary<String, NDArray>, @in InferenceFunction.MutableViews, @in InferenceFunction.MutableViews, @in_guaranteed InferenceFunction) -> (@out InferenceFunction.Outputs, @error any Error)
+
+// runView(_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI7runViewy13CoreAIRuntime0A8FunctionV7OutputsVAE_AC7NDArrayVSStYaKF : $@convention(thin) @async (@in_guaranteed InferenceFunction, @in_guaranteed NDArray, @guaranteed String) -> (@out InferenceFunction.Outputs, @error any Error) {
+// %0 "$return_value"                             // user: %36
+// %1 "function"                                  // users: %36, %4
+// %2 "array"                                     // users: %57, %58, %46, %47, %54, %39, %11, %18, %19, %5
+// %3 "name"                                      // users: %56, %45, %53, %38, %10, %22, %6
+bb0(%0 : $*InferenceFunction.Outputs, %1 : @noImplicitCopy $*InferenceFunction, %2 : @noImplicitCopy $*NDArray, %3 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "function", argno 1, expr op_deref // id: %4
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %5
+  debug_value [moveable_value_debuginfo] %3, let, name "name", argno 3 // id: %6
+  debug_value undef : $any Error, var, name "$error", argno 4 // id: %7
+  %8 = enum $Optional<any Actor>, #Optional.none!enumelt // users: %44, %55, %9
+  hop_to_executor %8                              // id: %9
+  debug_value [moveable_value_debuginfo] %3, let, name "name", argno 3 // id: %10
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %11
+  %12 = alloc_stack [lexical] [var_decl] $InferenceFunction.Inputs, var, name "inputs", type $InferenceFunction.Inputs // users: %15, %20, %25, %64, %63, %49, %48
+  %13 = metatype $@thin InferenceFunction.Inputs.Type // user: %15
+  // function_ref InferenceFunction.Inputs.init()
+  %14 = function_ref @$s13CoreAIRuntime17InferenceFunctionV6InputsVAEycfC : $@convention(method) (@thin InferenceFunction.Inputs.Type) -> @lifetime(immortal) @out InferenceFunction.Inputs // user: %15
+  %15 = apply %14(%12, %13) : $@convention(method) (@thin InferenceFunction.Inputs.Type) -> @lifetime(immortal) @out InferenceFunction.Inputs
+  %16 = alloc_stack $NDArray.RawView              // users: %19, %24, %22, %18
+  // function_ref NDArray.rawView()
+  %17 = function_ref @$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF : $@convention(method) (@in_guaranteed NDArray) -> @lifetime(borrow address 0) @out NDArray.RawView // user: %18
+  %18 = apply %17(%16, %2) : $@convention(method) (@in_guaranteed NDArray) -> @lifetime(borrow address 0) @out NDArray.RawView
+  mark_dependence_addr [nonescaping] %16 on %2    // id: %19
+  %20 = begin_access [modify] [static] %12        // users: %23, %22
+  // function_ref InferenceFunction.Inputs.insert(_:for:)
+  %21 = function_ref @$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryAA7NDArrayV7RawViewVn_SStF : $@convention(method) (@in NDArray.RawView, @guaranteed String, @lifetime(copy 0, copy 2) @inout InferenceFunction.Inputs) -> () // user: %22
+  %22 = apply %21(%16, %3, %20) : $@convention(method) (@in NDArray.RawView, @guaranteed String, @lifetime(copy 0, copy 2) @inout InferenceFunction.Inputs) -> ()
+  end_access %20                                  // id: %23
+  dealloc_stack %16                               // id: %24
+  %25 = begin_access [read] [static] %12          // users: %28, %27
+  %26 = alloc_stack $InferenceFunction.Inputs     // users: %43, %42, %36, %62, %61, %27
+  copy_addr %25 to [init] %26                     // id: %27
+  end_access %25                                  // id: %28
+  // function_ref default argument 1 of InferenceFunction.run(inputs:states:outputViews:)
+  %29 = function_ref @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFfA0_ : $@convention(thin) () -> @out InferenceFunction.MutableViews // user: %31
+  %30 = alloc_stack $InferenceFunction.MutableViews // users: %31, %36, %41, %60
+  %31 = apply %29(%30) : $@convention(thin) () -> @out InferenceFunction.MutableViews
+  // function_ref default argument 2 of InferenceFunction.run(inputs:states:outputViews:)
+  %32 = function_ref @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFfA1_ : $@convention(thin) () -> @out InferenceFunction.MutableViews // user: %34
+  %33 = alloc_stack $InferenceFunction.MutableViews // users: %34, %36, %40, %59
+  %34 = apply %32(%33) : $@convention(thin) () -> @out InferenceFunction.MutableViews
+  // function_ref InferenceFunction.run(inputs:states:outputViews:)
+  %35 = function_ref @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKF : $@convention(method) @async (@in_guaranteed InferenceFunction.Inputs, @in InferenceFunction.MutableViews, @in InferenceFunction.MutableViews, @in_guaranteed InferenceFunction) -> (@out InferenceFunction.Outputs, @error any Error) // user: %36
+  try_apply %35(%0, %26, %30, %33, %1) : $@convention(method) @async (@in_guaranteed InferenceFunction.Inputs, @in InferenceFunction.MutableViews, @in InferenceFunction.MutableViews, @in_guaranteed InferenceFunction) -> (@out InferenceFunction.Outputs, @error any Error), normal bb1, error bb2 // id: %36
+
+bb1(%37 : $()):                                   // Preds: bb0
+  debug_value [moveable_value_debuginfo] %3, let, name "name", argno 3 // id: %38
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %39
+  dealloc_stack %33                               // id: %40
+  dealloc_stack %30                               // id: %41
+  destroy_addr %26                                // id: %42
+  dealloc_stack %26                               // id: %43
+  hop_to_executor %8                              // id: %44
+  debug_value [moveable_value_debuginfo] %3, let, name "name", argno 3 // id: %45
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %46
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %47
+  destroy_addr %12                                // id: %48
+  dealloc_stack %12                               // id: %49
+  %50 = tuple ()                                  // user: %51
+  return %50                                      // id: %51
+
+// %52                                            // user: %65
+bb2(%52 : $any Error):                            // Preds: bb0
+  debug_value [moveable_value_debuginfo] %3, let, name "name", argno 3 // id: %53
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %54
+  hop_to_executor %8                              // id: %55
+  debug_value [moveable_value_debuginfo] %3, let, name "name", argno 3 // id: %56
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %57
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 2, expr op_deref // id: %58
+  dealloc_stack %33                               // id: %59
+  dealloc_stack %30                               // id: %60
+  destroy_addr %26                                // id: %61
+  dealloc_stack %26                               // id: %62
+  destroy_addr %12                                // id: %63
+  dealloc_stack %12                               // id: %64
+  throw %52                                       // id: %65
+} // end sil function '$s16InferenceGateABI7runViewy13CoreAIRuntime0A8FunctionV7OutputsVAE_AC7NDArrayVSStYaKF'
+
+// InferenceFunction.Inputs.init()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV6InputsVAEycfC : $@convention(method) (@thin InferenceFunction.Inputs.Type) -> @lifetime(immortal) @out InferenceFunction.Inputs
+
+// NDArray.rawView()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV7rawViewAC03RawE0VyF : $@convention(method) (@in_guaranteed NDArray) -> @lifetime(borrow address 0) @out NDArray.RawView
+
+// InferenceFunction.Inputs.insert(_:for:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryAA7NDArrayV7RawViewVn_SStF : $@convention(method) (@in NDArray.RawView, @guaranteed String, @lifetime(copy 0, copy 2) @inout InferenceFunction.Inputs) -> ()
+
+// default argument 1 of InferenceFunction.run(inputs:states:outputViews:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFfA0_ : $@convention(thin) () -> @out InferenceFunction.MutableViews {
+[%0: write v**]
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+// %0                                             // user: %3
+bb0(%0 : $*InferenceFunction.MutableViews):
+  %1 = metatype $@thin InferenceFunction.MutableViews.Type // user: %3
+  // function_ref InferenceFunction.MutableViews.init()
+  %2 = function_ref @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews // user: %3
+  %3 = apply %2(%0, %1) : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+  %4 = tuple ()                                   // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFfA0_'
+
+// default argument 2 of InferenceFunction.run(inputs:states:outputViews:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFfA1_ : $@convention(thin) () -> @out InferenceFunction.MutableViews {
+[%0: write v**]
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+// %0                                             // user: %3
+bb0(%0 : $*InferenceFunction.MutableViews):
+  %1 = metatype $@thin InferenceFunction.MutableViews.Type // user: %3
+  // function_ref InferenceFunction.MutableViews.init()
+  %2 = function_ref @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews // user: %3
+  %3 = apply %2(%0, %1) : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+  %4 = tuple ()                                   // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKFfA1_'
+
+// InferenceFunction.run(inputs:states:outputViews:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV3run6inputs6states11outputViewsAC7OutputsVAC6InputsV_AC07MutableI0VnAMntYaKF : $@convention(method) @async (@in_guaranteed InferenceFunction.Inputs, @in InferenceFunction.MutableViews, @in InferenceFunction.MutableViews, @in_guaranteed InferenceFunction) -> (@out InferenceFunction.Outputs, @error any Error)
+
+// oneDictionary(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI13oneDictionaryySDySS13CoreAIRuntime7NDArrayVGSS_AEtF : $@convention(thin) (@guaranteed String, @in_guaranteed NDArray) -> @owned Dictionary<String, NDArray> {
+// %0 "name"                                      // users: %16, %15, %2
+// %1 "array"                                     // users: %18, %3
+bb0(%0 : @noImplicitCopy $String, %1 : @noImplicitCopy $*NDArray):
+  debug_value [moveable_value_debuginfo] %0, let, name "name", argno 1 // id: %2
+  debug_value [moveable_value_debuginfo] %1, let, name "array", argno 2, expr op_deref // id: %3
+  %4 = integer_literal $Builtin.Word, 1           // user: %6
+  // function_ref _allocateUninitializedArray<A>(_:)
+  %5 = function_ref @$ss27_allocateUninitializedArrayySayxG_BptBwlF : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %6
+  %6 = apply %5<(String, NDArray)>(%4) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %7
+  %7 = tuple_extract %6, 0                        // users: %8, %21
+  %8 = struct_extract %7, #Array._buffer          // user: %9
+  %9 = struct_extract %8, #_ArrayBuffer._storage  // user: %10
+  %10 = struct_extract %9, #_BridgeStorage.rawValue // user: %11
+  %11 = unchecked_ref_cast %10 to $__ContiguousArrayStorageBase // user: %12
+  %12 = ref_tail_addr %11, $(String, NDArray)     // users: %14, %13
+  %13 = tuple_element_addr %12, 0                 // user: %16
+  %14 = tuple_element_addr %12, 1                 // user: %19
+  retain_value %0                                 // id: %15
+  store %0 to %13                                 // id: %16
+  %17 = alloc_stack $NDArray                      // users: %18, %22, %19
+  copy_addr %1 to [init] %17                      // id: %18
+  copy_addr [take] %17 to [init] %14              // id: %19
+  // function_ref _finalizeUninitializedArray<A>(_:)
+  %20 = function_ref @$ss27_finalizeUninitializedArrayySayxGABnlF : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // user: %21
+  %21 = apply %20<(String, NDArray)>(%7) : $@convention(thin) <τ_0_0> (@owned Array<τ_0_0>) -> @owned Array<τ_0_0> // user: %25
+  dealloc_stack %17                               // id: %22
+  %23 = metatype $@thin Dictionary<String, NDArray>.Type // user: %25
+  // function_ref Dictionary.init(dictionaryLiteral:)
+  %24 = function_ref @$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfC : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@owned Array<(τ_0_0, τ_0_1)>, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %25
+  %25 = apply %24<String, NDArray>(%21, %23) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@owned Array<(τ_0_0, τ_0_1)>, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %26
+  return %25                                      // id: %26
+} // end sil function '$s16InferenceGateABI13oneDictionaryySDySS13CoreAIRuntime7NDArrayVGSS_AEtF'
+
+// _allocateUninitializedArray<A>(_:)
+// Isolation: unspecified
+sil [heuristic_always_inline] [_semantics "array.uninitialized_intrinsic"] @$ss27_allocateUninitializedArrayySayxG_BptBwlF : $@convention(thin) <Element> (Builtin.Word) -> (@owned Array<Element>, Builtin.RawPointer)
+
+// _finalizeUninitializedArray<A>(_:)
+// Isolation: unspecified
+sil shared [export_implementation] [readnone] [_semantics "array.finalize_intrinsic"] @$ss27_finalizeUninitializedArrayySayxGABnlF : $@convention(thin) <Element> (@owned Array<Element>) -> @owned Array<Element> {
+[%0: escape! v** => %r.v**, escape! v**.c*.v** => %r.v**.c*.v**]
+// %0                                             // user: %2
+bb0(%0 : $Array<Element>):
+  %1 = alloc_stack [var_decl] $Array<Element>     // users: %5, %2, %6, %4
+  store %0 to %1                                  // id: %2
+  // function_ref Array._endMutation()
+  %3 = function_ref @$sSa12_endMutationyyF : $@convention(method) <τ_0_0> (@inout Array<τ_0_0>) -> () // user: %4
+  %4 = apply %3<Element>(%1) : $@convention(method) <τ_0_0> (@inout Array<τ_0_0>) -> ()
+  %5 = load %1                                    // user: %7
+  dealloc_stack %1                                // id: %6
+  return %5                                       // id: %7
+} // end sil function '$ss27_finalizeUninitializedArrayySayxGABnlF'
+
+// Dictionary.init(dictionaryLiteral:)
+// Isolation: unspecified
+sil [_semantics "optimize.sil.specialize.generic.size.never"] @$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfC : $@convention(method) <Key, Value where Key : Hashable> (@owned Array<(Key, Value)>, @thin Dictionary<Key, Value>.Type) -> @owned Dictionary<Key, Value>
+
+// emptyDictionary()
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI15emptyDictionarySDySS13CoreAIRuntime7NDArrayVGyF : $@convention(thin) () -> @owned Dictionary<String, NDArray> {
+bb0:
+  %0 = integer_literal $Builtin.Word, 0           // user: %2
+  // function_ref _allocateUninitializedArray<A>(_:)
+  %1 = function_ref @$ss27_allocateUninitializedArrayySayxG_BptBwlF : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %2
+  %2 = apply %1<(String, NDArray)>(%0) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // user: %3
+  %3 = tuple_extract %2, 0                        // user: %6
+  %4 = metatype $@thin Dictionary<String, NDArray>.Type // user: %6
+  // function_ref Dictionary.init(dictionaryLiteral:)
+  %5 = function_ref @$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfC : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@owned Array<(τ_0_0, τ_0_1)>, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %6
+  %6 = apply %5<String, NDArray>(%3, %4) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@owned Array<(τ_0_0, τ_0_1)>, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %7
+  return %6                                       // id: %7
+} // end sil function '$s16InferenceGateABI15emptyDictionarySDySS13CoreAIRuntime7NDArrayVGyF'
+
+// dictionaryUpdate(_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI16dictionaryUpdateyySDySS13CoreAIRuntime7NDArrayVGz_SSAEtF : $@convention(thin) (@inout Dictionary<String, NDArray>, @guaranteed String, @in_guaranteed NDArray) -> () {
+// %0 "dictionary"                                // users: %15, %3
+// %1 "name"                                      // users: %14, %6, %4
+// %2 "array"                                     // users: %10, %5
+bb0(%0 : $*Dictionary<String, NDArray>, %1 : @noImplicitCopy $String, %2 : @noImplicitCopy $*NDArray):
+  debug_value %0, var, name "dictionary", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %1, let, name "name", argno 2 // id: %4
+  debug_value [moveable_value_debuginfo] %2, let, name "array", argno 3, expr op_deref // id: %5
+  retain_value %1                                 // id: %6
+  %7 = alloc_stack $Optional<NDArray>             // users: %21, %17, %12, %8
+  %8 = init_enum_data_addr %7, #Optional.some!enumelt // user: %11
+  %9 = alloc_stack $NDArray                       // users: %10, %20, %11
+  copy_addr %2 to [init] %9                       // id: %10
+  copy_addr [take] %9 to [init] %8                // id: %11
+  inject_enum_addr %7, #Optional.some!enumelt     // id: %12
+  %13 = alloc_stack $String                       // users: %14, %19, %17
+  store %1 to %13                                 // id: %14
+  %15 = begin_access [modify] [static] %0         // users: %18, %17
+  // function_ref Dictionary.subscript.setter
+  %16 = function_ref @$sSDyq_Sgxcis : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in Optional<τ_0_1>, @in τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> () // user: %17
+  %17 = apply %16<String, NDArray>(%7, %13, %15) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in Optional<τ_0_1>, @in τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> ()
+  end_access %15                                  // id: %18
+  dealloc_stack %13                               // id: %19
+  dealloc_stack %9                                // id: %20
+  dealloc_stack %7                                // id: %21
+  %22 = tuple ()                                  // user: %23
+  return %22                                      // id: %23
+} // end sil function '$s16InferenceGateABI16dictionaryUpdateyySDySS13CoreAIRuntime7NDArrayVGz_SSAEtF'
+
+// Dictionary.subscript.setter
+// Isolation: unspecified
+sil @$sSDyq_Sgxcis : $@convention(method) <Key, Value where Key : Hashable> (@in Optional<Value>, @in Key, @inout Dictionary<Key, Value>) -> ()
+
+// removeOutput(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI12removeOutputy13CoreAIRuntime0A5ValueVSgAC0A8FunctionV7OutputsVz_SStF : $@convention(thin) (@inout InferenceFunction.Outputs, @guaranteed String) -> @out Optional<InferenceValue> {
+// %0 "$return_value"                             // user: %7
+// %1 "outputs"                                   // users: %5, %3
+// %2 "name"                                      // users: %7, %4
+bb0(%0 : $*Optional<InferenceValue>, %1 : $*InferenceFunction.Outputs, %2 : @noImplicitCopy $String):
+  debug_value %1, var, name "outputs", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "name", argno 2 // id: %4
+  %5 = begin_access [modify] [static] %1          // users: %8, %7
+  // function_ref InferenceFunction.Outputs.remove(_:)
+  %6 = function_ref @$s13CoreAIRuntime17InferenceFunctionV7OutputsV6removeyAA0C5ValueVSgSSF : $@convention(method) (@guaranteed String, @inout InferenceFunction.Outputs) -> @out Optional<InferenceValue> // user: %7
+  %7 = apply %6(%0, %2, %5) : $@convention(method) (@guaranteed String, @inout InferenceFunction.Outputs) -> @out Optional<InferenceValue>
+  end_access %5                                   // id: %8
+  %9 = tuple ()                                   // user: %10
+  return %9                                       // id: %10
+} // end sil function '$s16InferenceGateABI12removeOutputy13CoreAIRuntime0A5ValueVSgAC0A8FunctionV7OutputsVz_SStF'
+
+// InferenceFunction.Outputs.remove(_:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV7OutputsV6removeyAA0C5ValueVSgSSF : $@convention(method) (@guaranteed String, @inout InferenceFunction.Outputs) -> @out Optional<InferenceValue>
+
+// outputArray(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI11outputArrayy13CoreAIRuntime7NDArrayVSgAC0A5ValueVnF : $@convention(thin) (@in InferenceValue) -> @out Optional<NDArray> {
+// %0 "$return_value"                             // user: %8
+// %1 "value"                                     // user: %3
+bb0(%0 : $*Optional<NDArray>, %1 : $*InferenceValue):
+  %2 = alloc_stack [lexical] [var_decl] $InferenceValue, var, name "value", type $InferenceValue // users: %3, %4, %10
+  copy_addr [take] %1 to [init] %2                // id: %3
+  %4 = begin_access [modify] [static] %2          // users: %8, %9
+  debug_step                                      // id: %5
+  debug_value undef : $*InferenceValue, var, name "value", expr op_deref // id: %6
+  // function_ref InferenceValue.ndArray.getter
+  %7 = function_ref @$s13CoreAIRuntime14InferenceValueV7ndArrayAA7NDArrayVSgvg : $@convention(method) (@in InferenceValue) -> @out Optional<NDArray> // user: %8
+  %8 = apply %7(%0, %4) : $@convention(method) (@in InferenceValue) -> @out Optional<NDArray>
+  end_access %4                                   // id: %9
+  dealloc_stack %2                                // id: %10
+  %11 = tuple ()                                  // user: %12
+  return %11                                      // id: %12
+} // end sil function '$s16InferenceGateABI11outputArrayy13CoreAIRuntime7NDArrayVSgAC0A5ValueVnF'
+
+// InferenceValue.ndArray.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime14InferenceValueV7ndArrayAA7NDArrayVSgvg : $@convention(method) (@in InferenceValue) -> @out Optional<NDArray>
+
+// outputCount(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI11outputCountySi13CoreAIRuntime0A8FunctionV7OutputsVF : $@convention(thin) (@in_guaranteed InferenceFunction.Outputs) -> Int {
+// %0 "outputs"                                   // users: %3, %1
+bb0(%0 : $*InferenceFunction.Outputs):
+  debug_value %0, let, name "outputs", argno 1, expr op_deref // id: %1
+  // function_ref InferenceFunction.Outputs.count.getter
+  %2 = function_ref @$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg : $@convention(method) (@in_guaranteed InferenceFunction.Outputs) -> Int // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed InferenceFunction.Outputs) -> Int // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s16InferenceGateABI11outputCountySi13CoreAIRuntime0A8FunctionV7OutputsVF'
+
+// InferenceFunction.Outputs.count.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV7OutputsV5countSivg : $@convention(method) (@in_guaranteed InferenceFunction.Outputs) -> Int
+
+// shape23()
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI7shape23SaySiGyF : $@convention(thin) () -> @owned Array<Int> {
+bb0:
+  %0 = alloc_stack [var_decl] $Array<Int>, var, name "shape", type $Array<Int> // users: %11, %16, %23, %28, %27
+  %1 = metatype $@thin Array<Int>.Type            // user: %9
+  %2 = integer_literal $Builtin.Int64, 2          // user: %3
+  %3 = struct $Int (%2)                           // user: %5
+  %4 = alloc_stack $Int                           // users: %5, %10, %9
+  store %3 to %4                                  // id: %5
+  %6 = integer_literal $Builtin.Int64, 2          // user: %7
+  %7 = struct $Int (%6)                           // user: %9
+  // function_ref Array.init(repeating:count:)
+  %8 = function_ref @$sSa9repeating5countSayxGx_SitcfC : $@convention(method) <τ_0_0> (@in τ_0_0, Int, @thin Array<τ_0_0>.Type) -> @owned Array<τ_0_0> // user: %9
+  %9 = apply %8<Int>(%4, %7, %1) : $@convention(method) <τ_0_0> (@in τ_0_0, Int, @thin Array<τ_0_0>.Type) -> @owned Array<τ_0_0> // user: %11
+  dealloc_stack %4                                // id: %10
+  store %9 to %0                                  // id: %11
+  %12 = integer_literal $Builtin.Int64, 1         // user: %13
+  %13 = struct $Int (%12)                         // user: %18
+  %14 = integer_literal $Builtin.Int64, 3         // user: %15
+  %15 = struct $Int (%14)                         // user: %20
+  %16 = begin_access [modify] [static] %0         // users: %22, %18
+  // function_ref Array.subscript.modify
+  %17 = function_ref @$sSayxSiciM : $@yield_once @convention(method) <τ_0_0> (Int, @inout Array<τ_0_0>) -> @yields @inout τ_0_0 // user: %18
+  (%18, %19) = begin_apply %17<Int>(%13, %16) : $@yield_once @convention(method) <τ_0_0> (Int, @inout Array<τ_0_0>) -> @yields @inout τ_0_0 // users: %20, %21
+  store %15 to %18                                // id: %20
+  %21 = end_apply %19 as $()
+  end_access %16                                  // id: %22
+  %23 = begin_access [read] [static] %0           // users: %24, %26
+  %24 = load %23                                  // users: %29, %25
+  retain_value %24                                // id: %25
+  end_access %23                                  // id: %26
+  destroy_addr %0                                 // id: %27
+  dealloc_stack %0                                // id: %28
+  return %24                                      // id: %29
+} // end sil function '$s16InferenceGateABI7shape23SaySiGyF'
+
+// Int.init(_builtinIntegerLiteral:)
+// Isolation: unspecified
+sil public_external [transparent] @$sSi22_builtinIntegerLiteralSiBI_tcfC : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int {
+// %0                                             // user: %2
+bb0(%0 : $Builtin.IntLiteral, %1 : $@thin Int.Type):
+  %2 = builtin "s_to_s_checked_trunc_IntLiteral_Int64"(%0) : $(Builtin.Int64, Builtin.Int1) // user: %3
+  %3 = tuple_extract %2, 0                        // user: %4
+  %4 = struct $Int (%3)                           // user: %5
+  return %4                                       // id: %5
+} // end sil function '$sSi22_builtinIntegerLiteralSiBI_tcfC'
+
+// Array.init(repeating:count:)
+// Isolation: unspecified
+sil [_semantics "array.init"] @$sSa9repeating5countSayxGx_SitcfC : $@convention(method) <Element> (@in Element, Int, @thin Array<Element>.Type) -> @owned Array<Element>
+
+// Array.subscript.modify
+// Isolation: unspecified
+sil @$sSayxSiciM : $@yield_once @convention(method) <Element> (Int, @inout Array<Element>) -> @yields @inout Element
+
+// shapeOf(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI7shapeOfySaySiG13CoreAIRuntime7NDArrayVF : $@convention(thin) (@in_guaranteed NDArray) -> @owned Array<Int> {
+// %0 "array"                                     // users: %3, %1
+bb0(%0 : @noImplicitCopy $*NDArray):
+  debug_value [moveable_value_debuginfo] %0, let, name "array", argno 1, expr op_deref // id: %1
+  // function_ref NDArray.shape.getter
+  %2 = function_ref @$s13CoreAIRuntime7NDArrayV5shapeSaySiGvg : $@convention(method) (@in_guaranteed NDArray) -> @owned Array<Int> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed NDArray) -> @owned Array<Int> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s16InferenceGateABI7shapeOfySaySiG13CoreAIRuntime7NDArrayVF'
+
+// NDArray.shape.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV5shapeSaySiGvg : $@convention(method) (@in_guaranteed NDArray) -> @owned Array<Int>
+
+// stridesOf(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI9stridesOfySaySiG13CoreAIRuntime7NDArrayVF : $@convention(thin) (@in_guaranteed NDArray) -> @owned Array<Int> {
+// %0 "array"                                     // users: %3, %1
+bb0(%0 : @noImplicitCopy $*NDArray):
+  debug_value [moveable_value_debuginfo] %0, let, name "array", argno 1, expr op_deref // id: %1
+  // function_ref NDArray.strides.getter
+  %2 = function_ref @$s13CoreAIRuntime7NDArrayV7stridesSaySiGvg : $@convention(method) (@in_guaranteed NDArray) -> @owned Array<Int> // user: %3
+  %3 = apply %2(%0) : $@convention(method) (@in_guaranteed NDArray) -> @owned Array<Int> // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s16InferenceGateABI9stridesOfySaySiG13CoreAIRuntime7NDArrayVF'
+
+// NDArray.strides.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV7stridesSaySiGvg : $@convention(method) (@in_guaranteed NDArray) -> @owned Array<Int>
+
+// scalarOf(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI8scalarOfy13CoreAIRuntime7NDArrayV10ScalarTypeOAEF : $@convention(thin) (@in_guaranteed NDArray) -> @out NDArray.ScalarType {
+// %0 "$return_value"                             // user: %4
+// %1 "array"                                     // users: %4, %2
+bb0(%0 : $*NDArray.ScalarType, %1 : @noImplicitCopy $*NDArray):
+  debug_value [moveable_value_debuginfo] %1, let, name "array", argno 1, expr op_deref // id: %2
+  // function_ref NDArray.scalarType.getter
+  %3 = function_ref @$s13CoreAIRuntime7NDArrayV10scalarTypeAC06ScalarE0Ovg : $@convention(method) (@in_guaranteed NDArray) -> @out NDArray.ScalarType // user: %4
+  %4 = apply %3(%0, %1) : $@convention(method) (@in_guaranteed NDArray) -> @out NDArray.ScalarType
+  %5 = tuple ()                                   // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s16InferenceGateABI8scalarOfy13CoreAIRuntime7NDArrayV10ScalarTypeOAEF'
+
+// NDArray.scalarType.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV10scalarTypeAC06ScalarE0Ovg : $@convention(method) (@in_guaranteed NDArray) -> @out NDArray.ScalarType
+
+// unwrapFunction(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI14unwrapFunctiony13CoreAIRuntime0aE0VAESgnF : $@convention(thin) (@in Optional<InferenceFunction>) -> @out InferenceFunction {
+// %0 "$return_value"                             // user: %14
+// %1 "value"                                     // user: %3
+bb0(%0 : $*InferenceFunction, %1 : @noImplicitCopy @_eagerMove $*Optional<InferenceFunction>):
+  %2 = alloc_stack [var_decl] [moveable_value_debuginfo] $Optional<InferenceFunction>, var, name "value", type $@moveOnly Optional<InferenceFunction> // users: %3, %4, %18
+  copy_addr [take] %1 to [init] %2                // id: %3
+  %4 = begin_access [modify] [static] %2          // users: %6, %8
+  %5 = alloc_stack $Optional<InferenceFunction>   // users: %17, %10, %9, %6
+  copy_addr [take] %4 to [init] %5                // id: %6
+  debug_value [moveable_value_debuginfo] undef : $*Optional<InferenceFunction>, var, name "value", expr op_deref // id: %7
+  end_access %4                                   // id: %8
+  switch_enum_addr %5, case #Optional.some!enumelt: bb1, case #Optional.none!enumelt: bb2 // id: %9
+
+bb1:                                              // Preds: bb0
+  %10 = unchecked_inplace_enum_data_addr %5, #Optional.some!enumelt // user: %12
+  %11 = alloc_stack [lexical] [var_decl] $InferenceFunction, let, name "function" // users: %16, %15, %14, %13, %12
+  copy_addr [take] %10 to [init] %11              // id: %12
+  debug_value %11, let, name "function", expr op_deref // id: %13
+  copy_addr %11 to [init] %0                      // id: %14
+  destroy_addr %11                                // id: %15
+  dealloc_stack %11                               // id: %16
+  dealloc_stack %5                                // id: %17
+  dealloc_stack %2                                // id: %18
+  %19 = tuple ()                                  // user: %20
+  return %19                                      // id: %20
+
+bb2:                                              // Preds: bb0
+  %21 = string_literal utf8 "InferenceGateABI/InferenceReference.swift" // user: %23
+  %22 = integer_literal $Builtin.Word, 41         // user: %26
+  %23 = builtin "ptrtoint_Word"(%21) : $Builtin.Word // user: %26
+  debug_step                                      // id: %24
+  %25 = integer_literal $Builtin.Int8, 2          // user: %26
+  %26 = struct $StaticString (%23, %22, %25)      // user: %43
+  %27 = integer_literal $Builtin.Int64, 40        // user: %28
+  %28 = struct $UInt (%27)                        // user: %43
+  %29 = string_literal utf8 "Fatal error"         // user: %31
+  %30 = integer_literal $Builtin.Word, 11         // user: %33
+  %31 = builtin "ptrtoint_Word"(%29) : $Builtin.Word // user: %33
+  %32 = integer_literal $Builtin.Int8, 2          // user: %33
+  %33 = struct $StaticString (%31, %30, %32)      // user: %43
+  %34 = string_literal utf8 "missing function"    // user: %39
+  %35 = integer_literal $Builtin.Word, 16         // user: %39
+  %36 = integer_literal $Builtin.Int1, -1         // user: %39
+  %37 = metatype $@thin String.Type               // user: %39
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %38 = function_ref @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %39
+  %39 = apply %38(%34, %35, %36, %37) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %43
+  %40 = integer_literal $Builtin.Int32, 1         // user: %41
+  %41 = struct $UInt32 (%40)                      // user: %43
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %42 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_SSAHSus6UInt32VtF : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never // user: %43
+  %43 = apply %42(%33, %39, %26, %28, %41) : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never
+  unreachable                                     // id: %44
+} // end sil function '$s16InferenceGateABI14unwrapFunctiony13CoreAIRuntime0aE0VAESgnF'
+
+// implicit closure #1 in unwrapFunction(_:)
+// Isolation: nonisolated
+sil private [transparent] @$s16InferenceGateABI14unwrapFunctiony13CoreAIRuntime0aE0VAESgnFSSyXEfu_ : $@convention(thin) () -> @owned String {
+bb0:
+  %0 = string_literal utf8 "missing function"     // user: %5
+  %1 = integer_literal $Builtin.Word, 16          // user: %5
+  %2 = integer_literal $Builtin.Int1, -1          // user: %5
+  %3 = metatype $@thin String.Type                // user: %5
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %4 = function_ref @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %5
+  %5 = apply %4(%0, %1, %2, %3) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s16InferenceGateABI14unwrapFunctiony13CoreAIRuntime0aE0VAESgnFSSyXEfu_'
+
+// String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+// Isolation: unspecified
+sil [heuristic_always_inline] [readonly] [_semantics "string.makeUTF8"] @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String
+
+// StaticString.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+// Isolation: unspecified
+sil public_external [transparent] [readonly] @$ss12StaticStringV08_builtinB7Literal17utf8CodeUnitCount7isASCIIABBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin StaticString.Type) -> StaticString {
+// %0                                             // user: %4
+// %1                                             // user: %11
+// %2                                             // user: %5
+bb0(%0 : $Builtin.RawPointer, %1 : $Builtin.Word, %2 : $Builtin.Int1, %3 : $@thin StaticString.Type):
+  %4 = builtin "ptrtoint_Word"(%0) : $Builtin.Word // user: %11
+  cond_br %2, bb2, bb1                            // id: %5
+
+bb1:                                              // Preds: bb0
+  %6 = integer_literal $Builtin.Int8, 0           // user: %7
+  br bb3(%6)                                      // id: %7
+
+bb2:                                              // Preds: bb0
+  %8 = integer_literal $Builtin.Int8, 2           // user: %9
+  br bb3(%8)                                      // id: %9
+
+// %10                                            // user: %11
+bb3(%10 : $Builtin.Int8):                         // Preds: bb2 bb1
+  %11 = struct $StaticString (%4, %1, %10)        // user: %12
+  return %11                                      // id: %12
+} // end sil function '$ss12StaticStringV08_builtinB7Literal17utf8CodeUnitCount7isASCIIABBp_BwBi1_tcfC'
+
+// UInt.init(_builtinIntegerLiteral:)
+// Isolation: unspecified
+sil public_external [transparent] @$sSu22_builtinIntegerLiteralSuBI_tcfC : $@convention(method) (Builtin.IntLiteral, @thin UInt.Type) -> UInt {
+// %0                                             // user: %2
+bb0(%0 : $Builtin.IntLiteral, %1 : $@thin UInt.Type):
+  %2 = builtin "s_to_u_checked_trunc_IntLiteral_Int64"(%0) : $(Builtin.Int64, Builtin.Int1) // user: %3
+  %3 = tuple_extract %2, 0                        // user: %4
+  %4 = struct $UInt (%3)                          // user: %5
+  return %4                                       // id: %5
+} // end sil function '$sSu22_builtinIntegerLiteralSuBI_tcfC'
+
+// fatalError(_:file:line:)
+// Isolation: unspecified
+sil public_external [transparent] @$ss10fatalError_4file4lines5NeverOSSyXK_s12StaticStringVSutF : $@convention(thin) (@guaranteed @noescape @callee_guaranteed () -> @owned String, StaticString, UInt) -> Never {
+// %0                                             // user: %8
+// %1                                             // user: %12
+// %2                                             // user: %12
+bb0(%0 : $@noescape @callee_guaranteed () -> @owned String, %1 : $StaticString, %2 : $UInt):
+  %3 = string_literal utf8 "Fatal error"          // user: %5
+  %4 = integer_literal $Builtin.Word, 11          // user: %7
+  %5 = builtin "ptrtoint_Word"(%3) : $Builtin.Word // user: %7
+  %6 = integer_literal $Builtin.Int8, 2           // user: %7
+  %7 = struct $StaticString (%5, %4, %6)          // user: %12
+  %8 = apply %0() : $@noescape @callee_guaranteed () -> @owned String // user: %12
+  %9 = integer_literal $Builtin.Int32, 1          // user: %10
+  %10 = struct $UInt32 (%9)                       // user: %12
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %11 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_SSAHSus6UInt32VtF : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never // user: %12
+  %12 = apply %11(%7, %8, %1, %2, %10) : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never
+  unreachable                                     // id: %13
+} // end sil function '$ss10fatalError_4file4lines5NeverOSSyXK_s12StaticStringVSutF'
+
+// unwrapValue(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI11unwrapValuey13CoreAIRuntime0aE0VAESgnF : $@convention(thin) (@in Optional<InferenceValue>) -> @out InferenceValue {
+// %0 "$return_value"                             // user: %19
+// %1 "value"                                     // user: %3
+bb0(%0 : $*InferenceValue, %1 : $*Optional<InferenceValue>):
+  %2 = alloc_stack [lexical] [var_decl] $Optional<InferenceValue>, var, name "value", type $Optional<InferenceValue> // users: %3, %4, %23
+  copy_addr [take] %1 to [init] %2                // id: %3
+  %4 = begin_access [modify] [static] %2          // users: %6, %8
+  %5 = alloc_stack $Optional<InferenceValue>      // users: %6, %9, %12, %27, %22
+  copy_addr [take] %4 to [init] %5                // id: %6
+  debug_value undef : $*Optional<InferenceValue>, var, name "value", expr op_deref // id: %7
+  end_access %4                                   // id: %8
+  %9 = begin_access [read] [static] [no_nested_conflict] %5 // users: %26, %11, %10
+  switch_enum_addr %9, case #Optional.some!enumelt: bb1, case #Optional.none!enumelt: bb2 // id: %10
+
+bb1:                                              // Preds: bb0
+  end_access %9                                   // id: %11
+  %12 = begin_access [deinit] [static] [no_nested_conflict] %5 // users: %21, %13
+  %13 = unchecked_inplace_enum_data_addr %12, #Optional.some!enumelt // user: %15
+  %14 = alloc_stack [lexical] [var_decl] $InferenceValue, let, name "output", type $InferenceValue // users: %19, %15, %16, %20
+  copy_addr [take] %13 to [init] %14              // id: %15
+  debug_value %14, let, name "output", expr op_deref // id: %16
+  debug_step                                      // id: %17
+  debug_value undef : $*InferenceValue, let, name "output", expr op_deref // id: %18
+  copy_addr [take] %14 to [init] %0               // id: %19
+  dealloc_stack %14                               // id: %20
+  end_access %12                                  // id: %21
+  dealloc_stack %5                                // id: %22
+  dealloc_stack %2                                // id: %23
+  %24 = tuple ()                                  // user: %25
+  return %24                                      // id: %25
+
+bb2:                                              // Preds: bb0
+  end_access %9                                   // id: %26
+  %27 = begin_access [deinit] [static] [no_nested_conflict] %5 // user: %51
+  %28 = string_literal utf8 "InferenceGateABI/InferenceReference.swift" // user: %30
+  %29 = integer_literal $Builtin.Word, 41         // user: %33
+  %30 = builtin "ptrtoint_Word"(%28) : $Builtin.Word // user: %33
+  debug_step                                      // id: %31
+  %32 = integer_literal $Builtin.Int8, 2          // user: %33
+  %33 = struct $StaticString (%30, %29, %32)      // user: %50
+  %34 = integer_literal $Builtin.Int64, 46        // user: %35
+  %35 = struct $UInt (%34)                        // user: %50
+  %36 = string_literal utf8 "Fatal error"         // user: %38
+  %37 = integer_literal $Builtin.Word, 11         // user: %40
+  %38 = builtin "ptrtoint_Word"(%36) : $Builtin.Word // user: %40
+  %39 = integer_literal $Builtin.Int8, 2          // user: %40
+  %40 = struct $StaticString (%38, %37, %39)      // user: %50
+  %41 = string_literal utf8 "missing output"      // user: %46
+  %42 = integer_literal $Builtin.Word, 14         // user: %46
+  %43 = integer_literal $Builtin.Int1, -1         // user: %46
+  %44 = metatype $@thin String.Type               // user: %46
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %45 = function_ref @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %46
+  %46 = apply %45(%41, %42, %43, %44) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %50
+  %47 = integer_literal $Builtin.Int32, 1         // user: %48
+  %48 = struct $UInt32 (%47)                      // user: %50
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %49 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_SSAHSus6UInt32VtF : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never // user: %50
+  %50 = apply %49(%40, %46, %33, %35, %48) : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never
+  end_access %27                                  // id: %51
+  unreachable                                     // id: %52
+} // end sil function '$s16InferenceGateABI11unwrapValuey13CoreAIRuntime0aE0VAESgnF'
+
+// implicit closure #1 in unwrapValue(_:)
+// Isolation: nonisolated
+sil private [transparent] @$s16InferenceGateABI11unwrapValuey13CoreAIRuntime0aE0VAESgnFSSyXEfu_ : $@convention(thin) () -> @owned String {
+bb0:
+  %0 = string_literal utf8 "missing output"       // user: %5
+  %1 = integer_literal $Builtin.Word, 14          // user: %5
+  %2 = integer_literal $Builtin.Int1, -1          // user: %5
+  %3 = metatype $@thin String.Type                // user: %5
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %4 = function_ref @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %5
+  %5 = apply %4(%0, %1, %2, %3) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s16InferenceGateABI11unwrapValuey13CoreAIRuntime0aE0VAESgnFSSyXEfu_'
+
+// unwrapArray(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI11unwrapArrayy13CoreAIRuntime7NDArrayVAESgnF : $@convention(thin) (@in Optional<NDArray>) -> @out NDArray {
+// %0 "$return_value"                             // user: %14
+// %1 "value"                                     // user: %3
+bb0(%0 : $*NDArray, %1 : @noImplicitCopy @_eagerMove $*Optional<NDArray>):
+  %2 = alloc_stack [var_decl] [moveable_value_debuginfo] $Optional<NDArray>, var, name "value", type $@moveOnly Optional<NDArray> // users: %3, %4, %18
+  copy_addr [take] %1 to [init] %2                // id: %3
+  %4 = begin_access [modify] [static] %2          // users: %6, %8
+  %5 = alloc_stack $Optional<NDArray>             // users: %17, %10, %9, %6
+  copy_addr [take] %4 to [init] %5                // id: %6
+  debug_value [moveable_value_debuginfo] undef : $*Optional<NDArray>, var, name "value", expr op_deref // id: %7
+  end_access %4                                   // id: %8
+  switch_enum_addr %5, case #Optional.some!enumelt: bb1, case #Optional.none!enumelt: bb2 // id: %9
+
+bb1:                                              // Preds: bb0
+  %10 = unchecked_inplace_enum_data_addr %5, #Optional.some!enumelt // user: %12
+  %11 = alloc_stack [lexical] [var_decl] $NDArray, let, name "array" // users: %16, %15, %14, %13, %12
+  copy_addr [take] %10 to [init] %11              // id: %12
+  debug_value %11, let, name "array", expr op_deref // id: %13
+  copy_addr %11 to [init] %0                      // id: %14
+  destroy_addr %11                                // id: %15
+  dealloc_stack %11                               // id: %16
+  dealloc_stack %5                                // id: %17
+  dealloc_stack %2                                // id: %18
+  %19 = tuple ()                                  // user: %20
+  return %19                                      // id: %20
+
+bb2:                                              // Preds: bb0
+  %21 = string_literal utf8 "InferenceGateABI/InferenceReference.swift" // user: %23
+  %22 = integer_literal $Builtin.Word, 41         // user: %26
+  %23 = builtin "ptrtoint_Word"(%21) : $Builtin.Word // user: %26
+  debug_step                                      // id: %24
+  %25 = integer_literal $Builtin.Int8, 2          // user: %26
+  %26 = struct $StaticString (%23, %22, %25)      // user: %43
+  %27 = integer_literal $Builtin.Int64, 52        // user: %28
+  %28 = struct $UInt (%27)                        // user: %43
+  %29 = string_literal utf8 "Fatal error"         // user: %31
+  %30 = integer_literal $Builtin.Word, 11         // user: %33
+  %31 = builtin "ptrtoint_Word"(%29) : $Builtin.Word // user: %33
+  %32 = integer_literal $Builtin.Int8, 2          // user: %33
+  %33 = struct $StaticString (%31, %30, %32)      // user: %43
+  %34 = string_literal utf8 "not NDArray"         // user: %39
+  %35 = integer_literal $Builtin.Word, 11         // user: %39
+  %36 = integer_literal $Builtin.Int1, -1         // user: %39
+  %37 = metatype $@thin String.Type               // user: %39
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %38 = function_ref @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %39
+  %39 = apply %38(%34, %35, %36, %37) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %43
+  %40 = integer_literal $Builtin.Int32, 1         // user: %41
+  %41 = struct $UInt32 (%40)                      // user: %43
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %42 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_SSAHSus6UInt32VtF : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never // user: %43
+  %43 = apply %42(%33, %39, %26, %28, %41) : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never
+  unreachable                                     // id: %44
+} // end sil function '$s16InferenceGateABI11unwrapArrayy13CoreAIRuntime7NDArrayVAESgnF'
+
+// implicit closure #1 in unwrapArray(_:)
+// Isolation: nonisolated
+sil private [transparent] @$s16InferenceGateABI11unwrapArrayy13CoreAIRuntime7NDArrayVAESgnFSSyXEfu_ : $@convention(thin) () -> @owned String {
+bb0:
+  %0 = string_literal utf8 "not NDArray"          // user: %5
+  %1 = integer_literal $Builtin.Word, 11          // user: %5
+  %2 = integer_literal $Builtin.Int1, -1          // user: %5
+  %3 = metatype $@thin String.Type                // user: %5
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %4 = function_ref @$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %5
+  %5 = apply %4(%0, %1, %2, %3) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s16InferenceGateABI11unwrapArrayy13CoreAIRuntime7NDArrayVAESgnFSSyXEfu_'
+
+// emptyDictionaryCapacity()
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI23emptyDictionaryCapacitySDySS13CoreAIRuntime7NDArrayVGyF : $@convention(thin) () -> @owned Dictionary<String, NDArray> {
+bb0:
+  %0 = metatype $@thin Dictionary<String, NDArray>.Type // user: %4
+  %1 = integer_literal $Builtin.Int64, 0          // user: %2
+  %2 = struct $Int (%1)                           // user: %4
+  // function_ref Dictionary.init(minimumCapacity:)
+  %3 = function_ref @$sSD15minimumCapacitySDyxq_GSi_tcfC : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (Int, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %4
+  %4 = apply %3<String, NDArray>(%2, %0) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (Int, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s16InferenceGateABI23emptyDictionaryCapacitySDySS13CoreAIRuntime7NDArrayVGyF'
+
+// Dictionary.init(minimumCapacity:)
+// Isolation: unspecified
+sil @$sSD15minimumCapacitySDyxq_GSi_tcfC : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (Int, @thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1>
+
+// dictionaryReplace(_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI17dictionaryReplacey13CoreAIRuntime7NDArrayVSgSDySSAEGz_SSnAEntF : $@convention(thin) (@inout Dictionary<String, NDArray>, @owned String, @in NDArray) -> @out Optional<NDArray> {
+// %0 "$return_value"                             // user: %22
+// %1 "dictionary"                                // users: %20, %4
+// %2 "name"                                      // user: %6
+// %3 "array"                                     // user: %8
+bb0(%0 : $*Optional<NDArray>, %1 : $*Dictionary<String, NDArray>, %2 : @noImplicitCopy @_eagerMove $String, %3 : @noImplicitCopy @_eagerMove $*NDArray):
+  debug_value %1, var, name "dictionary", argno 1, expr op_deref // id: %4
+  %5 = alloc_stack [var_decl] [moveable_value_debuginfo] $String, var, name "name", type $@moveOnly String // users: %6, %14, %28
+  store %2 to %5                                  // id: %6
+  %7 = alloc_stack [var_decl] [moveable_value_debuginfo] $NDArray, var, name "array", type $@moveOnly NDArray // users: %8, %9, %27
+  copy_addr [take] %3 to [init] %7                // id: %8
+  %9 = begin_access [modify] [static] %7          // users: %11, %13
+  %10 = alloc_stack $NDArray                      // users: %26, %22, %11
+  copy_addr [take] %9 to [init] %10               // id: %11
+  debug_value [moveable_value_debuginfo] undef : $*NDArray, var, name "array", expr op_deref // id: %12
+  end_access %9                                   // id: %13
+  %14 = begin_access [modify] [static] %5         // users: %15, %17
+  %15 = load %14                                  // user: %19
+  debug_value [moveable_value_debuginfo] undef : $*String, var, name "name", expr op_deref // id: %16
+  end_access %14                                  // id: %17
+  %18 = alloc_stack $String                       // users: %19, %25, %24, %22
+  store %15 to %18                                // id: %19
+  %20 = begin_access [modify] [static] %1         // users: %23, %22
+  // function_ref Dictionary.updateValue(_:forKey:)
+  %21 = function_ref @$sSD11updateValue_6forKeyq_Sgq_n_xtF : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in τ_0_1, @in_guaranteed τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> @out Optional<τ_0_1> // user: %22
+  %22 = apply %21<String, NDArray>(%0, %10, %18, %20) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in τ_0_1, @in_guaranteed τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> @out Optional<τ_0_1>
+  end_access %20                                  // id: %23
+  destroy_addr %18                                // id: %24
+  dealloc_stack %18                               // id: %25
+  dealloc_stack %10                               // id: %26
+  dealloc_stack %7                                // id: %27
+  dealloc_stack %5                                // id: %28
+  %29 = tuple ()                                  // user: %30
+  return %29                                      // id: %30
+} // end sil function '$s16InferenceGateABI17dictionaryReplacey13CoreAIRuntime7NDArrayVSgSDySSAEGz_SSnAEntF'
+
+// Dictionary.updateValue(_:forKey:)
+// Isolation: unspecified
+sil @$sSD11updateValue_6forKeyq_Sgq_n_xtF : $@convention(method) <Key, Value where Key : Hashable> (@in Value, @in_guaranteed Key, @inout Dictionary<Key, Value>) -> @out Optional<Value>
+
+// dictionaryLookup(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI16dictionaryLookupy13CoreAIRuntime7NDArrayVSgSDySSAEG_SStF : $@convention(thin) (@guaranteed Dictionary<String, NDArray>, @guaranteed String) -> @out Optional<NDArray> {
+// %0 "$return_value"                             // user: %9
+// %1 "dictionary"                                // users: %9, %3
+// %2 "name"                                      // users: %7, %5, %4
+bb0(%0 : $*Optional<NDArray>, %1 : @noImplicitCopy $Dictionary<String, NDArray>, %2 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "dictionary", argno 1 // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "name", argno 2 // id: %4
+  retain_value %2                                 // id: %5
+  %6 = alloc_stack $String                        // users: %7, %11, %10, %9
+  store %2 to %6                                  // id: %7
+  // function_ref Dictionary.subscript.getter
+  %8 = function_ref @$sSDyq_Sgxcig : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @guaranteed Dictionary<τ_0_0, τ_0_1>) -> @out Optional<τ_0_1> // user: %9
+  %9 = apply %8<String, NDArray>(%0, %6, %1) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @guaranteed Dictionary<τ_0_0, τ_0_1>) -> @out Optional<τ_0_1>
+  destroy_addr %6                                 // id: %10
+  dealloc_stack %6                                // id: %11
+  %12 = tuple ()                                  // user: %13
+  return %12                                      // id: %13
+} // end sil function '$s16InferenceGateABI16dictionaryLookupy13CoreAIRuntime7NDArrayVSgSDySSAEG_SStF'
+
+// Dictionary.subscript.getter
+// Isolation: unspecified
+sil @$sSDyq_Sgxcig : $@convention(method) <Key, Value where Key : Hashable> (@in_guaranteed Key, @guaranteed Dictionary<Key, Value>) -> @out Optional<Value>
+
+// consumeDictionary(_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI17consumeDictionaryyySDySS13CoreAIRuntime7NDArrayVGnF : $@convention(thin) (@owned Dictionary<String, NDArray>) -> () {
+// %0 "dictionary"                                // users: %2, %1
+bb0(%0 : $Dictionary<String, NDArray>):
+  debug_value %0, let, name "dictionary", argno 1 // id: %1
+  release_value %0                                // id: %2
+  %3 = tuple ()                                   // user: %4
+  return %3                                       // id: %4
+} // end sil function '$s16InferenceGateABI17consumeDictionaryyySDySS13CoreAIRuntime7NDArrayVGnF'
+
+// dictionaryType<A, B>(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16InferenceGateABI14dictionaryTypeyypXpxm_q_mtSHRzr0_lF : $@convention(thin) <K, V where K : Hashable> (@thick K.Type, @thick V.Type) -> @thick any Any.Type {
+// %0                                             // user: %2
+// %1                                             // user: %3
+bb0(%0 : $@thick K.Type, %1 : $@thick V.Type):
+  debug_value %0, let, name "_0", argno 1         // id: %2
+  debug_value %1, let, name "_1", argno 2         // id: %3
+  %4 = metatype $@thick Dictionary<K, V>.Type     // user: %5
+  %5 = init_existential_metatype %4, $@thick any Any.Type // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s16InferenceGateABI14dictionaryTypeyypXpxm_q_mtSHRzr0_lF'
+
+// _assertionFailure(_:_:file:line:flags:)
+// Isolation: unspecified
+sil [noinline] [_semantics "programtermination_point"] @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_SSAHSus6UInt32VtF : $@convention(thin) (StaticString, @guaranteed String, StaticString, UInt, UInt32) -> Never
+
+// InferenceFunction.MutableViews.init()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.MutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.MutableViews
+
+// Array._endMutation()
+// Isolation: unspecified
+sil shared [export_implementation] [_semantics "array.end_mutation"] @$sSa12_endMutationyyF : $@convention(method) <Element> (@inout Array<Element>) -> () {
+[%0: noescape! **, read s0.s0.s0.v**, write v**]
+[global: ]
+// %0                                             // users: %9, %1
+bb0(%0 : $*Array<Element>):
+  %1 = struct_element_addr %0, #Array._buffer     // user: %2
+  %2 = struct_element_addr %1, #_ArrayBuffer._storage // user: %3
+  %3 = struct_element_addr %2, #_BridgeStorage.rawValue // user: %4
+  %4 = load %3                                    // user: %5
+  %5 = end_cow_mutation %4                        // user: %6
+  %6 = struct $_BridgeStorage<__ContiguousArrayStorageBase> (%5) // user: %7
+  %7 = struct $_ArrayBuffer<Element> (%6)         // user: %8
+  %8 = struct $Array<Element> (%7)                // user: %9
+  store %8 to %0                                  // id: %9
+  %10 = tuple ()                                  // user: %11
+  return %10                                      // id: %11
+} // end sil function '$sSa12_endMutationyyF'
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'InferenceGateABI/InferenceReference.swift' => '/private/tmp/corsairs-inference-gate/InferenceReference.swift'
+
+

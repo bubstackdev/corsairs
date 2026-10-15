@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "passed": true,
+  "generated_utc": "2026-10-15T18:02:09.905884+00:00",
+  "native_coreai_executed": false,
+  "seed": 12523010,
+  "random_count": 1000000,
+  "rng": "CPython random.Random(seed).getrandbits(32)",
+  "unique_vectors": 1392227,
+  "finite_or_inf_vectors": 1388149,
+  "nan_vectors": 4078,
+  "reference": {
+    "numpy": "2.3.5",
+    "ml_dtypes": "0.6.0",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "extension": "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG/ml_dtypes/_ml_dtypes_ext.cpython-312-darwin.so",
+    "extension_sha256": "7035bce34356b455e30252fa379292f5b33554d770a09078163d77e026d10a35"
+  },
+  "source_sha256": {
+    "experiments/rust/bfloat16_conversion.rs": "e87a7cc7ae4630423188cb9c762c8f7d1e994af9da26a7bb0a66b0ba6681d962",
+    "scripts/check_bfloat16.py": "625fbc2d071e1a630ca71c3e1c2a4693663668a2edb130c85a1641d3bf88e87e",
+    "scripts/check_float16.py": "5f77627056ea53a176fc2f8db86bf48925097c826a582ebd5f5adf0752bc5038",
+    "crates/corsairs-abi/src/dtype.rs": "f74c17efbea82b15c6ee379b0e0ec8f22dc07b630d5646bf7ff31e900e39b480"
+  },
+  "nan_policy": "Numerical reference may quiet/canonicalize NaNs. Strict equality excludes NaNs; Rust must preserve NaN class/sign and its documented high-payload/signaling policy. Raw native storage tests require all bits unchanged.",
+  "vectors": {
+    "inputs": {
+      "file": "target/bfloat16-conversion/inputs.f32le",
+      "bytes": 5568908,
+      "sha256": "e9e35762883ad6d8f187b057bcbb89c3f2b9ccca9785d65d31dce5c698cc7339",
+      "gzip_file": "target/bfloat16-conversion/inputs.f32le.gz",
+      "gzip_sha256": "143195c31c7dcaca56e2034492fbeaf22b55cb109d98dec80029f77d301d87c8"
+    },
+    "ml_dtypes_narrow": {
+      "file": "target/bfloat16-conversion/reference.bf16le",
+      "bytes": 2784454,
+      "sha256": "3aa8ff1f54d87c62bc3b453a4d3b42a2fe258872daac14482a24ef6526c45fa5",
+      "gzip_file": "target/bfloat16-conversion/reference.bf16le.gz",
+      "gzip_sha256": "c3962fd325df4544f810ccfe47abceed74ed6df27edfab6b7f55b6cd8396dc12"
+    },
+    "ml_dtypes_wide": {
+      "file": "target/bfloat16-conversion/reference-widened.f32le",
+      "bytes": 5568908,
+      "sha256": "9b3976dfc481a3c7175b21a4c08c9f3a6afe362caeb092d4ed7557439a75226e",
+      "gzip_file": "target/bfloat16-conversion/reference-widened.f32le.gz",
+      "gzip_sha256": "3d7530d3bbd22664c572d78a50076989ec9f33ba9b7431b1bfd485745e957b50"
+    }
+  },
+  "profiles": {
+    "debug": {
+      "finite_or_inf_narrow_mismatches": 0,
+      "finite_or_inf_widened_mismatches": 0,
+      "nan_class_mismatches": 0,
+      "nan_sign_mismatches": 0,
+      "documented_nan_payload_mismatches": 0,
+      "nan_payload_differences_from_reference": 4044,
+      "first_mismatches": [],
+      "narrow_vector": {
+        "file": "target/bfloat16-conversion/rust-debug.bf16le",
+        "bytes": 2784454,
+        "sha256": "22bcbed872d4b891c69b75a231c0ab0e503e8d74831a03d08863d22463f6a7b9",
+        "gzip_file": "target/bfloat16-conversion/rust-debug.bf16le.gz",
+        "gzip_sha256": "9b8ae41d8c22d33a21129a2a128ed6ea0ada579c26326cf6b80029477aef857e"
+      },
+      "wide_vector": {
+        "file": "target/bfloat16-conversion/rust-debug-widened.f32le",
+        "bytes": 5568908,
+        "sha256": "b513db75ade2495c6c3249aaf400b8c5b1f706e1a08817f48c70540c17670664",
+        "gzip_file": "target/bfloat16-conversion/rust-debug-widened.f32le.gz",
+        "gzip_sha256": "c5e7afbe8b8a94a67f8ac4913e90d9184ec2d195901bf236efe52229e7f19e1a"
+      }
+    },
+    "release": {
+      "finite_or_inf_narrow_mismatches": 0,
+      "finite_or_inf_widened_mismatches": 0,
+      "nan_class_mismatches": 0,
+      "nan_sign_mismatches": 0,
+      "documented_nan_payload_mismatches": 0,
+      "nan_payload_differences_from_reference": 4044,
+      "first_mismatches": [],
+      "narrow_vector": {
+        "file": "target/bfloat16-conversion/rust-release.bf16le",
+        "bytes": 2784454,
+        "sha256": "22bcbed872d4b891c69b75a231c0ab0e503e8d74831a03d08863d22463f6a7b9",
+        "gzip_file": "target/bfloat16-conversion/rust-release.bf16le.gz",
+        "gzip_sha256": "9b8ae41d8c22d33a21129a2a128ed6ea0ada579c26326cf6b80029477aef857e"
+      },
+      "wide_vector": {
+        "file": "target/bfloat16-conversion/rust-release-widened.f32le",
+        "bytes": 5568908,
+        "sha256": "b513db75ade2495c6c3249aaf400b8c5b1f706e1a08817f48c70540c17670664",
+        "gzip_file": "target/bfloat16-conversion/rust-release-widened.f32le.gz",
+        "gzip_sha256": "c5e7afbe8b8a94a67f8ac4913e90d9184ec2d195901bf236efe52229e7f19e1a"
+      }
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/bin/cargo",
+        "build",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--lib",
+        "--message-format=json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"reason\":\"compiler-message\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.2.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"message\":{\"rendered\":\"warning: variant `Drain` is never constructed\\n   --> crates/corsairs-abi/src/worker.rs:124:5\\n    |\\n119 | enum Message<S> {\\n    |      ------- variant in this enum\\n...\\n124 |     Drain {\\n    |     ^^^^^\\n    |\\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\\n\\n\",\"$message_type\":\"diagnostic\",\"children\":[{\"children\":[],\"code\":null,\"level\":\"note\",\"message\":\"`#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\",\"rendered\":null,\"spans\":[]}],\"level\":\"warning\",\"message\":\"variant `Drain` is never constructed\",\"spans\":[{\"byte_end\":3681,\"byte_start\":3674,\"column_end\":13,\"column_start\":6,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":false,\"label\":\"variant in this enum\",\"line_end\":119,\"line_start\":119,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":13,\"highlight_start\":6,\"text\":\"enum Message<S> {\"}]},{\"byte_end\":3768,\"byte_start\":3763,\"column_end\":10,\"column_start\":5,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":true,\"label\":null,\"line_end\":124,\"line_start\":124,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":10,\"highlight_start\":5,\"text\":\"    Drain {\"}]}],\"code\":{\"code\":\"dead_code\",\"explanation\":null}}}\n{\"reason\":\"compiler-message\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.2.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"message\":{\"rendered\":\"warning: method `drain` is never used\\n   --> crates/corsairs-abi/src/worker.rs:331:19\\n    |\\n235 | impl<S: 'static> Worker<S> {\\n    | -------------------------- method in this implementation\\n...\\n331 |     pub(crate) fn drain(&self) -> Task<()> {\\n    |                   ^^^^^\\n\\n\",\"$message_type\":\"diagnostic\",\"children\":[],\"level\":\"warning\",\"message\":\"method `drain` is never used\",\"spans\":[{\"byte_end\":7362,\"byte_start\":7336,\"column_end\":27,\"column_start\":1,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":false,\"label\":\"method in this implementation\",\"line_end\":235,\"line_start\":235,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":27,\"highlight_start\":1,\"text\":\"impl<S: 'static> Worker<S> {\"}]},{\"byte_end\":11166,\"byte_start\":11161,\"column_end\":24,\"column_start\":19,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":true,\"label\":null,\"line_end\":331,\"line_start\":331,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":24,\"highlight_start\":19,\"text\":\"    pub(crate) fn drain(&self) -> Task<()> {\"}]}],\"code\":{\"code\":\"dead_code\",\"explanation\":null}}}\n{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.2.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"profile\":{\"opt_level\":\"0\",\"debuginfo\":2,\"debug_assertions\":true,\"overflow_checks\":true,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/aether/lab/corsairs/target/debug/libcorsairs.rlib\",\"/Users/zakkeown/Code/aether/lab/corsairs/target/debug/deps/libcorsairs-912c0d6bc3a30c6e.rmeta\"],\"executable\":null,\"fresh\":false}\n{\"reason\":\"build-finished\",\"success\":true}\n",
+      "stderr": "   Compiling corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.17s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2024",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/bfloat16_conversion.rs",
+        "--extern",
+        "corsairs=/Users/zakkeown/Code/aether/lab/corsairs/target/debug/libcorsairs.rlib",
+        "-L",
+        "dependency=/Users/zakkeown/Code/aether/lab/corsairs/target/debug",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/bfloat16-debug"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/bfloat16-debug",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/inputs.f32le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/rust-debug.bf16le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/rust-debug-widened.f32le"
+      ],
+      "returncode": 0,
+      "stdout": "{\"converted\":1392227}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/cargo",
+        "build",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--lib",
+        "--message-format=json",
+        "--release"
+      ],
+      "returncode": 0,
+      "stdout": "{\"reason\":\"compiler-message\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.2.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"message\":{\"rendered\":\"warning: variant `Drain` is never constructed\\n   --> crates/corsairs-abi/src/worker.rs:124:5\\n    |\\n119 | enum Message<S> {\\n    |      ------- variant in this enum\\n...\\n124 |     Drain {\\n    |     ^^^^^\\n    |\\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\\n\\n\",\"$message_type\":\"diagnostic\",\"children\":[{\"children\":[],\"code\":null,\"level\":\"note\",\"message\":\"`#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\",\"rendered\":null,\"spans\":[]}],\"level\":\"warning\",\"message\":\"variant `Drain` is never constructed\",\"spans\":[{\"byte_end\":3681,\"byte_start\":3674,\"column_end\":13,\"column_start\":6,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":false,\"label\":\"variant in this enum\",\"line_end\":119,\"line_start\":119,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":13,\"highlight_start\":6,\"text\":\"enum Message<S> {\"}]},{\"byte_end\":3768,\"byte_start\":3763,\"column_end\":10,\"column_start\":5,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":true,\"label\":null,\"line_end\":124,\"line_start\":124,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":10,\"highlight_start\":5,\"text\":\"    Drain {\"}]}],\"code\":{\"code\":\"dead_code\",\"explanation\":null}}}\n{\"reason\":\"compiler-message\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.2.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"message\":{\"rendered\":\"warning: method `drain` is never used\\n   --> crates/corsairs-abi/src/worker.rs:331:19\\n    |\\n235 | impl<S: 'static> Worker<S> {\\n    | -------------------------- method in this implementation\\n...\\n331 |     pub(crate) fn drain(&self) -> Task<()> {\\n    |                   ^^^^^\\n\\n\",\"$message_type\":\"diagnostic\",\"children\":[],\"level\":\"warning\",\"message\":\"method `drain` is never used\",\"spans\":[{\"byte_end\":7362,\"byte_start\":7336,\"column_end\":27,\"column_start\":1,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":false,\"label\":\"method in this implementation\",\"line_end\":235,\"line_start\":235,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":27,\"highlight_start\":1,\"text\":\"impl<S: 'static> Worker<S> {\"}]},{\"byte_end\":11166,\"byte_start\":11161,\"column_end\":24,\"column_start\":19,\"expansion\":null,\"file_name\":\"crates/corsairs-abi/src/worker.rs\",\"is_primary\":true,\"label\":null,\"line_end\":331,\"line_start\":331,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"text\":[{\"highlight_end\":24,\"highlight_start\":19,\"text\":\"    pub(crate) fn drain(&self) -> Task<()> {\"}]}],\"code\":{\"code\":\"dead_code\",\"explanation\":null}}}\n{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi#corsairs@0.2.0\",\"manifest_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"profile\":{\"opt_level\":\"3\",\"debuginfo\":0,\"debug_assertions\":false,\"overflow_checks\":false,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/aether/lab/corsairs/target/release/libcorsairs.rlib\",\"/Users/zakkeown/Code/aether/lab/corsairs/target/release/deps/libcorsairs-1c273e96bbeaa2ec.rmeta\"],\"executable\":null,\"fresh\":false}\n{\"reason\":\"build-finished\",\"success\":true}\n",
+      "stderr": "   Compiling corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Finished `release` profile [optimized] target(s) in 1.76s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2024",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/rust/bfloat16_conversion.rs",
+        "--extern",
+        "corsairs=/Users/zakkeown/Code/aether/lab/corsairs/target/release/libcorsairs.rlib",
+        "-L",
+        "dependency=/Users/zakkeown/Code/aether/lab/corsairs/target/release",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/bfloat16-release",
+        "-C",
+        "opt-level=3"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/bfloat16-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/inputs.f32le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/rust-release.bf16le",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-conversion/rust-release-widened.f32le"
+      ],
+      "returncode": 0,
+      "stdout": "{\"converted\":1392227}\n",
+      "stderr": ""
+    }
+  ]
+}

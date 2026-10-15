@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "packaged_cli": true,
+  "cases": [
+    {
+      "compute": "cpu",
+      "output_sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "exact_fixture_bytes": true,
+      "binary_sha256": "ac90911d6b5c88710454be800f8bd971025f623b585b23bcfd8e4c228d54f2ab"
+    },
+    {
+      "compute": "gpu-preferred",
+      "output_sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "exact_fixture_bytes": true,
+      "binary_sha256": "ac90911d6b5c88710454be800f8bd971025f623b585b23bcfd8e4c228d54f2ab"
+    }
+  ],
+  "scope": "Output/dtype byte comparison only; direct LLDB observations include unclassified EXC_BREAKPOINT stops. The clean execution gate uses the same packaged CLI as untraced child processes.",
+  "clean_execution_validated": false,
+  "authoritative_execution_report": "packaged-cli-untraced-check.json"
+}

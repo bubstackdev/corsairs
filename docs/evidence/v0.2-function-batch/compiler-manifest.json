@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-15T17:49:34.686804+00:00",
+  "status": "integrated_native_and_deterministic_throw_verified",
+  "production_edits": true,
+  "sdk_interfaces": {
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface": {
+      "sha256": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd",
+      "relevant_declarations": [
+        {
+          "line": 15,
+          "text": "public struct AIModel : Swift::Sendable {"
+        },
+        {
+          "line": 51,
+          "text": "public struct InferenceFunction : Swift::Sendable {"
+        }
+      ]
+    },
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/Modules/CoreAIDelegates.swiftmodule/arm64e-apple-macos.swiftinterface": {
+      "sha256": "cf66ad72fab3fd71bf6c7cf2e5d96cfb8b1ebd9d4345ab8a2cfbb4f611db032c",
+      "relevant_declarations": [
+        {
+          "line": 121,
+          "text": "public func loadFunction(named functionName: Swift::String) throws -> CoreAIRuntime::InferenceFunction?"
+        }
+      ]
+    }
+  },
+  "source_files": {
+    "experiments/swift/FunctionBatchReference.swift": "4dae80ca1364596822987bf32b20cd3a51a4551073442ec1baa15476589c4666",
+    "docs/evidence/v0.2-function-batch/reference.ll": "76c6d2503210589b164847cbbeb07c983cc29aed745589e0713f40a390b59d15",
+    "docs/evidence/v0.2-function-batch/reference.sil": "d0c0060554c98ed15da6b62eb602f118bffb102d042e7082856a94e46484e8e2",
+    "docs/evidence/v0.2-function-batch/reference.s": "8abe463b5bd62a107a280f5290a93ac7035898ca1fd886e879e79c22230dbac1",
+    "crates/corsairs-abi/src/native/async_task/sync_call.rs": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+    "crates/corsairs-abi/src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "crates/corsairs-abi/src/native/owned/function_batch.rs": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+    "crates/corsairs-abi/src/facade/function_batch.rs": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+    "experiments/rust/parallel_functions.rs": "023563af3c9d1df9edc49c9ea78fea420ab2a6d815b9f39103c697bc35ceb0f1"
+  },
+  "contracts": [
+    "Only distinct model IDs in a batch; all model NativeValues and Strings remain owned on the worker until every task joins",
+    "SDK AIModel and InferenceFunction are Sendable and loadFunction is nonmutating synchronous throws",
+    "Each native SwiftTask calls a sync adapter, not an async descriptor for loadFunction",
+    "Sync error returns owned in x21, is stored separately, and is released exactly once; outer Void task completes with x20=0",
+    "Callback accesses stable native memory and synchronized completion only, never session maps/Rc or NativeValue owners",
+    "PreparedBatch joins ALL started operations before any result/error/native owner destruction",
+    "All function descriptors and IDs validate before insertion; result Functions retain same-session Model Arcs"
+  ],
+  "remaining": [],
+  "compiler": {
+    "version": "Apple Swift6.4 swiftlang-6.4.0.34.1 clang-2100.3.34.1",
+    "flags": [
+      "-swift-version",
+      "6",
+      "-strict-concurrency=complete",
+      "-warnings-as-errors"
+    ],
+    "observations": [
+      "Both AIModel and InferenceFunction satisfy generic Sendable constraint",
+      "Task.detached captures AIModel/String; closure SIL Isolation @concurrent; synchronous try_apply, not async loadFunction",
+      "SIL method signature (@guaranteed String,@in_guaranteed AIModel)->(@out Optional<InferenceFunction>,@error anyError)",
+      "LLVM swiftcc: sret Optional, two String words, swiftself model, swifterror",
+      "ARM64 wrapper moves model to x20, name words to x0/x1; x8 sret and x21 error forwarding preserved"
+    ]
+  },
+  "checks": {
+    "unit": "20 passed;5 native ignored",
+    "default_clippy": "all-targets passed -Dwarnings",
+    "research_clippy": "all-targets passed -Dwarnings",
+    "native_driver": "release compiled -Dwarnings",
+    "native_execution": false,
+    "integrated_unit": "20 passed;5 native ignored",
+    "integrated_default_clippy": "all-targets passed -Dwarnings",
+    "integrated_research_clippy": "all-targets passed -Dwarnings"
+  },
+  "prototype_artifacts": {
+    "experiments/FunctionBatchReference.ll": {
+      "sha256": "3e470ac48b40258894d5e86f7bfef4b752cf1cdf12299946351bfa61d0edb423",
+      "bytes": 33942
+    },
+    "experiments/FunctionBatchReference.sil": {
+      "sha256": "f094d7c23e069d781c3e9ac68a466ee8f0334d6355fd8e45fe728aef2d19933a",
+      "bytes": 28092
+    },
+    "experiments/FunctionBatchReference.s": {
+      "sha256": "8abe463b5bd62a107a280f5290a93ac7035898ca1fd886e879e79c22230dbac1",
+      "bytes": 27154
+    },
+    "target/function-load-driver": {
+      "sha256": "2f7893322f0dc5d8d24fde73e64cdd410a4ce256263d7c0dc2b493a91481bcc4",
+      "bytes": 1052024
+    },
+    "target/debug/deps/corsairs-c07496e6695ccecb": {
+      "sha256": "692223967973658b1a27ea8045e79195d2248ec24e5139c2b8df17fd98bce8f7",
+      "bytes": 4972184
+    },
+    "target/release/libcorsairs.rlib": {
+      "sha256": "c0c5ef8d6a2d03beba4a814a8d0eee5f91f0c620b0f2c2f9ec46ef3a70f20fbb",
+      "bytes": 2406544
+    }
+  },
+  "prototype_native_evidence": {
+    "docs/evidence/v0.2-function-batch-prototype-native.json": {
+      "evidence_id": "ev_278fe5c6739181db5bf6c13e434d57f62532f3681978b6f3f5d305f7c48af52c",
+      "target_sha256": "2f7893322f0dc5d8d24fde73e64cdd410a4ce256263d7c0dc2b493a91481bcc4",
+      "exit_status": 0
+    },
+    "docs/evidence/v0.2-function-batch-cleanup-prototype-native.json": {
+      "evidence_id": "ev_6b1bfd27002c12b94ee633cf7576196b1ed519077d1ea8c01d50938a655714d5",
+      "target_sha256": "692223967973658b1a27ea8045e79195d2248ec24e5139c2b8df17fd98bce8f7",
+      "exit_status": 0
+    }
+  },
+  "compiler_commands": [
+    [
+      "xcrun",
+      "swiftc",
+      "-swift-version",
+      "6",
+      "-strict-concurrency=complete",
+      "-warnings-as-errors",
+      "-O",
+      "-parse-as-library",
+      "-module-name",
+      "FunctionBatchABI",
+      "-module-cache-path",
+      "target/swift-module-cache",
+      "-emit-ir",
+      "experiments/swift/FunctionBatchReference.swift",
+      "-o",
+      "docs/evidence/v0.2-function-batch/reference.ll"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-swift-version",
+      "6",
+      "-strict-concurrency=complete",
+      "-warnings-as-errors",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "FunctionBatchABI",
+      "-module-cache-path",
+      "target/swift-module-cache",
+      "-emit-sil",
+      "experiments/swift/FunctionBatchReference.swift",
+      "-o",
+      "docs/evidence/v0.2-function-batch/reference.sil"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-swift-version",
+      "6",
+      "-strict-concurrency=complete",
+      "-warnings-as-errors",
+      "-O",
+      "-parse-as-library",
+      "-module-name",
+      "FunctionBatchABI",
+      "-module-cache-path",
+      "target/swift-module-cache",
+      "-emit-assembly",
+      "experiments/swift/FunctionBatchReference.swift",
+      "-o",
+      "docs/evidence/v0.2-function-batch/reference.s"
+    ]
+  ],
+  "completed_evidence_scope": "Original compiler/source/check fields remain the historical integration snapshot. The following independent reports bind their own exact tested binaries. Later BF16/drain changes require separate validation.",
+  "completed_native_evidence": {
+    "docs/evidence/v0.2-lifecycle-final-native.json": {
+      "sha256": "4f9742183737a952e08bd33680d1ec98409fdf7330132ced8d697dbe0c06e229",
+      "evidence_id": "ev_04b5fb84bc18170c95ac47c6533f9ebebaa3558bb17214ada05945d8841efcc3",
+      "target_sha256": "71f71c8d88dfe7022b10cacdeb7851c8d1bd358119e7a87b5dccc998ac5678a1",
+      "exit_status": 0
+    },
+    "docs/evidence/v0.2-core-final-native.json": {
+      "sha256": "6704d6700c898e323764c011519b7a28cdfa13ddb674710f130fa6480c47da14",
+      "evidence_id": "ev_fa0e013d51b0e118022f0a1c7be4079f49a05342679990d160e35619d7806d74",
+      "target_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "exit_status": 0
+    },
+    "docs/evidence/v0.2-krea-parallel-functions-native.json": {
+      "sha256": "4f7c023e1719affaba892839cecba22f44fe644221ad09adfc70bc4f51991807",
+      "evidence_id": "ev_464db567be182d9d62792a73a75b6f7f36746ae024dc34b103131f3a8ab721bb",
+      "target_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "exit_status": 0
+    },
+    "docs/evidence/v0.2-function-throw-oracle-native.json": {
+      "sha256": "490580258a4a0b0c7f9cf5d22226e73502d81a6a9c64e68bc7c1fc13a1d90b9e",
+      "evidence_id": "ev_da3dafb60b3a049d40da81056a01463a4b0f09797562b19128b250e06918a879",
+      "target_sha256": "5430cb1a988a3e4cc9c64370abdbb343fc5f175f78f0669fbaf07bb122270451",
+      "exit_status": 0
+    }
+  },
+  "retained_throw_oracle": "docs/evidence/v0.2-function-batch/throw-oracle/retained-manifest.json"
+}

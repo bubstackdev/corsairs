@@ -1,0 +1,152 @@
+{
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "os_backed": true,
+  "backends": [
+    {
+      "compute": "cpu",
+      "steps": [
+        {
+          "step": 0,
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+          "passed": true
+        },
+        {
+          "step": 1,
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "88def510c2612e42dead35ce51080cbb065a4e713cc6107022ba048ed9e75d23",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "18bdb4d6e85b8f69f5c4064f06bfd9a061f560db2b76be3ab87a723d9f726129",
+          "passed": true
+        },
+        {
+          "step": 3,
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "compute": "gpu-preferred",
+      "steps": [
+        {
+          "step": 0,
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+          "passed": true
+        },
+        {
+          "step": 1,
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "88def510c2612e42dead35ce51080cbb065a4e713cc6107022ba048ed9e75d23",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "18bdb4d6e85b8f69f5c4064f06bfd9a061f560db2b76be3ab87a723d9f726129",
+          "passed": true
+        },
+        {
+          "step": 3,
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "float32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

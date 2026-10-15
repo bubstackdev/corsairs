@@ -1,0 +1,60 @@
+{
+  "kind": "corsairs-h3-independent-verification",
+  "mode": "backbone-stage1",
+  "verified_at": "2026-10-15T18:19:00.846724+00:00",
+  "passed": true,
+  "native_execution_performed": false,
+  "report_sha256": "a44638d0d47ee52ca0fdb1ebb3b5b7baaa02f68e193589f1ab2112b56ca50779",
+  "build_manifest_sha256": "e7b8970c45fcd0617450a1eb9bc8191a8bed38dbe02370f7cb4c4634018e3e59",
+  "binary_sha256": "06304b7ef258ac466a491df7bfa38597caa215f8889aed3d7683fcf43ac815ca",
+  "rlib_sha256": "69dc636283076729c47bfdc3a7b49d4cca068fa1aae53f9a17fc75110c7a6d2e",
+  "source_identity_sha256": "1b35bca98365133413d311d7101f532dedf662e31e5647dda6708bde6e747e7d",
+  "source_file_count": 45,
+  "current_sources_match_manifest": true,
+  "records_and_reference_sources_rehashed": true,
+  "native_events_sha256": "f8dc00a0a288beab4f1a884d67cf919879365850e627e1cd3b016209134dca15",
+  "stderr_empty": true,
+  "snapshots": {
+    "driver.rs": {
+      "source": "experiments/rust/h3_driver.rs",
+      "sha256": "e00285db16000ad26b40d46a2d916c98ad98b0075f423fa01dd4eb231fa1f918"
+    },
+    "checker.py": {
+      "source": "scripts/check_h3.py",
+      "sha256": "9d3e94ca7c34109dbdc85905dce951cd9abaa43220cb16f8484618615d832418"
+    },
+    "launcher.py": {
+      "source": "scripts/check_krea.py",
+      "sha256": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409"
+    },
+    "data.rs": {
+      "source": "target/h3-check/data.rs",
+      "sha256": "79b8fb96c5657cea96a302c35230c84b200b80b7a828cf779a40941c81b3c01b"
+    }
+  },
+  "resume_checkpoint_verified": {
+    "manifest": "/private/tmp/corsairs-h3-backbone-stage0/checkpoint.json",
+    "manifest_sha256": "45495207ff9fc00aaf52b6cf163f53ab9943c50e5fff21b526ee8a4463fcc8a4",
+    "sha256": "320d64327bcf8fac6b8f584888e93e4717d7794ac775175119f6efa0acf537c8",
+    "build_records_model_identity_match": true
+  },
+  "payload_count": 1,
+  "payloads": [
+    {
+      "file": "/private/tmp/corsairs-h3-backbone-stage1/backbone.bf16",
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/backbone-streaming.raw",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        19350,
+        5376
+      ],
+      "bytes": 208051200,
+      "sha256": "e4aabaed96045e8b86cd292f7c6234f4ad5d86dda2e33edc41330d3e9772e75b",
+      "direct_swift_byte_equal": true,
+      "passed": true
+    }
+  ],
+  "exact_swift_comparison": true,
+  "acceptance_complete": true
+}

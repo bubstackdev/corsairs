@@ -25,11 +25,13 @@ The public release must report unsupported platforms and missing required capabi
 
 ## Supported value boundary
 
-The implemented facade supports resolved static `NDArray` input/output/state signatures with float16, float32, int32, int64, or bool elements. Unresolved/dynamic shapes, images, and other native value kinds are rejected. Input/state names, dtypes, ranks, and dimensions must match the inspected function signature.
+The published v0.1 facade supports resolved static `NDArray` signatures with float16, float32, int32, int64, or bool elements. Current v0.2 development adds the distinct native bfloat16 scalar type, preserves dynamic descriptor dimensions, and validates concrete invocations against every fixed dimension. Images and other native value kinds remain unsupported. Input/state names, dtypes, and ranks must match the inspected signature.
 
 Owned tensor storage is contiguous row-major data, limited to rank 64 and 1 GiB per tensor. Scalar tensors have rank zero and one element. Empty tensors are supported; their nonzero-dimension product multiplied by scalar width must also stay within the size limit. Inputs are copied into native storage and completed outputs/state are copied back into owned Rust storage. These are v0.1 bounds, not claims about the maximum native framework capabilities.
 
-The ordinary dependency has no default features and keeps the native module private. `abi-research` exposes unsafe development probes and is outside the supported safe facade. One runtime owns one worker; clones share its serialized call queue. Independent runtimes have separate workers, rather than a promise of device-level parallel execution.
+The ordinary dependency has no default features and keeps the native module private. `abi-research` exposes unsafe development probes and load diagnostics. One runtime owns one worker; clones share its request queue. An explicit `load_models` batch overlaps native load invocations on that session and joins every operation before cleanup. This does not guarantee device-level parallel execution. Retained native tensors must stay within their creating runtime.
+
+The development Metal API uses a persistent command queue/ComputeStream and shared tensor buffers. It currently fences every encoded call and checks throwing output readiness. Explicit output/state bindings require fixed descriptor shapes; automatic outputs can resolve dynamically. Private/managed buffer host access and pipelined submission are deferred. Foreign Metal import/export is explicitly unsafe and requires application synchronization, initialized bytes, and the documented alias/lifetime contract.
 
 ## Native launch environment
 

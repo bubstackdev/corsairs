@@ -1,0 +1,83 @@
+{
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "input_signature": [
+    null,
+    3
+  ],
+  "output_signature": [
+    null,
+    3
+  ],
+  "steps": [
+    {
+      "shape": [
+        1,
+        3
+      ],
+      "input": "0-x.f32",
+      "expected": "0-expected-y.f32"
+    },
+    {
+      "shape": [
+        4,
+        3
+      ],
+      "input": "1-x.f32",
+      "expected": "1-expected-y.f32"
+    },
+    {
+      "shape": [
+        2,
+        3
+      ],
+      "input": "2-x.f32",
+      "expected": "2-expected-y.f32"
+    },
+    {
+      "shape": [
+        1,
+        3
+      ],
+      "input": "3-x.f32",
+      "expected": "3-expected-y.f32"
+    }
+  ],
+  "comparison": "Exact float32 bytes and actual output shapes, changing batch size on one function.",
+  "sha256": {
+    "0-expected-y.f32": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+    "0-x.f32": "b2a1328992b988f757191a972ad45e83af61c0a85c8865625427120aa5acf932",
+    "1-expected-y.f32": "88def510c2612e42dead35ce51080cbb065a4e713cc6107022ba048ed9e75d23",
+    "1-x.f32": "02b52197b6e546ef0bc5d772eb13477bb35881f52241669d21ac7dc64922a5d5",
+    "2-expected-y.f32": "18bdb4d6e85b8f69f5c4064f06bfd9a061f560db2b76be3ab87a723d9f726129",
+    "2-x.f32": "03030b8b971615d165a802f602cd15f34c2c23f71fd16bae9d9b09ca854cd168",
+    "3-expected-y.f32": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+    "3-x.f32": "b2a1328992b988f757191a972ad45e83af61c0a85c8865625427120aa5acf932",
+    "graph.mlir": "9e50178cdf1332dd779e1806046e589edf0f3c42253280d4a9e39fb26b650888",
+    "model.aimodel/main.hash": "adb7dac7d48d14ffe23a6c4d9992413be3393520d68c998eab50ea41b851cca2",
+    "model.aimodel/main.mlirb": "de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6",
+    "model.aimodel/metadata.json": "0047d14914ca239005937947cae6ea3d50ad749ba0078b1fdb0f4ca3a6f31da3"
+  }
+}

@@ -1,0 +1,362 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+import CoreAI
+
+@inline(never) public func borrowedFunctionLoad(_ model: borrowing AIModel, _ name: borrowing String) throws -> InferenceFunction?
+
+@inline(never) public func detachedFunctionLoad(_ model: AIModel, _ name: String) -> Task<InferenceFunction?, any Error>
+
+@inline(never) public func verifySendableConformances()
+
+// borrowedFunctionLoad(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16FunctionBatchABI08borrowedA4Loady13CoreAIRuntime09InferenceA0VSgAC7AIModelV_SStKF : $@convention(thin) (@in_guaranteed AIModel, @guaranteed String) -> (@out Optional<InferenceFunction>, @error any Error) {
+// %0 "$return_value"                             // user: %7
+// %1 "model"                                     // users: %7, %3
+// %2 "name"                                      // users: %7, %4
+bb0(%0 : $*Optional<InferenceFunction>, %1 : @noImplicitCopy $*AIModel, %2 : @noImplicitCopy $String):
+  debug_value [moveable_value_debuginfo] %1, let, name "model", argno 1, expr op_deref // id: %3
+  debug_value [moveable_value_debuginfo] %2, let, name "name", argno 2 // id: %4
+  debug_value undef : $any Error, var, name "$error", argno 3 // id: %5
+  // function_ref AIModel.loadFunction(named:)
+  %6 = function_ref @$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error) // user: %7
+  try_apply %6(%0, %2, %1) : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error), normal bb1, error bb2 // id: %7
+
+bb1(%8 : $()):                                    // Preds: bb0
+  %9 = tuple ()                                   // user: %10
+  return %9                                       // id: %10
+
+// %11                                            // user: %12
+bb2(%11 : $any Error):                            // Preds: bb0
+  throw %11                                       // id: %12
+} // end sil function '$s16FunctionBatchABI08borrowedA4Loady13CoreAIRuntime09InferenceA0VSgAC7AIModelV_SStKF'
+
+// AIModel.loadFunction(named:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error)
+
+// detachedFunctionLoad(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s16FunctionBatchABI08detachedA4LoadyScTy13CoreAIRuntime09InferenceA0VSgs5Error_pGAC7AIModelV_SStF : $@convention(thin) (@in_guaranteed AIModel, @guaranteed String) -> @owned Task<Optional<InferenceFunction>, any Error> {
+// %0 "model"                                     // users: %10, %2
+// %1 "name"                                      // users: %13, %11, %3
+bb0(%0 : $*AIModel, %1 : $String):
+  debug_value %0, let, name "model", argno 1, expr op_deref // id: %2
+  debug_value %1, let, name "name", argno 2       // id: %3
+  %4 = metatype $@thin Task<Optional<InferenceFunction>, any Error>.Type // user: %16
+  %5 = enum $Optional<String>, #Optional.none!enumelt // user: %16
+  %6 = alloc_stack $Optional<TaskPriority>        // users: %18, %17, %16, %7
+  inject_enum_addr %6, #Optional.none!enumelt     // id: %7
+  // function_ref closure #1 in detachedFunctionLoad(_:_:)
+  %8 = function_ref @$s16FunctionBatchABI08detachedA4LoadyScTy13CoreAIRuntime09InferenceA0VSgs5Error_pGAC7AIModelV_SStFAFyYaKcfU_ : $@convention(thin) @async @substituted <τ_0_0> (@guaranteed Optional<any Actor>, @in_guaranteed AIModel, @guaranteed String) -> (@out τ_0_0, @error any Error) for <Optional<InferenceFunction>> // user: %13
+  %9 = alloc_stack $AIModel                       // users: %14, %13, %10
+  copy_addr %0 to [init] %9                       // id: %10
+  retain_value %1                                 // id: %11
+  %12 = enum $Optional<any Actor>, #Optional.none!enumelt // user: %13
+  %13 = partial_apply [callee_guaranteed] [isolated_any] %8(%12, %9, %1) : $@convention(thin) @async @substituted <τ_0_0> (@guaranteed Optional<any Actor>, @in_guaranteed AIModel, @guaranteed String) -> (@out τ_0_0, @error any Error) for <Optional<InferenceFunction>> // user: %16
+  dealloc_stack %9                                // id: %14
+  // function_ref static Task<>.detached(name:priority:operation:)
+  %15 = function_ref @$sScTss5Error_pRs_rlE8detached4name8priority9operationScTyxsAA_pGSSSg_ScPSgxyYaKYAcntFZ : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Sendable, τ_0_1 == any Error> (@guaranteed Optional<String>, @in_guaranteed Optional<TaskPriority>, @sil_sending @owned @isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <τ_0_0>, @thin Task<τ_0_0, any Error>.Type) -> @owned Task<τ_0_0, any Error> // user: %16
+  %16 = apply %15<Optional<InferenceFunction>, any Error>(%5, %6, %13, %4) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Sendable, τ_0_1 == any Error> (@guaranteed Optional<String>, @in_guaranteed Optional<TaskPriority>, @sil_sending @owned @isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <τ_0_0>, @thin Task<τ_0_0, any Error>.Type) -> @owned Task<τ_0_0, any Error> // user: %19
+  destroy_addr %6                                 // id: %17
+  dealloc_stack %6                                // id: %18
+  return %16                                      // id: %19
+} // end sil function '$s16FunctionBatchABI08detachedA4LoadyScTy13CoreAIRuntime09InferenceA0VSgs5Error_pGAC7AIModelV_SStF'
+
+// closure #1 in detachedFunctionLoad(_:_:)
+// Isolation: @concurrent
+sil private @$s16FunctionBatchABI08detachedA4LoadyScTy13CoreAIRuntime09InferenceA0VSgs5Error_pGAC7AIModelV_SStFAFyYaKcfU_ : $@convention(thin) @async @substituted <τ_0_0> (@guaranteed Optional<any Actor>, @in_guaranteed AIModel, @guaranteed String) -> (@out τ_0_0, @error any Error) for <Optional<InferenceFunction>> {
+// %0 "$return_value"                             // user: %10
+// %2 "model"                                     // users: %10, %5
+// %3 "name"                                      // users: %10, %6
+bb0(%0 : $*Optional<InferenceFunction>, %1 : $Optional<any Actor>, %2 : @closureCapture $*AIModel, %3 : @closureCapture $String):
+  debug_value undef : $any Error, var, name "$error", argno 1 // id: %4
+  debug_value %2, let, name "model", argno 2, expr op_deref // id: %5
+  debug_value %3, let, name "name", argno 3       // id: %6
+  %7 = enum $Optional<any Actor>, #Optional.none!enumelt // user: %8
+  hop_to_executor %7                              // id: %8
+  // function_ref AIModel.loadFunction(named:)
+  %9 = function_ref @$s13CoreAIRuntime7AIModelV12loadFunction5namedAA09InferenceE0VSgSS_tKF : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error) // user: %10
+  try_apply %9(%0, %3, %2) : $@convention(method) (@guaranteed String, @in_guaranteed AIModel) -> (@out Optional<InferenceFunction>, @error any Error), normal bb1, error bb2 // id: %10
+
+bb1(%11 : $()):                                   // Preds: bb0
+  %12 = tuple ()                                  // user: %13
+  return %12                                      // id: %13
+
+// %14                                            // user: %15
+bb2(%14 : $any Error):                            // Preds: bb0
+  throw %14                                       // id: %15
+} // end sil function '$s16FunctionBatchABI08detachedA4LoadyScTy13CoreAIRuntime09InferenceA0VSgs5Error_pGAC7AIModelV_SStFAFyYaKcfU_'
+
+// static Task<>.detached(name:priority:operation:)
+// Isolation: unspecified
+sil shared [export_implementation] [available 12.0.0] @$sScTss5Error_pRs_rlE8detached4name8priority9operationScTyxsAA_pGSSSg_ScPSgxyYaKYAcntFZ : $@convention(method) <Success, Failure where Success : Sendable, Failure == any Error> (@guaranteed Optional<String>, @in_guaranteed Optional<TaskPriority>, @sil_sending @owned @isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success>, @thin Task<Success, any Error>.Type) -> @owned Task<Success, any Error> {
+[%0: read v**.c*.v**, write v**.c*.v**, copy v**.c*.v**, destroy v**.c*.v**]
+[%1: read v**, copy v**]
+[%2: read v**.c*.v**, write v**.c*.v**, copy v**.**, destroy v**.c*.v**]
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+// %0                                             // user: %36
+// %1                                             // users: %10, %7
+// %2                                             // users: %22, %20, %6, %5
+// %3                                             // user: %111
+bb0(%0 : $Optional<String>, %1 : $*Optional<TaskPriority>, %2 : $@isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success>, %3 : $@thin Task<Success, any Error>.Type):
+  %4 = alloc_stack [var_decl] $@isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success> // users: %112, %79, %6, %114, %60
+  strong_retain %2                                // id: %5
+  store %2 to %4                                  // id: %6
+  switch_enum_addr %1, case #Optional.some!enumelt: bb2, case #Optional.none!enumelt: bb1 // id: %7
+
+bb1:                                              // Preds: bb0
+  %8 = integer_literal $Builtin.Int64, 0          // user: %9
+  br bb3(%8)                                      // id: %9
+
+bb2:                                              // Preds: bb0
+  %10 = unchecked_inplace_enum_data_addr %1, #Optional.some!enumelt // user: %12
+  // function_ref TaskPriority.rawValue.getter
+  %11 = function_ref @$sScP8rawValues5UInt8Vvg : $@convention(method) (@in_guaranteed TaskPriority) -> UInt8 // user: %12
+  %12 = apply %11(%10) : $@convention(method) (@in_guaranteed TaskPriority) -> UInt8 // user: %13
+  %13 = struct_extract %12, #UInt8._value         // user: %14
+  %14 = builtin "zextOrBitCast_Int8_Int64"(%13) : $Builtin.Int64 // user: %15
+  br bb3(%14)                                     // id: %15
+
+// %16                                            // user: %18
+bb3(%16 : $Builtin.Int64):                        // Preds: bb2 bb1
+  %17 = integer_literal $Builtin.Int64, 4096      // user: %18
+  %18 = builtin "or_Int64"(%16, %17) : $Builtin.Int64 // user: %19
+  %19 = struct $Int (%18)                         // users: %82, %60
+  %20 = function_extract_isolation %2             // users: %23, %21
+  retain_value %20                                // id: %21
+  strong_release %2                               // id: %22
+  switch_enum %20, case #Optional.some!enumelt: bb5, case #Optional.none!enumelt: bb4 // id: %23
+
+bb4:                                              // Preds: bb3
+  %24 = enum $Optional<Builtin.Executor>, #Optional.none!enumelt // user: %25
+  br bb6(%24)                                     // id: %25
+
+// %26                                            // user: %27
+bb5(%26 : $any Actor):                            // Preds: bb3
+  %27 = open_existential_ref %26 to $@opened("A10082E6-C8C0-11F1-8414-3277BECB5E88", any Actor) Self // users: %30, %29, %29, %28
+  %28 = witness_method $@opened("A10082E6-C8C0-11F1-8414-3277BECB5E88", any Actor) Self, #Actor.unownedExecutor!getter : <Self where Self : Actor> (Self) -> () -> UnownedSerialExecutor, %27 : $@opened("A10082E6-C8C0-11F1-8414-3277BECB5E88", any Actor) Self : $@convention(witness_method: Actor) <τ_0_0 where τ_0_0 : Actor> (@guaranteed τ_0_0) -> UnownedSerialExecutor // type-defs: %27; user: %29
+  %29 = apply %28<@opened("A10082E6-C8C0-11F1-8414-3277BECB5E88", any Actor) Self>(%27) : $@convention(witness_method: Actor) <τ_0_0 where τ_0_0 : Actor> (@guaranteed τ_0_0) -> UnownedSerialExecutor // type-defs: %27; user: %31
+  strong_release %27                              // id: %30
+  %31 = struct_extract %29, #UnownedSerialExecutor.executor // user: %32
+  %32 = enum $Optional<Builtin.Executor>, #Optional.some!enumelt, %31 // user: %33
+  br bb6(%32)                                     // id: %33
+
+// %34                                            // users: %82, %60
+bb6(%34 : $Optional<Builtin.Executor>):           // Preds: bb5 bb4
+  %35 = enum $Optional<Builtin.NativeObject>, #Optional.none!enumelt // user: %37
+  switch_enum %0, case #Optional.some!enumelt: bb8, case #Optional.none!enumelt: bb7 // id: %36
+
+bb7:                                              // Preds: bb6
+  br bb11(%35)                                    // id: %37
+
+// %38                                            // user: %40
+bb8(%38 : $String):                               // Preds: bb6
+  // function_ref String.utf8CString.getter
+  %39 = function_ref @$sSS11utf8CStrings15ContiguousArrayVys4Int8VGvg : $@convention(method) (@guaranteed String) -> @owned ContiguousArray<Int8> // user: %40
+  %40 = apply %39(%38) : $@convention(method) (@guaranteed String) -> @owned ContiguousArray<Int8> // users: %70, %42
+  // function_ref closure #1 in static Task<>.detached(name:priority:operation:)
+  %41 = function_ref @$sScTss5Error_pRs_rlE8detached4name8priority9operationScTyxsAA_pGSSSg_ScPSgxyYaKYAcntFZBoSRys4Int8VGXEfU_ : $@convention(thin) <τ_0_0, τ_0_1 where τ_0_0 : Sendable, τ_0_1 == any Error> (UnsafeBufferPointer<Int8>, Int, Optional<Builtin.Executor>, @inout_aliasable @isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <τ_0_0>) -> (@out Builtin.NativeObject, @error_indirect Never) // user: %60
+  %42 = struct_extract %40, #ContiguousArray._buffer // users: %67, %62, %49, %44
+  %43 = alloc_stack $Builtin.NativeObject         // users: %68, %69, %63, %60
+  %44 = struct_extract %42, #_ContiguousArrayBuffer._storage // user: %45
+  %45 = ref_tail_addr %44, $Int8                  // user: %46
+  %46 = address_to_pointer %45 to $Builtin.RawPointer // user: %47
+  %47 = struct $UnsafePointer<Int8> (%46)         // user: %48
+  %48 = enum $Optional<UnsafePointer<Int8>>, #Optional.some!enumelt, %47 // user: %58
+  %49 = struct_extract %42, #_ContiguousArrayBuffer._storage // user: %50
+  %50 = ref_element_addr %49, #__ContiguousArrayStorageBase.countAndCapacity // user: %51
+  %51 = struct_element_addr %50, #_ArrayBody._storage // user: %52
+  %52 = struct_element_addr %51, #_SwiftArrayBodyStorage.count // user: %53
+  %53 = struct_element_addr %52, #Int._value      // user: %54
+  %54 = load %53                                  // user: %55
+  %55 = builtin "assumeNonNegative_Int64"(%54) : $Builtin.Int64 // user: %56
+  %56 = builtin "assumeNonNegative_Int64"(%55) : $Builtin.Int64 // user: %57
+  %57 = struct $Int (%56)                         // user: %58
+  %58 = struct $UnsafeBufferPointer<Int8> (%48, %57) // user: %60
+  %59 = alloc_stack $Never                        // users: %66, %61, %60
+  try_apply %41<Success, any Error>(%43, %59, %58, %19, %34, %4) : $@convention(thin) <τ_0_0, τ_0_1 where τ_0_0 : Sendable, τ_0_1 == any Error> (UnsafeBufferPointer<Int8>, Int, Optional<Builtin.Executor>, @inout_aliasable @isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <τ_0_0>) -> (@out Builtin.NativeObject, @error_indirect Never), normal bb10, error bb9 // id: %60
+
+bb9:                                              // Preds: bb8
+  dealloc_stack %59                               // id: %61
+  fix_lifetime %42                                // id: %62
+  dealloc_stack %43                               // id: %63
+  unreachable                                     // id: %64
+
+bb10(%65 : $()):                                  // Preds: bb8
+  dealloc_stack %59                               // id: %66
+  fix_lifetime %42                                // id: %67
+  %68 = load %43                                  // user: %71
+  dealloc_stack %43                               // id: %69
+  release_value %40                               // id: %70
+  %71 = enum $Optional<Builtin.NativeObject>, #Optional.some!enumelt, %68 // user: %72
+  br bb11(%71)                                    // id: %72
+
+// %73                                            // users: %75, %74, %86
+bb11(%73 : $Optional<Builtin.NativeObject>):      // Preds: bb10 bb7
+  switch_enum %73, case #Optional.some!enumelt: bb13, case #Optional.none!enumelt: bb12 // id: %74
+
+bb12:                                             // Preds: bb11
+  release_value %73                               // id: %75
+  %76 = enum $Optional<Builtin.RawPointer>, #Optional.none!enumelt // users: %82, %82
+  %77 = enum $Optional<Builtin.Executor>, #Optional.none!enumelt // user: %82
+  %78 = enum $Optional<any TaskExecutor>, #Optional.none!enumelt // user: %82
+  %79 = load %4                                   // users: %81, %80
+  strong_retain %79                               // id: %80
+  %81 = convert_function %79 to $@async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success> // user: %82
+  %82 = builtin "createAsyncTask"<Success>(%19, %34, %76, %77, %78, %76, %81) : $(Builtin.NativeObject, Builtin.RawPointer) // user: %83
+  %83 = tuple_extract %82, 0                      // user: %84
+  br bb16(%83)                                    // id: %84
+
+bb13(%85 : $Builtin.NativeObject):                // Preds: bb11
+  switch_enum %73, case #Optional.some!enumelt: bb15, case #Optional.none!enumelt: bb14 // id: %86
+
+bb14:                                             // Preds: bb13
+  %87 = string_literal utf8 "_Concurrency/arm64e-apple-macos.swiftinterface" // user: %94
+  %88 = integer_literal $Builtin.Word, 46         // user: %95
+  %89 = string_literal utf8 "Unexpectedly found nil while unwrapping an Optional value" // user: %91
+  %90 = integer_literal $Builtin.Word, 57         // user: %93
+  %91 = builtin "ptrtoint_Word"(%89) : $Builtin.Word // user: %93
+  %92 = integer_literal $Builtin.Int8, 2          // users: %101, %95, %93
+  %93 = struct $StaticString (%91, %90, %92)      // user: %105
+  %94 = builtin "ptrtoint_Word"(%87) : $Builtin.Word // user: %95
+  %95 = struct $StaticString (%94, %88, %92)      // user: %105
+  %96 = integer_literal $Builtin.Int64, 3991      // user: %97
+  %97 = struct $UInt (%96)                        // user: %105
+  %98 = string_literal utf8 "Fatal error"         // user: %100
+  %99 = integer_literal $Builtin.Word, 11         // user: %101
+  %100 = builtin "ptrtoint_Word"(%98) : $Builtin.Word // user: %101
+  %101 = struct $StaticString (%100, %99, %92)    // user: %105
+  %102 = integer_literal $Builtin.Int32, 1        // user: %103
+  %103 = struct $UInt32 (%102)                    // user: %105
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %104 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_A2HSus6UInt32VtF : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never // user: %105
+  %105 = apply %104(%101, %93, %95, %97, %103) : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never
+  unreachable                                     // id: %106
+
+// %107                                           // user: %108
+bb15(%107 : $Builtin.NativeObject):               // Preds: bb13
+  br bb16(%107)                                   // id: %108
+
+// %109                                           // user: %111
+bb16(%109 : $Builtin.NativeObject):               // Preds: bb15 bb12
+  // function_ref Task.init(_:)
+  %110 = function_ref @$sScTyScTyxq_GBocfC : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Sendable, τ_0_1 : Error> (@owned Builtin.NativeObject, @thin Task<τ_0_0, τ_0_1>.Type) -> @owned Task<τ_0_0, τ_0_1> // user: %111
+  %111 = apply %110<Success, any Error>(%109, %3) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Sendable, τ_0_1 : Error> (@owned Builtin.NativeObject, @thin Task<τ_0_0, τ_0_1>.Type) -> @owned Task<τ_0_0, τ_0_1> // user: %115
+  %112 = load %4                                  // user: %113
+  strong_release %112                             // id: %113
+  dealloc_stack %4                                // id: %114
+  return %111                                     // id: %115
+} // end sil function '$sScTss5Error_pRs_rlE8detached4name8priority9operationScTyxsAA_pGSSSg_ScPSgxyYaKYAcntFZ'
+
+// verifySendableConformances()
+// Isolation: unspecified
+sil [noinline] @$s16FunctionBatchABI26verifySendableConformancesyyF : $@convention(thin) () -> () {
+bb0:
+  %0 = metatype $@thick AIModel.Type              // user: %2
+  // function_ref requireSendable #1 <A>(_:) in verifySendableConformances()
+  %1 = function_ref @$s16FunctionBatchABI26verifySendableConformancesyyF07requireE0L_yyxms0E0RzlF : $@convention(thin) <τ_0_0 where τ_0_0 : Sendable> (@thick τ_0_0.Type) -> () // user: %2
+  %2 = apply %1<AIModel>(%0) : $@convention(thin) <τ_0_0 where τ_0_0 : Sendable> (@thick τ_0_0.Type) -> ()
+  %3 = metatype $@thick InferenceFunction.Type    // user: %5
+  // function_ref requireSendable #1 <A>(_:) in verifySendableConformances()
+  %4 = function_ref @$s16FunctionBatchABI26verifySendableConformancesyyF07requireE0L_yyxms0E0RzlF : $@convention(thin) <τ_0_0 where τ_0_0 : Sendable> (@thick τ_0_0.Type) -> () // user: %5
+  %5 = apply %4<InferenceFunction>(%3) : $@convention(thin) <τ_0_0 where τ_0_0 : Sendable> (@thick τ_0_0.Type) -> ()
+  %6 = tuple ()                                   // user: %7
+  return %6                                       // id: %7
+} // end sil function '$s16FunctionBatchABI26verifySendableConformancesyyF'
+
+// requireSendable #1 <A>(_:) in verifySendableConformances()
+// Isolation: nonisolated
+sil private @$s16FunctionBatchABI26verifySendableConformancesyyF07requireE0L_yyxms0E0RzlF : $@convention(thin) <T where T : Sendable> (@thick T.Type) -> () {
+// %0 "type"                                      // user: %1
+bb0(%0 : $@thick T.Type):
+  debug_value %0, let, name "type", argno 1       // id: %1
+  %2 = tuple ()                                   // user: %3
+  return %2                                       // id: %3
+} // end sil function '$s16FunctionBatchABI26verifySendableConformancesyyF07requireE0L_yyxms0E0RzlF'
+
+// TaskPriority.rawValue.getter
+// Isolation: unspecified
+sil [available 12.0.0] @$sScP8rawValues5UInt8Vvg : $@convention(method) (@in_guaranteed TaskPriority) -> UInt8
+
+// String.utf8CString.getter
+// Isolation: unspecified
+sil [readonly] [_semantics "string.getUTF8CString"] @$sSS11utf8CStrings15ContiguousArrayVys4Int8VGvg : $@convention(method) (@guaranteed String) -> @owned ContiguousArray<Int8>
+
+// closure #1 in static Task<>.detached(name:priority:operation:)
+// Isolation: unspecified
+sil shared @$sScTss5Error_pRs_rlE8detached4name8priority9operationScTyxsAA_pGSSSg_ScPSgxyYaKYAcntFZBoSRys4Int8VGXEfU_ : $@convention(thin) <Success, Failure where Success : Sendable, Failure == any Error> (UnsafeBufferPointer<Int8>, Int, Optional<Builtin.Executor>, @inout_aliasable @isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success>) -> (@out Builtin.NativeObject, @error_indirect Never) {
+// %0                                             // user: %39
+// %2                                             // user: %9
+// %3                                             // user: %37
+// %4                                             // user: %37
+// %5                                             // user: %34
+bb0(%0 : $*Builtin.NativeObject, %1 : $*Never, %2 : $UnsafeBufferPointer<Int8>, %3 : @closureCapture $Int, %4 : @closureCapture $Optional<Builtin.Executor>, %5 : @closureCapture $*@isolated(any) @async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success>):
+  %6 = enum $Optional<Builtin.RawPointer>, #Optional.none!enumelt // user: %37
+  %7 = enum $Optional<Builtin.Executor>, #Optional.none!enumelt // user: %37
+  %8 = enum $Optional<any TaskExecutor>, #Optional.none!enumelt // user: %37
+  %9 = struct_extract %2, #UnsafeBufferPointer._position // user: %10
+  switch_enum %9, case #Optional.some!enumelt: bb2, case #Optional.none!enumelt: bb1 // id: %10
+
+bb1:                                              // Preds: bb0
+  %11 = string_literal utf8 "_Concurrency/arm64e-apple-macos.swiftinterface" // user: %18
+  %12 = integer_literal $Builtin.Word, 46         // user: %19
+  %13 = string_literal utf8 "Unexpectedly found nil while unwrapping an Optional value" // user: %15
+  %14 = integer_literal $Builtin.Word, 57         // user: %17
+  %15 = builtin "ptrtoint_Word"(%13) : $Builtin.Word // user: %17
+  %16 = integer_literal $Builtin.Int8, 2          // users: %25, %19, %17
+  %17 = struct $StaticString (%15, %14, %16)      // user: %29
+  %18 = builtin "ptrtoint_Word"(%11) : $Builtin.Word // user: %19
+  %19 = struct $StaticString (%18, %12, %16)      // user: %29
+  %20 = integer_literal $Builtin.Int64, 3970      // user: %21
+  %21 = struct $UInt (%20)                        // user: %29
+  %22 = string_literal utf8 "Fatal error"         // user: %24
+  %23 = integer_literal $Builtin.Word, 11         // user: %25
+  %24 = builtin "ptrtoint_Word"(%22) : $Builtin.Word // user: %25
+  %25 = struct $StaticString (%24, %23, %16)      // user: %29
+  %26 = integer_literal $Builtin.Int32, 1         // user: %27
+  %27 = struct $UInt32 (%26)                      // user: %29
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %28 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_A2HSus6UInt32VtF : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never // user: %29
+  %29 = apply %28(%25, %17, %19, %21, %27) : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never
+  unreachable                                     // id: %30
+
+// %31                                            // user: %32
+bb2(%31 : $UnsafePointer<Int8>):                  // Preds: bb0
+  %32 = struct_extract %31, #UnsafePointer._rawValue // user: %33
+  %33 = enum $Optional<Builtin.RawPointer>, #Optional.some!enumelt, %32 // user: %37
+  %34 = load %5                                   // users: %36, %35
+  strong_retain %34                               // id: %35
+  %36 = convert_function %34 to $@async @callee_guaranteed @substituted <τ_0_0> () -> (@out τ_0_0, @error any Error) for <Success> // user: %37
+  %37 = builtin "createAsyncTask"<Success>(%3, %4, %6, %7, %8, %33, %36) : $(Builtin.NativeObject, Builtin.RawPointer) // user: %38
+  %38 = tuple_extract %37, 0                      // user: %39
+  store %38 to %0                                 // id: %39
+  %40 = tuple ()                                  // user: %41
+  return %40                                      // id: %41
+} // end sil function '$sScTss5Error_pRs_rlE8detached4name8priority9operationScTyxsAA_pGSSSg_ScPSgxyYaKYAcntFZBoSRys4Int8VGXEfU_'
+
+// _assertionFailure(_:_:file:line:flags:)
+// Isolation: unspecified
+sil [noinline] [_semantics "programtermination_point"] @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_A2HSus6UInt32VtF : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never
+
+// Task.init(_:)
+// Isolation: unspecified
+sil shared [export_implementation] [available 12.0.0] @$sScTyScTyxq_GBocfC : $@convention(method) <Success, Failure where Success : Sendable, Failure : Error> (@owned Builtin.NativeObject, @thin Task<Success, Failure>.Type) -> @owned Task<Success, Failure> {
+[%0: escape v** => %r.s0.v**, escape v**.c*.v** => %r.s0.v**.c*.v**]
+[global: ]
+// %0                                             // user: %2
+bb0(%0 : $Builtin.NativeObject, %1 : $@thin Task<Success, Failure>.Type):
+  %2 = struct $Task<Success, Failure> (%0)        // user: %3
+  return %2                                       // id: %3
+} // end sil function '$sScTyScTyxq_GBocfC'
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'FunctionBatchABI/FunctionBatchReference.swift' => 'experiments/swift/FunctionBatchReference.swift'
+
+

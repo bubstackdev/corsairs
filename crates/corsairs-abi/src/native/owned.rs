@@ -17,9 +17,21 @@ use std::path::Path;
 use std::ptr::{self, NonNull};
 use std::rc::Rc;
 
+mod function_batch;
+pub use function_batch::NativeFunctionBatchOutcome;
+mod batch;
+#[cfg(any(feature = "abi-research", test))]
+pub use batch::NativeBatchMetrics;
+pub use batch::NativeBatchOutcome;
+mod handles;
+pub use handles::NativeTensorHandle;
+mod metal;
+pub use metal::{NativeMetalInput, NativeMetalObject, NativeMetalTensor};
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum NativeDType {
     F16,
+    Bf16,
     F32,
     I32,
     I64,
@@ -28,7 +40,7 @@ pub enum NativeDType {
 impl NativeDType {
     pub const fn byte_width(self) -> usize {
         match self {
-            Self::F16 => 2,
+            Self::F16 | Self::Bf16 => 2,
             Self::F32 | Self::I32 => 4,
             Self::I64 => 8,
             Self::Bool => 1,
@@ -37,6 +49,7 @@ impl NativeDType {
     fn case(self) -> &'static CStr {
         match self {
             Self::F16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float16yA2EmFWC",
+            Self::Bf16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO8bfloat16yA2EmFWC",
             Self::F32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float32yA2EmFWC",
             Self::I32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int32yA2EmFWC",
             Self::I64 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int64yA2EmFWC",
@@ -48,6 +61,20 @@ impl NativeDType {
 pub enum NativeCompute {
     CpuOnly,
     GpuPreferred,
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct NativeLoadOptions {
+    pub compute: NativeCompute,
+    /// None leaves the SDK's constructor-selected value unchanged.
+    pub expect_frequent_reshapes: Option<bool>,
+}
+impl From<NativeCompute> for NativeLoadOptions {
+    fn from(compute: NativeCompute) -> Self {
+        Self {
+            compute,
+            expect_frequent_reshapes: None,
+        }
+    }
 }
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct NativeTensor {
@@ -87,6 +114,7 @@ pub struct NativeRunResult {
 pub enum NativeFailure {
     Binding(String),
     InvalidData(String),
+    FunctionNotFound(String),
     InvalidHandle {
         kind: &'static str,
         id: u64,
@@ -102,6 +130,7 @@ impl fmt::Display for NativeFailure {
         match self {
             Self::Binding(s) => write!(f, "native binding: {s}"),
             Self::InvalidData(s) => f.write_str(s),
+            Self::FunctionNotFound(name) => write!(f, "model has no function {name:?}"),
             Self::InvalidHandle { kind, id } => write!(f, "unknown {kind} handle {id}"),
             Self::Unsupported(s) => write!(f, "unsupported: {s}"),
             Self::Native {
@@ -233,6 +262,8 @@ struct ModelRecord {
 /// Thread-confined native object store. Its DTOs contain no native addresses.
 /// Create this session inside the dedicated worker that will own it.
 pub struct NativeSession {
+    metal: metal::Store,
+    tensors: HashMap<u64, handles::TensorRecord>,
     functions: HashMap<u64, FunctionRecord>,
     models: HashMap<u64, ModelRecord>,
     next: u64,
@@ -242,6 +273,8 @@ pub struct NativeSession {
 }
 impl Drop for NativeSession {
     fn drop(&mut self) {
+        self.metal.clear();
+        self.tensors.clear();
         self.functions.clear();
         self.models.clear();
     }
@@ -261,6 +294,8 @@ impl NativeSession {
         // Resolve error ownership/reflection support before any throwing call.
         let _ = ErrorSupport::load(&runtime)?;
         Ok(Self {
+            metal: metal::Store::default(),
+            tensors: HashMap::new(),
             functions: HashMap::new(),
             models: HashMap::new(),
             next: 1,
@@ -376,6 +411,16 @@ impl NativeSession {
         path: &Path,
         compute: NativeCompute,
     ) -> Result<NativeModel> {
+        // SAFETY: Preserve the original compute-only loader's SDK defaults.
+        unsafe { self.load_model_with_options(path, compute.into()) }
+    }
+    /// # Safety
+    /// Uses compiler-verified options accessors and the existing async load ABI.
+    pub unsafe fn load_model_with_options(
+        &mut self,
+        path: &Path,
+        load_options: NativeLoadOptions,
+    ) -> Result<NativeModel> {
         // SAFETY: Only compiler-verified constructors/accessors are called here.
         unsafe {
             let path = path
@@ -391,7 +436,7 @@ impl NativeSession {
             let url_init = self.symbol(c"$s10Foundation3URLV15fileURLWithPathACSSh_tcfC")?;
             arm64::call_sync(url_init, [path.words[0], path.words[1], 0], url.ptr(), 0);
             url.initialized = true;
-            match compute {
+            match load_options.compute {
                 NativeCompute::CpuOnly => {
                     self.call(
                         c"$s15CoreAIDelegates21SpecializationOptionsV7cpuOnlyACvgZ",
@@ -413,6 +458,29 @@ impl NativeSession {
                 }
             }
             options.initialized = true;
+            if let Some(enabled) = load_options.expect_frequent_reshapes {
+                // LoadOptionsReference.swift: Bool in w0; inout/borrowed self
+                // in x20. Resolve both accessors before mutation. No field
+                // offset or SpecializationOptions representation is assumed.
+                let set = self.symbol(
+                    c"$s15CoreAIDelegates21SpecializationOptionsV22expectFrequentReshapesSbvs",
+                )?;
+                let get = self.symbol(
+                    c"$s15CoreAIDelegates21SpecializationOptionsV22expectFrequentReshapesSbvg",
+                )?;
+                arm64::call_sync(
+                    set,
+                    [usize::from(enabled), 0, 0],
+                    ptr::null_mut(),
+                    options.address(),
+                );
+                let actual = arm64::call_sync(get, [0; 3], ptr::null_mut(), options.address());
+                if actual & 1 != usize::from(enabled) {
+                    return Err(NativeFailure::Binding(
+                        "native frequent-reshape option did not round-trip".into(),
+                    ));
+                }
+            }
             let result = self.runtime.await_native(c"$s13CoreAIRuntime7AIModelV0A11AIDelegatesE10contentsOf7optionsAC10Foundation3URLV_AD21SpecializationOptionsVtYaKcfCTu",
                 [model.address(),url.address(),options.address(),0],0,true)?;
             url.initialized = false;
@@ -550,6 +618,7 @@ impl NativeSession {
             let tag = get(scalar.ptr(), scalar.metadata.pointer as _);
             for dtype in [
                 NativeDType::F16,
+                NativeDType::Bf16,
                 NativeDType::F32,
                 NativeDType::I32,
                 NativeDType::I64,
@@ -788,11 +857,6 @@ impl NativeSession {
                 payload.address(),
             )?;
             let shape = self.integers(shape)?;
-            if shape.iter().any(|d| *d < 0) {
-                return Err(NativeFailure::Unsupported(format!(
-                    "unresolved shape for {name}"
-                )));
-            }
             let mut scalar = NativeValue::allocate(self.metadata(super::SCALAR_METADATA)?)?;
             self.call(
                 c"$s13CoreAIRuntime17NDArrayDescriptorV10scalarTypeAA0C0V06ScalarF0Ovg",
@@ -1181,19 +1245,13 @@ fn validate_tensor(tensor: &NativeTensor) -> Result<()> {
 }
 fn validate_against(tensor: &NativeTensor, descriptor: &NativeTensorDescriptor) -> Result<()> {
     validate_tensor(tensor)?;
-    if descriptor.shape.iter().any(|d| *d < 0) {
-        return Err(NativeFailure::Unsupported(format!(
-            "unresolved shape for {}",
-            descriptor.name
-        )));
-    }
     if descriptor.dtype != tensor.dtype
         || descriptor.shape.len() != tensor.shape.len()
         || descriptor
             .shape
             .iter()
             .zip(&tensor.shape)
-            .any(|(a, b)| *a as usize != *b)
+            .any(|(a, b)| *a >= 0 && *a as usize != *b)
     {
         return Err(NativeFailure::InvalidData(format!(
             "tensor does not match descriptor {}",
@@ -1202,6 +1260,7 @@ fn validate_against(tensor: &NativeTensor, descriptor: &NativeTensorDescriptor) 
     }
     Ok(())
 }
+
 fn validate_group(
     values: &[(String, NativeTensor)],
     descriptors: &[NativeTensorDescriptor],
@@ -1224,4 +1283,45 @@ fn validate_group(
         return Err(NativeFailure::InvalidData("missing named tensors".into()));
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod dynamic_signature_tests {
+    use super::*;
+
+    #[test]
+    fn dynamic_dimensions_accept_concrete_calls_without_relaxing_fixed_dimensions() {
+        let descriptor = NativeTensorDescriptor {
+            name: "x".into(),
+            shape: vec![-1, 3],
+            dtype: NativeDType::F32,
+        };
+        for rows in [0, 1, 2, 7] {
+            let tensor = NativeTensor {
+                dtype: NativeDType::F32,
+                shape: vec![rows, 3],
+                bytes: vec![0; rows * 3 * 4],
+            };
+            assert!(validate_against(&tensor, &descriptor).is_ok());
+        }
+        for (dtype, shape, bytes) in [
+            (NativeDType::F32, vec![2, 4], vec![0; 32]),
+            (NativeDType::F32, vec![6], vec![0; 24]),
+            (NativeDType::I32, vec![2, 3], vec![0; 24]),
+            (NativeDType::F32, vec![2, 3], vec![0; 20]),
+            (NativeDType::F32, vec![usize::MAX, 3], vec![]),
+        ] {
+            assert!(
+                validate_against(
+                    &NativeTensor {
+                        dtype,
+                        shape,
+                        bytes
+                    },
+                    &descriptor
+                )
+                .is_err()
+            );
+        }
+    }
 }

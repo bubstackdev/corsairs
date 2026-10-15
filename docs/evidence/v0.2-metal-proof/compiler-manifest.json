@@ -1,0 +1,114 @@
+{
+  "generated_at_utc": "2026-10-15T16:59:39.385805+00:00",
+  "native_executed": false,
+  "production_integrated": false,
+  "dependencies_added": [],
+  "target_from_ir": "arm64-apple-macosx27.0.0",
+  "sources_and_outputs_sha256": {
+    "docs/evidence/v0.2-metal-proof/metal.ll": "ff44ddb2712b059efe312be784daa14c3e6bfd955aecd18b2911df7367da475e",
+    "docs/evidence/v0.2-metal-proof/metal.sil": "a80c9b977cc729f7831cc75590e891c1404c7b5c4702f0e3fe7bdb6aa6251e94",
+    "docs/evidence/v0.2-metal-proof/metal.s": "82caf1589588492a94f27caf4189a9fbcff907edc62a7170ba11f40e2ca2dad3",
+    "docs/evidence/v0.2-metal-proof/build-debug.json": "2933e20ae3d2eb792bd26b7db2a43fcf90a58d03e4eb4722a4ae2c0f5778813e",
+    "docs/evidence/v0.2-metal-proof/build-release.json": "c20fa95f6d2b85a3cfbe19e454d48759fefa71fed77e1b508573e5a27d4d732e",
+    "experiments/swift/MetalReference.swift": "2245fea171db854c59399547554fdf0281927f90f52ac96920d59e9fd1ca0505",
+    "experiments/rust/metal_proof.rs": "d9cdcb1c80467bf7af75a842e886931fb5a414410e30f751228c4d4b558d7605",
+    "experiments/rust/metal_proof_backend.rs": "5c93735b926bef659cdea539a20ea239fde822cba8d7d583e015f55617d2dfee",
+    "scripts/build_metal_proof.py": "d0f5f602c9761e6733315ef9006da912cfa65a52d1a73f2a40abf48627f67827"
+  },
+  "sdk_sha256": {
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLDevice.h": "bb4222866870a4a703cd1581fe55cf4fee4769fbee5efc795af51fbff95f2989",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLCommandQueue.h": "6e9da7a33496e30ef20cd415a51dfc72cf1d3f6892b1d8d7e8cfdeab451f5761",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLCommandBuffer.h": "d84dda866f07ffc37ce68e3c635177373cdefa419fc1f64c766442ed81966895",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLResource.h": "1c2fc6c7250205ef7089cbe7ffe004c7a774acb5e8bcb30791e942639e420a0d"
+  },
+  "compiler_commands": [
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "MetalABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-metal-v02/cache",
+      "-emit-ir",
+      "experiments/swift/MetalReference.swift",
+      "-o",
+      "/private/tmp/corsairs-metal-v02/metal.ll"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "MetalABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-metal-v02/cache",
+      "-emit-sil",
+      "experiments/swift/MetalReference.swift",
+      "-o",
+      "/private/tmp/corsairs-metal-v02/metal.sil"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "MetalABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-metal-v02/cache",
+      "-emit-assembly",
+      "experiments/swift/MetalReference.swift",
+      "-o",
+      "/private/tmp/corsairs-metal-v02/metal.s"
+    ]
+  ],
+  "proof_build_commands": [
+    [
+      "python3",
+      "scripts/build_metal_proof.py"
+    ],
+    [
+      "python3",
+      "scripts/build_metal_proof.py",
+      "--release"
+    ]
+  ],
+  "clippy_command": [
+    "cargo",
+    "clippy",
+    "--offline",
+    "--manifest-path",
+    "target/metal-proof/source/Cargo.toml",
+    "--target-dir",
+    "target/metal-proof/build",
+    "--bin",
+    "corsairs-metal-proof",
+    "--",
+    "-D",
+    "warnings",
+    "-D",
+    "clippy::undocumented_unsafe_blocks"
+  ],
+  "clippy_passed": true,
+  "apple_documentation": [
+    {
+      "url": "https://developer.apple.com/documentation/coreai/computestream/currentworkcompleted()",
+      "downloaded_markdown_sha256": "0e5725af0d7359c9b33e501d7aa56e00307ad09fff46abdd092e90f74b1c7df2",
+      "full_text_retained_in_repository": false
+    },
+    {
+      "url": "https://developer.apple.com/documentation/coreai/inferencefunction/encode(inputs:states:outputviews:to:)",
+      "downloaded_markdown_sha256": "f86b4d1e6d8af56dab82074121cc2571c9c9dc187319ec5e3176ced9ada35427",
+      "full_text_retained_in_repository": false
+    }
+  ],
+  "limitations": [
+    "Compiler evidence and successful builds are not native Metal execution.",
+    "Public Rust Metal ownership API is not implemented by this proof.",
+    "No GPU execution, performance, memory use, or general operator claim is made."
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "retained_utc": "2026-10-15T18:07:10.950121+00:00",
+  "status": "native_passed",
+  "scope": "Exact synchronous ABI Swift throw/error +1 ownership oracle, not a Core AI malformed-model throw claim. Test-only injection is absent from production.",
+  "historical_build_manifest": "original-build-manifest.json",
+  "retained_sources": {
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/experiments/FunctionThrowOracle.swift": {
+      "prototype_path": "experiments/FunctionThrowOracle.swift",
+      "sha256": "e830da27a762201f3459f47a18cad32b95818cbbbb49f35c658f255aa89b573d",
+      "bytes": 1039
+    },
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/experiments/function_throw.rs": {
+      "prototype_path": "experiments/function_throw.rs",
+      "sha256": "3fe06eb925d7eba004b087d117689b4ead2ed2e2722c6d74671db97a302ae617",
+      "bytes": 1720
+    },
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/crates/corsairs-abi/src/native/owned/function_batch/throw_oracle.rs": {
+      "prototype_path": "crates/corsairs-abi/src/native/owned/function_batch/throw_oracle.rs",
+      "sha256": "64fbdfdeba6865c2ef1330f10a1a792639a3d87c9375f3520f6629264143ed2e",
+      "bytes": 7381
+    },
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/crates/corsairs-abi/src/native/owned/function_batch.rs": {
+      "prototype_path": "crates/corsairs-abi/src/native/owned/function_batch.rs",
+      "sha256": "c8b58d9777159ca9611ef9c6931458652b7a0f9270b36f8975d3fb801e02a59e",
+      "bytes": 8632
+    },
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/crates/corsairs-abi/src/facade/function_batch.rs": {
+      "prototype_path": "crates/corsairs-abi/src/facade/function_batch.rs",
+      "sha256": "b4ed72ff82d5bd28e05fc5d142d0422cecd4c22c41961bf28667db6f6363aced",
+      "bytes": 7039
+    },
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/crates/corsairs-abi/src/native/async_task/sync_call.rs": {
+      "prototype_path": "crates/corsairs-abi/src/native/async_task/sync_call.rs",
+      "sha256": "7436f9bccb85e23dfa38d92ca81a44a049172bf7bf4b360514418097f9549801",
+      "bytes": 3655
+    },
+    "docs/evidence/v0.2-function-batch/throw-oracle/sources/crates/corsairs-abi/src/native/async_task/pending.rs": {
+      "prototype_path": "crates/corsairs-abi/src/native/async_task/pending.rs",
+      "sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+      "bytes": 15081
+    }
+  },
+  "compiler_ir": {
+    "path": "FunctionThrowOracle.ll",
+    "sha256": "8a2ad002ba2512020e7e8254830b0958feca8060529eb6856d89b163e1b7f8d5"
+  },
+  "native_evidence": {
+    "path": "docs/evidence/v0.2-function-throw-oracle-native.json",
+    "sha256": "490580258a4a0b0c7f9cf5d22226e73502d81a6a9c64e68bc7c1fc13a1d90b9e",
+    "evidence_id": "ev_da3dafb60b3a049d40da81056a01463a4b0f09797562b19128b250e06918a879",
+    "target_sha256": "5430cb1a988a3e4cc9c64370abdbb343fc5f175f78f0669fbaf07bb122270451",
+    "exit_status": 0,
+    "reported_result": {
+      "event": "swift_throw_lifetime",
+      "invocations": 200,
+      "observed_errors": 50,
+      "created_payloads": 100,
+      "destroyed_payloads": 100,
+      "observed_rounds": 25,
+      "abandoned_rounds": 25,
+      "peak_native_inflight": 3,
+      "error_types": [
+        "FunctionThrowOracle.DeliberateFailure"
+      ],
+      "passed": true
+    }
+  },
+  "production_adapter_equality": "current-production-adapter-equality.json",
+  "limits": [
+    "Oracle source copies are evidence snapshots, not production modules or ordinary examples.",
+    "The original build manifest intentionally retains its pre-run pending status; this retained manifest binds the completed native report.",
+    "The Swift oracle dylib is process-pinned with RTLD_NODELETE; error payload counters verify error object lifetime, not runtime library unload.",
+    "The tested disposable build predates BF16/drain and does not validate those later changes."
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_9fed7f8a9aea3824aefca93084b8d6762740c77f631df4fd13e31203f17fe03f\",\"subject\":{\"name\":\"bfloat16-oracle\",\"digest\":{\"sha256\":\"78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d\"},\"format\":\"mach-o\",\"architecture\":\"arm64\",\"local_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\"},\"provider\":{\"id\":\"native-macos\",\"name\":\"macOS native inspection utilities\",\"version\":null},\"analysis_profile\":null,\"predicate_type\":\"rea.analysis\",\"operation\":\"observe_native_calls\",\"parameters\":{\"breakpoints\":[{\"kind\":\"function\",\"name\":\"main\"}],\"arguments\":[\"fixtures/parity-v02/bfloat16\",\"target/bfloat16-reference/swift-output-final\"],\"environment\":{\"CORSAIRS_TEST_MODEL\":\"/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel\"},\"working_directory\":\"/Users/zakkeown/Code/aether/lab/corsairs\",\"duration_ms\":60000,\"max_events\":20,\"argument_registers\":1,\"backtrace_frames\":0},\"raw_result\":null,\"normalized_result\":{\"target\":{\"path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\",\"sha256\":\"78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d\",\"architecture\":\"arm64\",\"arguments\":[\"fixtures/parity-v02/bfloat16\",\"target/bfloat16-reference/swift-output-final\"],\"environment\":{\"CORSAIRS_TEST_MODEL\":\"/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel\"},\"working_directory\":\"/Users/zakkeown/Code/aether/lab/corsairs\",\"launch_identity\":{\"loaded_image_sha256\":null,\"file_device\":\"16777230\",\"file_inode\":\"77615681\",\"selected_file_sha256\":\"78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d\",\"module_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\",\"module_uuid\":\"F8DF4A8E-D99E-32D1-83D1-993CA6F71C79\",\"stable\":true}},\"debugger\":{\"path\":\"/Applications/Xcode.app/Contents/Developer/usr/bin/lldb\",\"sha256\":\"ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab\",\"version\":\"lldb-2103.0.34.103\"},\"process\":{\"pid\":84508,\"outcome\":\"exited\",\"exit_status\":0,\"exit_description\":null,\"terminated\":true,\"elapsed_ms\":1136.504,\"stdout\":{\"text\":\"{\\n  \\\"all_encodings\\\" : 65536,\\n  \\\"bfloat16_distinct_from_float16\\\" : true,\\n  \\\"passed\\\" : true,\\n  \\\"production_helper\\\" : false,\\n  \\\"raw_roundtrip_sha256\\\" : \\\"68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b\\\",\\n  \\\"records\\\" : [\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"double\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"scalar\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58\\\",\\n      \\\"shape\\\" : [\\n\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"empty\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\\\",\\n      \\\"shape\\\" : [\\n        0,\\n        3\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        0,\\n        0\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\\\",\\n      \\\"shape\\\" : [\\n        1,\\n        3\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e\\\",\\n      \\\"shape\\\" : [\\n        4,\\n        3\\n      ],\\n      \\\"step\\\" : 1,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"step\\\" : 2,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\\\",\\n      \\\"shape\\\" : [\\n        1,\\n        3\\n      ],\\n      \\\"step\\\" : 3,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"transpose\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff\\\",\\n      \\\"shape\\\" : [\\n        3,\\n        2\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        2,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"accumulator\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"state_sha256\\\" : \\\"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\\\",\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"accumulator\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"state_sha256\\\" : \\\"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\\\",\\n      \\\"step\\\" : 1,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"cpu\\\",\\n      \\\"case\\\" : \\\"accumulator\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"state_sha256\\\" : \\\"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\\\",\\n      \\\"step\\\" : 2,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"double\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"scalar\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58\\\",\\n      \\\"shape\\\" : [\\n\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"empty\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\\\",\\n      \\\"shape\\\" : [\\n        0,\\n        3\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        0,\\n        0\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\\\",\\n      \\\"shape\\\" : [\\n        1,\\n        3\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e\\\",\\n      \\\"shape\\\" : [\\n        4,\\n        3\\n      ],\\n      \\\"step\\\" : 1,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"step\\\" : 2,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"dynamic\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\\\",\\n      \\\"shape\\\" : [\\n        1,\\n        3\\n      ],\\n      \\\"step\\\" : 3,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"transpose\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff\\\",\\n      \\\"shape\\\" : [\\n        3,\\n        2\\n      ],\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        2,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"accumulator\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"state_sha256\\\" : \\\"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\\\",\\n      \\\"step\\\" : 0,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"accumulator\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"state_sha256\\\" : \\\"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\\\",\\n      \\\"step\\\" : 1,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    },\\n    {\\n      \\\"backend\\\" : \\\"gpu-preferred\\\",\\n      \\\"case\\\" : \\\"accumulator\\\",\\n      \\\"dtype\\\" : \\\"bfloat16\\\",\\n      \\\"exact_bytes\\\" : true,\\n      \\\"sha256\\\" : \\\"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\\\",\\n      \\\"shape\\\" : [\\n        2,\\n        3\\n      ],\\n      \\\"state_sha256\\\" : \\\"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\\\",\\n      \\\"step\\\" : 2,\\n      \\\"strides\\\" : [\\n        3,\\n        1\\n      ]\\n    }\\n  ]\\n}\\n\",\"bytes\":7874,\"truncated\":false,\"complete\":true},\"stderr\":{\"text\":\"\",\"bytes\":0,\"truncated\":false,\"complete\":true},\"other_stops\":[\"signal SIGSTOP\"]},\"breakpoints\":[{\"index\":0,\"request\":{\"kind\":\"function\",\"name\":\"main\",\"module\":null},\"location_count\":21,\"locations\":[{\"load_address\":\"0x10000283c\",\"file_address\":\"0x10000283c\",\"module\":\"bfloat16-oracle\",\"module_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\",\"symbol\":\"static main.BF16Oracle.main() async throws -> ()\"},{\"load_address\":\"0x100002a28\",\"file_address\":\"0x100002a28\",\"module\":\"bfloat16-oracle\",\"module_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\",\"symbol\":\"main\"},{\"load_address\":\"0x19dc92b2c\",\"file_address\":\"0x1829aab2c\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"Foundation.BundleCache.State.main() -> Swift.Optional<Foundation._NSSwiftBundle>\"},{\"load_address\":\"0x19dd8c660\",\"file_address\":\"0x182aa4660\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"__C.NSOperationQueue.DelayReadyOperation.main() -> ()\"},{\"load_address\":\"0x19dd8c960\",\"file_address\":\"0x182aa4960\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"@objc __C.NSOperationQueue.DelayReadyOperation.main() -> ()\"},{\"load_address\":\"0x19d31d1bc\",\"file_address\":\"0x1820351bc\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"-[NSBlockOperation main]\"},{\"load_address\":\"0x19d332dbc\",\"file_address\":\"0x18204adbc\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"-[NSThread main]\"},{\"load_address\":\"0x19d344e84\",\"file_address\":\"0x18205ce84\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"-[NSInvocationOperation main]\"},{\"load_address\":\"0x19d3457c0\",\"file_address\":\"0x18205d7c0\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"-[NSOperation main]\"},{\"load_address\":\"0x19d48f770\",\"file_address\":\"0x1821a7770\",\"module\":\"Foundation\",\"module_path\":\"/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation\",\"symbol\":\"-[_NSBarrierOperation main]\"},{\"load_address\":\"0x23ce74500\",\"file_address\":\"0x221b8c500\",\"module\":\"MetalPerformanceShadersGraph\",\"module_path\":\"/System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph\",\"symbol\":\"nlsat::explain::imp::main(unsigned int, sat::literal const*)\"},{\"load_address\":\"0x19f9275ec\",\"file_address\":\"0x18463f5ec\",\"module\":\"Security\",\"module_path\":\"/System/Library/Frameworks/Security.framework/Versions/A/Security\",\"symbol\":\"Security::OSXCode::main()\"},{\"load_address\":\"0x19fd80374\",\"file_address\":\"0x184a98374\",\"module\":\"CarbonCore\",\"module_path\":\"/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore\",\"symbol\":\"main\"},{\"load_address\":\"0x1b88465fc\",\"file_address\":\"0x19d55e5fc\",\"module\":\"CoreSymbolication\",\"module_path\":\"/System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication\",\"symbol\":\"CSCppExceptionSafeThread::main()\"},{\"load_address\":\"0x1b83bf550\",\"file_address\":\"0x19d0d7550\",\"module\":\"BoardServices\",\"module_path\":\"/System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices\",\"symbol\":\"+[BSServiceQuality main]\"},{\"load_address\":\"0x1ba538398\",\"file_address\":\"0x19f250398\",\"module\":\"AppSupport\",\"module_path\":\"/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport\",\"symbol\":\"-[_CPPowerAssertionThread main]\"},{\"load_address\":\"0x1ba53cc84\",\"file_address\":\"0x19f254c84\",\"module\":\"AppSupport\",\"module_path\":\"/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport\",\"symbol\":\"-[CPDistributedMessagingAsyncOperation main]\"},{\"load_address\":\"0x237d89fc0\",\"file_address\":\"0x21caa1fc0\",\"module\":\"ExtensionFoundation\",\"module_path\":\"/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation\",\"symbol\":\"static ExtensionFoundation.AppExtension.main() throws -> ()\"},{\"load_address\":\"0x237e01f7c\",\"file_address\":\"0x21cb19f7c\",\"module\":\"ExtensionFoundation\",\"module_path\":\"/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation\",\"symbol\":\"static ExtensionFoundation._AppExtension.main() throws -> ()\"},{\"load_address\":\"0x237d6b714\",\"file_address\":\"0x21ca83714\",\"module\":\"ExtensionFoundation\",\"module_path\":\"/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation\",\"symbol\":\"-[EXFrameworkScanner main]\"},{\"load_address\":\"0x237d7b1ac\",\"file_address\":\"0x21ca931ac\",\"module\":\"ExtensionFoundation\",\"module_path\":\"/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation\",\"symbol\":\"+[EXPKService main]\"}]}],\"events\":[{\"sequence\":0,\"elapsed_ms\":676.393,\"thread_id\":866469,\"breakpoint_index\":0,\"load_address\":\"0x100002a28\",\"file_address\":\"0x100002a28\",\"module\":\"bfloat16-oracle\",\"module_path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\",\"symbol\":\"main\",\"receiver_class\":null,\"selector\":null,\"registers\":[{\"name\":\"x0\",\"value\":\"0x3\"}],\"backtrace\":[]}],\"coverage\":{\"status\":\"complete\",\"event_limit_reached\":false,\"resource_limit_reached\":false,\"unresolved_breakpoints\":[]},\"limitations\":[\"Only entries are observed; return values, floating-point and stack-passed arguments are not captured.\",\"Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.\",\"Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.\",\"Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.\",\"The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.\",\"The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.\",\"The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown.\"]},\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"Only entries are observed; return values, floating-point and stack-passed arguments are not captured.\",\"Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.\",\"Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.\",\"Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.\",\"The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.\",\"The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.\",\"The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown.\"],\"locations\":[{\"kind\":\"artifact-path\",\"path\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_9fed7f8a9aea3824aefca93084b8d6762740c77f631df4fd13e31203f17fe03f",
+    "subject": {
+      "name": "bfloat16-oracle",
+      "digest": {
+        "sha256": "78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d"
+      },
+      "format": "mach-o",
+      "architecture": "arm64",
+      "local_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle"
+    },
+    "provider": {
+      "id": "native-macos",
+      "name": "macOS native inspection utilities",
+      "version": null
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "observe_native_calls",
+    "parameters": {
+      "breakpoints": [
+        {
+          "kind": "function",
+          "name": "main"
+        }
+      ],
+      "arguments": [
+        "fixtures/parity-v02/bfloat16",
+        "target/bfloat16-reference/swift-output-final"
+      ],
+      "environment": {
+        "CORSAIRS_TEST_MODEL": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel"
+      },
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "duration_ms": 60000,
+      "max_events": 20,
+      "argument_registers": 1,
+      "backtrace_frames": 0
+    },
+    "raw_result": null,
+    "normalized_result": {
+      "target": {
+        "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle",
+        "sha256": "78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d",
+        "architecture": "arm64",
+        "arguments": [
+          "fixtures/parity-v02/bfloat16",
+          "target/bfloat16-reference/swift-output-final"
+        ],
+        "environment": {
+          "CORSAIRS_TEST_MODEL": "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel"
+        },
+        "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+        "launch_identity": {
+          "loaded_image_sha256": null,
+          "file_device": "16777230",
+          "file_inode": "77615681",
+          "selected_file_sha256": "78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d",
+          "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle",
+          "module_uuid": "F8DF4A8E-D99E-32D1-83D1-993CA6F71C79",
+          "stable": true
+        }
+      },
+      "debugger": {
+        "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+        "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+        "version": "lldb-2103.0.34.103"
+      },
+      "process": {
+        "pid": 84508,
+        "outcome": "exited",
+        "exit_status": 0,
+        "exit_description": null,
+        "terminated": true,
+        "elapsed_ms": 1136.504,
+        "stdout": {
+          "text": "{\n  \"all_encodings\" : 65536,\n  \"bfloat16_distinct_from_float16\" : true,\n  \"passed\" : true,\n  \"production_helper\" : false,\n  \"raw_roundtrip_sha256\" : \"68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b\",\n  \"records\" : [\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"double\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"scalar\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58\",\n      \"shape\" : [\n\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"empty\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"shape\" : [\n        0,\n        3\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        0,\n        0\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\",\n      \"shape\" : [\n        1,\n        3\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e\",\n      \"shape\" : [\n        4,\n        3\n      ],\n      \"step\" : 1,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"step\" : 2,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\",\n      \"shape\" : [\n        1,\n        3\n      ],\n      \"step\" : 3,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"transpose\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff\",\n      \"shape\" : [\n        3,\n        2\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        2,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"accumulator\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"state_sha256\" : \"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\",\n      \"step\" : 0,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"accumulator\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"state_sha256\" : \"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\",\n      \"step\" : 1,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"cpu\",\n      \"case\" : \"accumulator\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"state_sha256\" : \"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\",\n      \"step\" : 2,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"double\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"scalar\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58\",\n      \"shape\" : [\n\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"empty\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"shape\" : [\n        0,\n        3\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        0,\n        0\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\",\n      \"shape\" : [\n        1,\n        3\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e\",\n      \"shape\" : [\n        4,\n        3\n      ],\n      \"step\" : 1,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"step\" : 2,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"dynamic\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b\",\n      \"shape\" : [\n        1,\n        3\n      ],\n      \"step\" : 3,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"transpose\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff\",\n      \"shape\" : [\n        3,\n        2\n      ],\n      \"step\" : 0,\n      \"strides\" : [\n        2,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"accumulator\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"state_sha256\" : \"86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c\",\n      \"step\" : 0,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"accumulator\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"state_sha256\" : \"cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6\",\n      \"step\" : 1,\n      \"strides\" : [\n        3,\n        1\n      ]\n    },\n    {\n      \"backend\" : \"gpu-preferred\",\n      \"case\" : \"accumulator\",\n      \"dtype\" : \"bfloat16\",\n      \"exact_bytes\" : true,\n      \"sha256\" : \"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\",\n      \"shape\" : [\n        2,\n        3\n      ],\n      \"state_sha256\" : \"91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b\",\n      \"step\" : 2,\n      \"strides\" : [\n        3,\n        1\n      ]\n    }\n  ]\n}\n",
+          "bytes": 7874,
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "text": "",
+          "bytes": 0,
+          "truncated": false,
+          "complete": true
+        },
+        "other_stops": [
+          "signal SIGSTOP"
+        ]
+      },
+      "breakpoints": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "function",
+            "name": "main",
+            "module": null
+          },
+          "location_count": 21,
+          "locations": [
+            {
+              "load_address": "0x10000283c",
+              "file_address": "0x10000283c",
+              "module": "bfloat16-oracle",
+              "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle",
+              "symbol": "static main.BF16Oracle.main() async throws -> ()"
+            },
+            {
+              "load_address": "0x100002a28",
+              "file_address": "0x100002a28",
+              "module": "bfloat16-oracle",
+              "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle",
+              "symbol": "main"
+            },
+            {
+              "load_address": "0x19dc92b2c",
+              "file_address": "0x1829aab2c",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "Foundation.BundleCache.State.main() -> Swift.Optional<Foundation._NSSwiftBundle>"
+            },
+            {
+              "load_address": "0x19dd8c660",
+              "file_address": "0x182aa4660",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "__C.NSOperationQueue.DelayReadyOperation.main() -> ()"
+            },
+            {
+              "load_address": "0x19dd8c960",
+              "file_address": "0x182aa4960",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "@objc __C.NSOperationQueue.DelayReadyOperation.main() -> ()"
+            },
+            {
+              "load_address": "0x19d31d1bc",
+              "file_address": "0x1820351bc",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "-[NSBlockOperation main]"
+            },
+            {
+              "load_address": "0x19d332dbc",
+              "file_address": "0x18204adbc",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "-[NSThread main]"
+            },
+            {
+              "load_address": "0x19d344e84",
+              "file_address": "0x18205ce84",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "-[NSInvocationOperation main]"
+            },
+            {
+              "load_address": "0x19d3457c0",
+              "file_address": "0x18205d7c0",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "-[NSOperation main]"
+            },
+            {
+              "load_address": "0x19d48f770",
+              "file_address": "0x1821a7770",
+              "module": "Foundation",
+              "module_path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+              "symbol": "-[_NSBarrierOperation main]"
+            },
+            {
+              "load_address": "0x23ce74500",
+              "file_address": "0x221b8c500",
+              "module": "MetalPerformanceShadersGraph",
+              "module_path": "/System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph",
+              "symbol": "nlsat::explain::imp::main(unsigned int, sat::literal const*)"
+            },
+            {
+              "load_address": "0x19f9275ec",
+              "file_address": "0x18463f5ec",
+              "module": "Security",
+              "module_path": "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+              "symbol": "Security::OSXCode::main()"
+            },
+            {
+              "load_address": "0x19fd80374",
+              "file_address": "0x184a98374",
+              "module": "CarbonCore",
+              "module_path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore",
+              "symbol": "main"
+            },
+            {
+              "load_address": "0x1b88465fc",
+              "file_address": "0x19d55e5fc",
+              "module": "CoreSymbolication",
+              "module_path": "/System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication",
+              "symbol": "CSCppExceptionSafeThread::main()"
+            },
+            {
+              "load_address": "0x1b83bf550",
+              "file_address": "0x19d0d7550",
+              "module": "BoardServices",
+              "module_path": "/System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices",
+              "symbol": "+[BSServiceQuality main]"
+            },
+            {
+              "load_address": "0x1ba538398",
+              "file_address": "0x19f250398",
+              "module": "AppSupport",
+              "module_path": "/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport",
+              "symbol": "-[_CPPowerAssertionThread main]"
+            },
+            {
+              "load_address": "0x1ba53cc84",
+              "file_address": "0x19f254c84",
+              "module": "AppSupport",
+              "module_path": "/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport",
+              "symbol": "-[CPDistributedMessagingAsyncOperation main]"
+            },
+            {
+              "load_address": "0x237d89fc0",
+              "file_address": "0x21caa1fc0",
+              "module": "ExtensionFoundation",
+              "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+              "symbol": "static ExtensionFoundation.AppExtension.main() throws -> ()"
+            },
+            {
+              "load_address": "0x237e01f7c",
+              "file_address": "0x21cb19f7c",
+              "module": "ExtensionFoundation",
+              "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+              "symbol": "static ExtensionFoundation._AppExtension.main() throws -> ()"
+            },
+            {
+              "load_address": "0x237d6b714",
+              "file_address": "0x21ca83714",
+              "module": "ExtensionFoundation",
+              "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+              "symbol": "-[EXFrameworkScanner main]"
+            },
+            {
+              "load_address": "0x237d7b1ac",
+              "file_address": "0x21ca931ac",
+              "module": "ExtensionFoundation",
+              "module_path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+              "symbol": "+[EXPKService main]"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "sequence": 0,
+          "elapsed_ms": 676.393,
+          "thread_id": 866469,
+          "breakpoint_index": 0,
+          "load_address": "0x100002a28",
+          "file_address": "0x100002a28",
+          "module": "bfloat16-oracle",
+          "module_path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle",
+          "symbol": "main",
+          "receiver_class": null,
+          "selector": null,
+          "registers": [
+            {
+              "name": "x0",
+              "value": "0x3"
+            }
+          ],
+          "backtrace": []
+        }
+      ],
+      "coverage": {
+        "status": "complete",
+        "event_limit_reached": false,
+        "resource_limit_reached": false,
+        "unresolved_breakpoints": []
+      },
+      "limitations": [
+        "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+        "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+        "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+        "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+        "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+        "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+        "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+      ]
+    },
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ],
+    "locations": [
+      {
+        "kind": "artifact-path",
+        "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/bfloat16-reference/bfloat16-oracle"
+      }
+    ],
+    "evidence_links": []
+  }
+}

@@ -1,5 +1,7 @@
 #![forbid(unsafe_code)]
-use corsairs::{Compute, DType, FunctionDescriptor, RunResult, Runtime, Tensor, TensorMap};
+use corsairs::{
+    Compute, DType, FunctionDescriptor, LoadOptions, RunResult, Runtime, Tensor, TensorMap,
+};
 use std::{
     error::Error,
     path::{Path, PathBuf},
@@ -17,7 +19,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args.is_empty() || args[0] == "--help" || args[0] == "help" {
         println!(
-            "corsairs inspect MODEL [--compute cpu|gpu-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred] [--warmup N] [--repeat N]\nDTYPE: float16|float32|int32|int64|bool. SHAPE: comma-separated dimensions, or scalar."
+            "corsairs inspect MODEL [--compute cpu|gpu-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|int32|int64|bool. SHAPE: comma-separated dimensions, or scalar."
         );
         return Ok(());
     }
@@ -33,6 +35,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
         return Err(format!("unknown command {command:?}").into());
     }
     let mut compute = Compute::CpuOnly;
+    let mut expect_frequent_reshapes = None;
     let mut function_name = "main".to_owned();
     let mut selected_function = false;
     let mut inputs = TensorMap::new();
@@ -72,6 +75,9 @@ fn execute() -> Result<(), Box<dyn Error>> {
                     value => return Err(format!("unknown compute policy {value:?}").into()),
                 };
             }
+            "--expect-frequent-reshapes" => {
+                expect_frequent_reshapes = Some(parse_bool(next(&args, &mut index, option)?)?);
+            }
             "--function" => {
                 function_name = next(&args, &mut index, option)?.into();
                 selected_function = true;
@@ -96,7 +102,22 @@ fn execute() -> Result<(), Box<dyn Error>> {
     }
     let runtime = Runtime::new()?;
     let start = Instant::now();
-    let model = runtime.load_model(&args[1], compute).wait()?;
+    let model = runtime
+        .load_model_with_options(
+            &args[1],
+            LoadOptions {
+                compute,
+                expect_frequent_reshapes,
+            },
+        )
+        .wait()?;
+    // This is the requested override, not an assertion about effective native
+    // specialization. null records that the SDK default was left untouched.
+    let reshape_override = match model.load_options().expect_frequent_reshapes {
+        Some(true) => "true",
+        Some(false) => "false",
+        None => "null",
+    };
     let load_us = start.elapsed().as_secs_f64() * 1e6;
     if command == "inspect" {
         let names: Vec<_> = if selected_function {
@@ -110,7 +131,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
             descriptors.push(descriptor_json(function.descriptor()));
         }
         println!(
-            "{{\"model\":{},\"compute\":{},\"functions\":[{}]}}",
+            "{{\"model\":{},\"compute\":{},\"expect_frequent_reshapes\":{reshape_override},\"functions\":[{}]}}",
             quoted(&args[1]),
             quoted(compute_name(compute)),
             descriptors.join(",")
@@ -149,12 +170,12 @@ fn execute() -> Result<(), Box<dyn Error>> {
             .collect::<Vec<_>>()
             .join(",");
         println!(
-            "{{\"compute\":{},\"load_us\":{load_us},\"warmup\":{warmup},\"iterations\":{repeat},\"median_us\":{median},\"p95_us\":{p95},\"samples_us\":[{samples}],\"boundary\":\"clone host inputs, allocate native tensors, submit, await, copy outputs/state to host\",{payload}}}",
+            "{{\"compute\":{},\"expect_frequent_reshapes\":{reshape_override},\"load_us\":{load_us},\"warmup\":{warmup},\"iterations\":{repeat},\"median_us\":{median},\"p95_us\":{p95},\"samples_us\":[{samples}],\"boundary\":\"clone host inputs, allocate native tensors, submit, await, copy outputs/state to host\",{payload}}}",
             quoted(compute_name(compute))
         );
     } else {
         println!(
-            "{{\"compute\":{},\"completed\":{repeat},\"dropped_futures\":{abandoned},{payload}}}",
+            "{{\"compute\":{},\"expect_frequent_reshapes\":{reshape_override},\"completed\":{repeat},\"dropped_futures\":{abandoned},{payload}}}",
             quoted(compute_name(compute))
         );
     }
@@ -177,12 +198,20 @@ fn next<'a>(
 fn parse_dtype(value: &str) -> Result<DType, Box<dyn Error>> {
     Ok(match value {
         "float16" => DType::Float16,
+        "bfloat16" => DType::BFloat16,
         "float32" => DType::Float32,
         "int32" => DType::Int32,
         "int64" => DType::Int64,
         "bool" => DType::Bool,
         _ => return Err(format!("unsupported dtype {value:?}").into()),
     })
+}
+fn parse_bool(value: &str) -> Result<bool, Box<dyn Error>> {
+    match value {
+        "true" => Ok(true),
+        "false" => Ok(false),
+        _ => Err(format!("expected true or false, got {value:?}").into()),
+    }
 }
 fn parse_shape(value: &str) -> Result<Vec<usize>, Box<dyn Error>> {
     if value == "scalar" {
@@ -272,4 +301,18 @@ fn quoted(value: &str) -> String {
     }
     result.push('"');
     result
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reshape_override_requires_an_explicit_boolean() {
+        assert!(parse_bool("true").unwrap());
+        assert!(!parse_bool("false").unwrap());
+        for value in ["1", "0", "yes", "False", ""] {
+            assert!(parse_bool(value).is_err());
+        }
+    }
 }

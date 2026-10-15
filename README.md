@@ -6,6 +6,8 @@ Corsairs loads `.aimodel` assets, inspects function signatures, and executes nam
 
 The v0.1 release targets Apple Silicon macOS 27. It provides a bounded inference subset of `coreai-core 1.0.0b3`; complete runtime and graph-authoring parity remains the longer-term objective. Debug and release each passed all 32 differential configurations, 16 negative cases, and 40,000 checked stress inferences. The [release archive](dist/corsairs-0.1.0.crate) also passed extracted-package and isolated-consumer examples. See [the release gates and publication record](docs/v0.1-release.md).
 
+The current v0.2 candidate adds dynamic signatures, per-model reshape settings, [retained native tensors](docs/native-tensors.md), [Metal interoperability](docs/metal-ownership.md), and [concurrent model/function loading](docs/parallel-loads.md). The [Krea acceptance run](docs/v0.2-krea.md) matches Swift's encoded text, all eight latent steps, and decoded pixels. [BF16 tensors](docs/bfloat16-abi.md) and [transitive cleanup draining](docs/runtime-drain.md) also pass [H3's original-weight block, all 50 schedule pairs, and staged synthetic backbone](docs/v0.2-h3.md). These changes are not in the published v0.1 crate. See [the v0.2 release gates](docs/v0.2-release.md).
+
 ## Use
 
 Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.0.1 (26A434) with Rust 1.99.0. Xcode/SDK 27, Apple Swift 6.4, and Python are development/reference tools.
@@ -82,10 +84,13 @@ cargo test --offline -p corsairs --no-default-features
 cargo doc --offline -p corsairs --no-default-features --no-deps
 python3 scripts/check_v01.py
 python3 scripts/check_v01.py --native --cycles 10000 --loads 100 --dropped 100
+python3 scripts/check_v02.py --native
 python3 scripts/check_float16.py
-python3 scripts/check_malformed.py --native
-python3 scripts/check_package.py --native
+python3 scripts/check_bfloat16.py
+python3 scripts/check_package_v02.py --native
 ```
+
+The v0.2 workflow and external Krea/H3 fixture commands are in [the release gates](docs/v0.2-release.md). Historical v0.1 packaging and malformed-asset scripts write their original evidence locations; use the version-specific v0.2 workflow for this candidate.
 
 Native allocation, specialization, and cache access need a permitted execution environment. This workspace's ordinary shell sandbox traps even in the independent Swift tensor oracle; native runner observations are retained as evidence. An unavailable reference environment never counts as a passing comparison. See [compatibility](docs/compatibility.md), [safety and ownership](docs/safety.md), and [the ABI ledger](docs/abi-contracts.md).
 

@@ -1,0 +1,128 @@
+{
+  "kind": "corsairs-krea-saved-token-encoder-acceptance-preparation",
+  "prepared_at": "2026-10-15T17:08:25.245673+00:00",
+  "prepared": true,
+  "native_validated": false,
+  "encoder": {
+    "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-text.aimodel",
+    "tokens": 54,
+    "drop_leading_rows": 34,
+    "inputs": "input_ids, attention_mask and running position_ids int32 [1,54]",
+    "native_output": "text_embeds float16 [54,30720]",
+    "checked_output": "drop 34 leading rows, widen float16 to float32 [20,30720]",
+    "swift_records_sha256": {
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/original-encoded-tower/record.json": "64fe9b11fb22dab9ac2fdfc41582a9ca38e08839891942b1409c71e91b003d79",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-encoded-tower/record.json": "0559c883d9fbd00105cc0fbf56f00f89529691eb0a0a6ec8f89c957638c930fd"
+    },
+    "text_sha256": "10c6d354ae88f4f33d950ef9f9d45e06d8a0a2308dbcc6576e7968a4480f7cab",
+    "step_hashes": [
+      "be46d444bc1ae51dd87d70af33fb2ae19e2796c7dc18bb7872085442ac87cdce",
+      "6648b0469606d208bedf40712de74bdba7857e55530c3fd98d836b5283ec6fc3",
+      "129b2c517cb2bb1651bc7064c3e5cc309f3f6a7e45ce7ecd3e53e9770dc90f40",
+      "949a2cda554c23627a2675b9a6e78c2b7b519ac0cf9f422b461c78550eecb01f",
+      "d47c7972dd390d5ed2de07697804f5c306c67aa9c86377ccf4b143836389d1f0",
+      "ccbf28e0509f005be40cfbe7c91c6a6cef6d82745aa4d5908c80e2b31c89df8a",
+      "97a710bc8450a33957a5a4fa9963c016392118763ea9d1e646773b0d0ce89ba9",
+      "898f4ff656cedfca1348b0b139fc07145252bdf0e9fff86d49278d27b2bde788"
+    ],
+    "final_sha256": "898f4ff656cedfca1348b0b139fc07145252bdf0e9fff86d49278d27b2bde788",
+    "pixel_sha256": "9b40e6017aabb0fddb81c29e11f928b9ceb4eda4d8e9639f49a9508e88937d25",
+    "limitation": "Saved IDs bypass tokenization. Swift records retain the exact trimmed text hash, not a raw encoded-text payload. Encoder-generated text and its downstream goldens differ from the provided-text fixture."
+  },
+  "case": "tower-768x1344",
+  "inputs": {
+    "ids": {
+      "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/ids.i32",
+      "sha256": "9e244b771451cfce864d4677fedc188738f5df2428d0614e1bd7e35c03154ce4",
+      "shape": [
+        1,
+        54
+      ],
+      "dtype": "int32"
+    },
+    "mask": {
+      "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/mask.i32",
+      "sha256": "01f50e9d6f16e5678169b244083866b4f53af40c4f32303a9ff799ae6ca10e29",
+      "shape": [
+        1,
+        54
+      ],
+      "dtype": "int32"
+    }
+  },
+  "external_assets": [
+    {
+      "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel",
+      "function": "segment",
+      "source_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+      "expect_frequent_reshapes": true,
+      "source_bytes": 3704868693,
+      "mtime_ns": 1792080773900907619,
+      "full_source_hash_verified": true
+    },
+    {
+      "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later1.aimodel",
+      "function": "segment",
+      "source_sha256": "fb1107e8f9ac4acc911cfe99508b6b6994a714cc07fd3e2abcc7c9e2ceb01939",
+      "expect_frequent_reshapes": true,
+      "source_bytes": 3041085348,
+      "mtime_ns": 1792080901765157306,
+      "full_source_hash_verified": true
+    },
+    {
+      "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later2.aimodel",
+      "function": "segment",
+      "source_sha256": "cd7a539c56c439e15780e647c1b188d0cf3b1323c8b60121bec541bcce0b8cc8",
+      "expect_frequent_reshapes": true,
+      "source_bytes": 3041085341,
+      "mtime_ns": 1792080914419044625,
+      "full_source_hash_verified": true
+    },
+    {
+      "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later3.aimodel",
+      "function": "segment",
+      "source_sha256": "a5ae06b35ec294d82e7f3af23353e002f67069ef01b375f4bcd4879c892a3983",
+      "expect_frequent_reshapes": true,
+      "source_bytes": 3041505838,
+      "mtime_ns": 1792080926788969427,
+      "full_source_hash_verified": true
+    },
+    {
+      "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel",
+      "function": "decode",
+      "source_sha256": "fc98ff142fd0f5499fd2bd26e6a7b4ec50bab00da3bda6d7b57afece16b24581",
+      "expect_frequent_reshapes": false,
+      "source_bytes": 52566110,
+      "mtime_ns": 1791559335634541988,
+      "full_source_hash_verified": true
+    },
+    {
+      "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-text.aimodel",
+      "function": "encode",
+      "source_sha256": "e5a028b942e6c4d9b18c0465ac91295a72b38d6f2f3a0b0b9d84160cb5093b41",
+      "expect_frequent_reshapes": true,
+      "source_bytes": 7843929312,
+      "mtime_ns": 1791559189974301832,
+      "full_source_hash_verified": true
+    }
+  ],
+  "source_files": {
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherDiffusion/FlowMatchSchedule.swift": "de7cda94ef05398239e8658f8be16e029189e4c814a475127c05cc6f2a75bd39",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherRuntime/DiffusionStepKernel.swift": "71a97af9371626a6cccc0690a15f211855d6c2c5e82ff17e57c27a4f0147fd87",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherRuntime/FunctionEngine.swift": "1d0e51cbbb0bc88608595bee6694a694b444f36fe2616dbb3368cdb63655824c",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherRuntime/Specialization.swift": "4f6f90d325bdf6cf2ada86981a2fd77d42d77ce8dce365c899f44f3923062355",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/Probe/main.swift": "c1ff81e51dc5ad9d8c9e5a0b9713b843c5717651c50a3186f2d405baf0a8a9cc",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/variants/fixed-tower-20/aether.json": "eb3cc276e0d38d8033b03e98561be53209d7b4134ddc6ed80a2c9dd56219b9cd",
+    "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/fixture.json": "fb24597c3a9a8050633c91d216c06cf22143060b21e02f848341069e47eaea0d"
+  },
+  "build_manifest_sha256": "4924ce02e7d0cf4968dcce8455196ac5b130a2bf7c2a2e5c5e4c187244ad06ac",
+  "binary_sha256": "f9cf3016aa11ff43dc52dba17837c22166ae1c512dfb26819ad91408513105ac",
+  "rlib_sha256": "7118a1b69bfeff7fa449323093e9dc6c39ec6df6c29a85272971ef5a3fcb0fef",
+  "source_identity_sha256": "254b0da7411419eeabd120435c5b014a8096326b0fdebdc2cd1a523a87e82fb8",
+  "source_files_count": 35,
+  "commands": {
+    "encoder_only": "python3 -B scripts/check_krea.py --native --no-build --timeout 1200 --mode encode-text --output /private/tmp/corsairs-krea-encode-text",
+    "encoded_chain": "python3 -B scripts/check_krea.py --native --no-build --timeout 1200 --mode encoded-chain --output /private/tmp/corsairs-krea-encoded-chain"
+  },
+  "coordination": "Prepare only. The parent coordinates all native/GPU execution; no REA session or inference was launched during this preparation."
+}

@@ -1,0 +1,1635 @@
+{
+  "started_at": "2026-10-15T17:22:05.696520+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "native_requested": true,
+  "native_validated": true,
+  "passed": true,
+  "public_api_only": true,
+  "drivers_forbid_unsafe": true,
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/dynamic_shapes-debug",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/dynamic-double"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.43900466700142715,
+      "stdout": "{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"None\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"Some(false)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"Some(true)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"None\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"Some(false)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"Some(true)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"event\":\"complete\",\"passed\":true}\n",
+      "stderr": "2026-10-15 11:22:06.056109-0600 dynamic_shapes-debug[56274:759056] [MPSGraph_Common] /AppleInternal/Library/BuildRoots/4~CV2iugCS017GRPdEjj32gfBJXr8YaxAcCWYlUuw/Library/Caches/com.apple.xbs/TemporaryDirectory.WK6jPd/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:2523: No ANE hash for architecture 'h17c' in package /Users/zakkeown/Library/Caches/coreai-cache/26A434/dynamic-shapes-debug/de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6/1437135650F5EB80B3545D58225DFBDAB1D3F672814A14BDB8BE67FA0A9BB0E1/model.aimodelx/main-this-delegates/MPSGraph/mpsExecutable.mpsgraphpackage \u2014 GPU-only model or wrong target?\n",
+      "events": [
+        {
+          "compute": "CpuOnly",
+          "frequent_reshapes": "None",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "CpuOnly",
+          "frequent_reshapes": "Some(false)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "CpuOnly",
+          "frequent_reshapes": "Some(true)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "GpuPreferred",
+          "frequent_reshapes": "None",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "GpuPreferred",
+          "frequent_reshapes": "Some(false)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "GpuPreferred",
+          "frequent_reshapes": "Some(true)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/native_handles-debug",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/accumulator/model.aimodel"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2337574159973883,
+      "stdout": "{\"event\":\"chain_two_functions\",\"passed\":true}\n{\"event\":\"cross_runtime\",\"passed\":true}\n{\"event\":\"shared_state_and_dropped_future\",\"passed\":true}\n{\"event\":\"mutable_alias_rejection\",\"passed\":true}\n{\"event\":\"complete\",\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "chain_two_functions",
+          "passed": true
+        },
+        {
+          "event": "cross_runtime",
+          "passed": true
+        },
+        {
+          "event": "shared_state_and_dropped_future",
+          "passed": true
+        },
+        {
+          "event": "mutable_alias_rejection",
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/native_parity-debug",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.7658224580009119,
+      "stdout": "{\"event\":\"native_parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"complete\",\"configurations\":32,\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "native_parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "gather",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "empty",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "configurations": 32,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/metal_parity-debug",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.9434203749988228,
+      "stdout": "{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"complete\",\"configurations\":64,\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "configurations": 64,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/dynamic_shapes-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/dynamic-double"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.39453087499714456,
+      "stdout": "{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"None\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"Some(false)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"Some(true)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"None\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"Some(false)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"Some(true)\",\"owned_dynamic_calls\":4,\"native_dynamic_calls\":4,\"owned_negative_calls\":3,\"native_negative_calls\":3,\"passed\":true}\n{\"event\":\"complete\",\"passed\":true}\n",
+      "stderr": "2026-10-15 11:22:08.413529-0600 dynamic_shapes-release[56299:759604] [MPSGraph_Common] /AppleInternal/Library/BuildRoots/4~CV2iugCS017GRPdEjj32gfBJXr8YaxAcCWYlUuw/Library/Caches/com.apple.xbs/TemporaryDirectory.WK6jPd/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:2523: No ANE hash for architecture 'h17c' in package /Users/zakkeown/Library/Caches/coreai-cache/26A434/dynamic-shapes-release/de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6/1437135650F5EB80B3545D58225DFBDAB1D3F672814A14BDB8BE67FA0A9BB0E1/model.aimodelx/main-this-delegates/MPSGraph/mpsExecutable.mpsgraphpackage \u2014 GPU-only model or wrong target?\n",
+      "events": [
+        {
+          "compute": "CpuOnly",
+          "frequent_reshapes": "None",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "CpuOnly",
+          "frequent_reshapes": "Some(false)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "CpuOnly",
+          "frequent_reshapes": "Some(true)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "GpuPreferred",
+          "frequent_reshapes": "None",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "GpuPreferred",
+          "frequent_reshapes": "Some(false)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "compute": "GpuPreferred",
+          "frequent_reshapes": "Some(true)",
+          "owned_dynamic_calls": 4,
+          "native_dynamic_calls": 4,
+          "owned_negative_calls": 3,
+          "native_negative_calls": 3,
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/native_handles-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/double_float32/model.aimodel",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01/accumulator/model.aimodel"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.4302967909970903,
+      "stdout": "{\"event\":\"chain_two_functions\",\"passed\":true}\n{\"event\":\"cross_runtime\",\"passed\":true}\n{\"event\":\"shared_state_and_dropped_future\",\"passed\":true}\n{\"event\":\"mutable_alias_rejection\",\"passed\":true}\n{\"event\":\"complete\",\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "chain_two_functions",
+          "passed": true
+        },
+        {
+          "event": "cross_runtime",
+          "passed": true
+        },
+        {
+          "event": "shared_state_and_dropped_future",
+          "passed": true
+        },
+        {
+          "event": "mutable_alias_rejection",
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/native_parity-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.6703104999978677,
+      "stdout": "{\"event\":\"native_parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"native_parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"passed\":true}\n{\"event\":\"complete\",\"configurations\":32,\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "native_parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "gather",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "empty",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "native_parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "configurations": 32,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/metal_parity-release",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v01"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.8937256670033094,
+      "stdout": "{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":false,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"cpu\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float16\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_float32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int32\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"double_int64\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"not_bool\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"matmul\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reduce_sum\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"gather\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"reshape\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"feedforward\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"named_add\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"float_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"int64_edges\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"scalar\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"empty\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"metal_parity\",\"name\":\"accumulator\",\"backend\":\"gpu-preferred\",\"explicit_outputs\":true,\"passed\":true}\n{\"event\":\"complete\",\"configurations\":64,\"passed\":true}\n",
+      "stderr": "",
+      "events": [
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "explicit_outputs": false,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "cpu",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float16",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_float32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int32",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "double_int64",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "not_bool",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "matmul",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reduce_sum",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "gather",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "reshape",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "feedforward",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "named_add",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "float_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "int64_edges",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "scalar",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "empty",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "metal_parity",
+          "name": "accumulator",
+          "backend": "gpu-preferred",
+          "explicit_outputs": true,
+          "passed": true
+        },
+        {
+          "event": "complete",
+          "configurations": 64,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "fixtures": {
+    "cases": 32,
+    "negative_cases": 16,
+    "golden_tensors": 42,
+    "generated_sha256": "3e6d622734b35a8a33af7f03eb12fc8b6a3364869f050742ae1fc6428d48929b",
+    "suite_sha256": "c666f7ed9422747da22206b3acf5419b6b015935026a7018f78e818fc8cddb4f",
+    "goldens_sha256": "3683cef2d4bbdb95a6027880723a63b25045f3e4446d9d44d97251c19d5908da"
+  },
+  "source_hashes": {
+    "Cargo.lock": "66f43b677d017768af58d265ab7fa60a871abf71794c353612c4624937fc745c",
+    "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+    "crates/corsairs-abi/Cargo.toml": "269374f88bafd7a551459a62bae9781623c89aebd5045e58bbab97c3f354e661",
+    "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "crates/corsairs-abi/src/bin/corsairs.rs": "15d081a04fac978c56cd9bfd868d9719df839c7c8fa0ff8ec4fe187684262399",
+    "crates/corsairs-abi/src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+    "crates/corsairs-abi/src/facade/batch.rs": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+    "crates/corsairs-abi/src/facade/handles.rs": "e5f53d41cbee1f4c105a9ea1df911a4ec22b3904520a4f6d5fe3ebf098e79b34",
+    "crates/corsairs-abi/src/facade/metal.rs": "5349e9979ecc86c7a080c53be3027a40a597bf0057aaa7704b27f9b36f04db65",
+    "crates/corsairs-abi/src/facade.rs": "68197f116bff44727dfe8d843aeade2bcfd6b55e53363e5292fb4e195bf03f9d",
+    "crates/corsairs-abi/src/lib.rs": "e8f1dd3e1a0af4c6f9b1e01c8564f2427bf92ba451a50d931c84db782d996873",
+    "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "crates/corsairs-abi/src/native/async_task/pending.rs": "834f8ed091980ba649a69d70e92fb2ca3e670c5a0bb1a1f8d8de03e8e7671884",
+    "crates/corsairs-abi/src/native/async_task.rs": "85d25200bb9c06db8c724d521429e3bc9af6e5812a8d14e92c9f8f304694883c",
+    "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "crates/corsairs-abi/src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "crates/corsairs-abi/src/native/mod.rs": "76095cce80ba77a23bbd93b532654b5f99f5dc995bf26278761b88f3f5ca5589",
+    "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "crates/corsairs-abi/src/native/owned/batch.rs": "1b8674ad189d579b8476ec86f45d1927f678dfd80680406c0020cf6e8c028c58",
+    "crates/corsairs-abi/src/native/owned/handles.rs": "5e251bdc4836e9d3332dd1a89f708b3cdd6723952ac20dee4a470d21ff80e8a5",
+    "crates/corsairs-abi/src/native/owned/metal.rs": "ab63048e70a8674edea0b1c5f7d810c65e4a1fa91d338eb7c1feb33c0a64873e",
+    "crates/corsairs-abi/src/native/owned.rs": "e9bd7304b365b0d16c9ff8f88e7579533906c595509f45ae2775d3bdd22e9250",
+    "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "crates/corsairs-abi/src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+    "crates/corsairs-abi/src/worker.rs": "1a801c2f5129131be09a43fe6c5ed3aabe6f398c716e63f63f259319fd148fca",
+    "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+    "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+    "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+    "experiments/rust/dynamic_shapes.rs": "59d07fe3f14f2e618687828d8f4e51116cbded6d9d640cd98c397f9790b6235e",
+    "experiments/rust/metal_parity.rs": "2e8a4bd1b3bf22c7ab22ffd7abf98fe7c800820ff5be8effeff5ddbd976f1710",
+    "experiments/rust/native_handles.rs": "9487cca2d335acf82881956dcecf784537ef8120b873fe4ca58cb00e77dec359",
+    "experiments/rust/native_parity.rs": "4d3676983f72b702e225a7d0043bc9829703d896b7b64ce1256abd347ce05f72",
+    "fixtures/parity-v02/dynamic-double/0-expected-y.f32": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+    "fixtures/parity-v02/dynamic-double/0-x.f32": "b2a1328992b988f757191a972ad45e83af61c0a85c8865625427120aa5acf932",
+    "fixtures/parity-v02/dynamic-double/1-expected-y.f32": "88def510c2612e42dead35ce51080cbb065a4e713cc6107022ba048ed9e75d23",
+    "fixtures/parity-v02/dynamic-double/1-x.f32": "02b52197b6e546ef0bc5d772eb13477bb35881f52241669d21ac7dc64922a5d5",
+    "fixtures/parity-v02/dynamic-double/2-expected-y.f32": "18bdb4d6e85b8f69f5c4064f06bfd9a061f560db2b76be3ab87a723d9f726129",
+    "fixtures/parity-v02/dynamic-double/2-x.f32": "03030b8b971615d165a802f602cd15f34c2c23f71fd16bae9d9b09ca854cd168",
+    "fixtures/parity-v02/dynamic-double/3-expected-y.f32": "6dd57d64ea994a0202df5344cde4790190ab4d95577c94e49d1b48359de40d7b",
+    "fixtures/parity-v02/dynamic-double/3-x.f32": "b2a1328992b988f757191a972ad45e83af61c0a85c8865625427120aa5acf932",
+    "fixtures/parity-v02/dynamic-double/graph.mlir": "9e50178cdf1332dd779e1806046e589edf0f3c42253280d4a9e39fb26b650888",
+    "fixtures/parity-v02/dynamic-double/manifest.json": "a202fb30d4da27edf6546f63170f1b5ebdce20f33c44c429a5c5eed5d0c24d62",
+    "fixtures/parity-v02/dynamic-double/model.aimodel/main.hash": "adb7dac7d48d14ffe23a6c4d9992413be3393520d68c998eab50ea41b851cca2",
+    "fixtures/parity-v02/dynamic-double/model.aimodel/main.mlirb": "de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6",
+    "fixtures/parity-v02/dynamic-double/model.aimodel/metadata.json": "0047d14914ca239005937947cae6ea3d50ad749ba0078b1fdb0f4ca3a6f31da3",
+    "fixtures/parity-v02/dynamic-double/python-results.json": "eea0ea7c83e50fe1817b520425185cefece90d7c57998470bcee8a399e4fedba",
+    "scripts/check_v01.py": "e01f4a79cf9c5c7773d85e8fd03f64cc2c47078af66a38b13c660b4096c6534d",
+    "scripts/check_v02.py": "b69ef19190983aa457cd9608aa148ccd43b072984806bfbc83579fa16d3b74d4",
+    "target/v01-check/cases.rs": "3e6d622734b35a8a33af7f03eb12fc8b6a3364869f050742ae1fc6428d48929b"
+  },
+  "source_identity_sha256": "33d44f0cc08fd899a2ae3dd8a4be00539c3dfa8b380fa41b58b72bd4ca28798c",
+  "compiler": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)",
+  "build_manifest_sha256": "95d063d4bbd5484fd9cb90a7fe84a761b24dc23d9872800a3626f1f2437388f6"
+}

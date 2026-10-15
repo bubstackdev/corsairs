@@ -1,0 +1,101 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+import CoreAI
+
+@inline(never) public func bfloat16Scalar() -> NDArray.ScalarType
+
+@inline(never) public func float16ScalarForComparison() -> NDArray.ScalarType
+
+@inline(never) public func bfloat16Array(_ shape: consuming [Int]) -> NDArray
+
+@inline(never) public func isBFloat16(_ array: borrowing NDArray) -> Bool
+
+// bfloat16Scalar()
+// Isolation: unspecified
+sil [noinline] @$s11BFloat16ABI14bfloat16Scalar13CoreAIRuntime7NDArrayV0D4TypeOyF : $@convention(thin) () -> @out NDArray.ScalarType {
+// %0 "$return_value"                             // user: %1
+bb0(%0 : $*NDArray.ScalarType):
+  inject_enum_addr %0, #NDArray.ScalarType.bfloat16!enumelt // id: %1
+  %2 = tuple ()                                   // user: %3
+  return %2                                       // id: %3
+} // end sil function '$s11BFloat16ABI14bfloat16Scalar13CoreAIRuntime7NDArrayV0D4TypeOyF'
+
+// float16ScalarForComparison()
+// Isolation: unspecified
+sil [noinline] @$s11BFloat16ABI26float16ScalarForComparison13CoreAIRuntime7NDArrayV0D4TypeOyF : $@convention(thin) () -> @out NDArray.ScalarType {
+// %0 "$return_value"                             // user: %1
+bb0(%0 : $*NDArray.ScalarType):
+  inject_enum_addr %0, #NDArray.ScalarType.float16!enumelt // id: %1
+  %2 = tuple ()                                   // user: %3
+  return %2                                       // id: %3
+} // end sil function '$s11BFloat16ABI26float16ScalarForComparison13CoreAIRuntime7NDArrayV0D4TypeOyF'
+
+// bfloat16Array(_:)
+// Isolation: unspecified
+sil [noinline] @$s11BFloat16ABI13bfloat16Arrayy13CoreAIRuntime7NDArrayVSaySiGnF : $@convention(thin) (@owned Array<Int>) -> @out NDArray {
+// %0 "$return_value"                             // user: %11
+// %1 "shape"                                     // user: %3
+bb0(%0 : $*NDArray, %1 : @noImplicitCopy @_eagerMove $Array<Int>):
+  %2 = alloc_stack [var_decl] [moveable_value_debuginfo] $Array<Int>, var, name "shape", type $@moveOnly Array<Int> // users: %3, %7, %14
+  store %1 to %2                                  // id: %3
+  %4 = metatype $@thin NDArray.Type               // user: %11
+  %5 = alloc_stack $NDArray.ScalarType            // users: %13, %11, %6
+  inject_enum_addr %5, #NDArray.ScalarType.bfloat16!enumelt // id: %6
+  %7 = begin_access [deinit] [static] %2          // users: %8, %12
+  %8 = load %7                                    // user: %11
+  debug_value [moveable_value_debuginfo] undef : $*Array<Int>, var, name "shape", expr op_deref // id: %9
+  // function_ref NDArray.init(shape:scalarType:)
+  %10 = function_ref @$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC : $@convention(method) (@owned Array<Int>, @in NDArray.ScalarType, @thin NDArray.Type) -> @out NDArray // user: %11
+  %11 = apply %10(%0, %8, %5, %4) : $@convention(method) (@owned Array<Int>, @in NDArray.ScalarType, @thin NDArray.Type) -> @out NDArray
+  end_access %7                                   // id: %12
+  dealloc_stack %5                                // id: %13
+  dealloc_stack %2                                // id: %14
+  %15 = tuple ()                                  // user: %16
+  return %15                                      // id: %16
+} // end sil function '$s11BFloat16ABI13bfloat16Arrayy13CoreAIRuntime7NDArrayVSaySiGnF'
+
+// NDArray.init(shape:scalarType:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV5shape10scalarTypeACSaySiG_AC06ScalarF0OtcfC : $@convention(method) (@owned Array<Int>, @in NDArray.ScalarType, @thin NDArray.Type) -> @out NDArray
+
+// isBFloat16(_:)
+// Isolation: unspecified
+sil [noinline] @$s11BFloat16ABI02isA0ySb13CoreAIRuntime7NDArrayVF : $@convention(thin) (@in_guaranteed NDArray) -> Bool {
+// %0 "array"                                     // users: %5, %1
+bb0(%0 : @noImplicitCopy $*NDArray):
+  debug_value [moveable_value_debuginfo] %0, let, name "array", argno 1, expr op_deref // id: %1
+  %2 = metatype $@thin NDArray.ScalarType.Type    // user: %9
+  %3 = alloc_stack $NDArray.ScalarType            // users: %13, %12, %9, %5
+  // function_ref NDArray.scalarType.getter
+  %4 = function_ref @$s13CoreAIRuntime7NDArrayV10scalarTypeAC06ScalarE0Ovg : $@convention(method) (@in_guaranteed NDArray) -> @out NDArray.ScalarType // user: %5
+  %5 = apply %4(%3, %0) : $@convention(method) (@in_guaranteed NDArray) -> @out NDArray.ScalarType
+  %6 = alloc_stack $NDArray.ScalarType            // users: %11, %10, %9, %7
+  inject_enum_addr %6, #NDArray.ScalarType.bfloat16!enumelt // id: %7
+  // function_ref static NDArray.ScalarType.== infix(_:_:)
+  %8 = function_ref @$s13CoreAIRuntime7NDArrayV10ScalarTypeO2eeoiySbAE_AEtFZ : $@convention(method) (@in_guaranteed NDArray.ScalarType, @in_guaranteed NDArray.ScalarType, @thin NDArray.ScalarType.Type) -> Bool // user: %9
+  %9 = apply %8(%3, %6, %2) : $@convention(method) (@in_guaranteed NDArray.ScalarType, @in_guaranteed NDArray.ScalarType, @thin NDArray.ScalarType.Type) -> Bool // user: %14
+  destroy_addr %6                                 // id: %10
+  dealloc_stack %6                                // id: %11
+  destroy_addr %3                                 // id: %12
+  dealloc_stack %3                                // id: %13
+  return %9                                       // id: %14
+} // end sil function '$s11BFloat16ABI02isA0ySb13CoreAIRuntime7NDArrayVF'
+
+// NDArray.scalarType.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV10scalarTypeAC06ScalarE0Ovg : $@convention(method) (@in_guaranteed NDArray) -> @out NDArray.ScalarType
+
+// static NDArray.ScalarType.== infix(_:_:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime7NDArrayV10ScalarTypeO2eeoiySbAE_AEtFZ : $@convention(method) (@in_guaranteed NDArray.ScalarType, @in_guaranteed NDArray.ScalarType, @thin NDArray.ScalarType.Type) -> Bool
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'BFloat16ABI/BFloat16Reference.swift' => 'experiments/swift/BFloat16Reference.swift'
+
+

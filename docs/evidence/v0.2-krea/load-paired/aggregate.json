@@ -1,0 +1,333 @@
+{
+  "kind": "corsairs-krea-three-load-pair-aggregate",
+  "created_at": "2026-10-15T17:54:51.935020+00:00",
+  "passed": true,
+  "native_validated": true,
+  "build_manifest_sha256": "e96a58096a87d2cc454446eb5ddb276a7daf767a31c77d1bfdf42e64a77cd2d2",
+  "binary_sha256": "994605bf144cc2d7b39f713145bdcbe0c8186544363010992dff178f2b49330c",
+  "rlib_sha256": "4e98e5d87e8cc32bacfd5407fc60498d2f083b27e03cb9bd1c814c5b771fafad",
+  "source_identity_sha256": "10ea15bfc94074f87459060a43a1a5dd1508f858c900eebb8ae154189b1f615d",
+  "source_files": 46,
+  "run_count": 6,
+  "pair_count": 3,
+  "render_or_tensor_payloads_expected": false,
+  "verification_sha256": "b02bc3319546279e1608836f0a82f186785bd7d3da0e6c56c4bf390eb141c94b",
+  "runs": [
+    {
+      "pair": 1,
+      "arm": "serial",
+      "order_in_pair": 1,
+      "native_pid": 63002,
+      "report": "pair-01-serial-checks.json",
+      "report_sha256": "55239c3a5526f9cc52b6a220358a982f7a503ae8e2e396b5ab04adfb11439ef1",
+      "whole_checker_seconds": 6.65981358299905,
+      "measurements": {
+        "preparation_seconds": 1.74164075,
+        "load_and_drop_seconds": 1.8274691669999998,
+        "native_child_seconds": 1.8681944590061903,
+        "child_max_rss_bytes": 15911682048
+      },
+      "process_memory": {
+        "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+        "platform": "darwin",
+        "native_before_raw": 152666112,
+        "native_after_raw": 15911682048,
+        "raw_unit": "bytes",
+        "native_before_max_rss_bytes": 152666112,
+        "native_after_max_rss_bytes": 15911682048,
+        "new_child_high_water": true,
+        "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+      },
+      "batch_phases": {},
+      "logs_sha256": {
+        "/private/tmp/corsairs-krea-load-pair-01/pair01-serial/events.jsonl": "2a4542f8b900be249eff3db694a2dcd8316378dc8507758c236f5a6c31de969b",
+        "/private/tmp/corsairs-krea-load-pair-01/pair01-serial/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "pair": 1,
+      "arm": "batch",
+      "order_in_pair": 2,
+      "native_pid": 63011,
+      "report": "pair-01-batch-checks.json",
+      "report_sha256": "377f86ef43823fcf26884307bf587c4c274eb45164027821e1b6dcf366f0c6f5",
+      "whole_checker_seconds": 5.747192750000977,
+      "measurements": {
+        "preparation_seconds": 0.757413375,
+        "load_and_drop_seconds": 0.852947791,
+        "native_child_seconds": 0.9154884579984355,
+        "child_max_rss_bytes": 24269733888
+      },
+      "process_memory": {
+        "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+        "platform": "darwin",
+        "native_before_raw": 152666112,
+        "native_after_raw": 24269733888,
+        "raw_unit": "bytes",
+        "native_before_max_rss_bytes": 152666112,
+        "native_after_max_rss_bytes": 24269733888,
+        "new_child_high_water": true,
+        "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+      },
+      "batch_phases": {
+        "batch_load": {
+          "event": "batch_load",
+          "requested": 4,
+          "entries": 4,
+          "returns": 4,
+          "peak_in_flight": 4,
+          "active_at_join": 0,
+          "seconds": 0.00676
+        },
+        "function_batch_load": {
+          "event": "function_batch_load",
+          "requested": 4,
+          "entries": 4,
+          "returns": 4,
+          "peak_in_flight": 4,
+          "active_at_join": 0,
+          "seconds": 0.750630625
+        }
+      },
+      "logs_sha256": {
+        "/private/tmp/corsairs-krea-load-pair-01/pair01-batch/events.jsonl": "5f21c6d90b6ee8b52b6e3df2ddc58f3950929d749f2ebf64438beea467157208",
+        "/private/tmp/corsairs-krea-load-pair-01/pair01-batch/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "pair": 2,
+      "arm": "batch",
+      "order_in_pair": 1,
+      "native_pid": 63252,
+      "report": "pair-02-batch-checks.json",
+      "report_sha256": "b72b5e7da2030d5f92783e208c0e61bcc89ae8078bb1852f73063105f1c27887",
+      "whole_checker_seconds": 5.927183542000421,
+      "measurements": {
+        "preparation_seconds": 0.75307275,
+        "load_and_drop_seconds": 0.846568042,
+        "native_child_seconds": 0.8697820410015993,
+        "child_max_rss_bytes": 24288034816
+      },
+      "process_memory": {
+        "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+        "platform": "darwin",
+        "native_before_raw": 152666112,
+        "native_after_raw": 24288034816,
+        "raw_unit": "bytes",
+        "native_before_max_rss_bytes": 152666112,
+        "native_after_max_rss_bytes": 24288034816,
+        "new_child_high_water": true,
+        "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+      },
+      "batch_phases": {
+        "batch_load": {
+          "event": "batch_load",
+          "requested": 4,
+          "entries": 4,
+          "returns": 4,
+          "peak_in_flight": 4,
+          "active_at_join": 0,
+          "seconds": 0.006577667
+        },
+        "function_batch_load": {
+          "event": "function_batch_load",
+          "requested": 4,
+          "entries": 4,
+          "returns": 4,
+          "peak_in_flight": 4,
+          "active_at_join": 0,
+          "seconds": 0.746472083
+        }
+      },
+      "logs_sha256": {
+        "/private/tmp/corsairs-krea-load-pair-02/pair02-batch/events.jsonl": "fc42c9990b32dd3543d04232c5a872c3e511450daf19698610b7c5897e601880",
+        "/private/tmp/corsairs-krea-load-pair-02/pair02-batch/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "pair": 2,
+      "arm": "serial",
+      "order_in_pair": 2,
+      "native_pid": 63263,
+      "report": "pair-02-serial-checks.json",
+      "report_sha256": "7222c4aa4fee9c1ef18cce6fa3ae3f22ce85e09255fbfe7785039bfde4c63014",
+      "whole_checker_seconds": 6.938545333003276,
+      "measurements": {
+        "preparation_seconds": 1.7784099580000001,
+        "load_and_drop_seconds": 1.864748458,
+        "native_child_seconds": 1.9208317919983529,
+        "child_max_rss_bytes": 15911682048
+      },
+      "process_memory": {
+        "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+        "platform": "darwin",
+        "native_before_raw": 152666112,
+        "native_after_raw": 15911682048,
+        "raw_unit": "bytes",
+        "native_before_max_rss_bytes": 152666112,
+        "native_after_max_rss_bytes": 15911682048,
+        "new_child_high_water": true,
+        "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+      },
+      "batch_phases": {},
+      "logs_sha256": {
+        "/private/tmp/corsairs-krea-load-pair-02/pair02-serial/events.jsonl": "27f80d56b57756a18807675db60afacd22906acde22695efede1fcbd13a8742f",
+        "/private/tmp/corsairs-krea-load-pair-02/pair02-serial/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "pair": 3,
+      "arm": "serial",
+      "order_in_pair": 1,
+      "native_pid": 63347,
+      "report": "pair-03-serial-checks.json",
+      "report_sha256": "346933d3bedb4c2a2e501ec9bbb4ee084a05aea3bc01e4c65ad44340227b3b01",
+      "whole_checker_seconds": 6.828524582997488,
+      "measurements": {
+        "preparation_seconds": 1.759192541,
+        "load_and_drop_seconds": 1.845397958,
+        "native_child_seconds": 1.8611263330021757,
+        "child_max_rss_bytes": 15911731200
+      },
+      "process_memory": {
+        "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+        "platform": "darwin",
+        "native_before_raw": 152666112,
+        "native_after_raw": 15911731200,
+        "raw_unit": "bytes",
+        "native_before_max_rss_bytes": 152666112,
+        "native_after_max_rss_bytes": 15911731200,
+        "new_child_high_water": true,
+        "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+      },
+      "batch_phases": {},
+      "logs_sha256": {
+        "/private/tmp/corsairs-krea-load-pair-03/pair03-serial/events.jsonl": "a3f2261472a8e24ddfc0ad7d8b76d770a6f4b1c39e206c3cf90b3561fb0923de",
+        "/private/tmp/corsairs-krea-load-pair-03/pair03-serial/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "pair": 3,
+      "arm": "batch",
+      "order_in_pair": 2,
+      "native_pid": 63356,
+      "report": "pair-03-batch-checks.json",
+      "report_sha256": "dd490ca311adcadd650522c82da217f33604531aad08ecd8ae3838dec997c938",
+      "whole_checker_seconds": 5.8141700830019545,
+      "measurements": {
+        "preparation_seconds": 0.755379917,
+        "load_and_drop_seconds": 0.847935208,
+        "native_child_seconds": 0.8637029999954393,
+        "child_max_rss_bytes": 24273190912
+      },
+      "process_memory": {
+        "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+        "platform": "darwin",
+        "native_before_raw": 152666112,
+        "native_after_raw": 24273190912,
+        "raw_unit": "bytes",
+        "native_before_max_rss_bytes": 152666112,
+        "native_after_max_rss_bytes": 24273190912,
+        "new_child_high_water": true,
+        "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+      },
+      "batch_phases": {
+        "batch_load": {
+          "event": "batch_load",
+          "requested": 4,
+          "entries": 4,
+          "returns": 4,
+          "peak_in_flight": 4,
+          "active_at_join": 0,
+          "seconds": 0.006881334
+        },
+        "function_batch_load": {
+          "event": "function_batch_load",
+          "requested": 4,
+          "entries": 4,
+          "returns": 4,
+          "peak_in_flight": 4,
+          "active_at_join": 0,
+          "seconds": 0.748475417
+        }
+      },
+      "logs_sha256": {
+        "/private/tmp/corsairs-krea-load-pair-03/pair03-batch/events.jsonl": "6b2b013ece6d2b69a167aa77ede05ce25b0a191d24ff6cd1d0d599b2fdbec1b2",
+        "/private/tmp/corsairs-krea-load-pair-03/pair03-batch/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "pair": 1,
+      "order": [
+        "serial",
+        "batch"
+      ],
+      "serial_preparation_seconds": 1.74164075,
+      "batch_preparation_seconds": 0.757413375,
+      "serial_minus_batch_seconds": 0.9842273749999999,
+      "serial_child_max_rss_bytes": 15911682048,
+      "batch_child_max_rss_bytes": 24269733888,
+      "batch_minus_serial_rss_bytes": 8358051840
+    },
+    {
+      "pair": 2,
+      "order": [
+        "batch",
+        "serial"
+      ],
+      "serial_preparation_seconds": 1.7784099580000001,
+      "batch_preparation_seconds": 0.75307275,
+      "serial_minus_batch_seconds": 1.0253372080000003,
+      "serial_child_max_rss_bytes": 15911682048,
+      "batch_child_max_rss_bytes": 24288034816,
+      "batch_minus_serial_rss_bytes": 8376352768
+    },
+    {
+      "pair": 3,
+      "order": [
+        "serial",
+        "batch"
+      ],
+      "serial_preparation_seconds": 1.759192541,
+      "batch_preparation_seconds": 0.755379917,
+      "serial_minus_batch_seconds": 1.003812624,
+      "serial_child_max_rss_bytes": 15911731200,
+      "batch_child_max_rss_bytes": 24273190912,
+      "batch_minus_serial_rss_bytes": 8361459712
+    }
+  ],
+  "arm_medians": {
+    "serial": {
+      "preparation_seconds": 1.759192541,
+      "load_and_drop_seconds": 1.845397958,
+      "native_child_seconds": 1.8681944590061903,
+      "child_max_rss_bytes": 15911682048
+    },
+    "batch": {
+      "preparation_seconds": 0.755379917,
+      "load_and_drop_seconds": 0.847935208,
+      "native_child_seconds": 0.8697820410015993,
+      "child_max_rss_bytes": 24273190912
+    }
+  },
+  "batch_minus_serial_median_rss_bytes": 8361508864,
+  "methodology": "Four denoiser models/functions, one preparation and release per fresh native process, without inference. Pair order alternates serial/batch then batch/serial. Same pinned build for both arms. Full source hashes are streamed before every arm; SDK/OS caches are retained, without a cache purge.",
+  "timing_scope": "Primary preparation timing starts after Runtime initialization and ends when all four segment functions are ready. Separate complete timing includes release/flush. Native model and function invocation events measure both batch phases. Whole checker timing also includes source verification and Swift schedule preparation.",
+  "rss_scope": "Every arm runs a fresh Python checker, so its cumulative RUSAGE_CHILDREN peak is separate from other arms. Each peak still includes that checker's preparation helpers. Retain before/after counters; do not subtract high-water marks or add RSS to Metal accounting.",
+  "launcher_scope": "When launched via REA at the Python entry point, native Rust children have no requested breakpoints. Launch/observation overhead remains outside the driver phase timers.",
+  "limitations": [
+    "Three alternating pairs, one preparation per fresh native/checker process, one host, four fixed models. No inference, encoder, decoder, or render payloads in these measurements.",
+    "All model source streams verified before each arm; filesystem and SDK/OS caches retained. These are cache-retaining preparation intervals, not cold starts.",
+    "Primary preparation interval starts after Runtime initialization and ends when all four segment functions are ready. Release/flush and whole-child/checker intervals are separate.",
+    "Batch instrumentation establishes overlapping invocation lifetimes, not concurrent backend compilation or GPU execution.",
+    "RUSAGE_CHILDREN high-water includes the fresh checker preparation helpers and is measured in Darwin bytes. Do not subtract before/after high-water or add RSS to Metal accounting. Batch RSS was higher in all three measured pairs.",
+    "System/thermal/cache state were not controlled or sampled. These three pairs provide descriptive latency/memory observations, not a general performance guarantee."
+  ],
+  "native_observations_sha256": {
+    "docs/evidence/v0.2-load-pair-01-native.json": "c867f968cc7419486f7a12bad3a882f6777de778e176911d3ece5868a2cfdc48",
+    "docs/evidence/v0.2-load-pair-02-native.json": "0230371ecd67c50e469f18170f38de588c93ae3e27bc4bc31f8302269f513fca",
+    "docs/evidence/v0.2-load-pair-03-native.json": "43a767dee2959fe42017aea2d04858746d999f79d05969a4bc332f38f16c627f"
+  }
+}

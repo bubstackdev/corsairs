@@ -1,0 +1,785 @@
+{
+  "kind": "corsairs-krea-fixed-fixture-acceptance",
+  "native_requested": true,
+  "mode": "eight-step",
+  "large_output_directory": "/private/tmp/corsairs-krea-paired-01/pair01-owned",
+  "commands": [
+    {
+      "argv": [
+        "xcrun",
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/swift-cache",
+        "/Users/zakkeown/Code/aether/lab/corsairs/experiments/swift/KreaScheduleReference.swift",
+        "-o",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/schedule-reference"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/schedule-reference"
+      ],
+      "returncode": 0,
+      "stdout": "{\"delta_bits\":[3174122112,3176515648,3179508184,3181743696,3184979192,3188793276,3192834602,3198103149],\"deltas\":[-0.043276309967041016,-0.052192926406860352,-0.064181983470916748,-0.080837845802307129,-0.10494416952133179,-0.14172261953353882,-0.20194306969642639,-0.31090107560157776],\"kind\":\"krea-fixed-tower-8-step-swift-schedule\",\"mu\":1.1499999999999999,\"sigma_bits\":[1065353216,1064627160,1063751508,1062674713,1061318479,1059557808,1057180097,1050619501,0],\"sigmas\":[1,0.95672369003295898,0.90453076362609863,0.84034878015518188,0.75951093435287476,0.65456676483154297,0.51284414529800415,0.31090107560157776,0],\"timestep_bits\":[1065353216,1064627160,1063751508,1062674713,1061318479,1059557808,1057180097,1050619501],\"timesteps\":[1,0.95672369003295898,0.90453076362609863,0.84034878015518188,0.75951093435287476,0.65456676483154297,0.51284414529800415,0.31090107560157776]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/driver",
+        "/private/tmp/corsairs-krea-paired-01/pair01-owned",
+        "eight-step",
+        "serial"
+      ],
+      "returncode": 0,
+      "stdout": "{\"event\":\"loaded\",\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel\",\"function\":\"segment\",\"expect_frequent_reshapes\":true,\"seconds\":6.685164416}\n{\"event\":\"loaded\",\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later1.aimodel\",\"function\":\"segment\",\"expect_frequent_reshapes\":true,\"seconds\":3.724079708}\n{\"event\":\"loaded\",\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later2.aimodel\",\"function\":\"segment\",\"expect_frequent_reshapes\":true,\"seconds\":6.773904667}\n{\"event\":\"loaded\",\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later3.aimodel\",\"function\":\"segment\",\"expect_frequent_reshapes\":true,\"seconds\":5.330398291}\n{\"event\":\"denoisers_ready\",\"policy\":\"serial\",\"count\":4,\"seconds\":22.513745167}\n{\"event\":\"segment\",\"step\":0,\"segment\":0,\"api\":\"run\",\"seconds\":4.387955916}\n{\"event\":\"first_cond\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/first-cond.f32\",\"sha256\":\"9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713\",\"expected_sha256\":\"9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713\",\"passed\":true}\n{\"event\":\"first_image_1\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/first-image_1.f32\",\"sha256\":\"8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734\",\"expected_sha256\":\"8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734\",\"passed\":true}\n{\"event\":\"first_text_1\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/first-text_1.f32\",\"sha256\":\"f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c\",\"expected_sha256\":\"f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c\",\"passed\":true}\n{\"event\":\"segment\",\"step\":0,\"segment\":1,\"api\":\"run\",\"seconds\":1.4318}\n{\"event\":\"segment\",\"step\":0,\"segment\":2,\"api\":\"run\",\"seconds\":1.3691335}\n{\"event\":\"segment\",\"step\":0,\"segment\":3,\"api\":\"run\",\"seconds\":1.069365}\n{\"event\":\"step0_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step0.latents.f32\",\"sha256\":\"df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296\",\"expected_sha256\":\"df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":0,\"seconds\":8.55104675}\n{\"event\":\"segment\",\"step\":1,\"segment\":0,\"api\":\"run\",\"seconds\":1.098385291}\n{\"event\":\"segment\",\"step\":1,\"segment\":1,\"api\":\"run\",\"seconds\":1.029625875}\n{\"event\":\"segment\",\"step\":1,\"segment\":2,\"api\":\"run\",\"seconds\":1.105814333}\n{\"event\":\"segment\",\"step\":1,\"segment\":3,\"api\":\"run\",\"seconds\":1.135216708}\n{\"event\":\"step1_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step1.latents.f32\",\"sha256\":\"dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140\",\"expected_sha256\":\"dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":1,\"seconds\":4.390319958}\n{\"event\":\"segment\",\"step\":2,\"segment\":0,\"api\":\"run\",\"seconds\":1.074291125}\n{\"event\":\"segment\",\"step\":2,\"segment\":1,\"api\":\"run\",\"seconds\":1.032472083}\n{\"event\":\"segment\",\"step\":2,\"segment\":2,\"api\":\"run\",\"seconds\":1.020947209}\n{\"event\":\"segment\",\"step\":2,\"segment\":3,\"api\":\"run\",\"seconds\":1.025111416}\n{\"event\":\"step2_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step2.latents.f32\",\"sha256\":\"25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842\",\"expected_sha256\":\"25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":2,\"seconds\":4.179278292}\n{\"event\":\"segment\",\"step\":3,\"segment\":0,\"api\":\"run\",\"seconds\":1.066955583}\n{\"event\":\"segment\",\"step\":3,\"segment\":1,\"api\":\"run\",\"seconds\":1.03487475}\n{\"event\":\"segment\",\"step\":3,\"segment\":2,\"api\":\"run\",\"seconds\":1.100754167}\n{\"event\":\"segment\",\"step\":3,\"segment\":3,\"api\":\"run\",\"seconds\":1.086840875}\n{\"event\":\"step3_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step3.latents.f32\",\"sha256\":\"9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66\",\"expected_sha256\":\"9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":3,\"seconds\":4.317668542}\n{\"event\":\"segment\",\"step\":4,\"segment\":0,\"api\":\"run\",\"seconds\":1.0199055}\n{\"event\":\"segment\",\"step\":4,\"segment\":1,\"api\":\"run\",\"seconds\":1.00722}\n{\"event\":\"segment\",\"step\":4,\"segment\":2,\"api\":\"run\",\"seconds\":1.038509708}\n{\"event\":\"segment\",\"step\":4,\"segment\":3,\"api\":\"run\",\"seconds\":1.06814375}\n{\"event\":\"step4_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step4.latents.f32\",\"sha256\":\"9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150\",\"expected_sha256\":\"9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":4,\"seconds\":4.170053625}\n{\"event\":\"segment\",\"step\":5,\"segment\":0,\"api\":\"run\",\"seconds\":1.080504917}\n{\"event\":\"segment\",\"step\":5,\"segment\":1,\"api\":\"run\",\"seconds\":1.21352675}\n{\"event\":\"segment\",\"step\":5,\"segment\":2,\"api\":\"run\",\"seconds\":1.0981475}\n{\"event\":\"segment\",\"step\":5,\"segment\":3,\"api\":\"run\",\"seconds\":0.960624708}\n{\"event\":\"step5_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step5.latents.f32\",\"sha256\":\"73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a\",\"expected_sha256\":\"73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":5,\"seconds\":4.398992542}\n{\"event\":\"segment\",\"step\":6,\"segment\":0,\"api\":\"run\",\"seconds\":1.094312833}\n{\"event\":\"segment\",\"step\":6,\"segment\":1,\"api\":\"run\",\"seconds\":1.25482825}\n{\"event\":\"segment\",\"step\":6,\"segment\":2,\"api\":\"run\",\"seconds\":1.081620708}\n{\"event\":\"segment\",\"step\":6,\"segment\":3,\"api\":\"run\",\"seconds\":1.035932375}\n{\"event\":\"step6_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step6.latents.f32\",\"sha256\":\"fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540\",\"expected_sha256\":\"fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":6,\"seconds\":4.501099167}\n{\"event\":\"segment\",\"step\":7,\"segment\":0,\"api\":\"run\",\"seconds\":1.104739875}\n{\"event\":\"segment\",\"step\":7,\"segment\":1,\"api\":\"run\",\"seconds\":1.042183208}\n{\"event\":\"segment\",\"step\":7,\"segment\":2,\"api\":\"run\",\"seconds\":1.008404583}\n{\"event\":\"segment\",\"step\":7,\"segment\":3,\"api\":\"run\",\"seconds\":1.0177585}\n{\"event\":\"step7_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/step7.latents.f32\",\"sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"expected_sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":7,\"seconds\":4.201719583}\n{\"event\":\"final_latents\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/final.latents.f32\",\"sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"expected_sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"passed\":true}\n{\"event\":\"loaded\",\"model\":\"/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel\",\"function\":\"decode\",\"expect_frequent_reshapes\":false,\"seconds\":0.069040667}\n{\"event\":\"decoder_call\",\"api\":\"run\",\"seconds\":0.538385791}\n{\"event\":\"decoded_pixels\",\"file\":\"/private/tmp/corsairs-krea-paired-01/pair01-owned/pixels.chw.f32\",\"sha256\":\"4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4\",\"expected_sha256\":\"4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4\",\"passed\":true}\n{\"event\":\"decode_complete\",\"seconds\":0.577886}\n{\"event\":\"complete\",\"mode\":\"eight-step\",\"steps\":8,\"decoder_api\":\"run\",\"seconds\":39.611233416,\"passed\":true}\n",
+      "stderr": "2026-10-15 11:31:32.477591-0600 driver[57793:769134] Error: ANE cannot handle intermediate tensor type fp32\n2026-10-15 11:31:32.477616-0600 driver[57793:769134] [validation] Failed to create unit plist.\n2026-10-15 11:31:32.477792-0600 driver[57793:769134] Error: ANE cannot handle intermediate tensor type fp32\n2026-10-15 11:31:32.477800-0600 driver[57793:769134] [validation] Failed to create unit plist.\n",
+      "timed_out": false,
+      "elapsed_seconds": 62.19661379200261,
+      "events_file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/events.jsonl",
+      "stderr_file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/native.stderr.log"
+    }
+  ],
+  "passed": true,
+  "load_policy": "serial",
+  "cache_policy": "No SDK/OS cache purge. Actual source hashes are streamed before execution unless explicitly skipped; these are cache-retaining preparation timings, not cold starts.",
+  "scope": "One fixed 768x1344 fixture; plain-text encoder from saved token IDs in encoder modes, four unchanged specialized denoisers/eight original Euler steps/original decoder in full-generation modes; no tokenizer, reference-image encoder or speed claim.",
+  "execution": "Owned host-copy denoiser carries and decoder call.",
+  "timing_scope": "Instrumented correctness run: model calls, readbacks, hashes, disk writes, CPU Euler and decoder load contribute different phase totals. One sequential run is not a controlled performance comparison.",
+  "external": {
+    "krea_root": "/Users/zakkeown/Code/atelier/lab/krea-lab",
+    "bundle": "/Users/zakkeown/Code/atelier/lab/krea-lab/variants/fixed-tower-20",
+    "fixture_root": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c",
+    "case": "tower-768x1344",
+    "inputs": {
+      "noise": {
+        "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/noise.f32",
+        "sha256": "946d62cbf0cbe41a2260a5becf44fde4e44793609503b8b5c743aaa456bfb73a",
+        "shape": [
+          4032,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "text": {
+        "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/text.f32",
+        "sha256": "440ed8b4c7020699e9a7f38964ba29f924bb423a685db5f1ca4779691d81dacc",
+        "shape": [
+          20,
+          30720
+        ],
+        "dtype": "float32"
+      },
+      "rope_image": {
+        "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/rope_image.f32",
+        "sha256": "807e11d7ccea4eb73acf59e4a63169c8bb08e1e0d0e0ea1d15f420ef0ada167e",
+        "shape": [
+          4032,
+          2,
+          128
+        ],
+        "dtype": "float32"
+      },
+      "ids": {
+        "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/ids.i32",
+        "sha256": "9e244b771451cfce864d4677fedc188738f5df2428d0614e1bd7e35c03154ce4",
+        "shape": [
+          1,
+          54
+        ],
+        "dtype": "int32"
+      },
+      "mask": {
+        "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/cases/tower-768x1344/mask.i32",
+        "sha256": "01f50e9d6f16e5678169b244083866b4f53af40c4f32303a9ff799ae6ca10e29",
+        "shape": [
+          1,
+          54
+        ],
+        "dtype": "int32"
+      }
+    },
+    "assets": [
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel",
+        "function": "segment",
+        "source_sha256": "bec8df89165b2dfa2aa69a793fb589c28e0e44d23179727cd5d796874945569a",
+        "expect_frequent_reshapes": true,
+        "source_bytes": 3704868693,
+        "mtime_ns": 1792080773900907619,
+        "full_source_hash_verified": true
+      },
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later1.aimodel",
+        "function": "segment",
+        "source_sha256": "fb1107e8f9ac4acc911cfe99508b6b6994a714cc07fd3e2abcc7c9e2ceb01939",
+        "expect_frequent_reshapes": true,
+        "source_bytes": 3041085348,
+        "mtime_ns": 1792080901765157306,
+        "full_source_hash_verified": true
+      },
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later2.aimodel",
+        "function": "segment",
+        "source_sha256": "cd7a539c56c439e15780e647c1b188d0cf3b1323c8b60121bec541bcce0b8cc8",
+        "expect_frequent_reshapes": true,
+        "source_bytes": 3041085341,
+        "mtime_ns": 1792080914419044625,
+        "full_source_hash_verified": true
+      },
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later3.aimodel",
+        "function": "segment",
+        "source_sha256": "a5ae06b35ec294d82e7f3af23353e002f67069ef01b375f4bcd4879c892a3983",
+        "expect_frequent_reshapes": true,
+        "source_bytes": 3041505838,
+        "mtime_ns": 1792080926788969427,
+        "full_source_hash_verified": true
+      },
+      {
+        "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel",
+        "function": "decode",
+        "source_sha256": "fc98ff142fd0f5499fd2bd26e6a7b4ec50bab00da3bda6d7b57afece16b24581",
+        "expect_frequent_reshapes": false,
+        "source_bytes": 52566110,
+        "mtime_ns": 1791559335634541988,
+        "full_source_hash_verified": true
+      }
+    ],
+    "swift_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+    "swift_record_sha256": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+    "swift_step_hashes": [
+      "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74"
+    ],
+    "swift_final_hash": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+    "swift_pixel_hash": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+    "swift_pixels_file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-full-tower/fixed-pixels.f32",
+    "encoder": {
+      "path": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-text.aimodel",
+      "tokens": 54,
+      "drop_leading_rows": 34,
+      "inputs": "input_ids, attention_mask and running position_ids int32 [1,54]",
+      "native_output": "text_embeds float16 [54,30720]",
+      "checked_output": "drop 34 leading rows, widen float16 to float32 [20,30720]",
+      "swift_records_sha256": {
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/original-encoded-tower/record.json": "64fe9b11fb22dab9ac2fdfc41582a9ca38e08839891942b1409c71e91b003d79",
+        "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-encoded-tower/record.json": "0559c883d9fbd00105cc0fbf56f00f89529691eb0a0a6ec8f89c957638c930fd"
+      },
+      "text_sha256": "10c6d354ae88f4f33d950ef9f9d45e06d8a0a2308dbcc6576e7968a4480f7cab",
+      "step_hashes": [
+        "be46d444bc1ae51dd87d70af33fb2ae19e2796c7dc18bb7872085442ac87cdce",
+        "6648b0469606d208bedf40712de74bdba7857e55530c3fd98d836b5283ec6fc3",
+        "129b2c517cb2bb1651bc7064c3e5cc309f3f6a7e45ce7ecd3e53e9770dc90f40",
+        "949a2cda554c23627a2675b9a6e78c2b7b519ac0cf9f422b461c78550eecb01f",
+        "d47c7972dd390d5ed2de07697804f5c306c67aa9c86377ccf4b143836389d1f0",
+        "ccbf28e0509f005be40cfbe7c91c6a6cef6d82745aa4d5908c80e2b31c89df8a",
+        "97a710bc8450a33957a5a4fa9963c016392118763ea9d1e646773b0d0ce89ba9",
+        "898f4ff656cedfca1348b0b139fc07145252bdf0e9fff86d49278d27b2bde788"
+      ],
+      "final_sha256": "898f4ff656cedfca1348b0b139fc07145252bdf0e9fff86d49278d27b2bde788",
+      "pixel_sha256": "9b40e6017aabb0fddb81c29e11f928b9ceb4eda4d8e9639f49a9508e88937d25",
+      "limitation": "Saved IDs bypass tokenization. Swift records retain the exact trimmed text hash, not a raw encoded-text payload. Encoder-generated text and its downstream goldens differ from the provided-text fixture."
+    },
+    "first_carries": {
+      "text": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "image": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "cond": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713"
+    },
+    "source_files": {
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherDiffusion/FlowMatchSchedule.swift": "de7cda94ef05398239e8658f8be16e029189e4c814a475127c05cc6f2a75bd39",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherRuntime/DiffusionStepKernel.swift": "71a97af9371626a6cccc0690a15f211855d6c2c5e82ff17e57c27a4f0147fd87",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherRuntime/FunctionEngine.swift": "1d0e51cbbb0bc88608595bee6694a694b444f36fe2616dbb3368cdb63655824c",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/Sources/AetherRuntime/Specialization.swift": "4f6f90d325bdf6cf2ada86981a2fd77d42d77ce8dce365c899f44f3923062355",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/Probe/main.swift": "c1ff81e51dc5ad9d8c9e5a0b9713b843c5717651c50a3186f2d405baf0a8a9cc",
+      "/Users/zakkeown/Code/atelier/lab/krea-lab/variants/fixed-tower-20/aether.json": "eb3cc276e0d38d8033b03e98561be53209d7b4134ddc6ed80a2c9dd56219b9cd",
+      "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/fixtures/4c12ae019488ff1c/fixture.json": "fb24597c3a9a8050633c91d216c06cf22143060b21e02f848341069e47eaea0d"
+    },
+    "bindings": {
+      "authoritative_latents": "float32 [84,48,64]",
+      "denoiser_latents": "float16 [4032,64]",
+      "text": "float16 [20,30720]",
+      "rope_image": "float32 [4032,2,128]",
+      "sigma": "float32 [1]",
+      "carries": "float32 text_N[20,6144],image_N[4032,6144],cond[8,6144]",
+      "velocity": "float16 [4032,64]",
+      "decoder_input": "float16 [84,48,64]",
+      "pixels": "float32 CHW [3,1344,768]"
+    },
+    "resource_budget": {
+      "concurrent_native_generations": 1,
+      "recorded_single_model_metal_gib": 26.99,
+      "recorded_peak_rss_gib": 35.49,
+      "recorded_host_ram_gib": 64,
+      "large_external_source_bytes": 12881111330,
+      "note": "Accounting values overlap and must not be summed. First correctness gate, no speed claim. No encoder loaded, no previews, no concurrent GPU job."
+    }
+  },
+  "schedule": {
+    "delta_bits": [
+      3174122112,
+      3176515648,
+      3179508184,
+      3181743696,
+      3184979192,
+      3188793276,
+      3192834602,
+      3198103149
+    ],
+    "deltas": [
+      -0.043276309967041016,
+      -0.05219292640686035,
+      -0.06418198347091675,
+      -0.08083784580230713,
+      -0.10494416952133179,
+      -0.14172261953353882,
+      -0.2019430696964264,
+      -0.31090107560157776
+    ],
+    "kind": "krea-fixed-tower-8-step-swift-schedule",
+    "mu": 1.15,
+    "sigma_bits": [
+      1065353216,
+      1064627160,
+      1063751508,
+      1062674713,
+      1061318479,
+      1059557808,
+      1057180097,
+      1050619501,
+      0
+    ],
+    "sigmas": [
+      1,
+      0.956723690032959,
+      0.9045307636260986,
+      0.8403487801551819,
+      0.7595109343528748,
+      0.654566764831543,
+      0.5128441452980042,
+      0.31090107560157776,
+      0
+    ],
+    "timestep_bits": [
+      1065353216,
+      1064627160,
+      1063751508,
+      1062674713,
+      1061318479,
+      1059557808,
+      1057180097,
+      1050619501
+    ],
+    "timesteps": [
+      1,
+      0.956723690032959,
+      0.9045307636260986,
+      0.8403487801551819,
+      0.7595109343528748,
+      0.654566764831543,
+      0.5128441452980042,
+      0.31090107560157776
+    ]
+  },
+  "build_manifest_sha256": "cb583a415b07d7dde831872f244980dc344d5f9d352502feb2bba48cd3ccd2f6",
+  "build": {
+    "source_hashes": {
+      "Cargo.lock": "66f43b677d017768af58d265ab7fa60a871abf71794c353612c4624937fc745c",
+      "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+      "crates/corsairs-abi/Cargo.toml": "269374f88bafd7a551459a62bae9781623c89aebd5045e58bbab97c3f354e661",
+      "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+      "crates/corsairs-abi/examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+      "crates/corsairs-abi/examples/native_chain.rs": "26d657a45e8b0ebba12da8474c278eb6ffc7b2769518c81ac7e24b3e6dc5a075",
+      "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+      "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+      "crates/corsairs-abi/src/bin/corsairs.rs": "15d081a04fac978c56cd9bfd868d9719df839c7c8fa0ff8ec4fe187684262399",
+      "crates/corsairs-abi/src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+      "crates/corsairs-abi/src/facade/batch.rs": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+      "crates/corsairs-abi/src/facade/handles.rs": "e5f53d41cbee1f4c105a9ea1df911a4ec22b3904520a4f6d5fe3ebf098e79b34",
+      "crates/corsairs-abi/src/facade/metal.rs": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+      "crates/corsairs-abi/src/facade.rs": "68197f116bff44727dfe8d843aeade2bcfd6b55e53363e5292fb4e195bf03f9d",
+      "crates/corsairs-abi/src/lib.rs": "e8f1dd3e1a0af4c6f9b1e01c8564f2427bf92ba451a50d931c84db782d996873",
+      "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+      "crates/corsairs-abi/src/native/async_task/pending.rs": "834f8ed091980ba649a69d70e92fb2ca3e670c5a0bb1a1f8d8de03e8e7671884",
+      "crates/corsairs-abi/src/native/async_task.rs": "85d25200bb9c06db8c724d521429e3bc9af6e5812a8d14e92c9f8f304694883c",
+      "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+      "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+      "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+      "crates/corsairs-abi/src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+      "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+      "crates/corsairs-abi/src/native/mod.rs": "76095cce80ba77a23bbd93b532654b5f99f5dc995bf26278761b88f3f5ca5589",
+      "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+      "crates/corsairs-abi/src/native/owned/batch.rs": "1b8674ad189d579b8476ec86f45d1927f678dfd80680406c0020cf6e8c028c58",
+      "crates/corsairs-abi/src/native/owned/handles.rs": "5e251bdc4836e9d3332dd1a89f708b3cdd6723952ac20dee4a470d21ff80e8a5",
+      "crates/corsairs-abi/src/native/owned/metal.rs": "b5b55ee9ecd0792b5fa2ebe103fdacbef0b3cb55dea4020cb2eaa793317715d7",
+      "crates/corsairs-abi/src/native/owned.rs": "e9bd7304b365b0d16c9ff8f88e7579533906c595509f45ae2775d3bdd22e9250",
+      "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+      "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+      "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+      "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+      "crates/corsairs-abi/src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+      "crates/corsairs-abi/src/worker.rs": "1a801c2f5129131be09a43fe6c5ed3aabe6f398c716e63f63f259319fd148fca",
+      "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+      "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+      "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+      "experiments/rust/krea_driver.rs": "4e9d1e01d12b182fe427f76cdbf5182bda29c3242c05ff1c257e80a2e947056a",
+      "experiments/swift/KreaScheduleReference.swift": "fcb6cda65397812de0f47b1b4bed6b9d99348ad389ea18cbe96824c7462b02e5",
+      "scripts/benchmark_krea.py": "b9de91223de1c27af1a8a4e7f21344189c24a4894c1f0616f0ea90e5aa6a8217",
+      "scripts/check_krea.py": "ddf01291c2a063950db5e960200fad1c78a034e6f44a24292c2739f7a9f47239",
+      "target/krea-check/data.rs": "39d6e6823a7929dc41fea7f392d13aa30b28a3901b863ef6c06e19f13f1c7aae"
+    },
+    "binary_sha256": "42495cdf30073668661322903941fba34646738511c99c39fcf40220a992dc48",
+    "rlib_sha256": "1cf884d2e3ee90a5c3f607e649ecf79dc1ac3e2c623cd89566e3895369efa6ae",
+    "cargo_target_directory": "/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/cargo",
+    "cargo_features": [
+      "abi-research"
+    ],
+    "compiler": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)",
+    "euler_ir_sha256": "08c36361b810137d2c9e74642a8e04e8d10586e302d4c6f4c7697de053e3a318",
+    "euler_lowering": "separate noinline f32 product followed by f32 addition; no llvm.fma/fmuladd intrinsic"
+  },
+  "prepared": true,
+  "native_process": {
+    "pid": 57793,
+    "timeout_seconds": 1200,
+    "events_file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/events.jsonl",
+    "stderr_file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/native.stderr.log",
+    "started_at": "2026-10-15T17:30:30.852362+00:00"
+  },
+  "process_memory": {
+    "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+    "platform": "darwin",
+    "native_before_raw": 152666112,
+    "native_after_raw": 13727662080,
+    "raw_unit": "bytes",
+    "native_before_max_rss_bytes": 152666112,
+    "native_after_max_rss_bytes": 13727662080,
+    "new_child_high_water": true,
+    "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+  },
+  "native_events": [
+    {
+      "event": "loaded",
+      "model": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel",
+      "function": "segment",
+      "expect_frequent_reshapes": true,
+      "seconds": 6.685164416
+    },
+    {
+      "event": "loaded",
+      "model": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later1.aimodel",
+      "function": "segment",
+      "expect_frequent_reshapes": true,
+      "seconds": 3.724079708
+    },
+    {
+      "event": "loaded",
+      "model": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later2.aimodel",
+      "function": "segment",
+      "expect_frequent_reshapes": true,
+      "seconds": 6.773904667
+    },
+    {
+      "event": "loaded",
+      "model": "/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later3.aimodel",
+      "function": "segment",
+      "expect_frequent_reshapes": true,
+      "seconds": 5.330398291
+    },
+    {
+      "event": "denoisers_ready",
+      "policy": "serial",
+      "count": 4,
+      "seconds": 22.513745167
+    },
+    {
+      "event": "segment",
+      "step": 0,
+      "segment": 0,
+      "api": "run",
+      "seconds": 4.387955916
+    },
+    {
+      "event": "first_cond",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/first-cond.f32",
+      "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "expected_sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "passed": true
+    },
+    {
+      "event": "first_image_1",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/first-image_1.f32",
+      "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "expected_sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "passed": true
+    },
+    {
+      "event": "first_text_1",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/first-text_1.f32",
+      "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "expected_sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "passed": true
+    },
+    {
+      "event": "segment",
+      "step": 0,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.4318
+    },
+    {
+      "event": "segment",
+      "step": 0,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.3691335
+    },
+    {
+      "event": "segment",
+      "step": 0,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.069365
+    },
+    {
+      "event": "step0_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step0.latents.f32",
+      "sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "expected_sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 0,
+      "seconds": 8.55104675
+    },
+    {
+      "event": "segment",
+      "step": 1,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.098385291
+    },
+    {
+      "event": "segment",
+      "step": 1,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.029625875
+    },
+    {
+      "event": "segment",
+      "step": 1,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.105814333
+    },
+    {
+      "event": "segment",
+      "step": 1,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.135216708
+    },
+    {
+      "event": "step1_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step1.latents.f32",
+      "sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "expected_sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 1,
+      "seconds": 4.390319958
+    },
+    {
+      "event": "segment",
+      "step": 2,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.074291125
+    },
+    {
+      "event": "segment",
+      "step": 2,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.032472083
+    },
+    {
+      "event": "segment",
+      "step": 2,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.020947209
+    },
+    {
+      "event": "segment",
+      "step": 2,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.025111416
+    },
+    {
+      "event": "step2_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step2.latents.f32",
+      "sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "expected_sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 2,
+      "seconds": 4.179278292
+    },
+    {
+      "event": "segment",
+      "step": 3,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.066955583
+    },
+    {
+      "event": "segment",
+      "step": 3,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.03487475
+    },
+    {
+      "event": "segment",
+      "step": 3,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.100754167
+    },
+    {
+      "event": "segment",
+      "step": 3,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.086840875
+    },
+    {
+      "event": "step3_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step3.latents.f32",
+      "sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "expected_sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 3,
+      "seconds": 4.317668542
+    },
+    {
+      "event": "segment",
+      "step": 4,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.0199055
+    },
+    {
+      "event": "segment",
+      "step": 4,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.00722
+    },
+    {
+      "event": "segment",
+      "step": 4,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.038509708
+    },
+    {
+      "event": "segment",
+      "step": 4,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.06814375
+    },
+    {
+      "event": "step4_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step4.latents.f32",
+      "sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "expected_sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 4,
+      "seconds": 4.170053625
+    },
+    {
+      "event": "segment",
+      "step": 5,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.080504917
+    },
+    {
+      "event": "segment",
+      "step": 5,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.21352675
+    },
+    {
+      "event": "segment",
+      "step": 5,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.0981475
+    },
+    {
+      "event": "segment",
+      "step": 5,
+      "segment": 3,
+      "api": "run",
+      "seconds": 0.960624708
+    },
+    {
+      "event": "step5_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step5.latents.f32",
+      "sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "expected_sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 5,
+      "seconds": 4.398992542
+    },
+    {
+      "event": "segment",
+      "step": 6,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.094312833
+    },
+    {
+      "event": "segment",
+      "step": 6,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.25482825
+    },
+    {
+      "event": "segment",
+      "step": 6,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.081620708
+    },
+    {
+      "event": "segment",
+      "step": 6,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.035932375
+    },
+    {
+      "event": "step6_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step6.latents.f32",
+      "sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "expected_sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 6,
+      "seconds": 4.501099167
+    },
+    {
+      "event": "segment",
+      "step": 7,
+      "segment": 0,
+      "api": "run",
+      "seconds": 1.104739875
+    },
+    {
+      "event": "segment",
+      "step": 7,
+      "segment": 1,
+      "api": "run",
+      "seconds": 1.042183208
+    },
+    {
+      "event": "segment",
+      "step": 7,
+      "segment": 2,
+      "api": "run",
+      "seconds": 1.008404583
+    },
+    {
+      "event": "segment",
+      "step": 7,
+      "segment": 3,
+      "api": "run",
+      "seconds": 1.0177585
+    },
+    {
+      "event": "step7_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/step7.latents.f32",
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "expected_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "passed": true
+    },
+    {
+      "event": "step_complete",
+      "step": 7,
+      "seconds": 4.201719583
+    },
+    {
+      "event": "final_latents",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/final.latents.f32",
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "expected_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "passed": true
+    },
+    {
+      "event": "loaded",
+      "model": "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel",
+      "function": "decode",
+      "expect_frequent_reshapes": false,
+      "seconds": 0.069040667
+    },
+    {
+      "event": "decoder_call",
+      "api": "run",
+      "seconds": 0.538385791
+    },
+    {
+      "event": "decoded_pixels",
+      "file": "/private/tmp/corsairs-krea-paired-01/pair01-owned/pixels.chw.f32",
+      "sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "expected_sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "passed": true
+    },
+    {
+      "event": "decode_complete",
+      "seconds": 0.577886
+    },
+    {
+      "event": "complete",
+      "mode": "eight-step",
+      "steps": 8,
+      "decoder_api": "run",
+      "seconds": 39.611233416,
+      "passed": true
+    }
+  ],
+  "native_validated": true
+}

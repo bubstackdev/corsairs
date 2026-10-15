@@ -116,6 +116,49 @@ Compiler references: [TaskReference.swift](../experiments/swift/TaskReference.sw
 
 Internal `await_native` returns Err only before scheduling. On Ok, the child has consumed its declared owned arguments and any returned error transfers to the caller, even if subsequent lifecycle validation fails. There is no timeout/cancellation path that frees outstanding work. The blocking driver rejects execution inside an existing Swift task.
 
+### Split-phase model batches
+
+The v0.2 batch adapter preserves the same root/child/completion layout but
+separates starting from joining. After flags-zero task creation and private root
+setup, it retains the running reference and calls
+`swift_task_enqueueTaskOnExecutor`: x0=task, x1/x2=generic executor `{0,0}`.
+The installed [Swift compiler reference](../experiments/swift/EnqueueReference.swift)
+and [IR](../experiments/swift/EnqueueReference.ll) corroborate this register
+lowering. [The calibration manifest](../experiments/swift/EnqueueCalibration.json)
+pins upstream declarations and task lifecycle source; it does not assert an
+exact source match to the installed OS runtime. Ordinary `await_native` retains
+the existing `swift_job_run` path.
+
+`PendingCall` holds the caller task reference and its own completion Arc until
+the post-native-completion join. Dropping an unobserved call joins before
+releasing any owned error. A `PreparedBatch` guard joins **all** started loads
+before any argument/result/error fields are destroyed, including early return
+and Rust unwind paths. Model IDs are allocated before transactional insertion.
+Native session ownership never moves to a Rust helper thread. Development
+overlap probes measure invocation lifetimes and expose only ordinal task labels;
+they do not establish backend compute concurrency. [Model batch evidence and
+limits](parallel-loads.md) record the separate native validation.
+
+### Synchronous function bodies on Swift tasks
+
+`async_task/sync_call.rs` uses a distinct root80 entry with no child async
+descriptor. Its C callback invokes the existing synchronous throwing
+`AIModel.loadFunction(named:)` ABI: x0/x1=borrowed String words,
+x8=Optional<InferenceFunction> result storage, x20=borrowed model storage,
+x21=owned error result. The
+[strict Swift 6 reference](../experiments/swift/FunctionBatchReference.swift)
+confirms borrowed arguments and a concurrent detached caller. SDK interfaces,
+compiler outputs and their hashes are retained in the
+[function calibration manifest](evidence/v0.2-function-batch/compiler-manifest.json).
+
+The callback restores x22/LR/SP and stores any synchronous error separately.
+It completes the outer native Void task with x20=0; the existing native
+completion wrapper then signals the worker, which joins before reading output
+storage or releasing caller ownership. Every started function task joins before
+any batch owner/error cleanup, and records enter the session only after all
+reflection and ID allocation succeed. Batches currently require distinct model
+handles. No `Send` implementation is added for native session/value owners.
+
 ## Foundation values and model loading
 
 | Symbol | Register/ownership contract |

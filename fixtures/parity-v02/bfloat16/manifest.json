@@ -1,0 +1,442 @@
+{
+  "schema": 1,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/aether/lab/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "native_executed": false,
+  "dtype": "bfloat16",
+  "comparison": "Exact bytes; arithmetic uses finite exactly representable values.",
+  "all_encodings": {
+    "file": "all-encodings.bin",
+    "shape": [
+      65536
+    ],
+    "count": 65536,
+    "sha256": "68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b",
+    "purpose": "Raw storage identity only; never NaN arithmetic."
+  },
+  "cases": [
+    {
+      "name": "double",
+      "model": "double/model.aimodel",
+      "function": "main",
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "double/0-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "3ff102ef2404f89b6cda793beef876dcb23ebf2f00e0f30bb413bc7a6706777e"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "double/0-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "scalar",
+      "model": "scalar/model.aimodel",
+      "function": "main",
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "scalar/0-x.bin",
+              "shape": [],
+              "dtype": "bfloat16",
+              "sha256": "c7ccab891107944a18370e65280b50accd6b7023a1a1799970ca100c799b11db"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "scalar/0-expected-y.bin",
+              "shape": [],
+              "dtype": "bfloat16",
+              "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "model": "empty/model.aimodel",
+      "function": "main",
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "empty/0-x.bin",
+              "shape": [
+                0,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "empty/0-expected-y.bin",
+              "shape": [
+                0,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "dynamic",
+      "model": "dynamic/model.aimodel",
+      "function": "main",
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "dynamic/0-x.bin",
+              "shape": [
+                1,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "df55be14770b75c8f0ddd1152429c01b5cf1b6840266622a5fde75bbb74ae60c"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "dynamic/0-expected-y.bin",
+              "shape": [
+                1,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "dynamic/1-x.bin",
+              "shape": [
+                4,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "b3fd5386fde45e493868e21cbf4744a056acb03e439009af07f32719d8827056"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "dynamic/1-expected-y.bin",
+              "shape": [
+                4,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "dynamic/2-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "b36f15bcb528bd68077db000924aee982d20e3de3c7ede7749e67eda5ae5ca8c"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "dynamic/2-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "dynamic/3-x.bin",
+              "shape": [
+                1,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "df55be14770b75c8f0ddd1152429c01b5cf1b6840266622a5fde75bbb74ae60c"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "dynamic/3-expected-y.bin",
+              "shape": [
+                1,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "transpose",
+      "model": "transpose/model.aimodel",
+      "function": "main",
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "transpose/0-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "3ff102ef2404f89b6cda793beef876dcb23ebf2f00e0f30bb413bc7a6706777e"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "transpose/0-expected-y.bin",
+              "shape": [
+                3,
+                2
+              ],
+              "dtype": "bfloat16",
+              "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "accumulator",
+      "model": "accumulator/model.aimodel",
+      "function": "main",
+      "steps": [
+        {
+          "inputs": {
+            "x": {
+              "file": "accumulator/0-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "accumulator/0-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "accumulator/0-expected-state.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "accumulator/1-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "61c4c67e722d64db1ca9064b3ad6c327bc4a68c7fa9cd4b036e0890cc284ed12"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "accumulator/1-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "accumulator/1-expected-state.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6"
+            }
+          }
+        },
+        {
+          "inputs": {
+            "x": {
+              "file": "accumulator/2-x.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "a8c3c50be91f116761c95b3137575dd8e77e91794f6ff74fb18fe40875bb640c"
+            }
+          },
+          "outputs": {
+            "y": {
+              "file": "accumulator/2-expected-y.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b"
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "file": "accumulator/2-expected-state.bin",
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "bfloat16",
+              "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b"
+            }
+          }
+        }
+      ],
+      "state": {
+        "accumulator": {
+          "file": "accumulator/initial-state.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "bfloat16",
+          "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b"
+        }
+      }
+    }
+  ],
+  "sha256": {
+    "accumulator/0-expected-state.bin": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+    "accumulator/0-expected-y.bin": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+    "accumulator/0-x.bin": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+    "accumulator/1-expected-state.bin": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+    "accumulator/1-expected-y.bin": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+    "accumulator/1-x.bin": "61c4c67e722d64db1ca9064b3ad6c327bc4a68c7fa9cd4b036e0890cc284ed12",
+    "accumulator/2-expected-state.bin": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+    "accumulator/2-expected-y.bin": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+    "accumulator/2-x.bin": "a8c3c50be91f116761c95b3137575dd8e77e91794f6ff74fb18fe40875bb640c",
+    "accumulator/graph.mlir": "4fd5ad9c8be18e74670f00bca6337c4259fc5c4263f475163cabd85bbd05bc83",
+    "accumulator/initial-state.bin": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+    "accumulator/model.aimodel/main.hash": "3e5d233402f0737369bd60c5a943254b85956efe81a624d3c0f39687cc5781e1",
+    "accumulator/model.aimodel/main.mlirb": "349f988ad4c909b36e3525e03e0f0bc337a9a70855d53807f118feb004249068",
+    "accumulator/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056",
+    "all-encodings.bin": "68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b",
+    "double/0-expected-y.bin": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+    "double/0-x.bin": "3ff102ef2404f89b6cda793beef876dcb23ebf2f00e0f30bb413bc7a6706777e",
+    "double/graph.mlir": "32dcfafecb7cff70f187f086554af5b013d2c4323b57e7b5ea9a42a015e0f612",
+    "double/model.aimodel/main.hash": "1c93268f57a298cdc3ce93c59b7463d6d87714f284e9c03099a852320dc16f0f",
+    "double/model.aimodel/main.mlirb": "567f6dd7c91e07653b3fd4ccef47fd4a592ccadf36ebea790d1f1f3f558bafe6",
+    "double/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056",
+    "dynamic/0-expected-y.bin": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+    "dynamic/0-x.bin": "df55be14770b75c8f0ddd1152429c01b5cf1b6840266622a5fde75bbb74ae60c",
+    "dynamic/1-expected-y.bin": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+    "dynamic/1-x.bin": "b3fd5386fde45e493868e21cbf4744a056acb03e439009af07f32719d8827056",
+    "dynamic/2-expected-y.bin": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+    "dynamic/2-x.bin": "b36f15bcb528bd68077db000924aee982d20e3de3c7ede7749e67eda5ae5ca8c",
+    "dynamic/3-expected-y.bin": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+    "dynamic/3-x.bin": "df55be14770b75c8f0ddd1152429c01b5cf1b6840266622a5fde75bbb74ae60c",
+    "dynamic/graph.mlir": "378d799fd7922cc344d566e090b7072a206675d030feec40f7a646efc3b2d935",
+    "dynamic/model.aimodel/main.hash": "7d15af271b0a4e7c16e904d87f524de9c174d09a19ee093a37dbff9894c10063",
+    "dynamic/model.aimodel/main.mlirb": "6c83fa730a9af096dfbc675764d41c9115ec99714ce634171d1db8b894ae498c",
+    "dynamic/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056",
+    "empty/0-expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "empty/0-x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "empty/graph.mlir": "86bcb5a639c0a9658e1794aff02fe8848f1d781a034862b5d50d2f118a03c821",
+    "empty/model.aimodel/main.hash": "d82ae7483c153a1f301d7b97fe10391b61a581103450c9a0a54478cdc3be4422",
+    "empty/model.aimodel/main.mlirb": "02edc0c891bf6d508ba1c4fd5b607d8833bf777278d518fffa2e50fcc7714e6f",
+    "empty/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056",
+    "scalar/0-expected-y.bin": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+    "scalar/0-x.bin": "c7ccab891107944a18370e65280b50accd6b7023a1a1799970ca100c799b11db",
+    "scalar/graph.mlir": "6dcf028fa84815d9e8b17904d3eddbc83a28d8ca84f090822b65b929d050b278",
+    "scalar/model.aimodel/main.hash": "a02dbe1620168d47fabd3c4e1ea55069e3beab77f9af0a7817b1ff7d1980a271",
+    "scalar/model.aimodel/main.mlirb": "bcbbacc7b47f71dc32edc1059d6428f5687bd2270a3bee6a88290c29ec851b0f",
+    "scalar/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056",
+    "transpose/0-expected-y.bin": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+    "transpose/0-x.bin": "3ff102ef2404f89b6cda793beef876dcb23ebf2f00e0f30bb413bc7a6706777e",
+    "transpose/graph.mlir": "27a242df1e319281b4b71212e9e0cf6610be0ef72cce54e70b871e2d0b893ceb",
+    "transpose/model.aimodel/main.hash": "cacd38bd452dc81ff74c1eb8f877cb81536b5ceb2eb8bf8307fd7d529873fb05",
+    "transpose/model.aimodel/main.mlirb": "39f3be41a7ef1356d4fe9eeaf669ce45e8cbf2149506c3c4d07e67d646d56898",
+    "transpose/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056"
+  },
+  "limitations": [
+    "Prepared model/expected bytes do not establish native execution.",
+    "State authoring uses b3 private GraphOp/handle operations, as in v0.1."
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "started_at": "2026-10-15T18:22:30.336385+00:00",
+  "native_requested": true,
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--list",
+        "--allow-dirty"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": ".cargo_vcs_info.json\nCargo.lock\nCargo.toml\nCargo.toml.orig\nLICENSE-APACHE\nLICENSE-MIT\nREADME.md\nexamples/feedforward.rs\nexamples/metal_chain.rs\nexamples/native_chain.rs\nexamples/stateful.rs\nmodels/accumulator.aimodel/main.hash\nmodels/accumulator.aimodel/main.mlirb\nmodels/accumulator.aimodel/metadata.json\nmodels/accumulator.mlir\nmodels/feedforward.aimodel/main.hash\nmodels/feedforward.aimodel/main.mlirb\nmodels/feedforward.aimodel/metadata.json\nmodels/feedforward.mlir\nmodels/manifest.json\nsrc/api_error.rs\nsrc/bin/corsairs.rs\nsrc/dtype.rs\nsrc/facade/batch.rs\nsrc/facade/function_batch.rs\nsrc/facade/handles.rs\nsrc/facade/metal.rs\nsrc/facade.rs\nsrc/lib.rs\nsrc/native/arm64.rs\nsrc/native/async_task/pending.rs\nsrc/native/async_task/sync_call.rs\nsrc/native/async_task.rs\nsrc/native/buffer.rs\nsrc/native/errors.rs\nsrc/native/inference.rs\nsrc/native/loader.rs\nsrc/native/metadata.rs\nsrc/native/mod.rs\nsrc/native/model.rs\nsrc/native/owned/batch.rs\nsrc/native/owned/function_batch.rs\nsrc/native/owned/handles.rs\nsrc/native/owned/metal.rs\nsrc/native/owned.rs\nsrc/native/task.rs\nsrc/native/task_create.rs\nsrc/native/tensor.rs\nsrc/native/text.rs\nsrc/native/value.rs\nsrc/worker.rs\ntests/native_metadata.rs\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--allow-dirty"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "   Packaging corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n    Packaged 52 files, 409.9KiB (93.4KiB compressed)\n   Verifying corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/crates/corsairs-abi)\n   Compiling corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.06s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "generate-lockfile",
+        "--offline",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "     Locking 1 package to highest Rust 1.99.0 compatible version\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "tree",
+        "--offline",
+        "--locked",
+        "--edges",
+        "features",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "corsairs-release-consumer v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer)\n\u2514\u2500\u2500 corsairs feature \"default\"\n    \u2514\u2500\u2500 corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer-target"
+      },
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "   Compiling corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0)\n   Compiling corsairs-release-consumer v0.0.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer)\n    Finished `release` profile [optimized] target(s) in 1.57s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--bin",
+        "corsairs",
+        "--manifest-path",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target"
+      },
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "   Compiling corsairs v0.2.0 (/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0)\n    Finished `release` profile [optimized] target(s) in 1.67s\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/examples/feedforward"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "feedforward: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/examples/stateful"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "step0: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\nstep1: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0]\nstep2: [3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/examples/native_chain"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "native chain: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/examples/metal_chain"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "Metal chain: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer-target/release/examples/feedforward"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "feedforward: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer-target/release/examples/stateful"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "step0: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\nstep1: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0]\nstep2: [3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer-target/release/examples/native_chain"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "native chain: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer-target/release/examples/metal_chain"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "Metal chain: [6.0, 5.0, 2.0, 0.0]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/corsairs",
+        "inspect",
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0/models/feedforward.aimodel",
+        "--compute",
+        "gpu-preferred"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stdout": "{\"model\":\"/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0/models/feedforward.aimodel\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":null,\"functions\":[{\"name\":\"main\",\"inputs\":[{\"name\":\"x\",\"dtype\":\"float32\",\"shape\":[2,3]}],\"outputs\":[{\"name\":\"y\",\"dtype\":\"float32\",\"shape\":[2,2]}],\"states\":[]}]}\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "uploaded": false,
+  "registry_checked": false,
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+  "archive": {
+    "path": "/Users/zakkeown/Code/aether/lab/corsairs/target/package/corsairs-0.2.0.crate",
+    "sha256": "4d3cf3ce0895cff49f624132d558117a914d5407e0cf07a66fcf21607aa4dec3",
+    "bytes": 95666
+  },
+  "packaged_files_sha256": {
+    ".cargo_vcs_info.json": "c2f3b7651772dea7ddc597fe5bd9558951a9f356afc971444097a89b1f7c9eb4",
+    "Cargo.lock": "8fd7eae2e994340de433e2be0d02e0573c0e3b92a2286928f3fe83dc973e58a4",
+    "Cargo.toml": "f3462e9184f3cd6c00707efc7a85522707d12daa70beaf2abf731090efe3c92d",
+    "Cargo.toml.orig": "269374f88bafd7a551459a62bae9781623c89aebd5045e58bbab97c3f354e661",
+    "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+    "LICENSE-MIT": "f37d4d2a5d37de7e96a8322147d86af08df29d87d01bdf3034396979b2a39154",
+    "README.md": "e705d0cc3a55302fb3b35623518b14d6e2777e0141b90981304357262835fe8b",
+    "examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+    "examples/native_chain.rs": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+    "examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "models/accumulator.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+    "models/accumulator.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+    "models/accumulator.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "models/accumulator.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+    "models/feedforward.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+    "models/feedforward.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+    "models/feedforward.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "models/feedforward.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+    "models/manifest.json": "fccd4ff0aee73cc62a522a508eb997b35386a45fba93fe20ec8cbb0f5b1018a2",
+    "src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "src/bin/corsairs.rs": "5254e992ac8bce53fab0a97df765f2a883ef1900a64bd8b4cb252fdf8f02754e",
+    "src/dtype.rs": "f74c17efbea82b15c6ee379b0e0ec8f22dc07b630d5646bf7ff31e900e39b480",
+    "src/facade/batch.rs": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+    "src/facade/function_batch.rs": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+    "src/facade/handles.rs": "e5f53d41cbee1f4c105a9ea1df911a4ec22b3904520a4f6d5fe3ebf098e79b34",
+    "src/facade/metal.rs": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+    "src/facade.rs": "c683a4ed948d4e80a745980681eee1849733c673d95f5bb50d031a681a3c29a7",
+    "src/lib.rs": "a11536e680d6a52216a559fa93169c6f15d1eb1eb0724528d741ae1b24770850",
+    "src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "src/native/async_task/sync_call.rs": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+    "src/native/async_task.rs": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+    "src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "src/native/mod.rs": "86f9dd79b5fe8e26070f74a0c9e06783125d6db3d96dc44ab4e1945201be5819",
+    "src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "src/native/owned/batch.rs": "1b8674ad189d579b8476ec86f45d1927f678dfd80680406c0020cf6e8c028c58",
+    "src/native/owned/function_batch.rs": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+    "src/native/owned/handles.rs": "5e251bdc4836e9d3332dd1a89f708b3cdd6723952ac20dee4a470d21ff80e8a5",
+    "src/native/owned/metal.rs": "b5b55ee9ecd0792b5fa2ebe103fdacbef0b3cb55dea4020cb2eaa793317715d7",
+    "src/native/owned.rs": "0ab569e8ca6a9338f9437d791571e9e9be5c65c4c4269795490f12984cfff7b8",
+    "src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+    "src/worker.rs": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
+    "tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d"
+  },
+  "tested_source_identity_sha256": "3ff97ad3492669e0f790c75e9e675228c8f6a9598d64e9e0b4fff6e075eaf4a5",
+  "consumer": {
+    "manifest": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/consumer/Cargo.toml",
+    "default_features_only": true,
+    "examples_forbid_unsafe": true
+  },
+  "native_binary_sha256": {
+    "target/package-check-v02/package-target/release/examples/feedforward": "e517d228a5d8bcee37318752b46266fd45d7c00025f902e324d3556b33c287a9",
+    "target/package-check-v02/package-target/release/examples/stateful": "26a0d8e9540ba309292b08df18a5f0fe65c7675540a69d38e33ccc91ec8c337f",
+    "target/package-check-v02/package-target/release/examples/native_chain": "1c82bcd63b4520b030a9836be6a27da6d2a2d23767a580d336f49909ad5b7eda",
+    "target/package-check-v02/package-target/release/examples/metal_chain": "4e9fb174e4d9859921ca2f28921c497c52a9ecd7bddd253dcb8f8fb330ceff58",
+    "target/package-check-v02/consumer-target/release/examples/feedforward": "07eeff0e583af3b4c8a3b86301dcc839022624312e00e594d90f5e502d99713e",
+    "target/package-check-v02/consumer-target/release/examples/stateful": "c6dae77c45d2d592eb516d53364e52c75f22d50e623e049168ccb555b9231ab4",
+    "target/package-check-v02/consumer-target/release/examples/native_chain": "b70164d6a66abb9ebe870b448a63e326be5500a68384ce80e9e216950743299a",
+    "target/package-check-v02/consumer-target/release/examples/metal_chain": "1d5f66a5f5f2fb6d67a408add8006245726f9120334045a4fd2da957ada2c7a2"
+  },
+  "candidate": "/Users/zakkeown/Code/aether/lab/corsairs/dist/v0.2.0/corsairs-0.2.0.crate",
+  "native_validated": true
+}

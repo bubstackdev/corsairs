@@ -37,9 +37,12 @@ pub use loader::Error;
 pub use metadata::{Metadata, TypeLayout};
 #[cfg(feature = "abi-research")]
 pub use model::ModelReport;
+#[cfg(any(feature = "abi-research", test))]
+pub use owned::NativeBatchMetrics;
 pub use owned::{
-    NativeCompute, NativeDType, NativeFailure, NativeFunctionDescriptor, NativeSession,
-    NativeTensor, NativeTensorDescriptor,
+    NativeBatchOutcome, NativeCompute, NativeDType, NativeFailure, NativeFunctionBatchOutcome,
+    NativeFunctionDescriptor, NativeLoadOptions, NativeMetalInput, NativeMetalObject,
+    NativeMetalTensor, NativeSession, NativeTensor, NativeTensorDescriptor, NativeTensorHandle,
 };
 #[cfg(feature = "abi-research")]
 pub use owned::{NativeFunction, NativeModel, NativeRunResult};

@@ -1,0 +1,2240 @@
+{
+  "passed": true,
+  "configuration_count": 46,
+  "checked_value_count": 104,
+  "all_native_raw_encodings": 65536,
+  "all_metal_raw_encodings": 65536,
+  "fixture_manifest_sha256": "89f625fd9760fcbbcfbf214e96ff3eeedf84e45cbe8b4f4459829987db1fa0ca",
+  "native_observation": "docs/evidence/v0.2-bfloat16/native-debug.json",
+  "native_observation_sha256": "8899c4f156d093748def9c20f735aafafe03e4190bf449f389d93f5154ebfbca",
+  "swift_report": "docs/evidence/v0.2-bfloat16/swift-output/swift-results.json",
+  "swift_report_sha256": "e35ffa65c255726d7599e33766b5b8f8419d38d856d0f8596f56ce1445655996",
+  "completion": {
+    "event": "complete",
+    "configurations": 46,
+    "passed": true,
+    "chained_backends": 2,
+    "abandoned_iterations": 20
+  },
+  "values": [
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": null,
+      "file": "cpu-owned-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": [],
+      "file": "cpu-native-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": null,
+      "file": "cpu-metal-auto-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": null,
+      "file": "cpu-metal-bound-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": [
+        0,
+        0
+      ],
+      "file": "cpu-native-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-dynamic-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-dynamic-0-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-dynamic-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        4,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-dynamic-1-output-y.bin",
+      "exact": true,
+      "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-dynamic-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-dynamic-2-output-y.bin",
+      "exact": true,
+      "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-dynamic-3",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-dynamic-3-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-3-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-dynamic-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-dynamic-0-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-dynamic-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        4,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-dynamic-1-output-y.bin",
+      "exact": true,
+      "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-dynamic-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-dynamic-2-output-y.bin",
+      "exact": true,
+      "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-dynamic-3",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-dynamic-3-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-3-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-dynamic-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-dynamic-0-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-dynamic-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        4,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-dynamic-1-output-y.bin",
+      "exact": true,
+      "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-dynamic-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-dynamic-2-output-y.bin",
+      "exact": true,
+      "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-dynamic-3",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-dynamic-3-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-dynamic-3-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": [
+        2,
+        1
+      ],
+      "file": "cpu-native-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-owned-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-owned-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-native-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "cpu-native-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-auto-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-auto-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "cpu-metal-bound-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "cpu-metal-bound-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/cpu-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-double-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-double-0-output-y.bin",
+      "exact": true,
+      "sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-double-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": [],
+      "file": "gpu-preferred-native-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-scalar-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [],
+      "packed_strides": [],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-scalar-0-output-y.bin",
+      "exact": true,
+      "sha256": "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-scalar-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": [
+        0,
+        0
+      ],
+      "file": "gpu-preferred-native-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-empty-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        0,
+        3
+      ],
+      "packed_strides": [
+        0,
+        0
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-empty-0-output-y.bin",
+      "exact": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-empty-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-dynamic-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-dynamic-0-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-dynamic-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        4,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-dynamic-1-output-y.bin",
+      "exact": true,
+      "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-dynamic-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-dynamic-2-output-y.bin",
+      "exact": true,
+      "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-dynamic-3",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-dynamic-3-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-3-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-dynamic-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-dynamic-0-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-dynamic-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        4,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-dynamic-1-output-y.bin",
+      "exact": true,
+      "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-dynamic-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-dynamic-2-output-y.bin",
+      "exact": true,
+      "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-dynamic-3",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-dynamic-3-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-3-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-dynamic-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-dynamic-0-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-dynamic-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        4,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-dynamic-1-output-y.bin",
+      "exact": true,
+      "sha256": "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-dynamic-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-dynamic-2-output-y.bin",
+      "exact": true,
+      "sha256": "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-dynamic-3",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-dynamic-3-output-y.bin",
+      "exact": true,
+      "sha256": "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-dynamic-3-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": [
+        2,
+        1
+      ],
+      "file": "gpu-preferred-native-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-transpose-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        3,
+        2
+      ],
+      "packed_strides": [
+        2,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-transpose-0-output-y.bin",
+      "exact": true,
+      "sha256": "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-transpose-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-owned-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-owned-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-native-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": [
+        3,
+        1
+      ],
+      "file": "gpu-preferred-native-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-auto-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-auto-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-accumulator-0",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-accumulator-0-output-y.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-accumulator-0",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-accumulator-0-state-accumulator.bin",
+      "exact": true,
+      "sha256": "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-0-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-accumulator-1",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-accumulator-1-output-y.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-accumulator-1",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-accumulator-1-state-accumulator.bin",
+      "exact": true,
+      "sha256": "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-1-state.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-accumulator-2",
+      "kind": "output",
+      "name": "y",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-accumulator-2-output-y.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-y.bin",
+      "swift_exact": true
+    },
+    {
+      "event": "bf16_value",
+      "label": "gpu-preferred-metal-bound-accumulator-2",
+      "kind": "state",
+      "name": "accumulator",
+      "dtype": "bfloat16",
+      "shape": [
+        2,
+        3
+      ],
+      "packed_strides": [
+        3,
+        1
+      ],
+      "native_strides": null,
+      "file": "gpu-preferred-metal-bound-accumulator-2-state-accumulator.bin",
+      "exact": true,
+      "sha256": "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "swift_file": "docs/evidence/v0.2-bfloat16/swift-output/gpu-preferred-accumulator-2-state.bin",
+      "swift_exact": true
+    }
+  ],
+  "limitations": [
+    "Exact finite fixtures and raw all-encoding storage; NaN arithmetic is not specified.",
+    "Same-host Swift/native stride equality is fixture-specific.",
+    "Successful abandoned-job completion does not by itself measure native store counts."
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "kind": "corsairs-krea-final-v02-independent-verification",
+  "verified_at": "2026-10-15T18:25:02.875821+00:00",
+  "passed": true,
+  "native_execution_performed": false,
+  "scope": "Final BF16/drain source regression, provided-text fixture, Metal chain plus dual-phase parallel loading. Original first paired Swift run retains eight step hashes; later pairs retain final/pixel hashes. Historical benchmark measurements remain separately pinned.",
+  "report_sha256": "47a2393cb01675e90d724baa7a7d38c8011cfc6b2e2d41bdc6a5fb1c9122e493",
+  "build_manifest_sha256": "5f13bbf50e91fa36f6c5108902cbbdaba7d3b8a7235ae68d143adf88d89f7125",
+  "source_identity_sha256": "d7f0226dd3d7cac3dc51a0767f0018815090091ec22aebc72012f68525eb6e26",
+  "source_file_count": 46,
+  "current_sources_match_manifest": true,
+  "binary_sha256": "6f749da34b3d74afb02c08f52306b9fdceac6f511e76b47534e184ceb7ec52d8",
+  "rlib_sha256": "b20ac61fc9d2caee5643794dc96363b259c9003dbba970424fe4aca08fa9a3d3",
+  "reference_sources": {
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json": "4a5d6e6311c0bffe4c658f872bf6c768e17c6fb427d431498891a9658032192f"
+  },
+  "payload_count": 13,
+  "payloads": [
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/final.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "expected_swift_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].latentSHA256[1]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/first-cond.f32",
+      "dtype": "float32",
+      "shape": [
+        8,
+        6144
+      ],
+      "bytes": 196608,
+      "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "expected_swift_sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json",
+      "reference_key": "inputs[name=cond].sha256",
+      "passed": true,
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/cond.f32",
+      "direct_swift_byte_equal": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/first-image_1.f32",
+      "dtype": "float32",
+      "shape": [
+        4032,
+        6144
+      ],
+      "bytes": 99090432,
+      "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "expected_swift_sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json",
+      "reference_key": "inputs[name=image].sha256",
+      "passed": true,
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/image.f32",
+      "direct_swift_byte_equal": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/first-text_1.f32",
+      "dtype": "float32",
+      "shape": [
+        20,
+        6144
+      ],
+      "bytes": 491520,
+      "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "expected_swift_sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json",
+      "reference_key": "inputs[name=text].sha256",
+      "passed": true,
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/text.f32",
+      "direct_swift_byte_equal": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/pixels.chw.f32",
+      "dtype": "float32",
+      "shape": [
+        3,
+        1344,
+        768
+      ],
+      "bytes": 12386304,
+      "sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "expected_swift_sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].pixelsSHA256[1]",
+      "passed": true,
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-full-tower/fixed-pixels.f32",
+      "direct_swift_byte_equal": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step0.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "expected_swift_sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][0]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step1.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "expected_swift_sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][1]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step2.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "expected_swift_sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][2]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step3.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "expected_swift_sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][3]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step4.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "expected_swift_sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][4]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step5.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "expected_swift_sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][5]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step6.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "expected_swift_sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][6]",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-final-v02/step7.latents.f32",
+      "dtype": "float32",
+      "shape": [
+        84,
+        48,
+        64
+      ],
+      "bytes": 1032192,
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "expected_swift_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "reference_record": "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json",
+      "reference_key": "pairs[0].stepLatentsSHA256[1][7]",
+      "passed": true
+    }
+  ],
+  "last_step_final_direct_byte_equal": true,
+  "batch_phase_verification": [
+    {
+      "phase": "batch_load",
+      "entries": 4,
+      "returns": 4,
+      "peak_in_flight": 4,
+      "active_at_join": 0,
+      "timeline": [
+        {
+          "event": "batch_load_event",
+          "task": 1,
+          "stage": "entry",
+          "elapsed_nanos": 1898708,
+          "active_after_event": 1
+        },
+        {
+          "event": "batch_load_event",
+          "task": 2,
+          "stage": "entry",
+          "elapsed_nanos": 2002625,
+          "active_after_event": 2
+        },
+        {
+          "event": "batch_load_event",
+          "task": 3,
+          "stage": "entry",
+          "elapsed_nanos": 2133541,
+          "active_after_event": 3
+        },
+        {
+          "event": "batch_load_event",
+          "task": 4,
+          "stage": "entry",
+          "elapsed_nanos": 2267875,
+          "active_after_event": 4
+        },
+        {
+          "event": "batch_load_event",
+          "task": 2,
+          "stage": "return",
+          "elapsed_nanos": 7811333,
+          "active_after_event": 3
+        },
+        {
+          "event": "batch_load_event",
+          "task": 4,
+          "stage": "return",
+          "elapsed_nanos": 7812541,
+          "active_after_event": 2
+        },
+        {
+          "event": "batch_load_event",
+          "task": 3,
+          "stage": "return",
+          "elapsed_nanos": 7817625,
+          "active_after_event": 1
+        },
+        {
+          "event": "batch_load_event",
+          "task": 1,
+          "stage": "return",
+          "elapsed_nanos": 7824291,
+          "active_after_event": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "phase": "function_batch_load",
+      "entries": 4,
+      "returns": 4,
+      "peak_in_flight": 4,
+      "active_at_join": 0,
+      "timeline": [
+        {
+          "event": "function_batch_load_event",
+          "task": 1,
+          "stage": "entry",
+          "elapsed_nanos": 310208,
+          "active_after_event": 1
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 2,
+          "stage": "entry",
+          "elapsed_nanos": 389875,
+          "active_after_event": 2
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 3,
+          "stage": "entry",
+          "elapsed_nanos": 469250,
+          "active_after_event": 3
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 4,
+          "stage": "entry",
+          "elapsed_nanos": 547416,
+          "active_after_event": 4
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 3,
+          "stage": "return",
+          "elapsed_nanos": 4832837958,
+          "active_after_event": 3
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 4,
+          "stage": "return",
+          "elapsed_nanos": 4874879833,
+          "active_after_event": 2
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 2,
+          "stage": "return",
+          "elapsed_nanos": 4891082583,
+          "active_after_event": 1
+        },
+        {
+          "event": "function_batch_load_event",
+          "task": 1,
+          "stage": "return",
+          "elapsed_nanos": 5642972208,
+          "active_after_event": 0
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "metal_summary": {
+    "encode_calls": 32,
+    "queues": 1,
+    "output_buffers": 8,
+    "output_buffers_reused_after_first_step": true
+  },
+  "asset_source_hash_verification": {
+    "scope": "Recorded checker fully streamed all selected source assets on this run; this independent follow-up rehashes payloads, reference/source records and build artifacts, without repeating the large asset stream reads.",
+    "count": 5,
+    "total_source_bytes": 12881111330,
+    "all_full_source_hash_verified": true
+  },
+  "logs_sha256": {
+    "/private/tmp/corsairs-krea-final-v02/events.jsonl": "1baf41ca311408940939da74b415aceb6092b504917636d8a2c5c3b7f4b329b1",
+    "/private/tmp/corsairs-krea-final-v02/native.stderr.log": "2964b7dd22485ab962cd3b82c0723132e69f8a0a62a51819740c91f615b82757"
+  },
+  "snapshots": {
+    "driver.rs": {
+      "source": "experiments/rust/krea_driver.rs",
+      "sha256": "d51716ebc6d86b85b32f46e9c8c1a2b1ec6ef989b8ae7a05d45e2ca138a2ed28"
+    },
+    "checker.py": {
+      "source": "scripts/check_krea.py",
+      "sha256": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409"
+    },
+    "benchmark.py": {
+      "source": "scripts/benchmark_krea.py",
+      "sha256": "d8659154e306143fc3d0fda942b91aa69e5527dcd8abde4f96a21d1e254610f6"
+    }
+  }
+}

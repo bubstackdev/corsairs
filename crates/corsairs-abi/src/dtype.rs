@@ -2,16 +2,17 @@
 use crate::api_error::Error;
 use std::fmt;
 
-/// Maximum supported tensor rank in v0.1.
+/// Maximum supported tensor rank.
 pub const MAX_TENSOR_RANK: usize = 64;
-/// Maximum tensor storage size in v0.1 (one GiB). For empty tensors, the same
+/// Maximum tensor storage size (one GiB). For empty tensors, the same
 /// bound applies to the product of nonzero dimensions to reject stride overflow.
 pub const MAX_TENSOR_BYTES: usize = 1 << 30;
 
-/// Scalar types supported by Corsairs v0.1.
+/// Scalar types supported by Corsairs.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum DType {
     Float16,
+    BFloat16,
     Float32,
     Int32,
     Int64,
@@ -22,7 +23,7 @@ impl DType {
     /// Number of bytes in one scalar.
     pub const fn byte_width(self) -> usize {
         match self {
-            Self::Float16 => 2,
+            Self::Float16 | Self::BFloat16 => 2,
             Self::Float32 | Self::Int32 => 4,
             Self::Int64 => 8,
             Self::Bool => 1,
@@ -32,6 +33,7 @@ impl DType {
     pub const fn name(self) -> &'static str {
         match self {
             Self::Float16 => "float16",
+            Self::BFloat16 => "bfloat16",
             Self::Float32 => "float32",
             Self::Int32 => "int32",
             Self::Int64 => "int64",
@@ -121,6 +123,45 @@ impl fmt::Debug for Float16 {
     }
 }
 
+/// A bfloat16 scalar: one sign bit, eight exponent bits and seven fraction bits.
+/// Construction from bits preserves all encodings, including NaN payloads.
+#[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
+#[repr(transparent)]
+pub struct BFloat16(u16);
+
+impl BFloat16 {
+    /// Construct without changing the bit representation.
+    pub const fn from_bits(bits: u16) -> Self {
+        Self(bits)
+    }
+    /// Return the exact bfloat16 representation.
+    pub const fn to_bits(self) -> u16 {
+        self.0
+    }
+    /// Narrow binary32 with round-to-nearest, ties-to-even. NaNs retain their
+    /// sign and representable high payload bits; a discarded-only payload is
+    /// replaced by one so a NaN never becomes infinity. This bit conversion
+    /// preserves signaling encodings and does not raise floating-point flags.
+    pub fn from_f32(value: f32) -> Self {
+        let bits = value.to_bits();
+        let upper = (bits >> 16) as u16;
+        if bits & 0x7fff_ffff > 0x7f80_0000 {
+            return Self(upper | u16::from(upper & 0x7f == 0));
+        }
+        let bias = 0x7fff + u32::from(upper & 1 != 0);
+        Self((bits.wrapping_add(bias) >> 16) as u16)
+    }
+    /// Widen exactly to binary32, preserving signed zero and every NaN bit.
+    pub fn to_f32(self) -> f32 {
+        f32::from_bits(u32::from(self.0) << 16)
+    }
+}
+impl fmt::Debug for BFloat16 {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "BFloat16({:?}, 0x{:04x})", self.to_f32(), self.0)
+    }
+}
+
 mod sealed {
     pub trait Sealed {}
 }
@@ -156,6 +197,16 @@ element!(i64, Int64, 8);
 impl sealed::Sealed for Float16 {}
 impl TensorElement for Float16 {
     const DTYPE: DType = DType::Float16;
+    fn encode(self, bytes: &mut Vec<u8>) {
+        bytes.extend_from_slice(&self.0.to_le_bytes());
+    }
+    fn decode(bytes: &[u8]) -> Self {
+        Self(u16::from_le_bytes([bytes[0], bytes[1]]))
+    }
+}
+impl sealed::Sealed for BFloat16 {}
+impl TensorElement for BFloat16 {
+    const DTYPE: DType = DType::BFloat16;
     fn encode(self, bytes: &mut Vec<u8>) {
         bytes.extend_from_slice(&self.0.to_le_bytes());
     }
@@ -339,6 +390,58 @@ impl Tensor {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn bfloat16_all_encodings_widen_and_roundtrip_exactly() {
+        let values: Vec<_> = (0..=u16::MAX).map(BFloat16::from_bits).collect();
+        for (bits, value) in (0..=u16::MAX).zip(&values) {
+            assert_eq!(value.to_bits(), bits);
+            assert_eq!(value.to_f32().to_bits(), u32::from(bits) << 16);
+            assert_eq!(BFloat16::from_f32(value.to_f32()).to_bits(), bits);
+        }
+        let tensor = Tensor::from_vec([values.len()], values.clone()).unwrap();
+        assert_eq!(tensor.dtype(), DType::BFloat16);
+        assert_eq!(tensor.to_vec::<BFloat16>().unwrap(), values);
+        assert!(matches!(
+            tensor.to_vec::<Float16>(),
+            Err(Error::DTypeMismatch { .. })
+        ));
+        assert_eq!(tensor.as_bytes()[2..6], [1, 0, 2, 0]);
+    }
+    #[test]
+    fn bfloat16_rounds_ties_boundaries_and_keeps_nan_class() {
+        for (single, expected) in [
+            (0x0000_0000, 0x0000),
+            (0x8000_0000, 0x8000),
+            (0x0000_8000, 0x0000),
+            (0x0000_8001, 0x0001),
+            (0x0001_8000, 0x0002),
+            (0x007f_8000, 0x0080),
+            (0x3f80_8000, 0x3f80),
+            (0x3f80_8001, 0x3f81),
+            (0x3f81_8000, 0x3f82),
+            (0xbf81_8000, 0xbf82),
+            (0x7f7f_7fff, 0x7f7f),
+            (0x7f7f_8000, 0x7f80),
+            (0xff7f_8000, 0xff80),
+            (0x7f80_0000, 0x7f80),
+            (0xff80_0000, 0xff80),
+            (0x7f80_0001, 0x7f81),
+            (0x7fc5_1234, 0x7fc5),
+            (0xff80_0001, 0xff81),
+        ] {
+            assert_eq!(
+                BFloat16::from_f32(f32::from_bits(single)).to_bits(),
+                expected,
+                "{single:#010x}"
+            );
+        }
+        assert_eq!(
+            element_count(&[MAX_TENSOR_BYTES / 2], 2).unwrap(),
+            MAX_TENSOR_BYTES / 2
+        );
+        assert!(element_count(&[MAX_TENSOR_BYTES / 2 + 1], 2).is_err());
+        assert!(element_count(&[0, MAX_TENSOR_BYTES / 2 + 1], 2).is_err());
+    }
     #[test]
     fn half_exhaustive_bit_roundtrip() {
         for bits in 0..=u16::MAX {

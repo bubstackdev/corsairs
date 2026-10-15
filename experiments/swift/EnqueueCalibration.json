@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-15T17:18:17.205633+00:00",
+  "status": "prototype_native_passed_integrated_native_validation_pending",
+  "compiler": {
+    "version": "Apple Swift 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)",
+    "target": "arm64-apple-macosx27.0.0",
+    "command": [
+      "xcrun",
+      "swiftc",
+      "-module-cache-path",
+      "target/swift-module-cache",
+      "-parse-as-library",
+      "-O",
+      "-emit-ir",
+      "experiments/swift/EnqueueReference.swift",
+      "-o",
+      "experiments/swift/EnqueueReference.ll"
+    ],
+    "ir_observations": [
+      "swift_task_enqueueTaskOnExecutor declared swiftcc void(ptr,i64,i64)",
+      "Task.detached default enqueue creation flag4096; prototype/root setup deliberately keeps flags0",
+      "Void metadata passed at $sytN+8"
+    ]
+  },
+  "upstream_reference": {
+    "repository": "https://github.com/swiftlang/swift",
+    "commit": "539312d7f5360c7f80704a442f177442fcf52d23",
+    "files": [
+      {
+        "path": "include/swift/ABI/Executor.h",
+        "url": "https://github.com/swiftlang/swift/blob/539312d7f5360c7f80704a442f177442fcf52d23/include/swift/ABI/Executor.h",
+        "raw_url": "https://raw.githubusercontent.com/swiftlang/swift/539312d7f5360c7f80704a442f177442fcf52d23/include/swift/ABI/Executor.h",
+        "sha256": "45691d53c7bb297ae3dc956355e351694366899ab592d813f1e96740697df706",
+        "bytes": 15145
+      },
+      {
+        "path": "include/swift/Runtime/Concurrency.h",
+        "url": "https://github.com/swiftlang/swift/blob/539312d7f5360c7f80704a442f177442fcf52d23/include/swift/Runtime/Concurrency.h",
+        "raw_url": "https://raw.githubusercontent.com/swiftlang/swift/539312d7f5360c7f80704a442f177442fcf52d23/include/swift/Runtime/Concurrency.h",
+        "sha256": "01f6ea317901ee915e205805fc3b58174c864dea3bc648272f51c06fbfa7d621",
+        "bytes": 53272
+      },
+      {
+        "path": "stdlib/public/Concurrency/Task.cpp",
+        "url": "https://github.com/swiftlang/swift/blob/539312d7f5360c7f80704a442f177442fcf52d23/stdlib/public/Concurrency/Task.cpp",
+        "raw_url": "https://raw.githubusercontent.com/swiftlang/swift/539312d7f5360c7f80704a442f177442fcf52d23/stdlib/public/Concurrency/Task.cpp",
+        "sha256": "2cd0c4fc6ea2c0e72e1dfab22c75ce9a98c12b274ae3167a945164e19d9ab88b",
+        "bytes": 110026
+      }
+    ],
+    "boundary": "Primary ABI/lifecycle reference; not an exact-source assertion for the installed Apple OS runtime."
+  },
+  "ownership": [
+    "task_create(flags0) returns caller+1; private root is installed before scheduling",
+    "retain(task) adds running+1 before enqueueTaskOnExecutor(task,generic executor {0,0})",
+    "enqueueTaskOnExecutor calls flagAsAndEnqueueOnExecutor without another retain",
+    "completeTaskAndRelease consumes running+1 before the Rust signal",
+    "PendingCall joins signal before releasing caller+1",
+    "PreparedBatch joins every started load before any argument/result/error guard destruction",
+    "Unclaimed owned errors are released exactly once"
+  ],
+  "scheduling": {
+    "single_call": "existing inline swift_job_run",
+    "batch": "swift_task_enqueueTaskOnExecutor",
+    "diagnostics": "abi-research/test only; normal batch allocates no probe; event labels are ordinals",
+    "interpretation": "overlapping invocation lifetimes, not proof of backend or GPU compute concurrency"
+  },
+  "native_prototype_evidence": {
+    "docs/evidence/v0.2-enqueued-load-prototype-native.json": {
+      "evidence_id": "ev_d2e43831c4f5d477e33071819034b14612aac7949a7019b10ed780a7199706f1",
+      "target_sha256": "0a1b958ea0af88d8e1de4711765e59006061e5021a64a2fd3726bf14e15e892d",
+      "exit_status": 0
+    },
+    "docs/evidence/v0.2-enqueued-load-cleanup-prototype-native.json": {
+      "evidence_id": "ev_1b107869dfbb9c1814c8bfc67b7c58e3d8b92447638ea6bb7a66427834cf8e9b",
+      "target_sha256": "c090194e0bb5d4acb3645c5cb0243c36a32d8ef18927a1fe1b843ff438afd292",
+      "exit_status": 0
+    }
+  },
+  "integration_files": {
+    "experiments/swift/EnqueueReference.swift": {
+      "sha256": "497ce8c59df5ea780b5b93a20ff899306e6ea90c76b75b95225e04ce03f12f33",
+      "bytes": 605
+    },
+    "experiments/swift/EnqueueReference.ll": {
+      "sha256": "119d908a0ae73fecbe093fd0fec4cd9584d847d648581da6ac77efca20672aec",
+      "bytes": 31450
+    },
+    "crates/corsairs-abi/src/native/async_task.rs": {
+      "sha256": "85d25200bb9c06db8c724d521429e3bc9af6e5812a8d14e92c9f8f304694883c",
+      "bytes": 10598
+    },
+    "crates/corsairs-abi/src/native/async_task/pending.rs": {
+      "sha256": "834f8ed091980ba649a69d70e92fb2ca3e670c5a0bb1a1f8d8de03e8e7671884",
+      "bytes": 10419
+    },
+    "crates/corsairs-abi/src/native/owned/batch.rs": {
+      "sha256": "1b8674ad189d579b8476ec86f45d1927f678dfd80680406c0020cf6e8c028c58",
+      "bytes": 11031
+    },
+    "crates/corsairs-abi/src/facade/batch.rs": {
+      "sha256": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+      "bytes": 6855
+    },
+    "experiments/rust/parallel_load.rs": {
+      "sha256": "cb529580e35c2ce48f25cb3fa844360fbf7b62457d469f4d3820e29625c4d30d",
+      "bytes": 3903
+    }
+  },
+  "remaining": [
+    "final integrated native correctness/cleanup run",
+    "four-model Krea overlapping invocation count and warm-cache preparation measurement"
+  ],
+  "integration_checks": {
+    "unit": "18 passed;3 native ignored",
+    "default_clippy": "passed --all-targets -D warnings",
+    "abi_research_clippy": "passed --all-targets -D warnings"
+  }
+}

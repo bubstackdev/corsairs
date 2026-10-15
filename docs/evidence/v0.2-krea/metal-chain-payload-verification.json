@@ -1,0 +1,119 @@
+{
+  "kind": "corsairs-krea-metal-chain-independent-payload-verification",
+  "verified_at": "2026-10-15T17:24:27.933962+00:00",
+  "passed": true,
+  "native_execution_performed": false,
+  "reference_sources": {
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json": "4a5d6e6311c0bffe4c658f872bf6c768e17c6fb427d431498891a9658032192f"
+  },
+  "report_sha256": "fbeab1f8cc9cf584474962dada50a196c172296ca96aea2ba18a7c6dc9e43e30",
+  "build_manifest_sha256": "247fdd48cc9900ab4da1af1fdaa97d7418fd58ecea019a0ea59945fb9208cb34",
+  "source_identity_sha256": "70b96e6d4620834807d88bac583e73cf78830b335576e206c7394113f40f1609",
+  "binary_sha256": "c3d63e6a39419daa59774662b345b17fefda68c2fdfbc1e0386a0c002c458cdc",
+  "payloads": [
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/final.latents.f32",
+      "bytes": 1032192,
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "expected_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/first-cond.f32",
+      "bytes": 196608,
+      "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "expected_sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/first-image_1.f32",
+      "bytes": 99090432,
+      "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "expected_sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/first-text_1.f32",
+      "bytes": 491520,
+      "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "expected_sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/pixels.chw.f32",
+      "bytes": 12386304,
+      "sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "expected_sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step0.latents.f32",
+      "bytes": 1032192,
+      "sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "expected_sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step1.latents.f32",
+      "bytes": 1032192,
+      "sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "expected_sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step2.latents.f32",
+      "bytes": 1032192,
+      "sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "expected_sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step3.latents.f32",
+      "bytes": 1032192,
+      "sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "expected_sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step4.latents.f32",
+      "bytes": 1032192,
+      "sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "expected_sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step5.latents.f32",
+      "bytes": 1032192,
+      "sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "expected_sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step6.latents.f32",
+      "bytes": 1032192,
+      "sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "expected_sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-metal-chain/step7.latents.f32",
+      "bytes": 1032192,
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "expected_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "passed": true
+    }
+  ],
+  "logs": {
+    "/private/tmp/corsairs-krea-metal-chain/events.jsonl": "f2c8564e278298d4f3f14ba1cf1f314b9aaf5ec51b8370dea79ceedb8869b4ca",
+    "/private/tmp/corsairs-krea-metal-chain/native.stderr.log": "4531bb91f7d091120420a0ce205b8954bb154b7ddf44cb4c65d80735756d8d80"
+  },
+  "snapshots_sha256": {
+    "eight-step-metal-chain.json": "fbeab1f8cc9cf584474962dada50a196c172296ca96aea2ba18a7c6dc9e43e30",
+    "build-metal-chain.json": "247fdd48cc9900ab4da1af1fdaa97d7418fd58ecea019a0ea59945fb9208cb34",
+    "metal-chain-driver.rs": "4e9d1e01d12b182fe427f76cdbf5182bda29c3242c05ff1c257e80a2e947056a",
+    "metal-chain-checker.py": "ddf01291c2a063950db5e960200fad1c78a034e6f44a24292c2739f7a9f47239",
+    "metal-chain-benchmark.py": "01173ab985e82ee5e3dcde536200aa9ef8a5b488647e107f2a1c877b71e0fdfa",
+    "metal-chain-data.rs": "39d6e6823a7929dc41fea7f392d13aa30b28a3901b863ef6c06e19f13f1c7aae"
+  }
+}

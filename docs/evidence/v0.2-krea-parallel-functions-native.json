@@ -1,0 +1,158 @@
+{
+  "evidence_id": "ev_464db567be182d9d62792a73a75b6f7f36746ae024dc34b103131f3a8ab721bb",
+  "subject": {
+    "name": "python3.12",
+    "digest": {
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "Py_BytesMain"
+      }
+    ],
+    "arguments": [
+      "-B",
+      "scripts/check_krea.py",
+      "--native",
+      "--no-build",
+      "--mode",
+      "native-chain",
+      "--parallel-loads",
+      "--output",
+      "/private/tmp/corsairs-krea-parallel-functions"
+    ],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 300000,
+    "max_events": 4,
+    "argument_registers": 1,
+    "backtrace_frames": 0
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "architecture": "arm64",
+      "arguments": [
+        "-B",
+        "scripts/check_krea.py",
+        "--native",
+        "--no-build",
+        "--mode",
+        "native-chain",
+        "--parallel-loads",
+        "--output",
+        "/private/tmp/corsairs-krea-parallel-functions"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "412775",
+        "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 62627,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 30552.01,
+      "stdout": {
+        "text": "Verifying external source bytes: main.mlirb (3.70 GB)\nVerifying external source bytes: main.mlirb (3.04 GB)\nVerifying external source bytes: main.mlirb (3.04 GB)\nVerifying external source bytes: main.mlirb (3.04 GB)\nVerifying external source bytes: main.mlirb (0.05 GB)\n{\"event\":\"batch_load\",\"requested\":4,\"entries\":4,\"returns\":4,\"peak_in_flight\":4,\"active_at_join\":0,\"seconds\":0.013690583}\n{\"event\":\"batch_load_event\",\"task\":1,\"stage\":\"entry\",\"elapsed_nanos\":4405167}\n{\"event\":\"batch_load_event\",\"task\":2,\"stage\":\"entry\",\"elapsed_nanos\":4538834}\n{\"event\":\"batch_load_event\",\"task\":3,\"stage\":\"entry\",\"elapsed_nanos\":4667334}\n{\"event\":\"batch_load_event\",\"task\":4,\"stage\":\"entry\",\"elapsed_nanos\":4796459}\n{\"event\":\"batch_load_event\",\"task\":3,\"stage\":\"return\",\"elapsed_nanos\":12464584}\n{\"event\":\"batch_load_event\",\"task\":1,\"stage\":\"return\",\"elapsed_nanos\":12466709}\n{\"event\":\"batch_load_event\",\"task\":2,\"stage\":\"return\",\"elapsed_nanos\":12470167}\n{\"event\":\"batch_load_event\",\"task\":4,\"stage\":\"return\",\"elapsed_nanos\":12478459}\n{\"event\":\"batch_model_options\",\"index\":0,\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-first.aimodel\",\"function\":\"segment\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true}\n{\"event\":\"batch_model_options\",\"index\":1,\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later1.aimodel\",\"function\":\"segment\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true}\n{\"event\":\"batch_model_options\",\"index\":2,\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later2.aimodel\",\"function\":\"segment\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true}\n{\"event\":\"batch_model_options\",\"index\":3,\"model\":\"/Users/zakkeown/Code/atelier/lab/krea-lab/forge/fixed-first/tower-later3.aimodel\",\"function\":\"segment\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true}\n{\"event\":\"function_batch_load\",\"requested\":4,\"entries\":4,\"returns\":4,\"peak_in_flight\":4,\"active_at_join\":0,\"seconds\":5.364164959}\n{\"event\":\"function_batch_load_event\",\"task\":1,\"stage\":\"entry\",\"elapsed_nanos\":434416}\n{\"event\":\"function_batch_load_event\",\"task\":2,\"stage\":\"entry\",\"elapsed_nanos\":543750}\n{\"event\":\"function_batch_load_event\",\"task\":3,\"stage\":\"entry\",\"elapsed_nanos\":659541}\n{\"event\":\"function_batch_load_event\",\"task\":4,\"stage\":\"entry\",\"elapsed_nanos\":760083}\n{\"event\":\"function_batch_load_event\",\"task\":3,\"stage\":\"return\",\"elapsed_nanos\":4666010041}\n{\"event\":\"function_batch_load_event\",\"task\":4,\"stage\":\"return\",\"elapsed_nanos\":4708114375}\n{\"event\":\"function_batch_load_event\",\"task\":2,\"stage\":\"return\",\"elapsed_nanos\":4725668375}\n{\"event\":\"function_batch_load_event\",\"task\":1,\"stage\":\"return\",\"elapsed_nanos\":5353263250}\n{\"event\":\"denoisers_ready\",\"policy\":\"parallel\",\"count\":4,\"seconds\":5.377890833}\n{\"event\":\"static_upload\",\"tensors\":2,\"bytes\":5357568,\"seconds\":0.002056042}\n{\"event\":\"step_upload\",\"step\":0,\"tensors\":2,\"seconds\":0.000997291}\n{\"event\":\"segment\",\"step\":0,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.608256541}\n{\"event\":\"checkpoint_download\",\"name\":\"cond\",\"bytes\":196608,\"seconds\":0.000467459}\n{\"event\":\"first_cond\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/first-cond.f32\",\"sha256\":\"9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713\",\"expected_sha256\":\"9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713\",\"passed\":true}\n{\"event\":\"checkpoint_download\",\"name\":\"image_1\",\"bytes\":99090432,\"seconds\":0.0597195}\n{\"event\":\"first_image_1\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/first-image_1.f32\",\"sha256\":\"8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734\",\"expected_sha256\":\"8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734\",\"passed\":true}\n{\"event\":\"checkpoint_download\",\"name\":\"text_1\",\"bytes\":491520,\"seconds\":0.000749709}\n{\"event\":\"first_text_1\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/first-text_1.f32\",\"sha256\":\"f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c\",\"expected_sha256\":\"f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c\",\"passed\":true}\n{\"event\":\"segment\",\"step\":0,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.494330334}\n{\"event\":\"segment\",\"step\":0,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.502290625}\n{\"event\":\"segment\",\"step\":0,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.502749375}\n{\"event\":\"velocity_download\",\"step\":0,\"bytes\":516096,\"seconds\":0.000739}\n{\"event\":\"step0_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step0.latents.f32\",\"sha256\":\"df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296\",\"expected_sha256\":\"df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":0,\"seconds\":2.426535583}\n{\"event\":\"step_upload\",\"step\":1,\"tensors\":2,\"seconds\":0.001218}\n{\"event\":\"segment\",\"step\":1,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.523763291}\n{\"event\":\"segment\",\"step\":1,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.494065583}\n{\"event\":\"segment\",\"step\":1,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.4948205}\n{\"event\":\"segment\",\"step\":1,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.49497975}\n{\"event\":\"velocity_download\",\"step\":1,\"bytes\":516096,\"seconds\":0.00077925}\n{\"event\":\"step1_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step1.latents.f32\",\"sha256\":\"dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140\",\"expected_sha256\":\"dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":1,\"seconds\":2.022329041}\n{\"event\":\"step_upload\",\"step\":2,\"tensors\":2,\"seconds\":0.001242}\n{\"event\":\"segment\",\"step\":2,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.52359}\n{\"event\":\"segment\",\"step\":2,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.508699292}\n{\"event\":\"segment\",\"step\":2,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.535645417}\n{\"event\":\"segment\",\"step\":2,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.567538583}\n{\"event\":\"velocity_download\",\"step\":2,\"bytes\":516096,\"seconds\":0.00079675}\n{\"event\":\"step2_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step2.latents.f32\",\"sha256\":\"25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842\",\"expected_sha256\":\"25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":2,\"seconds\":2.150452416}\n{\"event\":\"step_upload\",\"step\":3,\"tensors\":2,\"seconds\":0.001264416}\n{\"event\":\"segment\",\"step\":3,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.617223667}\n{\"event\":\"segment\",\"step\":3,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.60703225}\n{\"event\":\"segment\",\"step\":3,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.612263375}\n{\"event\":\"segment\",\"step\":3,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.610771458}\n{\"event\":\"velocity_download\",\"step\":3,\"bytes\":516096,\"seconds\":0.000832583}\n{\"event\":\"step3_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step3.latents.f32\",\"sha256\":\"9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66\",\"expected_sha256\":\"9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":3,\"seconds\":2.461827042}\n{\"event\":\"step_upload\",\"step\":4,\"tensors\":2,\"seconds\":0.001322083}\n{\"event\":\"segment\",\"step\":4,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.640616375}\n{\"event\":\"segment\",\"step\":4,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.685365208}\n{\"event\":\"segment\",\"step\":4,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.580714458}\n{\"event\":\"segment\",\"step\":4,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.583633709}\n{\"event\":\"velocity_download\",\"step\":4,\"bytes\":516096,\"seconds\":0.000814542}\n{\"event\":\"step4_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step4.latents.f32\",\"sha256\":\"9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150\",\"expected_sha256\":\"9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":4,\"seconds\":2.505286166}\n{\"event\":\"step_upload\",\"step\":5,\"tensors\":2,\"seconds\":0.001286833}\n{\"event\":\"segment\",\"step\":5,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.604221875}\n{\"event\":\"segment\",\"step\":5,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.585791041}\n{\"event\":\"segment\",\"step\":5,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.589567625}\n{\"event\":\"segment\",\"step\":5,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.588447167}\n{\"event\":\"velocity_download\",\"step\":5,\"bytes\":516096,\"seconds\":0.000808583}\n{\"event\":\"step5_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step5.latents.f32\",\"sha256\":\"73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a\",\"expected_sha256\":\"73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":5,\"seconds\":2.383226167}\n{\"event\":\"step_upload\",\"step\":6,\"tensors\":2,\"seconds\":0.001261667}\n{\"event\":\"segment\",\"step\":6,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.613890333}\n{\"event\":\"segment\",\"step\":6,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.593564958}\n{\"event\":\"segment\",\"step\":6,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.594999583}\n{\"event\":\"segment\",\"step\":6,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.595083833}\n{\"event\":\"velocity_download\",\"step\":6,\"bytes\":516096,\"seconds\":0.000812583}\n{\"event\":\"step6_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step6.latents.f32\",\"sha256\":\"fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540\",\"expected_sha256\":\"fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":6,\"seconds\":2.412154333}\n{\"event\":\"step_upload\",\"step\":7,\"tensors\":2,\"seconds\":0.001281334}\n{\"event\":\"segment\",\"step\":7,\"segment\":0,\"api\":\"run_native\",\"seconds\":0.629026917}\n{\"event\":\"segment\",\"step\":7,\"segment\":1,\"api\":\"run_native\",\"seconds\":0.61390025}\n{\"event\":\"segment\",\"step\":7,\"segment\":2,\"api\":\"run_native\",\"seconds\":0.594207875}\n{\"event\":\"segment\",\"step\":7,\"segment\":3,\"api\":\"run_native\",\"seconds\":0.597358375}\n{\"event\":\"velocity_download\",\"step\":7,\"bytes\":516096,\"seconds\":0.000826084}\n{\"event\":\"step7_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/step7.latents.f32\",\"sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"expected_sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"passed\":true}\n{\"event\":\"step_complete\",\"step\":7,\"seconds\":2.4494360410000002}\n{\"event\":\"final_latents\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/final.latents.f32\",\"sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"expected_sha256\":\"3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74\",\"passed\":true}\n{\"event\":\"loaded\",\"model\":\"/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel\",\"function\":\"decode\",\"expect_frequent_reshapes\":false,\"seconds\":0.041310708}\n{\"event\":\"decoder_call\",\"api\":\"run\",\"seconds\":0.467963583}\n{\"event\":\"decoded_pixels\",\"file\":\"/private/tmp/corsairs-krea-parallel-functions/pixels.chw.f32\",\"sha256\":\"4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4\",\"expected_sha256\":\"4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4\",\"passed\":true}\n{\"event\":\"decode_complete\",\"seconds\":0.503898125}\n{\"event\":\"complete\",\"mode\":\"native-chain\",\"steps\":8,\"decoder_api\":\"run\",\"seconds\":19.484005917,\"passed\":true}\n{\"prepared\": true, \"native_validated\": true, \"report\": \"/Users/zakkeown/Code/aether/lab/corsairs/target/krea-check/checks.json\", \"large_results\": \"/private/tmp/corsairs-krea-parallel-functions\"}\n",
+        "bytes": 11541,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "Py_BytesMain",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x1002fbf70",
+            "file_address": "0x1002fbf70",
+            "module": "python3.12",
+            "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+            "symbol": "Py_BytesMain"
+          }
+        ]
+      }
+    ],
+    "events": [],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+    }
+  ],
+  "evidence_links": []
+}

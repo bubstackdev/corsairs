@@ -1,0 +1,481 @@
+{
+  "evidence_id": "ev_9706f04e904c70eca2b1b65b5a561972cea4a2df78c15532d20582e3e1a520c2",
+  "subject": {
+    "name": "options-oracle",
+    "digest": {
+      "sha256": "7351a5f8f0f57461a08a9dba816440b66e48e9aa2dd6de4da2a23748a5d4c7d1"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/private/tmp/corsairs-load-options-v02/options-oracle"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "$s15CoreAIDelegates21SpecializationOptionsV22expectFrequentReshapesSbvs"
+      },
+      {
+        "kind": "function",
+        "name": "$s15CoreAIDelegates21SpecializationOptionsV22expectFrequentReshapesSbvg"
+      }
+    ],
+    "arguments": [],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 15000,
+    "max_events": 16,
+    "argument_registers": 2,
+    "backtrace_frames": 1
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+      "sha256": "7351a5f8f0f57461a08a9dba816440b66e48e9aa2dd6de4da2a23748a5d4c7d1",
+      "architecture": "arm64",
+      "arguments": [],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "77520801",
+        "selected_file_sha256": "7351a5f8f0f57461a08a9dba816440b66e48e9aa2dd6de4da2a23748a5d4c7d1",
+        "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+        "module_uuid": "D1395034-CF8F-4402-A101-FCC8D8E6CB2C",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 50463,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 1083.886,
+      "stdout": {
+        "text": "{\"cpu_default\":false,\"gpu_default\":false,\"cpu_true\":true,\"gpu_true\":true,\"cpu_false\":false,\"gpu_false\":false}\n",
+        "bytes": 110,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "$s15CoreAIDelegates21SpecializationOptionsV22expectFrequentReshapesSbvs",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x2c5de06ac",
+            "file_address": "0x2aaaf86ac",
+            "module": "CoreAIDelegates",
+            "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+            "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.setter : Swift.Bool"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "request": {
+          "kind": "function",
+          "name": "$s15CoreAIDelegates21SpecializationOptionsV22expectFrequentReshapesSbvg",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x2c5de0684",
+            "file_address": "0x2aaaf8684",
+            "module": "CoreAIDelegates",
+            "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+            "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "sequence": 0,
+        "elapsed_ms": 983.791,
+        "thread_id": 706360,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5de0684",
+        "file_address": "0x2aaaf8684",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x7691014230"
+          },
+          {
+            "name": "x1",
+            "value": "0x2"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000b40",
+            "file_address": "0x100000b40",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 1,
+        "elapsed_ms": 987.29,
+        "thread_id": 706360,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5de0684",
+        "file_address": "0x2aaaf8684",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x0"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000b64",
+            "file_address": "0x100000b64",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 2,
+        "elapsed_ms": 990.762,
+        "thread_id": 706360,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5de06ac",
+        "file_address": "0x2aaaf86ac",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.setter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x1"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000b88",
+            "file_address": "0x100000b88",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 3,
+        "elapsed_ms": 994.218,
+        "thread_id": 706360,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5de06ac",
+        "file_address": "0x2aaaf86ac",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.setter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x1"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000b98",
+            "file_address": "0x100000b98",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 4,
+        "elapsed_ms": 997.552,
+        "thread_id": 706360,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5de0684",
+        "file_address": "0x2aaaf8684",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x2eb311e28"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000ba0",
+            "file_address": "0x100000ba0",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 5,
+        "elapsed_ms": 1000.897,
+        "thread_id": 706360,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5de0684",
+        "file_address": "0x2aaaf8684",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x1"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000bc0",
+            "file_address": "0x100000bc0",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 6,
+        "elapsed_ms": 1004.207,
+        "thread_id": 706360,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5de06ac",
+        "file_address": "0x2aaaf86ac",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.setter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x0"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000bf0",
+            "file_address": "0x100000bf0",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 7,
+        "elapsed_ms": 1007.597,
+        "thread_id": 706360,
+        "breakpoint_index": 0,
+        "load_address": "0x2c5de06ac",
+        "file_address": "0x2aaaf86ac",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.setter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x0"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000c04",
+            "file_address": "0x100000c04",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 8,
+        "elapsed_ms": 1010.987,
+        "thread_id": 706360,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5de0684",
+        "file_address": "0x2aaaf8684",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x2eb311e28"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000c0c",
+            "file_address": "0x100000c0c",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      },
+      {
+        "sequence": 9,
+        "elapsed_ms": 1014.372,
+        "thread_id": 706360,
+        "breakpoint_index": 1,
+        "load_address": "0x2c5de0684",
+        "file_address": "0x2aaaf8684",
+        "module": "CoreAIDelegates",
+        "module_path": "/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/CoreAIDelegates",
+        "symbol": "CoreAIDelegates.SpecializationOptions.expectFrequentReshapes.getter : Swift.Bool",
+        "receiver_class": null,
+        "selector": null,
+        "registers": [
+          {
+            "name": "x0",
+            "value": "0x0"
+          },
+          {
+            "name": "x1",
+            "value": "0x0"
+          }
+        ],
+        "backtrace": [
+          {
+            "load_address": "0x100000c2c",
+            "file_address": "0x100000c2c",
+            "module": "options-oracle",
+            "module_path": "/private/tmp/corsairs-load-options-v02/options-oracle",
+            "symbol": "static main.LoadOptionsOracle.main() -> ()"
+          }
+        ]
+      }
+    ],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/private/tmp/corsairs-load-options-v02/options-oracle"
+    }
+  ],
+  "evidence_links": []
+}

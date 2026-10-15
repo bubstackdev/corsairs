@@ -1,0 +1,16 @@
+{
+  "async_task/pending.rs": {
+    "production_sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "prototype_sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "identical_after_comment_removal": true
+  },
+  "async_task/sync_call.rs": {
+    "production_sha256": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+    "prototype_sha256": "7436f9bccb85e23dfa38d92ca81a44a049172bf7bf4b360514418097f9549801",
+    "identical_after_comment_removal": true
+  },
+  "owned/function_batch.rs completion/prepared/join/drop guards": {
+    "identical": true,
+    "sha256": "29b1e5097bfdc116f62b188a74e3a19ea3db224c8adb1eae49a62ce51740f2ad"
+  }
+}

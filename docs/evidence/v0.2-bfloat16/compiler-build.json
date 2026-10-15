@@ -1,0 +1,81 @@
+{
+  "native_executed": false,
+  "sdk_case": "bfloat16",
+  "case_tag_symbol": "$s13CoreAIRuntime7NDArrayV10ScalarTypeO8bfloat16yA2EmFWC",
+  "tag_contract": "external constant i32 loaded and passed to metadata[-1] VWT13; no hard-coded tag ordinal",
+  "files_sha256": {
+    "experiments/swift/BFloat16Reference.swift": "cec1999f6b357e106bcc1db20c6bcd7916b15f4de86f8c94bef7ca34ecf95e3f",
+    "experiments/swift/BFloat16RunReference.swift": "47318f089d0a14b8328071cebbb32abcefc7b3d8b1c8773b827d579a6ab7375b",
+    "target/bfloat16-reference/bfloat16-oracle": "78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/Modules/CoreAIRuntime.swiftmodule/arm64e-apple-macos.swiftinterface": "b5ca382d23c0177490b5b8cf1b14e7fb45b9a483b3feee072060a57a12f5a5dd",
+    "scripts/reference/build_bfloat16_fixtures.py": "07e21b2d5d37f44ba262ee8813abe06297d0f8f1a48749ee8be48fd3b7541b3d",
+    "fixtures/parity-v02/bfloat16/manifest.json": "60fd7af16dde62d31d2106e52f67a2138c47729255eb44eaf3c4d9508ec07daf",
+    "docs/evidence/v0.2-bfloat16/bfloat16.s": "c5e431481506f21e3e548108ff25d2f412146bd60908d88f10ffff6ed79c7ac3",
+    "docs/evidence/v0.2-bfloat16/bfloat16.ll": "9c0a96214d8bb8462d6cd05d3a2cf3b05ff3c4b36f350d78d151bce7b37491a3",
+    "docs/evidence/v0.2-bfloat16/bfloat16.sil": "84ca660b439f5a5d85fa2262f35de6259810d8bb4263dca086b2a9e16644dcfa"
+  },
+  "compiler_commands": [
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "BFloat16ABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-bfloat16-v02/cache",
+      "-emit-ir",
+      "experiments/swift/BFloat16Reference.swift",
+      "-o",
+      "/private/tmp/corsairs-bfloat16-v02/bfloat16.ll"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "BFloat16ABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-bfloat16-v02/cache",
+      "-emit-sil",
+      "experiments/swift/BFloat16Reference.swift",
+      "-o",
+      "/private/tmp/corsairs-bfloat16-v02/bfloat16.sil"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "BFloat16ABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-bfloat16-v02/cache",
+      "-emit-assembly",
+      "experiments/swift/BFloat16Reference.swift",
+      "-o",
+      "/private/tmp/corsairs-bfloat16-v02/bfloat16.s"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-O",
+      "-parse-as-library",
+      "-module-cache-path",
+      "/private/tmp/corsairs-bfloat16-v02/cache",
+      "experiments/swift/BFloat16RunReference.swift",
+      "-o",
+      "/private/tmp/corsairs-bfloat16-v02/bfloat16-oracle"
+    ]
+  ],
+  "native_command": [
+    "target/bfloat16-reference/bfloat16-oracle",
+    "fixtures/parity-v02/bfloat16",
+    "target/bfloat16-reference/swift-output"
+  ],
+  "limitations": [
+    "Compiler and fixture preparation are not native execution.",
+    "All-encoding raw identity is separate from arithmetic/NaN numerical conversion."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "generated_at_utc": "2026-10-15T17:23:02.628782+00:00",
+  "native_executed": false,
+  "purpose": "Compiler verification of Objective-C Metal device/storageMode/status getter lowering; no new Swift CoreAI ABI.",
+  "files_sha256": {
+    "experiments/swift/MetalPropertiesReference.swift": "2b524b3034bb39d60cda089405e1472b2cbd3c15a4588345a170cd92cbb76612",
+    "docs/evidence/v0.2-metal-properties/properties.ll": "47b28f42dcf12de532a30c5af59efa7f964089185cad4b7524f8f698270bbc14",
+    "docs/evidence/v0.2-metal-properties/properties.s": "15caadc0a9f64100c599fca2c917ef7d408ae0a9cf20bff5785d8fab23f4f656"
+  },
+  "commands": [
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "MetalPropertiesABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-metal-properties/cache",
+      "-emit-ir",
+      "experiments/swift/MetalPropertiesReference.swift",
+      "-o",
+      "/private/tmp/corsairs-metal-properties/properties.ll"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "MetalPropertiesABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-metal-properties/cache",
+      "-emit-assembly",
+      "experiments/swift/MetalPropertiesReference.swift",
+      "-o",
+      "/private/tmp/corsairs-metal-properties/properties.s"
+    ]
+  ]
+}

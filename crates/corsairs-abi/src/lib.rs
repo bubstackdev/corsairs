@@ -1,8 +1,10 @@
 //! Safe Rust inference with Apple Core AI on Apple Silicon macOS 27.
 //!
-//! Native calls are serialized on a dedicated worker. Tensors and returned
-//! state use owned Rust storage; pending work survives a dropped future.
-//! v0.1 supports resolved static signatures and owned contiguous float16,
+//! A dedicated worker owns native values. Ordinary calls run in queue order;
+//! explicit model batches enqueue independent native loads before joining them.
+//! Tensors and returned state use owned Rust storage or retained native handles;
+//! pending work survives a dropped future.
+//! Supports static and dynamic signatures and owned contiguous float16,
 //! float32, int32, int64, and bool tensors, with rank at most 64 and storage
 //! at most 1 GiB per tensor. GPU preference permits native fallback.
 //!
@@ -30,8 +32,19 @@ mod facade;
 mod worker;
 
 pub use api_error::Error;
-pub use dtype::{DType, Float16, MAX_TENSOR_BYTES, MAX_TENSOR_RANK, Tensor, TensorElement};
+pub use dtype::{
+    BFloat16, DType, Float16, MAX_TENSOR_BYTES, MAX_TENSOR_RANK, Tensor, TensorElement,
+};
+#[cfg(feature = "abi-research")]
+pub use facade::FunctionBatchLoadReport;
+pub use facade::FunctionLoadRequest;
+#[cfg(feature = "abi-research")]
+pub use facade::{BatchLoadMetrics, BatchLoadReport};
 pub use facade::{
-    Compute, Function, FunctionDescriptor, Model, RunResult, Runtime, TensorDescriptor, TensorMap,
+    Compute, Function, FunctionDescriptor, LoadOptions, Model, ModelLoadRequest, NativeRunResult,
+    RunResult, Runtime, TensorDescriptor, TensorHandle, TensorHandleMap, TensorMap,
+};
+pub use facade::{
+    MetalBuffer, MetalBufferMap, MetalObject, MetalQueue, MetalRunResult, MetalValue, MetalValueMap,
 };
 pub use worker::Task;

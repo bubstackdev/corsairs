@@ -1,0 +1,51 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "-I",
+        "-B",
+        "scripts/reference/run_dynamic.py"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"passed\": true, \"backends\": 2, \"shape_changes_per_function\": 4}\n",
+      "stderr": "2026-10-15 10:45:23.614022-0600 python3.12[51054:711134] [MPSGraph_Common] /AppleInternal/Library/BuildRoots/4~CV2iugCS017GRPdEjj32gfBJXr8YaxAcCWYlUuw/Library/Caches/com.apple.xbs/TemporaryDirectory.WK6jPd/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:2523: No ANE hash for architecture 'h17c' in package /Users/zakkeown/Library/Caches/coreai-cache/26A434/python3-12/de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6/1437135650F5EB80B3545D58225DFBDAB1D3F672814A14BDB8BE67FA0A9BB0E1/model.aimodelx/main-this-delegates/MPSGraph/mpsExecutable.mpsgraphpackage \u2014 GPU-only model or wrong target?\n"
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/dynamic-shapes",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/dynamic-double"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"None\",\"dynamic_calls\":4,\"negative_calls\":3,\"passed\":true}\n{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"Some(false)\",\"dynamic_calls\":4,\"negative_calls\":3,\"passed\":true}\n{\"compute\":\"CpuOnly\",\"frequent_reshapes\":\"Some(true)\",\"dynamic_calls\":4,\"negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"None\",\"dynamic_calls\":4,\"negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"Some(false)\",\"dynamic_calls\":4,\"negative_calls\":3,\"passed\":true}\n{\"compute\":\"GpuPreferred\",\"frequent_reshapes\":\"Some(true)\",\"dynamic_calls\":4,\"negative_calls\":3,\"passed\":true}\n{\"event\":\"complete\",\"passed\":true}\n",
+      "stderr": "2026-10-15 10:45:24.109846-0600 dynamic-shapes[51056:711194] [MPSGraph_Common] /AppleInternal/Library/BuildRoots/4~CV2iugCS017GRPdEjj32gfBJXr8YaxAcCWYlUuw/Library/Caches/com.apple.xbs/TemporaryDirectory.WK6jPd/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:2523: No ANE hash for architecture 'h17c' in package /Users/zakkeown/Library/Caches/coreai-cache/26A434/dynamic-shapes/de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6/1437135650F5EB80B3545D58225DFBDAB1D3F672814A14BDB8BE67FA0A9BB0E1/model.aimodelx/main-this-delegates/MPSGraph/mpsExecutable.mpsgraphpackage \u2014 GPU-only model or wrong target?\n"
+    }
+  ],
+  "passed": true,
+  "sha256": {
+    "crates/corsairs-abi/src/dtype.rs": "57f583e65e047233e6aa48227c7947e46b4cc1e8ca7bbc8d2bb18993a5c2a129",
+    "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+    "crates/corsairs-abi/src/lib.rs": "7dbfb0c11e0569287068f49f87f044ac5b4cd75bb06d87ea2a181dc3008aae92",
+    "crates/corsairs-abi/src/facade.rs": "9103fb9851ad759d8ef9c123a422c53e0c30e55b6d23189bd56b063b24ac0846",
+    "crates/corsairs-abi/src/worker.rs": "4ea071c49640f57eae0627d94b390aff866c028e02eb73bfa24002da212b08aa",
+    "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+    "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "crates/corsairs-abi/src/native/async_task.rs": "1c46d8392654afcf8a47b303f85d9530bdfee44b0c59367951477c4895980eb3",
+    "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "crates/corsairs-abi/src/native/owned.rs": "35794491a0ed7740d77bc532b47f081c4e969ccd96a900b60cf4fcd9f65c27d7",
+    "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "crates/corsairs-abi/src/native/mod.rs": "24efe5006a78763aed58d7a69f6aad4ca39c69339c8604a764869222aa2fc82f",
+    "crates/corsairs-abi/src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+    "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "crates/corsairs-abi/src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+    "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "crates/corsairs-abi/src/bin/corsairs.rs": "15d081a04fac978c56cd9bfd868d9719df839c7c8fa0ff8ec4fe187684262399",
+    "crates/corsairs-abi/src/native/owned/handles.rs": "02305ec7e3a3a15460ee02765bcc99afdd6fe11c4babd62e47b72129fde03707",
+    "experiments/rust/dynamic_shapes.rs": "38f7bf8a74e514524b26a97a71e8206284886b7e36deae8e9010ddcd4e72a7ff",
+    "target/v02-check/dynamic-shapes": "ba93673de0b35fadd75bcb84e44f8cc2f577c25f0e668bc870100e0ef727e05e"
+  }
+}

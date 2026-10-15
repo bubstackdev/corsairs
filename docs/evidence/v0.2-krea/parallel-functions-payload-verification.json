@@ -1,0 +1,236 @@
+{
+  "kind": "corsairs-krea-dual-phase-batch-independent-verification",
+  "verified_at": "2026-10-15T17:51:10.461672+00:00",
+  "passed": true,
+  "native_execution_performed": false,
+  "reference_sources_sha256": {
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/fixed-paired-tower/record.json": "accbccdbac8c50e2833245addf001efc4cbf4083c213ea6ef766005965bf8bdf",
+    "/Users/zakkeown/Code/atelier/lab/krea-lab/records/round4/block-inputs-tower/inputs.json": "4a5d6e6311c0bffe4c658f872bf6c768e17c6fb427d431498891a9658032192f"
+  },
+  "report_sha256": "11525972c94c9b549ffc537dfdd6e576f24dbcc56c0a5a4173cc17650d9137c5",
+  "build_manifest_sha256": "e96a58096a87d2cc454446eb5ddb276a7daf767a31c77d1bfdf42e64a77cd2d2",
+  "source_identity_sha256": "10ea15bfc94074f87459060a43a1a5dd1508f858c900eebb8ae154189b1f615d",
+  "source_file_count": 46,
+  "binary_sha256": "994605bf144cc2d7b39f713145bdcbe0c8186544363010992dff178f2b49330c",
+  "phase_counts": {
+    "batch_load": {
+      "reconstructed_peak": 4,
+      "active_after_join": 0,
+      "entries": 4,
+      "returns": 4
+    },
+    "function_batch_load": {
+      "reconstructed_peak": 4,
+      "active_after_join": 0,
+      "entries": 4,
+      "returns": 4
+    }
+  },
+  "phase_events": {
+    "batch_load": [
+      {
+        "event": "batch_load_event",
+        "task": 1,
+        "stage": "entry",
+        "elapsed_nanos": 4405167
+      },
+      {
+        "event": "batch_load_event",
+        "task": 2,
+        "stage": "entry",
+        "elapsed_nanos": 4538834
+      },
+      {
+        "event": "batch_load_event",
+        "task": 3,
+        "stage": "entry",
+        "elapsed_nanos": 4667334
+      },
+      {
+        "event": "batch_load_event",
+        "task": 4,
+        "stage": "entry",
+        "elapsed_nanos": 4796459
+      },
+      {
+        "event": "batch_load_event",
+        "task": 3,
+        "stage": "return",
+        "elapsed_nanos": 12464584
+      },
+      {
+        "event": "batch_load_event",
+        "task": 1,
+        "stage": "return",
+        "elapsed_nanos": 12466709
+      },
+      {
+        "event": "batch_load_event",
+        "task": 2,
+        "stage": "return",
+        "elapsed_nanos": 12470167
+      },
+      {
+        "event": "batch_load_event",
+        "task": 4,
+        "stage": "return",
+        "elapsed_nanos": 12478459
+      }
+    ],
+    "function_batch_load": [
+      {
+        "event": "function_batch_load_event",
+        "task": 1,
+        "stage": "entry",
+        "elapsed_nanos": 434416
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 2,
+        "stage": "entry",
+        "elapsed_nanos": 543750
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 3,
+        "stage": "entry",
+        "elapsed_nanos": 659541
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 4,
+        "stage": "entry",
+        "elapsed_nanos": 760083
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 3,
+        "stage": "return",
+        "elapsed_nanos": 4666010041
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 4,
+        "stage": "return",
+        "elapsed_nanos": 4708114375
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 2,
+        "stage": "return",
+        "elapsed_nanos": 4725668375
+      },
+      {
+        "event": "function_batch_load_event",
+        "task": 1,
+        "stage": "return",
+        "elapsed_nanos": 5353263250
+      }
+    ]
+  },
+  "payloads": [
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/final.latents.f32",
+      "bytes": 1032192,
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "swift_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/first-cond.f32",
+      "bytes": 196608,
+      "sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "swift_sha256": "9045165581e63789bc1d296f4387076af89da33d6b238222346d039b885da713",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/first-image_1.f32",
+      "bytes": 99090432,
+      "sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "swift_sha256": "8a5aff43537dda8553162d35eed6ddc5340133bb382b7fd9245b9d3c6bc0b734",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/first-text_1.f32",
+      "bytes": 491520,
+      "sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "swift_sha256": "f75a4293fa28612a517a3054a49cc9464e41227d94b42633b3406b2d32b4a97c",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/pixels.chw.f32",
+      "bytes": 12386304,
+      "sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "swift_sha256": "4fa6be3acbb37f7e0b52f6b7b0cbe0376757af308d333d436641fa8a0152f8c4",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step0.latents.f32",
+      "bytes": 1032192,
+      "sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "swift_sha256": "df2ff892f06502edf9a55cc21997afd156a212ee26fb3fe587f1b80b11bbb296",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step1.latents.f32",
+      "bytes": 1032192,
+      "sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "swift_sha256": "dea4fd66194d9c1f7dc1aaba19816e718c5d6ea2df325c7583cfc3ffd2181140",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step2.latents.f32",
+      "bytes": 1032192,
+      "sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "swift_sha256": "25c26b11c84b1ee7546e2ef2a840c74153671abd2b7f0cc43a3e2212960cb842",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step3.latents.f32",
+      "bytes": 1032192,
+      "sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "swift_sha256": "9738a39a0ebebf714cce68061e20216aea70fbb9d7d417f54abdd7ff2efe4c66",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step4.latents.f32",
+      "bytes": 1032192,
+      "sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "swift_sha256": "9cb2e5ea7430eeb85e81b7f00e140fb25880b13cf8cf9e5328406fe2b46d9150",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step5.latents.f32",
+      "bytes": 1032192,
+      "sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "swift_sha256": "73f1733fe3360a78ba04d9eb40b1106cdcf90c55dc2a61eb0180f71d259c506a",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step6.latents.f32",
+      "bytes": 1032192,
+      "sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "swift_sha256": "fa0acaeab113132cf5499c9ee88ebc837cf0434387162d94c20008a209aeb540",
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-krea-parallel-functions/step7.latents.f32",
+      "bytes": 1032192,
+      "sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "swift_sha256": "3869b757030e018ed74b48644dcb013179c6059633540e160ace531ea83f0d74",
+      "passed": true
+    }
+  ],
+  "logs_sha256": {
+    "/private/tmp/corsairs-krea-parallel-functions/events.jsonl": "7e7c1e0509b41b53cb81750cba7eca27c3b10ec86edc598c017eb4ca15292bb3",
+    "/private/tmp/corsairs-krea-parallel-functions/native.stderr.log": "b8837077492c7c7d40fa011148b85b7b0955cbf54888e4070a3a3117ba2d7e2d"
+  },
+  "snapshots_sha256": {
+    "eight-step-parallel-functions.json": "11525972c94c9b549ffc537dfdd6e576f24dbcc56c0a5a4173cc17650d9137c5",
+    "build-parallel-functions.json": "e96a58096a87d2cc454446eb5ddb276a7daf767a31c77d1bfdf42e64a77cd2d2",
+    "parallel-functions-driver.rs": "d51716ebc6d86b85b32f46e9c8c1a2b1ec6ef989b8ae7a05d45e2ca138a2ed28",
+    "parallel-functions-checker.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
+    "parallel-functions-benchmark.py": "d8659154e306143fc3d0fda942b91aa69e5527dcd8abde4f96a21d1e254610f6",
+    "parallel-functions-data.rs": "39d6e6823a7929dc41fea7f392d13aa30b28a3901b863ef6c06e19f13f1c7aae"
+  }
+}

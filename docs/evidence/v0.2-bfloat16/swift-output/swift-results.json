@@ -1,0 +1,363 @@
+{
+  "all_encodings" : 65536,
+  "bfloat16_distinct_from_float16" : true,
+  "passed" : true,
+  "production_helper" : false,
+  "raw_roundtrip_sha256" : "68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b",
+  "records" : [
+    {
+      "backend" : "cpu",
+      "case" : "double",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "shape" : [
+        2,
+        3
+      ],
+      "step" : 0,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "scalar",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "shape" : [
+
+      ],
+      "step" : 0,
+      "strides" : [
+
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "empty",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "shape" : [
+        0,
+        3
+      ],
+      "step" : 0,
+      "strides" : [
+        0,
+        0
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "shape" : [
+        1,
+        3
+      ],
+      "step" : 0,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "shape" : [
+        4,
+        3
+      ],
+      "step" : 1,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "shape" : [
+        2,
+        3
+      ],
+      "step" : 2,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "shape" : [
+        1,
+        3
+      ],
+      "step" : 3,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "transpose",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "shape" : [
+        3,
+        2
+      ],
+      "step" : 0,
+      "strides" : [
+        2,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "accumulator",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "shape" : [
+        2,
+        3
+      ],
+      "state_sha256" : "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "step" : 0,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "accumulator",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "shape" : [
+        2,
+        3
+      ],
+      "state_sha256" : "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "step" : 1,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "cpu",
+      "case" : "accumulator",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "shape" : [
+        2,
+        3
+      ],
+      "state_sha256" : "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "step" : 2,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "double",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "shape" : [
+        2,
+        3
+      ],
+      "step" : 0,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "scalar",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "b904df7e00dc8e5f6d7d455672cce0cbb180f90af8f7f0d76ddf2bdca87d6b58",
+      "shape" : [
+
+      ],
+      "step" : 0,
+      "strides" : [
+
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "empty",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "shape" : [
+        0,
+        3
+      ],
+      "step" : 0,
+      "strides" : [
+        0,
+        0
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "shape" : [
+        1,
+        3
+      ],
+      "step" : 0,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "3a59724e241391d75c919535ce593d151ca07337224c73527c34cb031eff126e",
+      "shape" : [
+        4,
+        3
+      ],
+      "step" : 1,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "40e9a76f5d352445cbee293df3d93f51d821ff8022fcb8dc73498acf93d49beb",
+      "shape" : [
+        2,
+        3
+      ],
+      "step" : 2,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "dynamic",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "27691b76d94b0f5c5d8fdde551720003c755b90d37e0df41a0f67053259a005b",
+      "shape" : [
+        1,
+        3
+      ],
+      "step" : 3,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "transpose",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "8b902514a89bd23b378d88704da144c387f4dd669d7b75631b2e42992c604cff",
+      "shape" : [
+        3,
+        2
+      ],
+      "step" : 0,
+      "strides" : [
+        2,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "accumulator",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "shape" : [
+        2,
+        3
+      ],
+      "state_sha256" : "86eac98e3c92b9a0db15bc6a47f854bc01917dbcb6c799f90c19c0409019d95c",
+      "step" : 0,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "accumulator",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "shape" : [
+        2,
+        3
+      ],
+      "state_sha256" : "cf199522fe9c0255da23ea49c2a49af389d482affc0eb730d276d620b06921e6",
+      "step" : 1,
+      "strides" : [
+        3,
+        1
+      ]
+    },
+    {
+      "backend" : "gpu-preferred",
+      "case" : "accumulator",
+      "dtype" : "bfloat16",
+      "exact_bytes" : true,
+      "sha256" : "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "shape" : [
+        2,
+        3
+      ],
+      "state_sha256" : "91e31282ba7d7078b7450c32eb6355b0a54d7af81855248fb7a6a2e793cd9f5b",
+      "step" : 2,
+      "strides" : [
+        3,
+        1
+      ]
+    }
+  ]
+}

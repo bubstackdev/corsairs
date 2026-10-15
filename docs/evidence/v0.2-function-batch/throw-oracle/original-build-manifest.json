@@ -1,0 +1,63 @@
+{
+  "created_utc": "2026-10-15T17:55:03.136067+00:00",
+  "status": "compiled_native_validation_pending",
+  "scope": "Disposable exact-ABI Swift throw/error-payload lifetime probe; not a Core AI malformed-model throw claim. No production/test-cfg edits.",
+  "files": {
+    "experiments/FunctionThrowOracle.swift": {
+      "sha256": "e830da27a762201f3459f47a18cad32b95818cbbbb49f35c658f255aa89b573d",
+      "bytes": 1039
+    },
+    "experiments/function_throw.rs": {
+      "sha256": "3fe06eb925d7eba004b087d117689b4ead2ed2e2722c6d74671db97a302ae617",
+      "bytes": 1720
+    },
+    "crates/corsairs-abi/src/native/owned/function_batch/throw_oracle.rs": {
+      "sha256": "64fbdfdeba6865c2ef1330f10a1a792639a3d87c9375f3520f6629264143ed2e",
+      "bytes": 7381
+    },
+    "crates/corsairs-abi/src/facade/function_batch.rs": {
+      "sha256": "b4ed72ff82d5bd28e05fc5d142d0422cecd4c22c41961bf28667db6f6363aced",
+      "bytes": 7039
+    },
+    "crates/corsairs-abi/src/native/async_task/sync_call.rs": {
+      "sha256": "7436f9bccb85e23dfa38d92ca81a44a049172bf7bf4b360514418097f9549801",
+      "bytes": 3655
+    },
+    "crates/corsairs-abi/src/native/async_task/pending.rs": {
+      "sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+      "bytes": 15081
+    },
+    "target/oracle/FunctionThrowOracle.ll": {
+      "sha256": "8a2ad002ba2512020e7e8254830b0958feca8060529eb6856d89b163e1b7f8d5",
+      "bytes": 37456
+    },
+    "target/oracle/libFunctionThrowOracle.dylib": {
+      "sha256": "693bab9cf8f6f4bb47b73dc9178f71b9944be5c02eb5969cbb32ed1682bbf7ea",
+      "bytes": 55568
+    },
+    "target/oracle/function-throw-driver": {
+      "sha256": "5430cb1a988a3e4cc9c64370abdbb343fc5f175f78f0669fbaf07bb122270451",
+      "bytes": 775112
+    },
+    "target/oracle/shared-production-adapters.json": {
+      "sha256": "2c5be6129f6807b2f01df166af28de67f765d769e1a88e5c5df28646293434fc",
+      "bytes": 708
+    }
+  },
+  "expected": {
+    "native_invocations": 200,
+    "observed_rounds": 25,
+    "abandoned_rounds": 25,
+    "observed_native_errors": 50,
+    "created_payloads": 100,
+    "destroyed_payloads": 100
+  },
+  "compiler": "AppleSwift6.4 strictSwift6 -strict-concurrency=complete -warnings-as-errors -O",
+  "checks": {
+    "swift_dylib": "compiled",
+    "swift_IR": "instance-method swiftcc sret, two String words, swiftself, swifterror",
+    "rust_research_clippy": "all-targets passed -Dwarnings",
+    "rust_release_driver": "compiled -Dwarnings"
+  },
+  "library_lifetime": "Oracle Swift code/metadata pinned with RTLD_NODELETE until process exit; dlopen handle balanced. Payload created/deinit counters separately verify owned Error lifetimes."
+}

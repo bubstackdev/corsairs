@@ -1,0 +1,1979 @@
+{
+  "kind": "corsairs-h3-bf16-acceptance",
+  "mode": "backbone-stage1",
+  "native_requested": true,
+  "large_output_directory": "/private/tmp/corsairs-h3-backbone-stage1",
+  "created_at": "2026-10-15T18:11:18.416664+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/h3-check/driver",
+        "/private/tmp/corsairs-h3-backbone-stage1",
+        "backbone-stage1",
+        "/private/tmp/corsairs-h3-backbone-stage0/checkpoint.bf16"
+      ],
+      "returncode": 0,
+      "stdout": "{\"event\":\"loaded\",\"asset\":\"/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-1.aimodel\",\"function\":\"segment\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true,\"seconds\":194.544817958}\n{\"event\":\"segment_complete\",\"segment\":1,\"first_block\":25,\"end_block_exclusive\":50,\"seconds\":25.689420125}\n{\"event\":\"stage_drained\",\"segment\":1}\n{\"event\":\"backbone\",\"file\":\"/private/tmp/corsairs-h3-backbone-stage1/backbone.bf16\",\"dtype\":\"bfloat16\",\"shape\":[1, 19350, 5376],\"bytes\":208051200,\"sha256\":\"e4aabaed96045e8b86cd292f7c6234f4ad5d86dda2e33edc41330d3e9772e75b\",\"swift_sha256\":\"e4aabaed96045e8b86cd292f7c6234f4ad5d86dda2e33edc41330d3e9772e75b\",\"passed\":true}\n{\"event\":\"complete\",\"mode\":\"backbone-stage1\",\"api\":\"owned\",\"seconds\":220.944937459,\"passed\":true}\n",
+      "stderr": "",
+      "timed_out": false,
+      "elapsed_seconds": 221.0051308330003,
+      "events_file": "/private/tmp/corsairs-h3-backbone-stage1/events.jsonl",
+      "stderr_file": "/private/tmp/corsairs-h3-backbone-stage1/native.stderr.log"
+    }
+  ],
+  "passed": true,
+  "scope": "Owned safe Rust tensors, original BF16/F32 assets, exact saved Swift/Core AI hashes. Separate 2% CPU metric only for the original 128-row block. No full H3 generation.",
+  "external": {
+    "h3_root": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab",
+    "snapshot": "42ed227ee7df40d41602854ae760620d6eb651fe",
+    "records_sha256": {
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-128.json": "f4ddd1f0052f05d5c2ba332cdb46a17b5eeefd1f59abb69f340a4f4e2dcd8489",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-128.json": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-inputs.json": "7525e67c06fb7c473cd6a68b2cedcf63b3ac643b2be838de10f931fcf89b17d8",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-cache-parity.json": "cc7a404302d1a303191fa1891897080b8759419c374c5f03f168aac687db1f99",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-19350.json": "b222c4e8287472560338c57428a21fc5d34d12de3d71c7fd0009196ddc1c8475",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-tables.json": "1fc87aa782073d48ffb22481665c595544f2a59399938b1c1633bf0ae73f062a",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-export.json": "996796bc00f95eb48123ce17e64ee6a06bd1edc98ae275a29a4c0883c1fe1361",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/segments-25-export.json": "3f5015767945217a1a95f60ab86b4d551522259ed4513ef2319300d89c2c6f13",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-streaming.json": "2c64731b7ce2083e7e9ce6350e4fc47a0e7160d505351e3d980334ab9581200e"
+    },
+    "source_files_sha256": {
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/Tests/Block.swift": "db88c224b2bae8cc5db8b05c62e1e0d1cc4f00ce6a95c83d56fa05f468f1544c",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/Tests/Schedule.swift": "6d7febc5b5916c54d386c2ea6c4f4139c45a2bf465141f213a2a3224218f1fc2",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/Tests/Segments.swift": "ae76ab1b2e2a3bf5eb07aabb0d45ffa267a96dd27b8f0f7be59d6225c43c4d6e",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/qualify_block.py": "63488cde08c9a5fd2a596ddb867395c1e9c4da07b0f7578ed1c5632896e7bcdb",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/export_segments.py": "444dbfe8755c6e6a6f447516db400ac0d460a2bf496ac2b18eabf28e421fa96a"
+    },
+    "assets": [
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-1.aimodel",
+        "function": "segment",
+        "source_sha256": "2bb06f7c6ee8de9c53bd10ecf52c2f0367b736fa46ea95faca7305b7ffb87776",
+        "source_bytes": 19268406586,
+        "full_source_hash_verified": true,
+        "metadata": {
+          "creationDate": "20261015T173148Z",
+          "assetVersion": "2.0",
+          "producer": "coreai-core 1.0.0b2"
+        },
+        "compute": "gpu-preferred",
+        "expect_frequent_reshapes": true
+      }
+    ],
+    "block_inputs": [
+      {
+        "name": "hidden",
+        "shape": [
+          1,
+          128,
+          5376
+        ],
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/block-128/hidden.raw",
+        "sha256": "bb40c01a1cddb08081f6ac02bc141f5e824ddacd8d51e56c467f657b336d243b",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/hidden.raw",
+        "bytes": 1376256
+      },
+      {
+        "name": "temb",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/block-128/temb.raw",
+        "sha256": "f05f6a237deec81802ae5684fb0d49e37e34e75271e11856b38ec89e380be489",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/temb.raw",
+        "bytes": 32256
+      },
+      {
+        "name": "tags",
+        "shape": [
+          128
+        ],
+        "dtype": "int64",
+        "file": "forge/fixtures/block-128/tags.raw",
+        "sha256": "ee38448f15ef9860276544e3df2b15b9d807d207db86f5116cba6e1eaede96b5",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/tags.raw",
+        "bytes": 1024,
+        "runtime_dtype": "int32"
+      },
+      {
+        "name": "cos",
+        "shape": [
+          128,
+          96
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/block-128/cos.raw",
+        "sha256": "0b68547fed3816ac869f385dab60bb7d1bfb26baf6bfe0257cece8200df9392d",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/cos.raw",
+        "bytes": 49152
+      },
+      {
+        "name": "sin",
+        "shape": [
+          128,
+          96
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/block-128/sin.raw",
+        "sha256": "9aa0c3ead09265ead9abb22326f29b810423237a659db03ea4393aacdbf75f6d",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/sin.raw",
+        "bytes": 49152
+      }
+    ],
+    "cpu_reference": {
+      "name": "reference",
+      "shape": [
+        1,
+        128,
+        5376
+      ],
+      "dtype": "bfloat16",
+      "file": "forge/fixtures/block-128/reference.raw",
+      "sha256": "2c0a150daa606d874b8784feb434b6bd635beff8221aa3ac79c6fa0f6b69cda7",
+      "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/reference.raw",
+      "bytes": 1376256
+    },
+    "cpu_modulations": {
+      "name": "modulations",
+      "shape": [
+        6,
+        9,
+        5376
+      ],
+      "dtype": "bfloat16",
+      "file": "forge/fixtures/block-128/modulations.raw",
+      "sha256": "a419771c75d940bac1d9a7bd14efc3d5bacb98c67cd3b1e79e7e42d6c35ed847",
+      "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/modulations.raw",
+      "bytes": 580608
+    },
+    "swift_files": {
+      "gpu-live.raw": {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-live.raw",
+        "sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+        "bytes": 1376256
+      },
+      "gpu-cached.raw": {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-cached.raw",
+        "sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+        "bytes": 1376256
+      },
+      "gpu-modulations.raw": {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-modulations.raw",
+        "sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+        "bytes": 580608
+      }
+    },
+    "swift_output_sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+    "swift_modulation_sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+    "schedule_inputs": [
+      {
+        "name": "temb-0",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-0.raw",
+        "sha256": "4430946aa49082d91c342e2fcd4c74e03d8f0341b08217617691e89402a4c0c1",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-0.raw"
+      },
+      {
+        "name": "temb-1",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-1.raw",
+        "sha256": "cc07642f0627fda4b997250bf100e02ad093d124d3eacf3228a41bf037d64f87",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-1.raw"
+      },
+      {
+        "name": "temb-2",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-2.raw",
+        "sha256": "b30de9e078a3aacc82475f40d5b2b9b886eaab005bd32ffc6556f7ddd19c9f96",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-2.raw"
+      },
+      {
+        "name": "temb-3",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-3.raw",
+        "sha256": "b79dcdaf2db31d4b246a297b26a57ad0d10f2af36d3ba6251a5e8f9bb2f332cd",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-3.raw"
+      },
+      {
+        "name": "temb-4",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-4.raw",
+        "sha256": "e2edbe1301a067762e56d7db2845db95b298e08a5e3d6383ed74137c3eebd9a4",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-4.raw"
+      },
+      {
+        "name": "temb-5",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-5.raw",
+        "sha256": "17c2fc449cc588f0adc9b08d7fd47c565d01c0e1b06a1f2756cf21ddd4b93046",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-5.raw"
+      },
+      {
+        "name": "temb-6",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-6.raw",
+        "sha256": "1715c35509b1833a8b17ab34c52e53cd2f6dd659a4316d103ab93d83b83e686e",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-6.raw"
+      },
+      {
+        "name": "temb-7",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-7.raw",
+        "sha256": "05e0b56740fbeb1f7de1fb662514f94f278c35ef9716ef83b79fe1222ca44248",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-7.raw"
+      },
+      {
+        "name": "temb-8",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-8.raw",
+        "sha256": "bdfaae7aad26abb6d012b358cb3acb329af210b3a6ccf1ecc5299ec41b1eac13",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-8.raw"
+      },
+      {
+        "name": "temb-9",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-9.raw",
+        "sha256": "bde008e5f830afe7080c82d1acabe584268540ba96451d5c94c5c10188a4389a",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-9.raw"
+      },
+      {
+        "name": "temb-10",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-10.raw",
+        "sha256": "a3b143f75b54e372fd4c4d75389c92ef20ddc4cbe303a4c402dddd18287bcec5",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-10.raw"
+      },
+      {
+        "name": "temb-11",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-11.raw",
+        "sha256": "fea265bcd3f29d3c83319b4928e409055286e295177ace26386233675b06f213",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-11.raw"
+      },
+      {
+        "name": "temb-12",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-12.raw",
+        "sha256": "42bf7349d0ea0d855fd908c184d320f18dd0339fd8533fbb4a97f4610dbf1a48",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-12.raw"
+      },
+      {
+        "name": "temb-13",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-13.raw",
+        "sha256": "0516003e2e00ead040b180b6efbe9f20b023ea8cafd2da5b0be806b1f27aadc3",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-13.raw"
+      },
+      {
+        "name": "temb-14",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-14.raw",
+        "sha256": "0187ec627b695973d191b30a64472bff9903f54b8248367242bc6cfe6e7eb32b",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-14.raw"
+      },
+      {
+        "name": "temb-15",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-15.raw",
+        "sha256": "f6216c2370771535ee0deaf2ff3f58da48b91c2f9763e93d269cbf7521b72237",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-15.raw"
+      },
+      {
+        "name": "temb-16",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-16.raw",
+        "sha256": "512fd3f140d3c97802fa0bdbd2abe865e5a6b80c56b15bf4f8c175828f44b47b",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-16.raw"
+      },
+      {
+        "name": "temb-17",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-17.raw",
+        "sha256": "f05f6a237deec81802ae5684fb0d49e37e34e75271e11856b38ec89e380be489",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-17.raw"
+      },
+      {
+        "name": "temb-18",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-18.raw",
+        "sha256": "b139b6dbb8bce37cf2c5364e2972c243edcde7ffe929d677a20e88dad28f4145",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-18.raw"
+      },
+      {
+        "name": "temb-19",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-19.raw",
+        "sha256": "4aa8b9dfb0e4e0ac2671d510b53a83bc41f8630d8e8782c9b67ac2374dbf35a5",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-19.raw"
+      },
+      {
+        "name": "temb-20",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-20.raw",
+        "sha256": "c4c81d5545b7d3c40304571e7acbf055f828fe8eed9d98cb6302923c6d6bd5cf",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-20.raw"
+      },
+      {
+        "name": "temb-21",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-21.raw",
+        "sha256": "abbfb8fa422d6bf2e639a1c3a44404203b43f558d926f87088837ad810fe93a5",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-21.raw"
+      },
+      {
+        "name": "temb-22",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-22.raw",
+        "sha256": "fc10af574589bb2b2e7d1d59f2c2b6e77f11c557fa0a4d851d016fa309f57860",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-22.raw"
+      },
+      {
+        "name": "temb-23",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-23.raw",
+        "sha256": "09b1d7c82abed7b5f80547aa201ec503f5fae26c75a9cd3c4d2bb6e4306b8951",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-23.raw"
+      },
+      {
+        "name": "temb-24",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-24.raw",
+        "sha256": "a2ced67a63637032db207af6c41926ca120bc8c3986098eba5131bf361eb5fd9",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-24.raw"
+      },
+      {
+        "name": "temb-25",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-25.raw",
+        "sha256": "42e46098fb0bdcfc628787d82d684a109157dc91ef495a616d756866aeec0857",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-25.raw"
+      },
+      {
+        "name": "temb-26",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-26.raw",
+        "sha256": "ab4cd8cd4b734e16b18386337e40d97860f39fe374f13f698f9a67798ff46010",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-26.raw"
+      },
+      {
+        "name": "temb-27",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-27.raw",
+        "sha256": "ecc952470114c1bbe3aa81a32191be55e89086bcc632e65393cc42126693c3ab",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-27.raw"
+      },
+      {
+        "name": "temb-28",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-28.raw",
+        "sha256": "27dbc105d9fa2870492b5ce9061062b403ce2336cc598acbde6941aff9e082f4",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-28.raw"
+      },
+      {
+        "name": "temb-29",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-29.raw",
+        "sha256": "e431fc3e4d397729065f7774340fd93b2c55d1513d7ce2bca59b71c7c216a3f9",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-29.raw"
+      },
+      {
+        "name": "temb-30",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-30.raw",
+        "sha256": "bb1655ea85458d28c6e63cb087d89dd711802a762070c436b0eba2027d44464f",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-30.raw"
+      },
+      {
+        "name": "temb-31",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-31.raw",
+        "sha256": "ebbbb6a215e38360dc139ea0eb256760d3612ab0f9971b14221a91c04fb2bc84",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-31.raw"
+      },
+      {
+        "name": "temb-32",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-32.raw",
+        "sha256": "bf1962bba53eeb0d6c7b22ba6ebdc55eb902b109378dc62b3b50f1a623095d75",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-32.raw"
+      },
+      {
+        "name": "temb-33",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-33.raw",
+        "sha256": "d5821595d81bf7512b24a2103e6685d09d1aa0b80e6a6e23ca2134b44cb1efba",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-33.raw"
+      },
+      {
+        "name": "temb-34",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-34.raw",
+        "sha256": "ba0eb6eebeaf76aa57d3e79ee30763373c7bb1bd4f0e1b35cd6d70dd55cf8175",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-34.raw"
+      },
+      {
+        "name": "temb-35",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-35.raw",
+        "sha256": "c5f33ff4c73d5c2118d9c0a546d06964d0d6f4188f82500689f011e93ee9ce5b",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-35.raw"
+      },
+      {
+        "name": "temb-36",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-36.raw",
+        "sha256": "0e3c298a5ca22ebba757670185518c82c6d903e28296e0ac1c5ec0a4165b99f9",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-36.raw"
+      },
+      {
+        "name": "temb-37",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-37.raw",
+        "sha256": "909bae24d0765d07f11b4a96f5fb43b5c2775556f22988c8ff0e50b2947252a5",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-37.raw"
+      },
+      {
+        "name": "temb-38",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-38.raw",
+        "sha256": "38950ad344ac9502ba054367ab8a7144ad7fada28812c473e4869cad5ac4947b",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-38.raw"
+      },
+      {
+        "name": "temb-39",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-39.raw",
+        "sha256": "7263c772126a3b294ac1b4d63341cfb46754d9293d4cf3edffcd95a3fb1bf04f",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-39.raw"
+      },
+      {
+        "name": "temb-40",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-40.raw",
+        "sha256": "fe0576c518577d020ed1cb1ccbea47a8207646ac1e7a8164555026fcfcd5e519",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-40.raw"
+      },
+      {
+        "name": "temb-41",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-41.raw",
+        "sha256": "792dcaa4b1e58ef15a45bc26627a0ed437c546a78bb3855751f977da76173bd6",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-41.raw"
+      },
+      {
+        "name": "temb-42",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-42.raw",
+        "sha256": "f6bb9857666bea75b071e55cda1d6ff94359fb2196ed7039d335da7300e247c4",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-42.raw"
+      },
+      {
+        "name": "temb-43",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-43.raw",
+        "sha256": "a861701cf232488ec4836f7e7176134d1543b4e1bb21bd991a5eb7dd85582381",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-43.raw"
+      },
+      {
+        "name": "temb-44",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-44.raw",
+        "sha256": "2627b826983b20ee0f05f94530c873776aa0b7b9bddd8b36b486dad7cf36a056",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-44.raw"
+      },
+      {
+        "name": "temb-45",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-45.raw",
+        "sha256": "66ef912f27d2bfce31e253d34001c12e4bad3778912d3a50f1975fe6a3d98731",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-45.raw"
+      },
+      {
+        "name": "temb-46",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-46.raw",
+        "sha256": "a81f423ce80f0c10d893e54605a1271a5c7db70d3d1bf81bfa7eed46b7a19d9c",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-46.raw"
+      },
+      {
+        "name": "temb-47",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-47.raw",
+        "sha256": "54a9af676ff7345adbb47eea0a4db94c2c7a19c2bc909ce940e1b7026366d442",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-47.raw"
+      },
+      {
+        "name": "temb-48",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-48.raw",
+        "sha256": "521f418cd0a562fa587d48a7b1c20792994883531e7c6279804adff814868ae6",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-48.raw"
+      },
+      {
+        "name": "temb-49",
+        "shape": [
+          3,
+          2688
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/schedule/temb-49.raw",
+        "sha256": "1f4a4effb54599d5b92c1274ddc51f75b1e6dab07b77bce490984384aeec14db",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/schedule/temb-49.raw"
+      }
+    ],
+    "schedule_samples": [
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "d8ec0dfa4fa5fb35723035a151aa6375d6e936ae8caa3b51cf76ba3aff579d05",
+        "finite": true,
+        "liveSHA256": "d8ec0dfa4fa5fb35723035a151aa6375d6e936ae8caa3b51cf76ba3aff579d05",
+        "step": 0,
+        "tableSHA256": "7908b34459b599db61f53133e5ef4fd7f135f5d87d1a29568836d13ea372841c"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "9c2eb37f004c41c7b77bc021aaede5338321c37386f2b81c791d96c822629cf2",
+        "finite": true,
+        "liveSHA256": "9c2eb37f004c41c7b77bc021aaede5338321c37386f2b81c791d96c822629cf2",
+        "step": 1,
+        "tableSHA256": "43afea24975e6b81b10d319ae531356d50c8423263257b555d677b4f749eb8de"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "07afaa4ee23a4a4957f9327b60fbbf165290ad9a29f85c529b123a0630004b1c",
+        "finite": true,
+        "liveSHA256": "07afaa4ee23a4a4957f9327b60fbbf165290ad9a29f85c529b123a0630004b1c",
+        "step": 2,
+        "tableSHA256": "1f8e37583b0e4d95fd1ea17fa6098b06a766433dabcf2b4af21fd0bff7fb0c92"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "130c50398f7fbd1d9cbe68ccce0ca6f5ab019c6a92dc23f4013d9303711f94a9",
+        "finite": true,
+        "liveSHA256": "130c50398f7fbd1d9cbe68ccce0ca6f5ab019c6a92dc23f4013d9303711f94a9",
+        "step": 3,
+        "tableSHA256": "688d0ae8cc052f0055762ccce3b568bd28092518f9c869b76917204f2c800a12"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "dade01454fffbfe8b583ba95781af4a759f80d851416711a13295e0b37ed7e91",
+        "finite": true,
+        "liveSHA256": "dade01454fffbfe8b583ba95781af4a759f80d851416711a13295e0b37ed7e91",
+        "step": 4,
+        "tableSHA256": "6d5ecf55a503ea0d165e145bb581c61da9b061605e5089fa34af343152a3db3c"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "dde41e56b84a7d919701a7c2b6708e645f7b5d3eb6c3784c15dea9d4207e58d6",
+        "finite": true,
+        "liveSHA256": "dde41e56b84a7d919701a7c2b6708e645f7b5d3eb6c3784c15dea9d4207e58d6",
+        "step": 5,
+        "tableSHA256": "10d13959b06192bb801042499731a07f6daf4fbf860d63a38c25aebc1d487c89"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "046749f8a85e0c1bec5b15713a20ceddf89ab41afaf2cbbb83d3c42a74e3567d",
+        "finite": true,
+        "liveSHA256": "046749f8a85e0c1bec5b15713a20ceddf89ab41afaf2cbbb83d3c42a74e3567d",
+        "step": 6,
+        "tableSHA256": "68f04fa13f744303cd3872b718b5327360c0cffeabff73465dd3c2aa69ce82bf"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "85aa55ae3a02bc5330858101bf934efc756b371b22c09510fccaa8a0ad251203",
+        "finite": true,
+        "liveSHA256": "85aa55ae3a02bc5330858101bf934efc756b371b22c09510fccaa8a0ad251203",
+        "step": 7,
+        "tableSHA256": "31e839612cc1f65e2a2681019383555b35b9d7089f50d3e224be7971c4245e66"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "bd738b316b798903effdeb674ab0ebf42e22fd85f2f3191145cbfa867f3073c1",
+        "finite": true,
+        "liveSHA256": "bd738b316b798903effdeb674ab0ebf42e22fd85f2f3191145cbfa867f3073c1",
+        "step": 8,
+        "tableSHA256": "fce988aaea16a3f0dff6c44b40467f9a709e4bf57329b1729348e912ac5c3a54"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "4c6ea4b5a05e471e594593dba56f9eb9ad21a4f7ef7d69a2693e66d9d8f3fbd5",
+        "finite": true,
+        "liveSHA256": "4c6ea4b5a05e471e594593dba56f9eb9ad21a4f7ef7d69a2693e66d9d8f3fbd5",
+        "step": 9,
+        "tableSHA256": "5893b3fbcb1935b3300de844a2846d194ce922faa466df7fa4bbcb5aa69d957a"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "56a46e52978178ffc612fbd2ca6815591358e4fa28400c3538b605769cb85551",
+        "finite": true,
+        "liveSHA256": "56a46e52978178ffc612fbd2ca6815591358e4fa28400c3538b605769cb85551",
+        "step": 10,
+        "tableSHA256": "1683d8d2f4202574e7fc3bbe5e5c583735d1c524b74b0d4f21d7cfaadc439e68"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "9f7300de79066a66feed331478ce73ae599f2e213f696542d4368c5fae0841c4",
+        "finite": true,
+        "liveSHA256": "9f7300de79066a66feed331478ce73ae599f2e213f696542d4368c5fae0841c4",
+        "step": 11,
+        "tableSHA256": "89a4b71a9d1222a594172f263c329b2cf090b3c48b543576af0820e4f7a83435"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "e5eb69987ca95fc5447b1a99face11db7f4388c00178df8f04a9cfbe66d1988e",
+        "finite": true,
+        "liveSHA256": "e5eb69987ca95fc5447b1a99face11db7f4388c00178df8f04a9cfbe66d1988e",
+        "step": 12,
+        "tableSHA256": "efedbd8fab647529ca82f4af9ab0029123df4626e094cb5bd6020324a0d3882f"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "344f06694e064f68c023ff26bfaab2b35c12cd50ecede7a3dbdece7a0efd30e7",
+        "finite": true,
+        "liveSHA256": "344f06694e064f68c023ff26bfaab2b35c12cd50ecede7a3dbdece7a0efd30e7",
+        "step": 13,
+        "tableSHA256": "625d7d44c43f646bbc181d9c8b7450c206c4d6dd2735bdcdfaf6fbc4b22f9bd0"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "1ae9cbc4176a71c40c986165b8d1cac1b4736ba3ac0b7bdda01277f7cabed88b",
+        "finite": true,
+        "liveSHA256": "1ae9cbc4176a71c40c986165b8d1cac1b4736ba3ac0b7bdda01277f7cabed88b",
+        "step": 14,
+        "tableSHA256": "ed8584851cfbc7f05504136d3fe7c17615cb79dd96495cba3fb3e8092019c1cb"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "3ff855740897a35ecb0696b363050f91f0155f54b295244685ad4dc91b6172d0",
+        "finite": true,
+        "liveSHA256": "3ff855740897a35ecb0696b363050f91f0155f54b295244685ad4dc91b6172d0",
+        "step": 15,
+        "tableSHA256": "7a012f47fb0beaba2c1148979adeb5e91622eca0db2b0190f6f3eeb18b1cb737"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "655fbe301ae6218bcf29311bd738356eb058e1c8c870ba928161ca8dc13dcfbb",
+        "finite": true,
+        "liveSHA256": "655fbe301ae6218bcf29311bd738356eb058e1c8c870ba928161ca8dc13dcfbb",
+        "step": 16,
+        "tableSHA256": "79de40d475450b72dfe1ee555469c9aee7ac4c9fd25bce446dfe8be6e62fd525"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+        "finite": true,
+        "liveSHA256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+        "step": 17,
+        "tableSHA256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "3b38f5793c22b42a5c12458596c5abdd2a2a1a41105f57037ced592ce1ebd5fc",
+        "finite": true,
+        "liveSHA256": "3b38f5793c22b42a5c12458596c5abdd2a2a1a41105f57037ced592ce1ebd5fc",
+        "step": 18,
+        "tableSHA256": "2138b90e6defa9df3710472d7da5717c32ff8e5fa08553260c173362f915b05e"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "8d242e2b98f55e386e40656cda6d13c95f99bd32a2f8ec7eb38c858f96079810",
+        "finite": true,
+        "liveSHA256": "8d242e2b98f55e386e40656cda6d13c95f99bd32a2f8ec7eb38c858f96079810",
+        "step": 19,
+        "tableSHA256": "1939598200ae3c350d164791577183ee0068ee48a620e57ca75017249cfaeb19"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "79cd5fe4259f1d6d7aa759df872c041b5b68af6f7c53c56906d77f91105f2c06",
+        "finite": true,
+        "liveSHA256": "79cd5fe4259f1d6d7aa759df872c041b5b68af6f7c53c56906d77f91105f2c06",
+        "step": 20,
+        "tableSHA256": "df0ef2307d3b44153ca83f9bae3be9b7c9c42d4fcfe3431eef52ef7104b75310"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "a56369eb9e8ece011734b7cc0b2fad15003630160691fb278a8856afc47c894c",
+        "finite": true,
+        "liveSHA256": "a56369eb9e8ece011734b7cc0b2fad15003630160691fb278a8856afc47c894c",
+        "step": 21,
+        "tableSHA256": "ba4653bfe0bb43c70bddf0e0cdfcca3af9a9561a926cd963f6f8eeae0d93b569"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "d497e0ef941fa6a2b9feef10f7274207c9f57b1b275c7a1c331656ea2a54ae62",
+        "finite": true,
+        "liveSHA256": "d497e0ef941fa6a2b9feef10f7274207c9f57b1b275c7a1c331656ea2a54ae62",
+        "step": 22,
+        "tableSHA256": "5250529a5745a68f002179a27d3cab4edda0da1b47537469fdf466478de8c8b7"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "67ab6c448ee2cc7922e2df645aedf4e95932341ee9e7e20222d8f25e72e26568",
+        "finite": true,
+        "liveSHA256": "67ab6c448ee2cc7922e2df645aedf4e95932341ee9e7e20222d8f25e72e26568",
+        "step": 23,
+        "tableSHA256": "8c66bdbb3a442dccf25d1da08691036218197a6e7973f97c7d1ff71cc8a392f0"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "f04fea7ff6e266d22b1c32786e7fd8940dd98d9268a783005dba6cee3afbf36d",
+        "finite": true,
+        "liveSHA256": "f04fea7ff6e266d22b1c32786e7fd8940dd98d9268a783005dba6cee3afbf36d",
+        "step": 24,
+        "tableSHA256": "79c0a1aa50c1e7e14b6c21e85de8b490c0594d94560c47cc055da0708f06c4ee"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "742c0de320fd1bf1d4bc13c5e3b33230b76b7e76209886900b657b8f82919377",
+        "finite": true,
+        "liveSHA256": "742c0de320fd1bf1d4bc13c5e3b33230b76b7e76209886900b657b8f82919377",
+        "step": 25,
+        "tableSHA256": "3dccf9d07ed53d6a2d4a4ad5bf0efbf9f29518527dad886b4bb10bf13622476c"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "04ff7cf27961a5352ac6ad8d835cf3f629114201fb5259022c93bccb7c7ffe94",
+        "finite": true,
+        "liveSHA256": "04ff7cf27961a5352ac6ad8d835cf3f629114201fb5259022c93bccb7c7ffe94",
+        "step": 26,
+        "tableSHA256": "6d237b582cd7a183b7c33e029f81e996c7975d3d8633c135188175d17f010b9d"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "4207a363f9d5d958bc91bef8e3b46679dba309ff30bffc5a21421a343d2f2e49",
+        "finite": true,
+        "liveSHA256": "4207a363f9d5d958bc91bef8e3b46679dba309ff30bffc5a21421a343d2f2e49",
+        "step": 27,
+        "tableSHA256": "c48a23bae5dfa98e2f937715e9b0c70d3419d68bd9c4cba2b426149dc83b0fd3"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "2f919a946f5aca5ebda4294c1863e9b2e9b5be3dda3c74ef82baa125498151e1",
+        "finite": true,
+        "liveSHA256": "2f919a946f5aca5ebda4294c1863e9b2e9b5be3dda3c74ef82baa125498151e1",
+        "step": 28,
+        "tableSHA256": "426ac74b4f4aa11f84156f4e2408dd98a116d0756450c4f5b528d1a0ea7f96d7"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "9840875c588825913da2b756175e4e1b16221fb9b5e2996fdf28417bb296c2b9",
+        "finite": true,
+        "liveSHA256": "9840875c588825913da2b756175e4e1b16221fb9b5e2996fdf28417bb296c2b9",
+        "step": 29,
+        "tableSHA256": "34e7145121cdc882d60ea1aaa4cd0e1ab1a21834806f85b9d92d9ab9daa53d72"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "1608bccde062a4aa6645e463e552251a4297d60343d3fd846cd1d62013fcc09e",
+        "finite": true,
+        "liveSHA256": "1608bccde062a4aa6645e463e552251a4297d60343d3fd846cd1d62013fcc09e",
+        "step": 30,
+        "tableSHA256": "9546df5bb6a1cb2769410309e5523a569e0ebafdfc8dc0fc42d884629ccf9a6f"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "1d805dc67128e1b59f0fc6d7cffc60300cbcefcafd8c14c75140e7dbaaad707b",
+        "finite": true,
+        "liveSHA256": "1d805dc67128e1b59f0fc6d7cffc60300cbcefcafd8c14c75140e7dbaaad707b",
+        "step": 31,
+        "tableSHA256": "91811617db80e831112d56818733662f9111186c67725bb52f15bd91facb75ab"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "e8a17e024f7952031ea58fde85e83abc253e8dd6cdde4e07173c4d806345ee9d",
+        "finite": true,
+        "liveSHA256": "e8a17e024f7952031ea58fde85e83abc253e8dd6cdde4e07173c4d806345ee9d",
+        "step": 32,
+        "tableSHA256": "688088b3f17602a094ba90aecd70d6771f7c8b5d480d8e555fb94fccf6e2a3d2"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "e094d2c943e24ba733b44c43b9122c3597af14839629859e3b70d48df16fab1f",
+        "finite": true,
+        "liveSHA256": "e094d2c943e24ba733b44c43b9122c3597af14839629859e3b70d48df16fab1f",
+        "step": 33,
+        "tableSHA256": "65c7cded18182698f46e742be1f34d2c096e213a114e86b3663bb6cd1f9c7fb9"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "252ccc57c56293f218f28382a60411b590e2ad4af01c4958c2e4ed4a2e69240a",
+        "finite": true,
+        "liveSHA256": "252ccc57c56293f218f28382a60411b590e2ad4af01c4958c2e4ed4a2e69240a",
+        "step": 34,
+        "tableSHA256": "9d7ae1b455c4ad131d6d130ee03a15c760a7bd46628e5998cf487fcd80fa0ce9"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "f0ced3207b6c5670e5a4601240430e4ca6a37facbb90495082ce67a9a712c712",
+        "finite": true,
+        "liveSHA256": "f0ced3207b6c5670e5a4601240430e4ca6a37facbb90495082ce67a9a712c712",
+        "step": 35,
+        "tableSHA256": "bcad31229f9439cbbd510f9d09596e2848dab6039dd68ffc218a56b7189cdb9a"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "676e069dab626adfed6fbab5768bfec12450ed00ec02e674cd10d23c7d3662c4",
+        "finite": true,
+        "liveSHA256": "676e069dab626adfed6fbab5768bfec12450ed00ec02e674cd10d23c7d3662c4",
+        "step": 36,
+        "tableSHA256": "d8f21b46b393295c0e0b899554f0de9cdfb17a3a59264e2432634055e928893c"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "31a03b87b30a940b567819e589597fe9c230e0a8a2616c3a2b0dcbd886751e80",
+        "finite": true,
+        "liveSHA256": "31a03b87b30a940b567819e589597fe9c230e0a8a2616c3a2b0dcbd886751e80",
+        "step": 37,
+        "tableSHA256": "c3f22d5d1d66e2e642afaebcd31c3b962270edebd7e77ef909482f4d59d99c89"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "e25950d82a15d32a119b992ffe1e8d5d5cd711e1ba0babb22a6f62d59390f2c4",
+        "finite": true,
+        "liveSHA256": "e25950d82a15d32a119b992ffe1e8d5d5cd711e1ba0babb22a6f62d59390f2c4",
+        "step": 38,
+        "tableSHA256": "c79f4e43cf7048fbaf8067d5ec4811ea49cf75917de9d9c3fb32e36cd980c6f2"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "ad5f57f286e0e7ff63bb832d056c6f34cff7f0f1f8e58599fc340f175d83b0dc",
+        "finite": true,
+        "liveSHA256": "ad5f57f286e0e7ff63bb832d056c6f34cff7f0f1f8e58599fc340f175d83b0dc",
+        "step": 39,
+        "tableSHA256": "72269b1de4f310dce39231e1b7206e734d1054b25863652d4017d8717335611b"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "96dfd865fea13fb9e927b56d2741b5125efc627dffa80d266df15abf39153664",
+        "finite": true,
+        "liveSHA256": "96dfd865fea13fb9e927b56d2741b5125efc627dffa80d266df15abf39153664",
+        "step": 40,
+        "tableSHA256": "a3e9c057128f16ede4eb24f4d60804a56c01f7c3e72aed5d8482f9857f93de06"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "9abf37743b92c84b9c8e8383573f9fe2f84ccef1fd70063dc0d0ac0cb80d652f",
+        "finite": true,
+        "liveSHA256": "9abf37743b92c84b9c8e8383573f9fe2f84ccef1fd70063dc0d0ac0cb80d652f",
+        "step": 41,
+        "tableSHA256": "0ffcd46e531fc0acb493fc911d843be499bca668d75881c97292eef568edcbc6"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "82b21150aa9141ae659ad7ee2b98e824f5341c3b35f7f3c5b411c03769a96d5a",
+        "finite": true,
+        "liveSHA256": "82b21150aa9141ae659ad7ee2b98e824f5341c3b35f7f3c5b411c03769a96d5a",
+        "step": 42,
+        "tableSHA256": "cd2985b5e2b08ff7389bed3f8b92227a358c2c122fab360f11ec4adbbdfae21f"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "8a3b30beb13db1b7d4bde06356c5843cf702c754b2440d5023cea285815f5e5b",
+        "finite": true,
+        "liveSHA256": "8a3b30beb13db1b7d4bde06356c5843cf702c754b2440d5023cea285815f5e5b",
+        "step": 43,
+        "tableSHA256": "6ee473a45efa581c7aaf6ed7ac787d763311d1235d1e5f17e57eee6d8dfe1647"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "d6ad0c052865dd71f8852c0c93e19b416e0df760b5ef51bc11522f7b373516a7",
+        "finite": true,
+        "liveSHA256": "d6ad0c052865dd71f8852c0c93e19b416e0df760b5ef51bc11522f7b373516a7",
+        "step": 44,
+        "tableSHA256": "25dd4502e52690bb93753bdc2c0cefda940a9409768e0bed6857310b2f349dda"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "396b0a89314e01fab689318c37535d54be5352604e5eb2407784d7c349c8d180",
+        "finite": true,
+        "liveSHA256": "396b0a89314e01fab689318c37535d54be5352604e5eb2407784d7c349c8d180",
+        "step": 45,
+        "tableSHA256": "c276791d7b2988ed26258f9b0499ddc8b7a220783b200c03f4f1172e3ba5530c"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "4be85498615cf3eff716ab90d0f71d440df475a7e9d827db0f1981fa7e6f9a30",
+        "finite": true,
+        "liveSHA256": "4be85498615cf3eff716ab90d0f71d440df475a7e9d827db0f1981fa7e6f9a30",
+        "step": 46,
+        "tableSHA256": "aae6100d8c1192b24a5e7e38a593d574637445376224d8bc6f547ca7aeac2107"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "485c15a347ae7d61c7f3e22cff44a1bab27bde1dc34ae9694af13e3bd2e376ef",
+        "finite": true,
+        "liveSHA256": "485c15a347ae7d61c7f3e22cff44a1bab27bde1dc34ae9694af13e3bd2e376ef",
+        "step": 47,
+        "tableSHA256": "b3811324402ee1e608f55d50bd204b4a928fa4af82c43a4880f8b4c0e40f294d"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "7d0dd550cbd8c0c491846c27faaf889934d74bf97ee4b717113dcffdc7bd05cb",
+        "finite": true,
+        "liveSHA256": "7d0dd550cbd8c0c491846c27faaf889934d74bf97ee4b717113dcffdc7bd05cb",
+        "step": 48,
+        "tableSHA256": "9e31482727daf960065142bb41fe10ed2d6cc7352dd329ac04eee06f535ae911"
+      },
+      {
+        "byteIdentical": true,
+        "cachedSHA256": "97930782197e05e952faf50a5727f43935827b9426f69461733f80f83a422db0",
+        "finite": true,
+        "liveSHA256": "97930782197e05e952faf50a5727f43935827b9426f69461733f80f83a422db0",
+        "step": 49,
+        "tableSHA256": "a39777d9146d5d117f5b27090531d5d6bd636cadce441d9a6633dde64e6c2635"
+      }
+    ],
+    "backbone_inputs": [
+      {
+        "name": "hidden",
+        "shape": [
+          1,
+          19350,
+          5376
+        ],
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/block-19350/hidden.raw",
+        "sha256": "cd97db564f29495f5f8f7b41e9aec0e7522b1b5272a5f5a3d77b7523997d9ba7",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/hidden.raw",
+        "bytes": 208051200
+      },
+      {
+        "name": "tags",
+        "shape": [
+          19350
+        ],
+        "dtype": "int64",
+        "file": "forge/fixtures/block-19350/tags.raw",
+        "sha256": "4f8a0aca81ed37a194ed1b8fab5e1eda0a9285dec79efadcca3d21a6b6d149a5",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/tags.raw",
+        "bytes": 154800,
+        "runtime_dtype": "int32"
+      },
+      {
+        "name": "cos",
+        "shape": [
+          19350,
+          96
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/block-19350/cos.raw",
+        "sha256": "ae921066378b09f5ef13f7e2c483bc24e8678ea8530fe4fb246581f927db2583",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/cos.raw",
+        "bytes": 7430400
+      },
+      {
+        "name": "sin",
+        "shape": [
+          19350,
+          96
+        ],
+        "dtype": "float32",
+        "file": "forge/fixtures/block-19350/sin.raw",
+        "sha256": "f798f46854f4af2673b83d7c81e3d376dc9afae764b780b217d959b99c5f64de",
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-19350/sin.raw",
+        "bytes": 7430400
+      }
+    ],
+    "backbone_tables": [
+      {
+        "block": 0,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/0.raw",
+        "sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 1,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/1.raw",
+        "sha256": "168e0e3ae20769d8b565311e1eda8744a04ba45d711404b992f906345d5fea5b",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 2,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/2.raw",
+        "sha256": "a94a76efe8c84a0d3bb97371a7b006555824c33791b6ea285da62b7f50d2d69d",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 3,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/3.raw",
+        "sha256": "ca3925e7cf41f1e0052cabc57254691e3075bbda497ecbc1df9576c0c02d9778",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 4,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/4.raw",
+        "sha256": "3fe14252a2a5eba017e068dabff1c2160b2d203469abe0986ed2f4eeb56f719a",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 5,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/5.raw",
+        "sha256": "caf480ba37cbc81a9eb4ec8bb08a51a45bd037e61379ca9b33dae8a94ea32fe0",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 6,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/6.raw",
+        "sha256": "563d82c8dc7c6e7cbc0a0796bb0acc2e43520439a690f7a8dcd690a4e06964fe",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 7,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/7.raw",
+        "sha256": "7a80de75022e1a9a321e95a56bb3f3a11785a67f30c72cddb6877d453f5f9a67",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 8,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/8.raw",
+        "sha256": "ff94a19799fc4413b399c64f559d8362585418b0490c30a0f0736a4f2aa1597e",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 9,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/9.raw",
+        "sha256": "8b497db8ca66a53bf11fab9157a7c3f302afe9ffe0d4d7394a0b2161381c680d",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 10,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/10.raw",
+        "sha256": "9cd61f3f2160a7a73dd4ae5e498b2448b18e1080b78f695d3b7d9ac3673a8889",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 11,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/11.raw",
+        "sha256": "22f8ca861bc0a5924c7c93693d80d82d129cd13213615a9bdbbede3eca5c82eb",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 12,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/12.raw",
+        "sha256": "c8a238fe24bfcca86b99f9cb4208e8d115062c22a3a39cb58de0b48bbe8bf821",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 13,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/13.raw",
+        "sha256": "15e16c8a123c33ef3f70736accd0fded981260f2a91ee874bec500dd87f73ebe",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 14,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/14.raw",
+        "sha256": "3dde6283f8a3378ebb2742224555f6c85dfa1c6e9958cba2e9e9a874a374d15b",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 15,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/15.raw",
+        "sha256": "ae5ed62465992fffb11a8ff3e2f860f4e65cc2b377303fefc3c7dc99e346c4e0",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 16,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/16.raw",
+        "sha256": "5321c509f22db9f00391cc4766463ed71b2f02c6d37ae5a644910f06be6f0e8a",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 17,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/17.raw",
+        "sha256": "f94a8f28241254b61e70743092956018c9a4c7f46c69b2b1832b1a53d6288d17",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 18,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/18.raw",
+        "sha256": "4d4c628dde1be959a1acd7348903b1dda048a0c62b33f373588855a3692b0f40",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 19,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/19.raw",
+        "sha256": "4611e717d6a196855cabf7e3ee6ebbd81b9025f0d328f5495a81c929176e6564",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 20,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/20.raw",
+        "sha256": "f6eeec9773707e974c35042f03eeef49d9e0f3cff672754195785442183ca512",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 21,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/21.raw",
+        "sha256": "ed66cdf1fd6c7de29e36fa62a6b080cb46deec30afa3c9719c7f0643fb9fcbff",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 22,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/22.raw",
+        "sha256": "78fc9b8b9b5f3d9fff876d262f5cab9536d699c1ee08ab836573e317e846d567",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 23,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/23.raw",
+        "sha256": "d31d7b77ea33fd151a6b1282879bd84fa0422f55b60a353f5a98d8ebf47937f7",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 24,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/24.raw",
+        "sha256": "d12cc6b966ff585c16be7156abbf5a328fb6c89856bc469fc533a3e4af3fd2d7",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 25,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/25.raw",
+        "sha256": "77c91666af3f46069125a130c27dc01cfb7c156738cebad13870a777949b8228",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 26,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/26.raw",
+        "sha256": "29225da2af6bdb41b3b0aaeb7eac393460121517ee5619f10ee4031f1fd3d347",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 27,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/27.raw",
+        "sha256": "7ea8a30d1a2043947c1a4ad07dc8a2067c59680a8827c61a92a7c46e8fec2a91",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 28,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/28.raw",
+        "sha256": "9c1602d5a4cf0ed39f35ddd6486e539ca89eae405390dca2f9aaf38fec460c35",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 29,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/29.raw",
+        "sha256": "4c0c2775fd0b9426218f97913fe6150c1ad3093291b8e1d77fecbd09edba3936",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 30,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/30.raw",
+        "sha256": "be7ba84d0c7e6367a47d08982527490809033573964dda40c966718caa2af6c5",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 31,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/31.raw",
+        "sha256": "15b91abc3385c676063d5f79a1de968c19ee7e2b20d0304c6c12e74d9b881b05",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 32,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/32.raw",
+        "sha256": "6ce77efe62dbac3e2f58261c485023bdf737fa388736cf17bf08a981ed770d12",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 33,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/33.raw",
+        "sha256": "2407fe34165609d918888bf34d177765e812e7d815215fec341ea46ff5e304cb",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 34,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/34.raw",
+        "sha256": "2e508fea6b1d0b0a85fa1e18c438ee1924758a3d2d99dba4c7485e1b376aa8cd",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 35,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/35.raw",
+        "sha256": "c3f45cf688a1859e80b0cadb11fd13b887691a147805f02a266044b03fd69396",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 36,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/36.raw",
+        "sha256": "412b69362e9fd1d2d42a808f68edbf0068bbce2dc2f985c359d32d1027df7a2c",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 37,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/37.raw",
+        "sha256": "9cffffc4120bd87dced7039978a6cf73152bceab2a3f4d0516283dc6cf9ccc64",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 38,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/38.raw",
+        "sha256": "a513f788e4eadb0a78bc4d40d5358d3aa18e5ecf5a34871a45ba46a69e299c64",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 39,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/39.raw",
+        "sha256": "a1b4b020e236d6a105fec8facd8b0e5f6427d88d59e49fb7ac583a7ecc7e96e4",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 40,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/40.raw",
+        "sha256": "19452f2dfa7edd6586686717804101a31325dc87382dbc90545bca17bd478642",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 41,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/41.raw",
+        "sha256": "b03bcc7d35e8df1c35f10b5bde07ed28f64de1c93c37d2888aa2058c8b7b909a",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 42,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/42.raw",
+        "sha256": "c952f3a7529d302bbe8c568fb935a2ed78fe80cc2228ec7a4b734fed53651d30",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 43,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/43.raw",
+        "sha256": "8afe5ef3061968b70e669808742a46583445d2b3d9ea70f21bc81c838aa0842f",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 44,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/44.raw",
+        "sha256": "b49c03ce8c2aa1bde13f2d3e02383488b2c03afa85a7d7f181ae83e4872dd883",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 45,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/45.raw",
+        "sha256": "6825ae7521a3d9170e8b5ae2a98a219136d3c699a96d4d7b5a4fe34e87192bcb",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 46,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/46.raw",
+        "sha256": "44b2cebd8e69c2f333cdfd274c90abaaf6b2ce059062d7ed832e9b0478b42807",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 47,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/47.raw",
+        "sha256": "808e2cbfdda750a64b9bde842f197cee50c518a52bcf1784dff7006aae872bb7",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 48,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/48.raw",
+        "sha256": "461b829f9aaf51e220a2714fae59d836616d2bf49fc9b681e186f2967b46c946",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      },
+      {
+        "block": 49,
+        "dtype": "bfloat16",
+        "file": "forge/fixtures/backbone-tables/49.raw",
+        "sha256": "217736073edcdce0e0b2d8dc3fe6c6ba3276dcd7e5b661a458acf4863f12df00",
+        "shape": [
+          6,
+          9,
+          5376
+        ]
+      }
+    ],
+    "backbone_segments": [
+      {
+        "segment": 0,
+        "firstBlock": 0,
+        "endBlockExclusive": 25,
+        "sourceBytesRead": 19268134400,
+        "sourceBlockSHA256": [
+          "6bc6dd1012aa2deaa99e9fd527759843607d412fd1d9235c06bed3ac2d80a3bc",
+          "5fb1ee6334eb217d113788edb015b88c7723a6ab3bf58fd7592724849d05f09b",
+          "a782f7e007d4a38ada901c0fd53baaddf4282d7a814db4368dc1c95dea600425",
+          "9e45bb1dccf220b3ca1992dfdd133ed88c87f28b3c0c3a6d4b603fa950a0297e",
+          "986b04c73798cec2d726cc07fe87e636eabc899b89ef9b7089b3ac7f119a37e7",
+          "7e9e690c6d5603df9f531848f64f2a004691f39dd66f5212b7658a3adb6cdae8",
+          "808fd3da5b78ab8e1a8674941e6fe211dab0f6e2a97d5d760b97d20c55e4386e",
+          "9a47baa23c8902f45e56b47d6329fcec76316dfd22aa2094013fb39522571b9c",
+          "9533733f6c154cbf835ffcacf8751ac68bd1469fe45e10d0d64c0504ac74609c",
+          "b4fe230519793a58b9fa57ae653e21836e7d33cef03e1783b795573de0736c45",
+          "fe97124cdbeab727058b15c76e3a75b914ff6f8a7c5c673b2e95028c581e62de",
+          "d4ae4677d99279ac2ce23ef975f51b4783a3b5a59cf35ee7812425e2f2cb97df",
+          "117eea70f9a18b8d33cb18b636e54e14d444e2fe462358c4bbb2caef4bd16e8c",
+          "75bda83ff83e2a81ec86e2bbde39539068a1d13c1416454c73e0fd253f13b0fd",
+          "fccbd90814537914137bd49267a5469da5269e79931f71169fc9218a980d9611",
+          "9ab67f3c43ee1ce5727f006f5072476c74c2841b574609dd6d342f47db92435a",
+          "50f47c4a560a793f9deffb0160007b6855ea7f432aeb72e86cb9622e0b9771b2",
+          "c72a8ab0b8e55cf4dd4601322bbb23c6d65ba04dd311743b20068fee9db84789",
+          "7b901ba07ba854cc0e8725c6a621296257cf9e65eaac95a89761eb88cf75a959",
+          "8285d77df45d0fae28c01f6aa3e7198c5d382a7ed2871bc139749332358b2438",
+          "cab2ed5bdf631c1be07bafc6460590f4105526354d664cd2bab1f436d78fb2e5",
+          "58a27c51d383ff77c1924c8eb0916c1142d5a942395f86330837767d7e5d8d91",
+          "fad186c6865434135862dcfc324ba82e92c74ead1d7590fb63f741a267736a14",
+          "2adca2be0435a56c2fb2bbf2ee0150089f648c86e6ac92843b974a9ce5831ec5",
+          "80f42ce888ce277f7bb3e083c7675d8414b16206ac90f43b6bbe1b983947c184"
+        ],
+        "asset": "forge/assets/segments-25/segment-0.aimodel",
+        "exportSeconds": 49.25016591599706,
+        "peakRSSBytes": 35772563456
+      },
+      {
+        "segment": 1,
+        "firstBlock": 25,
+        "endBlockExclusive": 50,
+        "sourceBytesRead": 19268134400,
+        "sourceBlockSHA256": [
+          "93e30a975710d0d19614ff757f3582047395b98a63f14346098abd279f6e4363",
+          "460bdd8b3c06330c7a89407e4368bdafad9ef222663426b4efafe8e6a8a704c4",
+          "f0ea584d8e143e68b3cec1a7f08c977ddcb346f434092d96b73fced0ad02c30c",
+          "1e81e13dad3dbe8766b6a0980a190191c24d352e08767650e0bf1b412c133cdb",
+          "0f47ef99025bfb44beaaf8bd5d3330c093afe47dae23a2873fbf1061ee53055a",
+          "08817d7b544e40907bb2280a24ecaa6b668570dd1a248be7c0277d992f57b307",
+          "7a60bd0f59ffb9da5266b6358f507c51b54f0c5c62093cb8cacad7676d881d0d",
+          "35e856c8c5f9a8c49b3ab76c70508c0ac3588105c4549e79f18a6e2260b25a81",
+          "e6f9b4c59952d5b3bd8b8baaeb761a3e515fe3cb4003072544ba8c6b1e24ee79",
+          "e6e2da089d2d236fa31d57253558cb90290381300be25f0dad6c2e792dc12190",
+          "cf9fc59df8edf3a2a75ec7be6d66dda7a28c69219a11b1212ed53fd868bac3b9",
+          "3200a8491d7b1e542bce5578af850e9fd748d9a692e9df5c8e03be17d187f5bc",
+          "524a35e6ddea24d1b97c42e65ebd0593a053f08e2baee9244bee192698994e12",
+          "ae845138975f485bfd32f2217087ecf30a77849982d2145306d77a8f2f68e931",
+          "0b537173f13d17fbea1241be5da9d862f5f9e41db3d1ebb6fe667e1dcfeef9d1",
+          "8db41a2f2b4b59afb8aff4e3f7c1629f5f401a17f9fc74a6af67279ae2c41534",
+          "224708d7b0e094f6553211edd00223aa3d340148a6417a1a79f2adfacb008ccc",
+          "e8d95d924091d16f14d85cea5ffa1d15f6d16a283697de6f09f54da87596461a",
+          "081508e9e922c1c6a5fa9c5d28152b82f3f767a16acc8f151d904ee5b72d08f6",
+          "fbf8b71184d27bc152ef2f0b364a139d3c30d3cb85eb39283f1d606893e6f171",
+          "949638bf220694ff2f366cd8abb1dc6c1484b276cbbf178ca0a1972427cfb42d",
+          "4c3eadbda7724ee59a3656b9cfd43e819a056756a4e9019293fb0b2dbecdf00b",
+          "30d57993bdb7a45b03c548f5cbc1487eab0535ef43f55021f941ef06c7b4f9c6",
+          "218cedeec2fc8cc9fb5d4a14306109ac4ab56b1643759c39c2749cdc28258b12",
+          "f4d61bf1d918ca1ff2cb83c07d39e84350f4c307fa98439c9584dfc9c9c8baff"
+        ],
+        "asset": "forge/assets/segments-25/segment-1.aimodel",
+        "exportSeconds": 55.21163858300133,
+        "peakRSSBytes": 35772563456
+      }
+    ],
+    "backbone_asset_identities": [
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-0.aimodel",
+        "source_sha256": "c6b882f8424a2d38332df1a79f801e0c30093e9d171c8e407a76a65fcd2e97c4"
+      },
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-1.aimodel",
+        "source_sha256": "2bb06f7c6ee8de9c53bd10ecf52c2f0367b736fa46ea95faca7305b7ffb87776"
+      }
+    ],
+    "backbone_reference": {
+      "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/backbone-streaming.raw",
+      "sha256": "e4aabaed96045e8b86cd292f7c6234f4ad5d86dda2e33edc41330d3e9772e75b"
+    },
+    "scope": "Synthetic hidden states, real unchanged BF16/F32 block weights. No packing, conditioning prefix, heads, sampler, audio/video decoder or generation.",
+    "resource_budget": {
+      "concurrent_native_jobs": 1,
+      "block128_historical_peak_rss_bytes": 3421585408,
+      "backbone_policy": "One owned-output stage at a time with transitive drain before the next acquisition; no resident-fit or OS page-eviction guarantee.",
+      "source_payload_note": "Derived .aimodel streams are fully hashed for the selected gate. The original 144 GB checkpoint cache is not rehashed; source-tensor provenance comes from the retained lab records."
+    }
+  },
+  "build": {
+    "source_hashes": {
+      "Cargo.lock": "66f43b677d017768af58d265ab7fa60a871abf71794c353612c4624937fc745c",
+      "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
+      "crates/corsairs-abi/Cargo.toml": "269374f88bafd7a551459a62bae9781623c89aebd5045e58bbab97c3f354e661",
+      "crates/corsairs-abi/examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+      "crates/corsairs-abi/examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+      "crates/corsairs-abi/examples/native_chain.rs": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+      "crates/corsairs-abi/examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+      "crates/corsairs-abi/src/api_error.rs": "199059dbe6c5268d2e048dd7915e3c70d8d20c954eafeadd99e6e32470174966",
+      "crates/corsairs-abi/src/bin/corsairs.rs": "5254e992ac8bce53fab0a97df765f2a883ef1900a64bd8b4cb252fdf8f02754e",
+      "crates/corsairs-abi/src/dtype.rs": "f74c17efbea82b15c6ee379b0e0ec8f22dc07b630d5646bf7ff31e900e39b480",
+      "crates/corsairs-abi/src/facade/batch.rs": "437ef17efcba011171c20b8e892abe85c2c9a6d15d1b7c2b1830a5b26f2a5a22",
+      "crates/corsairs-abi/src/facade/function_batch.rs": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+      "crates/corsairs-abi/src/facade/handles.rs": "e5f53d41cbee1f4c105a9ea1df911a4ec22b3904520a4f6d5fe3ebf098e79b34",
+      "crates/corsairs-abi/src/facade/metal.rs": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+      "crates/corsairs-abi/src/facade.rs": "c683a4ed948d4e80a745980681eee1849733c673d95f5bb50d031a681a3c29a7",
+      "crates/corsairs-abi/src/lib.rs": "a11536e680d6a52216a559fa93169c6f15d1eb1eb0724528d741ae1b24770850",
+      "crates/corsairs-abi/src/native/arm64.rs": "040906816e26ea6cb039aa654a50861de00bc9e8deaa241b0039ad3e0570304a",
+      "crates/corsairs-abi/src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+      "crates/corsairs-abi/src/native/async_task/sync_call.rs": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+      "crates/corsairs-abi/src/native/async_task.rs": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+      "crates/corsairs-abi/src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+      "crates/corsairs-abi/src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+      "crates/corsairs-abi/src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+      "crates/corsairs-abi/src/native/loader.rs": "03f70ddba88c1159266cc7890f6f9a8fedec511a5aaec5ce9800c0518268bf75",
+      "crates/corsairs-abi/src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+      "crates/corsairs-abi/src/native/mod.rs": "86f9dd79b5fe8e26070f74a0c9e06783125d6db3d96dc44ab4e1945201be5819",
+      "crates/corsairs-abi/src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+      "crates/corsairs-abi/src/native/owned/batch.rs": "1b8674ad189d579b8476ec86f45d1927f678dfd80680406c0020cf6e8c028c58",
+      "crates/corsairs-abi/src/native/owned/function_batch.rs": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+      "crates/corsairs-abi/src/native/owned/handles.rs": "5e251bdc4836e9d3332dd1a89f708b3cdd6723952ac20dee4a470d21ff80e8a5",
+      "crates/corsairs-abi/src/native/owned/metal.rs": "b5b55ee9ecd0792b5fa2ebe103fdacbef0b3cb55dea4020cb2eaa793317715d7",
+      "crates/corsairs-abi/src/native/owned.rs": "0ab569e8ca6a9338f9437d791571e9e9be5c65c4c4269795490f12984cfff7b8",
+      "crates/corsairs-abi/src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+      "crates/corsairs-abi/src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+      "crates/corsairs-abi/src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+      "crates/corsairs-abi/src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+      "crates/corsairs-abi/src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+      "crates/corsairs-abi/src/worker.rs": "c868a30930130c96570fca81e65dd8dc5a7ffaf16e9293d4445928680c457cea",
+      "crates/corsairs-abi/tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d",
+      "crates/corsairs-lab/Cargo.toml": "e4b497e903eee16ca0d9943392b8c6f38a3fec436d8f358430948c8009dca225",
+      "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c",
+      "experiments/rust/h3_driver.rs": "e00285db16000ad26b40d46a2d916c98ad98b0075f423fa01dd4eb231fa1f918",
+      "scripts/check_h3.py": "9d3e94ca7c34109dbdc85905dce951cd9abaa43220cb16f8484618615d832418",
+      "scripts/check_krea.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
+      "target/h3-check/data.rs": "79b8fb96c5657cea96a302c35230c84b200b80b7a828cf779a40941c81b3c01b"
+    },
+    "binary_sha256": "06304b7ef258ac466a491df7bfa38597caa215f8889aed3d7683fcf43ac815ca",
+    "rlib_sha256": "69dc636283076729c47bfdc3a7b49d4cca068fa1aae53f9a17fc75110c7a6d2e",
+    "cargo_target_directory": "/Users/zakkeown/Code/aether/lab/corsairs/target/h3-check/cargo",
+    "cargo_features": [],
+    "compiler": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)"
+  },
+  "build_manifest_sha256": "e7b8970c45fcd0617450a1eb9bc8191a8bed38dbe02370f7cb4c4634018e3e59",
+  "resume_checkpoint": {
+    "manifest": "/private/tmp/corsairs-h3-backbone-stage0/checkpoint.json",
+    "manifest_sha256": "45495207ff9fc00aaf52b6cf163f53ab9943c50e5fff21b526ee8a4463fcc8a4",
+    "file": "/private/tmp/corsairs-h3-backbone-stage0/checkpoint.bf16",
+    "sha256": "320d64327bcf8fac6b8f584888e93e4717d7794ac775175119f6efa0acf537c8",
+    "shape": [
+      1,
+      19350,
+      5376
+    ],
+    "dtype": "bfloat16",
+    "bytes": 208051200,
+    "build_manifest_sha256": "e7b8970c45fcd0617450a1eb9bc8191a8bed38dbe02370f7cb4c4634018e3e59",
+    "records_sha256": {
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-128.json": "f4ddd1f0052f05d5c2ba332cdb46a17b5eeefd1f59abb69f340a4f4e2dcd8489",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-128.json": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-inputs.json": "7525e67c06fb7c473cd6a68b2cedcf63b3ac643b2be838de10f931fcf89b17d8",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-cache-parity.json": "cc7a404302d1a303191fa1891897080b8759419c374c5f03f168aac687db1f99",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-19350.json": "b222c4e8287472560338c57428a21fc5d34d12de3d71c7fd0009196ddc1c8475",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-tables.json": "1fc87aa782073d48ffb22481665c595544f2a59399938b1c1633bf0ae73f062a",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-export.json": "996796bc00f95eb48123ce17e64ee6a06bd1edc98ae275a29a4c0883c1fe1361",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/segments-25-export.json": "3f5015767945217a1a95f60ab86b4d551522259ed4513ef2319300d89c2c6f13",
+      "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-streaming.json": "2c64731b7ce2083e7e9ce6350e4fc47a0e7160d505351e3d980334ab9581200e"
+    },
+    "backbone_asset_identities": [
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-0.aimodel",
+        "source_sha256": "c6b882f8424a2d38332df1a79f801e0c30093e9d171c8e407a76a65fcd2e97c4"
+      },
+      {
+        "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-1.aimodel",
+        "source_sha256": "2bb06f7c6ee8de9c53bd10ecf52c2f0367b736fa46ea95faca7305b7ffb87776"
+      }
+    ],
+    "scope": "Partial blocks 0..25 checkpoint, not a saved Swift comparison. Blocks 25..50 and the final exact hash complete the gate."
+  },
+  "prepared": true,
+  "native_validated": true,
+  "native_process": {
+    "pid": 2413,
+    "timeout_seconds": 240,
+    "events_file": "/private/tmp/corsairs-h3-backbone-stage1/events.jsonl",
+    "stderr_file": "/private/tmp/corsairs-h3-backbone-stage1/native.stderr.log",
+    "started_at": "2026-10-15T18:11:25.579878+00:00"
+  },
+  "process_memory": {
+    "source": "resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss",
+    "platform": "darwin",
+    "native_before_raw": 0,
+    "native_after_raw": 48440475648,
+    "raw_unit": "bytes",
+    "native_before_max_rss_bytes": 0,
+    "native_after_max_rss_bytes": 48440475648,
+    "new_child_high_water": true,
+    "scope": "Maximum RSS across completed children of this checker, including preparation helpers; not a per-process sample or an additive before/after delta. Darwin ru_maxrss is bytes. This does not separately measure Metal allocations; overlapping accounting must not be summed."
+  },
+  "native_events": [
+    {
+      "event": "loaded",
+      "asset": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-1.aimodel",
+      "function": "segment",
+      "compute": "gpu-preferred",
+      "expect_frequent_reshapes": true,
+      "seconds": 194.544817958
+    },
+    {
+      "event": "segment_complete",
+      "segment": 1,
+      "first_block": 25,
+      "end_block_exclusive": 50,
+      "seconds": 25.689420125
+    },
+    {
+      "event": "stage_drained",
+      "segment": 1
+    },
+    {
+      "event": "backbone",
+      "file": "/private/tmp/corsairs-h3-backbone-stage1/backbone.bf16",
+      "dtype": "bfloat16",
+      "shape": [
+        1,
+        19350,
+        5376
+      ],
+      "bytes": 208051200,
+      "sha256": "e4aabaed96045e8b86cd292f7c6234f4ad5d86dda2e33edc41330d3e9772e75b",
+      "swift_sha256": "e4aabaed96045e8b86cd292f7c6234f4ad5d86dda2e33edc41330d3e9772e75b",
+      "passed": true
+    },
+    {
+      "event": "complete",
+      "mode": "backbone-stage1",
+      "api": "owned",
+      "seconds": 220.944937459,
+      "passed": true
+    }
+  ],
+  "exact_swift_validated": true,
+  "acceptance_complete": true
+}

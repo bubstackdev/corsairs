@@ -1,6 +1,6 @@
 use crate::native::{
-    NativeCompute, NativeDType, NativeFailure, NativeFunctionDescriptor, NativeSession,
-    NativeTensor, NativeTensorDescriptor,
+    NativeCompute, NativeDType, NativeFailure, NativeFunctionDescriptor, NativeLoadOptions,
+    NativeSession, NativeTensor, NativeTensorDescriptor,
 };
 use crate::{
     api_error::Error,
@@ -11,6 +11,21 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
+mod function_batch;
+#[cfg(feature = "abi-research")]
+pub use function_batch::FunctionBatchLoadReport;
+pub use function_batch::FunctionLoadRequest;
+mod batch;
+pub use batch::ModelLoadRequest;
+#[cfg(feature = "abi-research")]
+pub use batch::{BatchLoadMetrics, BatchLoadReport};
+mod handles;
+pub use handles::{NativeRunResult, TensorHandle, TensorHandleMap};
+mod metal;
+pub use metal::{
+    MetalBuffer, MetalBufferMap, MetalObject, MetalQueue, MetalRunResult, MetalValue, MetalValueMap,
+};
+
 /// The requested specialization policy. GPU preference allows Core AI to use
 /// other available compute units; it is not proof of GPU execution.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -20,6 +35,38 @@ pub enum Compute {
     GpuPreferred,
 }
 
+/// Requested specialization choices retained for each loaded model.
+///
+/// These choices configure Core AI; they do not prove a particular compute
+/// device, compilation strategy, or performance outcome was selected.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub struct LoadOptions {
+    /// Requested compute policy.
+    pub compute: Compute,
+    /// Frequent-reshape hint. None preserves the SDK's constructor default.
+    /// Some(false) explicitly disables the hint; Some(true) enables it.
+    pub expect_frequent_reshapes: Option<bool>,
+}
+impl LoadOptions {
+    /// Choose compute policy while leaving the reshape hint at its SDK default.
+    pub const fn new(compute: Compute) -> Self {
+        Self {
+            compute,
+            expect_frequent_reshapes: None,
+        }
+    }
+    /// Explicitly set the frequent-reshape specialization hint for this model.
+    pub const fn with_expect_frequent_reshapes(mut self, enabled: bool) -> Self {
+        self.expect_frequent_reshapes = Some(enabled);
+        self
+    }
+}
+impl From<Compute> for LoadOptions {
+    fn from(compute: Compute) -> Self {
+        Self::new(compute)
+    }
+}
+
 /// A named tensor's declared shape and scalar type.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TensorDescriptor {
@@ -27,8 +74,8 @@ pub struct TensorDescriptor {
     pub name: String,
     /// Required scalar type.
     pub dtype: DType,
-    /// Dimensions; None denotes a dimension without a fixed size. v0.1
-    /// rejects unresolved signatures, so loaded descriptors contain Some.
+    /// Dimensions; None denotes a dynamic dimension. Every invocation must
+    /// supply concrete dimensions, preserving the signature's fixed dimensions.
     pub shape: Vec<Option<usize>>,
 }
 
@@ -157,28 +204,42 @@ impl Runtime {
         Ok(Self { worker })
     }
     /// Submit asynchronous asset loading with an explicit compute policy.
+    /// The frequent-reshape hint retains the SDK's constructor default.
     pub fn load_model(&self, path: impl AsRef<Path>, compute: Compute) -> Task<Model> {
+        self.load_model_with_options(path, compute.into())
+    }
+    /// Submit asset loading with per-model specialization options.
+    /// An omitted frequent-reshape override leaves the SDK default unchanged.
+    pub fn load_model_with_options(
+        &self,
+        path: impl AsRef<Path>,
+        options: LoadOptions,
+    ) -> Task<Model> {
         let path = path.as_ref().to_path_buf();
         let runtime = self.clone();
         self.worker.submit(move |session| {
             // SAFETY: Only this worker owns the session and all native storage.
             let model = unsafe {
-                session
-                    .load_model(
-                        &path,
-                        match compute {
-                            Compute::CpuOnly => NativeCompute::CpuOnly,
-                            Compute::GpuPreferred => NativeCompute::GpuPreferred,
-                        },
-                    )
-                    .map_err(native_error)?
+                let native_options = NativeLoadOptions {
+                    compute: match options.compute {
+                        Compute::CpuOnly => NativeCompute::CpuOnly,
+                        Compute::GpuPreferred => NativeCompute::GpuPreferred,
+                    },
+                    expect_frequent_reshapes: options.expect_frequent_reshapes,
+                };
+                if native_options.expect_frequent_reshapes.is_none() {
+                    session.load_model(&path, native_options.compute)
+                } else {
+                    session.load_model_with_options(&path, native_options)
+                }
+                .map_err(native_error)?
             };
             Ok(Model(Arc::new(ModelInner {
                 runtime,
                 id: model.id,
                 names: model.function_names,
                 path,
-                compute,
+                options,
             })))
         })
     }
@@ -188,6 +249,18 @@ impl Runtime {
     pub fn flush(&self) -> Task<()> {
         self.worker.submit(|_| Ok(()))
     }
+    /// Wait for earlier requests and every queued release they cause, including
+    /// cleanup of abandoned results and failed requests. The submission boundary
+    /// is captured by this call; later independent requests do not extend it.
+    ///
+    /// Handles and completed results still held by the application remain alive.
+    /// Drop stage handles and unwanted tasks before calling this method. Their
+    /// native releases finish before this task resolves, but Core AI or the OS
+    /// may retain caches and mapped pages. This does not promise memory eviction.
+    /// As with other tasks, synchronously waiting on this worker is rejected.
+    pub fn drain(&self) -> Task<()> {
+        self.worker.drain()
+    }
 }
 
 struct ModelInner {
@@ -195,7 +268,7 @@ struct ModelInner {
     id: u64,
     names: Vec<String>,
     path: PathBuf,
-    compute: Compute,
+    options: LoadOptions,
 }
 impl Drop for ModelInner {
     fn drop(&mut self) {
@@ -222,7 +295,12 @@ impl Model {
     }
     /// Requested specialization policy.
     pub fn compute(&self) -> Compute {
-        self.0.compute
+        self.0.options.compute
+    }
+    /// The requested options used at load time, including an optional override.
+    /// None records that the SDK default was preserved, not an effective value.
+    pub fn load_options(&self) -> LoadOptions {
+        self.0.options
     }
     /// Load and inspect one named function.
     pub fn load_function(&self, name: impl Into<String>) -> Task<Function> {
@@ -347,6 +425,7 @@ fn validate(
 fn to_native_dtype(dtype: DType) -> NativeDType {
     match dtype {
         DType::Float16 => NativeDType::F16,
+        DType::BFloat16 => NativeDType::Bf16,
         DType::Float32 => NativeDType::F32,
         DType::Int32 => NativeDType::I32,
         DType::Int64 => NativeDType::I64,
@@ -356,6 +435,7 @@ fn to_native_dtype(dtype: DType) -> NativeDType {
 fn from_native_dtype(dtype: NativeDType) -> DType {
     match dtype {
         NativeDType::F16 => DType::Float16,
+        NativeDType::Bf16 => DType::BFloat16,
         NativeDType::F32 => DType::Float32,
         NativeDType::I32 => DType::Int32,
         NativeDType::I64 => DType::Int64,
@@ -384,6 +464,7 @@ fn descriptor(value: NativeFunctionDescriptor) -> FunctionDescriptor {
 fn native_error(error: NativeFailure) -> Error {
     match error {
         NativeFailure::Binding(s) => Error::Binding(s),
+        NativeFailure::FunctionNotFound(name) => Error::FunctionNotFound(name),
         NativeFailure::InvalidData(s) => Error::DescriptorMismatch {
             name: "request".into(),
             reason: s,
@@ -404,6 +485,37 @@ fn native_error(error: NativeFailure) -> Error {
 mod tests {
     use super::*;
     #[test]
+    fn load_options_preserve_defaults_and_explicit_false() {
+        assert_eq!(LoadOptions::default(), LoadOptions::new(Compute::CpuOnly));
+        for compute in [Compute::CpuOnly, Compute::GpuPreferred] {
+            assert_eq!(LoadOptions::from(compute).expect_frequent_reshapes, None);
+            for enabled in [true, false] {
+                let options = LoadOptions::new(compute).with_expect_frequent_reshapes(enabled);
+                assert_eq!(options.compute, compute);
+                assert_eq!(options.expect_frequent_reshapes, Some(enabled));
+            }
+        }
+    }
+    #[test]
+    fn mixed_fixed_and_dynamic_dimensions_validate_concrete_tensors() {
+        let descriptors = [TensorDescriptor {
+            name: "x".into(),
+            dtype: DType::Float32,
+            shape: vec![Some(2), None, Some(3)],
+        }];
+        for shape in [vec![2, 0, 3], vec![2, 1, 3], vec![2, 7, 3]] {
+            let inputs = TensorMap::from([("x", Tensor::zeros(DType::Float32, shape).unwrap())]);
+            assert!(validate(&descriptors, &inputs, "input").is_ok());
+        }
+        for shape in [vec![3, 1, 3], vec![2, 7, 4], vec![2, 3], vec![2, 1, 3, 1]] {
+            let inputs = TensorMap::from([("x", Tensor::zeros(DType::Float32, shape).unwrap())]);
+            assert!(matches!(
+                validate(&descriptors, &inputs, "input"),
+                Err(Error::DescriptorMismatch { .. })
+            ));
+        }
+    }
+    #[test]
     fn public_handles_and_owned_results_are_send_sync() {
         fn check<T: Send + Sync>() {}
         check::<Runtime>();
@@ -423,8 +535,7 @@ mod tests {
         for _ in 0..20 {
             drop(runtime.load_model(&path, Compute::CpuOnly));
         }
-        runtime.flush().wait().unwrap();
-        runtime.flush().wait().unwrap();
+        runtime.drain().wait().unwrap();
         assert_eq!(
             runtime
                 .worker
@@ -437,8 +548,7 @@ mod tests {
         for _ in 0..20 {
             drop(model.load_function("main"));
         }
-        runtime.flush().wait().unwrap();
-        runtime.flush().wait().unwrap();
+        runtime.drain().wait().unwrap();
         assert_eq!(
             runtime
                 .worker
@@ -454,8 +564,7 @@ mod tests {
         }
         drop(function);
         drop(model);
-        runtime.flush().wait().unwrap();
-        runtime.flush().wait().unwrap();
+        runtime.drain().wait().unwrap();
         assert_eq!(
             runtime
                 .worker
@@ -463,6 +572,69 @@ mod tests {
                 .wait()
                 .unwrap(),
             (0, 0)
+        );
+        // A failed function request must also release its captured model after
+        // the caller discards both the model and the unsuccessful future.
+        for _ in 0..10 {
+            let model = runtime.load_model(&path, Compute::CpuOnly).wait().unwrap();
+            let failed = model.load_function("__corsairs_missing_function__");
+            drop(model);
+            drop(failed);
+        }
+        runtime.drain().wait().unwrap();
+        assert_eq!(
+            runtime
+                .worker
+                .submit(|session| Ok(session.live_counts()))
+                .wait()
+                .unwrap(),
+            (0, 0)
+        );
+
+        let model = runtime.load_model(&path, Compute::CpuOnly).wait().unwrap();
+        let function = model.load_function("main").wait().unwrap();
+        let input = runtime
+            .upload(Tensor::from_vec([2, 3], vec![1f32; 6]).unwrap())
+            .wait()
+            .unwrap();
+        for _ in 0..20 {
+            drop(function.run_native(
+                TensorHandleMap::from([("x", input.clone())]),
+                TensorHandleMap::new(),
+            ));
+            // Validation errors destroy the same retained function captures.
+            drop(function.run_native(TensorHandleMap::new(), TensorHandleMap::new()));
+        }
+        drop(function);
+        drop(model);
+        runtime.drain().wait().unwrap();
+        assert_eq!(
+            runtime
+                .worker
+                .submit(|session| Ok((session.live_counts(), session.live_tensor_count())))
+                .wait()
+                .unwrap(),
+            ((0, 0), 1)
+        );
+        // Drain preserves the externally retained upload and it remains usable.
+        assert_eq!(
+            runtime
+                .download(&input)
+                .wait()
+                .unwrap()
+                .to_vec::<f32>()
+                .unwrap(),
+            vec![1f32; 6]
+        );
+        drop(input);
+        runtime.drain().wait().unwrap();
+        assert_eq!(
+            runtime
+                .worker
+                .submit(|session| Ok((session.live_counts(), session.live_tensor_count())))
+                .wait()
+                .unwrap(),
+            ((0, 0), 0)
         );
     }
     #[test]

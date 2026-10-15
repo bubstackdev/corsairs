@@ -1,0 +1,34 @@
+{
+  "file": "/private/tmp/corsairs-h3-backbone-stage0/checkpoint.bf16",
+  "sha256": "320d64327bcf8fac6b8f584888e93e4717d7794ac775175119f6efa0acf537c8",
+  "shape": [
+    1,
+    19350,
+    5376
+  ],
+  "dtype": "bfloat16",
+  "bytes": 208051200,
+  "build_manifest_sha256": "e7b8970c45fcd0617450a1eb9bc8191a8bed38dbe02370f7cb4c4634018e3e59",
+  "records_sha256": {
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-128.json": "f4ddd1f0052f05d5c2ba332cdb46a17b5eeefd1f59abb69f340a4f4e2dcd8489",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-128.json": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-inputs.json": "7525e67c06fb7c473cd6a68b2cedcf63b3ac643b2be838de10f931fcf89b17d8",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-cache-parity.json": "cc7a404302d1a303191fa1891897080b8759419c374c5f03f168aac687db1f99",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-19350.json": "b222c4e8287472560338c57428a21fc5d34d12de3d71c7fd0009196ddc1c8475",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-tables.json": "1fc87aa782073d48ffb22481665c595544f2a59399938b1c1633bf0ae73f062a",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-export.json": "996796bc00f95eb48123ce17e64ee6a06bd1edc98ae275a29a4c0883c1fe1361",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/segments-25-export.json": "3f5015767945217a1a95f60ab86b4d551522259ed4513ef2319300d89c2c6f13",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-streaming.json": "2c64731b7ce2083e7e9ce6350e4fc47a0e7160d505351e3d980334ab9581200e"
+  },
+  "backbone_asset_identities": [
+    {
+      "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-0.aimodel",
+      "source_sha256": "c6b882f8424a2d38332df1a79f801e0c30093e9d171c8e407a76a65fcd2e97c4"
+    },
+    {
+      "path": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/assets/segments-25/segment-1.aimodel",
+      "source_sha256": "2bb06f7c6ee8de9c53bd10ecf52c2f0367b736fa46ea95faca7305b7ffb87776"
+    }
+  ],
+  "scope": "Partial blocks 0..25 checkpoint, not a saved Swift comparison. Blocks 25..50 and the final exact hash complete the gate."
+}

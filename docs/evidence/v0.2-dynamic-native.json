@@ -1,0 +1,146 @@
+{
+  "evidence_id": "ev_af8984ca0054aa3a655e01036f338aa1c7b55598c1fb6e855f37670c15122d92",
+  "subject": {
+    "name": "python3.12",
+    "digest": {
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22"
+    },
+    "format": "mach-o",
+    "architecture": "arm64",
+    "local_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+  },
+  "provider": {
+    "id": "native-macos",
+    "name": "macOS native inspection utilities",
+    "version": null
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "observe_native_calls",
+  "parameters": {
+    "breakpoints": [
+      {
+        "kind": "function",
+        "name": "Py_BytesMain"
+      }
+    ],
+    "arguments": [
+      "-I",
+      "-B",
+      "/private/tmp/corsairs-v02-dynamic.py"
+    ],
+    "environment": {},
+    "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+    "duration_ms": 120000,
+    "max_events": 4,
+    "argument_registers": 1,
+    "backtrace_frames": 1
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "target": {
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+      "sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+      "architecture": "arm64",
+      "arguments": [
+        "-I",
+        "-B",
+        "/private/tmp/corsairs-v02-dynamic.py"
+      ],
+      "environment": {},
+      "working_directory": "/Users/zakkeown/Code/aether/lab/corsairs",
+      "launch_identity": {
+        "loaded_image_sha256": null,
+        "file_device": "16777230",
+        "file_inode": "412775",
+        "selected_file_sha256": "2d96eb826dc74db4fcd5da6dde045a6fa145e292e07e69d1bdd1a19fa90ffc22",
+        "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+        "module_uuid": "4C4C4443-5555-3144-A1DF-64FEFA96526F",
+        "stable": true
+      }
+    },
+    "debugger": {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb",
+      "sha256": "ae3f84177101eaf68de5746fbdb68ba50223d1199520b1c306fe6fd0e68ddbab",
+      "version": "lldb-2103.0.34.103"
+    },
+    "process": {
+      "pid": 51030,
+      "outcome": "exited",
+      "exit_status": 0,
+      "exit_description": null,
+      "terminated": true,
+      "elapsed_ms": 1371.157,
+      "stdout": {
+        "text": "{\"command\": [\"/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12\", \"-I\", \"-B\", \"scripts/reference/run_dynamic.py\"], \"exit_status\": 0, \"stdout\": \"{\\\"passed\\\": true, \\\"backends\\\": 2, \\\"shape_changes_per_function\\\": 4}\\n\", \"stderr\": \"2026-10-15 10:45:23.614022-0600 python3.12[51054:711134] [MPSGraph_Common] /AppleInternal/Library/BuildRoots/4~CV2iugCS017GRPdEjj32gfBJXr8YaxAcCWYlUuw/Library/Caches/com.apple.xbs/TemporaryDirectory.WK6jPd/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:2523: No ANE hash for architecture 'h17c' in package /Users/zakkeown/Library/Caches/coreai-cache/26A434/python3-12/de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6/1437135650F5EB80B3545D58225DFBDAB1D3F672814A14BDB8BE67FA0A9BB0E1/model.aimodelx/main-this-delegates/MPSGraph/mpsExecutable.mpsgraphpackage \\u2014 GPU-only model or wrong target?\\n\"}\n{\"command\": [\"/Users/zakkeown/Code/aether/lab/corsairs/target/v02-check/dynamic-shapes\", \"/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/dynamic-double\"], \"exit_status\": 0, \"stdout\": \"{\\\"compute\\\":\\\"CpuOnly\\\",\\\"frequent_reshapes\\\":\\\"None\\\",\\\"dynamic_calls\\\":4,\\\"negative_calls\\\":3,\\\"passed\\\":true}\\n{\\\"compute\\\":\\\"CpuOnly\\\",\\\"frequent_reshapes\\\":\\\"Some(false)\\\",\\\"dynamic_calls\\\":4,\\\"negative_calls\\\":3,\\\"passed\\\":true}\\n{\\\"compute\\\":\\\"CpuOnly\\\",\\\"frequent_reshapes\\\":\\\"Some(true)\\\",\\\"dynamic_calls\\\":4,\\\"negative_calls\\\":3,\\\"passed\\\":true}\\n{\\\"compute\\\":\\\"GpuPreferred\\\",\\\"frequent_reshapes\\\":\\\"None\\\",\\\"dynamic_calls\\\":4,\\\"negative_calls\\\":3,\\\"passed\\\":true}\\n{\\\"compute\\\":\\\"GpuPreferred\\\",\\\"frequent_reshapes\\\":\\\"Some(false)\\\",\\\"dynamic_calls\\\":4,\\\"negative_calls\\\":3,\\\"passed\\\":true}\\n{\\\"compute\\\":\\\"GpuPreferred\\\",\\\"frequent_reshapes\\\":\\\"Some(true)\\\",\\\"dynamic_calls\\\":4,\\\"negative_calls\\\":3,\\\"passed\\\":true}\\n{\\\"event\\\":\\\"complete\\\",\\\"passed\\\":true}\\n\", \"stderr\": \"2026-10-15 10:45:24.109846-0600 dynamic-shapes[51056:711194] [MPSGraph_Common] /AppleInternal/Library/BuildRoots/4~CV2iugCS017GRPdEjj32gfBJXr8YaxAcCWYlUuw/Library/Caches/com.apple.xbs/TemporaryDirectory.WK6jPd/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:2523: No ANE hash for architecture 'h17c' in package /Users/zakkeown/Library/Caches/coreai-cache/26A434/dynamic-shapes/de97ec86e35c54cfe7979905ef50d4d26f571a36d4852f5ad7b66550896d17a6/1437135650F5EB80B3545D58225DFBDAB1D3F672814A14BDB8BE67FA0A9BB0E1/model.aimodelx/main-this-delegates/MPSGraph/mpsExecutable.mpsgraphpackage \\u2014 GPU-only model or wrong target?\\n\"}\n",
+        "bytes": 2614,
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "text": "",
+        "bytes": 0,
+        "truncated": false,
+        "complete": true
+      },
+      "other_stops": [
+        "signal SIGSTOP"
+      ]
+    },
+    "breakpoints": [
+      {
+        "index": 0,
+        "request": {
+          "kind": "function",
+          "name": "Py_BytesMain",
+          "module": null
+        },
+        "location_count": 1,
+        "locations": [
+          {
+            "load_address": "0x1002fbf70",
+            "file_address": "0x1002fbf70",
+            "module": "python3.12",
+            "module_path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+            "symbol": "Py_BytesMain"
+          }
+        ]
+      }
+    ],
+    "events": [],
+    "coverage": {
+      "status": "complete",
+      "event_limit_reached": false,
+      "resource_limit_reached": false,
+      "unresolved_breakpoints": []
+    },
+    "limitations": [
+      "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+      "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+      "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+      "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+      "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+      "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+      "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Only entries are observed; return values, floating-point and stack-passed arguments are not captured.",
+    "Registers are the raw integer argument registers at entry. For Objective-C methods the first two hold the receiver and the selector.",
+    "Receiver classes come from LLDB's Objective-C runtime reader without running target code; they are null for class methods and for receivers LLDB cannot classify.",
+    "Calls that never reach a symbol's entry, such as inlined code or objc_direct methods called directly, are not observed.",
+    "The target is launched directly under LLDB, not through LaunchServices; LLDB disables ASLR for it, so load addresses can equal file addresses.",
+    "The observation window is checked about once a second, and recording pauses the process at every entry, which slows it.",
+    "The selected pathname digest and LLDB module identity are checked around launch. No immutable executable snapshot is used; concurrent in-place mutation or replacement and restoration cannot be ruled out, so the loaded-image digest remains unknown."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/Users/zakkeown/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12"
+    }
+  ],
+  "evidence_links": []
+}

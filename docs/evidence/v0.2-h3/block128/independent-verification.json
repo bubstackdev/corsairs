@@ -1,0 +1,78 @@
+{
+  "kind": "corsairs-h3-block128-independent-verification",
+  "verified_at": "2026-10-15T18:10:21.856835+00:00",
+  "passed": true,
+  "native_execution_performed": false,
+  "build_manifest_sha256": "e7b8970c45fcd0617450a1eb9bc8191a8bed38dbe02370f7cb4c4634018e3e59",
+  "report_sha256": "5d32a51a0c3f4ca96a82abd1de9b3462aecd20eba7f767b4b6c32758df7fd47b",
+  "binary_sha256": "06304b7ef258ac466a491df7bfa38597caa215f8889aed3d7683fcf43ac815ca",
+  "source_identity_sha256": "1b35bca98365133413d311d7101f532dedf662e31e5647dda6708bde6e747e7d",
+  "source_file_count": 45,
+  "payloads": [
+    {
+      "file": "/private/tmp/corsairs-h3-block128/modulations.bf16",
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-modulations.raw",
+      "bytes": 580608,
+      "sha256": "28942f089a76cb06977401e74dfc01aaf9b03398779850b03c0d38673ed48817",
+      "direct_byte_equal": true,
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-h3-block128/live.bf16",
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-live.raw",
+      "bytes": 1376256,
+      "sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+      "direct_byte_equal": true,
+      "passed": true
+    },
+    {
+      "file": "/private/tmp/corsairs-h3-block128/cached.bf16",
+      "reference_file": "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/forge/fixtures/block-128/gpu-cached.raw",
+      "bytes": 1376256,
+      "sha256": "001045fc523793248c74b3894507a72fb1e17c1aac3e2499c47fdf2b3c836c70",
+      "direct_byte_equal": true,
+      "passed": true
+    }
+  ],
+  "separate_cross_backend_cpu": {
+    "live": {
+      "finite": true,
+      "relative_l2": 0.00354140126210817,
+      "max_abs": 128.0,
+      "cosine": 0.9999937295243662,
+      "predefined_relative_l2_limit": 0.02,
+      "passed": true,
+      "scope": "Separate cross-backend CPU comparison. Exact saved Swift bytes remain the required primary gate."
+    },
+    "cached": {
+      "finite": true,
+      "relative_l2": 0.00354140126210817,
+      "max_abs": 128.0,
+      "cosine": 0.9999937295243662,
+      "predefined_relative_l2_limit": 0.02,
+      "passed": true,
+      "scope": "Separate cross-backend CPU comparison. Exact saved Swift bytes remain the required primary gate."
+    }
+  },
+  "reference_records_sha256": {
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-128.json": "f4ddd1f0052f05d5c2ba332cdb46a17b5eeefd1f59abb69f340a4f4e2dcd8489",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-gpu-128.json": "65771295a42d00659c35ea61c3dbe408afd063c838f34c3da539a482d8c2967e",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-inputs.json": "7525e67c06fb7c473cd6a68b2cedcf63b3ac643b2be838de10f931fcf89b17d8",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/schedule-cache-parity.json": "cc7a404302d1a303191fa1891897080b8759419c374c5f03f168aac687db1f99",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/block-oracle-19350.json": "b222c4e8287472560338c57428a21fc5d34d12de3d71c7fd0009196ddc1c8475",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-tables.json": "1fc87aa782073d48ffb22481665c595544f2a59399938b1c1633bf0ae73f062a",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-export.json": "996796bc00f95eb48123ce17e64ee6a06bd1edc98ae275a29a4c0883c1fe1361",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/segments-25-export.json": "3f5015767945217a1a95f60ab86b4d551522259ed4513ef2319300d89c2c6f13",
+    "/Users/zakkeown/Code/atelier/lab/minimax-h3-lab/records/backbone-streaming.json": "2c64731b7ce2083e7e9ce6350e4fc47a0e7160d505351e3d980334ab9581200e"
+  },
+  "snapshot_files_sha256": {
+    "driver.rs": "e00285db16000ad26b40d46a2d916c98ad98b0075f423fa01dd4eb231fa1f918",
+    "checker.py": "9d3e94ca7c34109dbdc85905dce951cd9abaa43220cb16f8484618615d832418",
+    "launcher.py": "1466da4d73d691976e8125bf1033dcc219415dc711361da3895380de55b6e409",
+    "data.rs": "79b8fb96c5657cea96a302c35230c84b200b80b7a828cf779a40941c81b3c01b"
+  },
+  "logs_sha256": {
+    "/private/tmp/corsairs-h3-block128/events.jsonl": "135901abb9cf0b469f27d82b5d38b0363515e5d7ac17cfcab5382fff92dd19f3",
+    "/private/tmp/corsairs-h3-block128/native.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "observed_at": "2026-10-15T17:41:12.116001+00:00",
+  "command": [
+    "sysctl",
+    "-n",
+    "machdep.cpu.brand_string",
+    "hw.memsize",
+    "kern.osversion"
+  ],
+  "stdout": "Apple M5 Max\n68719476736\n26A434\n",
+  "observed_by": "Direct exec_command sysctl invocation during aggregation",
+  "processor": "Apple M5 Max",
+  "physical_memory_bytes": 68719476736,
+  "os_build": "26A434",
+  "scope": "Read on the shared benchmark host while aggregating results; thermal state and system load were not sampled during the measured renders."
+}

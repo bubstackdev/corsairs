@@ -1,0 +1,14 @@
+{
+  "native_executed": false,
+  "fixture_manifest_sha256": "89f625fd9760fcbbcfbf214e96ff3eeedf84e45cbe8b4f4459829987db1fa0ca",
+  "fixture_builder_sha256": "bcb46b14b04063c5d98336756c78801ab85daba1d1846275080147bc34b8db6e",
+  "cases": 6,
+  "swift_reference_executable": "target/bfloat16-reference/bfloat16-oracle",
+  "swift_reference_sha256": "78956f44ce466976e6436e07a9961475e9a2663e9f0d7dee581a1704e4da9a9d",
+  "supersedes_five_case_fixture_manifest": true,
+  "native_command": [
+    "target/bfloat16-reference/bfloat16-oracle",
+    "fixtures/parity-v02/bfloat16",
+    "target/bfloat16-reference/swift-output-six"
+  ]
+}

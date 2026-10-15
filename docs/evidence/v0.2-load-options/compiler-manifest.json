@@ -1,0 +1,86 @@
+{
+  "generated_at_utc": "2026-10-15T16:45:24.495801+00:00",
+  "target_from_ir": "arm64-apple-macosx27.0.0",
+  "sdk_version_from_ir": "27.0",
+  "sources_and_outputs_sha256": {
+    "docs/evidence/v0.2-load-options/options.ll": "48029f26ecad1a36179274da2ec5e6888b7563acb0c2edc6061c2afec65c7b5a",
+    "docs/evidence/v0.2-load-options/options.sil": "0b95d0cdf1def19fe7c377bca6ff6e0ad5dc14b33c9d9cf9c521f3d9f7ebd5ac",
+    "docs/evidence/v0.2-load-options/options.s": "1888ff58f80967b55b0ef18f9e9df27a51c650d9a908decc88401d376d718076",
+    "experiments/swift/LoadOptionsReference.swift": "d283f4ff47b7275ea4829a24c0109df7b3f7fa4fde1b83d4a55d79d44e9771e2",
+    "experiments/swift/LoadOptionsRunReference.swift": "9bfede983f5be28728b4c0c3220d10d836b962a6ec5b90ec543b1cfeffba7028",
+    "docs/evidence/v0.2-load-options-swift-native.json": "4e6581dc2fd6562932cf95a56fb2e3336d3097ccf4fe08280ba891c092b208ba"
+  },
+  "native_oracle_sha256": "7351a5f8f0f57461a08a9dba816440b66e48e9aa2dd6de4da2a23748a5d4c7d1",
+  "compiler_commands": [
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "LoadOptionsABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-load-options-v02/cache",
+      "-emit-ir",
+      "experiments/swift/LoadOptionsReference.swift",
+      "-o",
+      "/private/tmp/corsairs-load-options-v02/options.ll"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "LoadOptionsABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-load-options-v02/cache",
+      "-emit-sil",
+      "experiments/swift/LoadOptionsReference.swift",
+      "-o",
+      "/private/tmp/corsairs-load-options-v02/options.sil"
+    ],
+    [
+      "xcrun",
+      "swiftc",
+      "-Onone",
+      "-parse-as-library",
+      "-module-name",
+      "LoadOptionsABI",
+      "-module-cache-path",
+      "/private/tmp/corsairs-load-options-v02/cache",
+      "-emit-assembly",
+      "experiments/swift/LoadOptionsReference.swift",
+      "-o",
+      "/private/tmp/corsairs-load-options-v02/options.s"
+    ]
+  ],
+  "oracle_build_command": [
+    "xcrun",
+    "swiftc",
+    "-Onone",
+    "-parse-as-library",
+    "-module-cache-path",
+    "/private/tmp/corsairs-load-options-v02/cache",
+    "experiments/swift/LoadOptionsRunReference.swift",
+    "-o",
+    "/private/tmp/corsairs-load-options-v02/options-oracle"
+  ],
+  "sdk_interface": {
+    "path": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk/System/Library/SubFrameworks/CoreAIDelegates.framework/Versions/A/Modules/CoreAIDelegates.swiftmodule/arm64e-apple-macos.swiftinterface",
+    "sha256": "cf66ad72fab3fd71bf6c7cf2e5d96cfb8b1ebd9d4345ab8a2cfbb4f611db032c"
+  },
+  "evidence_id": "ev_9706f04e904c70eca2b1b65b5a561972cea4a2df78c15532d20582e3e1a520c2",
+  "native_observed": {
+    "cpu_default": false,
+    "gpu_default": false,
+    "cpu_true": true,
+    "gpu_true": true,
+    "cpu_false": false,
+    "gpu_false": false
+  },
+  "limitations": [
+    "Accessor observation establishes option values on the recorded host, not specialization strategy/performance or actual GPU use.",
+    "Compiler/native references are development tools; the production Rust crate loads only existing OS framework code."
+  ]
+}

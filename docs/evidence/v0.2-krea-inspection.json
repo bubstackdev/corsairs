@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "asset": "text",
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs",
+        "inspect",
+        "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-text.aimodel",
+        "--compute",
+        "gpu-preferred",
+        "--function",
+        "encode",
+        "--expect-frequent-reshapes",
+        "true"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"model\":\"/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-text.aimodel\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true,\"functions\":[{\"name\":\"encode\",\"inputs\":[{\"name\":\"input_ids\",\"dtype\":\"int32\",\"shape\":[1,null]},{\"name\":\"position_ids\",\"dtype\":\"int32\",\"shape\":[1,null]},{\"name\":\"attention_mask\",\"dtype\":\"int32\",\"shape\":[1,null]}],\"outputs\":[{\"name\":\"text_embeds\",\"dtype\":\"float16\",\"shape\":[null,30720]}],\"states\":[]}]}\n",
+      "stderr": ""
+    },
+    {
+      "asset": "vae",
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/release/corsairs",
+        "inspect",
+        "/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel",
+        "--compute",
+        "gpu-preferred",
+        "--function",
+        "decode",
+        "--expect-frequent-reshapes",
+        "false"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"model\":\"/Users/zakkeown/Code/bubstackdev/aether-engine/forge/out.noindex/krea-2-turbo-realism/variants/macos-any-gpu/krea_2_turbo_realism-vae.aimodel\",\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":false,\"functions\":[{\"name\":\"decode\",\"inputs\":[{\"name\":\"latents\",\"dtype\":\"float16\",\"shape\":[null,null,64]}],\"outputs\":[{\"name\":\"image\",\"dtype\":\"float32\",\"shape\":[3,null,null]}],\"states\":[]}]}\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true
+}

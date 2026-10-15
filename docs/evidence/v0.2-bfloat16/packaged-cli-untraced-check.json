@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "child_cli_under_debugger": false,
+  "binary": "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/corsairs",
+  "binary_sha256": "ac90911d6b5c88710454be800f8bd971025f623b585b23bcfd8e4c228d54f2ab",
+  "cases": [
+    {
+      "backend": "cpu",
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/corsairs",
+        "run",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/model.aimodel",
+        "--compute",
+        "cpu",
+        "--expect-frequent-reshapes",
+        "true",
+        "--input",
+        "x",
+        "bfloat16",
+        "2,3",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/0-x.bin",
+        "--output-dir",
+        "/private/tmp/corsairs-bf16-cli-untraced-cpu"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"compute\":\"cpu\",\"expect_frequent_reshapes\":true,\"completed\":1,\"dropped_futures\":0,\"outputs\":[{\"name\":\"y\",\"dtype\":\"bfloat16\",\"shape\":[2, 3],\"strides\":[3, 1],\"file\":\"/private/tmp/corsairs-bf16-cli-untraced-cpu/outputs-0.bin\",\"hex\":null}],\"states\":[]}\n",
+      "stderr": "",
+      "output_sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "exact_fixture_bytes": true,
+      "same_width_wrong_dtype": {
+        "command": [
+          "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/corsairs",
+          "run",
+          "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/model.aimodel",
+          "--compute",
+          "cpu",
+          "--expect-frequent-reshapes",
+          "true",
+          "--input",
+          "x",
+          "float16",
+          "2,3",
+          "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/0-x.bin",
+          "--output-dir",
+          "/private/tmp/corsairs-bf16-cli-untraced-cpu"
+        ],
+        "exit_status": 1,
+        "stdout": "",
+        "stderr": "{\"error\":\"tensor \\\"x\\\" does not match its descriptor: requires bfloat16, got float16\"}\n"
+      }
+    },
+    {
+      "backend": "gpu-preferred",
+      "command": [
+        "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/corsairs",
+        "run",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/model.aimodel",
+        "--compute",
+        "gpu-preferred",
+        "--expect-frequent-reshapes",
+        "true",
+        "--input",
+        "x",
+        "bfloat16",
+        "2,3",
+        "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/0-x.bin",
+        "--output-dir",
+        "/private/tmp/corsairs-bf16-cli-untraced-gpu-preferred"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"compute\":\"gpu-preferred\",\"expect_frequent_reshapes\":true,\"completed\":1,\"dropped_futures\":0,\"outputs\":[{\"name\":\"y\",\"dtype\":\"bfloat16\",\"shape\":[2, 3],\"strides\":[3, 1],\"file\":\"/private/tmp/corsairs-bf16-cli-untraced-gpu-preferred/outputs-0.bin\",\"hex\":null}],\"states\":[]}\n",
+      "stderr": "",
+      "output_sha256": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "exact_fixture_bytes": true,
+      "same_width_wrong_dtype": {
+        "command": [
+          "/Users/zakkeown/Code/aether/lab/corsairs/target/package-check-v02/package-target/release/corsairs",
+          "run",
+          "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/model.aimodel",
+          "--compute",
+          "gpu-preferred",
+          "--expect-frequent-reshapes",
+          "true",
+          "--input",
+          "x",
+          "float16",
+          "2,3",
+          "/Users/zakkeown/Code/aether/lab/corsairs/fixtures/parity-v02/bfloat16/double/0-x.bin",
+          "--output-dir",
+          "/private/tmp/corsairs-bf16-cli-untraced-gpu-preferred"
+        ],
+        "exit_status": 1,
+        "stdout": "",
+        "stderr": "{\"error\":\"tensor \\\"x\\\" does not match its descriptor: requires bfloat16, got float16\"}\n"
+      }
+    }
+  ],
+  "direct_observation_limit": "Earlier direct LLDB CLI observations contain unclassified EXC_BREAKPOINT stops and are not used as a clean execution gate. This check runs the same packaged CLI as untraced child processes of the permitted native runner, like the package-consumer gate.",
+  "checker_source": "docs/evidence/v0.2-bfloat16/packaged-cli-check.py",
+  "checker_source_sha256": "bfb0cfc80f2f350e86558777945e67859a2af6927d0f51a165451977020fa327"
+}

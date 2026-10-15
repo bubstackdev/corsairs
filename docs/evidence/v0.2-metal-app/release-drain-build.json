@@ -1,0 +1,37 @@
+{
+  "native_executed": false,
+  "production_links_helper": false,
+  "description": "Drain-on-release helper revision with the unchanged original passing Rust executable. No production rebuild.",
+  "initial_build_manifest": "docs/evidence/v0.2-metal-app/release-initial-build.json",
+  "initial_build_manifest_sha256": "9140684cf84683e55c313dbbb05b9a7c8e72977c103baf2f48f24ac39b3bdd2d",
+  "files_sha256": {
+    "experiments/c/MetalApplicationKernel.m": "28d96481ccb38af4282e0326006560ca0ce06dafd44a7b7526216744e9a9c17c",
+    "target/metal-app/release-drain/libmetal-app.dylib": "5f7633974c497841d32ea0831b9310e50a07e4823c145a7808c00e9366622959",
+    "target/metal-app/release-passed-initial/metal-app-kernel": "a08d09fd51121d7854c46f363ab520c08b32c71b7a1c797fd24472ad55e37b00",
+    "experiments/rust/metal_app_kernel.rs": "d50392f6c6048779a2bd84864be795cf32571e18ed531085f17710b94bb8f591"
+  },
+  "compile": {
+    "command": [
+      "xcrun",
+      "clang",
+      "-dynamiclib",
+      "-fobjc-arc",
+      "-O2",
+      "-framework",
+      "Foundation",
+      "-framework",
+      "Metal",
+      "experiments/c/MetalApplicationKernel.m",
+      "-o",
+      "target/metal-app/release-drain/libmetal-app.dylib"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "native_command": [
+    "target/metal-app/release-passed-initial/metal-app-kernel",
+    "fixtures/parity-v01/double_float32/model.aimodel",
+    "target/metal-app/release-drain/libmetal-app.dylib"
+  ]
+}

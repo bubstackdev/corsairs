@@ -1,0 +1,18 @@
+{
+  "async_task/pending.rs": {
+    "native_tested_sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "current_production_sha256": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "identical_bytes": true,
+    "identical_excluding_first_module_doc_line": true
+  },
+  "async_task/sync_call.rs": {
+    "native_tested_sha256": "7436f9bccb85e23dfa38d92ca81a44a049172bf7bf4b360514418097f9549801",
+    "current_production_sha256": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+    "identical_bytes": false,
+    "identical_excluding_first_module_doc_line": true
+  },
+  "owned/function_batch.rs CompletionGuard/PreparedFunctionLoad/PreparedBatch": {
+    "identical_bytes": true,
+    "section_sha256": "0011f545c4c986ca56cfb8a3b3d7350b04b52176ff028c96c11fce3459f629d1"
+  }
+}

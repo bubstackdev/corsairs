@@ -1,0 +1,829 @@
+sil_stage canonical
+
+import Builtin
+import Swift
+import SwiftShims
+
+import CoreAI
+
+import Metal
+
+@inline(never) public func makeStream(_ queue: consuming any MTLCommandQueue) -> ComputeStream
+
+@inline(never) public func inputBuffer(_ buffer: consuming any MTLBuffer, _ scalar: consuming NDArray.ScalarType, _ shape: [Int]) -> InferenceFunction.AsyncValue
+
+@inline(never) public func outputBuffer(_ buffer: consuming any MTLBuffer, _ scalar: consuming NDArray.ScalarType, _ shape: [Int]) -> InferenceFunction.AsyncMutableValue
+
+@inline(never) public func arrayInput(_ array: consuming NDArray) -> InferenceFunction.AsyncValue
+
+@inline(never) public func arrayOutput(_ array: consuming NDArray) -> InferenceFunction.AsyncMutableValue
+
+@inline(never) public func encode(_ function: borrowing InferenceFunction, _ inputs: [String : InferenceFunction.AsyncValue], _ output: inout InferenceFunction.AsyncMutableValue, _ name: String, _ stream: ComputeStream) throws -> [String : InferenceFunction.AsyncValue]
+
+@inline(never) public func encodeBoth(_ function: borrowing InferenceFunction, _ inputs: [String : InferenceFunction.AsyncValue], _ state: inout InferenceFunction.AsyncMutableValue, _ stateName: String, _ output: inout InferenceFunction.AsyncMutableValue, _ outputName: String, _ stream: ComputeStream) throws -> [String : InferenceFunction.AsyncValue]
+
+@inline(never) public func drain(_ stream: ComputeStream) async
+
+@inline(never) public func readyInput(_ value: InferenceFunction.AsyncValue) async throws -> NDArray?
+
+@inline(never) public func readyOutput(_ value: consuming InferenceFunction.AsyncMutableValue) async throws -> NDArray?
+
+@inline(never) public func emptyInputs() -> [String : InferenceFunction.AsyncValue]
+
+@inline(never) public func insertInput(_ inputs: inout [String : InferenceFunction.AsyncValue], _ value: InferenceFunction.AsyncValue, _ name: String)
+
+@inline(never) public func removeOutput(_ outputs: inout [String : InferenceFunction.AsyncValue], _ name: String) -> InferenceFunction.AsyncValue?
+
+@inline(never) public func dictionaryMetadata<Key, Value>(_ key: Key.Type, _ value: Value.Type) -> any Any.Type where Key : Hashable
+
+@inline(never) public func discardInputs(_ inputs: consuming [String : InferenceFunction.AsyncValue])
+
+@inline(never) public func defaultDevice() -> (any MTLDevice)?
+
+@inline(never) public func commandQueue(_ device: any MTLDevice) -> (any MTLCommandQueue)?
+
+@inline(never) public func sharedBuffer(_ device: any MTLDevice, _ count: Int) -> (any MTLBuffer)?
+
+@inline(never) public func commandBuffer(_ queue: any MTLCommandQueue) -> (any MTLCommandBuffer)?
+
+@inline(never) public func contents(_ buffer: any MTLBuffer) -> UnsafeMutableRawPointer
+
+@inline(never) public func length(_ buffer: any MTLBuffer) -> Int
+
+@inline(never) public func commitAndWait(_ command: any MTLCommandBuffer)
+
+// _swiftEmptyArrayStorage
+// clang name: _swiftEmptyArrayStorage
+sil_global public_external @_swiftEmptyArrayStorage : $_SwiftEmptyArrayStorage
+
+// makeStream(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI10makeStreamy13CoreAIRuntime07ComputeD0CSo15MTLCommandQueue_pnF : $@convention(thin) (@owned any MTLCommandQueue) -> @owned ComputeStream {
+// %0 "queue"                                     // user: %2
+bb0(%0 : @noImplicitCopy @_eagerMove $any MTLCommandQueue):
+  %1 = alloc_stack [var_decl] [moveable_value_debuginfo] $any MTLCommandQueue, var, name "queue", type $@moveOnly (any MTLCommandQueue) // users: %2, %4, %10
+  store %0 to %1                                  // id: %2
+  %3 = metatype $@thick ComputeStream.Type        // user: %8
+  %4 = begin_access [deinit] [static] %1          // users: %5, %9
+  %5 = load %4                                    // user: %8
+  debug_value [moveable_value_debuginfo] undef : $*any MTLCommandQueue, var, name "queue", expr op_deref // id: %6
+  // function_ref ComputeStream.__allocating_init(commandQueue:)
+  %7 = function_ref @$s13CoreAIRuntime13ComputeStreamC12commandQueueACSo010MTLCommandF0_p_tcfC : $@convention(method) (@owned any MTLCommandQueue, @thick ComputeStream.Type) -> @owned ComputeStream // user: %8
+  %8 = apply %7(%5, %3) : $@convention(method) (@owned any MTLCommandQueue, @thick ComputeStream.Type) -> @owned ComputeStream // user: %11
+  end_access %4                                   // id: %9
+  dealloc_stack %1                                // id: %10
+  return %8                                       // id: %11
+} // end sil function '$s8MetalABI10makeStreamy13CoreAIRuntime07ComputeD0CSo15MTLCommandQueue_pnF'
+
+// ComputeStream.__allocating_init(commandQueue:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime13ComputeStreamC12commandQueueACSo010MTLCommandF0_p_tcfC : $@convention(method) (@owned any MTLCommandQueue, @thick ComputeStream.Type) -> @owned ComputeStream
+
+// inputBuffer(_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI11inputBuffery13CoreAIRuntime17InferenceFunctionV10AsyncValueCSo9MTLBuffer_pn_AC7NDArrayV10ScalarTypeOnSaySiGtF : $@convention(thin) (@owned any MTLBuffer, @in NDArray.ScalarType, @guaranteed Array<Int>) -> @owned InferenceFunction.AsyncValue {
+// %0 "buffer"                                    // user: %4
+// %1 "scalar"                                    // user: %6
+// %2 "shape"                                     // users: %21, %9, %7
+bb0(%0 : @noImplicitCopy @_eagerMove $any MTLBuffer, %1 : @noImplicitCopy @_eagerMove $*NDArray.ScalarType, %2 : $Array<Int>):
+  %3 = alloc_stack [var_decl] [moveable_value_debuginfo] $any MTLBuffer, var, name "buffer", type $@moveOnly (any MTLBuffer) // users: %4, %12, %27
+  store %0 to %3                                  // id: %4
+  %5 = alloc_stack [var_decl] [moveable_value_debuginfo] $NDArray.ScalarType, var, name "scalar", type $@moveOnly NDArray.ScalarType // users: %6, %17, %26
+  copy_addr [take] %1 to [init] %5                // id: %6
+  debug_value %2, let, name "shape", argno 3      // id: %7
+  %8 = metatype $@thick InferenceFunction.AsyncValue.Type // user: %21
+  retain_value %2                                 // id: %9
+  %10 = alloc_stack $Optional<NDArray.InterleaveLayout> // users: %25, %21, %11
+  inject_enum_addr %10, #Optional.none!enumelt    // id: %11
+  %12 = begin_access [deinit] [static] %3         // users: %13, %24
+  %13 = load %12                                  // user: %21
+  debug_value [moveable_value_debuginfo] undef : $*any MTLBuffer, var, name "buffer", expr op_deref // id: %14
+  // function_ref default argument 1 of InferenceFunction.AsyncValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+  %15 = function_ref @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfcfA0_ : $@convention(thin) () -> Int // user: %16
+  %16 = apply %15() : $@convention(thin) () -> Int // user: %21
+  %17 = begin_access [deinit] [static] %5         // users: %21, %23
+  // function_ref default argument 4 of InferenceFunction.AsyncValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+  %18 = function_ref @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfcfA3_ : $@convention(thin) () -> @owned Array<Int> // user: %19
+  %19 = apply %18() : $@convention(thin) () -> @owned Array<Int> // user: %21
+  // function_ref InferenceFunction.AsyncValue.__allocating_init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+  %20 = function_ref @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfC : $@convention(method) (@owned any MTLBuffer, Int, @in NDArray.ScalarType, @owned Array<Int>, @owned Array<Int>, @in Optional<NDArray.InterleaveLayout>, @thick InferenceFunction.AsyncValue.Type) -> @owned InferenceFunction.AsyncValue // user: %21
+  %21 = apply %20(%13, %16, %17, %2, %19, %10, %8) : $@convention(method) (@owned any MTLBuffer, Int, @in NDArray.ScalarType, @owned Array<Int>, @owned Array<Int>, @in Optional<NDArray.InterleaveLayout>, @thick InferenceFunction.AsyncValue.Type) -> @owned InferenceFunction.AsyncValue // user: %28
+  debug_value [moveable_value_debuginfo] undef : $*NDArray.ScalarType, var, name "scalar", expr op_deref // id: %22
+  end_access %17                                  // id: %23
+  end_access %12                                  // id: %24
+  dealloc_stack %10                               // id: %25
+  dealloc_stack %5                                // id: %26
+  dealloc_stack %3                                // id: %27
+  return %21                                      // id: %28
+} // end sil function '$s8MetalABI11inputBuffery13CoreAIRuntime17InferenceFunctionV10AsyncValueCSo9MTLBuffer_pn_AC7NDArrayV10ScalarTypeOnSaySiGtF'
+
+// default argument 1 of InferenceFunction.AsyncValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfcfA0_ : $@convention(thin) () -> Int {
+[global: ]
+bb0:
+  %0 = integer_literal $Builtin.Int64, 0          // user: %1
+  %1 = struct $Int (%0)                           // user: %2
+  return %1                                       // id: %2
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfcfA0_'
+
+// default argument 4 of InferenceFunction.AsyncValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfcfA3_ : $@convention(thin) () -> @owned Array<Int> {
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+bb0:
+  %0 = integer_literal $Builtin.Int64, 0          // user: %1
+  %1 = struct $Int (%0)                           // user: %3
+  // function_ref specialized static Array._allocateUninitialized(_:)
+  %2 = function_ref @$sSa22_allocateUninitializedySayxG_SpyxGtSiFZSi_Tt0gq5 : $@convention(thin) (Int) -> (@owned Array<Int>, UnsafeMutablePointer<Int>) // user: %3
+  %3 = apply %2(%1) : $@convention(thin) (Int) -> (@owned Array<Int>, UnsafeMutablePointer<Int>) // user: %4
+  %4 = tuple_extract %3, 0                        // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfcfA3_'
+
+// InferenceFunction.AsyncValue.__allocating_init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarL0OSaySiGAqN010InterleaveP0VSgtcfC : $@convention(method) (@owned any MTLBuffer, Int, @in NDArray.ScalarType, @owned Array<Int>, @owned Array<Int>, @in Optional<NDArray.InterleaveLayout>, @thick InferenceFunction.AsyncValue.Type) -> @owned InferenceFunction.AsyncValue
+
+// outputBuffer(_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI12outputBuffery13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVSo9MTLBuffer_pn_AC7NDArrayV10ScalarTypeOnSaySiGtF : $@convention(thin) (@owned any MTLBuffer, @in NDArray.ScalarType, @guaranteed Array<Int>) -> @out InferenceFunction.AsyncMutableValue {
+// %0 "$return_value"                             // user: %22
+// %1 "buffer"                                    // user: %5
+// %2 "scalar"                                    // user: %7
+// %3 "shape"                                     // users: %22, %10, %8
+bb0(%0 : $*InferenceFunction.AsyncMutableValue, %1 : @noImplicitCopy @_eagerMove $any MTLBuffer, %2 : @noImplicitCopy @_eagerMove $*NDArray.ScalarType, %3 : $Array<Int>):
+  %4 = alloc_stack [var_decl] [moveable_value_debuginfo] $any MTLBuffer, var, name "buffer", type $@moveOnly (any MTLBuffer) // users: %5, %13, %28
+  store %1 to %4                                  // id: %5
+  %6 = alloc_stack [var_decl] [moveable_value_debuginfo] $NDArray.ScalarType, var, name "scalar", type $@moveOnly NDArray.ScalarType // users: %7, %18, %27
+  copy_addr [take] %2 to [init] %6                // id: %7
+  debug_value %3, let, name "shape", argno 3      // id: %8
+  %9 = metatype $@thin InferenceFunction.AsyncMutableValue.Type // user: %22
+  retain_value %3                                 // id: %10
+  %11 = alloc_stack $Optional<NDArray.InterleaveLayout> // users: %26, %22, %12
+  inject_enum_addr %11, #Optional.none!enumelt    // id: %12
+  %13 = begin_access [deinit] [static] %4         // users: %14, %25
+  %14 = load %13                                  // user: %22
+  debug_value [moveable_value_debuginfo] undef : $*any MTLBuffer, var, name "buffer", expr op_deref // id: %15
+  // function_ref default argument 1 of InferenceFunction.AsyncMutableValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+  %16 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfcfA0_ : $@convention(thin) () -> Int // user: %17
+  %17 = apply %16() : $@convention(thin) () -> Int // user: %22
+  %18 = begin_access [deinit] [static] %6         // users: %22, %24
+  // function_ref default argument 4 of InferenceFunction.AsyncMutableValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+  %19 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfcfA3_ : $@convention(thin) () -> @owned Array<Int> // user: %20
+  %20 = apply %19() : $@convention(thin) () -> @owned Array<Int> // user: %22
+  // function_ref InferenceFunction.AsyncMutableValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+  %21 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfC : $@convention(method) (@owned any MTLBuffer, Int, @in NDArray.ScalarType, @owned Array<Int>, @owned Array<Int>, @in Optional<NDArray.InterleaveLayout>, @thin InferenceFunction.AsyncMutableValue.Type) -> @out InferenceFunction.AsyncMutableValue // user: %22
+  %22 = apply %21(%0, %14, %17, %18, %3, %20, %11, %9) : $@convention(method) (@owned any MTLBuffer, Int, @in NDArray.ScalarType, @owned Array<Int>, @owned Array<Int>, @in Optional<NDArray.InterleaveLayout>, @thin InferenceFunction.AsyncMutableValue.Type) -> @out InferenceFunction.AsyncMutableValue
+  debug_value [moveable_value_debuginfo] undef : $*NDArray.ScalarType, var, name "scalar", expr op_deref // id: %23
+  end_access %18                                  // id: %24
+  end_access %13                                  // id: %25
+  dealloc_stack %11                               // id: %26
+  dealloc_stack %6                                // id: %27
+  dealloc_stack %4                                // id: %28
+  %29 = tuple ()                                  // user: %30
+  return %29                                      // id: %30
+} // end sil function '$s8MetalABI12outputBuffery13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVSo9MTLBuffer_pn_AC7NDArrayV10ScalarTypeOnSaySiGtF'
+
+// default argument 1 of InferenceFunction.AsyncMutableValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfcfA0_ : $@convention(thin) () -> Int {
+[global: ]
+bb0:
+  %0 = integer_literal $Builtin.Int64, 0          // user: %1
+  %1 = struct $Int (%0)                           // user: %2
+  return %1                                       // id: %2
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfcfA0_'
+
+// default argument 4 of InferenceFunction.AsyncMutableValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfcfA3_ : $@convention(thin) () -> @owned Array<Int> {
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+bb0:
+  %0 = integer_literal $Builtin.Int64, 0          // user: %1
+  %1 = struct $Int (%0)                           // user: %3
+  // function_ref specialized static Array._allocateUninitialized(_:)
+  %2 = function_ref @$sSa22_allocateUninitializedySayxG_SpyxGtSiFZSi_Tt0gq5 : $@convention(thin) (Int) -> (@owned Array<Int>, UnsafeMutablePointer<Int>) // user: %3
+  %3 = apply %2(%1) : $@convention(thin) (Int) -> (@owned Array<Int>, UnsafeMutablePointer<Int>) // user: %4
+  %4 = tuple_extract %3, 0                        // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfcfA3_'
+
+// InferenceFunction.AsyncMutableValue.init(unsafeBuffer:byteOffset:scalarType:shape:strides:interleaveLayout:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV12unsafeBuffer10byteOffset10scalarType5shape7strides16interleaveLayoutAESo9MTLBuffer_p_SiAA7NDArrayV06ScalarM0OSaySiGAqN010InterleaveQ0VSgtcfC : $@convention(method) (@owned any MTLBuffer, Int, @in NDArray.ScalarType, @owned Array<Int>, @owned Array<Int>, @in Optional<NDArray.InterleaveLayout>, @thin InferenceFunction.AsyncMutableValue.Type) -> @out InferenceFunction.AsyncMutableValue
+
+// arrayInput(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI10arrayInputy13CoreAIRuntime17InferenceFunctionV10AsyncValueCAC7NDArrayVnF : $@convention(thin) (@in NDArray) -> @owned InferenceFunction.AsyncValue {
+// %0 "array"                                     // user: %2
+bb0(%0 : @noImplicitCopy @_eagerMove $*NDArray):
+  %1 = alloc_stack [var_decl] [moveable_value_debuginfo] $NDArray, var, name "array", type $@moveOnly NDArray // users: %2, %4, %9
+  copy_addr [take] %0 to [init] %1                // id: %2
+  %3 = metatype $@thick InferenceFunction.AsyncValue.Type // user: %6
+  %4 = begin_access [deinit] [static] %1          // users: %6, %8
+  // function_ref InferenceFunction.AsyncValue.__allocating_init(_:)
+  %5 = function_ref @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAeA7NDArrayVcfC : $@convention(method) (@in NDArray, @thick InferenceFunction.AsyncValue.Type) -> @owned InferenceFunction.AsyncValue // user: %6
+  %6 = apply %5(%4, %3) : $@convention(method) (@in NDArray, @thick InferenceFunction.AsyncValue.Type) -> @owned InferenceFunction.AsyncValue // user: %10
+  debug_value [moveable_value_debuginfo] undef : $*NDArray, var, name "array", expr op_deref // id: %7
+  end_access %4                                   // id: %8
+  dealloc_stack %1                                // id: %9
+  return %6                                       // id: %10
+} // end sil function '$s8MetalABI10arrayInputy13CoreAIRuntime17InferenceFunctionV10AsyncValueCAC7NDArrayVnF'
+
+// InferenceFunction.AsyncValue.__allocating_init(_:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAeA7NDArrayVcfC : $@convention(method) (@in NDArray, @thick InferenceFunction.AsyncValue.Type) -> @owned InferenceFunction.AsyncValue
+
+// arrayOutput(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI11arrayOutputy13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVAC7NDArrayVnF : $@convention(thin) (@in NDArray) -> @out InferenceFunction.AsyncMutableValue {
+// %0 "$return_value"                             // user: %7
+// %1 "array"                                     // user: %3
+bb0(%0 : $*InferenceFunction.AsyncMutableValue, %1 : @noImplicitCopy @_eagerMove $*NDArray):
+  %2 = alloc_stack [var_decl] [moveable_value_debuginfo] $NDArray, var, name "array", type $@moveOnly NDArray // users: %3, %5, %10
+  copy_addr [take] %1 to [init] %2                // id: %3
+  %4 = metatype $@thin InferenceFunction.AsyncMutableValue.Type // user: %7
+  %5 = begin_access [deinit] [static] %2          // users: %7, %9
+  // function_ref InferenceFunction.AsyncMutableValue.init(_:)
+  %6 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVyAeA7NDArrayVcfC : $@convention(method) (@in NDArray, @thin InferenceFunction.AsyncMutableValue.Type) -> @out InferenceFunction.AsyncMutableValue // user: %7
+  %7 = apply %6(%0, %5, %4) : $@convention(method) (@in NDArray, @thin InferenceFunction.AsyncMutableValue.Type) -> @out InferenceFunction.AsyncMutableValue
+  debug_value [moveable_value_debuginfo] undef : $*NDArray, var, name "array", expr op_deref // id: %8
+  end_access %5                                   // id: %9
+  dealloc_stack %2                                // id: %10
+  %11 = tuple ()                                  // user: %12
+  return %11                                      // id: %12
+} // end sil function '$s8MetalABI11arrayOutputy13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVAC7NDArrayVnF'
+
+// InferenceFunction.AsyncMutableValue.init(_:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVyAeA7NDArrayVcfC : $@convention(method) (@in NDArray, @thin InferenceFunction.AsyncMutableValue.Type) -> @out InferenceFunction.AsyncMutableValue
+
+// encode(_:_:_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI6encodeySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGAE_AhE0h7MutableI0VzSSAC13ComputeStreamCtKF : $@convention(thin) (@in_guaranteed InferenceFunction, @guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @inout InferenceFunction.AsyncMutableValue, @guaranteed String, @guaranteed ComputeStream) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error) {
+// %0 "function"                                  // users: %26, %5
+// %1 "inputs"                                    // users: %26, %6
+// %2 "output"                                    // users: %16, %7
+// %3 "name"                                      // users: %18, %8
+// %4 "stream"                                    // users: %26, %9
+bb0(%0 : @noImplicitCopy $*InferenceFunction, %1 : $Dictionary<String, InferenceFunction.AsyncValue>, %2 : $*InferenceFunction.AsyncMutableValue, %3 : $String, %4 : $ComputeStream):
+  debug_value [moveable_value_debuginfo] %0, let, name "function", argno 1, expr op_deref // id: %5
+  debug_value %1, let, name "inputs", argno 2     // id: %6
+  debug_value %2, var, name "output", argno 3, expr op_deref // id: %7
+  debug_value %3, let, name "name", argno 4       // id: %8
+  debug_value %4, let, name "stream", argno 5     // id: %9
+  debug_value undef : $any Error, var, name "$error", argno 6 // id: %10
+  %11 = alloc_stack [lexical] [var_decl] $InferenceFunction.AsyncMutableViews, var, name "views", type $InferenceFunction.AsyncMutableViews // users: %14, %15, %24, %39, %32
+  %12 = metatype $@thin InferenceFunction.AsyncMutableViews.Type // user: %14
+  // function_ref InferenceFunction.AsyncMutableViews.init()
+  %13 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews // user: %14
+  %14 = apply %13(%11, %12) : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews
+  %15 = begin_access [modify] [static] %11        // users: %18, %19, %20
+  %16 = begin_access [modify] [static] %2         // users: %37, %30, %19, %18
+  // function_ref InferenceFunction.AsyncMutableViews.insert(_:for:)
+  %17 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsV6insert_3foryAC0eF5ValueVz_SStF : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> () // user: %18
+  %18 = apply %17(%16, %3, %15) : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> ()
+  mark_dependence_addr [nonescaping] %15 on %16   // id: %19
+  end_access %15                                  // id: %20
+  // function_ref default argument 1 of InferenceFunction.encode(inputs:states:outputViews:to:)
+  %21 = function_ref @$s13CoreAIRuntime17InferenceFunctionV6encode6inputs6states11outputViews2toSDySSAC10AsyncValueCGAK_AC0k7MutableI0VnAMnAA13ComputeStreamCtKFfA0_ : $@convention(thin) () -> @out InferenceFunction.AsyncMutableViews // user: %23
+  %22 = alloc_stack $InferenceFunction.AsyncMutableViews // users: %23, %26, %31, %38
+  %23 = apply %21(%22) : $@convention(thin) () -> @out InferenceFunction.AsyncMutableViews
+  %24 = begin_access [deinit] [static] %11        // users: %26, %29, %36
+  // function_ref InferenceFunction.encode(inputs:states:outputViews:to:)
+  %25 = function_ref @$s13CoreAIRuntime17InferenceFunctionV6encode6inputs6states11outputViews2toSDySSAC10AsyncValueCGAK_AC0k7MutableI0VnAMnAA13ComputeStreamCtKF : $@convention(method) (@guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @in InferenceFunction.AsyncMutableViews, @in InferenceFunction.AsyncMutableViews, @guaranteed ComputeStream, @in_guaranteed InferenceFunction) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error) // user: %26
+  try_apply %25(%1, %22, %24, %4, %0) : $@convention(method) (@guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @in InferenceFunction.AsyncMutableViews, @in InferenceFunction.AsyncMutableViews, @guaranteed ComputeStream, @in_guaranteed InferenceFunction) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error), normal bb1, error bb2 // id: %26
+
+// %27                                            // user: %33
+bb1(%27 : $Dictionary<String, InferenceFunction.AsyncValue>): // Preds: bb0
+  debug_value undef : $*InferenceFunction.AsyncMutableViews, var, name "views", expr op_deref // id: %28
+  end_access %24                                  // id: %29
+  end_access %16                                  // id: %30
+  dealloc_stack %22                               // id: %31
+  dealloc_stack %11                               // id: %32
+  return %27                                      // id: %33
+
+// %34                                            // user: %40
+bb2(%34 : $any Error):                            // Preds: bb0
+  debug_value undef : $*InferenceFunction.AsyncMutableViews, var, name "views", expr op_deref // id: %35
+  end_access %24                                  // id: %36
+  end_access %16                                  // id: %37
+  dealloc_stack %22                               // id: %38
+  dealloc_stack %11                               // id: %39
+  throw %34                                       // id: %40
+} // end sil function '$s8MetalABI6encodeySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGAE_AhE0h7MutableI0VzSSAC13ComputeStreamCtKF'
+
+// InferenceFunction.AsyncMutableViews.init()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews
+
+// InferenceFunction.AsyncMutableViews.insert(_:for:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsV6insert_3foryAC0eF5ValueVz_SStF : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> ()
+
+// default argument 1 of InferenceFunction.encode(inputs:states:outputViews:to:)
+// Isolation: unspecified
+sil shared [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV6encode6inputs6states11outputViews2toSDySSAC10AsyncValueCGAK_AC0k7MutableI0VnAMnAA13ComputeStreamCtKFfA0_ : $@convention(thin) () -> @out InferenceFunction.AsyncMutableViews {
+[%0: write v**]
+[global: read,write,copy,destroy,allocate,deinit_barrier]
+// %0                                             // user: %3
+bb0(%0 : $*InferenceFunction.AsyncMutableViews):
+  %1 = metatype $@thin InferenceFunction.AsyncMutableViews.Type // user: %3
+  // function_ref InferenceFunction.AsyncMutableViews.init()
+  %2 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews // user: %3
+  %3 = apply %2(%0, %1) : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews
+  %4 = tuple ()                                   // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s13CoreAIRuntime17InferenceFunctionV6encode6inputs6states11outputViews2toSDySSAC10AsyncValueCGAK_AC0k7MutableI0VnAMnAA13ComputeStreamCtKFfA0_'
+
+// InferenceFunction.encode(inputs:states:outputViews:to:)
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV6encode6inputs6states11outputViews2toSDySSAC10AsyncValueCGAK_AC0k7MutableI0VnAMnAA13ComputeStreamCtKF : $@convention(method) (@guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @in InferenceFunction.AsyncMutableViews, @in InferenceFunction.AsyncMutableViews, @guaranteed ComputeStream, @in_guaranteed InferenceFunction) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error)
+
+// encodeBoth(_:_:_:_:_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI10encodeBothySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGAE_AhE0i7MutableJ0VzSSAJzSSAC13ComputeStreamCtKF : $@convention(thin) (@in_guaranteed InferenceFunction, @guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @inout InferenceFunction.AsyncMutableValue, @guaranteed String, @inout InferenceFunction.AsyncMutableValue, @guaranteed String, @guaranteed ComputeStream) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error) {
+// %0 "function"                                  // users: %38, %7
+// %1 "inputs"                                    // users: %38, %8
+// %2 "state"                                     // users: %24, %9
+// %3 "stateName"                                 // users: %26, %10
+// %4 "output"                                    // users: %30, %11
+// %5 "outputName"                                // users: %32, %12
+// %6 "stream"                                    // users: %38, %13
+bb0(%0 : @noImplicitCopy $*InferenceFunction, %1 : $Dictionary<String, InferenceFunction.AsyncValue>, %2 : $*InferenceFunction.AsyncMutableValue, %3 : $String, %4 : $*InferenceFunction.AsyncMutableValue, %5 : $String, %6 : $ComputeStream):
+  debug_value [moveable_value_debuginfo] %0, let, name "function", argno 1, expr op_deref // id: %7
+  debug_value %1, let, name "inputs", argno 2     // id: %8
+  debug_value %2, var, name "state", argno 3, expr op_deref // id: %9
+  debug_value %3, let, name "stateName", argno 4  // id: %10
+  debug_value %4, var, name "output", argno 5, expr op_deref // id: %11
+  debug_value %5, let, name "outputName", argno 6 // id: %12
+  debug_value %6, let, name "stream", argno 7     // id: %13
+  debug_value undef : $any Error, var, name "$error", argno 8 // id: %14
+  %15 = alloc_stack [lexical] [var_decl] $InferenceFunction.AsyncMutableViews, var, name "states", type $InferenceFunction.AsyncMutableViews // users: %18, %23, %35, %57, %47
+  %16 = metatype $@thin InferenceFunction.AsyncMutableViews.Type // user: %18
+  // function_ref InferenceFunction.AsyncMutableViews.init()
+  %17 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews // user: %18
+  %18 = apply %17(%15, %16) : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews
+  %19 = alloc_stack [lexical] [var_decl] $InferenceFunction.AsyncMutableViews, var, name "outputs", type $InferenceFunction.AsyncMutableViews // users: %22, %29, %36, %56, %46
+  %20 = metatype $@thin InferenceFunction.AsyncMutableViews.Type // user: %22
+  // function_ref InferenceFunction.AsyncMutableViews.init()
+  %21 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsVAEycfC : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews // user: %22
+  %22 = apply %21(%19, %20) : $@convention(method) (@thin InferenceFunction.AsyncMutableViews.Type) -> @lifetime(immortal) @out InferenceFunction.AsyncMutableViews
+  %23 = begin_access [modify] [static] %15        // users: %26, %27, %28
+  %24 = begin_access [modify] [static] %2         // users: %55, %45, %27, %26
+  // function_ref InferenceFunction.AsyncMutableViews.insert(_:for:)
+  %25 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsV6insert_3foryAC0eF5ValueVz_SStF : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> () // user: %26
+  %26 = apply %25(%24, %3, %23) : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> ()
+  mark_dependence_addr [nonescaping] %23 on %24   // id: %27
+  end_access %23                                  // id: %28
+  %29 = begin_access [modify] [static] %19        // users: %32, %33, %34
+  %30 = begin_access [modify] [static] %4         // users: %53, %43, %33, %32
+  // function_ref InferenceFunction.AsyncMutableViews.insert(_:for:)
+  %31 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableViewsV6insert_3foryAC0eF5ValueVz_SStF : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> () // user: %32
+  %32 = apply %31(%30, %5, %29) : $@convention(method) (@inout InferenceFunction.AsyncMutableValue, @guaranteed String, @lifetime(copy 2, borrow address_for_deps 0) @inout InferenceFunction.AsyncMutableViews) -> ()
+  mark_dependence_addr [nonescaping] %29 on %30   // id: %33
+  end_access %29                                  // id: %34
+  %35 = begin_access [deinit] [static] %15        // users: %38, %44, %54
+  %36 = begin_access [deinit] [static] %19        // users: %38, %42, %52
+  // function_ref InferenceFunction.encode(inputs:states:outputViews:to:)
+  %37 = function_ref @$s13CoreAIRuntime17InferenceFunctionV6encode6inputs6states11outputViews2toSDySSAC10AsyncValueCGAK_AC0k7MutableI0VnAMnAA13ComputeStreamCtKF : $@convention(method) (@guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @in InferenceFunction.AsyncMutableViews, @in InferenceFunction.AsyncMutableViews, @guaranteed ComputeStream, @in_guaranteed InferenceFunction) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error) // user: %38
+  try_apply %37(%1, %35, %36, %6, %0) : $@convention(method) (@guaranteed Dictionary<String, InferenceFunction.AsyncValue>, @in InferenceFunction.AsyncMutableViews, @in InferenceFunction.AsyncMutableViews, @guaranteed ComputeStream, @in_guaranteed InferenceFunction) -> (@owned Dictionary<String, InferenceFunction.AsyncValue>, @error any Error), normal bb1, error bb2 // id: %38
+
+// %39                                            // user: %48
+bb1(%39 : $Dictionary<String, InferenceFunction.AsyncValue>): // Preds: bb0
+  debug_value undef : $*InferenceFunction.AsyncMutableViews, var, name "states", expr op_deref // id: %40
+  debug_value undef : $*InferenceFunction.AsyncMutableViews, var, name "outputs", expr op_deref // id: %41
+  end_access %36                                  // id: %42
+  end_access %30                                  // id: %43
+  end_access %35                                  // id: %44
+  end_access %24                                  // id: %45
+  dealloc_stack %19                               // id: %46
+  dealloc_stack %15                               // id: %47
+  return %39                                      // id: %48
+
+// %49                                            // user: %58
+bb2(%49 : $any Error):                            // Preds: bb0
+  debug_value undef : $*InferenceFunction.AsyncMutableViews, var, name "states", expr op_deref // id: %50
+  debug_value undef : $*InferenceFunction.AsyncMutableViews, var, name "outputs", expr op_deref // id: %51
+  end_access %36                                  // id: %52
+  end_access %30                                  // id: %53
+  end_access %35                                  // id: %54
+  end_access %24                                  // id: %55
+  dealloc_stack %19                               // id: %56
+  dealloc_stack %15                               // id: %57
+  throw %49                                       // id: %58
+} // end sil function '$s8MetalABI10encodeBothySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGAE_AhE0i7MutableJ0VzSSAJzSSAC13ComputeStreamCtKF'
+
+// drain(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI5drainyy13CoreAIRuntime13ComputeStreamCYaF : $@convention(thin) @async (@guaranteed ComputeStream) -> () {
+// %0 "stream"                                    // users: %3, %1
+bb0(%0 : $ComputeStream):
+  debug_value %0, let, name "stream", argno 1     // id: %1
+  // function_ref ComputeStream.currentWorkCompleted()
+  %2 = function_ref @$s13CoreAIRuntime13ComputeStreamC20currentWorkCompletedyyYaF : $@convention(method) @async (@guaranteed ComputeStream) -> () // user: %3
+  %3 = apply %2(%0) : $@convention(method) @async (@guaranteed ComputeStream) -> ()
+  %4 = tuple ()                                   // user: %5
+  return %4                                       // id: %5
+} // end sil function '$s8MetalABI5drainyy13CoreAIRuntime13ComputeStreamCYaF'
+
+// ComputeStream.currentWorkCompleted()
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime13ComputeStreamC20currentWorkCompletedyyYaF : $@convention(method) @async (@guaranteed ComputeStream) -> ()
+
+// readyInput(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI10readyInputy13CoreAIRuntime7NDArrayVSgAC17InferenceFunctionV10AsyncValueCYaKF : $@convention(thin) @async (@guaranteed InferenceFunction.AsyncValue) -> (@out Optional<NDArray>, @error any Error) {
+// %0 "$return_value"                             // user: %5
+// %1 "value"                                     // users: %5, %2
+bb0(%0 : $*Optional<NDArray>, %1 : $InferenceFunction.AsyncValue):
+  debug_value %1, let, name "value", argno 1      // id: %2
+  debug_value undef : $any Error, var, name "$error", argno 2 // id: %3
+  // function_ref InferenceFunction.AsyncValue.ndArray.getter
+  %4 = function_ref @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC7ndArrayAA7NDArrayVSgvg : $@convention(method) @async (@guaranteed InferenceFunction.AsyncValue) -> (@out Optional<NDArray>, @error any Error) // user: %5
+  try_apply %4(%0, %1) : $@convention(method) @async (@guaranteed InferenceFunction.AsyncValue) -> (@out Optional<NDArray>, @error any Error), normal bb1, error bb2 // id: %5
+
+bb1(%6 : $()):                                    // Preds: bb0
+  %7 = tuple ()                                   // user: %8
+  return %7                                       // id: %8
+
+// %9                                             // user: %10
+bb2(%9 : $any Error):                             // Preds: bb0
+  throw %9                                        // id: %10
+} // end sil function '$s8MetalABI10readyInputy13CoreAIRuntime7NDArrayVSgAC17InferenceFunctionV10AsyncValueCYaKF'
+
+// InferenceFunction.AsyncValue.ndArray.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC7ndArrayAA7NDArrayVSgvg : $@convention(method) @async (@guaranteed InferenceFunction.AsyncValue) -> (@out Optional<NDArray>, @error any Error)
+
+// readyOutput(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI11readyOutputy13CoreAIRuntime7NDArrayVSgAC17InferenceFunctionV17AsyncMutableValueVnYaKF : $@convention(thin) @async (@in InferenceFunction.AsyncMutableValue) -> (@out Optional<NDArray>, @error any Error) {
+// %0 "$return_value"                             // user: %12
+// %1 "value"                                     // user: %3
+bb0(%0 : $*Optional<NDArray>, %1 : $*InferenceFunction.AsyncMutableValue):
+  %2 = alloc_stack [lexical] [var_decl] $InferenceFunction.AsyncMutableValue, var, name "value", type $InferenceFunction.AsyncMutableValue // users: %7, %3, %8, %18, %26
+  copy_addr [take] %1 to [init] %2                // id: %3
+  debug_value undef : $any Error, var, name "$error", argno 2 // id: %4
+  %5 = enum $Optional<any Actor>, #Optional.none!enumelt // users: %15, %23, %6
+  hop_to_executor %5                              // id: %6
+  debug_value %2, var, name "value", expr op_deref // id: %7
+  %8 = begin_access [modify] [static] %2          // users: %12, %17, %25
+  debug_step                                      // id: %9
+  debug_value undef : $*InferenceFunction.AsyncMutableValue, var, name "value", expr op_deref // id: %10
+  // function_ref InferenceFunction.AsyncMutableValue.ndArray.getter
+  %11 = function_ref @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV7ndArrayAA7NDArrayVSgvg : $@convention(method) @async (@in InferenceFunction.AsyncMutableValue) -> (@out Optional<NDArray>, @error any Error) // user: %12
+  try_apply %11(%0, %8) : $@convention(method) @async (@in InferenceFunction.AsyncMutableValue) -> (@out Optional<NDArray>, @error any Error), normal bb1, error bb2 // id: %12
+
+bb1(%13 : $()):                                   // Preds: bb0
+  debug_value undef : $*InferenceFunction.AsyncMutableValue, var, name "value", expr op_deref // id: %14
+  hop_to_executor %5                              // id: %15
+  debug_value undef : $*InferenceFunction.AsyncMutableValue, var, name "value", expr op_deref // id: %16
+  end_access %8                                   // id: %17
+  dealloc_stack %2                                // id: %18
+  %19 = tuple ()                                  // user: %20
+  return %19                                      // id: %20
+
+// %21                                            // user: %27
+bb2(%21 : $any Error):                            // Preds: bb0
+  debug_value undef : $*InferenceFunction.AsyncMutableValue, var, name "value", expr op_deref // id: %22
+  hop_to_executor %5                              // id: %23
+  debug_value undef : $*InferenceFunction.AsyncMutableValue, var, name "value", expr op_deref // id: %24
+  end_access %8                                   // id: %25
+  dealloc_stack %2                                // id: %26
+  throw %21                                       // id: %27
+} // end sil function '$s8MetalABI11readyOutputy13CoreAIRuntime7NDArrayVSgAC17InferenceFunctionV17AsyncMutableValueVnYaKF'
+
+// InferenceFunction.AsyncMutableValue.ndArray.getter
+// Isolation: unspecified
+sil [available 27.0] @$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV7ndArrayAA7NDArrayVSgvg : $@convention(method) @async (@in InferenceFunction.AsyncMutableValue) -> (@out Optional<NDArray>, @error any Error)
+
+// emptyInputs()
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI11emptyInputsSDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGyF : $@convention(thin) () -> @owned Dictionary<String, InferenceFunction.AsyncValue> {
+bb0:
+  %0 = metatype $@thin Dictionary<String, InferenceFunction.AsyncValue>.Type // user: %2
+  // function_ref Dictionary.init()
+  %1 = function_ref @$sS2Dyxq_GycfC : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %2
+  %2 = apply %1<String, InferenceFunction.AsyncValue>(%0) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@thin Dictionary<τ_0_0, τ_0_1>.Type) -> @owned Dictionary<τ_0_0, τ_0_1> // user: %3
+  return %2                                       // id: %3
+} // end sil function '$s8MetalABI11emptyInputsSDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGyF'
+
+// Dictionary.init()
+// Isolation: unspecified
+sil @$sS2Dyxq_GycfC : $@convention(method) <Key, Value where Key : Hashable> (@thin Dictionary<Key, Value>.Type) -> @owned Dictionary<Key, Value>
+
+// insertInput(_:_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI11insertInputyySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGz_AGSStF : $@convention(thin) (@inout Dictionary<String, InferenceFunction.AsyncValue>, @guaranteed InferenceFunction.AsyncValue, @guaranteed String) -> () {
+// %0 "inputs"                                    // users: %13, %3
+// %1 "value"                                     // users: %8, %7, %4
+// %2 "name"                                      // users: %12, %6, %5
+bb0(%0 : $*Dictionary<String, InferenceFunction.AsyncValue>, %1 : $InferenceFunction.AsyncValue, %2 : $String):
+  debug_value %0, var, name "inputs", argno 1, expr op_deref // id: %3
+  debug_value %1, let, name "value", argno 2      // id: %4
+  debug_value %2, let, name "name", argno 3       // id: %5
+  retain_value %2                                 // id: %6
+  strong_retain %1                                // id: %7
+  %8 = enum $Optional<InferenceFunction.AsyncValue>, #Optional.some!enumelt, %1 // user: %10
+  %9 = alloc_stack $Optional<InferenceFunction.AsyncValue> // users: %10, %18, %15
+  store %8 to %9                                  // id: %10
+  %11 = alloc_stack $String                       // users: %12, %17, %15
+  store %2 to %11                                 // id: %12
+  %13 = begin_access [modify] [static] %0         // users: %16, %15
+  // function_ref Dictionary.subscript.setter
+  %14 = function_ref @$sSDyq_Sgxcis : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in Optional<τ_0_1>, @in τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> () // user: %15
+  %15 = apply %14<String, InferenceFunction.AsyncValue>(%9, %11, %13) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in Optional<τ_0_1>, @in τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> ()
+  end_access %13                                  // id: %16
+  dealloc_stack %11                               // id: %17
+  dealloc_stack %9                                // id: %18
+  %19 = tuple ()                                  // user: %20
+  return %19                                      // id: %20
+} // end sil function '$s8MetalABI11insertInputyySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGz_AGSStF'
+
+// Dictionary.subscript.setter
+// Isolation: unspecified
+sil @$sSDyq_Sgxcis : $@convention(method) <Key, Value where Key : Hashable> (@in Optional<Value>, @in Key, @inout Dictionary<Key, Value>) -> ()
+
+// removeOutput(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI12removeOutputy13CoreAIRuntime17InferenceFunctionV10AsyncValueCSgSDySSAGGz_SStF : $@convention(thin) (@inout Dictionary<String, InferenceFunction.AsyncValue>, @guaranteed String) -> @owned Optional<InferenceFunction.AsyncValue> {
+// %0 "outputs"                                   // users: %7, %2
+// %1 "name"                                      // users: %6, %3
+bb0(%0 : $*Dictionary<String, InferenceFunction.AsyncValue>, %1 : $String):
+  debug_value %0, var, name "outputs", argno 1, expr op_deref // id: %2
+  debug_value %1, let, name "name", argno 2       // id: %3
+  %4 = alloc_stack $Optional<InferenceFunction.AsyncValue> // users: %12, %13, %9
+  %5 = alloc_stack $String                        // users: %9, %6, %11
+  store %1 to %5                                  // id: %6
+  %7 = begin_access [modify] [static] %0          // users: %10, %9
+  // function_ref Dictionary.removeValue(forKey:)
+  %8 = function_ref @$sSD11removeValue6forKeyq_Sgx_tF : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> @out Optional<τ_0_1> // user: %9
+  %9 = apply %8<String, InferenceFunction.AsyncValue>(%4, %5, %7) : $@convention(method) <τ_0_0, τ_0_1 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Dictionary<τ_0_0, τ_0_1>) -> @out Optional<τ_0_1>
+  end_access %7                                   // id: %10
+  dealloc_stack %5                                // id: %11
+  %12 = load %4                                   // user: %14
+  dealloc_stack %4                                // id: %13
+  return %12                                      // id: %14
+} // end sil function '$s8MetalABI12removeOutputy13CoreAIRuntime17InferenceFunctionV10AsyncValueCSgSDySSAGGz_SStF'
+
+// Dictionary.removeValue(forKey:)
+// Isolation: unspecified
+sil @$sSD11removeValue6forKeyq_Sgx_tF : $@convention(method) <Key, Value where Key : Hashable> (@in_guaranteed Key, @inout Dictionary<Key, Value>) -> @out Optional<Value>
+
+// dictionaryMetadata<A, B>(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI18dictionaryMetadatayypXpxm_q_mtSHRzr0_lF : $@convention(thin) <Key, Value where Key : Hashable> (@thick Key.Type, @thick Value.Type) -> @thick any Any.Type {
+// %0 "key"                                       // user: %2
+// %1 "value"                                     // user: %3
+bb0(%0 : $@thick Key.Type, %1 : $@thick Value.Type):
+  debug_value %0, let, name "key", argno 1        // id: %2
+  debug_value %1, let, name "value", argno 2      // id: %3
+  %4 = metatype $@thick Dictionary<Key, Value>.Type // user: %5
+  %5 = init_existential_metatype %4, $@thick any Any.Type // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s8MetalABI18dictionaryMetadatayypXpxm_q_mtSHRzr0_lF'
+
+// discardInputs(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI13discardInputsyySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGnF : $@convention(thin) (@owned Dictionary<String, InferenceFunction.AsyncValue>) -> () {
+// %0 "inputs"                                    // user: %2
+bb0(%0 : @noImplicitCopy @_eagerMove $Dictionary<String, InferenceFunction.AsyncValue>):
+  %1 = alloc_stack [var_decl] [moveable_value_debuginfo] $Dictionary<String, InferenceFunction.AsyncValue>, var, name "inputs", type $@moveOnly Dictionary<String, InferenceFunction.AsyncValue> // users: %2, %4, %3
+  store %0 to %1                                  // id: %2
+  destroy_addr %1                                 // id: %3
+  dealloc_stack %1                                // id: %4
+  %5 = tuple ()                                   // user: %6
+  return %5                                       // id: %6
+} // end sil function '$s8MetalABI13discardInputsyySDySS13CoreAIRuntime17InferenceFunctionV10AsyncValueCGnF'
+
+// defaultDevice()
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI13defaultDeviceSo9MTLDevice_pSgyF : $@convention(thin) () -> @owned Optional<any MTLDevice> {
+bb0:
+  // function_ref @objc MTLCreateSystemDefaultDevice()
+  %0 = function_ref @$sSo28MTLCreateSystemDefaultDeviceSo9MTLDevice_pSgyFTo : $@convention(c) () -> @owned Optional<any MTLDevice> // user: %1
+  %1 = apply %0() : $@convention(c) () -> @owned Optional<any MTLDevice> // user: %2
+  return %1                                       // id: %2
+} // end sil function '$s8MetalABI13defaultDeviceSo9MTLDevice_pSgyF'
+
+// @objc MTLCreateSystemDefaultDevice()
+// Isolation: unspecified
+// clang name: MTLCreateSystemDefaultDevice
+sil [available 10.11] [asmname "MTLCreateSystemDefaultDevice"] [clang MTLCreateSystemDefaultDevice] @$sSo28MTLCreateSystemDefaultDeviceSo9MTLDevice_pSgyFTo : $@convention(c) () -> @owned Optional<any MTLDevice>
+
+// commandQueue(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI12commandQueueySo010MTLCommandD0_pSgSo9MTLDevice_pF : $@convention(thin) (@guaranteed any MTLDevice) -> @owned Optional<any MTLCommandQueue> {
+// %0 "device"                                    // users: %2, %1
+bb0(%0 : $any MTLDevice):
+  debug_value %0, let, name "device", argno 1     // id: %1
+  %2 = open_existential_ref %0 to $@opened("48A98618-C8B8-11F1-BD14-3277BECB5E88", any MTLDevice) Self // users: %4, %4, %3
+  %3 = objc_method %2, #MTLDevice.makeCommandQueue!foreign : <Self where Self : MTLDevice> (Self) -> () -> (any MTLCommandQueue)?, $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLDevice> (τ_0_0) -> @owned Optional<any MTLCommandQueue> // user: %4
+  %4 = apply %3<@opened("48A98618-C8B8-11F1-BD14-3277BECB5E88", any MTLDevice) Self>(%2) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLDevice> (τ_0_0) -> @owned Optional<any MTLCommandQueue> // type-defs: %2; user: %5
+  return %4                                       // id: %5
+} // end sil function '$s8MetalABI12commandQueueySo010MTLCommandD0_pSgSo9MTLDevice_pF'
+
+// sharedBuffer(_:_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI12sharedBufferySo9MTLBuffer_pSgSo9MTLDevice_p_SitF : $@convention(thin) (@guaranteed any MTLDevice, Int) -> @owned Optional<any MTLBuffer> {
+// %0 "device"                                    // users: %4, %2
+// %1 "count"                                     // users: %9, %3
+bb0(%0 : $any MTLDevice, %1 : $Int):
+  debug_value %0, let, name "device", argno 1     // id: %2
+  debug_value %1, let, name "count", argno 2      // id: %3
+  %4 = open_existential_ref %0 to $@opened("48A99F5E-C8B8-11F1-BD14-3277BECB5E88", any MTLDevice) Self // users: %9, %9, %8
+  %5 = integer_literal $Builtin.Int64, 0          // user: %6
+  %6 = struct $UInt (%5)                          // user: %7
+  %7 = struct $MTLResourceOptions (%6)            // user: %9
+  %8 = objc_method %4, #MTLDevice.makeBuffer!foreign : <Self where Self : MTLDevice> (Self) -> (Int, MTLResourceOptions) -> (any MTLBuffer)?, $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLDevice> (Int, MTLResourceOptions, τ_0_0) -> @owned Optional<any MTLBuffer> // user: %9
+  %9 = apply %8<@opened("48A99F5E-C8B8-11F1-BD14-3277BECB5E88", any MTLDevice) Self>(%1, %7, %4) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLDevice> (Int, MTLResourceOptions, τ_0_0) -> @owned Optional<any MTLBuffer> // type-defs: %4; user: %10
+  return %9                                       // id: %10
+} // end sil function '$s8MetalABI12sharedBufferySo9MTLBuffer_pSgSo9MTLDevice_p_SitF'
+
+// static MTLResourceOptions.storageModeShared.getter
+// Isolation: nonisolated
+sil shared [transparent] [available 10.11] @$sSo18MTLResourceOptionsV17storageModeSharedABvgZ : $@convention(method) (@thin MTLResourceOptions.Type) -> MTLResourceOptions {
+// %0 "self"                                      // user: %1
+bb0(%0 : $@thin MTLResourceOptions.Type):
+  debug_value %0, let, name "self", argno 1       // id: %1
+  %2 = integer_literal $Builtin.Int64, 0          // user: %3
+  %3 = struct $UInt (%2)                          // user: %4
+  %4 = struct $MTLResourceOptions (%3)            // user: %5
+  return %4                                       // id: %5
+} // end sil function '$sSo18MTLResourceOptionsV17storageModeSharedABvgZ'
+
+// commandBuffer(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI13commandBufferySo010MTLCommandD0_pSgSo0E5Queue_pF : $@convention(thin) (@guaranteed any MTLCommandQueue) -> @owned Optional<any MTLCommandBuffer> {
+// %0 "queue"                                     // users: %2, %1
+bb0(%0 : $any MTLCommandQueue):
+  debug_value %0, let, name "queue", argno 1      // id: %1
+  %2 = open_existential_ref %0 to $@opened("48A9AB34-C8B8-11F1-BD14-3277BECB5E88", any MTLCommandQueue) Self // users: %4, %4, %3
+  %3 = objc_method %2, #MTLCommandQueue.makeCommandBuffer!foreign : <Self where Self : MTLCommandQueue> (Self) -> () -> (any MTLCommandBuffer)?, $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLCommandQueue> (τ_0_0) -> @autoreleased Optional<any MTLCommandBuffer> // user: %4
+  %4 = apply %3<@opened("48A9AB34-C8B8-11F1-BD14-3277BECB5E88", any MTLCommandQueue) Self>(%2) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLCommandQueue> (τ_0_0) -> @autoreleased Optional<any MTLCommandBuffer> // type-defs: %2; user: %5
+  return %4                                       // id: %5
+} // end sil function '$s8MetalABI13commandBufferySo010MTLCommandD0_pSgSo0E5Queue_pF'
+
+// contents(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI8contentsySvSo9MTLBuffer_pF : $@convention(thin) (@guaranteed any MTLBuffer) -> UnsafeMutableRawPointer {
+// %0 "buffer"                                    // users: %2, %1
+bb0(%0 : $any MTLBuffer):
+  debug_value %0, let, name "buffer", argno 1     // id: %1
+  %2 = open_existential_ref %0 to $@opened("48A9B37C-C8B8-11F1-BD14-3277BECB5E88", any MTLBuffer) Self // users: %6, %4, %5, %5, %3
+  %3 = objc_method %2, #MTLBuffer.contents!foreign : <Self where Self : MTLBuffer> (Self) -> () -> UnsafeMutableRawPointer, $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLBuffer> (τ_0_0) -> @unowned_inner_pointer UnsafeMutableRawPointer // user: %5
+  strong_retain %2                                // id: %4
+  %5 = apply %3<@opened("48A9B37C-C8B8-11F1-BD14-3277BECB5E88", any MTLBuffer) Self>(%2) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLBuffer> (τ_0_0) -> @unowned_inner_pointer UnsafeMutableRawPointer // type-defs: %2; user: %7
+  autorelease_value %2                            // id: %6
+  return %5                                       // id: %7
+} // end sil function '$s8MetalABI8contentsySvSo9MTLBuffer_pF'
+
+// length(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI6lengthySiSo9MTLBuffer_pF : $@convention(thin) (@guaranteed any MTLBuffer) -> Int {
+// %0 "buffer"                                    // users: %2, %1
+bb0(%0 : $any MTLBuffer):
+  debug_value %0, let, name "buffer", argno 1     // id: %1
+  %2 = open_existential_ref %0 to $@opened("48A9BE8A-C8B8-11F1-BD14-3277BECB5E88", any MTLBuffer) Self // users: %6, %5, %4, %3, %5
+  strong_retain %2                                // id: %3
+  %4 = objc_method %2, #MTLBuffer.length!getter.foreign : <Self where Self : MTLBuffer> (Self) -> () -> Int, $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLBuffer> (τ_0_0) -> Int // user: %5
+  %5 = apply %4<@opened("48A9BE8A-C8B8-11F1-BD14-3277BECB5E88", any MTLBuffer) Self>(%2) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLBuffer> (τ_0_0) -> Int // type-defs: %2; user: %7
+  strong_release %2                               // id: %6
+  return %5                                       // id: %7
+} // end sil function '$s8MetalABI6lengthySiSo9MTLBuffer_pF'
+
+// commitAndWait(_:)
+// Isolation: unspecified
+sil [noinline] @$s8MetalABI13commitAndWaityySo16MTLCommandBuffer_pF : $@convention(thin) (@guaranteed any MTLCommandBuffer) -> () {
+// %0 "command"                                   // users: %5, %2, %1
+bb0(%0 : $any MTLCommandBuffer):
+  debug_value %0, let, name "command", argno 1    // id: %1
+  %2 = open_existential_ref %0 to $@opened("48A9C272-C8B8-11F1-BD14-3277BECB5E88", any MTLCommandBuffer) Self // users: %4, %4, %3
+  %3 = objc_method %2, #MTLCommandBuffer.commit!foreign : <Self where Self : MTLCommandBuffer> (Self) -> () -> (), $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLCommandBuffer> (τ_0_0) -> () // user: %4
+  %4 = apply %3<@opened("48A9C272-C8B8-11F1-BD14-3277BECB5E88", any MTLCommandBuffer) Self>(%2) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLCommandBuffer> (τ_0_0) -> () // type-defs: %2
+  %5 = open_existential_ref %0 to $@opened("48A9C448-C8B8-11F1-BD14-3277BECB5E88", any MTLCommandBuffer) Self // users: %7, %7, %6
+  %6 = objc_method %5, #MTLCommandBuffer.waitUntilCompleted!foreign : <Self where Self : MTLCommandBuffer> (Self) -> () -> (), $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLCommandBuffer> (τ_0_0) -> () // user: %7
+  %7 = apply %6<@opened("48A9C448-C8B8-11F1-BD14-3277BECB5E88", any MTLCommandBuffer) Self>(%5) : $@convention(objc_method) <τ_0_0 where τ_0_0 : MTLCommandBuffer> (τ_0_0) -> () // type-defs: %5
+  %8 = tuple ()                                   // user: %9
+  return %8                                       // id: %9
+} // end sil function '$s8MetalABI13commitAndWaityySo16MTLCommandBuffer_pF'
+
+// UInt.init(_builtinIntegerLiteral:)
+// Isolation: unspecified
+sil public_external [transparent] @$sSu22_builtinIntegerLiteralSuBI_tcfC : $@convention(method) (Builtin.IntLiteral, @thin UInt.Type) -> UInt {
+// %0                                             // user: %2
+bb0(%0 : $Builtin.IntLiteral, %1 : $@thin UInt.Type):
+  %2 = builtin "s_to_u_checked_trunc_IntLiteral_Int64"(%0) : $(Builtin.Int64, Builtin.Int1) // user: %3
+  %3 = tuple_extract %2, 0                        // user: %4
+  %4 = struct $UInt (%3)                          // user: %5
+  return %4                                       // id: %5
+} // end sil function '$sSu22_builtinIntegerLiteralSuBI_tcfC'
+
+// MTLResourceOptions.init(rawValue:)
+// Isolation: unspecified
+sil shared [transparent] [available 10.11] @$sSo18MTLResourceOptionsV8rawValueABSu_tcfC : $@convention(method) (UInt, @thin MTLResourceOptions.Type) -> MTLResourceOptions {
+// %0 "rawValue"                                  // users: %3, %2
+// %1 "$metatype"
+bb0(%0 : $UInt, %1 : $@thin MTLResourceOptions.Type):
+  debug_value %0, let, name "rawValue", argno 1   // id: %2
+  %3 = struct $MTLResourceOptions (%0)            // user: %4
+  return %3                                       // id: %4
+} // end sil function '$sSo18MTLResourceOptionsV8rawValueABSu_tcfC'
+
+// specialized static Array._allocateUninitialized(_:)
+// Isolation: unspecified
+sil shared [_semantics "array.uninitialized"] @$sSa22_allocateUninitializedySayxG_SpyxGtSiFZSi_Tt0gq5 : $@convention(thin) (Int) -> (@owned Array<Int>, UnsafeMutablePointer<Int>) {
+// %0                                             // users: %50, %42, %33, %14
+bb0(%0 : $Int):
+  %1 = metatype $@thin Array<Int>.Type            // user: %42
+  %2 = string_literal utf8 "Can't construct Array with count < 0" // user: %4
+  %3 = integer_literal $Builtin.Word, 36          // user: %6
+  %4 = builtin "ptrtoint_Word"(%2) : $Builtin.Word // user: %6
+  %5 = integer_literal $Builtin.Int8, 2           // users: %22, %10, %6
+  %6 = struct $StaticString (%4, %3, %5)          // user: %26
+  %7 = string_literal utf8 "Swift/arm64e-apple-macos.swiftinterface" // user: %9
+  %8 = integer_literal $Builtin.Word, 39          // user: %10
+  %9 = builtin "ptrtoint_Word"(%7) : $Builtin.Word // user: %10
+  %10 = struct $StaticString (%9, %8, %5)         // user: %26
+  %11 = integer_literal $Builtin.Int64, 903       // user: %12
+  %12 = struct $UInt (%11)                        // user: %26
+  %13 = integer_literal $Builtin.Int64, 0         // user: %15
+  %14 = struct_extract %0, #Int._value            // user: %15
+  %15 = builtin "cmp_sge_Int64"(%14, %13) : $Builtin.Int1 // user: %17
+  %16 = integer_literal $Builtin.Int1, -1         // user: %17
+  %17 = builtin "int_expect_Int1"(%15, %16) : $Builtin.Int1 // user: %18
+  cond_br %17, bb2, bb1                           // id: %18
+
+bb1:                                              // Preds: bb0
+  %19 = string_literal utf8 "Fatal error"         // user: %21
+  %20 = integer_literal $Builtin.Word, 11         // user: %22
+  %21 = builtin "ptrtoint_Word"(%19) : $Builtin.Word // user: %22
+  %22 = struct $StaticString (%21, %20, %5)       // user: %26
+  %23 = integer_literal $Builtin.Int32, 1         // user: %24
+  %24 = struct $UInt32 (%23)                      // user: %26
+  // function_ref _assertionFailure(_:_:file:line:flags:)
+  %25 = function_ref @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_A2HSus6UInt32VtF : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never // user: %26
+  %26 = apply %25(%22, %6, %10, %12, %24) : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never
+  unreachable                                     // id: %27
+
+bb2:                                              // Preds: bb0
+  %28 = global_addr @_swiftEmptyArrayStorage : $*_SwiftEmptyArrayStorage // user: %29
+  %29 = address_to_pointer [stack_protection] %28 to $Builtin.RawPointer // user: %30
+  %30 = raw_pointer_to_ref %29 to $__EmptyArrayStorage // users: %40, %36, %31
+  strong_retain %30                               // id: %31
+  %32 = integer_literal $Builtin.Int64, 0         // user: %34
+  %33 = struct_extract %0, #Int._value            // user: %34
+  %34 = builtin "cmp_slt_Int64"(%32, %33) : $Builtin.Int1 // user: %35
+  cond_br %34, bb4, bb3                           // id: %35
+
+bb3:                                              // Preds: bb2
+  %36 = unchecked_ref_cast %30 to $Builtin.BridgeObject // user: %37
+  %37 = struct $_BridgeStorage<__ContiguousArrayStorageBase> (%36) // user: %38
+  %38 = struct $_ArrayBuffer<Int> (%37)           // user: %39
+  br bb5(%38)                                     // id: %39
+
+bb4:                                              // Preds: bb2
+  strong_release %30                              // id: %40
+  // function_ref static Array._allocateBufferUninitialized(minimumCapacity:)
+  %41 = function_ref @$sSa28_allocateBufferUninitialized15minimumCapacitys06_ArrayB0VyxGSi_tFZ : $@convention(method) <τ_0_0> (Int, @thin Array<τ_0_0>.Type) -> @owned _ArrayBuffer<τ_0_0> // user: %42
+  %42 = apply %41<Int>(%0, %1) : $@convention(method) <τ_0_0> (Int, @thin Array<τ_0_0>.Type) -> @owned _ArrayBuffer<τ_0_0> // users: %44, %43, %52
+  retain_value %42                                // id: %43
+  %44 = struct_extract %42, #_ArrayBuffer._storage // user: %45
+  %45 = struct_extract %44, #_BridgeStorage.rawValue // user: %46
+  %46 = unchecked_ref_cast %45 to $__ContiguousArrayStorageBase // users: %51, %47
+  %47 = ref_element_addr %46, #__ContiguousArrayStorageBase.countAndCapacity // user: %48
+  %48 = struct_element_addr %47, #_ArrayBody._storage // user: %49
+  %49 = struct_element_addr %48, #_SwiftArrayBodyStorage.count // user: %50
+  store %0 to %49                                 // id: %50
+  strong_release %46                              // id: %51
+  br bb5(%42)                                     // id: %52
+
+// %53                                            // users: %54, %60
+bb5(%53 : $_ArrayBuffer<Int>):                    // Preds: bb4 bb3
+  %54 = struct_extract %53, #_ArrayBuffer._storage // user: %55
+  %55 = struct_extract %54, #_BridgeStorage.rawValue // user: %56
+  %56 = unchecked_ref_cast %55 to $__ContiguousArrayStorageBase // user: %57
+  %57 = ref_tail_addr %56, $Int                   // user: %58
+  %58 = address_to_pointer %57 to $Builtin.RawPointer // user: %59
+  %59 = struct $UnsafeMutablePointer<Int> (%58)   // user: %61
+  %60 = struct $Array<Int> (%53)                  // user: %61
+  %61 = tuple (%60, %59)                          // user: %62
+  return %61                                      // id: %62
+} // end sil function '$sSa22_allocateUninitializedySayxG_SpyxGtSiFZSi_Tt0gq5'
+
+// _assertionFailure(_:_:file:line:flags:)
+// Isolation: unspecified
+sil [noinline] [_semantics "programtermination_point"] @$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_A2HSus6UInt32VtF : $@convention(thin) (StaticString, StaticString, StaticString, UInt, UInt32) -> Never
+
+// static Array._allocateBufferUninitialized(minimumCapacity:)
+// Isolation: unspecified
+sil [noinline] @$sSa28_allocateBufferUninitialized15minimumCapacitys06_ArrayB0VyxGSi_tFZ : $@convention(method) <τ_0_0> (Int, @thin Array<τ_0_0>.Type) -> @owned _ArrayBuffer<τ_0_0>
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'MetalABI/MetalReference.swift' => 'experiments/swift/MetalReference.swift'
+
+

@@ -10,6 +10,9 @@ The published v0.2 adds dynamic signatures, per-model reshape settings, [retaine
 
 v0.3 raises the [checked storage and CPU boundary](docs/v0.3-large-tensors.md) to 4 GiB, qualifies a 2 GiB GPU inference boundary, and uses a persistent completion stream for stateless GPU calls. [Native symbol caching](docs/v0.3-symbol-cache.md) removes the measured lookup overhead: the tiny CPU owned-call median fell from about 1.18 ms to 34 µs. See [the release record](docs/v0.3-release.md) for qualification and limitations.
 
+**v0.3.0 is tagged and all 23 release gates pass. The crates.io upload is pending
+because the release session cannot reach the registry.**
+
 ## Use
 
 Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.0.1 (26A434) with Rust 1.99.0. Xcode/SDK 27, Apple Swift 6.4, and Python are development/reference tools.
@@ -17,7 +20,10 @@ Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.
 Add [Corsairs from crates.io](https://crates.io/crates/corsairs) to a Rust project:
 
 ```sh
-cargo add corsairs@0.3.0
+# Current registry release:
+cargo add corsairs@0.2.0
+# Qualified v0.3 source while its registry upload is pending:
+cargo add corsairs --git https://github.com/bubstackdev/corsairs --tag v0.3.0
 ```
 
 Source: [bubstackdev/corsairs](https://github.com/bubstackdev/corsairs).

@@ -1,0 +1,28 @@
+{
+  "version": "0.3.0",
+  "release_ready": true,
+  "published": false,
+  "source_commit": "bdcd7c79d761ee0b42777330cc1809c48defc839",
+  "tag": "v0.3.0",
+  "tag_pushed": true,
+  "clean_archive": {
+    "bytes": 103073,
+    "path": "/private/tmp/corsairs-0.3.0-ju3lkaky/cargo-package/package/corsairs-0.3.0.crate",
+    "sha256": "e7f23287a680009a43aa5a46e8646a66918f5c4c3e2bdb627a18091b21fe3e3a"
+  },
+  "archive_members": 53,
+  "changed_from_dirty_candidate": [
+    ".cargo_vcs_info.json"
+  ],
+  "all_23_gates_pass": true,
+  "package_readme_sha256": "51bdb7c7ce560cc76b1e962237b960355b945d1e15348955e8419e6b75a3cab2",
+  "publication_blockers": [
+    "Cargo cannot resolve index.crates.io in this execution environment.",
+    "Shell HTTP registry request is denied with HTTP403; permission escalation is disallowed by the session policy.",
+    "GitHub API is unreachable; no browser is available."
+  ],
+  "publish_source_worktree": "/private/tmp/corsairs-v03-publish-source",
+  "publish_command": "cargo publish --locked --manifest-path /private/tmp/corsairs-v03-publish-source/crates/corsairs-abi/Cargo.toml",
+  "registry_upload_started": false,
+  "registry_verified": false
+}

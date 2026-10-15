@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-15T21:59:04.164227+00:00",
+  "created_utc": "2026-10-15T22:04:10.712988+00:00",
   "evidence_sha256": {
     "/private/tmp/corsairs-v03-gpu-rejections/build/build-manifest.json": "08275910862244f13c5814263d2e700d5b69ce6f2f547e328bd29602f1207f20",
     "docs/evidence/v0.3-final/benchmarks/build.json": "1a430b3cec8972b5db8b91ed53386d0b6061447068f564702d622f83a1e58ff9",
@@ -37,6 +37,7 @@
     "docs/evidence/v0.3-final/observation-parent-quiet.json": "ee3437b9d48ccbe43d93315d8623ebcd074224bd9ed32078753435e9db15b07b",
     "docs/evidence/v0.3-final/observation-parent.json": "4e545100493cb1d033a95290eb01ca8fd95d13798057ae83f18eb048c8fd5d2a",
     "docs/evidence/v0.3-final/package-candidate-native.json": "7d26b8cb35164b9bf7690a384fc252cd64dc46c021265e67e607034f36b0243e",
+    "docs/evidence/v0.3-final/package-clean-native.json": "8ab6f889c4710cd7bd21d26aa16cb991711fa1a867b7288d8a5908d1bd3b4ebf",
     "docs/evidence/v0.3-final/preparation.json": "b4cb5d09507f23317848810ac9527103246820d05822e2e15e1b11a27ebd0ef4",
     "docs/evidence/v0.3-final/raw-storage-retry-native.json": "a99498277a520dc414ab8925c0e95ecbac2c4caee5b756f6390c24be9539ea81",
     "docs/evidence/v0.3-final/raw-storage.json": "fa17297c09eb715a410352fb8eaf3f17010ba54d149c61d55268b5ae8f318964",
@@ -56,15 +57,11 @@
     "docs/evidence/v0.3-large-tensors/release/h3-rgb173-gpu-preferred-release.json": "31ce10989e344a5022933ca4dcc39b8bf3c2425d4570d8eb77b938def6c68bcb",
     "docs/evidence/v0.3-large-tensors/release/h3-rgb345-cpu-release.json": "24798a20c0b304c7fe65f0ae75331ded2928d9657032b7526bb074129622b6bd",
     "docs/evidence/v0.3-large-tensors/release/limit-f32-cpu-release.json": "09d9914e2b123b774e97be08e1ef373850130611c2904586e30222800ef4ac51",
+    "docs/evidence/v0.3/package-clean-verification.json": "936a4e6093e1851cc57c326b62723e1eab7c7b499533cc48929f4df6bfe1f6f3",
     "docs/evidence/v0.3/package-verification.json": "dedcc7ffd037d187bea6e498acda379e5aa7659a31c3b27af0976b4086880375",
     "target/v01-check/build-manifest.json": "7eff073f6ceec8401505941c3f44f6cb8d0301656e3fef6669af6a136f5cf308"
   },
-  "gaps": [
-    {
-      "error": "[Errno 2] No such file or directory: '/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/package-clean-native.json'",
-      "gate": "package-clean"
-    }
-  ],
+  "gaps": [],
   "gates": {
     "bf16-debug": {
       "checks": {
@@ -216,8 +213,17 @@
       "passed": true
     },
     "package-clean": {
-      "error": "[Errno 2] No such file or directory: '/Users/zakkeown/Code/aether/lab/corsairs/docs/evidence/v0.3-final/package-clean-native.json'",
-      "passed": false
+      "checks": {
+        "archive": "/Users/zakkeown/Code/aether/lab/corsairs/dist/corsairs-0.3.0/corsairs-0.3.0.crate",
+        "bf16_cli_backends": 2,
+        "bytes": 103073,
+        "clean": true,
+        "files": 53,
+        "native_examples": 8,
+        "readme_sha256": "51bdb7c7ce560cc76b1e962237b960355b945d1e15348955e8419e6b75a3cab2",
+        "sha256": "e7f23287a680009a43aa5a46e8646a66918f5c4c3e2bdb627a18091b21fe3e3a"
+      },
+      "passed": true
     },
     "raw-storage": {
       "checks": {
@@ -265,7 +271,7 @@
   },
   "native_selection": {},
   "package_readme_sha256": "51bdb7c7ce560cc76b1e962237b960355b945d1e15348955e8419e6b75a3cab2",
-  "passed": false,
+  "passed": true,
   "production_sha256": {
     "Cargo.lock": "92c56e65e2d49a5218901003d954b9e237d9124ed1ab677dff8df7305b6876b3",
     "Cargo.toml": "b48736d4347ce55a825e6acfa52ebb4ff2f0d429c872bebf3720a28b0824ebe6",
@@ -311,7 +317,7 @@
     "crates/corsairs-lab/src/main.rs": "b6a0e0b9ecef9b18b985f8d72c4661ec2a4b534c2cb2bab867700086ef017a8c"
   },
   "published": false,
-  "qualification_identity_sha256": "42adf34ed2e6b8cbbf05fbe797305a0dfae8d803dc242c276ca6e14144892b48",
+  "qualification_identity_sha256": "3d103a6aa35731d8cd78f2113c18fbeaca0e947b076a32608d9f453a007815ed",
   "registry_checked": false,
   "schema": 1,
   "scope": "Read-only local pre-publication qualification. Source, member and retained binary identities are reread. External multi-GB asset hashes are checked against retained full-hash preparation receipts, not rehashed here. REA selected-file identity is not a loaded-image digest.",

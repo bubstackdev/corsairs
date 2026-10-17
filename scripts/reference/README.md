@@ -2,6 +2,12 @@
 
 Use CPython 3.12. These tools prepare and execute differential references; the Rust runtime has no Python dependency.
 
+Run the acceptance and golden-freezing regression tests without native bindings or reference dependencies:
+
+```sh
+python3 -B -m unittest discover -s scripts/reference/tests -v
+```
+
 Acquire the exact published wheel without a global installation:
 
 ```sh
@@ -30,7 +36,7 @@ Run the native reference grid where CoreAI can access its specialization cache a
 python3.12 -I -B scripts/reference/run_suite.py
 ```
 
-Each invocation is isolated in a child process. Native traps/timeouts remain failed observations. The full grid includes 32 positive configurations and 16 negative cases. Outputs, metadata, state changes, errors, backend preferences, elapsed times, and return codes are retained. The shell sandbox currently returns `AIModelCacheError` during specialization; that is an environment failure and cannot count as a successful reference comparison.
+Each invocation is isolated in a child process and explicitly selects Apple's OS framework, overriding inherited `USE_LOCAL_COREAI`. The child and parent both require OS backing. Success requires exit 0 even if the child prints passing JSON before a teardown failure; native traps/timeouts remain failed observations. The full grid includes 32 positive configurations and 16 negative cases. Outputs, metadata, state changes, errors, backend preferences, elapsed times, and return codes are retained. The shell sandbox currently returns `AIModelCacheError` during specialization; that is an environment failure and cannot count as a successful reference comparison.
 
 Filter a probe without replacing the complete report:
 
@@ -45,7 +51,7 @@ python3.12 -I -B scripts/reference/freeze_goldens.py
 python3.12 -I -B scripts/reference/inventory.py
 ```
 
-The freeze script rejects execution failures and unreviewed mathematical mismatches. Its only reviewed difference is bound to the exact observed GPU-preferred float-edge output digest. This preserves strict Rust-to-Python comparison. See the fixture [backend observations](../../fixtures/parity-v01/BACKEND-SEMANTICS.md).
+The freeze script checks every observation's OS backing and process exit before creating the original snapshot or writing goldens. It rejects execution failures and unreviewed mathematical mismatches. Its only reviewed difference requires normal exit 1 and is bound to the exact observed GPU-preferred float-edge output digest. This preserves strict Rust-to-Python comparison. See the fixture [backend observations](../../fixtures/parity-v01/BACKEND-SEMANTICS.md).
 
 The safe Rust API differential/stress driver is separate:
 

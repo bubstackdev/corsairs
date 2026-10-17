@@ -52,17 +52,24 @@ impl<T> Task<T> {
 impl<T> Future for Task<T> {
     type Output = Result<T, Error>;
     fn poll(self: Pin<&mut Self>, context: &mut Context<'_>) -> Poll<Self::Output> {
+        // Raw-waker clone/drop callbacks can reenter the runtime. Neither may
+        // run under the result lock, just like the wake callback in publish.
+        let replacement = context.waker().clone();
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
         if let Some(result) = state.result.take() {
             return Poll::Ready(result);
         }
-        if state
+        let previous = if state
             .waker
             .as_ref()
             .is_none_or(|old| !old.will_wake(context.waker()))
         {
-            state.waker = Some(context.waker().clone());
-        }
+            state.waker.replace(replacement)
+        } else {
+            None
+        };
+        drop(state);
+        drop(previous);
         Poll::Pending
     }
 }
@@ -379,6 +386,139 @@ mod tests {
         rc::Rc,
         sync::atomic::{AtomicUsize, Ordering},
     };
+
+    #[test]
+    fn polling_does_not_clone_or_drop_wakers_under_the_result_lock() {
+        use std::mem::ManuallyDrop;
+        use std::task::{RawWaker, RawWakerVTable};
+
+        struct Inspect {
+            state: Arc<Mutex<ResultState<()>>>,
+            events: mpsc::Sender<(&'static str, bool)>,
+        }
+        impl Inspect {
+            fn record(&self, event: &'static str) {
+                let _ = self.events.send((event, self.state.try_lock().is_ok()));
+            }
+        }
+        fn raw(owner: Arc<Inspect>) -> RawWaker {
+            RawWaker::new(Arc::into_raw(owner).cast(), &VTABLE)
+        }
+        unsafe fn clone(data: *const ()) -> RawWaker {
+            // SAFETY: Each raw waker owns an Arc; borrowing it must not consume it.
+            let owner = ManuallyDrop::new(unsafe { Arc::from_raw(data.cast::<Inspect>()) });
+            owner.record("clone");
+            raw(Arc::clone(&owner))
+        }
+        unsafe fn wake(data: *const ()) {
+            // SAFETY: wake consumes exactly this raw waker's Arc reference.
+            let owner = unsafe { Arc::from_raw(data.cast::<Inspect>()) };
+            owner.record("wake");
+        }
+        unsafe fn wake_by_ref(data: *const ()) {
+            // SAFETY: A borrowed wake preserves the raw waker's owned reference.
+            let owner = ManuallyDrop::new(unsafe { Arc::from_raw(data.cast::<Inspect>()) });
+            owner.record("wake");
+        }
+        unsafe fn drop_waker(data: *const ()) {
+            // SAFETY: drop consumes exactly this raw waker's Arc reference.
+            let owner = unsafe { Arc::from_raw(data.cast::<Inspect>()) };
+            owner.record("drop");
+        }
+        const VTABLE: RawWakerVTable = RawWakerVTable::new(clone, wake, wake_by_ref, drop_waker);
+
+        let state = Arc::new(Mutex::new(ResultState {
+            result: None,
+            waker: None,
+        }));
+        let (events, observed) = mpsc::channel();
+        // SAFETY: The vtable balances each Arc and only accesses synchronized data.
+        let waker = unsafe {
+            Waker::from_raw(raw(Arc::new(Inspect {
+                state: Arc::clone(&state),
+                events,
+            })))
+        };
+        let mut task = Task {
+            state: Arc::clone(&state),
+            worker_thread: std::thread::current().id(),
+        };
+        assert!(
+            Pin::new(&mut task)
+                .poll(&mut Context::from_waker(&waker))
+                .is_pending()
+        );
+        assert!(
+            Pin::new(&mut task)
+                .poll(&mut Context::from_waker(&waker))
+                .is_pending()
+        );
+        assert!(
+            Pin::new(&mut task)
+                .poll(&mut Context::from_waker(Waker::noop()))
+                .is_pending()
+        );
+        state.lock().unwrap().result = Some(Ok(()));
+        assert!(
+            Pin::new(&mut task)
+                .poll(&mut Context::from_waker(&waker))
+                .is_ready()
+        );
+        drop(waker);
+        let events: Vec<_> = observed.try_iter().collect();
+        assert!(events.iter().any(|(event, _)| *event == "clone"));
+        assert!(events.iter().any(|(event, _)| *event == "drop"));
+        assert!(events.iter().all(|(_, unlocked)| *unlocked), "{events:?}");
+    }
+
+    #[test]
+    fn replacing_a_waker_allows_its_destructor_to_wait_for_the_worker() {
+        struct FenceOnDrop {
+            worker: Worker<()>,
+            release: mpsc::Sender<()>,
+        }
+        #[allow(
+            clippy::manual_noop_waker,
+            reason = "The owned waker's destructor is the behavior under test"
+        )]
+        impl std::task::Wake for FenceOnDrop {
+            fn wake(self: Arc<Self>) {}
+        }
+        impl Drop for FenceOnDrop {
+            fn drop(&mut self) {
+                self.release.send(()).unwrap();
+                self.worker.submit(|_| Ok(())).wait().unwrap();
+            }
+        }
+        let (done, observed) = mpsc::channel();
+        let thread = std::thread::spawn(move || {
+            let worker = Worker::start(|| Ok(())).unwrap();
+            let (release, gate) = mpsc::channel();
+            let mut task = worker.submit(move |_| {
+                gate.recv().unwrap();
+                Ok(())
+            });
+            let waker = Waker::from(Arc::new(FenceOnDrop {
+                worker: worker.clone(),
+                release,
+            }));
+            assert!(
+                Pin::new(&mut task)
+                    .poll(&mut Context::from_waker(&waker))
+                    .is_pending()
+            );
+            drop(waker);
+            // The task owns the last old-waker reference; replacing it runs Drop
+            // on this polling thread while the worker finishes the first job.
+            let _ = Pin::new(&mut task).poll(&mut Context::from_waker(Waker::noop()));
+            done.send(task.wait()).unwrap();
+        });
+        observed
+            .recv_timeout(std::time::Duration::from_secs(5))
+            .expect("waker cleanup deadlocked the polling thread and worker")
+            .unwrap();
+        thread.join().unwrap();
+    }
 
     struct Cascade {
         worker: Worker<usize>,

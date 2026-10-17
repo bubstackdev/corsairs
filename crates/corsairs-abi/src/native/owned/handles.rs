@@ -227,16 +227,7 @@ impl NativeSession {
             }
             state_lineage.extend(lineage.iter().copied());
         }
-        // Every output may alias any source or another output from this call.
-        // The extra fresh group origin covers even graphs with no tensor inputs.
-        let mut output_lineage = input_lineage;
-        output_lineage.extend(state_lineage);
-        output_lineage.insert(self.id()?);
-        // Inference outputs from unrelated calls/models can still share native
-        // constants or backend storage. Origin zero is reserved (IDs start at
-        // one), conservatively tying every inference-derived allocation together.
-        mark_inference_origin(&mut output_lineage);
-        let output_lineage = Rc::new(output_lineage);
+        let output_lineage = inference_lineage(input_lineage, state_lineage);
         // Remove mutable records so exclusive references never alias the store.
         // Restore them after every Result path, including native errors.
         let mut native_states: Vec<_> = states
@@ -440,8 +431,14 @@ pub(super) fn validate_gpu_handle(info: &NativeTensorHandle) -> Result<()> {
     super::run_stream::gpu_span(plan.extent)
 }
 
-fn mark_inference_origin(lineage: &mut HashSet<u64>) {
-    lineage.insert(0);
+fn inference_lineage(mut inputs: HashSet<u64>, states: HashSet<u64>) -> Rc<HashSet<u64>> {
+    // Preserve uploaded source origins for mutable-alias checks. Reserved origin
+    // zero already ties all inference outputs together, including no-input calls
+    // and unrelated models that may share constants or backend storage. A fresh
+    // per-call origin would only accumulate redundant history in native chains.
+    inputs.extend(states);
+    inputs.insert(0);
+    Rc::new(inputs)
 }
 
 fn validate_handle_against(
@@ -631,14 +628,31 @@ mod tests {
 
     #[test]
     fn unrelated_inference_outputs_remain_possible_aliases() {
-        // Separate no-input calls have different fresh group origins but may
-        // reference the same native constant/backend allocation.
-        let mut first = HashSet::from([10]);
-        let mut second = HashSet::from([11]);
-        mark_inference_origin(&mut first);
-        mark_inference_origin(&mut second);
+        let first = inference_lineage(HashSet::new(), HashSet::new());
+        let second = inference_lineage(HashSet::new(), HashSet::new());
         assert!(!first.is_disjoint(&second));
         assert!(HashSet::from([1]).is_disjoint(&HashSet::from([2])));
         assert!(HashSet::from([1]).is_disjoint(&first));
+    }
+
+    #[test]
+    fn native_chain_lineage_stays_bounded_and_preserves_source_aliases() {
+        let input = HashSet::from([1]);
+        let state = HashSet::from([2]);
+        let independent_upload = HashSet::from([3]);
+        let mut lineage = inference_lineage(input.clone(), state.clone());
+        let mut history = Vec::new();
+        for _ in 0..16_000 {
+            assert_eq!(*lineage, HashSet::from([0, 1, 2]));
+            assert!(!lineage.is_disjoint(&input));
+            assert!(!lineage.is_disjoint(&state));
+            assert!(lineage.is_disjoint(&independent_upload));
+            history.push(Rc::clone(&lineage));
+            lineage = inference_lineage((*lineage).clone(), HashSet::new());
+        }
+        assert_eq!(
+            history.iter().map(|origins| origins.len()).sum::<usize>(),
+            48_000
+        );
     }
 }

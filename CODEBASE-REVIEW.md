@@ -4,6 +4,8 @@ Reviewed 2026-10-16 against `f4c2264` (`Record clean v0.3 qualification and regi
 
 Four actionable findings were verified: three Medium and one Low. No Critical or High finding was verified. This is a source and contract review with bounded reproductions, not a proof of memory safety or a new native qualification run.
 
+Follow-up remediation (2026-10-16): all four findings are addressed in the current source with regression tests. The findings below retain the original audit evidence and locations at `f4c2264`. Native lineage construction now preserves source alias checks without per-call history; waker clone/drop callbacks run outside the result mutex. Reference collection and freezing require OS backing and matching process exits, including exit 1 only for a digest-reviewed mismatch when freezing. Tests cover chained provenance, reentrant waker callbacks/cleanup, abnormal child exits, inherited framework overrides, and temporary freezing of the retained reference grid. Run Rust tests with `cargo test --offline -p corsairs --no-default-features` and Python regressions with `python3 -B -m unittest discover -s scripts/reference/tests -v`.
+
 ## Medium
 
 ### M1. Native chaining accumulates redundant alias origins on every inference
@@ -73,4 +75,4 @@ Four actionable findings were verified: three Medium and one Low. No Critical or
 - `cargo fmt --all -- --check`: passed.
 - Isolated lineage-growth probe, mocked reference acceptance checks, retained reference status/backing inspection, and bounded worker-waker deadlock reproduction as described above. Reproductions used temporary files and did not alter tracked implementation or evidence.
 
-This review intentionally changes only this report; it does not implement the suggested fixes.
+The original audit commit changed only this report. Subsequent remediation is described above; retained native qualification evidence was not regenerated.

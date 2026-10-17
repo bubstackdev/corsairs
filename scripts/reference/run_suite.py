@@ -8,6 +8,7 @@ import argparse
 import asyncio
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -16,6 +17,7 @@ import traceback
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from environment import FIXTURES, initialize, identity, write_json
+from execution import execution_error, select_os_framework
 
 
 def read_spec(spec):
@@ -47,6 +49,7 @@ def snapshot(tensor, expected, path, policy):
 
 
 async def run_child(case, backend, negative):
+    select_os_framework(os.environ)
     from coreai.runtime import AIModel, ComputeUnitKind, NDArray, SpecializationOptions, _use_os_coreai
     directory = FIXTURES / "results" / backend / case["name"]
     if negative:
@@ -54,8 +57,11 @@ async def run_child(case, backend, negative):
     directory.mkdir(parents=True, exist_ok=True)
     result = {"case": case["name"], "backend": backend, "negative_case": negative,
               "os_backed": _use_os_coreai, "status": "running"}
-    stage = "options"
+    stage = "reference_backing"
     try:
+        if _use_os_coreai is not True:
+            raise RuntimeError("Reference must use OS Core AI")
+        stage = "options"
         options = (SpecializationOptions.cpu_only() if backend == "cpu"
                    else SpecializationOptions.from_preferred_compute_unit_kind(ComputeUnitKind.gpu()))
         result["allowed_compute_units"] = [str(kind) for kind in options.allowed_compute_unit_kinds]
@@ -138,12 +144,21 @@ def suite_main(args):
             command += ["--negative", negative]
         started = time.monotonic()
         try:
-            completed = subprocess.run(command, capture_output=True, text=True, timeout=args.timeout)
+            environment = os.environ.copy()
+            select_os_framework(environment)
+            completed = subprocess.run(command, capture_output=True, text=True, timeout=args.timeout,
+                                       env=environment)
             try:
                 observation = json.loads(completed.stdout.strip().splitlines()[-1])
-            except (json.JSONDecodeError, IndexError):
+                if not isinstance(observation, dict):
+                    raise ValueError("Child observation must be a JSON object")
+            except (ValueError, IndexError):
                 observation = {"status": "native_failure", "stdout": completed.stdout[-6000:], "stderr": completed.stderr[-6000:]}
             observation["returncode"] = completed.returncode
+            if problem := execution_error(observation):
+                observation["reported_status"] = observation.get("status")
+                observation.update({"status": "native_failure", "validation_error": problem,
+                                    "stdout": completed.stdout[-6000:], "stderr": completed.stderr[-6000:]})
         except subprocess.TimeoutExpired as exc:
             observation = {"status": "timeout", "timeout_seconds": args.timeout}
         observation.update({"case": case["name"], "backend": backend, "negative_case": negative,
@@ -152,7 +167,8 @@ def suite_main(args):
         write_json(report_path, {"reference": identity(), "results": results, "complete": False})
         print(f"{backend} {case['name']} {negative or 'valid'}: {observation['status']}", flush=True)
     report = {"reference": identity(), "results": results, "complete": True,
-              "passed": all(row["status"] in ["passed", "expected_error"] for row in results)}
+              "passed": all(row["status"] in ["passed", "expected_error"]
+                            and execution_error(row) is None for row in results)}
     write_json(report_path, report)
     print(json.dumps({"complete": True, "invocations": len(results), "passed": report["passed"]}), flush=True)
     return 0 if report["passed"] else 1

@@ -202,8 +202,9 @@ fn next<'a>(
     Ok(value)
 }
 fn parse_dtype(value: &str) -> Result<DType, Box<dyn Error>> {
-    DType::ALL
-        .into_iter()
+    DType::all()
+        .iter()
+        .copied()
         .find(|dtype| dtype.name() == value)
         .ok_or_else(|| format!("unsupported dtype {value:?}").into())
 }
@@ -292,11 +293,13 @@ fn result_json(value: &RunResult, directory: Option<&Path>) -> Result<String, Bo
     Ok(groups.join(","))
 }
 fn asset_json(asset: &AssetInfo) -> String {
-    let created = asset
-        .metadata
-        .created
-        .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
-        .map_or("null".into(), |since| since.as_secs_f64().to_string());
+    let created = asset.metadata.created.map_or("null".into(), |time| {
+        // Pre-1970 dates are negative Unix seconds, matching AssetMetadata.
+        match time.duration_since(std::time::UNIX_EPOCH) {
+            Ok(since) => since.as_secs_f64().to_string(),
+            Err(before) => (-before.duration().as_secs_f64()).to_string(),
+        }
+    });
     let values = |values: &[AssetValue]| {
         let rows: Vec<_> = values
             .iter()

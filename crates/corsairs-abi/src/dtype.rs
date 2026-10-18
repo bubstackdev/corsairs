@@ -35,15 +35,40 @@ pub enum DType {
     Bool,
 }
 
+const SUPPORTED: [DType; 15] = [
+    DType::Float16,
+    DType::BFloat16,
+    DType::Float32,
+    DType::Float64,
+    DType::Float8E4M3Fn,
+    DType::Float8E5M2,
+    DType::Int8,
+    DType::Int16,
+    DType::Int32,
+    DType::Int64,
+    DType::UInt8,
+    DType::UInt16,
+    DType::UInt32,
+    DType::UInt64,
+    DType::Bool,
+];
+
 impl DType {
-    /// Every supported scalar type, in declaration order.
-    pub const ALL: [Self; 15] = [
+    /// Every supported scalar type, in declaration order. Later releases may
+    /// add types, so this is a slice rather than a fixed-length array.
+    pub const fn all() -> &'static [Self] {
+        &SUPPORTED
+    }
+    /// The 13 scalar types of v0.4.0, kept so this array's type does not change.
+    #[deprecated(
+        since = "0.4.1",
+        note = "omits newer types such as float8; use `DType::all()`"
+    )]
+    pub const ALL: [Self; 13] = [
         Self::Float16,
         Self::BFloat16,
         Self::Float32,
         Self::Float64,
-        Self::Float8E4M3Fn,
-        Self::Float8E5M2,
         Self::Int8,
         Self::Int16,
         Self::Int32,
@@ -750,8 +775,15 @@ mod tests {
             .unwrap()[0]
             .to_bits();
         assert_eq!(bits, nan.to_bits(), "NaN payloads are stored verbatim");
-        let names: std::collections::HashSet<_> = DType::ALL.iter().map(|d| d.name()).collect();
-        assert_eq!(names.len(), DType::ALL.len());
+        let names: std::collections::HashSet<_> = DType::all().iter().map(|d| d.name()).collect();
+        assert_eq!(names.len(), DType::all().len());
+        #[allow(deprecated, reason = "the v0.4.0 array keeps its published contents")]
+        let published = DType::ALL;
+        assert_eq!(published.len(), 13);
+        assert!(published.iter().all(|dtype| DType::all().contains(dtype)));
+        assert!(
+            !published.contains(&DType::Float8E4M3Fn) && !published.contains(&DType::Float8E5M2)
+        );
     }
 
     #[test]

@@ -63,7 +63,7 @@ so it cannot reach that path.
 
 ## Float8
 
-Added on `main` after v0.4.0: `DType::{Float8E4M3Fn, Float8E5M2}` with the
+Added in v0.4.1: `DType::{Float8E4M3Fn, Float8E5M2}` with the
 `Float8E4M3Fn` and `Float8E5M2` element types. Both preserve every encoding in
 storage and provide an exact `to_f32` and a round-to-nearest-even `from_f32`
 that match ml_dtypes:

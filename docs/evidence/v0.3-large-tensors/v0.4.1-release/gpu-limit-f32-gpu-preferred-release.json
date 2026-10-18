@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "case": {
+    "name": "gpu-limit-f32",
+    "dtype": "float32",
+    "shape": [
+      536870912
+    ],
+    "bytes": 2147483648,
+    "asset": "gpu-limit-f32/model.aimodel"
+  },
+  "compute": "gpu-preferred",
+  "profile": "release",
+  "created_utc": "2026-10-18T22:45:55.621401+00:00",
+  "build_manifest_sha256": "add0f6f958fec9e7560e04f7cb6dfe96d7774e719cb615468380d6aedc1e35d6",
+  "concurrent_native_processes": 1,
+  "concurrency_scope": "This checker's child processes only; other host workloads are uncontrolled unless separately recorded.",
+  "swift_readback": "Immediate full byte snapshot before block comparison/hash; GPU uses owned stream with pre/post readiness fences",
+  "scope": "Mechanical tensor capacity and x+x arithmetic only; no H3 attention, decoder, temporal chunking or generation equivalence.",
+  "swift_process": {
+    "command": [
+      "/Users/zakkeown/Code/bubstackdev/corsairs/target/large-check/swift-oracle",
+      "/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v03/large-tensors/gpu-limit-f32/model.aimodel",
+      "float32",
+      "536870912",
+      "gpu-preferred",
+      "gpu-limit-f32",
+      "/private/tmp/corsairs-large-gpu-limit-f32-gpu-preferred-release/swift.json"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 4.654718542005867,
+    "timed_out": false,
+    "stdout": "{\"event\":\"allocated\",\"bytes\":2147483648}\n{\"event\":\"double_complete\",\"bytes\":2147483648}\n{\n  \"bytes\" : 2147483648,\n  \"case\" : \"gpu-limit-f32\",\n  \"chain_sha256\" : \"e7ab13964a3708e76ce87571b5c93cfa77c69816127f81c7e2db4302be063432\",\n  \"compute\" : \"gpu-preferred\",\n  \"double_sha256\" : \"1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b\",\n  \"dtype\" : \"float32\",\n  \"execution\" : \"encode on persistent owned stream, fences before\\/after readiness\",\n  \"input_sha256\" : \"4f587bcc2a922528dae3a9915fdc83fd164e478406ce4f322515eb99f3ca4351\",\n  \"passed\" : true,\n  \"production_helper\" : false,\n  \"shape\" : [\n    536870912\n  ]\n}\n",
+    "stderr": ""
+  },
+  "swift": {
+    "bytes": 2147483648,
+    "case": "gpu-limit-f32",
+    "chain_sha256": "e7ab13964a3708e76ce87571b5c93cfa77c69816127f81c7e2db4302be063432",
+    "compute": "gpu-preferred",
+    "double_sha256": "1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b",
+    "dtype": "float32",
+    "execution": "encode on persistent owned stream, fences before/after readiness",
+    "input_sha256": "4f587bcc2a922528dae3a9915fdc83fd164e478406ce4f322515eb99f3ca4351",
+    "passed": true,
+    "production_helper": false,
+    "shape": [
+      536870912
+    ]
+  },
+  "rust_process": {
+    "command": [
+      "/Users/zakkeown/Code/bubstackdev/corsairs/target/large-check/driver-release",
+      "/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v03/large-tensors/gpu-limit-f32/model.aimodel",
+      "float32",
+      "536870912",
+      "gpu-preferred"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 40.385293291998096,
+    "timed_out": false,
+    "stdout": "{\"event\":\"begin\",\"bytes\":2147483648,\"compute\":\"gpu-preferred\"}\n{\"event\":\"value\",\"label\":\"owned\",\"bytes\":2147483648,\"factor\":2,\"sha256\":\"1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"native\",\"bytes\":2147483648,\"factor\":2,\"sha256\":\"1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"native-chain\",\"bytes\":2147483648,\"factor\":4,\"sha256\":\"e7ab13964a3708e76ce87571b5c93cfa77c69816127f81c7e2db4302be063432\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"native-after-abandoned\",\"bytes\":2147483648,\"factor\":1,\"sha256\":\"4f587bcc2a922528dae3a9915fdc83fd164e478406ce4f322515eb99f3ca4351\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"metal-bound\",\"bytes\":2147483648,\"factor\":2,\"sha256\":\"1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"metal-auto-chain\",\"bytes\":2147483648,\"factor\":4,\"sha256\":\"e7ab13964a3708e76ce87571b5c93cfa77c69816127f81c7e2db4302be063432\",\"passed\":true}\n{\"event\":\"value\",\"label\":\"metal-after-abandoned\",\"bytes\":2147483648,\"factor\":1,\"sha256\":\"4f587bcc2a922528dae3a9915fdc83fd164e478406ce4f322515eb99f3ca4351\",\"passed\":true}\n{\"event\":\"complete\",\"values\":7,\"bytes\":2147483648,\"passed\":true}\n",
+    "stderr": ""
+  },
+  "values": [
+    {
+      "event": "value",
+      "label": "owned",
+      "bytes": 2147483648,
+      "factor": 2,
+      "sha256": "1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "native",
+      "bytes": 2147483648,
+      "factor": 2,
+      "sha256": "1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "native-chain",
+      "bytes": 2147483648,
+      "factor": 4,
+      "sha256": "e7ab13964a3708e76ce87571b5c93cfa77c69816127f81c7e2db4302be063432",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "native-after-abandoned",
+      "bytes": 2147483648,
+      "factor": 1,
+      "sha256": "4f587bcc2a922528dae3a9915fdc83fd164e478406ce4f322515eb99f3ca4351",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "metal-bound",
+      "bytes": 2147483648,
+      "factor": 2,
+      "sha256": "1378ea0ced3ac262aaa55f54db3bd1bcabf2ed099968989ab5ca2bc5c9b79e7b",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "metal-auto-chain",
+      "bytes": 2147483648,
+      "factor": 4,
+      "sha256": "e7ab13964a3708e76ce87571b5c93cfa77c69816127f81c7e2db4302be063432",
+      "passed": true
+    },
+    {
+      "event": "value",
+      "label": "metal-after-abandoned",
+      "bytes": 2147483648,
+      "factor": 1,
+      "sha256": "4f587bcc2a922528dae3a9915fdc83fd164e478406ce4f322515eb99f3ca4351",
+      "passed": true
+    }
+  ],
+  "native_validated": true,
+  "child_max_rss_bytes": 12921503744,
+  "rss_scope": "Darwin cumulative completed-child maximum for this fresh checker, including both independent Swift and Rust processes. Not a per-Rust peak, Metal allocation counter or repeated-residency guarantee."
+}

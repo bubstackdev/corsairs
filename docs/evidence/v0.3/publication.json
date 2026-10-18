@@ -1,0 +1,18 @@
+{
+  "version": "0.3.0",
+  "published": true,
+  "source_commit": "bdcd7c79d761ee0b42777330cc1809c48defc839",
+  "tag": "v0.3.0",
+  "crate_url": "https://crates.io/crates/corsairs/0.3.0",
+  "github_release_url": null,
+  "registry_published_at": "2026-10-15T22:22:49.036262Z",
+  "registry_published_by": "zak-keown",
+  "registry_archive_sha256": "e7f23287a680009a43aa5a46e8646a66918f5c4c3e2bdb627a18091b21fe3e3a",
+  "archive_bytes": 103073,
+  "registry_checksum_verified": true,
+  "registry_download_identical_to_dist_archive": true,
+  "dist_archive": "dist/corsairs-0.3.0/corsairs-0.3.0.crate",
+  "upload_method": "Performed outside the recorded release session; no upload transcript or HTTP response is retained. Provenance rests on registry metadata and byte-identical download.",
+  "verified_at": "2026-10-18",
+  "consumer": "Fresh crates.io dependency =0.3.0 downloaded with Cargo; native chaining run recorded in registry-consumer.json."
+}

@@ -27,13 +27,19 @@ def read_spec(spec):
     return np.frombuffer(payload, dtype=np.dtype(spec["dtype"]).newbyteorder("<")).reshape(spec["shape"]).copy()
 
 
+# b3 spells these dtypes without NumPy/ml_dtypes' underscore. Observations keep
+# b3's name; metadata comparison accepts exactly these aliases and nothing else.
+NATIVE_DTYPE_ALIASES = {"float8e4m3fn": "float8_e4m3fn", "float8e5m2": "float8_e5m2"}
+
+
 def snapshot(tensor, expected, path, policy):
     array = tensor.numpy()
     payload = array.astype(array.dtype.newbyteorder("<"), copy=False).tobytes(order="C")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(payload)
     wanted = read_spec(expected)
-    metadata_match = list(tensor.shape) == expected["shape"] and tensor.dtype == expected["dtype"]
+    metadata_match = (list(tensor.shape) == expected["shape"]
+                      and NATIVE_DTYPE_ALIASES.get(tensor.dtype, tensor.dtype) == expected["dtype"])
     exact = payload == (FIXTURES / expected["file"]).read_bytes()
     if policy == "ieee-special":
         same_values = np.all((array == wanted) | (np.isnan(array) & np.isnan(wanted)))

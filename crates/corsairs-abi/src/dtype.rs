@@ -22,6 +22,8 @@ pub enum DType {
     BFloat16,
     Float32,
     Float64,
+    Float8E4M3Fn,
+    Float8E5M2,
     Int8,
     Int16,
     Int32,
@@ -35,11 +37,13 @@ pub enum DType {
 
 impl DType {
     /// Every supported scalar type, in declaration order.
-    pub const ALL: [Self; 13] = [
+    pub const ALL: [Self; 15] = [
         Self::Float16,
         Self::BFloat16,
         Self::Float32,
         Self::Float64,
+        Self::Float8E4M3Fn,
+        Self::Float8E5M2,
         Self::Int8,
         Self::Int16,
         Self::Int32,
@@ -53,7 +57,7 @@ impl DType {
     /// Number of bytes in one scalar.
     pub const fn byte_width(self) -> usize {
         match self {
-            Self::Int8 | Self::UInt8 | Self::Bool => 1,
+            Self::Float8E4M3Fn | Self::Float8E5M2 | Self::Int8 | Self::UInt8 | Self::Bool => 1,
             Self::Float16 | Self::BFloat16 | Self::Int16 | Self::UInt16 => 2,
             Self::Float32 | Self::Int32 | Self::UInt32 => 4,
             Self::Float64 | Self::Int64 | Self::UInt64 => 8,
@@ -66,6 +70,8 @@ impl DType {
             Self::BFloat16 => "bfloat16",
             Self::Float32 => "float32",
             Self::Float64 => "float64",
+            Self::Float8E4M3Fn => "float8_e4m3fn",
+            Self::Float8E5M2 => "float8_e5m2",
             Self::Int8 => "int8",
             Self::Int16 => "int16",
             Self::Int32 => "int32",
@@ -268,6 +274,120 @@ impl TensorElement for bool {
         bytes[0] != 0
     }
 }
+
+/// Exact minifloat decoding and round-to-nearest-even encoding shared by the
+/// float8 types. Positive finite encodings `0..=MAX` are strictly increasing;
+/// `MAX + 1` is the overflow encoding (NaN for e4m3fn, infinity for e5m2).
+macro_rules! float8 {
+    ($(#[$doc:meta])* $name:ident, $exponent:expr, $mantissa:expr, $bias:expr, $max:expr, $nan:expr, $inf:expr) => {
+        $(#[$doc])*
+        #[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
+        #[repr(transparent)]
+        pub struct $name(u8);
+
+        impl $name {
+            /// Construct without changing the bit representation.
+            pub const fn from_bits(bits: u8) -> Self {
+                Self(bits)
+            }
+            /// Return the exact 8-bit representation.
+            pub const fn to_bits(self) -> u8 {
+                self.0
+            }
+            /// Whether this encoding is a NaN.
+            pub const fn is_nan(self) -> bool {
+                let magnitude = self.0 & 0x7f;
+                match $inf {
+                    Some(inf) => magnitude > inf,
+                    None => magnitude == $nan,
+                }
+            }
+            /// Convert exactly into binary32, preserving signed zero. NaN
+            /// becomes a quiet binary32 NaN with the same sign.
+            pub fn to_f32(self) -> f32 {
+                let sign = if self.0 & 0x80 != 0 { -1.0f32 } else { 1.0 };
+                let magnitude = self.0 & 0x7f;
+                if self.is_nan() {
+                    return f32::from_bits(((self.0 as u32 & 0x80) << 24) | 0x7fc0_0000);
+                }
+                if $inf == Some(magnitude) {
+                    return sign * f32::INFINITY;
+                }
+                let exponent = (magnitude >> $mantissa) as i32;
+                let fraction = (magnitude & ((1 << $mantissa) - 1)) as u32;
+                // Every float8 value is a small integer times a power of two,
+                // so both products are exact in binary32.
+                let (significand, power) = if exponent == 0 {
+                    (fraction, 1 - $bias - $mantissa)
+                } else {
+                    (fraction | (1 << $mantissa), exponent - $bias - $mantissa)
+                };
+                sign * significand as f32 * f32::from_bits(((power + 127) as u32) << 23)
+            }
+            /// Convert binary32 with round-to-nearest, ties-to-even, matching
+            /// ml_dtypes: values beyond the largest finite value round to
+            /// the overflow encoding, and NaN becomes the canonical NaN with
+            /// the same sign.
+            pub fn from_f32(value: f32) -> Self {
+                let sign = ((value.to_bits() >> 24) & 0x80) as u8;
+                if value.is_nan() {
+                    return Self(sign | $nan);
+                }
+                let target = f64::from(value.abs());
+                let magnitude = |bits: u8| -> f64 {
+                    if bits > $max {
+                        // The virtual next step above the largest finite value.
+                        2.0 * f64::from(Self($max).to_f32()) - f64::from(Self($max - 1).to_f32())
+                    } else {
+                        f64::from(Self(bits).to_f32())
+                    }
+                };
+                // Largest encoding in 0..=MAX + 1 whose value is <= target.
+                let (mut low, mut high) = (0u8, $max + 1);
+                if target >= magnitude(high) {
+                    return Self(sign | ($max + 1));
+                }
+                while high - low > 1 {
+                    let middle = low + (high - low) / 2;
+                    if magnitude(middle) <= target {
+                        low = middle;
+                    } else {
+                        high = middle;
+                    }
+                }
+                let below = target - magnitude(low);
+                let above = magnitude(high) - target;
+                let nearest = if below < above || (below == above && low & 1 == 0) { low } else { high };
+                Self(sign | nearest)
+            }
+        }
+        impl fmt::Debug for $name {
+            fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+                write!(f, "{}({:?}, 0x{:02x})", stringify!($name), self.to_f32(), self.0)
+            }
+        }
+        impl sealed::Sealed for $name {}
+        impl TensorElement for $name {
+            const DTYPE: DType = DType::$name;
+            fn encode(self, bytes: &mut Vec<u8>) {
+                bytes.push(self.0);
+            }
+            fn decode(bytes: &[u8]) -> Self {
+                Self(bytes[0])
+            }
+        }
+    };
+}
+float8!(
+    /// An OCP FP8 E4M3 "fn" scalar: four exponent bits (bias 7), three fraction
+    /// bits, no infinities, and NaN only at `0x7f`/`0xff`. Largest finite: 448.
+    Float8E4M3Fn, 4, 3, 7, 0x7e, 0x7f, None
+);
+float8!(
+    /// An OCP FP8 E5M2 scalar: IEEE-like with five exponent bits (bias 15), two
+    /// fraction bits, infinities at `0x7c`/`0xfc`. Largest finite: 57344.
+    Float8E5M2, 5, 2, 15, 0x7b, 0x7e, Some(0x7c)
+);
 
 /// An owned, contiguous tensor in row-major order. Cloning makes an independent
 /// byte copy. Inputs are copied into native storage when a request executes.
@@ -554,6 +674,55 @@ mod tests {
             );
         }
     }
+    #[test]
+    fn float8_encodings_roundtrip_and_match_ocp_boundaries() {
+        for bits in 0..=u8::MAX {
+            let e4 = Float8E4M3Fn::from_bits(bits);
+            if !e4.is_nan() {
+                assert_eq!(
+                    Float8E4M3Fn::from_f32(e4.to_f32()),
+                    e4,
+                    "E4M3FN 0x{bits:02x}"
+                );
+            }
+            let e5 = Float8E5M2::from_bits(bits);
+            if !e5.is_nan() {
+                assert_eq!(Float8E5M2::from_f32(e5.to_f32()), e5, "E5M2 0x{bits:02x}");
+            }
+        }
+        // E4M3FN: no infinity; the max/overflow midpoint ties to even (max).
+        assert_eq!(Float8E4M3Fn::from_bits(0x7e).to_f32(), 448.0);
+        assert_eq!(Float8E4M3Fn::from_f32(464.0).to_bits(), 0x7e);
+        assert_eq!(Float8E4M3Fn::from_f32(480.0).to_bits(), 0x7f);
+        assert_eq!(Float8E4M3Fn::from_f32(f32::NEG_INFINITY).to_bits(), 0xff);
+        assert_eq!(Float8E4M3Fn::from_bits(0x01).to_f32(), 2f32.powi(-9));
+        assert_eq!(
+            Float8E4M3Fn::from_f32(2f32.powi(-10)).to_bits(),
+            0,
+            "tie to even zero"
+        );
+        // E5M2: IEEE-like; the max/overflow midpoint ties to even (infinity).
+        assert_eq!(Float8E5M2::from_bits(0x7b).to_f32(), 57344.0);
+        assert_eq!(Float8E5M2::from_f32(61440.0).to_bits(), 0x7c);
+        assert_eq!(Float8E5M2::from_bits(0xfc).to_f32(), f32::NEG_INFINITY);
+        assert_eq!(Float8E5M2::from_f32(-f32::NAN).to_bits(), 0xfe);
+        assert!(
+            Float8E5M2::from_bits(0x7d).to_f32().is_nan() && !Float8E5M2::from_bits(0x7c).is_nan()
+        );
+        assert_eq!(Float8E5M2::from_f32(-0.0).to_bits(), 0x80);
+        let tensor = Tensor::from_vec(
+            [2],
+            vec![Float8E5M2::from_bits(0x7d), Float8E5M2::from_bits(0x01)],
+        )
+        .unwrap();
+        assert_eq!(
+            tensor.as_bytes(),
+            [0x7d, 0x01],
+            "storage keeps every encoding"
+        );
+        assert_eq!(tensor.dtype(), DType::Float8E5M2);
+    }
+
     #[test]
     fn byte_aligned_integer_and_float64_elements_roundtrip_extremes() {
         fn roundtrip<T: TensorElement + Copy + PartialEq + fmt::Debug>(values: [T; 3]) {

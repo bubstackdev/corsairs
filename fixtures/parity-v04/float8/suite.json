@@ -1,0 +1,471 @@
+{
+  "schema": 1,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "native_executed": false,
+  "cases": [
+    {
+      "name": "float8_e4m3fn_double",
+      "category": "scalar-types",
+      "model": "float8_e4m3fn_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e4m3fn_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "282d06d385023eb0ef1df3ba1780a41d17f33a01bab67f2401a7da9fb22942ab"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e4m3fn_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "feb80fabe48d99968ca1bc678de35a4315f51bb052a0d7a2b9b161f17df5bfd9"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float8_e4m3fn_scalar",
+      "category": "scalar-types",
+      "model": "float8_e4m3fn_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e4m3fn_scalar/x.bin",
+          "shape": [],
+          "dtype": "float8_e4m3fn",
+          "strides": [],
+          "sha256": "f67ab10ad4e4c53121b6a5fe4da9c10ddee905b978d3788d2723d7bfacbe28a9"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e4m3fn_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "float8_e4m3fn",
+          "strides": [],
+          "sha256": "8ce86a6ae65d3692e7305e2c58ac62eebd97d3d943e093f577da25c36988246b"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float8_e4m3fn_empty",
+      "category": "scalar-types",
+      "model": "float8_e4m3fn_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e4m3fn_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e4m3fn_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float8_e4m3fn_transpose",
+      "category": "scalar-types",
+      "model": "float8_e4m3fn_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e4m3fn_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "ec42233f0d36725b9fc06817c2951803c046ae93c0e1d4ecf150fd8e52d53498"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e4m3fn_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "f773f83a56eef41cc009c02ae356981ff0f8dd1fc5c760484018a1537657b208"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of raw encodings, including NaN, through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "float8_e4m3fn_edges",
+      "category": "scalar-types",
+      "model": "float8_e4m3fn_edges/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e4m3fn_edges/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "6311b4e16f297a04c2004630df75831dafc7d18ac969d3ba5f281f78699668d8"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e4m3fn_edges/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e4m3fn",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "5883257c6c76323d96b1b8b521f24e582a95ad9ce768b8131c378f6519d87827"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Overflow (NaN for E4M3FN, infinity for E5M2) and subnormal doubling under x + x."
+      ],
+      "state": {}
+    },
+    {
+      "name": "float8_e5m2_double",
+      "category": "scalar-types",
+      "model": "float8_e5m2_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e5m2_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2342bc96a081bf3f56f99e1e122f673fd3192cc9c78993079b4df8de376ad582"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e5m2_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "6e1ba9aadf7715b43e9a93a048b1371204d2338f4b159487d5c346b2e6e212f6"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float8_e5m2_scalar",
+      "category": "scalar-types",
+      "model": "float8_e5m2_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e5m2_scalar/x.bin",
+          "shape": [],
+          "dtype": "float8_e5m2",
+          "strides": [],
+          "sha256": "6b23c0d5f35d1b11f9b683f0b0a617355deb11277d91ae091d399c655b87940d"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e5m2_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "float8_e5m2",
+          "strides": [],
+          "sha256": "333e0a1e27815d0ceee55c473fe3dc93d56c63e3bee2b3b4aee8eed6d70191a3"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float8_e5m2_empty",
+      "category": "scalar-types",
+      "model": "float8_e5m2_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e5m2_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e5m2_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float8_e5m2_transpose",
+      "category": "scalar-types",
+      "model": "float8_e5m2_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e5m2_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "ed833c86cd7f0b6d626e265bb044d47f22e9a28449de9f8e296a1210e99efbbd"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e5m2_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "abbb412deed123456c28ba9ae49d8253cc4ea02defee40dfabcbaa730e8e551a"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of raw encodings, including NaN, through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "float8_e5m2_edges",
+      "category": "scalar-types",
+      "model": "float8_e5m2_edges/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float8_e5m2_edges/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "afdfff1f7404c1b3073289d314054df068fcd9dafdb2fd855f14ea56583e7292"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float8_e5m2_edges/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float8_e5m2",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "f3c894fb5eeb35fc8874fc9f17fb37bc1ebfba852b51a0bb7fc95c04f4504f8d"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Overflow (NaN for E4M3FN, infinity for E5M2) and subnormal doubling under x + x."
+      ],
+      "state": {}
+    }
+  ],
+  "negative_cases": [],
+  "sha256": {
+    "float8_e4m3fn_double/expected-y.bin": "feb80fabe48d99968ca1bc678de35a4315f51bb052a0d7a2b9b161f17df5bfd9",
+    "float8_e4m3fn_double/graph.mlir": "8825cce724419452eadbc8133d733ae836ca790808771abf42beffe869c1500e",
+    "float8_e4m3fn_double/model.aimodel/main.hash": "6f3a76d0b4d14175d8430fa9364417dc4c29d34d3a642bd1548214bfc440cdcd",
+    "float8_e4m3fn_double/model.aimodel/main.mlirb": "b72cf78a0d0d66aabaf918e245a4f76b1e2e926d5505b1d24c14aa0a42d24a7b",
+    "float8_e4m3fn_double/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e4m3fn_double/x.bin": "282d06d385023eb0ef1df3ba1780a41d17f33a01bab67f2401a7da9fb22942ab",
+    "float8_e4m3fn_edges/expected-y.bin": "5883257c6c76323d96b1b8b521f24e582a95ad9ce768b8131c378f6519d87827",
+    "float8_e4m3fn_edges/graph.mlir": "8825cce724419452eadbc8133d733ae836ca790808771abf42beffe869c1500e",
+    "float8_e4m3fn_edges/model.aimodel/main.hash": "6f3a76d0b4d14175d8430fa9364417dc4c29d34d3a642bd1548214bfc440cdcd",
+    "float8_e4m3fn_edges/model.aimodel/main.mlirb": "b72cf78a0d0d66aabaf918e245a4f76b1e2e926d5505b1d24c14aa0a42d24a7b",
+    "float8_e4m3fn_edges/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e4m3fn_edges/x.bin": "6311b4e16f297a04c2004630df75831dafc7d18ac969d3ba5f281f78699668d8",
+    "float8_e4m3fn_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "float8_e4m3fn_empty/graph.mlir": "63c77b6c39254785db7ffa3544523dac8057b22708eab0a65d907839b0b22eeb",
+    "float8_e4m3fn_empty/model.aimodel/main.hash": "e3adc7ff6bc0f6da8a658aa4c29f7a7c992c28147fc996df443642259e2a920b",
+    "float8_e4m3fn_empty/model.aimodel/main.mlirb": "627a24473d7c5fca03ed5b6b18d3e3300e82d45dc8a84ee67794517377a16e83",
+    "float8_e4m3fn_empty/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e4m3fn_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "float8_e4m3fn_scalar/expected-y.bin": "8ce86a6ae65d3692e7305e2c58ac62eebd97d3d943e093f577da25c36988246b",
+    "float8_e4m3fn_scalar/graph.mlir": "9a9c60e821ab376de73ca1b17f8a7df9c6f2dde803b161239d90c268c28c8e9a",
+    "float8_e4m3fn_scalar/model.aimodel/main.hash": "be406f5e38db34148a641b5b140cf92ac6a74e1903bda12c0e21d938fdf0e5fe",
+    "float8_e4m3fn_scalar/model.aimodel/main.mlirb": "4c62aefd0b181c306e3d8d57a70a2cd57741e8595ee71e6ad491183e8c291a14",
+    "float8_e4m3fn_scalar/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e4m3fn_scalar/x.bin": "f67ab10ad4e4c53121b6a5fe4da9c10ddee905b978d3788d2723d7bfacbe28a9",
+    "float8_e4m3fn_transpose/expected-y.bin": "f773f83a56eef41cc009c02ae356981ff0f8dd1fc5c760484018a1537657b208",
+    "float8_e4m3fn_transpose/graph.mlir": "f481d29ecc479a3a7936d3439a9d27c3242e2a17e7af6af072d740cc7d135c50",
+    "float8_e4m3fn_transpose/model.aimodel/main.hash": "51de3e10022af95d02e1ba8af6484cf6bfc850e93585becd9191dfbe01cf3cc4",
+    "float8_e4m3fn_transpose/model.aimodel/main.mlirb": "323496f0732632478f193ce4216e91110549ece11377c9ef8525a4de9a183eb8",
+    "float8_e4m3fn_transpose/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e4m3fn_transpose/x.bin": "ec42233f0d36725b9fc06817c2951803c046ae93c0e1d4ecf150fd8e52d53498",
+    "float8_e5m2_double/expected-y.bin": "6e1ba9aadf7715b43e9a93a048b1371204d2338f4b159487d5c346b2e6e212f6",
+    "float8_e5m2_double/graph.mlir": "2d56ab21ee5e77ce949844187d4821685c5926dec8d736a297e624ada266f0dc",
+    "float8_e5m2_double/model.aimodel/main.hash": "28fdfdb8d7fdb50e0d90260d335ba035864f9070d1192de71a087b8ec7df6c75",
+    "float8_e5m2_double/model.aimodel/main.mlirb": "9f21385d8e69695980c5904a4f53d60953bf819a0cc2b57ffd5df2937cd960cf",
+    "float8_e5m2_double/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e5m2_double/x.bin": "2342bc96a081bf3f56f99e1e122f673fd3192cc9c78993079b4df8de376ad582",
+    "float8_e5m2_edges/expected-y.bin": "f3c894fb5eeb35fc8874fc9f17fb37bc1ebfba852b51a0bb7fc95c04f4504f8d",
+    "float8_e5m2_edges/graph.mlir": "2d56ab21ee5e77ce949844187d4821685c5926dec8d736a297e624ada266f0dc",
+    "float8_e5m2_edges/model.aimodel/main.hash": "28fdfdb8d7fdb50e0d90260d335ba035864f9070d1192de71a087b8ec7df6c75",
+    "float8_e5m2_edges/model.aimodel/main.mlirb": "9f21385d8e69695980c5904a4f53d60953bf819a0cc2b57ffd5df2937cd960cf",
+    "float8_e5m2_edges/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e5m2_edges/x.bin": "afdfff1f7404c1b3073289d314054df068fcd9dafdb2fd855f14ea56583e7292",
+    "float8_e5m2_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "float8_e5m2_empty/graph.mlir": "b2c87520a15765fea86aee265e3f0309ea8cbb65f428c3d1ab0745239f766a6c",
+    "float8_e5m2_empty/model.aimodel/main.hash": "62196b3b367439a27255a2d75daa606cb145e91837d6b4fd20951c290e5b5dc0",
+    "float8_e5m2_empty/model.aimodel/main.mlirb": "db62ef034d0eb99e187233872b5f78a12bd4df50729f59f7e2fe1e0924caa22c",
+    "float8_e5m2_empty/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e5m2_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "float8_e5m2_scalar/expected-y.bin": "333e0a1e27815d0ceee55c473fe3dc93d56c63e3bee2b3b4aee8eed6d70191a3",
+    "float8_e5m2_scalar/graph.mlir": "22eee6c5005dfe6517d4557b46f88c25304719b7b3c7081b4f0d554dafd1089a",
+    "float8_e5m2_scalar/model.aimodel/main.hash": "f75ef8e66f71313408659482e3c924eb4b3bbc9c746cc60a70d4c027e02a207c",
+    "float8_e5m2_scalar/model.aimodel/main.mlirb": "96441ede1c8ab982caea3487c6310da1b5b23fdb0ea57888d56d608f03b77f88",
+    "float8_e5m2_scalar/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e5m2_scalar/x.bin": "6b23c0d5f35d1b11f9b683f0b0a617355deb11277d91ae091d399c655b87940d",
+    "float8_e5m2_transpose/expected-y.bin": "abbb412deed123456c28ba9ae49d8253cc4ea02defee40dfabcbaa730e8e551a",
+    "float8_e5m2_transpose/graph.mlir": "5a39e99eb756b08570df6fa6a97dc528352097f03b30d39874979581bf8a7498",
+    "float8_e5m2_transpose/model.aimodel/main.hash": "29d489f6b92d846639689af6389c39771f34a6f928aed63c98e71e018436c5ad",
+    "float8_e5m2_transpose/model.aimodel/main.mlirb": "691a368a730d8bccf1e3f4304ac88b8a6ed1ebcb152fb7275569d007a2801638",
+    "float8_e5m2_transpose/model.aimodel/metadata.json": "7dd8eb55e62435655b5652268a695882dfcc873a6adfbcbd6e02745b9165c091",
+    "float8_e5m2_transpose/x.bin": "ed833c86cd7f0b6d626e265bb044d47f22e9a28449de9f8e296a1210e99efbbd"
+  },
+  "limitations": [
+    "Prepared models and expected bytes do not establish native execution.",
+    "Expected bytes are NumPy arithmetic; backend observations are frozen separately."
+  ]
+}

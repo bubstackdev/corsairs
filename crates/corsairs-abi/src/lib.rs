@@ -36,8 +36,8 @@ mod worker;
 
 pub use api_error::Error;
 pub use dtype::{
-    BFloat16, DType, Float16, MAX_GPU_INFERENCE_TENSOR_BYTES, MAX_TENSOR_BYTES, MAX_TENSOR_RANK,
-    Tensor, TensorElement,
+    BFloat16, DType, Float8E4M3Fn, Float8E5M2, Float16, MAX_GPU_INFERENCE_TENSOR_BYTES,
+    MAX_TENSOR_BYTES, MAX_TENSOR_RANK, Tensor, TensorElement,
 };
 #[cfg(feature = "abi-research")]
 pub use facade::FunctionBatchLoadReport;

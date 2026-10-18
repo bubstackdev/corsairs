@@ -10,9 +10,9 @@ payloads are kept bit for bit. `DType` is now `#[non_exhaustive]`, and
 `DType::ALL` lists every supported type.
 
 Core AI defines 35 scalar types. The packed sub-byte types (`int2`–`int7`,
-`uint1`–`uint7`, `float4e2m1fn`), the 128-bit integers, the complex types and
-the float8 variants are not exposed yet. A probe found that float8 `e4m3fn` and
-`e5m2` run on every backend, but they need conversion wrappers like `Float16`.
+`uint1`–`uint7`, `float4e2m1fn`), `float8e8m0fn`, the 128-bit integers and the
+complex types are not exposed. Float8 E4M3FN and E5M2 were added after v0.4.0;
+see [below](#float8).
 
 ## Reference grid
 
@@ -58,3 +58,38 @@ promoted the rank-0 fixtures to shape `[1]`. b3 then fed a rank-1 tensor to a
 rank-0 function, and Core AI trapped with SIGTRAP inside `CoreAIRuntime` rather
 than throwing. Corsairs validates shapes against the descriptor before dispatch,
 so it cannot reach that path.
+
+## Float8
+
+Added on `main` after v0.4.0: `DType::{Float8E4M3Fn, Float8E5M2}` with the
+`Float8E4M3Fn` and `Float8E5M2` element types. Both preserve every encoding in
+storage and provide an exact `to_f32` and a round-to-nearest-even `from_f32`
+that match ml_dtypes:
+
+| Type | Layout | Largest finite | Overflow | NaN |
+| --- | --- | --- | --- | --- |
+| `Float8E4M3Fn` | 4 exponent bits (bias 7), 3 fraction bits, no infinity | 448 | NaN (`0x7f`/`0xff`) | only `0x7f`/`0xff` |
+| `Float8E5M2` | 5 exponent bits (bias 15), 2 fraction bits, IEEE-like | 57344 | ±infinity (`0x7c`/`0xfc`) | `0x7d`–`0x7f`, `0xfd`–`0xff` |
+
+At the top of the range, ties round to even: 464 narrows to 448 in E4M3FN, and
+61440 narrows to infinity in E5M2. `from_f32` maps every NaN to the canonical NaN
+of its sign (`0x7f` and `0x7e` respectively), as ml_dtypes does.
+
+[`check_float8.py`](../scripts/check_float8.py) compares Rust with pinned
+ml_dtypes 0.6.0 in debug and release, without running Core AI
+([report](evidence/v0.4/float8-conversion.json)). It widens all 256 encodings of
+each type and narrows 1,002,139 unique binary32 inputs: every representable
+value, every rounding midpoint with its binary32 neighbors, overflow boundaries,
+specials and one million seeded random bit patterns (3,729 NaN). It found 0
+mismatches. A sanity comparison of E4M3FN output against E5M2 expectations
+reports 567,920 differences, so the comparison does detect errors.
+
+[`fixtures/parity-v04/float8`](../fixtures/parity-v04/float8/README.md) adds
+`double`, `scalar`, `empty`, `transpose` (raw encodings including NaN and E5M2
+infinity) and `edges` (overflow and subnormal doubling) for each type. All 30
+b3 configurations on CPU-only, GPU-preferred and Neural Engine-preferred options
+match ml_dtypes arithmetic exactly, with no backend difference to review. b3
+reports these dtypes as `float8e4m3fn` and `float8e5m2`; the reference runner
+accepts exactly those two aliases. With these goldens, the Rust grids cover 181
+positive configurations: native handles 181/181 and Metal buffers 362/362 in
+debug and release, plus the full public-API grid and stress.

@@ -1,0 +1,343 @@
+{
+  "allow_dirty": true,
+  "archive": {
+    "bytes": 114318,
+    "path": "/private/tmp/corsairs-0.4.0-rohxu7da/cargo-package/package/corsairs-0.4.0.crate",
+    "sha256": "95b777326edcca445ace71b9b74096b2fc7fb4ff0427303959989128dd60d674"
+  },
+  "bf16_fixture": {
+    "files_sha256": {
+      "double/0-expected-y.bin": "b1ffe4b5b47841773b10c63b24c91d504b06f6576e8535b2a55bf3ee0e0553d4",
+      "double/0-x.bin": "3ff102ef2404f89b6cda793beef876dcb23ebf2f00e0f30bb413bc7a6706777e",
+      "double/graph.mlir": "32dcfafecb7cff70f187f086554af5b013d2c4323b57e7b5ea9a42a015e0f612",
+      "double/model.aimodel/main.hash": "1c93268f57a298cdc3ce93c59b7463d6d87714f284e9c03099a852320dc16f0f",
+      "double/model.aimodel/main.mlirb": "567f6dd7c91e07653b3fd4ccef47fd4a592ccadf36ebea790d1f1f3f558bafe6",
+      "double/model.aimodel/metadata.json": "672f74002b0d06f4ef9a5d40e48476d7da85e6101ebb80e4a8be9d2e2f54c056",
+      "manifest.json": "89f625fd9760fcbbcfbf214e96ff3eeedf84e45cbe8b4f4459829987db1fa0ca"
+    },
+    "included_in_archive": false,
+    "path": "/private/tmp/corsairs-0.4.0-rohxu7da/bfloat16-fixture",
+    "source": "/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v02/bfloat16"
+  },
+  "binaries_sha256": {
+    "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target/release/bfloat16_smoke": "438857bd741ba79f526fa52d96491d89ee9e626514b1e6f90ae7e7e2498e1ace",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target/release/examples/feedforward": "e25114c5a9ddec7f3da3e3baebccd701fdb7552f7030f2faf3cb1a1e8adebbe3",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target/release/examples/metal_chain": "8166e5fa2be72451e3c53a13108feb95724ef050cae465f7a5e09cdae00f1498",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target/release/examples/native_chain": "e66ca933b756cc4a3555de3e311d1dcba0bb53738ed03fce7ce008b914d6b245",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target/release/examples/stateful": "4d130151ffae13625687607e902f4a2bb9c9a6400a1278eff018d7919b82d8d0",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/package-target/release/corsairs": "da68939820f66371e13188a0ca7040b45c0299077d13a6b8f7a1f40554880c2d",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/package-target/release/examples/feedforward": "e5f4639a70766cdf706d51caa65b3842be006436083a77e7922e5b841f7602a0",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/package-target/release/examples/metal_chain": "3ef8fc9cd55d29f1db8ea24d32ed303ffadcbd7b394f54e4df6ad30cd92f98e7",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/package-target/release/examples/native_chain": "2a8225cde7423fd75b37b74e7dea899026bdf31d561c613b7a4c0f9099983832",
+    "/private/tmp/corsairs-0.4.0-rohxu7da/package-target/release/examples/stateful": "24461677e3c973a3e24c8cc469258f0a883a493b9247a5979bce6f743a13bc5d"
+  },
+  "checker_sha256": "491d50c01cf30738aae3f1eeed1dc86ecbc7e4be546f30e7bb3cec457b834700",
+  "consumer": {
+    "default_features_only": true,
+    "examples_forbid_unsafe": true,
+    "files_sha256": {
+      "Cargo.lock": "5ba998287d84298c4e7b43ba4c4602188f942a0b843a246218b775608a53485f",
+      "Cargo.toml": "5923debe9f69bdf03d7abe54d515a22289f5a93b4a0ef7f8cadebc3725a60b08",
+      "examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+      "examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+      "examples/native_chain.rs": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+      "examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+      "models/accumulator.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+      "models/accumulator.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+      "models/accumulator.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+      "models/accumulator.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+      "models/feedforward.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+      "models/feedforward.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+      "models/feedforward.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+      "models/feedforward.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+      "models/manifest.json": "fccd4ff0aee73cc62a522a508eb997b35386a45fba93fe20ec8cbb0f5b1018a2",
+      "src/bin/bfloat16_smoke.rs": "983cbb96da315b3981f472b20953abdfdf48b93bd0c717f307c703ba17e94eda"
+    },
+    "path": "/private/tmp/corsairs-0.4.0-rohxu7da/consumer"
+  },
+  "consumer_target": "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target",
+  "core_evidence_sha256": {
+    "/Users/zakkeown/Code/bubstackdev/corsairs/target/v02-check/build-manifest.json": "e39b85904e1b368b460cf83a21862da79d058bedfdb8151c0b4f95f669aab55e",
+    "/Users/zakkeown/Code/bubstackdev/corsairs/target/v02-check/checks.json": "bf1e0019e13411ed42a3b5683b74829be8989e0599b10b6dba0ebbbf5be2d311"
+  },
+  "normalized_manifest": {
+    "bin": [
+      {
+        "name": "corsairs",
+        "path": "src/bin/corsairs.rs"
+      }
+    ],
+    "example": [
+      {
+        "name": "feedforward",
+        "path": "examples/feedforward.rs"
+      },
+      {
+        "name": "metal_chain",
+        "path": "examples/metal_chain.rs"
+      },
+      {
+        "name": "native_chain",
+        "path": "examples/native_chain.rs"
+      },
+      {
+        "name": "stateful",
+        "path": "examples/stateful.rs"
+      }
+    ],
+    "features": {
+      "abi-research": [],
+      "default": []
+    },
+    "lib": {
+      "name": "corsairs",
+      "path": "src/lib.rs"
+    },
+    "lints": {
+      "clippy": {
+        "undocumented_unsafe_blocks": "deny"
+      },
+      "rust": {
+        "unsafe_op_in_unsafe_fn": "deny"
+      }
+    },
+    "package": {
+      "autobenches": false,
+      "autobins": false,
+      "autoexamples": false,
+      "autolib": false,
+      "autotests": false,
+      "build": false,
+      "categories": [
+        "science"
+      ],
+      "description": "Safe Rust inference with Apple Core AI on Apple Silicon",
+      "edition": "2024",
+      "keywords": [
+        "coreai",
+        "inference",
+        "apple",
+        "machine-learning"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "metadata": {
+        "docs": {
+          "rs": {
+            "default-target": "aarch64-apple-darwin",
+            "targets": []
+          }
+        }
+      },
+      "name": "corsairs",
+      "publish": true,
+      "readme": "README.md",
+      "repository": "https://github.com/bubstackdev/corsairs",
+      "rust-version": "1.99",
+      "version": "0.4.0"
+    },
+    "test": [
+      {
+        "name": "native_metadata",
+        "path": "tests/native_metadata.rs",
+        "required-features": [
+          "abi-research"
+        ]
+      }
+    ]
+  },
+  "package": "corsairs",
+  "package_path": "/private/tmp/corsairs-0.4.0-rohxu7da/extracted/corsairs-0.4.0",
+  "package_target": "/private/tmp/corsairs-0.4.0-rohxu7da/package-target",
+  "packaged_files_sha256": {
+    ".cargo_vcs_info.json": "d9adf1c1e926ce769f444ad99f2b67100631dab638f45e894d424ed6c1a26923",
+    "Cargo.lock": "f9e39af9cf95d0428ec7e0144a099393d3b9b6d9c058077a8ef42ab5f23a60de",
+    "Cargo.toml": "10e1aa22428b7bdcac64bdb28ebcab3d04d79bae96276eb86d6ad3f153079d22",
+    "Cargo.toml.orig": "eb88a9d0bc86cee231b08e481ccad1f70bf660148b6efcd7649db17e8b2e12e8",
+    "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+    "LICENSE-MIT": "f37d4d2a5d37de7e96a8322147d86af08df29d87d01bdf3034396979b2a39154",
+    "README.md": "72b57ce6c5a88bcf403692d12de949ed93b4bb0fb0eefe75b28e13cd95fd1eaf",
+    "examples/feedforward.rs": "d771e1020a35ab4eff55ef91c961adec5e9b5fc18ccc7a032a7d307e22eed12e",
+    "examples/metal_chain.rs": "a7c2819e0046f3b0cce0d03045a60bd522954f2281f9dd52e3a2ffd7482d1e5b",
+    "examples/native_chain.rs": "6626d759130031245b5e20f61b8c87948cbf28f68f9788b3cd61e1ec679d4ea3",
+    "examples/stateful.rs": "1371b759aee687c7ca2e01930d133da8d48db278a80e0121a5cb5df937ce95ef",
+    "models/accumulator.aimodel/main.hash": "925cb4f612974eeccd008cd7cdaa9a16641f39736ecfd8749de6dd653f918ee0",
+    "models/accumulator.aimodel/main.mlirb": "1837bdb7d2d8e35fdf98def695157502765e73290e12c849469df8d0e46bbe86",
+    "models/accumulator.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "models/accumulator.mlir": "6880cb249151dd0e999500035369b2fef96a2061b24cda522cd317ebf5318449",
+    "models/feedforward.aimodel/main.hash": "ad615c688feefc23f032de040a38fc1bf115449cb80f8ebb4ee10866804b16a8",
+    "models/feedforward.aimodel/main.mlirb": "920f670862f6a40e3875fd81a251d7b9eb24b6e373eda83fb693c9dfc6261b79",
+    "models/feedforward.aimodel/metadata.json": "11f647e7d2080e5a1cb206c87a1a179df1a728ba47585d6b79fb414a1bce1265",
+    "models/feedforward.mlir": "f5288504292eaf36cdd71f4fcf1ef46609969caf707f690d3513e8496fb48147",
+    "models/manifest.json": "fccd4ff0aee73cc62a522a508eb997b35386a45fba93fe20ec8cbb0f5b1018a2",
+    "src/api_error.rs": "138839f35b11d4b4b8e32244ce3a246ac264c31d2e26df9de4b522f895c5b217",
+    "src/bin/corsairs.rs": "47f790a09122cc8cdb7d35d6c79578d4b2319bd111d0e0d017d20bf1ff278f19",
+    "src/dtype.rs": "ed1cb18c9974ce608a697df0ae84bf3d601d64eb36353e49330d6f33b11056ac",
+    "src/facade.rs": "7d4d5710314bace576d0425640b6c9e25d562ea474acb79684a6e57868aee39d",
+    "src/facade/asset.rs": "d4f18c0f72fd14d6c36df11dc9b05e3c7f4439fe878017379899dcc906d16bee",
+    "src/facade/batch.rs": "74c4c31756d28455385cdd53ab23bfb016cc8fef0c6e8c481314f5c0de277de3",
+    "src/facade/function_batch.rs": "aab765d6b6309a2087c9a1c49ec16910b5c65532162fb81d68c1a0740589887c",
+    "src/facade/handles.rs": "c0ea5102051c03a634a08e425e436bb4904e67122379836e50380efb3096d67d",
+    "src/facade/metal.rs": "fc0d4e2957599b2cf7cd1f04de3fce10f321cf6ae124ab928353947d75b163fd",
+    "src/lib.rs": "e8c0bdc963ffef31d2869221b74a7162443be10d3bca47832e32e6d35c972b63",
+    "src/native/arm64.rs": "f7a2986026fbcb174f9ba26619c79132f773952694f87c21873fc65e10ebdc91",
+    "src/native/async_task.rs": "61c2608d1c9b3e9c8d1f6e772a34b5f2e61c4b1fc0f7adf27d2d103b4adf8f5d",
+    "src/native/async_task/pending.rs": "889620611a395494e42d70854d7840c6b28cd5a62bcb8828f84c04817c5e725c",
+    "src/native/async_task/sync_call.rs": "0ee99582ea4076704770a5e4e00c88cea8e68018c8865d91be8f36cf150273a2",
+    "src/native/buffer.rs": "f437d8e6fa34ec83eb883e4869c9b91d06134cfc72a4f233615c55e482988fd4",
+    "src/native/errors.rs": "1937507cd83c1b3b8633745e19856f7e62b7a8981c7a2cca5c01a2f8b5d22717",
+    "src/native/inference.rs": "8cacfef4f47dd68a197bbaa0ced92ac81a2c2976030570ca883807fb6884e907",
+    "src/native/loader.rs": "5ab928127646ee2ef9aea3f698ad3fc0da8df344a74506d3752f44296f6df3da",
+    "src/native/metadata.rs": "bd3309dd50a04c3d05f156867a2f1c2fa6ddec45c85f673420a598cdcf207ab6",
+    "src/native/mod.rs": "e7d7c578b1c9a4061b149656c52d62c3433995070d18e35854b50963ed60e897",
+    "src/native/model.rs": "1f84ddef2aeb2e8c466f9e135cbe8ecbaa6c6d57cec7b61beecad7069cce0eec",
+    "src/native/owned.rs": "5113afc4edd66a0a642057cf2c8fb12ce85e52220de5b4a5a8ea31d5fc822673",
+    "src/native/owned/asset.rs": "ecada7910e2eb6f0f55cd2c41de9d03b69844d094c445210f2bc886e1c5b7b4c",
+    "src/native/owned/batch.rs": "84f52c2b1be1b408add4c2873b4e8218b2cc8c25b28ce31b1c20e0a3cdb48317",
+    "src/native/owned/function_batch.rs": "d37270e8bee9849f529479b38363118fcad9ffe31f1a25584dfecac010d4ffee",
+    "src/native/owned/handles.rs": "d0af98f936cc228bdc632ef858125884bceaa0323bfeb3a62f6f02fc97f20426",
+    "src/native/owned/metal.rs": "02467b5a77df61fa43801177a18178a88eca8d12653fa0897a2f935522c6769d",
+    "src/native/owned/run_stream.rs": "c5867088ad087b1811e915d556b946f26c9fcb0897cf9ec8f35b6e8ad81c22bd",
+    "src/native/task.rs": "726dbcfdb29a708bfbc2f7083edb72be22190d04e6b5f9fa9b6f9dc187c6aa0e",
+    "src/native/task_create.rs": "d7330ef7788a5b157cd1312a6cac12cbb1bab1ee263719a751b5635c6dcf3d89",
+    "src/native/tensor.rs": "64d1abb894febc833d122ac286c4395c6a1adbf033d94011af5af01d5940ff4b",
+    "src/native/text.rs": "b6e74135977ae7cd3c4bf95ee45816c03d4c9312709e202c2733737d0a687118",
+    "src/native/value.rs": "c6a8bff79bcbe2a20684434cd8934678ad24eba85eca3b57bd3ef7aa5062a7fd",
+    "src/worker.rs": "3705c998ec369013a49d7142ffb7c8c8689b264a52fe518e248e503887485c99",
+    "tests/native_metadata.rs": "7615e3cad926c8dab361f6438ecbea1a2b8f26d7960837cd349e67ced97adb4d"
+  },
+  "preparation_commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n"
+    },
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--list",
+        "--allow-dirty"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/private/tmp/corsairs-0.4.0-rohxu7da/cargo-package"
+      },
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": ".cargo_vcs_info.json\nCargo.lock\nCargo.toml\nCargo.toml.orig\nLICENSE-APACHE\nLICENSE-MIT\nREADME.md\nexamples/feedforward.rs\nexamples/metal_chain.rs\nexamples/native_chain.rs\nexamples/stateful.rs\nmodels/accumulator.aimodel/main.hash\nmodels/accumulator.aimodel/main.mlirb\nmodels/accumulator.aimodel/metadata.json\nmodels/accumulator.mlir\nmodels/feedforward.aimodel/main.hash\nmodels/feedforward.aimodel/main.mlirb\nmodels/feedforward.aimodel/metadata.json\nmodels/feedforward.mlir\nmodels/manifest.json\nsrc/api_error.rs\nsrc/bin/corsairs.rs\nsrc/dtype.rs\nsrc/facade/asset.rs\nsrc/facade/batch.rs\nsrc/facade/function_batch.rs\nsrc/facade/handles.rs\nsrc/facade/metal.rs\nsrc/facade.rs\nsrc/lib.rs\nsrc/native/arm64.rs\nsrc/native/async_task/pending.rs\nsrc/native/async_task/sync_call.rs\nsrc/native/async_task.rs\nsrc/native/buffer.rs\nsrc/native/errors.rs\nsrc/native/inference.rs\nsrc/native/loader.rs\nsrc/native/metadata.rs\nsrc/native/mod.rs\nsrc/native/model.rs\nsrc/native/owned/asset.rs\nsrc/native/owned/batch.rs\nsrc/native/owned/function_batch.rs\nsrc/native/owned/handles.rs\nsrc/native/owned/metal.rs\nsrc/native/owned/run_stream.rs\nsrc/native/owned.rs\nsrc/native/task.rs\nsrc/native/task_create.rs\nsrc/native/tensor.rs\nsrc/native/text.rs\nsrc/native/value.rs\nsrc/worker.rs\ntests/native_metadata.rs\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "package",
+        "--offline",
+        "--locked",
+        "-p",
+        "corsairs",
+        "--allow-dirty"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/private/tmp/corsairs-0.4.0-rohxu7da/cargo-package"
+      },
+      "exit_status": 0,
+      "stderr": "   Packaging corsairs v0.4.0 (/Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi)\n    Packaged 55 files, 491.4KiB (111.6KiB compressed)\n   Verifying corsairs v0.4.0 (/Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi)\n   Compiling corsairs v0.4.0 (/private/tmp/corsairs-0.4.0-rohxu7da/cargo-package/package/corsairs-0.4.0)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.39s\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "generate-lockfile",
+        "--offline",
+        "--manifest-path",
+        "/private/tmp/corsairs-0.4.0-rohxu7da/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "     Locking 1 package to highest Rust 1.99.0 compatible version\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "tree",
+        "--offline",
+        "--locked",
+        "--edges",
+        "features",
+        "--manifest-path",
+        "/private/tmp/corsairs-0.4.0-rohxu7da/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {},
+      "exit_status": 0,
+      "stderr": "",
+      "stdout": "corsairs-release-consumer v0.0.0 (/private/tmp/corsairs-0.4.0-rohxu7da/consumer)\n\u2514\u2500\u2500 corsairs feature \"default\"\n    \u2514\u2500\u2500 corsairs v0.4.0 (/private/tmp/corsairs-0.4.0-rohxu7da/extracted/corsairs-0.4.0)\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--bins",
+        "--manifest-path",
+        "/private/tmp/corsairs-0.4.0-rohxu7da/consumer/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/private/tmp/corsairs-0.4.0-rohxu7da/consumer-target"
+      },
+      "exit_status": 0,
+      "stderr": "   Compiling corsairs v0.4.0 (/private/tmp/corsairs-0.4.0-rohxu7da/extracted/corsairs-0.4.0)\n   Compiling corsairs-release-consumer v0.0.0 (/private/tmp/corsairs-0.4.0-rohxu7da/consumer)\n    Finished `release` profile [optimized] target(s) in 1.98s\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "--release",
+        "--examples",
+        "--bin",
+        "corsairs",
+        "--manifest-path",
+        "/private/tmp/corsairs-0.4.0-rohxu7da/extracted/corsairs-0.4.0/Cargo.toml"
+      ],
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/private/tmp/corsairs-0.4.0-rohxu7da/package-target"
+      },
+      "exit_status": 0,
+      "stderr": "   Compiling corsairs v0.4.0 (/private/tmp/corsairs-0.4.0-rohxu7da/extracted/corsairs-0.4.0)\n    Finished `release` profile [optimized] target(s) in 2.04s\n",
+      "stdout": ""
+    }
+  ],
+  "schema": 1,
+  "session": "/private/tmp/corsairs-0.4.0-rohxu7da",
+  "tested_source_identity_sha256": "9f0c2a91f91201d1996352d059ee6fa0ef672c3d52744db4082970b49d782117",
+  "vcs_metadata": {
+    "git": {
+      "dirty": true,
+      "sha1": "1c8ce99f7dfe1d9eb2a3e9eda920419115453c4e"
+    },
+    "path_in_vcs": "crates/corsairs-abi"
+  },
+  "version": "0.4.0"
+}

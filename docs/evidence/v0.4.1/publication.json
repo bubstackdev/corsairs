@@ -1,0 +1,22 @@
+{
+  "version": "0.4.1",
+  "published": true,
+  "source_commit": "3bc4ac785c2fa6c41c956a493ee6e00030cd822f",
+  "tag": "v0.4.1",
+  "crate_url": "https://crates.io/crates/corsairs/0.4.1",
+  "github_release_url": "https://github.com/bubstackdev/corsairs/releases/tag/v0.4.1",
+  "registry_published_at": "2026-10-18T22:50:21.097985Z",
+  "registry_published_by": "zak-keown",
+  "registry_archive_sha256": "48bc35787f67c01e953e77312608b0f1e756d7575a5ded9386a94448c722011d",
+  "archive_bytes": 116647,
+  "registry_checksum_verified": true,
+  "registry_download_identical_to_dist_archive": true,
+  "dist_archive": "dist/corsairs-0.4.1/corsairs-0.4.1.crate",
+  "pre_commit_candidate_sha256": "3b262b09d9879094833072caf151b7c27b0d2aa3c41b62325eedcb16bd14d78d",
+  "changed_archive_members": [
+    ".cargo_vcs_info.json"
+  ],
+  "package_verification": "check_package_v03.py --native passed for the clean merge commit before upload",
+  "upload_method": "cargo publish --locked -p corsairs, run by the owner from the clean main checkout; Cargo packaged 55 files, verified the build and reported successful publication.",
+  "consumer": "Fresh crates.io dependency =0.4.1 downloaded with Cargo; native run recorded in registry-consumer.json."
+}

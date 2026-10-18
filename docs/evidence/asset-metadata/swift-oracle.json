@@ -1,0 +1,2532 @@
+{
+  "assets": [
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "crates/corsairs-abi/models/accumulator.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": [
+              {
+                "name": "accumulator",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ]
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": [
+              {
+                "name": "accumulator",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "read_handle"
+          },
+          {
+            "count": 1,
+            "name": "add"
+          },
+          {
+            "count": 1,
+            "name": "create_token"
+          },
+          {
+            "count": 1,
+            "name": "write_handle"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "crates/corsairs-abi/models/feedforward.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "Int32",
+          "UInt32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 10,
+            "name": "constant"
+          },
+          {
+            "count": 2,
+            "name": "batch_matmul"
+          },
+          {
+            "count": 2,
+            "name": "broadcast_in_dims"
+          },
+          {
+            "count": 2,
+            "name": "reshape"
+          },
+          {
+            "count": 1,
+            "name": "add"
+          },
+          {
+            "count": 1,
+            "name": "broadcasting_add"
+          },
+          {
+            "count": 1,
+            "name": "broadcasting_maximum"
+          },
+          {
+            "count": 1,
+            "name": "maximum"
+          },
+          {
+            "count": 1,
+            "name": "relu"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 24,
+            "type_name": "Float32"
+          },
+          {
+            "count": 7,
+            "type_name": "Int32"
+          },
+          {
+            "count": 3,
+            "type_name": "UInt32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792076269,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/accumulator/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": [
+              {
+                "name": "accumulator",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ]
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": [
+              {
+                "name": "accumulator",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "read_handle"
+          },
+          {
+            "count": 1,
+            "name": "add"
+          },
+          {
+            "count": 1,
+            "name": "create_token"
+          },
+          {
+            "count": 1,
+            "name": "write_handle"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/double_float16/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float16, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float16, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/double_float32/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/double_int32/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Int32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Int32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Int32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Int32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Int32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/double_int64/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Int64"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/empty/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/feedforward/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "Int32",
+          "UInt32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 10,
+            "name": "constant"
+          },
+          {
+            "count": 2,
+            "name": "batch_matmul"
+          },
+          {
+            "count": 2,
+            "name": "broadcast_in_dims"
+          },
+          {
+            "count": 2,
+            "name": "reshape"
+          },
+          {
+            "count": 1,
+            "name": "add"
+          },
+          {
+            "count": 1,
+            "name": "broadcasting_add"
+          },
+          {
+            "count": 1,
+            "name": "broadcasting_maximum"
+          },
+          {
+            "count": 1,
+            "name": "maximum"
+          },
+          {
+            "count": 1,
+            "name": "relu"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 24,
+            "type_name": "Float32"
+          },
+          {
+            "count": 7,
+            "type_name": "Int32"
+          },
+          {
+            "count": 3,
+            "type_name": "UInt32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/float_edges/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/gather/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "Int32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "constant"
+          },
+          {
+            "count": 1,
+            "name": "gather_along_axis"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 5,
+            "type_name": "Int32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/int64_edges/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Int64"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Int64, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/matmul/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "batch_matmul"
+          },
+          {
+            "count": 1,
+            "name": "constant"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 6,
+            "type_name": "Float32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/named_add/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              },
+              {
+                "name": "addend",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              },
+              {
+                "name": "addend",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/not_bool/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Bool, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Bool, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Bool"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Bool, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Bool, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "not"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/reduce_sum/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 1)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "Int32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 2 \u00d7 1)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "constant"
+          },
+          {
+            "count": 1,
+            "name": "add"
+          },
+          {
+            "count": 1,
+            "name": "reduce"
+          },
+          {
+            "count": 1,
+            "name": "reduce_sum"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 1,
+            "type_name": "Float32"
+          },
+          {
+            "count": 1,
+            "type_name": "Int32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/reshape/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 3 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "UInt32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 3 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "constant"
+          },
+          {
+            "count": 1,
+            "name": "reshape"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 2,
+            "type_name": "UInt32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792078333,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v01/scalar/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792087421,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/bfloat16/accumulator/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "states": [
+              {
+                "name": "accumulator",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ]
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "states": [
+              {
+                "name": "accumulator",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "read_handle"
+          },
+          {
+            "count": 1,
+            "name": "add"
+          },
+          {
+            "count": 1,
+            "name": "create_token"
+          },
+          {
+            "count": 1,
+            "name": "write_handle"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792087421,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/bfloat16/double/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792087421,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/bfloat16/dynamic/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, ? \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, ? \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, ? \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, ? \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792087421,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/bfloat16/empty/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 0 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 0 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 0 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 0 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792087421,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/bfloat16/scalar/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792087421,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/bfloat16/transpose/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 3 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16",
+          "UInt32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 2 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 3 \u00d7 2)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "constant"
+          },
+          {
+            "count": 1,
+            "name": "transpose"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 2,
+            "type_name": "UInt32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792082629,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v02/dynamic-double/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, ? \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, ? \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, ? \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, ? \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792100133,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/gpu-rejections/empty-at-gpu-limit/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870912)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870912)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870912)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870912)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792100133,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 1)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870913)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "Int32",
+          "UInt32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 1)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870913)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "constant"
+          },
+          {
+            "count": 1,
+            "name": "broadcast_in_dims"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 1,
+            "type_name": "Int32"
+          },
+          {
+            "count": 1,
+            "type_name": "UInt32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792100133,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/gpu-rejections/empty-over-gpu-limit/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870913)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870913)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870913)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 0 \u00d7 536870913)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792100133,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/gpu-rejections/nonempty-output-over-gpu-limit/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 1)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 536870913)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32",
+          "Int32",
+          "UInt32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 1)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 536870913)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 2,
+            "name": "constant"
+          },
+          {
+            "count": 1,
+            "name": "broadcast_in_dims"
+          }
+        ],
+        "storage_types": [
+          {
+            "count": 1,
+            "type_name": "Int32"
+          },
+          {
+            "count": 1,
+            "type_name": "UInt32"
+          }
+        ]
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792099620,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/large-tensors/gpu-limit-f32/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 536870912)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 536870912)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 536870912)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 536870912)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792093034,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/large-tensors/h3-hidden/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 1 \u00d7 102816 \u00d7 5376)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 1 \u00d7 102816 \u00d7 5376)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "BFloat16"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (BFloat16, 1 \u00d7 102816 \u00d7 5376)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (BFloat16, 1 \u00d7 102816 \u00d7 5376)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792093034,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/large-tensors/h3-rgb124/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 124 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 124 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 124 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 124 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792099620,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/large-tensors/h3-rgb173/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 173 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 173 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 173 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 173 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792093034,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 345 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 345 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 345 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 345 \u00d7 1344 \u00d7 768 \u00d7 3)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    },
+    {
+      "is_valid": true,
+      "metadata": {
+        "author": "",
+        "creation_unix_seconds": 1792093034,
+        "description": "",
+        "license": ""
+      },
+      "path": "fixtures/parity-v03/large-tensors/limit-f32/model.aimodel",
+      "summary_false": {
+        "compute_types": [],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 1073741824)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 1073741824)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [],
+        "storage_types": []
+      },
+      "summary_true": {
+        "compute_types": [
+          "Float32"
+        ],
+        "functions": [
+          {
+            "inputs": [
+              {
+                "name": "x",
+                "type_name": "NDArray (Float32, 1073741824)"
+              }
+            ],
+            "name": "main",
+            "outputs": [
+              {
+                "name": "y",
+                "type_name": "NDArray (Float32, 1073741824)"
+              }
+            ],
+            "states": []
+          }
+        ],
+        "operations": [
+          {
+            "count": 1,
+            "name": "add"
+          }
+        ],
+        "storage_types": []
+      }
+    }
+  ],
+  "device_architecture": "h17c"
+}

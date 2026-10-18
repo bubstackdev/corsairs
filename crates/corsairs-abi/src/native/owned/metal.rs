@@ -45,9 +45,9 @@ impl Drop for NativeMetalObject {
     }
 }
 
-struct Pool(*mut c_void);
+pub(super) struct Pool(*mut c_void);
 impl Pool {
-    unsafe fn new() -> Self {
+    pub(super) unsafe fn new() -> Self {
         // SAFETY: Each operation owns its thread-local autorelease pool.
         Self(unsafe { objc_autoreleasePoolPush() })
     }

@@ -68,6 +68,25 @@ pub(crate) unsafe fn call_sync_pair(
     (first, second)
 }
 
+/// A nonthrowing getter whose only argument is self in x20 and whose Double
+/// result is returned in d0 (AssetReference.swift: Date.timeIntervalSince1970).
+pub(crate) unsafe fn call_f64(function: *mut c_void, context: usize) -> f64 {
+    let result: f64;
+    // SAFETY: Caller establishes the swiftcc (ptr swiftself) -> double contract.
+    unsafe {
+        asm!(
+            "blr x16",
+            in("x16") function,
+            inlateout("x20") context => _,
+            lateout("d0") result,
+            lateout("x21") _,
+            lateout("x22") _,
+            clobber_abi("C"),
+        );
+    }
+    result
+}
+
 /// A synchronous throw returns an owned error object in x21, not an out-pointer.
 pub(crate) unsafe fn call_throwing(
     function: *mut c_void,

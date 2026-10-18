@@ -1,6 +1,7 @@
 #![forbid(unsafe_code)]
 use corsairs::{
-    Compute, DType, FunctionDescriptor, LoadOptions, RunResult, Runtime, Tensor, TensorMap,
+    AssetInfo, AssetValue, Compute, DType, FunctionDescriptor, LoadOptions, RunResult, Runtime,
+    Tensor, TensorMap,
 };
 use std::{
     error::Error,
@@ -130,10 +131,14 @@ fn execute() -> Result<(), Box<dyn Error>> {
             let function = model.load_function(name).wait()?;
             descriptors.push(descriptor_json(function.descriptor()));
         }
+        let asset = runtime.inspect_asset(&args[1], true).wait()?;
+        let architecture = runtime.device_architecture().wait()?;
         println!(
-            "{{\"model\":{},\"compute\":{},\"expect_frequent_reshapes\":{reshape_override},\"functions\":[{}]}}",
+            "{{\"model\":{},\"compute\":{},\"expect_frequent_reshapes\":{reshape_override},\"device_architecture\":{},\"asset\":{},\"functions\":[{}]}}",
             quoted(&args[1]),
             quoted(compute_name(compute)),
+            quoted(&architecture),
+            asset_json(&asset),
             descriptors.join(",")
         );
         return Ok(());
@@ -287,6 +292,66 @@ fn result_json(value: &RunResult, directory: Option<&Path>) -> Result<String, Bo
         groups.push(format!("{}:[{}]", quoted(group), rows.join(",")));
     }
     Ok(groups.join(","))
+}
+fn asset_json(asset: &AssetInfo) -> String {
+    let created = asset
+        .metadata
+        .created
+        .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+        .map_or("null".into(), |since| since.as_secs_f64().to_string());
+    let values = |values: &[AssetValue]| {
+        let rows: Vec<_> = values
+            .iter()
+            .map(|v| {
+                format!(
+                    "{{\"name\":{},\"type_name\":{}}}",
+                    quoted(&v.name),
+                    quoted(&v.type_name)
+                )
+            })
+            .collect();
+        format!("[{}]", rows.join(","))
+    };
+    let summary = asset.summary.as_ref().map_or("null".into(), |summary| {
+        let functions: Vec<_> = summary
+            .functions
+            .iter()
+            .map(|f| {
+                format!(
+                    "{{\"name\":{},\"inputs\":{},\"states\":{},\"outputs\":{}}}",
+                    quoted(&f.name),
+                    values(&f.inputs),
+                    values(&f.states),
+                    values(&f.outputs)
+                )
+            })
+            .collect();
+        let counts = |rows: &[corsairs::AssetCount]| {
+            let rows: Vec<_> = rows
+                .iter()
+                .map(|row| format!("{{\"name\":{},\"count\":{}}}", quoted(&row.name), row.count))
+                .collect();
+            format!("[{}]", rows.join(","))
+        };
+        let compute: Vec<_> = summary
+            .compute_types
+            .iter()
+            .map(|name| quoted(name))
+            .collect();
+        format!(
+            "{{\"functions\":[{}],\"storage_types\":{},\"compute_types\":[{}],\"operations\":{}}}",
+            functions.join(","),
+            counts(&summary.storage_types),
+            compute.join(","),
+            counts(&summary.operations)
+        )
+    });
+    format!(
+        "{{\"author\":{},\"license\":{},\"description\":{},\"created_unix_seconds\":{created},\"summary\":{summary}}}",
+        quoted(&asset.metadata.author),
+        quoted(&asset.metadata.license),
+        quoted(&asset.metadata.description)
+    )
 }
 fn quoted(value: &str) -> String {
     use std::fmt::Write;

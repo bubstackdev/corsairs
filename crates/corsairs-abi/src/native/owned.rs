@@ -17,6 +17,8 @@ use std::path::Path;
 use std::ptr::{self, NonNull};
 use std::rc::Rc;
 
+mod asset;
+pub use asset::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue};
 mod function_batch;
 pub use function_batch::NativeFunctionBatchOutcome;
 mod batch;
@@ -125,6 +127,7 @@ pub enum NativeFailure {
         operation: &'static str,
         type_name: String,
     },
+    InvalidAsset(String),
 }
 impl fmt::Display for NativeFailure {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -134,6 +137,7 @@ impl fmt::Display for NativeFailure {
             Self::FunctionNotFound(name) => write!(f, "model has no function {name:?}"),
             Self::InvalidHandle { kind, id } => write!(f, "unknown {kind} handle {id}"),
             Self::Unsupported(s) => write!(f, "unsupported: {s}"),
+            Self::InvalidAsset(path) => write!(f, "not a valid Core AI model asset: {path}"),
             Self::Native {
                 operation,
                 type_name,

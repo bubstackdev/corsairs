@@ -11,6 +11,8 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
+mod asset;
+pub use asset::{AssetCount, AssetFunction, AssetInfo, AssetMetadata, AssetSummary, AssetValue};
 mod function_batch;
 #[cfg(feature = "abi-research")]
 pub use function_batch::FunctionBatchLoadReport;
@@ -471,6 +473,7 @@ fn native_error(error: NativeFailure) -> Error {
         },
         NativeFailure::InvalidHandle { kind, id } => Error::InvalidHandle { kind, id },
         NativeFailure::Unsupported(s) => Error::Unsupported(s),
+        NativeFailure::InvalidAsset(path) => Error::InvalidAsset(path),
         NativeFailure::Native {
             operation,
             type_name,

@@ -27,6 +27,8 @@ pub use batch::NativeBatchMetrics;
 pub use batch::NativeBatchOutcome;
 mod handles;
 pub use handles::NativeTensorHandle;
+pub(crate) mod image;
+pub use image::{NativeImage, NativeImageDescriptor};
 mod metal;
 pub use metal::{NativeMetalInput, NativeMetalObject, NativeMetalTensor};
 mod run_stream;
@@ -150,6 +152,14 @@ pub struct NativeFunctionDescriptor {
     pub inputs: Vec<NativeTensorDescriptor>,
     pub outputs: Vec<NativeTensorDescriptor>,
     pub states: Vec<NativeTensorDescriptor>,
+    /// Image-valued inputs and outputs, kept apart from the tensor groups.
+    pub image_inputs: Vec<NativeImageDescriptor>,
+    pub image_outputs: Vec<NativeImageDescriptor>,
+}
+impl NativeFunctionDescriptor {
+    pub fn has_images(&self) -> bool {
+        !self.image_inputs.is_empty() || !self.image_outputs.is_empty()
+    }
 }
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct NativeModel {
@@ -165,6 +175,8 @@ pub struct NativeFunction {
 pub struct NativeRunResult {
     pub outputs: Vec<(String, NativeTensor)>,
     pub states: Vec<(String, NativeTensor)>,
+    /// Image outputs, read back tight from Corsairs-owned output views.
+    pub images: Vec<(String, NativeImage)>,
 }
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum NativeFailure {
@@ -341,6 +353,8 @@ pub struct NativeSession {
     models: HashMap<u64, ModelRecord>,
     next: u64,
     text: Text,
+    /// CoreVideo, opened on first image use.
+    video: std::cell::OnceCell<Rc<image::CoreVideo>>,
     runtime: Runtime,
     _thread: PhantomData<Rc<()>>,
 }
@@ -373,6 +387,7 @@ impl NativeSession {
             models: HashMap::new(),
             next: 1,
             text,
+            video: std::cell::OnceCell::new(),
             runtime,
             _thread: PhantomData,
         })
@@ -855,33 +870,54 @@ impl NativeSession {
             )?;
             let name = self.string_words([name.0, name.1])?;
             let mut groups = Vec::new();
+            let mut images = Vec::new();
             for (names,get) in [
                 (c"$s13CoreAIRuntime27InferenceFunctionDescriptorV10inputNamesSaySSGvg",c"$s13CoreAIRuntime27InferenceFunctionDescriptorV05inputE02ofAA0C5ValueV0E0OSgSS_tF"),
                 (c"$s13CoreAIRuntime27InferenceFunctionDescriptorV11outputNamesSaySSGvg",c"$s13CoreAIRuntime27InferenceFunctionDescriptorV06outputE02ofAA0C5ValueV0E0OSgSS_tF"),
                 (c"$s13CoreAIRuntime27InferenceFunctionDescriptorV10stateNamesSaySSGvg",c"$s13CoreAIRuntime27InferenceFunctionDescriptorV05stateE02ofAA0C5ValueV0E0OSgSS_tF"),
             ] {
                 let word=self.call(names,[0;3],ptr::null_mut(),descriptor.address())?;
-                let mut group=Vec::new();
-                for name in self.strings(word)? { group.push(self.inspect_tensor(&descriptor,get,name)?); }
+                let (mut group, mut image_group) = (Vec::new(), Vec::new());
+                for name in self.strings(word)? {
+                    match self.inspect_value(&descriptor, get, name)? {
+                        ValueDescriptor::Tensor(tensor) => group.push(tensor),
+                        ValueDescriptor::Image(image) => image_group.push(image),
+                    }
+                }
                 groups.push(group);
+                images.push(image_group);
             }
             let mut groups = groups.into_iter();
+            let mut images = images.into_iter();
+            let (image_inputs, image_outputs) = (
+                images.next().unwrap_or_default(),
+                images.next().unwrap_or_default(),
+            );
+            if let Some(state) = images.next().unwrap_or_default().first() {
+                return Err(NativeFailure::Unsupported(format!(
+                    "image state {}",
+                    state.name
+                )));
+            }
             Ok(NativeFunctionDescriptor {
                 name,
                 inputs: groups.next().unwrap_or_default(),
                 outputs: groups.next().unwrap_or_default(),
                 states: groups.next().unwrap_or_default(),
+                image_inputs,
+                image_outputs,
             })
         }
     }
-    unsafe fn inspect_tensor(
+    unsafe fn inspect_value(
         &self,
         descriptor: &NativeValue,
         getter: &CStr,
         name: String,
-    ) -> Result<NativeTensorDescriptor> {
+    ) -> Result<ValueDescriptor> {
         // SAFETY: Optional enum, associated payload projection and take match
-        // OwnedReference.swift and its compiled VWT11/12/4 sequence.
+        // OwnedReference.swift and its compiled VWT11/12/4 sequence; the image
+        // case uses the same sequence (ImageReference.swift `imageDescriptor`).
         unsafe {
             let enum_md = self.metadata(c"$s13CoreAIRuntime14InferenceValueV10DescriptorOMa")?;
             let mut optional = NativeValue::allocate(self.optional(enum_md)?)?;
@@ -899,12 +935,22 @@ impl NativeSession {
             let tag: unsafe extern "C" fn(*mut c_void, *mut c_void) -> u32 =
                 mem::transmute(enum_md.witness(11));
             let nd_tag=self.symbol(c"$s13CoreAIRuntime14InferenceValueV10DescriptorO7ndArrayyAeA07NDArrayE0VcAEmFWC")?.cast::<u32>().read();
-            if tag(value.ptr(), enum_md.pointer as _) != nd_tag {
+            let image_tag = self
+                .symbol(
+                    c"$s13CoreAIRuntime14InferenceValueV10DescriptorO5imageyAeA05ImageE0VcAEmFWC",
+                )?
+                .cast::<u32>()
+                .read();
+            let case = tag(value.ptr(), enum_md.pointer as _);
+            let payload_md = if case == nd_tag {
+                self.metadata(c"$s13CoreAIRuntime17NDArrayDescriptorVMa")?
+            } else if case == image_tag {
+                self.metadata(c"$s13CoreAIRuntime15ImageDescriptorVMa")?
+            } else {
                 return Err(NativeFailure::Unsupported(format!(
-                    "non-tensor value {name}"
+                    "value {name} is neither a tensor nor an image"
                 )));
-            }
-            let payload_md = self.metadata(c"$s13CoreAIRuntime17NDArrayDescriptorVMa")?;
+            };
             let mut payload = NativeValue::allocate(payload_md)?;
             let project: unsafe extern "C" fn(*mut c_void, *mut c_void) =
                 mem::transmute(enum_md.witness(12));
@@ -914,6 +960,11 @@ impl NativeSession {
             take(payload.ptr(), value.ptr(), payload_md.pointer as _);
             value.initialized = false;
             payload.initialized = true;
+            if case == image_tag {
+                return Ok(ValueDescriptor::Image(
+                    self.image_descriptor(&payload, name)?,
+                ));
+            }
             let shape = self.call(
                 c"$s13CoreAIRuntime17NDArrayDescriptorV5shapeSaySiGvg",
                 [0; 3],
@@ -929,11 +980,11 @@ impl NativeSession {
                 payload.address(),
             )?;
             scalar.initialized = true;
-            Ok(NativeTensorDescriptor {
+            Ok(ValueDescriptor::Tensor(NativeTensorDescriptor {
                 name,
                 shape,
                 dtype: self.dtype(&scalar)?,
-            })
+            }))
         }
     }
 
@@ -1129,17 +1180,28 @@ impl NativeSession {
         }
     }
 
+    /// Owned tensor and packed-image inputs. Every image output is written into
+    /// a Corsairs-allocated memory-backed view and read back tight.
+    ///
     /// # Safety
-    /// Requires the recorded run/Inputs/MutableViews ABI. This blocks until the
-    /// actual native task completes. No pointer or borrowed native view escapes.
-    pub unsafe fn run(
+    /// Requires the recorded run/Inputs/MutableViews ABI and the
+    /// ImageReference.swift lowerings. This blocks until the actual native task
+    /// completes. No pointer or borrowed native view escapes.
+    pub unsafe fn run_with_images(
         &mut self,
         function: u64,
         inputs: Vec<(String, NativeTensor)>,
+        images: Vec<(String, NativeImage)>,
         states: Vec<(String, NativeTensor)>,
         output_views: Vec<(String, NativeTensor)>,
     ) -> Result<NativeRunResult> {
+        // Image signatures never use the stream (run_stream::uses_stream).
         if self.uses_owned_stream(function)? {
+            if !images.is_empty() {
+                return Err(NativeFailure::Binding(
+                    "image inputs reached the stream path".into(),
+                ));
+            }
             if !output_views.is_empty() {
                 return Err(NativeFailure::Unsupported(
                     "owned output views are unavailable on the GPU stream path; use explicit Metal bindings".into(),
@@ -1160,11 +1222,38 @@ impl NativeSession {
                     kind: "function",
                     id: function,
                 })?;
-            validate_group(&inputs, &function.descriptor.inputs, true)?;
-            validate_group(&states, &function.descriptor.states, true)?;
-            validate_group(&output_views, &function.descriptor.outputs, false)?;
+            let descriptor = &function.descriptor;
+            // Image runs create autoreleased CoreVideo/Foundation temporaries.
+            // Declared first, so it drains after every native value is dropped.
+            let _pool = descriptor.has_images().then(|| metal::Pool::new());
+            image::supported_images(
+                descriptor
+                    .image_inputs
+                    .iter()
+                    .chain(&descriptor.image_outputs),
+            )?;
+            validate_group(&inputs, &descriptor.inputs, true)?;
+            image::validate_images(&images, &descriptor.image_inputs)?;
+            validate_group(&states, &descriptor.states, true)?;
+            validate_group(&output_views, &descriptor.outputs, false)?;
             // Declare owned buffers BEFORE their dependent view containers so
-            // every early-error unwind destroys view containers first.
+            // every early-error unwind destroys view containers first. Each
+            // OwnedImage also drops its Swift wrapper before its own buffer.
+            let native_images: Vec<_> = images
+                .iter()
+                .map(|(n, i)| {
+                    self.image(i.pixel_format, i.width, i.height, Some(i))
+                        .map(|v| (n.clone(), v))
+                })
+                .collect::<Result<_>>()?;
+            let mut image_views: Vec<_> = descriptor
+                .image_outputs
+                .iter()
+                .map(|d| {
+                    self.image(d.pixel_format, d.width, d.height, None)
+                        .map(|v| (d.name.clone(), v))
+                })
+                .collect::<Result<_>>()?;
             let native_inputs: Vec<_> = inputs
                 .iter()
                 .map(|(n, t)| self.tensor(t).map(|v| (n.clone(), v)))
@@ -1190,6 +1279,9 @@ impl NativeSession {
             for (name, tensor) in &native_inputs {
                 self.insert_input(&mut input_views, tensor, name)?;
             }
+            for (name, image) in &native_images {
+                self.insert_image_input(&mut input_views, image, name)?;
+            }
             let md = self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsVMa")?;
             let mut state_views = NativeValue::allocate(md)?;
             let mut output_views = NativeValue::allocate(md)?;
@@ -1212,6 +1304,9 @@ impl NativeSession {
             }
             for (name, tensor) in &mut native_output_views {
                 self.insert_mutable(&mut output_views, tensor, name)?;
+            }
+            for (name, image) in &mut image_views {
+                self.insert_image_view(&mut output_views, image, name)?;
             }
             let mut outputs = NativeValue::allocate(
                 self.metadata(c"$s13CoreAIRuntime17InferenceFunctionV7OutputsVMa")?,
@@ -1281,10 +1376,24 @@ impl NativeSession {
                 ptr::null_mut(),
                 outputs.address(),
             )?;
+            // With a caller view Core AI writes the view and returns no value
+            // (ImageReference.swift), so this also rejects any returned image.
             if remaining != 0 {
                 return Err(NativeFailure::Unsupported(
                     "native run returned undescribed outputs".into(),
                 ));
+            }
+            let mut returned_images = Vec::with_capacity(image_views.len());
+            for ((name, image), descriptor) in image_views.iter().zip(&descriptor.image_outputs) {
+                let image = image.read()?;
+                if (image.pixel_format, image.width, image.height)
+                    != (descriptor.pixel_format, descriptor.width, descriptor.height)
+                {
+                    return Err(NativeFailure::Binding(format!(
+                        "output image {name} does not match its descriptor"
+                    )));
+                }
+                returned_images.push((name.clone(), image));
             }
             let mut returned_states = Vec::new();
             for (name, tensor) in &native_states {
@@ -1296,10 +1405,16 @@ impl NativeSession {
             Ok(NativeRunResult {
                 outputs: returned,
                 states: returned_states,
+                images: returned_images,
             })
         }
     }
 }
+enum ValueDescriptor {
+    Tensor(NativeTensorDescriptor),
+    Image(NativeImageDescriptor),
+}
+
 fn validate_tensor(tensor: &NativeTensor) -> Result<()> {
     let width = tensor.dtype.byte_width();
     let bytes = crate::dtype::element_count(&tensor.shape, width)

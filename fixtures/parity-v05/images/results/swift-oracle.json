@@ -1,0 +1,1215 @@
+{
+  "schema": 1,
+  "sw_vers": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "suite_sha256": "69577707878089f75f25a9099616785435f15340a97ab48072ffb29b53490724",
+  "source": "swift-oracle",
+  "oracle": "experiments/swift/ImageReference.swift",
+  "oracle_sha256": "1386873b8913a86fcf59bb9b4c2bd22bafbe4992d5e40c5edea376fae69e335f",
+  "swiftc": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+  "device_architecture": "h17c",
+  "results": {
+    "cpu": {
+      "RGB24_to_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_identity": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_from_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "RGB24_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_invert": {
+        "y": {
+          "hex": "fefbf8f3f0ede8e5e2dddad7d9d6d3cecbc8c3c0bdb8b5b2",
+          "sha256": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_memory": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_mutable_input": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_output_view": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_output_view_memory": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+          "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_mutable_input": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "RGB24_identity_3x5": {
+        "y": {
+          "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+          "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_mutable_input": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_output_view": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_output_view_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "ARGB32_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_identity": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_from_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "ARGB32_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_invert": {
+        "y": {
+          "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+          "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_mutable_input": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "ARGB32_identity_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "BGRA32_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_identity": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_from_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "BGRA32_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_invert": {
+        "y": {
+          "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+          "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_mutable_input": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "BGRA32_identity_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      }
+    },
+    "gpu-preferred": {
+      "RGB24_to_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_identity": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_from_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "RGB24_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_invert": {
+        "y": {
+          "hex": "fefbf8f3f0ede8e5e2dddad7d9d6d3cecbc8c3c0bdb8b5b2",
+          "sha256": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "encode_output_view": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "encode_output_view_memory": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_io_surface": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_memory": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_mutable_input": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_output_view": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+            "run_output_view_memory": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+          "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_io_surface": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_mutable_input": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "RGB24_identity_3x5": {
+        "y": {
+          "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+          "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "encode_output_view": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "encode_output_view_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_io_surface": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_mutable_input": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_output_view": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_output_view_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "ARGB32_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_identity": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_from_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "ARGB32_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_invert": {
+        "y": {
+          "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+          "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "encode_output_view": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "encode_output_view_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_io_surface": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_mutable_input": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "ARGB32_identity_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "BGRA32_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_identity": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_from_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "BGRA32_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_invert": {
+        "y": {
+          "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+          "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "encode_output_view": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "encode_output_view_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_io_surface": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_mutable_input": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+            "run_output_view_memory": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "BGRA32_identity_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      }
+    },
+    "neural-engine-preferred": {
+      "RGB24_to_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_identity": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_from_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "encode_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_output_view_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "RGB24_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+          "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_io_surface": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_memory": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+            "run_mutable_input": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_invert": {
+        "y": {
+          "hex": "ffffffffffffffffffffffffffffffffffffffffffffffff",
+          "sha256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "encode_output_view": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "encode_output_view_memory": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "run_io_surface": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "run_memory": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "run_mutable_input": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "run_output_view": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+            "run_output_view_memory": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "RGB24_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+          "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_io_surface": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_mutable_input": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "RGB24_identity_3x5": {
+        "y": {
+          "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+          "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "encode_output_view": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "encode_output_view_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_io_surface": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_mutable_input": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_output_view": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+            "run_output_view_memory": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 24\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "ARGB32_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_identity": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_from_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "ARGB32_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_invert": {
+        "y": {
+          "hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "encode_output_view": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "encode_output_view_memory": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_io_surface": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_memory": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_mutable_input": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_output_view": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_output_view_memory": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "ARGB32_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "ARGB32_identity_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 1111970369, expected: 32\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "BGRA32_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_identity": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_from_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "encode_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_output_view_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {}
+        }
+      },
+      "BGRA32_aligned_to_tensor": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+          "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_io_surface": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_memory": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+            "run_mutable_input": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_invert": {
+        "y": {
+          "hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "encode_output_view": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "encode_output_view_memory": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_io_surface": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_memory": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_mutable_input": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_output_view": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+            "run_output_view_memory": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 6x2, expected: 4x2\")"
+          }
+        }
+      },
+      "BGRA32_to_tensor_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      },
+      "BGRA32_identity_3x5": {
+        "y": {
+          "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+          "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+          "variant": "run_output_view_memory",
+          "variants_agree": true,
+          "variants": {
+            "encode": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "encode_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_io_surface": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_mutable_input": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+            "run_output_view_memory": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+          },
+          "rejected_variants": {
+            "run_wrong_format": "CoreAIError(kind: Invalid value, message: \"x has an invalid pixel format: 32, expected: 1111970369\")",
+            "run_wrong_size": "CoreAIError(kind: Invalid value, message: \"x has an invalid shape: 7x3, expected: 5x3\")"
+          }
+        }
+      }
+    }
+  }
+}

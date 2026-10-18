@@ -68,6 +68,29 @@ pub(crate) unsafe fn call_sync_pair(
     (first, second)
 }
 
+/// A nonthrowing void call with five word arguments in x0-x4 and self in x20.
+/// ImageReference.swift: the generic `Inputs.insert(_:for:)` and
+/// `MutableViews.insert(_:for:)` take (value pointer, String words, T metadata,
+/// witness table) and mutate the container passed as swiftself.
+pub(crate) unsafe fn call_sync5(function: *mut c_void, arguments: [usize; 5], context: usize) {
+    // SAFETY: Caller verifies the exact swiftcc register contract for the target.
+    unsafe {
+        asm!(
+            "blr x16",
+            in("x16") function,
+            inlateout("x0") arguments[0] => _,
+            inlateout("x1") arguments[1] => _,
+            inlateout("x2") arguments[2] => _,
+            inlateout("x3") arguments[3] => _,
+            inlateout("x4") arguments[4] => _,
+            inlateout("x20") context => _,
+            lateout("x21") _,
+            lateout("x22") _,
+            clobber_abi("C"),
+        );
+    }
+}
+
 /// A nonthrowing getter whose only argument is self in x20 and whose Double
 /// result is returned in d0 (AssetReference.swift: Date.timeIntervalSince1970).
 pub(crate) unsafe fn call_f64(function: *mut c_void, context: usize) -> f64 {

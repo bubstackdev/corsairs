@@ -57,9 +57,15 @@ fn uses_stream(compute: NativeCompute, descriptor: &NativeFunctionDescriptor) ->
         return Ok(false);
     }
     gpu_descriptors(descriptor)?;
-    if descriptor.states.is_empty() {
+    let images = descriptor.has_images();
+    if descriptor.states.is_empty() && !images {
         return Ok(true);
     }
+    // Stateful and image calls use the plain run(inputs:states:outputViews:)
+    // path. The image oracle measured it byte-exact under GPU and Neural Engine
+    // preference (docs/image-io.md); the stream's pixel-buffer AsyncValue
+    // constructors are not bound. Both keep the fixed one-GiB envelope.
+    let limit = if images { image_limit } else { stateful_limit };
     for tensor in descriptor
         .inputs
         .iter()
@@ -69,17 +75,36 @@ fn uses_stream(compute: NativeCompute, descriptor: &NativeFunctionDescriptor) ->
         let mut extent = tensor.dtype.byte_width();
         for &dimension in &tensor.shape {
             if dimension < 0 {
-                return Err(stateful_limit());
+                return Err(limit());
             }
             // Include nonzero extents of empty shapes, matching the checked
             // stride guard used by the previous one-GiB release boundary.
             extent = extent
                 .checked_mul((dimension as usize).max(1))
                 .filter(|bytes| *bytes <= STATEFUL_GPU_BYTES)
-                .ok_or_else(stateful_limit)?;
+                .ok_or_else(limit)?;
+        }
+    }
+    for image in descriptor
+        .image_inputs
+        .iter()
+        .chain(&descriptor.image_outputs)
+    {
+        // Unsupported formats are rejected per call, before any buffer exists.
+        if let Ok((_, bytes)) =
+            super::image::tight_extent(image.pixel_format, image.width, image.height)
+            && bytes > STATEFUL_GPU_BYTES
+        {
+            return Err(limit());
         }
     }
     Ok(false)
+}
+
+fn image_limit() -> NativeFailure {
+    NativeFailure::Unsupported(
+        "accelerated image runs require fixed tensor signatures and images within 1 GiB per value; use CPU-only execution".into(),
+    )
 }
 
 fn stateful_limit() -> NativeFailure {
@@ -161,6 +186,7 @@ impl NativeSession {
                 Ok(NativeRunResult {
                     outputs,
                     states: Vec::new(),
+                    images: Vec::new(),
                 })
             })()
         };
@@ -186,6 +212,8 @@ mod tests {
             inputs: vec![tensor.clone()],
             states: Vec::new(),
             outputs: vec![tensor],
+            image_inputs: Vec::new(),
+            image_outputs: Vec::new(),
         }
     }
 
@@ -227,6 +255,33 @@ mod tests {
         // A dynamic result is checked after readiness, not inferred from input.
         d.outputs[0].shape = vec![-1];
         assert!(uses_stream(NativeCompute::GpuPreferred, &d).unwrap());
+    }
+
+    #[test]
+    fn image_signatures_use_the_plain_run_path_within_the_envelope() {
+        let mut d = descriptor();
+        d.image_outputs.push(NativeImageDescriptor {
+            name: "image".into(),
+            width: 4,
+            height: 2,
+            pixel_format: super::super::image::BGRA32,
+        });
+        for compute in [
+            NativeCompute::GpuPreferred,
+            NativeCompute::NeuralEnginePreferred,
+        ] {
+            assert!(!uses_stream(compute, &d).unwrap());
+        }
+        assert!(!uses_stream(NativeCompute::CpuOnly, &d).unwrap());
+        let mut dynamic = d.clone();
+        dynamic.inputs[0].shape = vec![-1, 3];
+        assert!(uses_stream(NativeCompute::GpuPreferred, &dynamic).is_err());
+        d.image_outputs[0].width = STATEFUL_GPU_BYTES / 4 / 2 + 1;
+        assert!(matches!(
+            uses_stream(NativeCompute::GpuPreferred, &d),
+            Err(NativeFailure::Unsupported(_))
+        ));
+        assert!(!uses_stream(NativeCompute::CpuOnly, &d).unwrap());
     }
 
     #[test]

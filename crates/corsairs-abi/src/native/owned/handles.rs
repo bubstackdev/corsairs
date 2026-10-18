@@ -184,6 +184,16 @@ impl NativeSession {
         inputs: Vec<(String, u64)>,
         states: Vec<(String, u64)>,
     ) -> Result<NativeHandleRunResult> {
+        if self
+            .functions
+            .get(&function)
+            .is_some_and(|f| f.descriptor.has_images())
+        {
+            return Err(NativeFailure::Unsupported(
+                "tensor handle runs do not carry image values; use Function::run_with_images"
+                    .into(),
+            ));
+        }
         let use_stream = self.uses_owned_stream(function)?;
         let descriptor = self
             .functions

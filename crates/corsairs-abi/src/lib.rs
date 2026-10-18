@@ -11,6 +11,11 @@
 //! checked after completion. Stateful owned/native GPU calls require fixed
 //! signatures within 1 GiB. GPU preference permits native fallback.
 //!
+//! Functions with packed 24RGB, 32ARGB or 32BGRA image inputs or outputs run
+//! through [`Function::run_with_images`] with owned [`Image`] values; image
+//! outputs arrive in [`RunResult::images`]. Bytes stay in CoreVideo memory
+//! order. Other pixel formats are described but rejected before dispatch.
+//!
 //! ```no_run
 //! use corsairs::{Runtime, Compute, Tensor, TensorMap};
 //! # fn example() -> Result<(), corsairs::Error> {
@@ -46,8 +51,9 @@ pub use facade::{AssetCount, AssetFunction, AssetInfo, AssetMetadata, AssetSumma
 #[cfg(feature = "abi-research")]
 pub use facade::{BatchLoadMetrics, BatchLoadReport};
 pub use facade::{
-    Compute, Function, FunctionDescriptor, LoadOptions, Model, ModelLoadRequest, NativeRunResult,
-    RunResult, Runtime, TensorDescriptor, TensorHandle, TensorHandleMap, TensorMap,
+    Compute, Function, FunctionDescriptor, Image, ImageDescriptor, ImageMap, LoadOptions, Model,
+    ModelLoadRequest, NativeRunResult, PixelFormat, RunResult, Runtime, TensorDescriptor,
+    TensorHandle, TensorHandleMap, TensorMap,
 };
 pub use facade::{
     MetalBuffer, MetalBufferMap, MetalObject, MetalQueue, MetalRunResult, MetalValue, MetalValueMap,

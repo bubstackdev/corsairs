@@ -1,7 +1,7 @@
 #![forbid(unsafe_code)]
 use corsairs::{
-    AssetInfo, AssetValue, Compute, DType, FunctionDescriptor, LoadOptions, RunResult, Runtime,
-    Tensor, TensorMap,
+    AssetInfo, AssetValue, Compute, DType, FunctionDescriptor, Image, ImageMap, LoadOptions,
+    PixelFormat, RunResult, Runtime, Tensor, TensorMap,
 };
 use std::{
     error::Error,
@@ -20,7 +20,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args.is_empty() || args[0] == "--help" || args[0] == "help" {
         println!(
-            "corsairs inspect MODEL [--compute cpu|gpu-preferred|neural-engine-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred|neural-engine-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|float64|float8_e4m3fn|float8_e5m2|int8|int16|int32|int64|uint8|uint16|uint32|uint64|bool. SHAPE: comma-separated dimensions, or scalar."
+            "corsairs inspect MODEL [--compute cpu|gpu-preferred|neural-engine-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--image NAME FORMAT WIDTHxHEIGHT FILE] [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--image NAME FORMAT WIDTHxHEIGHT FILE] [--compute cpu|gpu-preferred|neural-engine-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|float64|float8_e4m3fn|float8_e5m2|int8|int16|int32|int64|uint8|uint16|uint32|uint64|bool. SHAPE: comma-separated dimensions, or scalar.\nFORMAT: 24RGB|32ARGB|32BGRA; FILE holds tight rows in CoreVideo byte order."
         );
         return Ok(());
     }
@@ -41,6 +41,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
     let mut selected_function = false;
     let mut inputs = TensorMap::new();
     let mut states = TensorMap::new();
+    let mut images = ImageMap::new();
     let mut directory = None;
     let mut repeat = if command == "bench" { 100 } else { 1 };
     let mut warmup = if command == "bench" { 10 } else { 0 };
@@ -66,6 +67,22 @@ fn execute() -> Result<(), Box<dyn Error>> {
                 };
                 if map.insert(name.clone(), tensor).is_some() {
                     return Err(format!("duplicate {option} {name:?}").into());
+                }
+                index += 4;
+            }
+            "--image" => {
+                if index + 4 > args.len() {
+                    return Err("--image requires NAME FORMAT WIDTHxHEIGHT FILE".into());
+                }
+                let name = args[index].clone();
+                let format = parse_format(&args[index + 1])?;
+                let (width, height) = args[index + 2]
+                    .split_once('x')
+                    .ok_or("image size must be WIDTHxHEIGHT")?;
+                let bytes = std::fs::read(&args[index + 3])?;
+                let image = Image::new(format, width.parse()?, height.parse()?, bytes)?;
+                if images.insert(name.clone(), image).is_some() {
+                    return Err(format!("duplicate --image {name:?}").into());
                 }
                 index += 4;
             }
@@ -148,14 +165,16 @@ fn execute() -> Result<(), Box<dyn Error>> {
     // Dropped futures still own independent requests; those jobs can safely
     // finish even after this caller has discarded their output interest.
     for _ in 0..abandoned {
-        drop(function.run(inputs.clone(), states.clone()));
+        drop(function.run_with_images(inputs.clone(), images.clone(), states.clone()));
     }
     runtime.flush().wait()?;
     let mut last = None;
     let mut samples = Vec::with_capacity(repeat);
     for iteration in 0..warmup + repeat {
         let started = Instant::now();
-        let result = function.run(inputs.clone(), states).wait()?;
+        let result = function
+            .run_with_images(inputs.clone(), images.clone(), states)
+            .wait()?;
         let elapsed = started.elapsed().as_secs_f64() * 1e6;
         if iteration >= warmup {
             samples.push(elapsed);
@@ -208,6 +227,12 @@ fn parse_dtype(value: &str) -> Result<DType, Box<dyn Error>> {
         .find(|dtype| dtype.name() == value)
         .ok_or_else(|| format!("unsupported dtype {value:?}").into())
 }
+fn parse_format(value: &str) -> Result<PixelFormat, Box<dyn Error>> {
+    [PixelFormat::Rgb24, PixelFormat::Argb32, PixelFormat::Bgra32]
+        .into_iter()
+        .find(|format| format.name() == value)
+        .ok_or_else(|| format!("unsupported pixel format {value:?}").into())
+}
 fn parse_bool(value: &str) -> Result<bool, Box<dyn Error>> {
     match value {
         "true" => Ok(true),
@@ -252,12 +277,30 @@ fn descriptor_json(value: &FunctionDescriptor) -> String {
             .collect::<Vec<_>>()
             .join(",")
     };
+    let images = |descriptors: &[corsairs::ImageDescriptor]| {
+        descriptors
+            .iter()
+            .map(|d| {
+                format!(
+                    "{{\"name\":{},\"width\":{},\"height\":{},\"pixel_format_type\":{},\"format\":{}}}",
+                    quoted(&d.name),
+                    d.width,
+                    d.height,
+                    d.pixel_format_type,
+                    d.format().map_or("null".into(), |f| quoted(f.name()))
+                )
+            })
+            .collect::<Vec<_>>()
+            .join(",")
+    };
     format!(
-        "{{\"name\":{},\"inputs\":[{}],\"outputs\":[{}],\"states\":[{}]}}",
+        "{{\"name\":{},\"inputs\":[{}],\"outputs\":[{}],\"states\":[{}],\"image_inputs\":[{}],\"image_outputs\":[{}]}}",
         quoted(&value.name),
         group(&value.inputs),
         group(&value.outputs),
-        group(&value.states)
+        group(&value.states),
+        images(&value.image_inputs),
+        images(&value.image_outputs)
     )
 }
 fn result_json(value: &RunResult, directory: Option<&Path>) -> Result<String, Box<dyn Error>> {
@@ -290,6 +333,30 @@ fn result_json(value: &RunResult, directory: Option<&Path>) -> Result<String, Bo
         }
         groups.push(format!("{}:[{}]", quoted(group), rows.join(",")));
     }
+    let mut rows = Vec::new();
+    for (index, (name, image)) in value.images.iter().enumerate() {
+        let (file, hex) = if let Some(directory) = directory {
+            let path = directory.join(format!("images-{index}.bin"));
+            std::fs::write(&path, image.as_bytes())?;
+            (quoted(&path.to_string_lossy()), "null".into())
+        } else {
+            let hex: String = image
+                .as_bytes()
+                .iter()
+                .map(|b| format!("{b:02x}"))
+                .collect();
+            ("null".into(), quoted(&hex))
+        };
+        rows.push(format!(
+            "{{\"name\":{},\"format\":{},\"width\":{},\"height\":{},\"bytes_per_row\":{},\"file\":{file},\"hex\":{hex}}}",
+            quoted(name),
+            quoted(image.format().name()),
+            image.width(),
+            image.height(),
+            image.bytes_per_row()
+        ));
+    }
+    groups.push(format!("\"images\":[{}]", rows.join(",")));
     Ok(groups.join(","))
 }
 fn asset_json(asset: &AssetInfo) -> String {

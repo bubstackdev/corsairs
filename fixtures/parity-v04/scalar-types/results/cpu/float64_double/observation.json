@@ -1,0 +1,52 @@
+{
+  "case": "float64_double",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "float64",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/cpu/float64_double/step0-y.bin",
+          "sha256": "01cda09be38845bc3b9e410e8b3feeb5e80d747c8b73cf74ceaa5a65a241f90d",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "2.0",
+            "-4.0",
+            "0.0",
+            "1.0",
+            "2e+300",
+            "-0.5"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

@@ -36,17 +36,39 @@ pub enum NativeDType {
     F16,
     Bf16,
     F32,
+    F64,
+    I8,
+    I16,
     I32,
     I64,
+    U8,
+    U16,
+    U32,
+    U64,
     Bool,
 }
 impl NativeDType {
+    const ALL: [Self; 13] = [
+        Self::F16,
+        Self::Bf16,
+        Self::F32,
+        Self::F64,
+        Self::I8,
+        Self::I16,
+        Self::I32,
+        Self::I64,
+        Self::U8,
+        Self::U16,
+        Self::U32,
+        Self::U64,
+        Self::Bool,
+    ];
     pub const fn byte_width(self) -> usize {
         match self {
-            Self::F16 | Self::Bf16 => 2,
-            Self::F32 | Self::I32 => 4,
-            Self::I64 => 8,
-            Self::Bool => 1,
+            Self::I8 | Self::U8 | Self::Bool => 1,
+            Self::F16 | Self::Bf16 | Self::I16 | Self::U16 => 2,
+            Self::F32 | Self::I32 | Self::U32 => 4,
+            Self::F64 | Self::I64 | Self::U64 => 8,
         }
     }
     fn case(self) -> &'static CStr {
@@ -54,8 +76,15 @@ impl NativeDType {
             Self::F16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float16yA2EmFWC",
             Self::Bf16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO8bfloat16yA2EmFWC",
             Self::F32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float32yA2EmFWC",
+            Self::F64 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float64yA2EmFWC",
+            Self::I8 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO4int8yA2EmFWC",
+            Self::I16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int16yA2EmFWC",
             Self::I32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int32yA2EmFWC",
             Self::I64 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int64yA2EmFWC",
+            Self::U8 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5uint8yA2EmFWC",
+            Self::U16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO6uint16yA2EmFWC",
+            Self::U32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO6uint32yA2EmFWC",
+            Self::U64 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO6uint64yA2EmFWC",
             Self::Bool => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO4boolyA2EmFWC",
         }
     }
@@ -652,14 +681,7 @@ impl NativeSession {
             let get: unsafe extern "C" fn(*mut c_void, *mut c_void) -> u32 =
                 mem::transmute(scalar.metadata.witness(11));
             let tag = get(scalar.ptr(), scalar.metadata.pointer as _);
-            for dtype in [
-                NativeDType::F16,
-                NativeDType::Bf16,
-                NativeDType::F32,
-                NativeDType::I32,
-                NativeDType::I64,
-                NativeDType::Bool,
-            ] {
+            for dtype in NativeDType::ALL {
                 if self.symbol(dtype.case())?.cast::<u32>().read() == tag {
                     return Ok(dtype);
                 }

@@ -20,7 +20,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args.is_empty() || args[0] == "--help" || args[0] == "help" {
         println!(
-            "corsairs inspect MODEL [--compute cpu|gpu-preferred|neural-engine-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred|neural-engine-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|int32|int64|bool. SHAPE: comma-separated dimensions, or scalar."
+            "corsairs inspect MODEL [--compute cpu|gpu-preferred|neural-engine-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred|neural-engine-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|float64|int8|int16|int32|int64|uint8|uint16|uint32|uint64|bool. SHAPE: comma-separated dimensions, or scalar."
         );
         return Ok(());
     }
@@ -202,15 +202,10 @@ fn next<'a>(
     Ok(value)
 }
 fn parse_dtype(value: &str) -> Result<DType, Box<dyn Error>> {
-    Ok(match value {
-        "float16" => DType::Float16,
-        "bfloat16" => DType::BFloat16,
-        "float32" => DType::Float32,
-        "int32" => DType::Int32,
-        "int64" => DType::Int64,
-        "bool" => DType::Bool,
-        _ => return Err(format!("unsupported dtype {value:?}").into()),
-    })
+    DType::ALL
+        .into_iter()
+        .find(|dtype| dtype.name() == value)
+        .ok_or_else(|| format!("unsupported dtype {value:?}").into())
 }
 fn parse_bool(value: &str) -> Result<bool, Box<dyn Error>> {
     match value {

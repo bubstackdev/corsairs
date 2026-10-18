@@ -1,0 +1,52 @@
+{
+  "case": "int8_wrap",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "int8",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/cpu/int8_wrap/step0-y.bin",
+          "sha256": "2bc34c2f1201a1df9fa33d96e85625f6485627eb23d4750836345a1da535f796",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "0",
+            "-2",
+            "0",
+            "2",
+            "-4",
+            "2"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

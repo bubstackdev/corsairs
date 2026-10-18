@@ -1,0 +1,52 @@
+{
+  "case": "uint8_double",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "uint8",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/cpu/uint8_double/step0-y.bin",
+          "sha256": "4304eb2043dbc8e609b0043d38f50310a63292efd01e95d7e91b62a820ebd805",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "2",
+            "4",
+            "0",
+            "34",
+            "100",
+            "50"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

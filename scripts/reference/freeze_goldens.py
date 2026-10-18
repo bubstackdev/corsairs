@@ -18,6 +18,19 @@ REVIEWED = {("gpu-preferred", "float_edges"):
             # Identical bytes to GPU preference: subnormal flush and NaN canonicalization.
             ("neural-engine-preferred", "float_edges"):
             "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7"}
+# v0.4 scalar types: Neural Engine integer saturation and int16 rounding.
+REVIEWED.update({
+    ("neural-engine-preferred", "int8_wrap"): "08cfe95a5f91d92225cf1d5a8a4ebd9b47a58cb5793acf013cd84a5364de68b9",
+    ("neural-engine-preferred", "uint8_wrap"): "68c859c8c0cb7820e0ba460746cee510e2541c362af6c51db05ec678b66b37cd",
+    ("neural-engine-preferred", "int16_transpose"): "4f3fd117b811641de216b8e692a44ec1201040da1016f9e7374266a2ab6d4136",
+})
+# Valid requests Core AI itself rejects; Rust must surface the same native error.
+REVIEWED_ERRORS = {
+    ("cpu", "int16_empty"): "(loc: unknown, error: inferenceFailed(-1))",
+    ("cpu", "uint16_empty"): "(loc: unknown, error: inferenceFailed(-1))",
+}
+SCALAR_FIXTURES = FIXTURES.parent / "parity-v04" / "scalar-types"
+SCALAR_BACKENDS = ("cpu", "gpu-preferred", "neural-engine-preferred")
 # Backends frozen separately so the original CPU/GPU grid stays immutable.
 SUPPLEMENTARY = ("neural-engine-preferred",)
 RULES = ["Never replace mathematical expected files with backend observations.",
@@ -132,10 +145,40 @@ def freeze_supplement(backend, fixtures=FIXTURES):
           f"{len(negative_rows)} expected negative errors")
 
 
+def freeze_scalar_types(fixtures=SCALAR_FIXTURES):
+    """Freeze the three-backend v0.4 scalar-type grid into its own directory."""
+    suite = json.loads((fixtures / "suite.json").read_text())
+    report, original = load_report(fixtures, "python-results")
+    errors = [row for row in report["results"] if row["status"] == "error"]
+    for row in errors:
+        if REVIEWED_ERRORS.get((row["backend"], row["case"])) != row.get("error") or row.get("failure_stage") != "inference":
+            raise RuntimeError(f"Unreviewed native error: {row['backend']}/{row['case']}: {row.get('error')}")
+    report = {**report, "results": [row for row in report["results"] if row["status"] != "error"]}
+    rows, negative_rows = freeze_rows(report, fixtures)
+    expected = len(suite["cases"]) * len(SCALAR_BACKENDS)
+    if len(rows) + len(errors) != expected or negative_rows or len(errors) != len(REVIEWED_ERRORS):
+        raise RuntimeError(f"Incomplete scalar grid: {len(rows)} positives, {len(errors)} reviewed errors of {expected}")
+    if {row["backend"] for row in rows} != set(SCALAR_BACKENDS):
+        raise RuntimeError("Scalar grid must cover every backend")
+    write_json(fixtures / "backend-goldens.json", {
+        "schema": 1, "reference": report["reference"], "native_execution_successes": len(rows),
+        "negative_reference_errors": 0, "cases": rows, "negative_cases": [],
+        "native_errors": [{"backend": row["backend"], "case": row["case"], "python_error_type": row["error_type"],
+                           "python_error": row["error"]} for row in errors],
+        "source_observations": original.name,
+        "source_observations_sha256": hashlib.sha256(original.read_bytes()).hexdigest(),
+        "python_to_math_mismatches": [{"backend": row["backend"], "case": row["case"]}
+                                      for row in rows if row["reference_to_math"] == "mismatch"],
+        "rules": RULES})
+    print(f"Frozen {len(rows)} scalar-type configurations; {len(errors)} reviewed native errors")
+
+
 if __name__ == "__main__":
-    if len(sys.argv) == 3 and sys.argv[1] == "--backend":
+    if sys.argv[1:] == ["--scalar-types"]:
+        freeze_scalar_types()
+    elif len(sys.argv) == 3 and sys.argv[1] == "--backend":
         freeze_supplement(sys.argv[2])
     elif len(sys.argv) == 1:
         freeze()
     else:
-        raise SystemExit("usage: freeze_goldens.py [--backend BACKEND]")
+        raise SystemExit("usage: freeze_goldens.py [--backend BACKEND | --scalar-types]")

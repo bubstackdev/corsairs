@@ -1,0 +1,41 @@
+{
+  "case": "uint64_scalar",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "uint64",
+          "shape": [],
+          "strides": [],
+          "file": "results/cpu/uint64_scalar/step0-y.bin",
+          "sha256": "18d8d609947c6b82b9607704ae40d3317038e709238514de750b5c7411ba4c20",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "14"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

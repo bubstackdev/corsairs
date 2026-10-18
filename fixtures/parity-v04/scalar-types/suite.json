@@ -1,0 +1,1556 @@
+{
+  "schema": 1,
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "native_executed": false,
+  "cases": [
+    {
+      "name": "int8_double",
+      "category": "scalar-types",
+      "model": "int8_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int8_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "b29603abd7cbd5b059376300f171fe200405f077cfe51a39a78459d911721e66"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int8_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2bbd26af1fd2a9bbee9479460265ba52aba6b8b9ba9f5ba5a8a220fc20aebb6f"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "int8_scalar",
+      "category": "scalar-types",
+      "model": "int8_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int8_scalar/x.bin",
+          "shape": [],
+          "dtype": "int8",
+          "strides": [],
+          "sha256": "ca358758f6d27e6cf45272937977a748fd88391db679ceda7dc7bf1f005ee879"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int8_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "int8",
+          "strides": [],
+          "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "int8_empty",
+      "category": "scalar-types",
+      "model": "int8_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int8_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int8_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "int8_transpose",
+      "category": "scalar-types",
+      "model": "int8_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int8_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "8070d8f2d0b067e0c74e179b3db4142bba7d8f6b3043ce20820dab208a5c062d"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int8_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "int8",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "ec50dae6ab2375e49a98a83d51267d2144039b5fefb534dab6ac4d077773f6bc"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of each type's extremes through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "int8_wrap",
+      "category": "scalar-types",
+      "model": "int8_wrap/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int8_wrap/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "8070d8f2d0b067e0c74e179b3db4142bba7d8f6b3043ce20820dab208a5c062d"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int8_wrap/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "2bc34c2f1201a1df9fa33d96e85625f6485627eb23d4750836345a1da535f796"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Math expectation is two's-complement wrapping; backends may saturate instead."
+      ],
+      "state": {}
+    },
+    {
+      "name": "int16_double",
+      "category": "scalar-types",
+      "model": "int16_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int16_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "341788ce254a0c707fa42ecb42b2478699e73bf9d8fe0db50425baa3fa9b318a"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int16_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "3129dec651e0b94ec1aa77568067b6ad7d029cede50bd5c0d551eb8878a45667"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "int16_scalar",
+      "category": "scalar-types",
+      "model": "int16_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int16_scalar/x.bin",
+          "shape": [],
+          "dtype": "int16",
+          "strides": [],
+          "sha256": "0a6361b3a802f55cd5ae06101c88a1e216320fe11cc0cfe1d791eed08a1200fd"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int16_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "int16",
+          "strides": [],
+          "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "int16_empty",
+      "category": "scalar-types",
+      "model": "int16_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int16_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int16_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "int16_transpose",
+      "category": "scalar-types",
+      "model": "int16_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int16_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "200c8a51af6c0097d16a122db4dadd1dbd1a22e3fef44ce2cdda26ccc2ca869e"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int16_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "int16",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "e3753ea943e143d36abc5adc576d140ff64e028f755373a5ed5c52f8ba5b184c"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of each type's extremes through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "int16_wrap",
+      "category": "scalar-types",
+      "model": "int16_wrap/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "int16_wrap/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "200c8a51af6c0097d16a122db4dadd1dbd1a22e3fef44ce2cdda26ccc2ca869e"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "int16_wrap/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "int16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "1e03dd305251e9bfc9297377b0cb51dd6846b8afcfafc9a702a06d6cfda0f3c9"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Math expectation is two's-complement wrapping; backends may saturate instead."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint8_double",
+      "category": "scalar-types",
+      "model": "uint8_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint8_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "3e34085166e40b3c4d98f6022e792b9264af2c9efcb9e41602da149273f53f6a"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint8_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "4304eb2043dbc8e609b0043d38f50310a63292efd01e95d7e91b62a820ebd805"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint8_scalar",
+      "category": "scalar-types",
+      "model": "uint8_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint8_scalar/x.bin",
+          "shape": [],
+          "dtype": "uint8",
+          "strides": [],
+          "sha256": "ca358758f6d27e6cf45272937977a748fd88391db679ceda7dc7bf1f005ee879"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint8_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "uint8",
+          "strides": [],
+          "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint8_empty",
+      "category": "scalar-types",
+      "model": "uint8_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint8_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint8_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint8_transpose",
+      "category": "scalar-types",
+      "model": "uint8_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint8_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "79e7ebf53f31c8c20d841e3cc05760138e27ec2b08292bc04e0e90358c299d57"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint8_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "uint8",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "82e6d8a39228396fae19640718aca82e60c8e4c6c3e4218b0f95fedbe289086e"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of each type's extremes through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint8_wrap",
+      "category": "scalar-types",
+      "model": "uint8_wrap/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint8_wrap/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "79e7ebf53f31c8c20d841e3cc05760138e27ec2b08292bc04e0e90358c299d57"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint8_wrap/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint8",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "8155e8aaf80a21cf467406090edbbe2b867da980fcd5abdc61c1dc024b05f2bd"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Math expectation is two's-complement wrapping; backends may saturate instead."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint16_double",
+      "category": "scalar-types",
+      "model": "uint16_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint16_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "762981faef03d5eba521485e3c2685de53b86eab00b687e280f8d4b2c0d621a8"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint16_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "63e9334c0fde1b85d56da117baab6e37d556ff9f274e6f522932644b64c98b26"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint16_scalar",
+      "category": "scalar-types",
+      "model": "uint16_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint16_scalar/x.bin",
+          "shape": [],
+          "dtype": "uint16",
+          "strides": [],
+          "sha256": "0a6361b3a802f55cd5ae06101c88a1e216320fe11cc0cfe1d791eed08a1200fd"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint16_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "uint16",
+          "strides": [],
+          "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint16_empty",
+      "category": "scalar-types",
+      "model": "uint16_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint16_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint16_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint16_transpose",
+      "category": "scalar-types",
+      "model": "uint16_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint16_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "7b698b1a2a5d0645ae5fc5712ea440216de57b722efbcebabe0203bc9a710e58"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint16_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "uint16",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "c010e0b196527b46b4811120ff88a35934a24925b3b1c91409dd32b4189835a2"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of each type's extremes through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint16_wrap",
+      "category": "scalar-types",
+      "model": "uint16_wrap/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint16_wrap/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "7b698b1a2a5d0645ae5fc5712ea440216de57b722efbcebabe0203bc9a710e58"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint16_wrap/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint16",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "a9a17f9d20efbc7a74bfb9b24a544e374ea1543ad6e626f854cd3692ffd89120"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Math expectation is two's-complement wrapping; backends may saturate instead."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint32_double",
+      "category": "scalar-types",
+      "model": "uint32_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint32_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "4807b0ba23f7b99956ba9fe0be9955539fbac673142547d28298af501114e914"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint32_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "8c9a205ec10f65b95b60549a4b7e07c3fe056766b049bb429195a424668bb9c4"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint32_scalar",
+      "category": "scalar-types",
+      "model": "uint32_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint32_scalar/x.bin",
+          "shape": [],
+          "dtype": "uint32",
+          "strides": [],
+          "sha256": "e8613f5a5bc9f9feeda32a8e7c80b69dd4878e47b6a91723fb15eb84236b6a2b"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint32_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "uint32",
+          "strides": [],
+          "sha256": "01b4f6bd5d6a06a7b74a8565ceb4f845afe0ae96a0ac05cf5e86066bf7b538ec"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint32_empty",
+      "category": "scalar-types",
+      "model": "uint32_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint32_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint32_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint32_transpose",
+      "category": "scalar-types",
+      "model": "uint32_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint32_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "00784a2cd9dee193d243d5e1d30de062175bde83423ac9bc02a33d95888767dc"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint32_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "uint32",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "125fc9dff2b8a7c404c53bbf604048eda202365c03038eec24801158014f8761"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of each type's extremes through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint32_wrap",
+      "category": "scalar-types",
+      "model": "uint32_wrap/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint32_wrap/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "00784a2cd9dee193d243d5e1d30de062175bde83423ac9bc02a33d95888767dc"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint32_wrap/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint32",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "b5aeb78c93e0c2f346d8cd1798508ef9dbba2bc86eb45c09b00c9357cff08e38"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Math expectation is two's-complement wrapping; backends may saturate instead."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint64_double",
+      "category": "scalar-types",
+      "model": "uint64_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint64_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "c366528e40c7eb36827261e8c149044056ff2085443a55703115ba96cbdd921c"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint64_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "bcccecd7d310980489fafef5260cafd5e41cf11464b65bd53b5d80e726491b8d"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint64_scalar",
+      "category": "scalar-types",
+      "model": "uint64_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint64_scalar/x.bin",
+          "shape": [],
+          "dtype": "uint64",
+          "strides": [],
+          "sha256": "aae89fc0f03e2959ae4d701a80cc3915918c950b159f6abb6c92c1433b1a8534"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint64_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "uint64",
+          "strides": [],
+          "sha256": "18d8d609947c6b82b9607704ae40d3317038e709238514de750b5c7411ba4c20"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint64_empty",
+      "category": "scalar-types",
+      "model": "uint64_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint64_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint64_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "uint64_transpose",
+      "category": "scalar-types",
+      "model": "uint64_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint64_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "1f5c5a4d784818a8ad4011f59ec9f6fb05d2da2bfc351292dc8cda83431d26e9"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint64_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "uint64",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "2b0df1f4fd9a18168df56c5d6ebf75f2a2ab44d724ac5590cc9f4c4627ad4b69"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of each type's extremes through a stride-changing layout."
+      ],
+      "state": {}
+    },
+    {
+      "name": "uint64_wrap",
+      "category": "scalar-types",
+      "model": "uint64_wrap/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "uint64_wrap/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "1f5c5a4d784818a8ad4011f59ec9f6fb05d2da2bfc351292dc8cda83431d26e9"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "uint64_wrap/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "uint64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "4a1901b9c5a1dae7f04c66aee68d0f51f9082ff93db28081d57eda730c5b8afc"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Math expectation is two's-complement wrapping; backends may saturate instead."
+      ],
+      "state": {}
+    },
+    {
+      "name": "float64_double",
+      "category": "scalar-types",
+      "model": "float64_double/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float64_double/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "64e2e06592064fabb3634e0249bdcdbec932e436afe570942d2621fe222245c5"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float64_double/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "01cda09be38845bc3b9e410e8b3feeb5e80d747c8b73cf74ceaa5a65a241f90d"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float64_scalar",
+      "category": "scalar-types",
+      "model": "float64_scalar/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float64_scalar/x.bin",
+          "shape": [],
+          "dtype": "float64",
+          "strides": [],
+          "sha256": "42b215bc5c10e8a6453db424667de747070305824b7e67e63df3aca31215898f"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float64_scalar/expected-y.bin",
+          "shape": [],
+          "dtype": "float64",
+          "strides": [],
+          "sha256": "f52df18731eea8d020801fe2c6b3164648d9d81256a6c37964533a25999961d3"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float64_empty",
+      "category": "scalar-types",
+      "model": "float64_empty/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float64_empty/x.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float64_empty/expected-y.bin",
+          "shape": [
+            0,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            0,
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "comparison": "exact",
+      "notes": [],
+      "state": {}
+    },
+    {
+      "name": "float64_transpose",
+      "category": "scalar-types",
+      "model": "float64_transpose/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float64_transpose/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "ada77f840964ef626fa7a9386c1fb8c260b2f284e618b3574df3e97ec4902461"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float64_transpose/expected-y.bin",
+          "shape": [
+            3,
+            2
+          ],
+          "dtype": "float64",
+          "strides": [
+            2,
+            1
+          ],
+          "sha256": "6c6ba46ba13f9e97709c18d107568935cfb49cfc2541280f3a509238a3d81e65"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Storage identity of float64 extremes, including the minimum subnormal."
+      ],
+      "state": {}
+    },
+    {
+      "name": "float64_edges",
+      "category": "scalar-types",
+      "model": "float64_edges/model.aimodel",
+      "function": "main",
+      "inputs": {
+        "x": {
+          "file": "float64_edges/x.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "d6becf5c3fdf2422667802301ae5f870de45e9e23ab9c786077cd89463e084bf"
+        }
+      },
+      "outputs": {
+        "y": {
+          "file": "float64_edges/expected-y.bin",
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "float64",
+          "strides": [
+            3,
+            1
+          ],
+          "sha256": "c950105205f8bee061c8e1d592b8bf7bf7e956c656d2a48c97b11c5881828c2e"
+        }
+      },
+      "comparison": "exact",
+      "notes": [
+        "Signed zeros, infinities, a NaN payload and the minimum subnormal under x + x."
+      ],
+      "state": {}
+    }
+  ],
+  "negative_cases": [],
+  "sha256": {
+    "float64_double/expected-y.bin": "01cda09be38845bc3b9e410e8b3feeb5e80d747c8b73cf74ceaa5a65a241f90d",
+    "float64_double/graph.mlir": "63f24738595467f02efe3978d7f274247ddcf51df2487cd0a2abb92c57905d9a",
+    "float64_double/model.aimodel/main.hash": "35720250c1b7095ea3792628427d6816b6211c2be7a292bd247bca84bafb42ed",
+    "float64_double/model.aimodel/main.mlirb": "c21be3db5c24a25f27e1c292de4b6ef001e28cf1eececeb6c24c7ca88ba73f87",
+    "float64_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "float64_double/x.bin": "64e2e06592064fabb3634e0249bdcdbec932e436afe570942d2621fe222245c5",
+    "float64_edges/expected-y.bin": "c950105205f8bee061c8e1d592b8bf7bf7e956c656d2a48c97b11c5881828c2e",
+    "float64_edges/graph.mlir": "63f24738595467f02efe3978d7f274247ddcf51df2487cd0a2abb92c57905d9a",
+    "float64_edges/model.aimodel/main.hash": "35720250c1b7095ea3792628427d6816b6211c2be7a292bd247bca84bafb42ed",
+    "float64_edges/model.aimodel/main.mlirb": "c21be3db5c24a25f27e1c292de4b6ef001e28cf1eececeb6c24c7ca88ba73f87",
+    "float64_edges/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "float64_edges/x.bin": "d6becf5c3fdf2422667802301ae5f870de45e9e23ab9c786077cd89463e084bf",
+    "float64_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "float64_empty/graph.mlir": "f0f34e1c05a72280c2e0d8306a6f38ab16b20323bfe87a0444111bbe2cf7ce96",
+    "float64_empty/model.aimodel/main.hash": "d72db9247e96be5af38ba79e84b8c9e96ff5d09877b30af710e49a0192d4cc6a",
+    "float64_empty/model.aimodel/main.mlirb": "e377981299e735c0f8b388854976f18edfa40ed0f14f9e7ee04e54007e73dd84",
+    "float64_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "float64_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "float64_scalar/expected-y.bin": "f52df18731eea8d020801fe2c6b3164648d9d81256a6c37964533a25999961d3",
+    "float64_scalar/graph.mlir": "00c861be5ab5be11a0d21c6b97139dc21c0d1d376531c6d307856d18f06048b0",
+    "float64_scalar/model.aimodel/main.hash": "70c6a9d1afa8e86adc161fb553939479a52616c077af557574a884e5e6953b47",
+    "float64_scalar/model.aimodel/main.mlirb": "72347d528d8b2f63cd6c0d91d996cbfad872593d2028b0463e71f814402f1bfd",
+    "float64_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "float64_scalar/x.bin": "42b215bc5c10e8a6453db424667de747070305824b7e67e63df3aca31215898f",
+    "float64_transpose/expected-y.bin": "6c6ba46ba13f9e97709c18d107568935cfb49cfc2541280f3a509238a3d81e65",
+    "float64_transpose/graph.mlir": "cabeeaa2fbaaac0987ab41b2de4692959d3fb767006106f52ec361461fa424d6",
+    "float64_transpose/model.aimodel/main.hash": "e1dfdd909e1535525c7fd7f518276f9d534b0c95825c5abbc457f1b9f3061336",
+    "float64_transpose/model.aimodel/main.mlirb": "68cc7de989f2aa86bc388d12da74fd8e7d5f8895ed6bd41396d57d65c6e3eeb9",
+    "float64_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "float64_transpose/x.bin": "ada77f840964ef626fa7a9386c1fb8c260b2f284e618b3574df3e97ec4902461",
+    "int16_double/expected-y.bin": "3129dec651e0b94ec1aa77568067b6ad7d029cede50bd5c0d551eb8878a45667",
+    "int16_double/graph.mlir": "479ae1b2a0a9f7e2c0ee407c1ba54c9031226cd53942d504efc9d4694feaacc3",
+    "int16_double/model.aimodel/main.hash": "066f84ebed20960feb9d4e1f2900206bbe98e9cac2994bd3d3e7c787a4508bde",
+    "int16_double/model.aimodel/main.mlirb": "0ea054540eb5c07d3160fe42be310de46cdbd53fd8573fc35dacf57690108de2",
+    "int16_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int16_double/x.bin": "341788ce254a0c707fa42ecb42b2478699e73bf9d8fe0db50425baa3fa9b318a",
+    "int16_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "int16_empty/graph.mlir": "0473172a0cdc5cf62b43debdd012526688ad38fc3ec021731e3d2b06609f813e",
+    "int16_empty/model.aimodel/main.hash": "34bdbe25c62ae8d3942b3f2c0857f7ff92ee72e78bde6ff0141cb158abf442a9",
+    "int16_empty/model.aimodel/main.mlirb": "9b8a20d4fa5775d149622b897be30d3a9fd0e5a52a1ade9fc91455b104a8816f",
+    "int16_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int16_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "int16_scalar/expected-y.bin": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+    "int16_scalar/graph.mlir": "ce7432d8cd72a10ca20ca7d844cdf32fd5aeb37c14f45715fdd3c16741a29d4d",
+    "int16_scalar/model.aimodel/main.hash": "4b26f0982f2c1e446859a053b33dfea9838b925a3e4dd94da80c9994caad69e8",
+    "int16_scalar/model.aimodel/main.mlirb": "c15d0397e0af77fdc40114a25668d108d28bfcfff35daf17c2cf7f9826a45c9a",
+    "int16_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int16_scalar/x.bin": "0a6361b3a802f55cd5ae06101c88a1e216320fe11cc0cfe1d791eed08a1200fd",
+    "int16_transpose/expected-y.bin": "e3753ea943e143d36abc5adc576d140ff64e028f755373a5ed5c52f8ba5b184c",
+    "int16_transpose/graph.mlir": "c8d5c663b9645e3c2c5d3e885a768900d4b390f06375ef487110e69c364e994c",
+    "int16_transpose/model.aimodel/main.hash": "d7af19677b804f364f33e6803709f4f67c5db9cf10e20daf90176c403059a573",
+    "int16_transpose/model.aimodel/main.mlirb": "bae5ab7c84e3a18a63fc35ba2ca24e194294c45524a9ec56c259560969f88e13",
+    "int16_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int16_transpose/x.bin": "200c8a51af6c0097d16a122db4dadd1dbd1a22e3fef44ce2cdda26ccc2ca869e",
+    "int16_wrap/expected-y.bin": "1e03dd305251e9bfc9297377b0cb51dd6846b8afcfafc9a702a06d6cfda0f3c9",
+    "int16_wrap/graph.mlir": "479ae1b2a0a9f7e2c0ee407c1ba54c9031226cd53942d504efc9d4694feaacc3",
+    "int16_wrap/model.aimodel/main.hash": "066f84ebed20960feb9d4e1f2900206bbe98e9cac2994bd3d3e7c787a4508bde",
+    "int16_wrap/model.aimodel/main.mlirb": "0ea054540eb5c07d3160fe42be310de46cdbd53fd8573fc35dacf57690108de2",
+    "int16_wrap/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int16_wrap/x.bin": "200c8a51af6c0097d16a122db4dadd1dbd1a22e3fef44ce2cdda26ccc2ca869e",
+    "int8_double/expected-y.bin": "2bbd26af1fd2a9bbee9479460265ba52aba6b8b9ba9f5ba5a8a220fc20aebb6f",
+    "int8_double/graph.mlir": "174e78f3b2877aa8124c7fe790099ec01117a31541ee0411314c735f4923fb48",
+    "int8_double/model.aimodel/main.hash": "2616e0d0d484027f6024ad8f2f6e58c891103dcdfb8b7278ec27614793050e5d",
+    "int8_double/model.aimodel/main.mlirb": "93ebb1dca16237bf68add15fcbb46a82c5fa062d59f9bf935c23a0224a385372",
+    "int8_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int8_double/x.bin": "b29603abd7cbd5b059376300f171fe200405f077cfe51a39a78459d911721e66",
+    "int8_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "int8_empty/graph.mlir": "dd129f3a3473a5a76a3b9b39676c8365ad70c9a544ddb087fd0495accab38ba7",
+    "int8_empty/model.aimodel/main.hash": "70ef163a035428adcfdc5d8c848c6bf3a4400cec105508089d6eb423a22d21aa",
+    "int8_empty/model.aimodel/main.mlirb": "80d64b16579720de0dcc343e0b05244da37217b9b6a5b76b5705f6afe7453e36",
+    "int8_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int8_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "int8_scalar/expected-y.bin": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+    "int8_scalar/graph.mlir": "1ff9b8d50f8e9d293e27d575b40ce5fe9889017e897de66e87bd88034d280512",
+    "int8_scalar/model.aimodel/main.hash": "63aff08729e84d97d24bf25cb9cf9904f97f79b8841975ad4b22e6e1e2f834bc",
+    "int8_scalar/model.aimodel/main.mlirb": "bf1e77f5b223cfd838876c05de568d0dabcf09ace26c0004c282238b1b269b87",
+    "int8_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int8_scalar/x.bin": "ca358758f6d27e6cf45272937977a748fd88391db679ceda7dc7bf1f005ee879",
+    "int8_transpose/expected-y.bin": "ec50dae6ab2375e49a98a83d51267d2144039b5fefb534dab6ac4d077773f6bc",
+    "int8_transpose/graph.mlir": "249c4938a681e5da185cf5248210e1861e752efd0dff9921ea15ba6097ed47dc",
+    "int8_transpose/model.aimodel/main.hash": "71c3f15d3592745b04b10c9b6da2d44db84e2e3757614c111d59a0e97570a8a1",
+    "int8_transpose/model.aimodel/main.mlirb": "1e340c3dca23387d0b36153e5e25105af4a5999d6d90a644c04c8ee7bd405f2b",
+    "int8_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int8_transpose/x.bin": "8070d8f2d0b067e0c74e179b3db4142bba7d8f6b3043ce20820dab208a5c062d",
+    "int8_wrap/expected-y.bin": "2bc34c2f1201a1df9fa33d96e85625f6485627eb23d4750836345a1da535f796",
+    "int8_wrap/graph.mlir": "174e78f3b2877aa8124c7fe790099ec01117a31541ee0411314c735f4923fb48",
+    "int8_wrap/model.aimodel/main.hash": "2616e0d0d484027f6024ad8f2f6e58c891103dcdfb8b7278ec27614793050e5d",
+    "int8_wrap/model.aimodel/main.mlirb": "93ebb1dca16237bf68add15fcbb46a82c5fa062d59f9bf935c23a0224a385372",
+    "int8_wrap/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "int8_wrap/x.bin": "8070d8f2d0b067e0c74e179b3db4142bba7d8f6b3043ce20820dab208a5c062d",
+    "uint16_double/expected-y.bin": "63e9334c0fde1b85d56da117baab6e37d556ff9f274e6f522932644b64c98b26",
+    "uint16_double/graph.mlir": "a4c85879a7444f815016e0695a78a7f1184b6456a15f7d993dbbceec2bc9ffeb",
+    "uint16_double/model.aimodel/main.hash": "ea89a1f0c913a64d7556392eb1147c25b6b08d03e2f6f12d26d46eaefc51fe64",
+    "uint16_double/model.aimodel/main.mlirb": "8d36d09b5d85ca29994c21ff0fc5a14c5abba019fdbf7202f4bb16c96e13303c",
+    "uint16_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint16_double/x.bin": "762981faef03d5eba521485e3c2685de53b86eab00b687e280f8d4b2c0d621a8",
+    "uint16_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint16_empty/graph.mlir": "f6f4408ee5a2593101bb601db7788cfc283a89a48840b629db2d0c206e8ccaf9",
+    "uint16_empty/model.aimodel/main.hash": "b69f471ac567a0b93f100e4de98bdef7d7bdd2d192032f7f2e31cc41f34bb058",
+    "uint16_empty/model.aimodel/main.mlirb": "d6ae44dba1dbbe0c17ea4d43da9fc6be73fb5f614e271ff456eecbccfc5bcf3d",
+    "uint16_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint16_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint16_scalar/expected-y.bin": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+    "uint16_scalar/graph.mlir": "c747155a4141102fc88365f29783b108a2d5cffa7628ffef762dc3b478587801",
+    "uint16_scalar/model.aimodel/main.hash": "0fd95ffbf8b712ef95fbcce5f69f07bfcccd4263a54d447ebd521b25fc9eeb7f",
+    "uint16_scalar/model.aimodel/main.mlirb": "3d6c74902c8e6e424a1dcf7152bab8a48777f2ed23bc5cd40a8ad29523e5f467",
+    "uint16_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint16_scalar/x.bin": "0a6361b3a802f55cd5ae06101c88a1e216320fe11cc0cfe1d791eed08a1200fd",
+    "uint16_transpose/expected-y.bin": "c010e0b196527b46b4811120ff88a35934a24925b3b1c91409dd32b4189835a2",
+    "uint16_transpose/graph.mlir": "2dc6b37a9890403d2bc1ee6040f142a1df42bc57bd3e96901d9d3e445b85329e",
+    "uint16_transpose/model.aimodel/main.hash": "f85111675c5b217aa4406cefad973e04c3c726e8e52c622d159cc920fdb1f7af",
+    "uint16_transpose/model.aimodel/main.mlirb": "4d3bb56481e5f96b4d7261f47b401d33bb7b44c409076523a6d7787d7af5637f",
+    "uint16_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint16_transpose/x.bin": "7b698b1a2a5d0645ae5fc5712ea440216de57b722efbcebabe0203bc9a710e58",
+    "uint16_wrap/expected-y.bin": "a9a17f9d20efbc7a74bfb9b24a544e374ea1543ad6e626f854cd3692ffd89120",
+    "uint16_wrap/graph.mlir": "a4c85879a7444f815016e0695a78a7f1184b6456a15f7d993dbbceec2bc9ffeb",
+    "uint16_wrap/model.aimodel/main.hash": "ea89a1f0c913a64d7556392eb1147c25b6b08d03e2f6f12d26d46eaefc51fe64",
+    "uint16_wrap/model.aimodel/main.mlirb": "8d36d09b5d85ca29994c21ff0fc5a14c5abba019fdbf7202f4bb16c96e13303c",
+    "uint16_wrap/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint16_wrap/x.bin": "7b698b1a2a5d0645ae5fc5712ea440216de57b722efbcebabe0203bc9a710e58",
+    "uint32_double/expected-y.bin": "8c9a205ec10f65b95b60549a4b7e07c3fe056766b049bb429195a424668bb9c4",
+    "uint32_double/graph.mlir": "cf01bdd52d4a76ae89dfecd5ef61295257e8e6565ad0aa65dfff11e6c4a8b680",
+    "uint32_double/model.aimodel/main.hash": "e584771114725853b26ea2bca18e474d2898d1ec8fea96229106872e75565ccb",
+    "uint32_double/model.aimodel/main.mlirb": "476f28364ffde319ff5b89cef86629b50d9ec8eb761a867061548c7ecbf8470e",
+    "uint32_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint32_double/x.bin": "4807b0ba23f7b99956ba9fe0be9955539fbac673142547d28298af501114e914",
+    "uint32_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint32_empty/graph.mlir": "4fdf8a5fe32bf0e1ae55f732a9320e34954a89cc6e6badf69a6e26c892f8a1ed",
+    "uint32_empty/model.aimodel/main.hash": "2f87c5af2022da596035e4961bd30f9401744d7138f62b1c3a89e18fb8581fdd",
+    "uint32_empty/model.aimodel/main.mlirb": "6633e295835c9cc5f2bb775c9348b56c1bcbbeecd43ffc2d689624e9aef98e91",
+    "uint32_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint32_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint32_scalar/expected-y.bin": "01b4f6bd5d6a06a7b74a8565ceb4f845afe0ae96a0ac05cf5e86066bf7b538ec",
+    "uint32_scalar/graph.mlir": "c6d70b2d36512907dc7cadd472fb8f1408ddb25f9d137b572fa1dd6242bedc50",
+    "uint32_scalar/model.aimodel/main.hash": "051ddc343c860b0134e5c6a20fe7c5674409817cc54a75d32da6879f8e223262",
+    "uint32_scalar/model.aimodel/main.mlirb": "37ee1fbcd7f61cef66bdf88a985340d34d8c25e36e93af1bbb1ae17c0d3c371e",
+    "uint32_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint32_scalar/x.bin": "e8613f5a5bc9f9feeda32a8e7c80b69dd4878e47b6a91723fb15eb84236b6a2b",
+    "uint32_transpose/expected-y.bin": "125fc9dff2b8a7c404c53bbf604048eda202365c03038eec24801158014f8761",
+    "uint32_transpose/graph.mlir": "561f1267cf76441332016e3fa1a96748cbcee006923e6406e5e117fda033769d",
+    "uint32_transpose/model.aimodel/main.hash": "fa29e82d83180c01224e1c1b59860ab39b532efa0970541ea2be96317f4a5096",
+    "uint32_transpose/model.aimodel/main.mlirb": "2f5cd165bde489c3f4559f9c4799f84c285cc7444868540609e1ac94d4d31051",
+    "uint32_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint32_transpose/x.bin": "00784a2cd9dee193d243d5e1d30de062175bde83423ac9bc02a33d95888767dc",
+    "uint32_wrap/expected-y.bin": "b5aeb78c93e0c2f346d8cd1798508ef9dbba2bc86eb45c09b00c9357cff08e38",
+    "uint32_wrap/graph.mlir": "cf01bdd52d4a76ae89dfecd5ef61295257e8e6565ad0aa65dfff11e6c4a8b680",
+    "uint32_wrap/model.aimodel/main.hash": "e584771114725853b26ea2bca18e474d2898d1ec8fea96229106872e75565ccb",
+    "uint32_wrap/model.aimodel/main.mlirb": "476f28364ffde319ff5b89cef86629b50d9ec8eb761a867061548c7ecbf8470e",
+    "uint32_wrap/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint32_wrap/x.bin": "00784a2cd9dee193d243d5e1d30de062175bde83423ac9bc02a33d95888767dc",
+    "uint64_double/expected-y.bin": "bcccecd7d310980489fafef5260cafd5e41cf11464b65bd53b5d80e726491b8d",
+    "uint64_double/graph.mlir": "608887aa1d74a74b37ee966e545eb39d3f267e82708ea86863a3f5740009f844",
+    "uint64_double/model.aimodel/main.hash": "8f40cf4a8bc958a0095b8568fb8ddcd5451adac3b66cf6d17047c4e740215d70",
+    "uint64_double/model.aimodel/main.mlirb": "9e683a3d9e37ce8bd669a06ea9fa613de031ce3522cc33c29684f8096b49ec16",
+    "uint64_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint64_double/x.bin": "c366528e40c7eb36827261e8c149044056ff2085443a55703115ba96cbdd921c",
+    "uint64_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint64_empty/graph.mlir": "cec22653a6909a9cb1ebf8f5131df586b123c77304e70191af046dc94701ab1c",
+    "uint64_empty/model.aimodel/main.hash": "589d6e59e69e5989a66ac2414eb27a0115becf4bf521a30098cb2ffa60fd7d53",
+    "uint64_empty/model.aimodel/main.mlirb": "9caefcf541e88b42eaf46f3a41b87f5d352cc9e8c1d4cc0e3d8fe91cb2236efa",
+    "uint64_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint64_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint64_scalar/expected-y.bin": "18d8d609947c6b82b9607704ae40d3317038e709238514de750b5c7411ba4c20",
+    "uint64_scalar/graph.mlir": "3961ab2c2c092bc8faba0f708461784965b9c2093ee9103399c060beff89884e",
+    "uint64_scalar/model.aimodel/main.hash": "899833befa1100c39058e7520c8076d81ced9926a07223eaa9be108994c5cc8a",
+    "uint64_scalar/model.aimodel/main.mlirb": "850b1139c736657cf8eb2f732a71014df550f948f716810c62ed476517ec7c71",
+    "uint64_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint64_scalar/x.bin": "aae89fc0f03e2959ae4d701a80cc3915918c950b159f6abb6c92c1433b1a8534",
+    "uint64_transpose/expected-y.bin": "2b0df1f4fd9a18168df56c5d6ebf75f2a2ab44d724ac5590cc9f4c4627ad4b69",
+    "uint64_transpose/graph.mlir": "65440dd1a966b987e17c0aa0a8fe9dfa5317d3e3e2fd10d9c427612ace23a3f6",
+    "uint64_transpose/model.aimodel/main.hash": "9b77cb83abc42765cd36aa3eb52b582fdf48aeb00c6a1b98c91a0557eae4c0ba",
+    "uint64_transpose/model.aimodel/main.mlirb": "47b698f5bd83d81a089afa55f7eb64fdeccf062327010731acb4dfa98d8795d6",
+    "uint64_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint64_transpose/x.bin": "1f5c5a4d784818a8ad4011f59ec9f6fb05d2da2bfc351292dc8cda83431d26e9",
+    "uint64_wrap/expected-y.bin": "4a1901b9c5a1dae7f04c66aee68d0f51f9082ff93db28081d57eda730c5b8afc",
+    "uint64_wrap/graph.mlir": "608887aa1d74a74b37ee966e545eb39d3f267e82708ea86863a3f5740009f844",
+    "uint64_wrap/model.aimodel/main.hash": "8f40cf4a8bc958a0095b8568fb8ddcd5451adac3b66cf6d17047c4e740215d70",
+    "uint64_wrap/model.aimodel/main.mlirb": "9e683a3d9e37ce8bd669a06ea9fa613de031ce3522cc33c29684f8096b49ec16",
+    "uint64_wrap/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint64_wrap/x.bin": "1f5c5a4d784818a8ad4011f59ec9f6fb05d2da2bfc351292dc8cda83431d26e9",
+    "uint8_double/expected-y.bin": "4304eb2043dbc8e609b0043d38f50310a63292efd01e95d7e91b62a820ebd805",
+    "uint8_double/graph.mlir": "a4b8975ddb13db320a556ce93788fe4c0ac06562e95fd00685967c0330458b12",
+    "uint8_double/model.aimodel/main.hash": "b4f762872d161c1df8146ae94aad42fd42bfe07a742ed81ec5c74d3b6210848e",
+    "uint8_double/model.aimodel/main.mlirb": "ad6f73d88abe6241397858a285935aba3be0829ae097daa93fea465a20a09e07",
+    "uint8_double/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint8_double/x.bin": "3e34085166e40b3c4d98f6022e792b9264af2c9efcb9e41602da149273f53f6a",
+    "uint8_empty/expected-y.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint8_empty/graph.mlir": "f8c48fbf3c711a90ac8320cd2477a0db0fd6f3e9dfdd26f758a68d4b81cfb046",
+    "uint8_empty/model.aimodel/main.hash": "6f8db0e403d9d633d77da01d79e2e935668dd1f6262d5fa5ff50ea1eb25c38b5",
+    "uint8_empty/model.aimodel/main.mlirb": "0886c4a0d40db89cc64f1bdf44e97d0c3a8a4fec8f30342e77f68b704d05c66e",
+    "uint8_empty/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint8_empty/x.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uint8_scalar/expected-y.bin": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+    "uint8_scalar/graph.mlir": "6222cbe6b18355d4b685e9b367d03cdfb6feda610127f49be7cbe2cd8f6c4ba3",
+    "uint8_scalar/model.aimodel/main.hash": "8a798556d90f4bf7fded6a696557c5931975fb4fcdc44a03af7bece144ebd716",
+    "uint8_scalar/model.aimodel/main.mlirb": "d74773df6224f999396856264bb1136703af3d04f8180ea78ddb776134a1c073",
+    "uint8_scalar/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint8_scalar/x.bin": "ca358758f6d27e6cf45272937977a748fd88391db679ceda7dc7bf1f005ee879",
+    "uint8_transpose/expected-y.bin": "82e6d8a39228396fae19640718aca82e60c8e4c6c3e4218b0f95fedbe289086e",
+    "uint8_transpose/graph.mlir": "e45e69a00f8359d89d3a97ed9eac86506da117731c1f4675d37da18c3d916b78",
+    "uint8_transpose/model.aimodel/main.hash": "2ff19eb2727e95dd56af67df23e7a1be83a7a04040d7a203c8e205bf3d67656a",
+    "uint8_transpose/model.aimodel/main.mlirb": "977cc198c1f9938890bb7603c9409d961ccad8f47c2cd19f48a7fd22631ecebe",
+    "uint8_transpose/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint8_transpose/x.bin": "79e7ebf53f31c8c20d841e3cc05760138e27ec2b08292bc04e0e90358c299d57",
+    "uint8_wrap/expected-y.bin": "8155e8aaf80a21cf467406090edbbe2b867da980fcd5abdc61c1dc024b05f2bd",
+    "uint8_wrap/graph.mlir": "a4b8975ddb13db320a556ce93788fe4c0ac06562e95fd00685967c0330458b12",
+    "uint8_wrap/model.aimodel/main.hash": "b4f762872d161c1df8146ae94aad42fd42bfe07a742ed81ec5c74d3b6210848e",
+    "uint8_wrap/model.aimodel/main.mlirb": "ad6f73d88abe6241397858a285935aba3be0829ae097daa93fea465a20a09e07",
+    "uint8_wrap/model.aimodel/metadata.json": "8f1f500906eec57f7e4604c435c1a9a65e3e037b7489224dea046b062db84476",
+    "uint8_wrap/x.bin": "79e7ebf53f31c8c20d841e3cc05760138e27ec2b08292bc04e0e90358c299d57"
+  },
+  "limitations": [
+    "Prepared models and expected bytes do not establish native execution.",
+    "Expected bytes are NumPy arithmetic; backend observations are frozen separately."
+  ]
+}

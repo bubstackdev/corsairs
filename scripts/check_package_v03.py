@@ -265,8 +265,8 @@ def main():
         original = tomllib.loads((CRATE / "Cargo.toml").read_text())
         workspace = tomllib.loads((ROOT / "Cargo.toml").read_text())
         name, version = (original["package"][field] for field in ("name", "version"))
-        if name != "corsairs" or not re.fullmatch(r"0\.3\.[0-9]+", version):
-            raise RuntimeError("Freeze a final corsairs 0.3.x version before this release gate")
+        if name != "corsairs" or not re.fullmatch(r"0\.[34]\.[0-9]+", version):
+            raise RuntimeError("Freeze a final corsairs 0.3.x or 0.4.x version before this release gate")
         if args.expected_version and version != args.expected_version:
             raise RuntimeError("Current package version differs from --expected-version")
         report.update(package=name, version=version)

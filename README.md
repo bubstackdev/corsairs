@@ -17,6 +17,8 @@ gates pass and a fresh registry consumer passes native chaining.**
 fixes: native chain provenance stays bounded and waker callbacks no longer run under the
 task result lock.
 
+[v0.4](docs/v0.4-release.md) adds [queued-request cancellation](docs/cancellation.md), [Neural Engine preference](docs/compute-units.md), [read-only asset inspection](docs/asset-metadata.md), and [`f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64` tensors](docs/scalar-types.md). `Compute` and `DType` are now non-exhaustive.
+
 ## Use
 
 Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.0.1 (26A434) with Rust 1.99.0. Xcode/SDK 27, Apple Swift 6.4, and Python are development/reference tools.
@@ -24,7 +26,7 @@ Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.
 Add [Corsairs from crates.io](https://crates.io/crates/corsairs) to a Rust project:
 
 ```sh
-cargo add corsairs@0.3.1
+cargo add corsairs@0.4.0
 ```
 
 Source: [bubstackdev/corsairs](https://github.com/bubstackdev/corsairs).
@@ -67,18 +69,18 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 
 | Area | v0.3 behavior |
 | --- | --- |
-| Models | Existing assets, named functions, input/output/state descriptors; [asset metadata and summary](docs/asset-metadata.md) without loading (unreleased on `main`) |
-| Tensor elements | `Float16`, `BFloat16`, `f32`, `i32`, `i64`, `bool`; on `main`, also [`f64`, `i8`, `i16`, `u8`, `u16`, `u32`, `u64`](docs/scalar-types.md) |
+| Models | Existing assets, named functions, input/output/state descriptors; [asset metadata and summary](docs/asset-metadata.md) without loading |
+| Tensor elements | `Float16`, `BFloat16`, `f32`, `i32`, `i64`, `bool`, [`f64`, `i8`, `i16`, `u8`, `u16`, `u32`, `u64`](docs/scalar-types.md) |
 | Storage | Owned tensors, retained native handles, and shared Metal buffers |
 | Shape limits | Static/dynamic signatures; rank 64; storage/CPU 4 GiB; GPU inference 2 GiB |
 | Execution | Named inputs/outputs and caller-supplied named state, with updated state returned for the next step |
-| Compute | CPU-only, GPU-preferred, or [Neural Engine-preferred](docs/compute-units.md) specialization (unreleased on `main`) |
+| Compute | CPU-only, GPU-preferred, or [Neural Engine-preferred](docs/compute-units.md) specialization |
 | Ownership | Native values stay on one worker per runtime; cloned handles share its serialized queue |
 | Errors | Checked tensor construction/signatures and typed native, binding, and worker errors |
 
 Scalar and empty tensors are supported. For empty tensors, the corresponding size guard also applies to the product of nonzero dimensions and scalar width. Non-tensor values are rejected. Dynamic outputs are bounded only after completion; stateful owned/native GPU signatures retain a fixed 1 GiB envelope. GPU preference permits fallback choices and does not prove which device executed an operation.
 
-Graph authoring, custom Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, and explicit Neural Engine control are deferred. Core AI cannot stop running work; on `main`, `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
+Graph authoring, custom Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, and restricting execution to the Neural Engine (Core AI exposes only a preference) are deferred. Core AI cannot stop running work; `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
 
 ## Verification
 

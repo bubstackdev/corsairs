@@ -154,7 +154,7 @@ pub enum NativeMetalInput {
     Value(u64),
 }
 
-unsafe fn call6(
+pub(super) unsafe fn call6(
     target: *mut c_void,
     args: [usize; 6],
     out: *mut c_void,

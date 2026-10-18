@@ -39,7 +39,7 @@ pub use metadata::{Metadata, TypeLayout};
 pub use model::ModelReport;
 #[cfg(any(feature = "abi-research", test))]
 pub use owned::NativeBatchMetrics;
-pub use owned::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue};
+pub use owned::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue, NativeCreatorValue};
 pub use owned::{
     NativeBatchOutcome, NativeCompute, NativeDType, NativeFailure, NativeFunctionBatchOutcome,
     NativeFunctionDescriptor, NativeLoadOptions, NativeMetalInput, NativeMetalObject,

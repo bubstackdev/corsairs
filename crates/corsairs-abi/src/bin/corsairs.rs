@@ -1,9 +1,10 @@
 #![forbid(unsafe_code)]
 use corsairs::{
-    AssetInfo, AssetValue, Compute, DType, FunctionDescriptor, LoadOptions, RunResult, Runtime,
-    Tensor, TensorMap,
+    AssetInfo, AssetValue, Compute, CreatorValue, DType, FunctionDescriptor, LoadOptions,
+    RunResult, Runtime, Tensor, TensorMap,
 };
 use std::{
+    collections::BTreeMap,
     error::Error,
     path::{Path, PathBuf},
     time::Instant,
@@ -348,11 +349,39 @@ fn asset_json(asset: &AssetInfo) -> String {
         )
     });
     format!(
-        "{{\"author\":{},\"license\":{},\"description\":{},\"created_unix_seconds\":{created},\"summary\":{summary}}}",
+        "{{\"author\":{},\"license\":{},\"description\":{},\"created_unix_seconds\":{created},\"creator_defined\":{},\"summary\":{summary}}}",
         quoted(&asset.metadata.author),
         quoted(&asset.metadata.license),
-        quoted(&asset.metadata.description)
+        quoted(&asset.metadata.description),
+        creator_entries_json(&asset.metadata.creator_defined)
     )
+}
+/// Each value is a one-key object naming its case, so integers, numbers and
+/// booleans stay distinct. Non-finite numbers, which JSON cannot spell, are
+/// the strings "NaN", "inf" and "-inf".
+fn creator_json(value: &CreatorValue) -> String {
+    match value {
+        CreatorValue::String(text) => format!("{{\"string\":{}}}", quoted(text)),
+        CreatorValue::Integer(value) => format!("{{\"integer\":{value}}}"),
+        CreatorValue::Number(value) if value.is_finite() => format!("{{\"number\":{value:?}}}"),
+        CreatorValue::Number(value) => format!("{{\"number\":\"{value}\"}}"),
+        CreatorValue::Bool(value) => format!("{{\"bool\":{value}}}"),
+        CreatorValue::Array(values) => {
+            let rows: Vec<_> = values.iter().map(creator_json).collect();
+            format!("{{\"array\":[{}]}}", rows.join(","))
+        }
+        CreatorValue::Dictionary(entries) => {
+            format!("{{\"dictionary\":{}}}", creator_entries_json(entries))
+        }
+        _ => "null".into(),
+    }
+}
+fn creator_entries_json(entries: &BTreeMap<String, CreatorValue>) -> String {
+    let rows: Vec<_> = entries
+        .iter()
+        .map(|(key, value)| format!("{}:{}", quoted(key), creator_json(value)))
+        .collect();
+    format!("{{{}}}", rows.join(","))
 }
 fn quoted(value: &str) -> String {
     use std::fmt::Write;
@@ -380,5 +409,44 @@ mod tests {
         for value in ["1", "0", "yes", "False", ""] {
             assert!(parse_bool(value).is_err());
         }
+    }
+
+    #[test]
+    fn creator_values_are_tagged_json_including_unreachable_numbers() {
+        // Core AI neither writes nor reads NaN, ±inf or -0.0 as a number, but
+        // the public type can hold them; they must still print as valid JSON.
+        let numbers = [
+            0.1,
+            -0.0,
+            1.0,
+            1e300,
+            5e-324,
+            f64::NAN,
+            f64::INFINITY,
+            f64::NEG_INFINITY,
+        ];
+        let values = BTreeMap::from([
+            (
+                "a\"\n".to_owned(),
+                CreatorValue::Array(numbers.into_iter().map(CreatorValue::Number).collect()),
+            ),
+            (
+                "d".to_owned(),
+                CreatorValue::Dictionary(BTreeMap::from([
+                    ("i".to_owned(), CreatorValue::Integer(i64::MIN)),
+                    ("b".to_owned(), CreatorValue::Bool(true)),
+                    ("s".to_owned(), CreatorValue::String(String::new())),
+                ])),
+            ),
+        ]);
+        assert_eq!(
+            creator_entries_json(&values),
+            concat!(
+                r#"{"a\"\u000a":{"array":[{"number":0.1},{"number":-0.0},{"number":1.0},"#,
+                r#"{"number":1e300},{"number":5e-324},{"number":"NaN"},{"number":"inf"},"#,
+                r#"{"number":"-inf"}]},"d":{"dictionary":{"b":{"bool":true},"#,
+                r#""i":{"integer":-9223372036854775808},"s":{"string":""}}}}"#
+            )
+        );
     }
 }

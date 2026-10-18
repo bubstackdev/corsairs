@@ -18,7 +18,7 @@ use std::ptr::{self, NonNull};
 use std::rc::Rc;
 
 mod asset;
-pub use asset::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue};
+pub use asset::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue, NativeCreatorValue};
 mod function_batch;
 pub use function_batch::NativeFunctionBatchOutcome;
 mod batch;

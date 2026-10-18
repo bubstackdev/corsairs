@@ -1,5 +1,6 @@
 use super::*;
-use crate::native::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue};
+use crate::native::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue, NativeCreatorValue};
+use std::collections::BTreeMap;
 use std::time::{Duration, SystemTime};
 
 /// Read-only description of a model asset, without loading or specializing it.
@@ -12,13 +13,32 @@ pub struct AssetInfo {
 }
 
 /// Author-supplied asset metadata. Absent text fields are empty strings.
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 #[non_exhaustive]
 pub struct AssetMetadata {
     pub author: String,
     pub license: String,
     pub description: String,
     pub created: Option<SystemTime>,
+    /// Core AI's `creatorDefinedMetadata`; empty when the asset has none.
+    pub creator_defined: BTreeMap<String, CreatorValue>,
+}
+
+/// A creator-defined metadata value, mirroring Core AI's
+/// `AIModelAsset.Metadata.CreatorDefinedValue` case for case.
+///
+/// The case is Core AI's reading of the asset's JSON, not the value written:
+/// whole numbers read back as [`CreatorValue::Integer`], and `0`, `1` and
+/// `-0.0` as [`CreatorValue::Bool`]. See `docs/creator-metadata.md`.
+#[derive(Debug, Clone, PartialEq)]
+#[non_exhaustive]
+pub enum CreatorValue {
+    String(String),
+    Integer(i64),
+    Number(f64),
+    Bool(bool),
+    Array(Vec<CreatorValue>),
+    Dictionary(BTreeMap<String, CreatorValue>),
 }
 
 /// The asset's declared functions and, when requested, its statistics.
@@ -105,6 +125,7 @@ fn asset_info(info: NativeAssetInfo) -> AssetInfo {
             license: info.metadata.license,
             description: info.metadata.description,
             created: info.metadata.creation_unix_seconds.and_then(system_time),
+            creator_defined: creator_entries(info.metadata.creator_defined),
         },
         summary: info.summary.map(|summary| AssetSummary {
             functions: summary.functions.into_iter().map(function).collect(),
@@ -113,6 +134,30 @@ fn asset_info(info: NativeAssetInfo) -> AssetInfo {
             operations: counts(summary.operations),
         }),
     }
+}
+
+fn creator_value(value: NativeCreatorValue) -> CreatorValue {
+    match value {
+        NativeCreatorValue::String(text) => CreatorValue::String(text),
+        NativeCreatorValue::Integer(value) => CreatorValue::Integer(value),
+        NativeCreatorValue::Number(value) => CreatorValue::Number(value),
+        NativeCreatorValue::Bool(value) => CreatorValue::Bool(value),
+        NativeCreatorValue::Array(values) => {
+            CreatorValue::Array(values.into_iter().map(creator_value).collect())
+        }
+        NativeCreatorValue::Dictionary(entries) => {
+            CreatorValue::Dictionary(creator_entries(entries))
+        }
+    }
+}
+
+fn creator_entries(
+    entries: BTreeMap<String, NativeCreatorValue>,
+) -> BTreeMap<String, CreatorValue> {
+    entries
+        .into_iter()
+        .map(|(key, value)| (key, creator_value(value)))
+        .collect()
 }
 
 /// Convert Unix seconds, including pre-1970 dates; non-finite or
@@ -143,6 +188,108 @@ mod tests {
 
     #[test]
     #[ignore = "requires permitted native Core AI"]
+    fn native_creator_metadata_reads_every_case_of_the_written_fixture() {
+        use CreatorValue::{Array, Bool, Dictionary, Integer, Number, String as Text};
+        let runtime = Runtime::new().unwrap();
+        let path = Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("../../fixtures/asset-metadata-creator/model.aimodel");
+        let metadata = runtime.inspect_asset(path, false).wait().unwrap().metadata;
+        let text = |value: &str| Text(value.into());
+        let map = |entries: Vec<(&str, CreatorValue)>| {
+            entries
+                .into_iter()
+                .map(|(key, value)| (key.to_owned(), value))
+                .collect::<BTreeMap<_, _>>()
+        };
+        let mut nested = Dictionary(map(vec![("depth", Integer(40)), ("leaf", text("bottom"))]));
+        for _ in 0..40 {
+            nested = Array(vec![nested]);
+        }
+        // Values as Core AI reads them back from the JSON CreatorMetadataWriter
+        // wrote: 0, 1 and -0.0 become Bool and the whole 3.0 becomes Integer.
+        let expected = map(vec![
+            ("", text("empty top-level key")),
+            ("array_empty", Array(vec![])),
+            (
+                "array_mixed",
+                Array(vec![
+                    text("a"),
+                    Integer(7),
+                    Number(1.5),
+                    Bool(true),
+                    Array(vec![]),
+                    Dictionary(BTreeMap::new()),
+                    Array(vec![Array(vec![Array(vec![text("deep")])])]),
+                    Dictionary(map(vec![("k", text("v"))])),
+                ]),
+            ),
+            ("bool_false", Bool(false)),
+            ("bool_true", Bool(true)),
+            (
+                "dictionary",
+                Dictionary(map(vec![
+                    ("", text("empty key")),
+                    (
+                        "nested",
+                        Dictionary(map(vec![(
+                            "inner",
+                            Dictionary(map(vec![(
+                                "list",
+                                Array(vec![
+                                    Bool(true),
+                                    Integer(2),
+                                    Dictionary(BTreeMap::new()),
+                                    Array(vec![]),
+                                ]),
+                            )])),
+                        )])),
+                    ),
+                    ("\u{e9}", text("precomposed e-acute key")),
+                    ("ключ", text("значение")),
+                    ("🔑", text("emoji key")),
+                ])),
+            ),
+            (
+                "dictionary_decomposed",
+                Dictionary(map(vec![("e\u{301}", text("decomposed e-acute key"))])),
+            ),
+            ("dictionary_empty", Dictionary(BTreeMap::new())),
+            ("integer_max", Integer(i64::MAX)),
+            ("integer_min", Integer(i64::MIN)),
+            ("integer_negative", Integer(-42)),
+            ("integer_one", Bool(true)),
+            ("integer_two", Integer(2)),
+            ("integer_zero", Bool(false)),
+            ("nested_40", nested),
+            ("number", Number(0.1)),
+            ("number_large", Number(1e300)),
+            ("number_max", Number(f64::MAX)),
+            ("number_min_normal", Number(f64::MIN_POSITIVE)),
+            ("number_negative", Number(-2.5)),
+            ("number_negative_zero", Bool(false)),
+            ("number_subnormal", Number(f64::from_bits(1))),
+            ("number_whole", Integer(3)),
+            ("string", text("plain")),
+            ("string_empty", text("")),
+            (
+                "string_unicode",
+                text("Zoë 🏴\u{200d}☠️ \"quoted\"\nline\t× 日本語 \u{0}nul"),
+            ),
+            (
+                "日本語キー",
+                Array(vec![
+                    text("配列"),
+                    Integer(7),
+                    Dictionary(map(vec![("キー", Bool(false))])),
+                ]),
+            ),
+        ]);
+        assert_eq!(metadata.creator_defined, expected);
+        assert_eq!(metadata.author, "Creator metadata fixture");
+    }
+
+    #[test]
+    #[ignore = "requires permitted native Core AI"]
     fn native_asset_metadata_preserves_written_text_and_date() {
         let runtime = Runtime::new().unwrap();
         let path = Path::new(env!("CARGO_MANIFEST_DIR"))
@@ -156,6 +303,7 @@ mod tests {
                 description: "x + x \"quoted\"\nsecond line\t× ünïcødé".into(),
                 // Written as 1234567890.25; Core AI stores whole seconds.
                 created: Some(SystemTime::UNIX_EPOCH + Duration::from_secs(1_234_567_890)),
+                creator_defined: BTreeMap::new(),
             }
         );
     }
@@ -199,6 +347,7 @@ mod tests {
             ),
             ("", "", "")
         );
+        assert!(metadata.creator_defined.is_empty());
         assert!(
             metadata
                 .created

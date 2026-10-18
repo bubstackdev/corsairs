@@ -1,10 +1,14 @@
 //! Read-only AIModelAsset metadata and summary. Every accessor's lowering is
-//! taken from experiments/swift/AssetReference.swift's emitted IR.
+//! taken from experiments/swift/AssetReference.swift's emitted IR, and the
+//! creator-defined metadata from CreatorMetadataReference.swift's.
 use super::{
-    NativeFailure, NativeMetadata, NativeSession, NativeValue, OwnedWord, Result, arm64,
-    metal::Pool,
+    Metadata, NativeFailure, NativeMetadata, NativeSession, NativeValue, OwnedWord, Result, arm64,
+    metal::{Pool, call6},
 };
-use std::ffi::CStr;
+use std::cell::Cell;
+use std::collections::BTreeMap;
+use std::ffi::{CStr, c_void};
+use std::mem;
 use std::path::Path;
 use std::ptr;
 
@@ -15,6 +19,17 @@ pub struct NativeAssetMetadata {
     pub description: String,
     /// Seconds since 1970-01-01 UTC.
     pub creation_unix_seconds: Option<f64>,
+    pub creator_defined: BTreeMap<String, NativeCreatorValue>,
+}
+/// One `AIModelAsset.Metadata.CreatorDefinedValue`, in declaration order.
+#[derive(Clone, Debug, PartialEq)]
+pub enum NativeCreatorValue {
+    String(String),
+    Integer(i64),
+    Number(f64),
+    Bool(bool),
+    Array(Vec<NativeCreatorValue>),
+    Dictionary(BTreeMap<String, NativeCreatorValue>),
 }
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct NativeAssetValue {
@@ -50,8 +65,47 @@ const FUNCTION: &CStr = c"$s11CoreAIAsset12AIModelAssetV18FunctionDescriptorVMa"
 const VALUE: &CStr = c"$s11CoreAIAsset12AIModelAssetV15ValueDescriptorVMa";
 const STORAGE: &CStr = c"$s11CoreAIAsset12AIModelAssetV7SummaryV11StorageTypeVMa";
 const OPERATION: &CStr = c"$s11CoreAIAsset12AIModelAssetV7SummaryV14OperationCountVMa";
+const CREATOR_VALUE: &CStr = c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueOMa";
+// Case tags are the resilient enum's exported `WC` constants, in the order of
+// NativeCreatorValue; their values are loaded, never assumed.
+const CREATOR_CASES: [&CStr; 6] = [
+    c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO6stringyAGSScAGmFWC",
+    c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO7integeryAGSicAGmFWC",
+    c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO6numberyAGSdcAGmFWC",
+    c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO4boolyAGSbcAGmFWC",
+    c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO5arrayyAGSayAGGcAGmFWC",
+    c"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO10dictionaryyAGSDySSAGGcAGmFWC",
+];
 // Bounds for natively reported collection sizes, before any allocation.
 const MAX_ENTRIES: usize = 1 << 16;
+// Creator-defined values come from an untrusted asset: bound the nesting (Core
+// AI's JSON reader itself stops near 512 levels) and the total value count.
+const MAX_CREATOR_DEPTH: usize = 512;
+const MAX_CREATOR_VALUES: usize = 1 << 16;
+
+/// Metadata, witness tables and case tags shared by one creator-metadata walk.
+struct Creator {
+    value: NativeMetadata,
+    optional_value: NativeMetadata,
+    string: NativeMetadata,
+    optional_string: NativeMetadata,
+    hashable: usize,
+    iterator: NativeMetadata,
+    tags: [u32; 6],
+    remaining: Cell<usize>,
+}
+impl Creator {
+    /// Charge `count` values against the walk's budget before reading them.
+    fn consume(&self, count: usize) -> Result<()> {
+        let remaining = self.remaining.get().checked_sub(count).ok_or_else(|| {
+            NativeFailure::Unsupported(format!(
+                "creator metadata holds more than {MAX_CREATOR_VALUES} values"
+            ))
+        })?;
+        self.remaining.set(remaining);
+        Ok(())
+    }
+}
 
 impl NativeSession {
     /// # Safety
@@ -177,6 +231,212 @@ impl NativeSession {
                     receiver,
                 )?,
                 creation_unix_seconds,
+                creator_defined: self.creator_defined(receiver)?,
+            })
+        }
+    }
+
+    unsafe fn creator_defined(
+        &self,
+        receiver: usize,
+    ) -> Result<BTreeMap<String, NativeCreatorValue>> {
+        // SAFETY: Borrowed Metadata in x20; the getter returns a +1 Dictionary
+        // word. Every metadata argument below is the one the IR passes.
+        unsafe {
+            let value = self.metadata(CREATOR_VALUE)?;
+            if value.layout.flags & 0x0020_0000 == 0 {
+                return Err(NativeFailure::Binding("enum witnesses absent".into()));
+            }
+            let string = NativeMetadata::copy(&Metadata::from_response(self.symbol(c"$sSSN")?, 0)?);
+            let hashable = self.symbol(c"$sSSSHsWP")? as usize;
+            let (pointer, state, _) = call6(
+                self.symbol(c"$sSD4KeysV8IteratorVMa")?,
+                [0, string.pointer, value.pointer, hashable, 0, 0],
+                ptr::null_mut(),
+                0,
+            );
+            let iterator = NativeMetadata::copy(&Metadata::from_response(pointer as _, state)?);
+            let mut tags = [0; 6];
+            for (tag, case) in tags.iter_mut().zip(CREATOR_CASES) {
+                *tag = self.symbol(case)?.cast::<u32>().read();
+            }
+            let creator = Creator {
+                value,
+                optional_value: self.optional(value)?,
+                string,
+                optional_string: self.optional(string)?,
+                hashable,
+                iterator,
+                tags,
+                remaining: Cell::new(MAX_CREATOR_VALUES),
+            };
+            let word = self.call(
+                c"$s11CoreAIAsset12AIModelAssetV8MetadataV014creatorDefinedE0SDySSAE07CreatorG5ValueOGvg",
+                [0; 3],
+                ptr::null_mut(),
+                receiver,
+            )?;
+            self.creator_dictionary(&creator, word, 0)
+        }
+    }
+
+    /// Read a +1 `[String: CreatorDefinedValue]` word through its keys
+    /// iterator and keyed subscript; no Dictionary storage layout is assumed.
+    unsafe fn creator_dictionary(
+        &self,
+        creator: &Creator,
+        word: usize,
+        depth: usize,
+    ) -> Result<BTreeMap<String, NativeCreatorValue>> {
+        // SAFETY: Each generic entry point takes (String, CreatorDefinedValue,
+        // String: Hashable) after its value arguments, per the -Onone IR.
+        unsafe {
+            let dictionary = OwnedWord {
+                word,
+                release: self.release(c"swift_bridgeObjectRelease")?,
+            };
+            let generic = [
+                creator.string.pointer,
+                creator.value.pointer,
+                creator.hashable,
+            ];
+            let (count, _, _) = call6(
+                self.symbol(c"$sSD5countSivg")?,
+                [word, generic[0], generic[1], generic[2], 0, 0],
+                ptr::null_mut(),
+                0,
+            );
+            creator.consume(count)?;
+            // Resolve and allocate first: nothing may fail while Keys is owned.
+            let keys_getter = self.symbol(c"$sSD4keysSD4KeysVyxq__Gvg")?;
+            let make_iterator = self.symbol(c"$sSD4KeysV12makeIteratorAB0C0Vyxq___GyF")?;
+            let next = self.symbol(c"$sSD4KeysV8IteratorV4nextxSgyF")?;
+            let lookup = self.symbol(c"$sSDyq_Sgxcig")?;
+            let mut iterator = NativeValue::allocate(creator.iterator)?;
+            // keys borrows the dictionary and returns a +1 Keys word, which
+            // makeIterator consumes into the runtime-sized Keys.Iterator.
+            let (keys, _, _) = call6(
+                keys_getter,
+                [word, generic[0], generic[1], generic[2], 0, 0],
+                ptr::null_mut(),
+                0,
+            );
+            call6(
+                make_iterator,
+                [keys, generic[0], generic[1], generic[2], 0, 0],
+                iterator.ptr(),
+                0,
+            );
+            iterator.initialized = true;
+            let mut entries = BTreeMap::new();
+            loop {
+                let mut optional = NativeValue::allocate(creator.optional_string)?;
+                // next: x8 = Optional<String>, x0 = Keys.Iterator metadata,
+                // x20 = the iterator, mutated in place.
+                call6(
+                    next,
+                    [creator.iterator.pointer, 0, 0, 0, 0, 0],
+                    optional.ptr(),
+                    iterator.address(),
+                );
+                optional.initialized = true;
+                let Some(mut key) = optional.take_optional(creator.string)? else {
+                    break;
+                };
+                if entries.len() == count {
+                    return Err(NativeFailure::Binding(
+                        "creator metadata keys exceed their count".into(),
+                    ));
+                }
+                // subscript(key:): x8 = Optional<Value>, x0 = borrowed key
+                // address, x1 = borrowed dictionary word.
+                let mut found = NativeValue::allocate(creator.optional_value)?;
+                call6(
+                    lookup,
+                    [key.address(), word, generic[0], generic[1], generic[2], 0],
+                    found.ptr(),
+                    0,
+                );
+                found.initialized = true;
+                let value = found.take_optional(creator.value)?.ok_or_else(|| {
+                    NativeFailure::Binding("creator metadata key has no value".into())
+                })?;
+                // Move the key's two String words out of its native storage.
+                let words = key.ptr().cast::<[usize; 2]>().read();
+                key.initialized = false;
+                let key = self.string_words(words)?;
+                let value = self.creator_value(creator, value, depth + 1)?;
+                if entries.insert(key, value).is_some() {
+                    return Err(NativeFailure::Binding(
+                        "duplicate creator metadata key".into(),
+                    ));
+                }
+            }
+            if entries.len() != count {
+                return Err(NativeFailure::Binding(
+                    "creator metadata keys fall short of their count".into(),
+                ));
+            }
+            drop(dictionary);
+            Ok(entries)
+        }
+    }
+
+    /// Consume one owned CreatorDefinedValue: getEnumTag (VWT 11), match a `WC`
+    /// constant, destructiveProjectEnumData (VWT 12), then load the payload
+    /// from offset 0 exactly as CreatorMetadataReference.swift's -O IR does.
+    unsafe fn creator_value(
+        &self,
+        creator: &Creator,
+        mut value: NativeValue,
+        depth: usize,
+    ) -> Result<NativeCreatorValue> {
+        // SAFETY: `value` is an initialized CreatorDefinedValue whose metadata
+        // carries enum witnesses (checked in creator_defined). After projection
+        // the storage holds the payload, so the enum itself is never destroyed.
+        unsafe {
+            if depth > MAX_CREATOR_DEPTH {
+                return Err(NativeFailure::Unsupported(format!(
+                    "creator metadata nests deeper than {MAX_CREATOR_DEPTH} levels"
+                )));
+            }
+            let md = creator.value;
+            let get_tag: unsafe extern "C" fn(*mut c_void, *mut c_void) -> u32 =
+                mem::transmute(md.witness(11));
+            let tag = get_tag(value.ptr(), md.pointer as _);
+            let Some(case) = creator.tags.iter().position(|known| *known == tag) else {
+                // A future case: `value` is still the whole enum and drops normally.
+                return Err(NativeFailure::Unsupported(format!(
+                    "creator metadata value case tag {tag}"
+                )));
+            };
+            let project: unsafe extern "C" fn(*mut c_void, *mut c_void) =
+                mem::transmute(md.witness(12));
+            project(value.ptr(), md.pointer as _);
+            value.initialized = false;
+            let payload = value.ptr().cast::<usize>();
+            Ok(match case {
+                0 => NativeCreatorValue::String(
+                    self.string_words([payload.read(), payload.add(1).read()])?,
+                ),
+                1 => NativeCreatorValue::Integer(payload.read() as i64),
+                2 => NativeCreatorValue::Number(f64::from_bits(payload.read() as u64)),
+                // The IR loads an i1: only the low bit is defined.
+                3 => NativeCreatorValue::Bool(value.ptr().cast::<u8>().read() & 1 != 0),
+                4 => {
+                    let elements = self.elements(payload.read(), md)?;
+                    creator.consume(elements.len())?;
+                    let mut values = Vec::with_capacity(elements.len());
+                    for element in elements {
+                        values.push(self.creator_value(creator, element, depth + 1)?);
+                    }
+                    NativeCreatorValue::Array(values)
+                }
+                _ => NativeCreatorValue::Dictionary(self.creator_dictionary(
+                    creator,
+                    payload.read(),
+                    depth,
+                )?),
             })
         }
     }

@@ -18,6 +18,8 @@ use std::ptr::{self, NonNull};
 use std::rc::Rc;
 
 mod asset;
+#[cfg(test)]
+pub use asset::MAX_CREATOR_BYTES;
 pub use asset::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue, NativeCreatorValue};
 mod function_batch;
 pub use function_batch::NativeFunctionBatchOutcome;
@@ -698,6 +700,24 @@ impl NativeSession {
         }
     }
     unsafe fn string_words(&self, words: [usize; 2]) -> Result<String> {
+        // SAFETY: Forwarded unchanged; the bound is the general 1 MiB one.
+        unsafe {
+            self.string_words_within(words, |length| {
+                if length < 1_048_576 {
+                    Ok(())
+                } else {
+                    Err(NativeFailure::Binding("invalid native UTF8 length".into()))
+                }
+            })
+        }
+    }
+    /// Decode an owned Swift String, letting `limit` accept or reject its
+    /// UTF-8 length (without terminator) before any bytes are copied.
+    unsafe fn string_words_within(
+        &self,
+        words: [usize; 2],
+        limit: impl FnOnce(usize) -> Result<()>,
+    ) -> Result<String> {
         // SAFETY: Input is an owned Swift String; exported APIs do the decoding.
         unsafe {
             let _string = OwnedWord {
@@ -722,9 +742,10 @@ impl NativeSession {
                 ptr::null_mut(),
                 0,
             )?;
-            if !(1..=1_048_576).contains(&count) {
+            if count == 0 {
                 return Err(NativeFailure::Binding("invalid native UTF8 length".into()));
             }
+            limit(count - 1)?;
             let mut buffer = Vec::with_capacity(count);
             for index in 0..count {
                 let mut byte = 0u8;

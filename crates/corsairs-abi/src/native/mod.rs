@@ -37,6 +37,8 @@ pub use loader::Error;
 pub use metadata::{Metadata, TypeLayout};
 #[cfg(feature = "abi-research")]
 pub use model::ModelReport;
+#[cfg(test)]
+pub use owned::MAX_CREATOR_BYTES;
 #[cfg(any(feature = "abi-research", test))]
 pub use owned::NativeBatchMetrics;
 pub use owned::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue, NativeCreatorValue};

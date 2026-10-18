@@ -86,6 +86,8 @@ impl Runtime {
     /// Read an asset's metadata and summary without loading a model.
     /// `statistics` adds storage types, compute types and operation counts.
     /// A path that is not a valid asset returns [`Error::InvalidAsset`].
+    /// Creator-defined metadata over 512 levels deep, 65,536 values or
+    /// 16 MiB of key and string UTF-8 returns [`Error::Unsupported`].
     pub fn inspect_asset(&self, path: impl AsRef<Path>, statistics: bool) -> Task<AssetInfo> {
         let path = path.as_ref().to_path_buf();
         self.worker.submit(move |session| {
@@ -386,5 +388,113 @@ mod tests {
                 .unwrap(),
             ((0, 0), 0)
         );
+    }
+
+    /// A copy of the x+x fixture whose metadata.json carries `creator`, a
+    /// hand-written `creatorDefinedMetadata` object; removed when dropped.
+    struct CreatorAsset(PathBuf);
+    impl CreatorAsset {
+        fn new(name: &str, creator: &str) -> Self {
+            let source = Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join("../../fixtures/double_f32_2x3/double_f32_2x3.aimodel");
+            let path = std::env::temp_dir().join(format!(
+                "corsairs-creator-{}-{name}.aimodel",
+                std::process::id()
+            ));
+            let _ = std::fs::remove_dir_all(&path);
+            std::fs::create_dir_all(&path).unwrap();
+            for part in ["main.hash", "main.mlirb"] {
+                std::fs::copy(source.join(part), path.join(part)).unwrap();
+            }
+            let base = std::fs::read_to_string(source.join("metadata.json")).unwrap();
+            let base = base.trim_end().strip_suffix('}').unwrap().trim_end();
+            let text = format!("{base},\n  \"creatorDefinedMetadata\" : {creator}\n}}\n");
+            std::fs::write(path.join("metadata.json"), text).unwrap();
+            Self(path)
+        }
+    }
+    impl Drop for CreatorAsset {
+        fn drop(&mut self) {
+            let _ = std::fs::remove_dir_all(&self.0);
+        }
+    }
+
+    #[test]
+    #[ignore = "requires permitted native Core AI"]
+    fn native_creator_metadata_reads_core_ai_deepest_nesting_on_the_worker_stack() {
+        // 510 containers inside {"value": ...} is the deepest Core AI's JSON
+        // reader accepts. Dictionaries and alternating dictionaries/arrays
+        // once overflowed a debug build's worker stack through recursion.
+        let runtime = Runtime::new().unwrap();
+        for (name, open, close) in [
+            ("arrays", vec!["["], vec!["]"]),
+            ("dictionaries", vec!["{\"a\":"], vec!["}"]),
+            ("alternating", vec!["{\"a\":", "["], vec!["}", "]"]),
+        ] {
+            let mut json = String::new();
+            for level in 0..510 {
+                json.push_str(open[level % open.len()]);
+            }
+            json.push('7');
+            for level in (0..510).rev() {
+                json.push_str(close[level % close.len()]);
+            }
+            let asset = CreatorAsset::new(name, &format!("{{\"value\":{json}}}"));
+            let mut expected = CreatorValue::Integer(7);
+            for level in (0..510).rev() {
+                expected = if open[level % open.len()] == "[" {
+                    CreatorValue::Array(vec![expected])
+                } else {
+                    CreatorValue::Dictionary(BTreeMap::from([("a".into(), expected)]))
+                };
+            }
+            let metadata = runtime
+                .inspect_asset(&asset.0, false)
+                .wait()
+                .unwrap()
+                .metadata;
+            assert_eq!(
+                metadata.creator_defined,
+                BTreeMap::from([("value".into(), expected)]),
+                "{name}"
+            );
+        }
+    }
+
+    #[test]
+    #[ignore = "requires permitted native Core AI"]
+    fn native_creator_metadata_limits_report_unsupported() {
+        let runtime = Runtime::new().unwrap();
+        let long = "a".repeat(1_100_000);
+        // Strings over 1 MiB are read, as key or value.
+        for (name, creator) in [
+            ("long-value", format!("{{\"v\":\"{long}\"}}")),
+            ("long-key", format!("{{\"{long}\":1}}")),
+        ] {
+            let asset = CreatorAsset::new(name, &creator);
+            let metadata = runtime
+                .inspect_asset(&asset.0, false)
+                .wait()
+                .unwrap()
+                .metadata;
+            let (key, value) = metadata.creator_defined.into_iter().next().unwrap();
+            assert!(
+                key == long || value == CreatorValue::String(long.clone()),
+                "{name}"
+            );
+        }
+        let wide = format!("{{\"v\":[{}]}}", vec!["2"; 65_537].join(","));
+        let over_bytes = format!(
+            "{{\"v\":\"{}\"}}",
+            "a".repeat(crate::native::MAX_CREATOR_BYTES + 1)
+        );
+        for (name, creator) in [("wide", wide), ("over-bytes", over_bytes)] {
+            let asset = CreatorAsset::new(name, &creator);
+            let result = runtime.inspect_asset(&asset.0, false).wait();
+            assert!(
+                matches!(&result, Err(Error::Unsupported(reason)) if reason.starts_with("creator metadata")),
+                "{name}: {result:?}"
+            );
+        }
     }
 }

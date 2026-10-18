@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "passed": true,
- "generated_utc": "2026-10-18T23:15:35.492994+00:00",
+ "generated_utc": "2026-10-18T23:36:31.769464+00:00",
  "macos": "27.0.1",
  "swiftc": "swift-driver version: 1.168.6",
  "calibration": {
@@ -62,7 +62,11 @@
   ]
  },
  "fixture_regenerated_identically": true,
- "debug_cli_deep_511": "match",
+ "debug_cli": {
+  "deep-511": "match",
+  "deep-511-dictionaries": "match",
+  "deep-511-alternating": "match"
+ },
  "assets": [
   {
    "asset": "crates/corsairs-abi/models/accumulator.aimodel",
@@ -657,7 +661,7 @@
     "rss_kib": [
      [
       0,
-      13776
+      13888
      ]
     ]
    }
@@ -672,6 +676,49 @@
    }
   },
   {
+   "asset": "deep-511-dictionaries",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      15024
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "deep-512-dictionaries",
+   "oracle_error": "NSError",
+   "rust_error": "Core AI load_model failed: NSError",
+   "outcome": "both_rejected",
+   "inspect_asset": {
+    "error": "not a valid Core AI model asset: target/creator-metadata/assets/deep-512-dictionaries.aimodel"
+   }
+  },
+  {
+   "asset": "deep-511-alternating",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      14512
+     ]
+    ]
+   }
+  },
+  {
    "asset": "wide-65535",
    "oracle_error": null,
    "rust_error": null,
@@ -683,7 +730,7 @@
     "rss_kib": [
      [
       0,
-      32048
+      32192
      ]
     ]
    }
@@ -695,6 +742,84 @@
    "outcome": "rust_limit",
    "inspect_asset": {
     "error": "unsupported: creator metadata holds more than 65536 values"
+   }
+  },
+  {
+   "asset": "wide-65537",
+   "oracle_error": null,
+   "rust_error": "unsupported: creator metadata holds more than 65536 values",
+   "outcome": "rust_limit",
+   "inspect_asset": {
+    "error": "unsupported: creator metadata holds more than 65536 values"
+   }
+  },
+  {
+   "asset": "string-value-1100000",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      17776
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "string-key-1100000",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      17792
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "string-bytes-over-budget",
+   "oracle_error": null,
+   "rust_error": "unsupported: creator metadata holds more than 16777216 string bytes",
+   "outcome": "rust_limit",
+   "inspect_asset": {
+    "error": "unsupported: creator metadata holds more than 16777216 string bytes"
+   }
+  },
+  {
+   "asset": "hand-written-canonical-keys",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "oracle_values": {
+    "value": {
+     "dictionary": {
+      "é": {
+       "string": "decomposed"
+      }
+     }
+    }
+   },
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      13440
+     ]
+    ]
    }
   },
   {
@@ -766,7 +891,7 @@
     "rss_kib": [
      [
       0,
-      13408
+      13376
      ]
     ]
    }
@@ -783,7 +908,7 @@
     "rss_kib": [
      [
       0,
-      13408
+      13424
      ]
     ]
    }
@@ -799,90 +924,90 @@
   "rss_kib": [
    [
     0,
-    13744
+    13840
    ],
    [
     1000,
-    14800
+    14960
    ],
    [
     2000,
-    14480
+    14960
    ],
    [
     3000,
-    13872
+    14976
    ],
    [
     4000,
-    13872
+    14976
    ],
    [
     5000,
-    13776
+    14976
    ],
    [
     6000,
-    13776
+    14976
    ],
    [
     7000,
-    13776
+    14976
    ],
    [
     8000,
-    13776
+    14976
    ],
    [
     9000,
-    13776
+    14976
    ],
    [
     10000,
-    13776
+    14096
    ],
    [
     11000,
-    13776
+    13808
    ],
    [
     12000,
-    13776
+    13792
    ],
    [
     13000,
-    13776
+    13808
    ],
    [
     14000,
-    13776
+    13840
    ],
    [
     15000,
-    13792
+    13840
    ],
    [
     16000,
-    13792
+    13856
    ],
    [
     17000,
-    13792
+    13856
    ],
    [
     18000,
-    13792
+    13856
    ],
    [
     19000,
-    13808
+    13856
    ],
    [
     20000,
-    13808
+    13856
    ]
   ],
-  "growth_kib_after_warmup": -64,
+  "growth_kib_after_warmup": -1120,
   "window": [
    4000,
    20000
@@ -1030,7 +1155,7 @@
     "--release"
    ],
    "returncode": 0,
-   "stderr_tail": "   Compiling corsairs v0.4.1 (crates/corsairs-abi)\n    Finished `release` profile [optimized] target(s) in 3.87s\n"
+   "stderr_tail": "   Compiling corsairs v0.4.1 (crates/corsairs-abi)\n    Finished `release` profile [optimized] target(s) in 2.70s\n"
   },
   {
    "command": [
@@ -1120,8 +1245,16 @@
     "fixtures/parity-v04/scalar-types/uint8_wrap/model.aimodel",
     "target/creator-metadata/assets/deep-511.aimodel",
     "target/creator-metadata/assets/deep-512.aimodel",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel",
+    "target/creator-metadata/assets/deep-512-dictionaries.aimodel",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel",
     "target/creator-metadata/assets/wide-65535.aimodel",
     "target/creator-metadata/assets/wide-65536.aimodel",
+    "target/creator-metadata/assets/wide-65537.aimodel",
+    "target/creator-metadata/assets/string-value-1100000.aimodel",
+    "target/creator-metadata/assets/string-key-1100000.aimodel",
+    "target/creator-metadata/assets/string-bytes-over-budget.aimodel",
+    "target/creator-metadata/assets/hand-written-canonical-keys.aimodel",
     "target/creator-metadata/assets/null.aimodel",
     "target/creator-metadata/assets/uint64-max.aimodel",
     "target/creator-metadata/assets/overflow-1e999.aimodel",
@@ -1900,6 +2033,33 @@
    "command": [
     "target/release/corsairs",
     "inspect",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-512-dictionaries.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"Core AI load_model failed: NSError\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
     "target/creator-metadata/assets/wide-65535.aimodel"
    ],
    "returncode": 0,
@@ -1913,6 +2073,51 @@
    ],
    "returncode": 1,
    "stderr_tail": "{\"error\":\"unsupported: creator metadata holds more than 65536 values\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/wide-65537.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"unsupported: creator metadata holds more than 65536 values\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/string-value-1100000.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/string-key-1100000.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/string-bytes-over-budget.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"unsupported: creator metadata holds more than 16777216 string bytes\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/hand-written-canonical-keys.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
   },
   {
    "command": [
@@ -2011,6 +2216,33 @@
   {
    "command": [
     "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-512-dictionaries.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
     "target/creator-metadata/assets/wide-65535.aimodel",
     "0"
    ],
@@ -2021,6 +2253,51 @@
    "command": [
     "target/creator-metadata/creator-metadata-soak",
     "target/creator-metadata/assets/wide-65536.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/wide-65537.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/string-value-1100000.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/string-key-1100000.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/string-bytes-over-budget.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/hand-written-canonical-keys.aimodel",
     "0"
    ],
    "returncode": 0,
@@ -2082,13 +2359,31 @@
     "corsairs"
    ],
    "returncode": 0,
-   "stderr_tail": "   Compiling corsairs v0.4.1 (crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.87s\n"
+   "stderr_tail": "   Compiling corsairs v0.4.1 (crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.58s\n"
   },
   {
    "command": [
     "target/debug/corsairs",
     "inspect",
     "target/creator-metadata/assets/deep-511.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/debug/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/debug/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel"
    ],
    "returncode": 0,
    "stderr_tail": ""

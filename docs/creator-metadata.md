@@ -32,9 +32,13 @@ fn main() -> Result<(), corsairs::Error> {
 | `CreatorValue::Dictionary(BTreeMap<String, CreatorValue>)` | `.dictionary([String: CreatorDefinedValue])` |
 
 `CreatorValue` is `#[non_exhaustive]`, like the Swift enum, which is resilient
-and may gain cases. Keys are kept byte for byte; precomposed and decomposed
-`é` are distinct keys. `BTreeMap` orders keys by UTF-8 bytes; Swift's
-Dictionary order is unspecified.
+and may gain cases. Keys keep the exact UTF-8 bytes Core AI holds, so
+precomposed and decomposed `é` in different objects stay distinct. Within one
+object, though, Core AI's Swift Dictionary treats canonically equivalent keys
+as equal and keeps a single entry: `{"é": "precomposed", "e\u0301":
+"decomposed"}` (raw characters) reads back as the one key `e` U+0301 with
+`"decomposed"`, in Rust and in Swift alike. `BTreeMap` orders keys by UTF-8
+bytes; Swift's Dictionary order is unspecified.
 
 `corsairs inspect` adds `asset.creator_defined`, with each value a one-key
 object naming its case, so `{"integer":1}`, `{"number":1.0}` and
@@ -79,9 +83,14 @@ appears verbatim. Every symbol is in the SDK `CoreAIAsset.tbd` or
 The generic Dictionary entry points come from `-Onone` IR because their
 optimized bodies inline, as for the existing Array accessors. No Dictionary or
 enum storage layout is assumed. The values come from an untrusted asset, so
-nesting is capped at 512 levels and a walk at 65,536 values in total. Both are
-checked before the values are read. An unknown future case returns
-`Error::Unsupported` and the value is destroyed intact.
+nesting is capped at 512 levels, a walk at 65,536 values in total (each
+dictionary's and array's count is charged before its contents are copied),
+and keys plus string values at 16 MiB (`1 << 24` bytes) of UTF-8 in total
+(each charged before its bytes are copied). Each limit returns
+`Error::Unsupported`. The walk is iterative, with an explicit stack of open
+dictionaries and arrays on the heap, so nesting does not grow the worker
+thread's stack. An unknown future case returns `Error::Unsupported` and the
+value is destroyed intact.
 
 ## Behavior findings
 
@@ -115,14 +124,27 @@ output is in [`swift-oracle.json`](evidence/v0.5/creator-metadata/swift-oracle.j
   `creatorDefinedMetadata` that is a JSON array instead of an object is
   silently ignored, and both sides report an empty map.
 - **Limits.** A value 511 levels deep (the deepest Core AI accepts) is read in
-  full, also by the debug build on its default 2 MiB worker stack. With its
+  full as nested arrays, nested dictionaries and alternating
+  dictionaries/arrays, by the release build and by the debug build on its
+  default 2 MiB worker stack (`debug_cli` in `check.json`; the ignored
+  `native_creator_metadata_reads_core_ai_deepest_nesting_on_the_worker_stack`
+  test also runs it in a debug build). An earlier recursive walk overflowed
+  the debug worker stack on dictionaries about 250 levels deep and aborted the
+  process. One level more (512) is rejected by Core AI itself, as nested arrays
+  and as nested dictionaries. With its
   key, an array of 65,535 elements totals exactly the 65,536-value budget and
-  matches. One element more returns
+  matches. 65,536 and 65,537 elements return
   `Error::Unsupported("creator metadata holds more than 65536 values")`, while
-  Swift reads it. That divergence is intended.
+  Swift reads them. Strings over the crate's general 1 MiB native string bound
+  are read: a 1,100,000-byte value and a 1,100,000-byte key both match Swift.
+  A 16,777,215-byte value with its one-byte key, exactly the byte budget, is
+  read (0.4 s release, 4.5 s debug, since each byte is copied through
+  `ContiguousArray.subscript`). One byte more returns
+  `Error::Unsupported("creator metadata holds more than 16777216 string bytes")`
+  while Swift reads it. These over-budget divergences are intended.
 - **Memory.** 20,000 inspections of the fixture, with statistics and checked
   for equality each time, kept RSS flat inside the existing per-inspection
-  autorelease pool. RSS was 13,872 KiB at 4,000 inspections and 13,808 KiB at
+  autorelease pool. RSS was 14,976 KiB at 4,000 inspections and 13,856 KiB at
   20,000 ([`soak`](evidence/v0.5/creator-metadata/check.json)).
 
 Reproduce (native Core AI; writes only under `target/`):
@@ -131,11 +153,16 @@ Reproduce (native Core AI; writes only under `target/`):
 python3 -B scripts/check_creator_metadata.py --soak 20000
 ```
 
+`--soak` must be a multiple of 1,000 and at least 8,000: growth is measured
+from the 4,000-inspection sample to the last one. The retained
+`swift-oracle.json` has one row per line with checkout-relative paths, and
+strings over 4,096 characters are replaced by their UTF-8 length and SHA-256.
+
 ## Not covered
 
 - Writing creator-defined metadata (`updateMetadata`, the Metadata subscript
   setters).
 - The typed `Metadata` subscripts (`subscript(key:type:)`). The full map
   carries the same values.
-- Assets whose creator metadata exceeds the 65,536-value budget. They return
-  an error rather than a partial map.
+- Assets whose creator metadata exceeds the 65,536-value or 16 MiB string
+  budget. They return `Error::Unsupported` rather than a partial map.

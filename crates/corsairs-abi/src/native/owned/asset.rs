@@ -79,9 +79,12 @@ const CREATOR_CASES: [&CStr; 6] = [
 // Bounds for natively reported collection sizes, before any allocation.
 const MAX_ENTRIES: usize = 1 << 16;
 // Creator-defined values come from an untrusted asset: bound the nesting (Core
-// AI's JSON reader itself stops near 512 levels) and the total value count.
+// AI's JSON reader itself stops near 512 levels), the total value count and
+// the total UTF-8 bytes of keys and strings. The walk is iterative, so nesting
+// costs heap, not worker stack.
 const MAX_CREATOR_DEPTH: usize = 512;
 const MAX_CREATOR_VALUES: usize = 1 << 16;
+pub const MAX_CREATOR_BYTES: usize = 1 << 24;
 
 /// Metadata, witness tables and case tags shared by one creator-metadata walk.
 struct Creator {
@@ -93,6 +96,7 @@ struct Creator {
     iterator: NativeMetadata,
     tags: [u32; 6],
     remaining: Cell<usize>,
+    bytes: Cell<usize>,
 }
 impl Creator {
     /// Charge `count` values against the walk's budget before reading them.
@@ -105,6 +109,42 @@ impl Creator {
         self.remaining.set(remaining);
         Ok(())
     }
+    /// Charge one key's or string's UTF-8 `length` before copying it.
+    fn consume_bytes(&self, length: usize) -> Result<()> {
+        let bytes = self.bytes.get().checked_sub(length).ok_or_else(|| {
+            NativeFailure::Unsupported(format!(
+                "creator metadata holds more than {MAX_CREATOR_BYTES} string bytes"
+            ))
+        })?;
+        self.bytes.set(bytes);
+        Ok(())
+    }
+    /// The generic arguments of every `[String: CreatorDefinedValue]` entry point.
+    fn generic(&self) -> [usize; 3] {
+        [self.string.pointer, self.value.pointer, self.hashable]
+    }
+}
+
+/// One open container of the creator-metadata walk, innermost last.
+enum Pending {
+    Dictionary {
+        // Fields drop in order: the iterator before the dictionary it reads.
+        iterator: NativeValue,
+        dictionary: OwnedWord,
+        count: usize,
+        entries: BTreeMap<String, NativeCreatorValue>,
+        /// The key whose value is being read.
+        key: Option<String>,
+    },
+    Array {
+        elements: std::vec::IntoIter<NativeValue>,
+        values: Vec<NativeCreatorValue>,
+    },
+}
+/// A read value: complete, or a container whose contents follow.
+enum Step {
+    Value(NativeCreatorValue),
+    Open(Pending),
 }
 
 impl NativeSession {
@@ -269,6 +309,7 @@ impl NativeSession {
                 iterator,
                 tags,
                 remaining: Cell::new(MAX_CREATOR_VALUES),
+                bytes: Cell::new(MAX_CREATOR_BYTES),
             };
             let word = self.call(
                 c"$s11CoreAIAsset12AIModelAssetV8MetadataV014creatorDefinedE0SDySSAE07CreatorG5ValueOGvg",
@@ -276,18 +317,87 @@ impl NativeSession {
                 ptr::null_mut(),
                 receiver,
             )?;
-            self.creator_dictionary(&creator, word, 0)
+            self.creator_walk(&creator, word)
         }
     }
 
-    /// Read a +1 `[String: CreatorDefinedValue]` word through its keys
-    /// iterator and keyed subscript; no Dictionary storage layout is assumed.
-    unsafe fn creator_dictionary(
+    /// Read the +1 top-level Dictionary word with an explicit stack of open
+    /// containers, so untrusted nesting never recurses on the worker stack.
+    unsafe fn creator_walk(
         &self,
         creator: &Creator,
         word: usize,
-        depth: usize,
     ) -> Result<BTreeMap<String, NativeCreatorValue>> {
+        // SAFETY: Every value handed to creator_value is an owned, initialized
+        // CreatorDefinedValue; each Pending owns what it still has to read.
+        unsafe {
+            let mut stack = vec![self.creator_dictionary(creator, word)?];
+            loop {
+                let next = match stack.last_mut() {
+                    Some(Pending::Dictionary {
+                        iterator,
+                        dictionary,
+                        count,
+                        entries,
+                        key,
+                    }) => self.creator_entry(
+                        creator,
+                        iterator,
+                        dictionary.word,
+                        *count,
+                        entries,
+                        key,
+                    )?,
+                    Some(Pending::Array { elements, .. }) => elements.next(),
+                    None => unreachable!("the walk returns when the root closes"),
+                };
+                let value = match next {
+                    // Values directly in the top-level dictionary are at depth 1.
+                    Some(value) => match self.creator_value(creator, value, stack.len())? {
+                        Step::Value(value) => value,
+                        Step::Open(pending) => {
+                            stack.push(pending);
+                            continue;
+                        }
+                    },
+                    None => match stack.pop() {
+                        Some(Pending::Dictionary { count, entries, .. }) => {
+                            if entries.len() != count {
+                                return Err(NativeFailure::Binding(
+                                    "creator metadata keys fall short of their count".into(),
+                                ));
+                            }
+                            if stack.is_empty() {
+                                return Ok(entries);
+                            }
+                            NativeCreatorValue::Dictionary(entries)
+                        }
+                        Some(Pending::Array { values, .. }) => NativeCreatorValue::Array(values),
+                        None => unreachable!("a container was just read"),
+                    },
+                };
+                match stack.last_mut() {
+                    Some(Pending::Dictionary { entries, key, .. }) => {
+                        let key = key.take().ok_or_else(|| {
+                            NativeFailure::Binding("creator metadata value lacks its key".into())
+                        })?;
+                        if entries.insert(key, value).is_some() {
+                            return Err(NativeFailure::Binding(
+                                "duplicate creator metadata key".into(),
+                            ));
+                        }
+                    }
+                    Some(Pending::Array { values, .. }) => values.push(value),
+                    None => unreachable!("only the root dictionary has no parent"),
+                }
+            }
+        }
+    }
+
+    /// Open a +1 `[String: CreatorDefinedValue]` word for reading through
+    /// its keys iterator and keyed subscript; no Dictionary storage layout
+    /// is assumed.
+    unsafe fn creator_dictionary(&self, creator: &Creator, word: usize) -> Result<Pending> {
         // SAFETY: Each generic entry point takes (String, CreatorDefinedValue,
         // String: Hashable) after its value arguments, per the -Onone IR.
         unsafe {
@@ -295,11 +405,7 @@ impl NativeSession {
                 word,
                 release: self.release(c"swift_bridgeObjectRelease")?,
             };
-            let generic = [
-                creator.string.pointer,
-                creator.value.pointer,
-                creator.hashable,
-            ];
+            let generic = creator.generic();
             let (count, _, _) = call6(
                 self.symbol(c"$sSD5countSivg")?,
                 [word, generic[0], generic[1], generic[2], 0, 0],
@@ -310,8 +416,6 @@ impl NativeSession {
             // Resolve and allocate first: nothing may fail while Keys is owned.
             let keys_getter = self.symbol(c"$sSD4keysSD4KeysVyxq__Gvg")?;
             let make_iterator = self.symbol(c"$sSD4KeysV12makeIteratorAB0C0Vyxq___GyF")?;
-            let next = self.symbol(c"$sSD4KeysV8IteratorV4nextxSgyF")?;
-            let lookup = self.symbol(c"$sSDyq_Sgxcig")?;
             let mut iterator = NativeValue::allocate(creator.iterator)?;
             // keys borrows the dictionary and returns a +1 Keys word, which
             // makeIterator consumes into the runtime-sized Keys.Iterator.
@@ -328,69 +432,89 @@ impl NativeSession {
                 0,
             );
             iterator.initialized = true;
-            let mut entries = BTreeMap::new();
-            loop {
-                let mut optional = NativeValue::allocate(creator.optional_string)?;
-                // next: x8 = Optional<String>, x0 = Keys.Iterator metadata,
-                // x20 = the iterator, mutated in place.
-                call6(
-                    next,
-                    [creator.iterator.pointer, 0, 0, 0, 0, 0],
-                    optional.ptr(),
-                    iterator.address(),
-                );
-                optional.initialized = true;
-                let Some(mut key) = optional.take_optional(creator.string)? else {
-                    break;
-                };
-                if entries.len() == count {
-                    return Err(NativeFailure::Binding(
-                        "creator metadata keys exceed their count".into(),
-                    ));
-                }
-                // subscript(key:): x8 = Optional<Value>, x0 = borrowed key
-                // address, x1 = borrowed dictionary word.
-                let mut found = NativeValue::allocate(creator.optional_value)?;
-                call6(
-                    lookup,
-                    [key.address(), word, generic[0], generic[1], generic[2], 0],
-                    found.ptr(),
-                    0,
-                );
-                found.initialized = true;
-                let value = found.take_optional(creator.value)?.ok_or_else(|| {
-                    NativeFailure::Binding("creator metadata key has no value".into())
-                })?;
-                // Move the key's two String words out of its native storage.
-                let words = key.ptr().cast::<[usize; 2]>().read();
-                key.initialized = false;
-                let key = self.string_words(words)?;
-                let value = self.creator_value(creator, value, depth + 1)?;
-                if entries.insert(key, value).is_some() {
-                    return Err(NativeFailure::Binding(
-                        "duplicate creator metadata key".into(),
-                    ));
-                }
-            }
-            if entries.len() != count {
+            Ok(Pending::Dictionary {
+                iterator,
+                dictionary,
+                count,
+                entries: BTreeMap::new(),
+                key: None,
+            })
+        }
+    }
+
+    /// Advance an open dictionary: store the next key in `key` and return its
+    /// owned value, or None when the keys are exhausted.
+    unsafe fn creator_entry(
+        &self,
+        creator: &Creator,
+        iterator: &mut NativeValue,
+        word: usize,
+        count: usize,
+        entries: &BTreeMap<String, NativeCreatorValue>,
+        key: &mut Option<String>,
+    ) -> Result<Option<NativeValue>> {
+        // SAFETY: `iterator` is the initialized Keys.Iterator of the borrowed
+        // dictionary `word`, which its Pending keeps alive.
+        unsafe {
+            let generic = creator.generic();
+            let next = self.symbol(c"$sSD4KeysV8IteratorV4nextxSgyF")?;
+            let lookup = self.symbol(c"$sSDyq_Sgxcig")?;
+            let mut optional = NativeValue::allocate(creator.optional_string)?;
+            // next: x8 = Optional<String>, x0 = Keys.Iterator metadata,
+            // x20 = the iterator, mutated in place.
+            call6(
+                next,
+                [creator.iterator.pointer, 0, 0, 0, 0, 0],
+                optional.ptr(),
+                iterator.address(),
+            );
+            optional.initialized = true;
+            let Some(mut native_key) = optional.take_optional(creator.string)? else {
+                return Ok(None);
+            };
+            if entries.len() == count {
                 return Err(NativeFailure::Binding(
-                    "creator metadata keys fall short of their count".into(),
+                    "creator metadata keys exceed their count".into(),
                 ));
             }
-            drop(dictionary);
-            Ok(entries)
+            // subscript(key:): x8 = Optional<Value>, x0 = borrowed key
+            // address, x1 = borrowed dictionary word.
+            let mut found = NativeValue::allocate(creator.optional_value)?;
+            call6(
+                lookup,
+                [
+                    native_key.address(),
+                    word,
+                    generic[0],
+                    generic[1],
+                    generic[2],
+                    0,
+                ],
+                found.ptr(),
+                0,
+            );
+            found.initialized = true;
+            let value = found.take_optional(creator.value)?.ok_or_else(|| {
+                NativeFailure::Binding("creator metadata key has no value".into())
+            })?;
+            // Move the key's two String words out of its native storage.
+            let words = native_key.ptr().cast::<[usize; 2]>().read();
+            native_key.initialized = false;
+            *key = Some(self.string_words_within(words, |length| creator.consume_bytes(length))?);
+            Ok(Some(value))
         }
     }
 
     /// Consume one owned CreatorDefinedValue: getEnumTag (VWT 11), match a `WC`
     /// constant, destructiveProjectEnumData (VWT 12), then load the payload
     /// from offset 0 exactly as CreatorMetadataReference.swift's -O IR does.
+    /// Arrays and dictionaries are returned open, for the walk to read.
     unsafe fn creator_value(
         &self,
         creator: &Creator,
         mut value: NativeValue,
         depth: usize,
-    ) -> Result<NativeCreatorValue> {
+    ) -> Result<Step> {
         // SAFETY: `value` is an initialized CreatorDefinedValue whose metadata
         // carries enum witnesses (checked in creator_defined). After projection
         // the storage holds the payload, so the enum itself is never destroyed.
@@ -415,29 +539,31 @@ impl NativeSession {
             project(value.ptr(), md.pointer as _);
             value.initialized = false;
             let payload = value.ptr().cast::<usize>();
-            Ok(match case {
+            Ok(Step::Value(match case {
                 0 => NativeCreatorValue::String(
-                    self.string_words([payload.read(), payload.add(1).read()])?,
+                    self.string_words_within([payload.read(), payload.add(1).read()], |length| {
+                        creator.consume_bytes(length)
+                    })?,
                 ),
                 1 => NativeCreatorValue::Integer(payload.read() as i64),
                 2 => NativeCreatorValue::Number(f64::from_bits(payload.read() as u64)),
                 // The IR loads an i1: only the low bit is defined.
                 3 => NativeCreatorValue::Bool(value.ptr().cast::<u8>().read() & 1 != 0),
+                // Elements are charged to the value budget before any is copied.
                 4 => {
-                    let elements = self.elements(payload.read(), md)?;
-                    creator.consume(elements.len())?;
-                    let mut values = Vec::with_capacity(elements.len());
-                    for element in elements {
-                        values.push(self.creator_value(creator, element, depth + 1)?);
-                    }
-                    NativeCreatorValue::Array(values)
+                    let elements =
+                        self.elements_within(payload.read(), md, |count| creator.consume(count))?;
+                    return Ok(Step::Open(Pending::Array {
+                        values: Vec::with_capacity(elements.len()),
+                        elements: elements.into_iter(),
+                    }));
                 }
-                _ => NativeCreatorValue::Dictionary(self.creator_dictionary(
-                    creator,
-                    payload.read(),
-                    depth,
-                )?),
-            })
+                _ => {
+                    return Ok(Step::Open(
+                        self.creator_dictionary(creator, payload.read())?,
+                    ));
+                }
+            }))
         }
     }
 
@@ -565,6 +691,28 @@ impl NativeSession {
 
     /// Copy every element of a +1 Array<Element> into owned native values.
     unsafe fn elements(&self, word: usize, element: NativeMetadata) -> Result<Vec<NativeValue>> {
+        // SAFETY: Forwarded unchanged with the general entry-count bound.
+        unsafe {
+            self.elements_within(word, element, |count| {
+                if count > MAX_ENTRIES {
+                    Err(NativeFailure::Binding(
+                        "excessive native asset entry count".into(),
+                    ))
+                } else {
+                    Ok(())
+                }
+            })
+        }
+    }
+
+    /// Like `elements`, letting `limit` accept or reject the element count
+    /// before anything is allocated or copied. The array is released either way.
+    unsafe fn elements_within(
+        &self,
+        word: usize,
+        element: NativeMetadata,
+        limit: impl FnOnce(usize) -> Result<()>,
+    ) -> Result<Vec<NativeValue>> {
         // SAFETY: count/subscript take the array word and element metadata; the
         // subscript getter initializes an owned element copy at the out pointer.
         unsafe {
@@ -578,11 +726,7 @@ impl NativeSession {
                 ptr::null_mut(),
                 0,
             )?;
-            if count > MAX_ENTRIES {
-                return Err(NativeFailure::Binding(
-                    "excessive native asset entry count".into(),
-                ));
-            }
+            limit(count)?;
             let mut values = Vec::with_capacity(count);
             for index in 0..count {
                 let mut value = NativeValue::allocate(element)?;

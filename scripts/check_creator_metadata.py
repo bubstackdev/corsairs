@@ -10,6 +10,7 @@ inspections for resident-memory growth. Writes only under target/.
 """
 import argparse
 from datetime import datetime, timezone
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -65,8 +66,20 @@ SYMBOLS = (GETTER, f"{VALUE}Ma", *(VALUE + case for case in CASES), "$sSD5countS
            "$sSD4KeysV12makeIteratorAB0C0Vyxq___GyF", "$sSD4KeysV8IteratorV4nextxSgyF", "$sSD4KeysV8IteratorVMa",
            "$sSDyq_Sgxcig", "$sSSSHsWP", "$sSSN")
 # Generated assets whose outcomes differ by design (all others must match).
-RUST_LIMITED = {"wide-65536": "more than 65536 values"}
+RUST_LIMITED = {"wide-65536": "more than 65536 values", "wide-65537": "more than 65536 values",
+                "string-bytes-over-budget": "more than 16777216 string bytes"}
+# Generated assets that `corsairs inspect` must also read with the debug build,
+# on its default worker stack.
+DEBUG_ASSETS = ("deep-511", "deep-511-dictionaries", "deep-511-alternating")
+# The RSS soak samples every SOAK_INTERVAL inspections and measures growth from
+# SOAK_WARMUP on; shorter or unaligned soaks would make the window vacuous.
+SOAK_INTERVAL, SOAK_WARMUP, SOAK_MIN = 1000, 4000, 8000
+# Strings longer than this are summarized in the retained oracle evidence.
+EVIDENCE_STRING_LIMIT = 4096
 COMMANDS = []
+# The 511-level edge values exceed Python's default recursion limit when
+# summarized or converted, with two frames per dictionary level.
+sys.setrecursionlimit(10_000)
 
 
 def run(command, *, timeout=600, check=True):
@@ -114,14 +127,32 @@ def calibrate():
             "sil_ownership": require_lines(sil, OWNERSHIP_SIL, "SIL")}
 
 
+def nested(levels, opens, closes, leaf="7"):
+    """`levels` containers around `leaf`, cycling through `opens`/`closes`."""
+    return ("".join(opens[i % len(opens)] for i in range(levels)) + leaf
+            + "".join(closes[i % len(closes)] for i in reversed(range(levels))))
+
+
 def edge_assets():
     """Copies of the x+x asset with hand-written creator JSON Core AI's writer cannot produce."""
     base = json.loads((SOURCE / "metadata.json").read_text())
+    long = "a" * 1_100_000
     cases = {
-        "deep-511": "[" * 510 + "7" + "]" * 510,  # deepest value Core AI's JSON reader accepts
-        "deep-512": "[" * 511 + "7" + "]" * 511,  # one level more: Core AI rejects the asset
+        "deep-511": nested(510, ["["], ["]"]),  # deepest value Core AI's JSON reader accepts
+        "deep-512": nested(511, ["["], ["]"]),  # one level more: Core AI rejects the asset
+        # Nested dictionaries once cost two recursive frames per level in Rust.
+        "deep-511-dictionaries": nested(510, ['{"a":'], ["}"]),
+        "deep-512-dictionaries": nested(511, ['{"a":'], ["}"]),
+        "deep-511-alternating": nested(510, ['{"a":', "["], ["}", "]"]),
         "wide-65535": "[" + ",".join(["2"] * 65535) + "]",  # with its key, exactly the Rust budget
         "wide-65536": "[" + ",".join(["2"] * 65536) + "]",  # one value over the Rust budget
+        "wide-65537": "[" + ",".join(["2"] * 65537) + "]",  # over MAX_ENTRIES too: still the budget error
+        # Strings over the general 1 MiB native string bound, within the creator byte budget.
+        "string-value-1100000": json.dumps(long),
+        "string-key-1100000": "{" + json.dumps(long) + ": 1}",
+        "string-bytes-over-budget": json.dumps("a" * ((1 << 24) + 1)),
+        # Canonically equivalent keys in one object: Core AI keeps one of them.
+        "hand-written-canonical-keys": '{"\u00e9": "precomposed", "e\u0301": "decomposed"}',
         "null": "null",
         "uint64-max": "18446744073709551615",
         "overflow-1e999": "1e999",
@@ -194,12 +225,32 @@ def driver():
 
 
 def soak(binary, count):
+    if count < SOAK_MIN or count % SOAK_INTERVAL:
+        raise ValueError(f"--soak must be a multiple of {SOAK_INTERVAL} and at least {SOAK_MIN}")
     result = json.loads(run([binary, FIXTURE, count], timeout=3600).stdout)
     samples = dict(result["rss_kib"])
-    window = (min(4000, count), count)
+    window = (SOAK_WARMUP, count)
     result["growth_kib_after_warmup"] = samples[window[1]] - samples[window[0]]
     result["window"] = window
     return result
+
+
+def relative(text):
+    return text.replace(str(ROOT) + "/", "")
+
+
+def summarized(value):
+    """The oracle row with very long strings replaced by their length and digest."""
+    if isinstance(value, str) and len(value) > EVIDENCE_STRING_LIMIT:
+        return {"long_string_utf8_bytes": len(value.encode()),
+                "sha256": hashlib.sha256(value.encode()).hexdigest()}
+    if isinstance(value, list):
+        return [summarized(item) for item in value]
+    if isinstance(value, dict):
+        return {summarized(key) if len(key) <= EVIDENCE_STRING_LIMIT else
+                f"<key of {len(key.encode())} UTF-8 bytes, sha256 {hashlib.sha256(key.encode()).hexdigest()}>":
+                summarized(item) for key, item in value.items()}
+    return value
 
 
 def main():
@@ -207,6 +258,8 @@ def main():
     parser.add_argument("--soak", type=int, default=0, help="inspections for the RSS soak (0 skips it)")
     parser.add_argument("--max-soak-growth-kib", type=int, default=1024)
     args = parser.parse_args()
+    if args.soak and (args.soak < SOAK_MIN or args.soak % SOAK_INTERVAL):
+        parser.error(f"--soak must be 0, or a multiple of {SOAK_INTERVAL} and at least {SOAK_MIN}")
     OUTPUT.mkdir(parents=True, exist_ok=True)
     report = {"schema": 1, "passed": False, "generated_utc": datetime.now(timezone.utc).isoformat(),
               "macos": run(["sw_vers", "-productVersion"]).stdout.strip(),
@@ -229,9 +282,12 @@ def main():
         assets = sorted(path.relative_to(ROOT) for top in ("fixtures", "crates") for path in (ROOT / top).rglob("*.aimodel")
                         if path.is_dir())
         named = {str(path): ROOT / path for path in assets} | edge_assets()
-        oracle_output = run([oracle, *named.values()]).stdout
-        (OUTPUT / "swift-oracle.json").write_text(oracle_output.replace(str(ROOT) + "/", ""))
-        oracle_rows = json.loads(oracle_output)["assets"]
+        oracle_rows = json.loads(run([oracle, *named.values()]).stdout)["assets"]
+        # JSONSerialization escapes "/", so paths are relativized after parsing.
+        retained = [{**summarized(row), "path": relative(row["path"])} for row in oracle_rows]
+        (OUTPUT / "swift-oracle.json").write_text(
+            '{"assets": [\n' + ",\n".join(json.dumps(row, ensure_ascii=False, sort_keys=True) for row in retained)
+            + "\n]}\n")
         rows = [compare(name, path, oracle_row, cli) for (name, path), oracle_row in zip(named.items(), oracle_rows)]
         # `corsairs inspect` loads the model first, so also record what
         # Runtime::inspect_asset alone reports for each generated asset.
@@ -240,13 +296,14 @@ def main():
             row["inspect_asset"] = json.loads(run([binary, named[row["asset"]], 0]).stdout)
             if ("error" in row["inspect_asset"]) != (row["outcome"] != "match"):
                 row["outcome"] = "unexpected"
-        # The deepest accepted value must also fit the debug build's worker stack.
+        # The deepest accepted values must also fit the debug build's worker stack.
         run([tool("cargo"), "build", "--offline", "-p", "corsairs", "--bin", "corsairs"])
-        debug = compare("deep-511", named["deep-511"], oracle_rows[list(named).index("deep-511")],
-                        ROOT / "target/debug/corsairs")
-        report["debug_cli_deep_511"] = debug["outcome"]
-        if debug["outcome"] != "match":
-            rows.append({**debug, "asset": "deep-511 (debug)", "outcome": "mismatch"})
+        report["debug_cli"] = {}
+        for name in DEBUG_ASSETS:
+            debug = compare(name, named[name], oracle_rows[list(named).index(name)], ROOT / "target/debug/corsairs")
+            report["debug_cli"][name] = debug["outcome"]
+            if debug["outcome"] != "match":
+                rows.append({**debug, "asset": f"{name} (debug)", "outcome": "mismatch"})
         report["assets"] = rows
         report["repository_assets"] = len(assets)
         report["repository_assets_with_creator_metadata"] = [r["asset"] for r in rows[:len(assets)] if r.get("entries")]
@@ -261,7 +318,7 @@ def main():
     finally:
         report["commands"] = COMMANDS
         # Paths are recorded relative to the checkout so the report can be retained.
-        text = json.dumps(report, indent=1, ensure_ascii=False).replace(str(ROOT) + "/", "")
+        text = relative(json.dumps(report, indent=1, ensure_ascii=False))
         (OUTPUT / "report.json").write_text(text + "\n")
     print(json.dumps({"passed": report["passed"], "report": str(OUTPUT / "report.json"),
                       "failures": report.get("failures")}))

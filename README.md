@@ -80,7 +80,7 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 
 Scalar and empty tensors are supported. For empty tensors, the corresponding size guard also applies to the product of nonzero dimensions and scalar width. Non-tensor values are rejected. Dynamic outputs are bounded only after completion; stateful owned/native GPU signatures retain a fixed 1 GiB envelope. GPU preference permits fallback choices and does not prove which device executed an operation.
 
-Graph authoring, custom Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, and restricting execution to the Neural Engine (Core AI exposes only a preference) are deferred. Core AI cannot stop running work; `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
+Graph authoring, custom Metal kernels, images/pixel buffers ([v0.5 design and calibration](docs/image-io-design.md)), packed low-bit formats, profiling callbacks, and restricting execution to the Neural Engine (Core AI exposes only a preference) are deferred. Core AI cannot stop running work; `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
 
 ## Verification
 

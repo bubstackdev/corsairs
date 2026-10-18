@@ -106,6 +106,6 @@ fn main() -> Result<()> {
     if !failures.is_empty() {
         return Err(failures.join("\n").into());
     }
-    println!("{{\"event\":\"complete\",\"configurations\":32,\"passed\":true}}");
+    println!("{{\"event\":\"complete\",\"configurations\":{},\"passed\":true}}", CASES.len());
     Ok(())
 }

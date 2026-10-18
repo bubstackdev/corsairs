@@ -654,7 +654,7 @@ impl NativeSession {
         // SAFETY: Borrowed views and buffers stay owned through true completion.
         unsafe {
             let _pool = Pool::new();
-            let gpu = self.function_compute(function)? == NativeCompute::GpuPreferred;
+            let gpu = self.function_compute(function)?.accelerated();
             let queue = self
                 .metal
                 .queues

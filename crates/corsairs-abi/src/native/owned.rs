@@ -62,6 +62,24 @@ impl NativeDType {
 pub enum NativeCompute {
     CpuOnly,
     GpuPreferred,
+    NeuralEnginePreferred,
+}
+impl NativeCompute {
+    /// The preferred ComputeUnitKind case, or None for the cpuOnly options.
+    fn preferred_kind(self) -> Option<&'static CStr> {
+        match self {
+            Self::CpuOnly => None,
+            Self::GpuPreferred => Some(c"$s15CoreAIDelegates15ComputeUnitKindO3gpuyA2CmFWC"),
+            Self::NeuralEnginePreferred => {
+                Some(c"$s15CoreAIDelegates15ComputeUnitKindO12neuralEngineyA2CmFWC")
+            }
+        }
+    }
+    /// Every preference permits GPU fallback (ComputeUnitsReference.swift), so
+    /// all non-CPU options use the qualified GPU stream and bounds.
+    pub fn accelerated(self) -> bool {
+        self != Self::CpuOnly
+    }
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NativeLoadOptions {
@@ -452,8 +470,8 @@ impl NativeSession {
             let url_init = self.symbol(c"$s10Foundation3URLV15fileURLWithPathACSSh_tcfC")?;
             arm64::call_sync(url_init, [path.words[0], path.words[1], 0], url.ptr(), 0);
             url.initialized = true;
-            match load_options.compute {
-                NativeCompute::CpuOnly => {
+            match load_options.compute.preferred_kind() {
+                None => {
                     self.call(
                         c"$s15CoreAIDelegates21SpecializationOptionsV7cpuOnlyACvgZ",
                         [0; 3],
@@ -461,13 +479,10 @@ impl NativeSession {
                         0,
                     )?;
                 }
-                NativeCompute::GpuPreferred => {
+                Some(case) => {
                     let md = self.metadata(c"$s15CoreAIDelegates15ComputeUnitKindOMa")?;
                     let mut kind = NativeValue::allocate(md)?;
-                    self.inject(
-                        &mut kind,
-                        c"$s15CoreAIDelegates15ComputeUnitKindO3gpuyA2CmFWC",
-                    )?;
+                    self.inject(&mut kind, case)?;
                     let initialize = self.symbol(c"$s15CoreAIDelegates21SpecializationOptionsV24preferredComputeUnitKindAcA0fgH0O_tcfC")?;
                     arm64::call_sync(initialize, [kind.address(), 0, 0], options.ptr(), 0);
                     kind.initialized = false;
@@ -1102,7 +1117,7 @@ impl NativeSession {
             // stream completion, including when the public future is abandoned.
             return unsafe { self.run_owned_on_stream(function, inputs, states) };
         }
-        let gpu = self.function_compute(function)? == NativeCompute::GpuPreferred;
+        let gpu = self.function_compute(function)?.accelerated();
         // SAFETY: Complete validation precedes native tensor construction. All
         // native argument allocations outlive both child and task completion.
         unsafe {

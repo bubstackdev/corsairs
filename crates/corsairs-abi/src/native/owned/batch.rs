@@ -112,8 +112,8 @@ impl NativeSession {
             let url_init = self.symbol(c"$s10Foundation3URLV15fileURLWithPathACSSh_tcfC")?;
             arm64::call_sync(url_init, [path.words[0], path.words[1], 0], url.ptr(), 0);
             url.initialized = true;
-            match load_options.compute {
-                NativeCompute::CpuOnly => {
+            match load_options.compute.preferred_kind() {
+                None => {
                     self.call(
                         c"$s15CoreAIDelegates21SpecializationOptionsV7cpuOnlyACvgZ",
                         [0; 3],
@@ -121,13 +121,10 @@ impl NativeSession {
                         0,
                     )?;
                 }
-                NativeCompute::GpuPreferred => {
+                Some(case) => {
                     let md = self.metadata(c"$s15CoreAIDelegates15ComputeUnitKindOMa")?;
                     let mut kind = NativeValue::allocate(md)?;
-                    self.inject(
-                        &mut kind,
-                        c"$s15CoreAIDelegates15ComputeUnitKindO3gpuyA2CmFWC",
-                    )?;
+                    self.inject(&mut kind, case)?;
                     let initialize = self.symbol(c"$s15CoreAIDelegates21SpecializationOptionsV24preferredComputeUnitKindAcA0fgH0O_tcfC")?;
                     arm64::call_sync(initialize, [kind.address(), 0, 0], options.ptr(), 0);
                     kind.initialized = false;

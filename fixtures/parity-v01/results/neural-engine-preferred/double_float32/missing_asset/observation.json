@@ -1,0 +1,17 @@
+{
+  "case": "double_float32",
+  "backend": "neural-engine-preferred",
+  "negative_case": "missing_asset",
+  "os_backed": true,
+  "status": "expected_error",
+  "allowed_compute_units": [
+    "Neural Engine",
+    "CPU",
+    "GPU"
+  ],
+  "preferred_compute_unit": "Neural Engine",
+  "failure_stage": "model_load",
+  "error_type": "RuntimeError",
+  "error": "Failed to load model with specialization from '/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.).",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 75, in run_child\n    model = await AIModel.load(model_path, options)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_aimodel.py\", line 52, in load\n    instance._model = await _AIModel.load_with_specialization(  # noqa: SLF001\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Failed to load model with specialization from '/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.).\n"
+}

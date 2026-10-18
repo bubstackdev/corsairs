@@ -63,7 +63,9 @@ async def run_child(case, backend, negative):
             raise RuntimeError("Reference must use OS Core AI")
         stage = "options"
         options = (SpecializationOptions.cpu_only() if backend == "cpu"
-                   else SpecializationOptions.from_preferred_compute_unit_kind(ComputeUnitKind.gpu()))
+                   else SpecializationOptions.from_preferred_compute_unit_kind(
+                       ComputeUnitKind.neural_engine() if backend == "neural-engine-preferred"
+                       else ComputeUnitKind.gpu()))
         result["allowed_compute_units"] = [str(kind) for kind in options.allowed_compute_unit_kinds]
         result["preferred_compute_unit"] = str(options.preferred_compute_unit_kind)
         model_path = FIXTURES / case["model"]
@@ -178,7 +180,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--child", action="store_true")
     parser.add_argument("--case")
-    parser.add_argument("--backend", choices=["cpu", "gpu-preferred"])
+    parser.add_argument("--backend", choices=["cpu", "gpu-preferred", "neural-engine-preferred"])
     parser.add_argument("--negative")
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--report", help="Optional report destination; defaults preserve full-suite reports for filtered runs")

@@ -61,9 +61,9 @@ def main():
             row["events"] = events
             if not events or events[-1].get("event") != "complete" or not events[-1].get("passed"):
                 raise RuntimeError("Native driver did not complete")
-            if "native_parity" in str(command[0]) and sum(e.get("event") == "native_parity" and e.get("passed") for e in events) != 32:
+            if "native_parity" in str(command[0]) and sum(e.get("event") == "native_parity" and e.get("passed") for e in events) != report["fixtures"]["cases"]:
                 raise RuntimeError("Native parity grid incomplete")
-            if "metal_parity" in str(command[0]) and sum(e.get("event") == "metal_parity" and e.get("passed") for e in events) != 64:
+            if "metal_parity" in str(command[0]) and sum(e.get("event") == "metal_parity" and e.get("passed") for e in events) != 2 * report["fixtures"]["cases"]:
                 raise RuntimeError("Metal parity grid incomplete")
             save()
 

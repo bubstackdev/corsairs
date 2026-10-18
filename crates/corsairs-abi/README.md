@@ -70,7 +70,7 @@ Descriptors preserve dynamic dimensions as `None`. Every invocation supplies con
 
 ## Compute and scope
 
-`Compute::CpuOnly` selects CPU-only specialization. `Compute::GpuPreferred` requests GPU preference while permitting Core AI's fallback choices; it does not guarantee that every operation executes on a GPU. Compare numerical results with the same configuration: backend behavior may differ for subnormals and NaN payloads.
+`Compute::CpuOnly` selects CPU-only specialization. `Compute::GpuPreferred` requests GPU preference while permitting Core AI's fallback choices; it does not guarantee that every operation executes on a GPU. `Compute::NeuralEnginePreferred` prefers the Neural Engine with the same fallback; because operations may still run on the GPU, it uses the GPU stream and size bounds. Compare numerical results with the same configuration: backend behavior may differ for subnormals and NaN payloads.
 
 `load_model_with_options` accepts `LoadOptions::new(compute).with_expect_frequent_reshapes(true)` for a per-model reshape hint. Omitting the hint preserves the SDK default. It does not replace offline fixed-shape specialization. `ModelLoadRequest` supplies independent paths/options to `Runtime::load_models`; errors join every started load before batch resources are released.
 
@@ -98,7 +98,7 @@ cargo run --example metal_chain
 cargo run --bin corsairs -- --help
 ```
 
-The `corsairs` CLI supports `inspect`, `run`, and `bench`; run `--help` for exact arguments. Input files contain contiguous little-endian scalar bytes. The CLI accepts an explicit CPU-only or GPU-preferred compute selection.
+The `corsairs` CLI supports `inspect`, `run`, and `bench`; run `--help` for exact arguments. Input files contain contiguous little-endian scalar bytes. The CLI accepts an explicit `cpu`, `gpu-preferred`, or `neural-engine-preferred` compute selection.
 
 ## License
 

@@ -42,6 +42,7 @@ Loading and execution return `Task<T>`, which implements `Future<Output = Result
 | bfloat16 | `BFloat16` |
 | float32 | `f32` |
 | float64 | `f64` |
+| float8_e4m3fn / float8_e5m2 | `Float8E4M3Fn` / `Float8E5M2` |
 | int8 / int16 / int32 / int64 | `i8` / `i16` / `i32` / `i64` |
 | uint8 / uint16 / uint32 / uint64 | `u8` / `u16` / `u32` / `u64` |
 | bool | `bool` |

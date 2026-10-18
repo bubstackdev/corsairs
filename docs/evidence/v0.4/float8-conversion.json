@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "passed": true,
+  "generated_utc": "2026-10-18T22:24:09.825159+00:00",
+  "native_coreai_executed": false,
+  "seed": 63736,
+  "random_count": 1000000,
+  "unique_vectors": 1002139,
+  "nan_vectors": 3729,
+  "reference": {
+    "numpy": "2.3.5",
+    "ml_dtypes": "0.6.0"
+  },
+  "source_sha256": {
+    "experiments/rust/float8_conversion.rs": "fa7e5c8369310248de85dd9002ebd3d1435828fe3b5d6c151c10d233177b6cad",
+    "scripts/check_float8.py": "6120642ec2f13713130c5dc785c331c6930226276bb430bf097a7e05628739a3",
+    "crates/corsairs-abi/src/dtype.rs": "221728029f503b192a63c55c33c49c26cd70018d1be4d248a563d0e848d64e1a"
+  },
+  "inputs": {
+    "file": "target/float8-conversion/inputs.f32le",
+    "bytes": 4008556,
+    "sha256": "8fa380971a8b431fcd6b7c2cd2e6f2a3da6508bca3ca45f98d936a93c0577b8f",
+    "gzip_file": "target/float8-conversion/inputs.f32le.gz",
+    "gzip_sha256": "b463b2040f4b28c6789754f0d2f84f2d0ad4273483e86f926979d40aa40250e7"
+  },
+  "profiles": {
+    "debug": {
+      "e4m3fn": {
+        "narrow_mismatches": 0,
+        "nan_mismatches": 0,
+        "widen_mismatches": 0,
+        "widen_nan_mismatches": 0,
+        "first_mismatches": [],
+        "narrow_vector": {
+          "file": "target/float8-conversion/debug-e4m3fn-narrow.u8",
+          "bytes": 1002139,
+          "sha256": "41b73f350ee97d6b654a003d242187185ba7569a57785749a62226900614c94a",
+          "gzip_file": "target/float8-conversion/debug-e4m3fn-narrow.u8.gz",
+          "gzip_sha256": "88140229aa3c0aace163b40bd1dec04cf80f958c2b19a33f7d9d5b8535c76284"
+        }
+      },
+      "e5m2": {
+        "narrow_mismatches": 0,
+        "nan_mismatches": 0,
+        "widen_mismatches": 0,
+        "widen_nan_mismatches": 0,
+        "first_mismatches": [],
+        "narrow_vector": {
+          "file": "target/float8-conversion/debug-e5m2-narrow.u8",
+          "bytes": 1002139,
+          "sha256": "1761a80aa0b68a1138ded757ac5941702ddaabaf3dfe3455da0ce76b79a4713d",
+          "gzip_file": "target/float8-conversion/debug-e5m2-narrow.u8.gz",
+          "gzip_sha256": "5f7ff460acdd66a557585d93b4eeaeed7c41117a52b587fabd9e98e11206fdad"
+        }
+      }
+    },
+    "release": {
+      "e4m3fn": {
+        "narrow_mismatches": 0,
+        "nan_mismatches": 0,
+        "widen_mismatches": 0,
+        "widen_nan_mismatches": 0,
+        "first_mismatches": [],
+        "narrow_vector": {
+          "file": "target/float8-conversion/release-e4m3fn-narrow.u8",
+          "bytes": 1002139,
+          "sha256": "41b73f350ee97d6b654a003d242187185ba7569a57785749a62226900614c94a",
+          "gzip_file": "target/float8-conversion/release-e4m3fn-narrow.u8.gz",
+          "gzip_sha256": "88140229aa3c0aace163b40bd1dec04cf80f958c2b19a33f7d9d5b8535c76284"
+        }
+      },
+      "e5m2": {
+        "narrow_mismatches": 0,
+        "nan_mismatches": 0,
+        "widen_mismatches": 0,
+        "widen_nan_mismatches": 0,
+        "first_mismatches": [],
+        "narrow_vector": {
+          "file": "target/float8-conversion/release-e5m2-narrow.u8",
+          "bytes": 1002139,
+          "sha256": "1761a80aa0b68a1138ded757ac5941702ddaabaf3dfe3455da0ce76b79a4713d",
+          "gzip_file": "target/float8-conversion/release-e5m2-narrow.u8.gz",
+          "gzip_sha256": "5f7ff460acdd66a557585d93b4eeaeed7c41117a52b587fabd9e98e11206fdad"
+        }
+      }
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/bin/cargo",
+        "build",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--lib",
+        "--message-format=json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi#corsairs@0.4.0\",\"manifest_path\":\"/Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"profile\":{\"opt_level\":\"0\",\"debuginfo\":2,\"debug_assertions\":true,\"overflow_checks\":true,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/bubstackdev/corsairs/target/debug/libcorsairs.rlib\",\"/Users/zakkeown/Code/bubstackdev/corsairs/target/debug/deps/libcorsairs-e1794d5f1dfce2fd.rmeta\"],\"executable\":null,\"fresh\":true}\n{\"reason\":\"build-finished\",\"success\":true}\n",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2024",
+        "-Dwarnings",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/experiments/rust/float8_conversion.rs",
+        "--extern",
+        "corsairs=/Users/zakkeown/Code/bubstackdev/corsairs/target/debug/libcorsairs.rlib",
+        "-L",
+        "dependency=/Users/zakkeown/Code/bubstackdev/corsairs/target/debug",
+        "-o",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/float8-debug"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/float8-debug",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/inputs.f32le",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/debug"
+      ],
+      "returncode": 0,
+      "stdout": "{\"converted\":1002139}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/cargo",
+        "build",
+        "--offline",
+        "-p",
+        "corsairs",
+        "--lib",
+        "--message-format=json",
+        "--release"
+      ],
+      "returncode": 0,
+      "stdout": "{\"reason\":\"compiler-artifact\",\"package_id\":\"path+file:///Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi#corsairs@0.4.0\",\"manifest_path\":\"/Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi/Cargo.toml\",\"target\":{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"corsairs\",\"src_path\":\"/Users/zakkeown/Code/bubstackdev/corsairs/crates/corsairs-abi/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},\"profile\":{\"opt_level\":\"3\",\"debuginfo\":0,\"debug_assertions\":false,\"overflow_checks\":false,\"test\":false},\"features\":[\"default\"],\"filenames\":[\"/Users/zakkeown/Code/bubstackdev/corsairs/target/release/libcorsairs.rlib\",\"/Users/zakkeown/Code/bubstackdev/corsairs/target/release/deps/libcorsairs-64368b46a4f98c27.rmeta\"],\"executable\":null,\"fresh\":true}\n{\"reason\":\"build-finished\",\"success\":true}\n",
+      "stderr": "    Finished `release` profile [optimized] target(s) in 0.02s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2024",
+        "-Dwarnings",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/experiments/rust/float8_conversion.rs",
+        "--extern",
+        "corsairs=/Users/zakkeown/Code/bubstackdev/corsairs/target/release/libcorsairs.rlib",
+        "-L",
+        "dependency=/Users/zakkeown/Code/bubstackdev/corsairs/target/release",
+        "-o",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/float8-release",
+        "-C",
+        "opt-level=3"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/float8-release",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/inputs.f32le",
+        "/Users/zakkeown/Code/bubstackdev/corsairs/target/float8-conversion/release"
+      ],
+      "returncode": 0,
+      "stdout": "{\"converted\":1002139}\n",
+      "stderr": ""
+    }
+  ]
+}

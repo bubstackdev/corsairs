@@ -146,8 +146,10 @@ def freeze_supplement(backend, fixtures=FIXTURES):
 
 
 def freeze_scalar_types(fixtures=SCALAR_FIXTURES):
-    """Freeze the three-backend v0.4 scalar-type grid into its own directory."""
+    """Freeze a three-backend v0.4 grid (scalar-types or float8) in its directory."""
     suite = json.loads((fixtures / "suite.json").read_text())
+    names = {case["name"] for case in suite["cases"]}
+    reviewed_errors = {key for key in REVIEWED_ERRORS if key[1] in names}
     report, original = load_report(fixtures, "python-results")
     errors = [row for row in report["results"] if row["status"] == "error"]
     for row in errors:
@@ -156,7 +158,7 @@ def freeze_scalar_types(fixtures=SCALAR_FIXTURES):
     report = {**report, "results": [row for row in report["results"] if row["status"] != "error"]}
     rows, negative_rows = freeze_rows(report, fixtures)
     expected = len(suite["cases"]) * len(SCALAR_BACKENDS)
-    if len(rows) + len(errors) != expected or negative_rows or len(errors) != len(REVIEWED_ERRORS):
+    if len(rows) + len(errors) != expected or negative_rows or len(errors) != len(reviewed_errors):
         raise RuntimeError(f"Incomplete scalar grid: {len(rows)} positives, {len(errors)} reviewed errors of {expected}")
     if {row["backend"] for row in rows} != set(SCALAR_BACKENDS):
         raise RuntimeError("Scalar grid must cover every backend")
@@ -170,15 +172,17 @@ def freeze_scalar_types(fixtures=SCALAR_FIXTURES):
         "python_to_math_mismatches": [{"backend": row["backend"], "case": row["case"]}
                                       for row in rows if row["reference_to_math"] == "mismatch"],
         "rules": RULES})
-    print(f"Frozen {len(rows)} scalar-type configurations; {len(errors)} reviewed native errors")
+    print(f"Frozen {len(rows)} {fixtures.name} configurations; {len(errors)} reviewed native errors")
 
 
 if __name__ == "__main__":
     if sys.argv[1:] == ["--scalar-types"]:
         freeze_scalar_types()
+    elif sys.argv[1:] == ["--float8"]:
+        freeze_scalar_types(SCALAR_FIXTURES.parent / "float8")
     elif len(sys.argv) == 3 and sys.argv[1] == "--backend":
         freeze_supplement(sys.argv[2])
     elif len(sys.argv) == 1:
         freeze()
     else:
-        raise SystemExit("usage: freeze_goldens.py [--backend BACKEND | --scalar-types]")
+        raise SystemExit("usage: freeze_goldens.py [--backend BACKEND | --scalar-types | --float8]")

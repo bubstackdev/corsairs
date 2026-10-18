@@ -16,13 +16,15 @@ ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "fixtures" / "parity-v01"
 OUTPUT = ROOT / "target" / "v01-check"
 # (directory relative to FIXTURES, goldens file): the original frozen CPU/GPU
-# grid, the separately frozen Neural Engine grid, and the v0.4 scalar types.
+# grid, the separately frozen Neural Engine grid, and the v0.4 scalar and float8 types.
 GOLDEN_SETS = ((".", "backend-goldens.json"), (".", "backend-goldens-neural-engine-preferred.json"),
-               ("../parity-v04/scalar-types", "backend-goldens.json"))
+               ("../parity-v04/scalar-types", "backend-goldens.json"), ("../parity-v04/float8", "backend-goldens.json"))
 COMPUTE = {"cpu": "CpuOnly", "gpu-preferred": "GpuPreferred", "neural-engine-preferred": "NeuralEnginePreferred"}
 DTYPES = {"float16": "Float16", "float32": "Float32", "float64": "Float64", "int8": "Int8", "int16": "Int16",
           "int32": "Int32", "int64": "Int64", "uint8": "UInt8", "uint16": "UInt16", "uint32": "UInt32",
-          "uint64": "UInt64", "bool": "Bool"}
+          "uint64": "UInt64", "bool": "Bool", "float8_e4m3fn": "Float8E4M3Fn", "float8_e5m2": "Float8E5M2",
+          # b3's spelling, kept verbatim in frozen observations.
+          "float8e4m3fn": "Float8E4M3Fn", "float8e5m2": "Float8E5M2"}
 
 
 def quoted(value):

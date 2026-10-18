@@ -37,6 +37,8 @@ pub enum NativeDType {
     Bf16,
     F32,
     F64,
+    F8E4M3Fn,
+    F8E5M2,
     I8,
     I16,
     I32,
@@ -48,11 +50,13 @@ pub enum NativeDType {
     Bool,
 }
 impl NativeDType {
-    const ALL: [Self; 13] = [
+    const ALL: [Self; 15] = [
         Self::F16,
         Self::Bf16,
         Self::F32,
         Self::F64,
+        Self::F8E4M3Fn,
+        Self::F8E5M2,
         Self::I8,
         Self::I16,
         Self::I32,
@@ -65,7 +69,7 @@ impl NativeDType {
     ];
     pub const fn byte_width(self) -> usize {
         match self {
-            Self::I8 | Self::U8 | Self::Bool => 1,
+            Self::F8E4M3Fn | Self::F8E5M2 | Self::I8 | Self::U8 | Self::Bool => 1,
             Self::F16 | Self::Bf16 | Self::I16 | Self::U16 => 2,
             Self::F32 | Self::I32 | Self::U32 => 4,
             Self::F64 | Self::I64 | Self::U64 => 8,
@@ -77,6 +81,8 @@ impl NativeDType {
             Self::Bf16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO8bfloat16yA2EmFWC",
             Self::F32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float32yA2EmFWC",
             Self::F64 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO7float64yA2EmFWC",
+            Self::F8E4M3Fn => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO12float8e4m3fnyA2EmFWC",
+            Self::F8E5M2 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO10float8e5m2yA2EmFWC",
             Self::I8 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO4int8yA2EmFWC",
             Self::I16 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int16yA2EmFWC",
             Self::I32 => c"$s13CoreAIRuntime7NDArrayV10ScalarTypeO5int32yA2EmFWC",

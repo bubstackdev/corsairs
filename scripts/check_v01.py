@@ -15,6 +15,9 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "fixtures" / "parity-v01"
 OUTPUT = ROOT / "target" / "v01-check"
+# Original frozen CPU/GPU grid plus separately frozen supplementary backends.
+GOLDENS = ("backend-goldens.json", "backend-goldens-neural-engine-preferred.json")
+COMPUTE = {"cpu": "CpuOnly", "gpu-preferred": "GpuPreferred", "neural-engine-preferred": "NeuralEnginePreferred"}
 DTYPES = {"float16": "Float16", "float32": "Float32", "int32": "Int32", "int64": "Int64", "bool": "Bool"}
 
 
@@ -36,20 +39,25 @@ def specs(values, *, order=None):
 
 def prepare_data():
     suite = json.loads((FIXTURES / "suite.json").read_text())
-    goldens = json.loads((FIXTURES / "backend-goldens.json").read_text())
     expected_wheel = "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9"
-    if goldens["reference"]["wheel_sha256"] != expected_wheel:
-        raise RuntimeError("Unexpected reference wheel")
-    initial = FIXTURES / goldens["source_observations"]
-    if hashlib.sha256(initial.read_bytes()).hexdigest() != goldens["source_observations_sha256"]:
-        raise RuntimeError("Original native reference observations changed")
+    cases, negatives = [], []
+    for name in GOLDENS:
+        goldens = json.loads((FIXTURES / name).read_text())
+        if goldens["reference"]["wheel_sha256"] != expected_wheel:
+            raise RuntimeError("Unexpected reference wheel")
+        initial = FIXTURES / goldens["source_observations"]
+        if hashlib.sha256(initial.read_bytes()).hexdigest() != goldens["source_observations_sha256"]:
+            raise RuntimeError("Original native reference observations changed")
+        cases += goldens["cases"]
+        negatives += goldens["negative_cases"]
+    backends = list(dict.fromkeys(golden["backend"] for golden in cases))
     for path, digest in suite["sha256"].items():
         if hashlib.sha256((FIXTURES / path).read_bytes()).hexdigest() != digest:
             raise RuntimeError(f"Fixture bytes changed: {path}")
     by_name = {case["name"]: case for case in suite["cases"]}
     rendered = []
     tensor_count = 0
-    for golden in goldens["cases"]:
+    for golden in cases:
         case = by_name[golden["case"]]
         original_steps = case.get("steps", [{"inputs": case["inputs"]}])
         if len(original_steps) != len(golden["steps"]):
@@ -65,18 +73,20 @@ def prepare_data():
                          (specs(original["inputs"], order=golden["descriptor"]["inputs"]),
                           specs(expected["outputs"], order=golden["descriptor"]["outputs"]), specs(expected["state_after"])))
         rendered.append("Case { name: %s, backend: %s, compute: Compute::%s, model: %s, inputs: %s, initial_state: %s, steps: &[%s] }" %
-                        (quoted(case["name"]), quoted(golden["backend"]), "CpuOnly" if golden["backend"] == "cpu" else "GpuPreferred",
+                        (quoted(case["name"]), quoted(golden["backend"]), COMPUTE[golden["backend"]],
                          quoted(case["model"]), specs(case["inputs"], order=golden["descriptor"]["inputs"]),
                          specs(case.get("state", {}), order=golden["descriptor"]["state"]), ",\n".join(steps)))
-    if len(rendered) != 32 or len(goldens["negative_cases"]) != 16:
-        raise RuntimeError("Reference grid must contain 32 positive and 16 negative configurations")
+    if len(rendered) != 16 * len(backends) or len(negatives) != 8 * len(backends):
+        raise RuntimeError("Each reference backend must contain 16 positive and 8 negative configurations")
     generated = OUTPUT / "cases.rs"
     generated.parent.mkdir(parents=True, exist_ok=True)
-    generated.write_text("// Generated from pinned fixtures and native Python backend goldens.\nconst CASES: &[Case] = &[\n" + ",\n".join(rendered) + "\n];\n")
-    return {"cases": 32, "negative_cases": 16, "golden_tensors": tensor_count,
+    generated.write_text("// Generated from pinned fixtures and native Python backend goldens.\nconst CASES: &[Case] = &[\n" + ",\n".join(rendered) + "\n];\n"
+                         "#[allow(dead_code, reason = \"shared by drivers that do not all iterate backends\")]\n"
+                         "const BACKENDS: &[(&str, Compute)] = &[" + ", ".join(f"({quoted(name)}, Compute::{COMPUTE[name]})" for name in backends) + "];\n")
+    return {"cases": len(rendered), "negative_cases": len(negatives), "backends": backends, "golden_tensors": tensor_count,
             "generated_sha256": hashlib.sha256(generated.read_bytes()).hexdigest(),
             "suite_sha256": hashlib.sha256((FIXTURES / "suite.json").read_bytes()).hexdigest(),
-            "goldens_sha256": hashlib.sha256((FIXTURES / "backend-goldens.json").read_bytes()).hexdigest()}
+            "goldens_sha256": {name: hashlib.sha256((FIXTURES / name).read_bytes()).hexdigest() for name in GOLDENS}}
 
 
 def tool(name):
@@ -196,13 +206,14 @@ def main():
                 raise RuntimeError(f"Driver missing: {binary}")
             report.setdefault("driver_sha256", {})[profile] = hashlib.sha256(binary.read_bytes()).hexdigest()
             if args.native:
-                print(f"{profile}: native public-API parity (32 positive +16 negative configurations)", flush=True)
+                grid = report["fixtures"]
+                print(f"{profile}: native public-API parity ({grid['cases']} positive +{grid['negative_cases']} negative configurations)", flush=True)
                 observation = execute([binary, FIXTURES, "parity"], report, native=True)
                 events = observation["events"]
-                if len([row for row in events if row["event"] == "parity" and row["passed"]]) != 32:
-                    raise RuntimeError("Driver did not validate all 32 positive configurations")
-                if len([row for row in events if row["event"] == "negative" and row["passed"]]) != 16:
-                    raise RuntimeError("Driver did not validate all 16 typed negative configurations")
+                if len([row for row in events if row["event"] == "parity" and row["passed"]]) != grid["cases"]:
+                    raise RuntimeError(f"Driver did not validate all {grid['cases']} positive configurations")
+                if len([row for row in events if row["event"] == "negative" and row["passed"]]) != grid["negative_cases"]:
+                    raise RuntimeError(f"Driver did not validate all {grid['negative_cases']} typed negative configurations")
                 if not args.skip_stress:
                     print(f"{profile}: {args.cycles} stateless +{args.cycles} stateful per backend; lifecycle probes", flush=True)
                     execute([binary, FIXTURES, "stress", args.cycles, args.loads, args.dropped], report, native=True, timeout=600)

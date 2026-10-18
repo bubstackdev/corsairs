@@ -353,6 +353,83 @@ mod tests {
 
     #[test]
     #[ignore = "requires permitted native Core AI and CORSAIRS_TEST_MODEL x+x fixture"]
+    fn native_cancelled_queued_runs_never_execute_and_release_inputs() {
+        use crate::Cancel;
+        let runtime = Runtime::new().unwrap();
+        let path = std::env::var_os("CORSAIRS_TEST_MODEL").expect("CORSAIRS_TEST_MODEL");
+        let model = runtime
+            .load_model(PathBuf::from(path), Compute::CpuOnly)
+            .wait()
+            .unwrap();
+        let function = model.load_function("main").wait().unwrap();
+        let input = runtime
+            .upload(Tensor::from_vec([2, 3], vec![1f32; 6]).unwrap())
+            .wait()
+            .unwrap();
+        let (started, observed) = std::sync::mpsc::sync_channel(0);
+        let (unblock, gate) = std::sync::mpsc::sync_channel::<()>(0);
+        let blocking = runtime.worker.submit(move |_| {
+            started.send(()).unwrap();
+            gate.recv().unwrap();
+            Ok(())
+        });
+        observed.recv().unwrap();
+        let native = function.run_native(
+            TensorHandleMap::from([("x", input.clone())]),
+            TensorHandleMap::new(),
+        );
+        let owned = function.run(
+            TensorMap::from([("x", Tensor::from_vec([2, 3], vec![1f32; 6]).unwrap())]),
+            TensorMap::new(),
+        );
+        let kept = function.run_native(
+            TensorHandleMap::from([("x", input.clone())]),
+            TensorHandleMap::new(),
+        );
+        assert_eq!(native.cancel_handle().cancel(), Cancel::Prevented);
+        assert_eq!(owned.cancel_handle().cancel(), Cancel::Prevented);
+        assert!(matches!(native.wait(), Err(Error::Cancelled)));
+        assert!(matches!(owned.wait(), Err(Error::Cancelled)));
+        unblock.send(()).unwrap();
+        blocking.wait().unwrap();
+        // Later requests are unaffected by cancelling earlier ones.
+        let kept = kept.wait().unwrap();
+        assert_eq!(
+            kept.outputs
+                .get("y")
+                .unwrap()
+                .download()
+                .wait()
+                .unwrap()
+                .to_vec::<f32>()
+                .unwrap(),
+            [2.; 6]
+        );
+        drop(kept);
+        runtime.drain().wait().unwrap();
+        // Only the uploaded input remains: cancelled runs produced no outputs.
+        assert_eq!(
+            runtime
+                .worker
+                .submit(|session| Ok(session.live_tensor_count()))
+                .wait()
+                .unwrap(),
+            1
+        );
+        drop((input, function, model));
+        runtime.drain().wait().unwrap();
+        assert_eq!(
+            runtime
+                .worker
+                .submit(|session| Ok((session.live_counts(), session.live_tensor_count())))
+                .wait()
+                .unwrap(),
+            ((0, 0), 0)
+        );
+    }
+
+    #[test]
+    #[ignore = "requires permitted native Core AI and CORSAIRS_TEST_MODEL x+x fixture"]
     fn native_handles_retain_chain_and_release_abandoned_results() {
         let runtime = Runtime::new().unwrap();
         let path = std::env::var_os("CORSAIRS_TEST_MODEL").expect("CORSAIRS_TEST_MODEL");

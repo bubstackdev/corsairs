@@ -52,4 +52,4 @@ pub use facade::{
 pub use facade::{
     MetalBuffer, MetalBufferMap, MetalObject, MetalQueue, MetalRunResult, MetalValue, MetalValueMap,
 };
-pub use worker::Task;
+pub use worker::{Cancel, CancelHandle, Task};

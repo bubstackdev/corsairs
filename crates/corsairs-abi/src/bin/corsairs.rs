@@ -20,7 +20,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args.is_empty() || args[0] == "--help" || args[0] == "help" {
         println!(
-            "corsairs inspect MODEL [--compute cpu|gpu-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|int32|int64|bool. SHAPE: comma-separated dimensions, or scalar."
+            "corsairs inspect MODEL [--compute cpu|gpu-preferred|neural-engine-preferred] [--function NAME]\ncorsairs run MODEL --input NAME DTYPE SHAPE FILE [--state NAME DTYPE SHAPE FILE] [--output-dir DIR] [--repeat N] [--drop-futures N]\ncorsairs bench MODEL --input NAME DTYPE SHAPE FILE [--compute cpu|gpu-preferred|neural-engine-preferred] [--warmup N] [--repeat N]\nAll commands accept --expect-frequent-reshapes true|false (omitted: SDK default).\nDTYPE: float16|bfloat16|float32|int32|int64|bool. SHAPE: comma-separated dimensions, or scalar."
         );
         return Ok(());
     }
@@ -73,6 +73,7 @@ fn execute() -> Result<(), Box<dyn Error>> {
                 compute = match next(&args, &mut index, option)? {
                     "cpu" => Compute::CpuOnly,
                     "gpu-preferred" => Compute::GpuPreferred,
+                    "neural-engine-preferred" => Compute::NeuralEnginePreferred,
                     value => return Err(format!("unknown compute policy {value:?}").into()),
                 };
             }
@@ -231,6 +232,8 @@ fn compute_name(value: Compute) -> &'static str {
     match value {
         Compute::CpuOnly => "cpu",
         Compute::GpuPreferred => "gpu-preferred",
+        Compute::NeuralEnginePreferred => "neural-engine-preferred",
+        _ => "unknown",
     }
 }
 fn descriptor_json(value: &FunctionDescriptor) -> String {

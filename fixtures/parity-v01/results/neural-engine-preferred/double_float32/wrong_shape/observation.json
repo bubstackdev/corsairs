@@ -1,0 +1,27 @@
+{
+  "case": "double_float32",
+  "backend": "neural-engine-preferred",
+  "negative_case": "wrong_shape",
+  "os_backed": true,
+  "status": "expected_error",
+  "allowed_compute_units": [
+    "Neural Engine",
+    "GPU",
+    "CPU"
+  ],
+  "preferred_compute_unit": "Neural Engine",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "failure_stage": "inference",
+  "error_type": "RuntimeError",
+  "error": "x has an invalid shape: [3, 2], expected: [2, 3]",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: x has an invalid shape: [3, 2], expected: [2, 3]\n"
+}

@@ -1,0 +1,63 @@
+{
+  "all_cancelled_cases_completed_exactly" : true,
+  "cpu_only" : {
+    "load" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 25.635957717895508,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    },
+    "run" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 0.079989433288574219,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    },
+    "run_repeated_100" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 2.7279853820800781,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    },
+    "stream_encode_fence_read" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 13.514995574951172,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    }
+  },
+  "gpu_preferred" : {
+    "load" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 44.357061386108398,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    },
+    "run" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 1.7499923706054688,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    },
+    "run_repeated_100" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 89.877963066101074,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    },
+    "stream_encode_fence_read" : {
+      "cancelled_before_call" : true,
+      "elapsed_ms" : 1.7811059951782227,
+      "exact" : true,
+      "outcome" : "completed",
+      "still_cancelled_after" : true
+    }
+  }
+}

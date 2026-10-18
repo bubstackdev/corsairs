@@ -42,6 +42,8 @@ pub enum Error {
     ReentrantWait,
     /// Creating the native worker failed.
     WorkerStart(String),
+    /// The request was cancelled before it reached Core AI.
+    Cancelled,
     /// The path is not a valid Core AI model asset.
     InvalidAsset(String),
 }
@@ -79,6 +81,7 @@ impl fmt::Display for Error {
                 "cannot synchronously wait on this Core AI worker; await the task instead",
             ),
             Self::WorkerStart(reason) => write!(f, "could not start Core AI worker: {reason}"),
+            Self::Cancelled => f.write_str("request was cancelled before it reached Core AI"),
             Self::InvalidAsset(path) => write!(f, "not a valid Core AI model asset: {path}"),
         }
     }

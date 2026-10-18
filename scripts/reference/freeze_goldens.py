@@ -14,11 +14,21 @@ from execution import execution_error
 # reference backend behavior without changing the independent math expectation
 # or loosening the Rust-versus-Python exact-byte comparison.
 REVIEWED = {("gpu-preferred", "float_edges"):
+            "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7",
+            # Identical bytes to GPU preference: subnormal flush and NaN canonicalization.
+            ("neural-engine-preferred", "float_edges"):
             "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7"}
+# Backends frozen separately so the original CPU/GPU grid stays immutable.
+SUPPLEMENTARY = ("neural-engine-preferred",)
+RULES = ["Never replace mathematical expected files with backend observations.",
+         "Rust comparisons use the identical pinned model/input/backend and exact frozen Python bytes.",
+         "Backend preference does not prove which delegate executed an individual operation.",
+         "Native traps, timeouts or unsupported failures cannot become successful goldens."]
 
 
-def freeze(fixtures=FIXTURES):
-    source = fixtures / "python-results.json"
+def load_report(fixtures, name):
+    """Validate a completed report and pin its first observed bytes."""
+    source = fixtures / f"{name}.json"
     report = json.loads(source.read_text())
     if not report["complete"] or report["reference"]["wheel_sha256"] != WHEEL_SHA256:
         raise RuntimeError("Only a completed pinned reference run can produce goldens")
@@ -26,12 +36,15 @@ def freeze(fixtures=FIXTURES):
     for observed in report["results"]:
         if problem := execution_error(observed):
             raise RuntimeError(f"Invalid native reference {observed.get('backend')}/{observed.get('case')}: {problem}")
-    original = fixtures / "python-results.initial.json"
+    original = fixtures / f"{name}.initial.json"
     if not original.exists():
         shutil.copyfile(source, original)
     elif original.read_bytes() != source.read_bytes():
         raise RuntimeError("Original reference observations changed; review before replacing frozen goldens")
+    return report, original
 
+
+def freeze_rows(report, fixtures):
     rows = []
     negative_rows = []
     for observed in report["results"]:
@@ -67,14 +80,23 @@ def freeze(fixtures=FIXTURES):
                         "dtype": tensor["dtype"], "shape": tensor["shape"], "strides": tensor["strides"], "sha256": actual}
             row["steps"].append(frozen)
         rows.append(row)
+    return rows, negative_rows
+
+
+def negative_summary(negative_rows):
+    return [{"backend": row["backend"], "case": row["case"], "negative_case": row["negative_case"],
+             "python_error_type": row["error_type"], "python_error": row["error"]} for row in negative_rows]
+
+
+def freeze(fixtures=FIXTURES):
+    report, original = load_report(fixtures, "python-results")
+    rows, negative_rows = freeze_rows(report, fixtures)
     if len(rows) != 32 or len(negative_rows) != 16:
         raise RuntimeError(f"Incomplete reference grid: {len(rows)} positives, {len(negative_rows)} negatives")
     write_json(fixtures / "backend-goldens.json", {
         "schema": 1, "reference": report["reference"], "native_execution_successes": len(rows),
         "negative_reference_errors": len(negative_rows), "cases": rows,
-        "negative_cases": [{"backend": row["backend"], "case": row["case"],
-            "negative_case": row["negative_case"], "python_error_type": row["error_type"],
-            "python_error": row["error"]} for row in negative_rows],
+        "negative_cases": negative_summary(negative_rows),
         "source_observations": "python-results.initial.json",
         "source_observations_sha256": hashlib.sha256(original.read_bytes()).hexdigest(),
         "python_to_math_mismatches": [{"backend": "gpu-preferred", "case": "float_edges",
@@ -82,12 +104,38 @@ def freeze(fixtures=FIXTURES):
             "cpu_and_math_output_f32_bits": ["00000000", "80000000", "7f800000", "ff800000", "7fc12345", "00000002"],
             "gpu_preferred_output_f32_bits": ["00000000", "80000000", "7f800000", "ff800000", "7fc00000", "00000000"],
             "interpretation": "Observed subnormal flush and NaN payload canonicalization in GPU-preferred configuration; exact delegate unproven."}],
-        "rules": ["Never replace mathematical expected files with backend observations.",
-                  "Rust comparisons use the identical pinned model/input/backend and exact frozen Python bytes.",
-                  "Backend preference does not prove which delegate executed an individual operation.",
-                  "Native traps, timeouts or unsupported failures cannot become successful goldens."]})
+        "rules": RULES})
     print(f"Frozen {len(rows)} native reference cases; retained 1 Python-to-math mismatch; {len(negative_rows)} expected negative errors")
 
 
+def freeze_supplement(backend, fixtures=FIXTURES):
+    """Freeze one additional backend into backend-goldens-BACKEND.json."""
+    if backend not in SUPPLEMENTARY:
+        raise RuntimeError(f"Not a supplementary backend: {backend}")
+    # Reject a mixed report before load_report can pin it as the original.
+    source = json.loads((fixtures / f"python-results-{backend}.json").read_text())
+    if any(row.get("backend") != backend for row in source["results"]):
+        raise RuntimeError(f"Supplementary report mixes backends other than {backend}")
+    report, original = load_report(fixtures, f"python-results-{backend}")
+    rows, negative_rows = freeze_rows(report, fixtures)
+    if len(rows) != 16 or len(negative_rows) != 8:
+        raise RuntimeError(f"Incomplete {backend} grid: {len(rows)} positives, {len(negative_rows)} negatives")
+    mismatches = [row["case"] for row in rows if row["reference_to_math"] == "mismatch"]
+    write_json(fixtures / f"backend-goldens-{backend}.json", {
+        "schema": 1, "backend": backend, "reference": report["reference"],
+        "native_execution_successes": len(rows), "negative_reference_errors": len(negative_rows),
+        "cases": rows, "negative_cases": negative_summary(negative_rows),
+        "source_observations": original.name,
+        "source_observations_sha256": hashlib.sha256(original.read_bytes()).hexdigest(),
+        "python_to_math_mismatches": mismatches, "rules": RULES})
+    print(f"Frozen {len(rows)} {backend} cases; retained {len(mismatches)} reviewed Python-to-math mismatch; "
+          f"{len(negative_rows)} expected negative errors")
+
+
 if __name__ == "__main__":
-    freeze()
+    if len(sys.argv) == 3 and sys.argv[1] == "--backend":
+        freeze_supplement(sys.argv[2])
+    elif len(sys.argv) == 1:
+        freeze()
+    else:
+        raise SystemExit("usage: freeze_goldens.py [--backend BACKEND]")

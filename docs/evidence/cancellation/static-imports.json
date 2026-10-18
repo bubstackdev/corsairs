@@ -1,0 +1,87 @@
+{
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "tool": "dyld_info -imports (dyld shared cache)",
+  "pattern": "swift_task_(isCancelled|addCancellationHandler|removeCancellationHandler|cancel)|checkCancellation|CancellationError|isCancelled|[Cc]ancel",
+  "images": [
+    {
+      "image": "/System/Library/Frameworks/CoreAI.framework/CoreAI",
+      "imports": 0,
+      "cancellation_imports": [],
+      "swift_task_imports": []
+    },
+    {
+      "image": "/System/Library/SubFrameworks/CoreAIRuntime.framework/CoreAIRuntime",
+      "imports": 257,
+      "cancellation_imports": [],
+      "swift_task_imports": [
+        "_swift_continuation_await",
+        "_swift_continuation_init",
+        "_swift_task_alloc",
+        "_swift_task_create",
+        "_swift_task_dealloc",
+        "_swift_task_future_wait_throwing",
+        "_swift_task_switch"
+      ]
+    },
+    {
+      "image": "/System/Library/SubFrameworks/CoreAIDelegates.framework/CoreAIDelegates",
+      "imports": 109,
+      "cancellation_imports": [],
+      "swift_task_imports": [
+        "_swift_task_alloc",
+        "_swift_task_dealloc",
+        "_swift_task_switch"
+      ]
+    },
+    {
+      "image": "/System/Library/SubFrameworks/CoreAICommon.framework/CoreAICommon",
+      "imports": 71,
+      "cancellation_imports": [],
+      "swift_task_imports": [
+        "_swift_task_alloc",
+        "_swift_task_create",
+        "_swift_task_dealloc",
+        "_swift_task_future_wait_throwing",
+        "_swift_task_switch"
+      ]
+    },
+    {
+      "image": "/System/Library/SubFrameworks/CoreAIAsset.framework/CoreAIAsset",
+      "imports": 57,
+      "cancellation_imports": [],
+      "swift_task_imports": []
+    },
+    {
+      "image": "/System/Library/SubFrameworks/CoreAICompiler.framework/CoreAICompiler",
+      "imports": 98,
+      "cancellation_imports": [],
+      "swift_task_imports": [
+        "_swift_continuation_await",
+        "_swift_continuation_init",
+        "_swift_task_alloc",
+        "_swift_task_dealloc",
+        "_swift_task_switch"
+      ]
+    },
+    {
+      "image": "/System/Library/SubFrameworks/CoreAICache.framework/CoreAICache",
+      "imports": 75,
+      "cancellation_imports": [],
+      "swift_task_imports": []
+    },
+    {
+      "image": "/System/Library/PrivateFrameworks/ODIE.framework/ODIE",
+      "imports": 233,
+      "cancellation_imports": [],
+      "swift_task_imports": [
+        "_swift_continuation_await",
+        "_swift_continuation_init",
+        "_swift_task_alloc",
+        "_swift_task_create",
+        "_swift_task_dealloc",
+        "_swift_task_future_wait_throwing",
+        "_swift_task_switch"
+      ]
+    }
+  ]
+}

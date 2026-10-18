@@ -72,13 +72,13 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 | Storage | Owned tensors, retained native handles, and shared Metal buffers |
 | Shape limits | Static/dynamic signatures; rank 64; storage/CPU 4 GiB; GPU inference 2 GiB |
 | Execution | Named inputs/outputs and caller-supplied named state, with updated state returned for the next step |
-| Compute | CPU-only or GPU-preferred specialization |
+| Compute | CPU-only, GPU-preferred, or [Neural Engine-preferred](docs/compute-units.md) specialization (unreleased on `main`) |
 | Ownership | Native values stay on one worker per runtime; cloned handles share its serialized queue |
 | Errors | Checked tensor construction/signatures and typed native, binding, and worker errors |
 
 Scalar and empty tensors are supported. For empty tensors, the corresponding size guard also applies to the product of nonzero dimensions and scalar width. Non-tensor values are rejected. Dynamic outputs are bounded only after completion; stateful owned/native GPU signatures retain a fixed 1 GiB envelope. GPU preference permits fallback choices and does not prove which device executed an operation.
 
-Graph authoring, custom Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, explicit Neural Engine control, and native cancellation are deferred. The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
+Graph authoring, custom Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, and explicit Neural Engine control are deferred. Core AI cannot stop running work; on `main`, `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
 
 ## Verification
 

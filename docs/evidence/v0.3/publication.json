@@ -4,7 +4,7 @@
   "source_commit": "bdcd7c79d761ee0b42777330cc1809c48defc839",
   "tag": "v0.3.0",
   "crate_url": "https://crates.io/crates/corsairs/0.3.0",
-  "github_release_url": null,
+  "github_release_url": "https://github.com/bubstackdev/corsairs/releases/tag/v0.3.0",
   "registry_published_at": "2026-10-15T22:22:49.036262Z",
   "registry_published_by": "zak-keown",
   "registry_archive_sha256": "e7f23287a680009a43aa5a46e8646a66918f5c4c3e2bdb627a18091b21fe3e3a",

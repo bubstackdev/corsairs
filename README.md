@@ -17,7 +17,7 @@ gates pass and a fresh registry consumer passes native chaining.**
 fixes: native chain provenance stays bounded and waker callbacks no longer run under the
 task result lock.
 
-[v0.4](docs/v0.4-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.0), adds [queued-request cancellation](docs/cancellation.md), [Neural Engine preference](docs/compute-units.md), [read-only asset inspection](docs/asset-metadata.md), and [`f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64` tensors](docs/scalar-types.md). `Compute` and `DType` are now non-exhaustive. [v0.4.1](docs/v0.4.1-release.md) adds `Float8E4M3Fn` and `Float8E5M2` tensors and `DType::all()`, and fixes the v0.4 review findings.
+[v0.4](docs/v0.4-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.0), adds [queued-request cancellation](docs/cancellation.md), [Neural Engine preference](docs/compute-units.md), [read-only asset inspection](docs/asset-metadata.md), and [`f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64` tensors](docs/scalar-types.md). `Compute` and `DType` are now non-exhaustive. [v0.4.1](docs/v0.4.1-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.1), adds `Float8E4M3Fn` and `Float8E5M2` tensors and `DType::all()`, and fixes the v0.4 review findings.
 
 ## Use
 

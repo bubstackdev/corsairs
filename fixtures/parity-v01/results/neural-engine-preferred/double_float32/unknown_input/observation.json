@@ -1,0 +1,27 @@
+{
+  "case": "double_float32",
+  "backend": "neural-engine-preferred",
+  "negative_case": "unknown_input",
+  "os_backed": true,
+  "status": "expected_error",
+  "allowed_compute_units": [
+    "CPU",
+    "Neural Engine",
+    "GPU"
+  ],
+  "preferred_compute_unit": "Neural Engine",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "failure_stage": "inference",
+  "error_type": "RuntimeError",
+  "error": "unknown is not a declared input of this function.",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: unknown is not a declared input of this function.\n"
+}

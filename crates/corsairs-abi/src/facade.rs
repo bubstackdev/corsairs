@@ -26,13 +26,27 @@ pub use metal::{
     MetalBuffer, MetalBufferMap, MetalObject, MetalQueue, MetalRunResult, MetalValue, MetalValueMap,
 };
 
-/// The requested specialization policy. GPU preference allows Core AI to use
-/// other available compute units; it is not proof of GPU execution.
+/// The requested specialization policy. A preference ranks one compute unit
+/// first but still allows Core AI to use the CPU, GPU and Neural Engine; it is
+/// not proof of where an operation executed. Only `CpuOnly` restricts units.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
 pub enum Compute {
     #[default]
     CpuOnly,
     GpuPreferred,
+    /// Prefer the Neural Engine. Calls use the same GPU stream and size bounds
+    /// as `GpuPreferred`, because unsupported operations may fall back to GPU.
+    NeuralEnginePreferred,
+}
+impl From<Compute> for NativeCompute {
+    fn from(compute: Compute) -> Self {
+        match compute {
+            Compute::CpuOnly => Self::CpuOnly,
+            Compute::GpuPreferred => Self::GpuPreferred,
+            Compute::NeuralEnginePreferred => Self::NeuralEnginePreferred,
+        }
+    }
 }
 
 /// Requested specialization choices retained for each loaded model.
@@ -221,10 +235,7 @@ impl Runtime {
             // SAFETY: Only this worker owns the session and all native storage.
             let model = unsafe {
                 let native_options = NativeLoadOptions {
-                    compute: match options.compute {
-                        Compute::CpuOnly => NativeCompute::CpuOnly,
-                        Compute::GpuPreferred => NativeCompute::GpuPreferred,
-                    },
+                    compute: options.compute.into(),
                     expect_frequent_reshapes: options.expect_frequent_reshapes,
                 };
                 if native_options.expect_frequent_reshapes.is_none() {
@@ -487,7 +498,17 @@ mod tests {
     #[test]
     fn load_options_preserve_defaults_and_explicit_false() {
         assert_eq!(LoadOptions::default(), LoadOptions::new(Compute::CpuOnly));
-        for compute in [Compute::CpuOnly, Compute::GpuPreferred] {
+        for compute in [
+            Compute::CpuOnly,
+            Compute::GpuPreferred,
+            Compute::NeuralEnginePreferred,
+        ] {
+            // Only CPU-only options restrict compute units; every preference
+            // may fall back to GPU and therefore takes the accelerated path.
+            assert_eq!(
+                NativeCompute::from(compute).accelerated(),
+                compute != Compute::CpuOnly
+            );
             assert_eq!(LoadOptions::from(compute).expect_frequent_reshapes, None);
             for enabled in [true, false] {
                 let options = LoadOptions::new(compute).with_expect_frequent_reshapes(enabled);

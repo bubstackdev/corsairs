@@ -1,0 +1,125 @@
+{
+  "available" : [
+    "cpu",
+    "gpu",
+    "neural_engine"
+  ],
+  "cpu_only" : {
+    "allowed" : [
+      "cpu"
+    ],
+    "expect_frequent_reshapes" : false,
+    "preferred" : null
+  },
+  "default" : {
+    "allowed" : [
+      "cpu",
+      "gpu",
+      "neural_engine"
+    ],
+    "expect_frequent_reshapes" : false,
+    "preferred" : null
+  },
+  "device_architecture" : "h17c",
+  "preferred" : {
+    "cpu" : {
+      "allowed" : [
+        "cpu",
+        "gpu",
+        "neural_engine"
+      ],
+      "expect_frequent_reshapes" : false,
+      "preferred" : "cpu",
+      "run" : {
+        "exact" : true,
+        "outcome" : "completed",
+        "values" : [
+          2,
+          -4,
+          0,
+          1,
+          200,
+          -0.5
+        ]
+      },
+      "stream" : {
+        "exact" : true,
+        "outcome" : "completed",
+        "values" : [
+          2,
+          -4,
+          0,
+          1,
+          200,
+          -0.5
+        ]
+      }
+    },
+    "gpu" : {
+      "allowed" : [
+        "cpu",
+        "gpu",
+        "neural_engine"
+      ],
+      "expect_frequent_reshapes" : false,
+      "preferred" : "gpu",
+      "run" : {
+        "exact" : true,
+        "outcome" : "completed",
+        "values" : [
+          2,
+          -4,
+          0,
+          1,
+          200,
+          -0.5
+        ]
+      },
+      "stream" : {
+        "exact" : true,
+        "outcome" : "completed",
+        "values" : [
+          2,
+          -4,
+          0,
+          1,
+          200,
+          -0.5
+        ]
+      }
+    },
+    "neural_engine" : {
+      "allowed" : [
+        "cpu",
+        "gpu",
+        "neural_engine"
+      ],
+      "expect_frequent_reshapes" : false,
+      "preferred" : "neural_engine",
+      "run" : {
+        "exact" : true,
+        "outcome" : "completed",
+        "values" : [
+          2,
+          -4,
+          0,
+          1,
+          200,
+          -0.5
+        ]
+      },
+      "stream" : {
+        "exact" : true,
+        "outcome" : "completed",
+        "values" : [
+          2,
+          -4,
+          0,
+          1,
+          200,
+          -0.5
+        ]
+      }
+    }
+  }
+}

@@ -204,7 +204,7 @@ impl NativeSession {
         }
         self.validate_handle_group(&inputs, &descriptor.inputs)?;
         self.validate_handle_group(&states, &descriptor.states)?;
-        let gpu = self.function_compute(function)? == NativeCompute::GpuPreferred;
+        let gpu = self.function_compute(function)?.accelerated();
         if gpu {
             for (_, id) in inputs.iter().chain(&states) {
                 validate_gpu_handle(&self.tensors[id].info)?;

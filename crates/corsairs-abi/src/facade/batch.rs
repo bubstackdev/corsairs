@@ -62,10 +62,7 @@ fn load_batch(
             (
                 request.path.clone(),
                 NativeLoadOptions {
-                    compute: match request.options.compute {
-                        Compute::CpuOnly => NativeCompute::CpuOnly,
-                        Compute::GpuPreferred => NativeCompute::GpuPreferred,
-                    },
+                    compute: request.options.compute.into(),
                     expect_frequent_reshapes: request.options.expect_frequent_reshapes,
                 },
             )

@@ -1,0 +1,1250 @@
+{
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "results": [
+    {
+      "case": "double_float16",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/double_float16/step0-y.bin",
+              "sha256": "74ff6b193833ad4e809964a9a727cc51c29ecfe6d8a22440cb4249b30d0ae29c",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2.0",
+                "-4.0",
+                "0.0",
+                "1.0",
+                "200.0",
+                "-0.5"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.44978729099966586
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/double_float32/step0-y.bin",
+              "sha256": "7f27af1a2550ecd2c12dbcfdb4fa57fc7b9320080b0c217f8c31e1236f33f2df",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2.0",
+                "-4.0",
+                "0.0",
+                "1.0",
+                "200.0",
+                "-0.5"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.25159045797772706
+    },
+    {
+      "case": "double_int32",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/double_int32/step0-y.bin",
+              "sha256": "d780c5968f5f64dd20fc1c6e6b2f1b8679e153c14facafbaecd88835ca0394d6",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "200",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.25071387499338016
+    },
+    {
+      "case": "double_int64",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/double_int64/step0-y.bin",
+              "sha256": "aff782096dadf5efcb690071fe0a4c773bdf0c68f700aeecff40773602c63112",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "200",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2472243329975754
+    },
+    {
+      "case": "not_bool",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "bool",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/not_bool/step0-y.bin",
+              "sha256": "eaabdf1df6e204af976adb395aa28a1dbc3e13271a53ea9aa034fe80bf369584",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "False",
+                "True",
+                "False",
+                "True",
+                "True",
+                "False"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.389781083969865
+    },
+    {
+      "case": "matmul",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/matmul/step0-y.bin",
+              "sha256": "b96e714149cfee1b74d3b40ee063218c919e3c59aac99dd4010a1647939143fb",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.0",
+                "4.0",
+                "13.0",
+                "-5.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2672667080187239
+    },
+    {
+      "case": "reduce_sum",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                1
+              ],
+              "strides": [
+                1,
+                1
+              ],
+              "file": "results/neural-engine-preferred/reduce_sum/step0-y.bin",
+              "sha256": "703303c93f1dce84eb9fbab65211b54cb1d28dd42ce1ccaff572575e466190b6",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2.0",
+                "4.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.24467900005402043
+    },
+    {
+      "case": "gather",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/gather/step0-y.bin",
+              "sha256": "22dfc5c9732c59f808d4707328c4401e0912c83531ee8fcecc787e2bc9d4c06d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "3.0",
+                "1.0",
+                "5.0",
+                "-1.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2516019589966163
+    },
+    {
+      "case": "reshape",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/reshape/step0-y.bin",
+              "sha256": "2ada1703c4b904b93da214070dceb38ee8bac3524f2cee6f6ba5b014242413a3",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.0",
+                "-2.0",
+                "3.0",
+                "0.0",
+                "5.0",
+                "-1.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2465876669739373
+    },
+    {
+      "case": "feedforward",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/feedforward/step0-y.bin",
+              "sha256": "a2a7a317ce9b5613295fa447eec7272845a413f518596e5d6fc65aa562297588",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "6.0",
+                "5.0",
+                "2.0",
+                "0.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.26142774999607354
+    },
+    {
+      "case": "named_add",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x",
+          "addend"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/named_add/step0-y.bin",
+              "sha256": "14a20aebc13b42e87127fd179e2a2ba0e3f9e3f3fe6cbde0916b6b96ad7a85a0",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "3.0",
+                "-3.0",
+                "7.0",
+                "1.0",
+                "11.0",
+                "-1.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2587428329861723
+    },
+    {
+      "case": "float_edges",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "mismatch",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/float_edges/step0-y.bin",
+              "sha256": "21d5209e8fc24ba7377db28f1433405693130086705058bd606a601e530f43d7",
+              "exact_bytes": false,
+              "comparison": "ieee-special",
+              "passed": false,
+              "values": [
+                "0.0",
+                "-0.0",
+                "inf",
+                "-inf",
+                "nan",
+                "0.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 0.22636362502817065
+    },
+    {
+      "case": "int64_edges",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int64_edges/step0-y.bin",
+              "sha256": "68b5d167c550ad6f111f3356a5cdba7045e8e357ea1870fcd36438f7cc6975fc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "18014398509481986",
+                "-18014398509481986",
+                "0",
+                "9223372036854775806",
+                "-9223372036854775808",
+                "-14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22591916599776596
+    },
+    {
+      "case": "scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/scalar/step0-y.bin",
+              "sha256": "ee0a6628f97214b7ef5d15c54388ea478862369e517aa4ef4593aea18c3ff618",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "7.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2553300409927033
+    },
+    {
+      "case": "empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.24873070797184482
+    },
+    {
+      "case": "accumulator",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": [
+          "accumulator"
+        ]
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/accumulator/step0-y.bin",
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.0",
+                "1.0",
+                "1.0",
+                "1.0",
+                "1.0",
+                "1.0"
+              ]
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/accumulator/step0-state-accumulator.bin",
+              "sha256": "f46913286d895f62d646314f400fc3d7a543cf34eb4ae56df87f43dc4582a36b",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.0",
+                "1.0",
+                "1.0",
+                "1.0",
+                "1.0",
+                "1.0"
+              ]
+            }
+          }
+        },
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/accumulator/step1-y.bin",
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "3.0",
+                "3.0",
+                "3.0",
+                "3.0",
+                "3.0",
+                "3.0"
+              ]
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/accumulator/step1-state-accumulator.bin",
+              "sha256": "8d677bafd14611d678dea83387e0bec7f4d1a98b6daae14772659ce678bba160",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "3.0",
+                "3.0",
+                "3.0",
+                "3.0",
+                "3.0",
+                "3.0"
+              ]
+            }
+          }
+        },
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/accumulator/step2-y.bin",
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "3.0",
+                "4.0",
+                "5.0",
+                "6.0",
+                "7.0",
+                "8.0"
+              ]
+            }
+          },
+          "state_after": {
+            "accumulator": {
+              "dtype": "float32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/accumulator/step2-state-accumulator.bin",
+              "sha256": "358bbf1763e9eda57bdf924cfa1593c83f655fd97fe5f8c97b2f73df446f3ebf",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "3.0",
+                "4.0",
+                "5.0",
+                "6.0",
+                "7.0",
+                "8.0"
+              ]
+            }
+          }
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.25832408299902454
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": "missing_asset",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "failure_stage": "model_load",
+      "error_type": "RuntimeError",
+      "error": "Failed to load model with specialization from '/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.).",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 75, in run_child\n    model = await AIModel.load(model_path, options)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_aimodel.py\", line 52, in load\n    instance._model = await _AIModel.load_with_specialization(  # noqa: SLF001\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Failed to load model with specialization from '/Users/zakkeown/Code/bubstackdev/corsairs/fixtures/parity-v01/does-not-exist.aimodel': The operation couldn\u2019t be completed. (CoreAIDelegates.AIModelCacheError error 3.).\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.1966629170347005
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": "missing_function",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "failure_stage": "function_load",
+      "error_type": "KeyError",
+      "error": "\"No function named 'does-not-exist'\"",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 77, in run_child\n    function = model.load_function(\"does-not-exist\" if negative == \"missing_function\" else case[\"function\"])\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_aimodel.py\", line 105, in load_function\n    raise KeyError(msg)\nKeyError: \"No function named 'does-not-exist'\"\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.18856224999763072
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": "missing_input",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "x",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: x\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.2076677499571815
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": "unknown_input",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "unknown is not a declared input of this function.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: unknown is not a declared input of this function.\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.21550424996530637
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": "wrong_shape",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "x has an invalid shape: [3, 2], expected: [2, 3]",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: x has an invalid shape: [3, 2], expected: [2, 3]\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.19571958301821724
+    },
+    {
+      "case": "double_float32",
+      "backend": "neural-engine-preferred",
+      "negative_case": "wrong_dtype",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "x has an invalid scalar type: int32, expected: float32",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: x has an invalid scalar type: int32, expected: float32\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.1940264169825241
+    },
+    {
+      "case": "accumulator",
+      "backend": "neural-engine-preferred",
+      "negative_case": "missing_state",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": [
+          "accumulator"
+        ]
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "Missing state view for accumulator.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Missing state view for accumulator.\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.1933179999468848
+    },
+    {
+      "case": "accumulator",
+      "backend": "neural-engine-preferred",
+      "negative_case": "wrong_state_shape",
+      "os_backed": true,
+      "status": "expected_error",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": [
+          "accumulator"
+        ]
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "accumulator has an invalid shape: [3, 2], expected: [2, 3]",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: accumulator has an invalid shape: [3, 2], expected: [2, 3]\n",
+      "returncode": 0,
+      "elapsed_seconds": 0.19712758297100663
+    }
+  ],
+  "complete": true,
+  "passed": false
+}

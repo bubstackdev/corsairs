@@ -1,0 +1,17 @@
+{
+  "case": "double_float32",
+  "backend": "neural-engine-preferred",
+  "negative_case": "missing_function",
+  "os_backed": true,
+  "status": "expected_error",
+  "allowed_compute_units": [
+    "CPU",
+    "Neural Engine",
+    "GPU"
+  ],
+  "preferred_compute_unit": "Neural Engine",
+  "failure_stage": "function_load",
+  "error_type": "KeyError",
+  "error": "\"No function named 'does-not-exist'\"",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 77, in run_child\n    function = model.load_function(\"does-not-exist\" if negative == \"missing_function\" else case[\"function\"])\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_aimodel.py\", line 105, in load_function\n    raise KeyError(msg)\nKeyError: \"No function named 'does-not-exist'\"\n"
+}

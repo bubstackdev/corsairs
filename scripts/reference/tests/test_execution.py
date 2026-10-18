@@ -204,5 +204,56 @@ class GoldenFreezingTests(unittest.TestCase):
             freeze_goldens.freeze(self.fixtures)
 
 
+class SupplementaryFreezingTests(GoldenFreezingTests):
+    BACKEND = "neural-engine-preferred"
+
+    def setUp(self):
+        super().setUp()
+        self.report = json.loads((freeze_goldens.FIXTURES / f"python-results-{self.BACKEND}.json").read_text())
+
+    def write_report(self):
+        (self.fixtures / f"python-results-{self.BACKEND}.json").write_text(json.dumps(self.report))
+
+    def assert_rejected_before_writes(self):
+        self.write_report()
+        with self.assertRaisesRegex(RuntimeError, "Invalid native reference"):
+            freeze_goldens.freeze_supplement(self.BACKEND, self.fixtures)
+        self.assertFalse((self.fixtures / f"python-results-{self.BACKEND}.initial.json").exists())
+        self.assertFalse((self.fixtures / "goldens").exists())
+        self.assertFalse((self.fixtures / f"backend-goldens-{self.BACKEND}.json").exists())
+
+    def test_retained_os_reference_and_reviewed_mismatch_still_freeze(self):
+        self.copy_payloads()
+        self.write_report()
+        with contextlib.redirect_stdout(io.StringIO()):
+            freeze_goldens.freeze_supplement(self.BACKEND, self.fixtures)
+        goldens = json.loads((self.fixtures / f"backend-goldens-{self.BACKEND}.json").read_text())
+        self.assertEqual((goldens["native_execution_successes"], goldens["negative_reference_errors"]), (16, 8))
+        self.assertEqual(goldens["python_to_math_mismatches"], ["float_edges"])
+        # Freezing a supplement never creates or alters the original grid.
+        self.assertFalse((self.fixtures / "backend-goldens.json").exists())
+        self.report["results"][0]["elapsed_seconds"] += 1
+        self.write_report()
+        with self.assertRaisesRegex(RuntimeError, "Original reference observations changed"):
+            freeze_goldens.freeze_supplement(self.BACKEND, self.fixtures)
+
+    def test_normal_exit_does_not_bypass_the_mismatch_digest_review(self):
+        self.copy_payloads()
+        row = next(row for row in self.report["results"] if row["status"] == "mismatch")
+        row["steps"][0]["outputs"]["y"]["sha256"] = "unreviewed"
+        self.write_report()
+        with self.assertRaisesRegex(RuntimeError, "Unreviewed Python-to-math mismatch"):
+            freeze_goldens.freeze_supplement(self.BACKEND, self.fixtures)
+
+    def test_rejects_mixed_backends_and_unknown_supplements(self):
+        self.report["results"][0]["backend"] = "gpu-preferred"
+        self.write_report()
+        with self.assertRaisesRegex(RuntimeError, "mixes backends"):
+            freeze_goldens.freeze_supplement(self.BACKEND, self.fixtures)
+        self.assertFalse((self.fixtures / f"python-results-{self.BACKEND}.initial.json").exists())
+        with self.assertRaisesRegex(RuntimeError, "Not a supplementary backend"):
+            freeze_goldens.freeze_supplement("gpu-preferred", self.fixtures)
+
+
 if __name__ == "__main__":
     unittest.main()

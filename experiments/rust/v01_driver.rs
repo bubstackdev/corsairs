@@ -130,7 +130,7 @@ fn run_case(runtime: &Runtime, root: &Path, case: &Case) -> Result<(), String> {
 }
 
 fn negative(runtime: &Runtime, root: &Path, backend: &str, name: &str) -> Result<(), String> {
-    let compute = if backend == "cpu" { Compute::CpuOnly } else { Compute::GpuPreferred };
+    let compute = BACKENDS.iter().find(|(name, _)| *name == backend).unwrap().1;
     if name == "missing_asset" {
         return match runtime.load_model(root.join("does-not-exist.aimodel"), compute).wait() {
             Err(Error::Native { type_name, .. }) if type_name.contains("AIModelCacheError") => Ok(()),
@@ -241,7 +241,7 @@ fn execute() -> Result<(), String> {
             emit("parity", case.name, case.backend, &result);
             failed += usize::from(result.is_err());
         }
-        for backend in ["cpu", "gpu-preferred"] {
+        for &(backend, _) in BACKENDS {
             for name in ["missing_asset", "missing_function", "missing_input", "unknown_input", "wrong_shape", "wrong_dtype", "missing_state", "wrong_state_shape"] {
                 let result = negative(&runtime, root, backend, name);
                 emit("negative", name, backend, &result);
@@ -254,7 +254,7 @@ fn execute() -> Result<(), String> {
         let loads = number(4, 100)?;
         let abandoned = number(5, 100)?;
         require(cycles > 0 && loads > 0 && abandoned > 0, "stress counts must be positive")?;
-        for backend in ["cpu", "gpu-preferred"] {
+        for &(backend, _) in BACKENDS {
             let result = stress(&runtime, root, backend, cycles, loads, abandoned);
             emit("stress", "lifecycle", backend, &result);
             failed += usize::from(result.is_err());

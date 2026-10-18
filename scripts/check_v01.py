@@ -15,10 +15,15 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "fixtures" / "parity-v01"
 OUTPUT = ROOT / "target" / "v01-check"
-# (directory relative to FIXTURES, goldens file): the original frozen CPU/GPU
-# grid, the separately frozen Neural Engine grid, and the v0.4 scalar and float8 types.
-GOLDEN_SETS = ((".", "backend-goldens.json"), (".", "backend-goldens-neural-engine-preferred.json"),
-               ("../parity-v04/scalar-types", "backend-goldens.json"), ("../parity-v04/float8", "backend-goldens.json"))
+ALL_BACKENDS = ("cpu", "gpu-preferred", "neural-engine-preferred")
+# (directory relative to FIXTURES, goldens file, backends, frozen successes,
+# reviewed native errors, negative cases): the original CPU/GPU grid, the
+# separately frozen Neural Engine grid, and the v0.4 scalar and float8 types.
+# The shape is pinned here, never derived from the goldens being checked.
+GOLDEN_SETS = ((".", "backend-goldens.json", ("cpu", "gpu-preferred"), 32, 0, 16),
+               (".", "backend-goldens-neural-engine-preferred.json", ("neural-engine-preferred",), 16, 0, 8),
+               ("../parity-v04/scalar-types", "backend-goldens.json", ALL_BACKENDS, 103, 2, 0),
+               ("../parity-v04/float8", "backend-goldens.json", ALL_BACKENDS, 30, 0, 0))
 COMPUTE = {"cpu": "CpuOnly", "gpu-preferred": "GpuPreferred", "neural-engine-preferred": "NeuralEnginePreferred"}
 DTYPES = {"float16": "Float16", "float32": "Float32", "float64": "Float64", "int8": "Int8", "int16": "Int16",
           "int32": "Int32", "int64": "Int64", "uint8": "UInt8", "uint16": "UInt16", "uint32": "UInt32",
@@ -52,7 +57,9 @@ def prepare_data():
     expected_wheel = "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9"
     rendered, negatives, backends, identities = [], [], [], {}
     tensor_count = 0
-    for prefix, name in GOLDEN_SETS:
+    sys.path.insert(0, str(ROOT / "scripts/reference"))
+    from freeze_goldens import REVIEWED_ERRORS
+    for prefix, name, set_backends, successes, errors, negative_count in GOLDEN_SETS:
         directory = FIXTURES / prefix
         suite = json.loads((directory / "suite.json").read_text())
         goldens = json.loads((directory / name).read_text())
@@ -64,11 +71,20 @@ def prepare_data():
         for path, digest in suite["sha256"].items():
             if hashlib.sha256((directory / path).read_bytes()).hexdigest() != digest:
                 raise RuntimeError(f"Fixture bytes changed: {relative(prefix, path)}")
-        set_backends = list(dict.fromkeys(golden["backend"] for golden in goldens["cases"]))
-        # Every (case, backend) is either a frozen success or a reviewed native error.
-        if (len(goldens["cases"]) + len(goldens.get("native_errors", [])) != len(suite["cases"]) * len(set_backends)
-                or len(goldens["negative_cases"]) != len(suite["negative_cases"]) * len(set_backends)):
-            raise RuntimeError(f"Incomplete reference grid: {relative(prefix, name)}")
+        label = relative(prefix, name)
+        native_errors = goldens.get("native_errors", [])
+        if (len(goldens["cases"]), len(native_errors), len(goldens["negative_cases"])) != (successes, errors, negative_count):
+            raise RuntimeError(f"Reference grid shape changed: {label}")
+        # Every (case, backend) is exactly one frozen success or reviewed native error.
+        observed = sorted((row["case"], row["backend"]) for row in goldens["cases"] + native_errors)
+        if observed != sorted((case["name"], backend) for case in suite["cases"] for backend in set_backends):
+            raise RuntimeError(f"Reference grid does not cover each case and backend exactly once: {label}")
+        if sorted((row["negative_case"], row["backend"]) for row in goldens["negative_cases"]) != sorted(
+                (negative, backend) for negative in suite["negative_cases"] for backend in set_backends):
+            raise RuntimeError(f"Negative grid does not cover each case and backend exactly once: {label}")
+        for row in native_errors:
+            if REVIEWED_ERRORS.get((row["backend"], row["case"])) != row["python_error"]:
+                raise RuntimeError(f"Unreviewed native error in {label}: {row['backend']}/{row['case']}")
         backends += [backend for backend in set_backends if backend not in backends]
         negatives += goldens["negative_cases"]
         identities[relative(prefix, name)] = hashlib.sha256((directory / name).read_bytes()).hexdigest()

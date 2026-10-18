@@ -6,8 +6,10 @@ pinned `coreai-core 1.0.0b3` as the reference.
 v0.4 adds `DType::{Float64, Int8, Int16, UInt8, UInt16, UInt32, UInt64}`, backed
 by the Rust primitives `f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64`. Each maps to the
 matching `NDArray.ScalarType` case. Storage is little-endian, and float64 NaN
-payloads are kept bit for bit. `DType` is now `#[non_exhaustive]`, and
-`DType::ALL` lists every supported type.
+payloads are kept bit for bit. `DType` is now `#[non_exhaustive]`.
+`DType::all()` (added in v0.4.1) returns every supported type as a slice that
+can grow. The fixed-length `DType::ALL` array keeps its v0.4.0 contents (13 types,
+no float8) so its type stays stable, and is deprecated.
 
 Core AI defines 35 scalar types. The packed sub-byte types (`int2`–`int7`,
 `uint1`–`uint7`, `float4e2m1fn`), `float8e8m0fn`, the 128-bit integers and the
@@ -78,8 +80,9 @@ of its sign (`0x7f` and `0x7e` respectively), as ml_dtypes does.
 [`check_float8.py`](../scripts/check_float8.py) compares Rust with pinned
 ml_dtypes 0.6.0 in debug and release, without running Core AI
 ([report](evidence/v0.4/float8-conversion.json)). It widens all 256 encodings of
-each type and narrows 1,002,139 unique binary32 inputs: every representable
-value, every rounding midpoint with its binary32 neighbors, overflow boundaries,
+each type and narrows 1,002,151 unique binary32 inputs: every representable
+value, every rounding midpoint with its binary32 neighbors, the exact
+max/overflow ties (±464 and ±61440) with their neighbors, overflow boundaries,
 specials and one million seeded random bit patterns (3,729 NaN). It found 0
 mismatches. A sanity comparison of E4M3FN output against E5M2 expectations
 reports 567,920 differences, so the comparison does detect errors.

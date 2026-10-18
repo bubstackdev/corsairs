@@ -25,8 +25,11 @@ def corpus(np, ml, seed, random_count):
         values = np.arange(256, dtype=np.uint8).view(getattr(ml, name)).astype("<f4")
         finite = np.unique(np.abs(values[np.isfinite(values)]))
         mid = (finite[:-1].astype(np.float64) + finite[1:]) / 2
-        edge = np.array([finite[-1] * 1.0, finite[-1] * 1.0625, finite[-1] * 1.125, finite[-1] * 2, 65536, 1e9],
-                        dtype=np.float64)
+        step = float(finite[-1]) - float(finite[-2])
+        # The max/overflow midpoint (464 for E4M3FN, 61440 for E5M2) and the
+        # virtual next step decide ties-to-even at the top of the range.
+        edge = np.array([finite[-1] * 1.0, finite[-1] + step / 2, finite[-1] + step, finite[-1] * 1.0625,
+                         finite[-1] * 1.125, finite[-1] * 2, 65536, 1e9], dtype=np.float64)
         for group in [finite.astype(np.float64), mid, edge]:
             exact = group.astype("<f4")
             parts += [exact, np.nextafter(exact, np.float32(np.inf)), np.nextafter(exact, np.float32(0))]
@@ -54,6 +57,9 @@ def main():
     report = {"schema": 1, "passed": False, "generated_utc": datetime.now(timezone.utc).isoformat(),
               "native_coreai_executed": False, "seed": args.seed, "random_count": args.random_count,
               "unique_vectors": int(bits.size), "nan_vectors": int(nan_input.sum()),
+              "overflow_ties_included": {value: bool(np.any(floats == np.float32(sign * value)))
+                                         for value in [464.0, 61440.0] for sign in [1]} | {
+                  f"-{value}": bool(np.any(floats == np.float32(-value))) for value in [464.0, 61440.0]},
               "reference": {"numpy": np.__version__, "ml_dtypes": ml.__version__},
               "source_sha256": {name: sha256((ROOT / name).read_bytes()) for name in [
                   "experiments/rust/float8_conversion.rs", "scripts/check_float8.py", "crates/corsairs-abi/src/dtype.rs"]},

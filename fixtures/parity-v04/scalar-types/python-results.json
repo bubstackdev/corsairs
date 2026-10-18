@@ -1,0 +1,5422 @@
+{
+  "reference": {
+    "coreai_core": "1.0.0b3",
+    "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+    "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+    "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+    "executable": "/Users/zakkeown/.local/bin/python3.12",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "ml-dtypes": "0.6.0",
+      "pillow": "12.3.0",
+      "typing-extensions": "4.16.0",
+      "yuvio": "1.6",
+      "psutil": "7.2.2"
+    },
+    "package_roots": [
+      "/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3",
+      "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+      "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+      "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+      "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+      "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+      "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+    ]
+  },
+  "results": [
+    {
+      "case": "int8_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/int8_double/step0-y.bin",
+              "sha256": "2bbd26af1fd2a9bbee9479460265ba52aba6b8b9ba9f5ba5a8a220fc20aebb6f",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "100",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.194131083029788
+    },
+    {
+      "case": "int8_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/int8_scalar/step0-y.bin",
+              "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19047379097901285
+    },
+    {
+      "case": "int8_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/cpu/int8_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19761833403026685
+    },
+    {
+      "case": "int8_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/int8_transpose/step0-y.bin",
+              "sha256": "ec50dae6ab2375e49a98a83d51267d2144039b5fefb534dab6ac4d077773f6bc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "-128",
+                "1",
+                "127",
+                "126",
+                "0",
+                "-127"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19550849997904152
+    },
+    {
+      "case": "int8_wrap",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/int8_wrap/step0-y.bin",
+              "sha256": "2bc34c2f1201a1df9fa33d96e85625f6485627eb23d4750836345a1da535f796",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "-2",
+                "0",
+                "2",
+                "-4",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18407216697232798
+    },
+    {
+      "case": "int16_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/int16_double/step0-y.bin",
+              "sha256": "3129dec651e0b94ec1aa77568067b6ad7d029cede50bd5c0d551eb8878a45667",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "100",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1925302090239711
+    },
+    {
+      "case": "int16_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/int16_scalar/step0-y.bin",
+              "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19922541599953547
+    },
+    {
+      "case": "int16_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "error",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "(loc: unknown, error: inferenceFailed(-1))",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: (loc: unknown, error: inferenceFailed(-1))\n",
+      "returncode": 1,
+      "elapsed_seconds": 0.20390512503217906
+    },
+    {
+      "case": "int16_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/int16_transpose/step0-y.bin",
+              "sha256": "e3753ea943e143d36abc5adc576d140ff64e028f755373a5ed5c52f8ba5b184c",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "-32768",
+                "1",
+                "32767",
+                "32766",
+                "0",
+                "-32767"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19953662500483915
+    },
+    {
+      "case": "int16_wrap",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/int16_wrap/step0-y.bin",
+              "sha256": "1e03dd305251e9bfc9297377b0cb51dd6846b8afcfafc9a702a06d6cfda0f3c9",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "-2",
+                "0",
+                "2",
+                "-4",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18123583297710866
+    },
+    {
+      "case": "uint8_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint8_double/step0-y.bin",
+              "sha256": "4304eb2043dbc8e609b0043d38f50310a63292efd01e95d7e91b62a820ebd805",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1860832090023905
+    },
+    {
+      "case": "uint8_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/uint8_scalar/step0-y.bin",
+              "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18927849997999147
+    },
+    {
+      "case": "uint8_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/cpu/uint8_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18701587500981987
+    },
+    {
+      "case": "uint8_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/uint8_transpose/step0-y.bin",
+              "sha256": "82e6d8a39228396fae19640718aca82e60c8e4c6c3e4218b0f95fedbe289086e",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "255",
+                "254",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19277558400062844
+    },
+    {
+      "case": "uint8_wrap",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint8_wrap/step0-y.bin",
+              "sha256": "8155e8aaf80a21cf467406090edbbe2b867da980fcd5abdc61c1dc024b05f2bd",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "254",
+                "0",
+                "2",
+                "252",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18059962498955429
+    },
+    {
+      "case": "uint16_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint16_double/step0-y.bin",
+              "sha256": "63e9334c0fde1b85d56da117baab6e37d556ff9f274e6f522932644b64c98b26",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19018487498397008
+    },
+    {
+      "case": "uint16_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/uint16_scalar/step0-y.bin",
+              "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19392529199831188
+    },
+    {
+      "case": "uint16_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "error",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "failure_stage": "inference",
+      "error_type": "RuntimeError",
+      "error": "(loc: unknown, error: inferenceFailed(-1))",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/scripts/reference/run_suite.py\", line 101, in run_child\n    outputs = await function(inputs=inputs, state=states)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/zakkeown/Code/bubstackdev/corsairs/.local/reference/coreai-b3/coreai/runtime/_inference_function.py\", line 96, in __call__\n    results = await self._function(\n              ^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: (loc: unknown, error: inferenceFailed(-1))\n",
+      "returncode": 1,
+      "elapsed_seconds": 0.19555116700939834
+    },
+    {
+      "case": "uint16_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/uint16_transpose/step0-y.bin",
+              "sha256": "c010e0b196527b46b4811120ff88a35934a24925b3b1c91409dd32b4189835a2",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "65535",
+                "65534",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1912433750112541
+    },
+    {
+      "case": "uint16_wrap",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint16_wrap/step0-y.bin",
+              "sha256": "a9a17f9d20efbc7a74bfb9b24a544e374ea1543ad6e626f854cd3692ffd89120",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "65534",
+                "0",
+                "2",
+                "65532",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18701904197223485
+    },
+    {
+      "case": "uint32_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint32_double/step0-y.bin",
+              "sha256": "8c9a205ec10f65b95b60549a4b7e07c3fe056766b049bb429195a424668bb9c4",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1941218749852851
+    },
+    {
+      "case": "uint32_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/uint32_scalar/step0-y.bin",
+              "sha256": "01b4f6bd5d6a06a7b74a8565ceb4f845afe0ae96a0ac05cf5e86066bf7b538ec",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19684104097541422
+    },
+    {
+      "case": "uint32_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/cpu/uint32_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1959194170194678
+    },
+    {
+      "case": "uint32_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/uint32_transpose/step0-y.bin",
+              "sha256": "125fc9dff2b8a7c404c53bbf604048eda202365c03038eec24801158014f8761",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "4294967295",
+                "4294967294",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.191988583013881
+    },
+    {
+      "case": "uint32_wrap",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint32_wrap/step0-y.bin",
+              "sha256": "b5aeb78c93e0c2f346d8cd1798508ef9dbba2bc86eb45c09b00c9357cff08e38",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "4294967294",
+                "0",
+                "2",
+                "4294967292",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18350870802532881
+    },
+    {
+      "case": "uint64_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint64_double/step0-y.bin",
+              "sha256": "bcccecd7d310980489fafef5260cafd5e41cf11464b65bd53b5d80e726491b8d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19314774998929352
+    },
+    {
+      "case": "uint64_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/uint64_scalar/step0-y.bin",
+              "sha256": "18d8d609947c6b82b9607704ae40d3317038e709238514de750b5c7411ba4c20",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1967655419721268
+    },
+    {
+      "case": "uint64_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/cpu/uint64_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.189346041996032
+    },
+    {
+      "case": "uint64_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/uint64_transpose/step0-y.bin",
+              "sha256": "2b0df1f4fd9a18168df56c5d6ebf75f2a2ab44d724ac5590cc9f4c4627ad4b69",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "18446744073709551615",
+                "18446744073709551614",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19997562502976507
+    },
+    {
+      "case": "uint64_wrap",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/uint64_wrap/step0-y.bin",
+              "sha256": "4a1901b9c5a1dae7f04c66aee68d0f51f9082ff93db28081d57eda730c5b8afc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "18446744073709551614",
+                "0",
+                "2",
+                "18446744073709551612",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18363716697786003
+    },
+    {
+      "case": "float64_double",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/float64_double/step0-y.bin",
+              "sha256": "01cda09be38845bc3b9e410e8b3feeb5e80d747c8b73cf74ceaa5a65a241f90d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2.0",
+                "-4.0",
+                "0.0",
+                "1.0",
+                "2e+300",
+                "-0.5"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19056412496138364
+    },
+    {
+      "case": "float64_scalar",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [],
+              "strides": [],
+              "file": "results/cpu/float64_scalar/step0-y.bin",
+              "sha256": "f52df18731eea8d020801fe2c6b3164648d9d81256a6c37964533a25999961d3",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "7.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1949480000184849
+    },
+    {
+      "case": "float64_empty",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/cpu/float64_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19127325003501028
+    },
+    {
+      "case": "float64_transpose",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/cpu/float64_transpose/step0-y.bin",
+              "sha256": "6c6ba46ba13f9e97709c18d107568935cfb49cfc2541280f3a509238a3d81e65",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.7976931348623157e+308",
+                "-0.0",
+                "-1.7976931348623157e+308",
+                "inf",
+                "5e-324",
+                "2.2250738585072014e-308"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19538766698678955
+    },
+    {
+      "case": "float64_edges",
+      "backend": "cpu",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU"
+      ],
+      "preferred_compute_unit": "None",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/cpu/float64_edges/step0-y.bin",
+              "sha256": "c950105205f8bee061c8e1d592b8bf7bf7e956c656d2a48c97b11c5881828c2e",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0.0",
+                "-0.0",
+                "inf",
+                "-inf",
+                "nan",
+                "1e-323"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18445408303523436
+    },
+    {
+      "case": "int8_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/int8_double/step0-y.bin",
+              "sha256": "2bbd26af1fd2a9bbee9479460265ba52aba6b8b9ba9f5ba5a8a220fc20aebb6f",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "100",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2715202079853043
+    },
+    {
+      "case": "int8_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/int8_scalar/step0-y.bin",
+              "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23283841699594632
+    },
+    {
+      "case": "int8_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/int8_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22350895800627768
+    },
+    {
+      "case": "int8_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/int8_transpose/step0-y.bin",
+              "sha256": "ec50dae6ab2375e49a98a83d51267d2144039b5fefb534dab6ac4d077773f6bc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "-128",
+                "1",
+                "127",
+                "126",
+                "0",
+                "-127"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.26872666698182
+    },
+    {
+      "case": "int8_wrap",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/int8_wrap/step0-y.bin",
+              "sha256": "2bc34c2f1201a1df9fa33d96e85625f6485627eb23d4750836345a1da535f796",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "-2",
+                "0",
+                "2",
+                "-4",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.21329529100330546
+    },
+    {
+      "case": "int16_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/int16_double/step0-y.bin",
+              "sha256": "3129dec651e0b94ec1aa77568067b6ad7d029cede50bd5c0d551eb8878a45667",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "100",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.29457279201596975
+    },
+    {
+      "case": "int16_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/int16_scalar/step0-y.bin",
+              "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23154062504181638
+    },
+    {
+      "case": "int16_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/int16_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.25914816599106416
+    },
+    {
+      "case": "int16_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/int16_transpose/step0-y.bin",
+              "sha256": "e3753ea943e143d36abc5adc576d140ff64e028f755373a5ed5c52f8ba5b184c",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "-32768",
+                "1",
+                "32767",
+                "32766",
+                "0",
+                "-32767"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.3016661669826135
+    },
+    {
+      "case": "int16_wrap",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/int16_wrap/step0-y.bin",
+              "sha256": "1e03dd305251e9bfc9297377b0cb51dd6846b8afcfafc9a702a06d6cfda0f3c9",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "-2",
+                "0",
+                "2",
+                "-4",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22090666700387374
+    },
+    {
+      "case": "uint8_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint8_double/step0-y.bin",
+              "sha256": "4304eb2043dbc8e609b0043d38f50310a63292efd01e95d7e91b62a820ebd805",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.29493691597599536
+    },
+    {
+      "case": "uint8_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/uint8_scalar/step0-y.bin",
+              "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23767745797522366
+    },
+    {
+      "case": "uint8_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/uint8_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2255369159975089
+    },
+    {
+      "case": "uint8_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/uint8_transpose/step0-y.bin",
+              "sha256": "82e6d8a39228396fae19640718aca82e60c8e4c6c3e4218b0f95fedbe289086e",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "255",
+                "254",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.28078450000612065
+    },
+    {
+      "case": "uint8_wrap",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint8_wrap/step0-y.bin",
+              "sha256": "8155e8aaf80a21cf467406090edbbe2b867da980fcd5abdc61c1dc024b05f2bd",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "254",
+                "0",
+                "2",
+                "252",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.20960479200584814
+    },
+    {
+      "case": "uint16_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint16_double/step0-y.bin",
+              "sha256": "63e9334c0fde1b85d56da117baab6e37d556ff9f274e6f522932644b64c98b26",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2838650830090046
+    },
+    {
+      "case": "uint16_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/uint16_scalar/step0-y.bin",
+              "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23085491702659056
+    },
+    {
+      "case": "uint16_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/uint16_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2189529999741353
+    },
+    {
+      "case": "uint16_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/uint16_transpose/step0-y.bin",
+              "sha256": "c010e0b196527b46b4811120ff88a35934a24925b3b1c91409dd32b4189835a2",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "65535",
+                "65534",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2737627910100855
+    },
+    {
+      "case": "uint16_wrap",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint16_wrap/step0-y.bin",
+              "sha256": "a9a17f9d20efbc7a74bfb9b24a544e374ea1543ad6e626f854cd3692ffd89120",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "65534",
+                "0",
+                "2",
+                "65532",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.21045675000641495
+    },
+    {
+      "case": "uint32_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint32_double/step0-y.bin",
+              "sha256": "8c9a205ec10f65b95b60549a4b7e07c3fe056766b049bb429195a424668bb9c4",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2808197909616865
+    },
+    {
+      "case": "uint32_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/uint32_scalar/step0-y.bin",
+              "sha256": "01b4f6bd5d6a06a7b74a8565ceb4f845afe0ae96a0ac05cf5e86066bf7b538ec",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22850479098269716
+    },
+    {
+      "case": "uint32_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/uint32_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22338704200228676
+    },
+    {
+      "case": "uint32_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/uint32_transpose/step0-y.bin",
+              "sha256": "125fc9dff2b8a7c404c53bbf604048eda202365c03038eec24801158014f8761",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "4294967295",
+                "4294967294",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2708826250163838
+    },
+    {
+      "case": "uint32_wrap",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint32_wrap/step0-y.bin",
+              "sha256": "b5aeb78c93e0c2f346d8cd1798508ef9dbba2bc86eb45c09b00c9357cff08e38",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "4294967294",
+                "0",
+                "2",
+                "4294967292",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2072694170055911
+    },
+    {
+      "case": "uint64_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint64_double/step0-y.bin",
+              "sha256": "bcccecd7d310980489fafef5260cafd5e41cf11464b65bd53b5d80e726491b8d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2889723749831319
+    },
+    {
+      "case": "uint64_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/uint64_scalar/step0-y.bin",
+              "sha256": "18d8d609947c6b82b9607704ae40d3317038e709238514de750b5c7411ba4c20",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22341808304190636
+    },
+    {
+      "case": "uint64_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/uint64_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2172412920044735
+    },
+    {
+      "case": "uint64_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/uint64_transpose/step0-y.bin",
+              "sha256": "2b0df1f4fd9a18168df56c5d6ebf75f2a2ab44d724ac5590cc9f4c4627ad4b69",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "18446744073709551615",
+                "18446744073709551614",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2817996669909917
+    },
+    {
+      "case": "uint64_wrap",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/uint64_wrap/step0-y.bin",
+              "sha256": "4a1901b9c5a1dae7f04c66aee68d0f51f9082ff93db28081d57eda730c5b8afc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "18446744073709551614",
+                "0",
+                "2",
+                "18446744073709551612",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.20960833301069215
+    },
+    {
+      "case": "float64_double",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/float64_double/step0-y.bin",
+              "sha256": "01cda09be38845bc3b9e410e8b3feeb5e80d747c8b73cf74ceaa5a65a241f90d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2.0",
+                "-4.0",
+                "0.0",
+                "1.0",
+                "2e+300",
+                "-0.5"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19184579199645668
+    },
+    {
+      "case": "float64_scalar",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [],
+              "strides": [],
+              "file": "results/gpu-preferred/float64_scalar/step0-y.bin",
+              "sha256": "f52df18731eea8d020801fe2c6b3164648d9d81256a6c37964533a25999961d3",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "7.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.21356854197802022
+    },
+    {
+      "case": "float64_empty",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/gpu-preferred/float64_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1999427920090966
+    },
+    {
+      "case": "float64_transpose",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/gpu-preferred/float64_transpose/step0-y.bin",
+              "sha256": "6c6ba46ba13f9e97709c18d107568935cfb49cfc2541280f3a509238a3d81e65",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.7976931348623157e+308",
+                "-0.0",
+                "-1.7976931348623157e+308",
+                "inf",
+                "5e-324",
+                "2.2250738585072014e-308"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1945335419732146
+    },
+    {
+      "case": "float64_edges",
+      "backend": "gpu-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "GPU",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/gpu-preferred/float64_edges/step0-y.bin",
+              "sha256": "c950105205f8bee061c8e1d592b8bf7bf7e956c656d2a48c97b11c5881828c2e",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0.0",
+                "-0.0",
+                "inf",
+                "-inf",
+                "nan",
+                "1e-323"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18209187500178814
+    },
+    {
+      "case": "int8_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int8_double/step0-y.bin",
+              "sha256": "2bbd26af1fd2a9bbee9479460265ba52aba6b8b9ba9f5ba5a8a220fc20aebb6f",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "100",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22856870800023898
+    },
+    {
+      "case": "int8_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/int8_scalar/step0-y.bin",
+              "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23513029201421887
+    },
+    {
+      "case": "int8_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/int8_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.21821295795962214
+    },
+    {
+      "case": "int8_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int8_transpose/step0-y.bin",
+              "sha256": "ec50dae6ab2375e49a98a83d51267d2144039b5fefb534dab6ac4d077773f6bc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "-128",
+                "1",
+                "127",
+                "126",
+                "0",
+                "-127"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.233926041983068
+    },
+    {
+      "case": "int8_wrap",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "mismatch",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int8_wrap/step0-y.bin",
+              "sha256": "08cfe95a5f91d92225cf1d5a8a4ebd9b47a58cb5793acf013cd84a5364de68b9",
+              "exact_bytes": false,
+              "comparison": "exact",
+              "passed": false,
+              "values": [
+                "-128",
+                "127",
+                "0",
+                "2",
+                "127",
+                "-128"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 0.18959370802622288
+    },
+    {
+      "case": "int16_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int16_double/step0-y.bin",
+              "sha256": "3129dec651e0b94ec1aa77568067b6ad7d029cede50bd5c0d551eb8878a45667",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "-4",
+                "0",
+                "34",
+                "100",
+                "-50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22967349999817088
+    },
+    {
+      "case": "int16_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/int16_scalar/step0-y.bin",
+              "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23177837498951703
+    },
+    {
+      "case": "int16_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/int16_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22838049998972565
+    },
+    {
+      "case": "int16_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "mismatch",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int16_transpose/step0-y.bin",
+              "sha256": "4f3fd117b811641de216b8e692a44ec1201040da1016f9e7374266a2ab6d4136",
+              "exact_bytes": false,
+              "comparison": "exact",
+              "passed": false,
+              "values": [
+                "-32768",
+                "1",
+                "32767",
+                "32767",
+                "0",
+                "-32768"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 0.21941287501249462
+    },
+    {
+      "case": "int16_wrap",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "int16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/int16_wrap/step0-y.bin",
+              "sha256": "1e03dd305251e9bfc9297377b0cb51dd6846b8afcfafc9a702a06d6cfda0f3c9",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "-2",
+                "0",
+                "2",
+                "-4",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2069202499696985
+    },
+    {
+      "case": "uint8_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint8_double/step0-y.bin",
+              "sha256": "4304eb2043dbc8e609b0043d38f50310a63292efd01e95d7e91b62a820ebd805",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22154704196145758
+    },
+    {
+      "case": "uint8_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/uint8_scalar/step0-y.bin",
+              "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23627633298747241
+    },
+    {
+      "case": "uint8_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/uint8_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2224866670439951
+    },
+    {
+      "case": "uint8_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint8_transpose/step0-y.bin",
+              "sha256": "82e6d8a39228396fae19640718aca82e60c8e4c6c3e4218b0f95fedbe289086e",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "255",
+                "254",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22657029196852818
+    },
+    {
+      "case": "uint8_wrap",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "mismatch",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint8",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint8_wrap/step0-y.bin",
+              "sha256": "68c859c8c0cb7820e0ba460746cee510e2541c362af6c51db05ec678b66b37cd",
+              "exact_bytes": false,
+              "comparison": "exact",
+              "passed": false,
+              "values": [
+                "0",
+                "255",
+                "0",
+                "2",
+                "255",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 0.1853918750421144
+    },
+    {
+      "case": "uint16_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint16_double/step0-y.bin",
+              "sha256": "63e9334c0fde1b85d56da117baab6e37d556ff9f274e6f522932644b64c98b26",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2199896250385791
+    },
+    {
+      "case": "uint16_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/uint16_scalar/step0-y.bin",
+              "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2321344169904478
+    },
+    {
+      "case": "uint16_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/uint16_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2245177500299178
+    },
+    {
+      "case": "uint16_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint16_transpose/step0-y.bin",
+              "sha256": "c010e0b196527b46b4811120ff88a35934a24925b3b1c91409dd32b4189835a2",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "65535",
+                "65534",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22204662498552352
+    },
+    {
+      "case": "uint16_wrap",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint16",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint16_wrap/step0-y.bin",
+              "sha256": "a9a17f9d20efbc7a74bfb9b24a544e374ea1543ad6e626f854cd3692ffd89120",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "65534",
+                "0",
+                "2",
+                "65532",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.20755954104242846
+    },
+    {
+      "case": "uint32_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "GPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint32_double/step0-y.bin",
+              "sha256": "8c9a205ec10f65b95b60549a4b7e07c3fe056766b049bb429195a424668bb9c4",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22881425003288314
+    },
+    {
+      "case": "uint32_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/uint32_scalar/step0-y.bin",
+              "sha256": "01b4f6bd5d6a06a7b74a8565ceb4f845afe0ae96a0ac05cf5e86066bf7b538ec",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22466454200912267
+    },
+    {
+      "case": "uint32_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/uint32_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.21933550003450364
+    },
+    {
+      "case": "uint32_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint32_transpose/step0-y.bin",
+              "sha256": "125fc9dff2b8a7c404c53bbf604048eda202365c03038eec24801158014f8761",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "4294967295",
+                "4294967294",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2276967079960741
+    },
+    {
+      "case": "uint32_wrap",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint32",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint32_wrap/step0-y.bin",
+              "sha256": "b5aeb78c93e0c2f346d8cd1798508ef9dbba2bc86eb45c09b00c9357cff08e38",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "4294967294",
+                "0",
+                "2",
+                "4294967292",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2173570420127362
+    },
+    {
+      "case": "uint64_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint64_double/step0-y.bin",
+              "sha256": "bcccecd7d310980489fafef5260cafd5e41cf11464b65bd53b5d80e726491b8d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2",
+                "4",
+                "0",
+                "34",
+                "100",
+                "50"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.22733287495793775
+    },
+    {
+      "case": "uint64_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/uint64_scalar/step0-y.bin",
+              "sha256": "18d8d609947c6b82b9607704ae40d3317038e709238514de750b5c7411ba4c20",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "14"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.23344708402873948
+    },
+    {
+      "case": "uint64_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/uint64_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2211077090469189
+    },
+    {
+      "case": "uint64_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint64_transpose/step0-y.bin",
+              "sha256": "2b0df1f4fd9a18168df56c5d6ebf75f2a2ab44d724ac5590cc9f4c4627ad4b69",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "1",
+                "18446744073709551615",
+                "18446744073709551614",
+                "0",
+                "2"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.2277802909957245
+    },
+    {
+      "case": "uint64_wrap",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "uint64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/uint64_wrap/step0-y.bin",
+              "sha256": "4a1901b9c5a1dae7f04c66aee68d0f51f9082ff93db28081d57eda730c5b8afc",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0",
+                "18446744073709551614",
+                "0",
+                "2",
+                "18446744073709551612",
+                "4"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.21515441697556525
+    },
+    {
+      "case": "float64_double",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "CPU",
+        "Neural Engine"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/float64_double/step0-y.bin",
+              "sha256": "01cda09be38845bc3b9e410e8b3feeb5e80d747c8b73cf74ceaa5a65a241f90d",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "2.0",
+                "-4.0",
+                "0.0",
+                "1.0",
+                "2e+300",
+                "-0.5"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19311937497695908
+    },
+    {
+      "case": "float64_scalar",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "GPU",
+        "Neural Engine",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [],
+              "strides": [],
+              "file": "results/neural-engine-preferred/float64_scalar/step0-y.bin",
+              "sha256": "f52df18731eea8d020801fe2c6b3164648d9d81256a6c37964533a25999961d3",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "7.0"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19232812500558794
+    },
+    {
+      "case": "float64_empty",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "GPU",
+        "CPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                0,
+                3
+              ],
+              "strides": [
+                0,
+                0
+              ],
+              "file": "results/neural-engine-preferred/float64_empty/step0-y.bin",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": []
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.1907207079930231
+    },
+    {
+      "case": "float64_transpose",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "CPU",
+        "Neural Engine",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                3,
+                2
+              ],
+              "strides": [
+                2,
+                1
+              ],
+              "file": "results/neural-engine-preferred/float64_transpose/step0-y.bin",
+              "sha256": "6c6ba46ba13f9e97709c18d107568935cfb49cfc2541280f3a509238a3d81e65",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "1.7976931348623157e+308",
+                "-0.0",
+                "-1.7976931348623157e+308",
+                "inf",
+                "5e-324",
+                "2.2250738585072014e-308"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.19799995800713077
+    },
+    {
+      "case": "float64_edges",
+      "backend": "neural-engine-preferred",
+      "negative_case": null,
+      "os_backed": true,
+      "status": "passed",
+      "allowed_compute_units": [
+        "Neural Engine",
+        "CPU",
+        "GPU"
+      ],
+      "preferred_compute_unit": "Neural Engine",
+      "descriptor": {
+        "name": "main",
+        "inputs": [
+          "x"
+        ],
+        "outputs": [
+          "y"
+        ],
+        "state": []
+      },
+      "steps": [
+        {
+          "outputs": {
+            "y": {
+              "dtype": "float64",
+              "shape": [
+                2,
+                3
+              ],
+              "strides": [
+                3,
+                1
+              ],
+              "file": "results/neural-engine-preferred/float64_edges/step0-y.bin",
+              "sha256": "c950105205f8bee061c8e1d592b8bf7bf7e956c656d2a48c97b11c5881828c2e",
+              "exact_bytes": true,
+              "comparison": "exact",
+              "passed": true,
+              "values": [
+                "0.0",
+                "-0.0",
+                "inf",
+                "-inf",
+                "nan",
+                "1e-323"
+              ]
+            }
+          },
+          "state_after": {}
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.18379220803035423
+    }
+  ],
+  "complete": true,
+  "passed": false
+}

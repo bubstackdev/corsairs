@@ -1,0 +1,43 @@
+{
+  "case": "uint8_scalar",
+  "backend": "gpu-preferred",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU",
+    "Neural Engine",
+    "GPU"
+  ],
+  "preferred_compute_unit": "GPU",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "uint8",
+          "shape": [],
+          "strides": [],
+          "file": "results/gpu-preferred/uint8_scalar/step0-y.bin",
+          "sha256": "4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "14"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

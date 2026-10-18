@@ -41,9 +41,12 @@ Loading and execution return `Task<T>`, which implements `Future<Output = Result
 | float16 | `Float16` |
 | bfloat16 | `BFloat16` |
 | float32 | `f32` |
-| int32 | `i32` |
-| int64 | `i64` |
+| float64 | `f64` |
+| int8 / int16 / int32 / int64 | `i8` / `i16` / `i32` / `i64` |
+| uint8 / uint16 / uint32 / uint64 | `u8` / `u16` / `u32` / `u64` |
 | bool | `bool` |
+
+On the Neural Engine, int8/uint8 overflow saturates instead of wrapping, and int16 values beyond ±2048 can be rounded even by layout-only operations. Compare results with the same compute configuration.
 
 `Tensor::from_vec` checks the shape and element count. `Tensor::zeros` initializes owned storage. `Tensor::from_bytes` accepts exact little-endian scalar bytes and validates boolean encodings. `to_vec::<T>()` checks the dtype and copies typed values. `Float16::from_bits` and `BFloat16::from_bits` preserve their distinct 16-bit encodings. Both provide `from_f32` and `to_f32`; BF16 narrowing rounds to nearest with ties to even. Raw BF16 storage preserves every encoding, including NaN payloads.
 

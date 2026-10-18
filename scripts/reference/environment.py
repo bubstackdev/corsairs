@@ -4,10 +4,12 @@ import hashlib
 import importlib.metadata
 import importlib.util
 import json
+import os
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
-FIXTURES = ROOT / "fixtures" / "parity-v01"
+# Children inherit the override, so one runner serves several fixture suites.
+FIXTURES = Path(os.environ.get("CORSAIRS_REFERENCE_FIXTURES", ROOT / "fixtures" / "parity-v01")).resolve()
 WHEEL_NAME = "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl"
 WHEEL_SHA256 = "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9"
 REFERENCE = ROOT / ".local" / "reference"

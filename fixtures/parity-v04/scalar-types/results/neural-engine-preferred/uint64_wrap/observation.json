@@ -1,0 +1,54 @@
+{
+  "case": "uint64_wrap",
+  "backend": "neural-engine-preferred",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "GPU",
+    "Neural Engine",
+    "CPU"
+  ],
+  "preferred_compute_unit": "Neural Engine",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "uint64",
+          "shape": [
+            2,
+            3
+          ],
+          "strides": [
+            3,
+            1
+          ],
+          "file": "results/neural-engine-preferred/uint64_wrap/step0-y.bin",
+          "sha256": "4a1901b9c5a1dae7f04c66aee68d0f51f9082ff93db28081d57eda730c5b8afc",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "0",
+            "18446744073709551614",
+            "0",
+            "2",
+            "18446744073709551612",
+            "4"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

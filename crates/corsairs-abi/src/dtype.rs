@@ -16,23 +16,47 @@ pub const MAX_GPU_INFERENCE_TENSOR_BYTES: usize = 1usize << 31;
 
 /// Scalar types supported by Corsairs.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[non_exhaustive]
 pub enum DType {
     Float16,
     BFloat16,
     Float32,
+    Float64,
+    Int8,
+    Int16,
     Int32,
     Int64,
+    UInt8,
+    UInt16,
+    UInt32,
+    UInt64,
     Bool,
 }
 
 impl DType {
+    /// Every supported scalar type, in declaration order.
+    pub const ALL: [Self; 13] = [
+        Self::Float16,
+        Self::BFloat16,
+        Self::Float32,
+        Self::Float64,
+        Self::Int8,
+        Self::Int16,
+        Self::Int32,
+        Self::Int64,
+        Self::UInt8,
+        Self::UInt16,
+        Self::UInt32,
+        Self::UInt64,
+        Self::Bool,
+    ];
     /// Number of bytes in one scalar.
     pub const fn byte_width(self) -> usize {
         match self {
-            Self::Float16 | Self::BFloat16 => 2,
-            Self::Float32 | Self::Int32 => 4,
-            Self::Int64 => 8,
-            Self::Bool => 1,
+            Self::Int8 | Self::UInt8 | Self::Bool => 1,
+            Self::Float16 | Self::BFloat16 | Self::Int16 | Self::UInt16 => 2,
+            Self::Float32 | Self::Int32 | Self::UInt32 => 4,
+            Self::Float64 | Self::Int64 | Self::UInt64 => 8,
         }
     }
     /// Native scalar name, also used by the Python reference.
@@ -41,8 +65,15 @@ impl DType {
             Self::Float16 => "float16",
             Self::BFloat16 => "bfloat16",
             Self::Float32 => "float32",
+            Self::Float64 => "float64",
+            Self::Int8 => "int8",
+            Self::Int16 => "int16",
             Self::Int32 => "int32",
             Self::Int64 => "int64",
+            Self::UInt8 => "uint8",
+            Self::UInt16 => "uint16",
+            Self::UInt32 => "uint32",
+            Self::UInt64 => "uint64",
             Self::Bool => "bool",
         }
     }
@@ -198,8 +229,15 @@ macro_rules! element {
     };
 }
 element!(f32, Float32, 4);
+element!(f64, Float64, 8);
+element!(i8, Int8, 1);
+element!(i16, Int16, 2);
 element!(i32, Int32, 4);
 element!(i64, Int64, 8);
+element!(u8, UInt8, 1);
+element!(u16, UInt16, 2);
+element!(u32, UInt32, 4);
+element!(u64, UInt64, 8);
 impl sealed::Sealed for Float16 {}
 impl TensorElement for Float16 {
     const DTYPE: DType = DType::Float16;
@@ -516,6 +554,37 @@ mod tests {
             );
         }
     }
+    #[test]
+    fn byte_aligned_integer_and_float64_elements_roundtrip_extremes() {
+        fn roundtrip<T: TensorElement + Copy + PartialEq + fmt::Debug>(values: [T; 3]) {
+            let tensor = Tensor::from_vec([3], values.to_vec()).unwrap();
+            assert_eq!(tensor.dtype(), T::DTYPE);
+            assert_eq!(tensor.as_bytes().len(), 3 * T::DTYPE.byte_width());
+            assert_eq!(tensor.to_vec::<T>().unwrap(), values);
+            let raw = Tensor::from_bytes(T::DTYPE, [3], tensor.as_bytes().to_vec()).unwrap();
+            assert_eq!(raw, tensor);
+        }
+        roundtrip([i8::MIN, 0, i8::MAX]);
+        roundtrip([i16::MIN, -1, i16::MAX]);
+        roundtrip([0u8, 1, u8::MAX]);
+        roundtrip([0u16, 1, u16::MAX]);
+        roundtrip([0u32, 1, u32::MAX]);
+        roundtrip([0u64, 1, u64::MAX]);
+        roundtrip([f64::MIN_POSITIVE, -0.0, f64::MAX]);
+        // Little-endian storage, independent of host order.
+        let wide = Tensor::from_vec([1], vec![0x0102_0304_0506_0708u64]).unwrap();
+        assert_eq!(wide.as_bytes(), [8, 7, 6, 5, 4, 3, 2, 1]);
+        let nan = f64::from_bits(0x7ff4_0000_0000_0001);
+        let bits = Tensor::from_vec([1], vec![nan])
+            .unwrap()
+            .to_vec::<f64>()
+            .unwrap()[0]
+            .to_bits();
+        assert_eq!(bits, nan.to_bits(), "NaN payloads are stored verbatim");
+        let names: std::collections::HashSet<_> = DType::ALL.iter().map(|d| d.name()).collect();
+        assert_eq!(names.len(), DType::ALL.len());
+    }
+
     #[test]
     fn tensor_rejects_invalid_storage_before_native_calls() {
         assert!(matches!(

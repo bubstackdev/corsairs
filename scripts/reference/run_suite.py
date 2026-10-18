@@ -134,7 +134,7 @@ def suite_main(args):
         return asyncio.run(run_child(cases[0], args.backend, args.negative))
     report_path = Path(args.report) if args.report else FIXTURES / (f"python-results-{args.case}-{args.backend or 'both'}.json" if args.case else "python-results.json")
     results = []
-    backends = [args.backend] if args.backend else ["cpu", "gpu-preferred"]
+    backends = getattr(args, "backends", None) or ([args.backend] if args.backend else ["cpu", "gpu-preferred"])
     invocations = [(case, backend, None) for backend in backends for case in cases]
     if not args.case:
         selected = {case["name"]: case for case in cases}
@@ -181,6 +181,8 @@ if __name__ == "__main__":
     parser.add_argument("--child", action="store_true")
     parser.add_argument("--case")
     parser.add_argument("--backend", choices=["cpu", "gpu-preferred", "neural-engine-preferred"])
+    parser.add_argument("--backends", nargs="+", choices=["cpu", "gpu-preferred", "neural-engine-preferred"],
+                        help="run several backends into one report")
     parser.add_argument("--negative")
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--report", help="Optional report destination; defaults preserve full-suite reports for filtered runs")

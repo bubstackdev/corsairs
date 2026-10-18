@@ -1,0 +1,52 @@
+{
+  "case": "uint64_transpose",
+  "backend": "cpu",
+  "negative_case": null,
+  "os_backed": true,
+  "status": "passed",
+  "allowed_compute_units": [
+    "CPU"
+  ],
+  "preferred_compute_unit": "None",
+  "descriptor": {
+    "name": "main",
+    "inputs": [
+      "x"
+    ],
+    "outputs": [
+      "y"
+    ],
+    "state": []
+  },
+  "steps": [
+    {
+      "outputs": {
+        "y": {
+          "dtype": "uint64",
+          "shape": [
+            3,
+            2
+          ],
+          "strides": [
+            2,
+            1
+          ],
+          "file": "results/cpu/uint64_transpose/step0-y.bin",
+          "sha256": "2b0df1f4fd9a18168df56c5d6ebf75f2a2ab44d724ac5590cc9f4c4627ad4b69",
+          "exact_bytes": true,
+          "comparison": "exact",
+          "passed": true,
+          "values": [
+            "0",
+            "1",
+            "18446744073709551615",
+            "18446744073709551614",
+            "0",
+            "2"
+          ]
+        }
+      },
+      "state_after": {}
+    }
+  ]
+}

@@ -440,8 +440,15 @@ fn to_native_dtype(dtype: DType) -> NativeDType {
         DType::Float16 => NativeDType::F16,
         DType::BFloat16 => NativeDType::Bf16,
         DType::Float32 => NativeDType::F32,
+        DType::Float64 => NativeDType::F64,
+        DType::Int8 => NativeDType::I8,
+        DType::Int16 => NativeDType::I16,
         DType::Int32 => NativeDType::I32,
         DType::Int64 => NativeDType::I64,
+        DType::UInt8 => NativeDType::U8,
+        DType::UInt16 => NativeDType::U16,
+        DType::UInt32 => NativeDType::U32,
+        DType::UInt64 => NativeDType::U64,
         DType::Bool => NativeDType::Bool,
     }
 }
@@ -450,8 +457,15 @@ fn from_native_dtype(dtype: NativeDType) -> DType {
         NativeDType::F16 => DType::Float16,
         NativeDType::Bf16 => DType::BFloat16,
         NativeDType::F32 => DType::Float32,
+        NativeDType::F64 => DType::Float64,
+        NativeDType::I8 => DType::Int8,
+        NativeDType::I16 => DType::Int16,
         NativeDType::I32 => DType::Int32,
         NativeDType::I64 => DType::Int64,
+        NativeDType::U8 => DType::UInt8,
+        NativeDType::U16 => DType::UInt16,
+        NativeDType::U32 => DType::UInt32,
+        NativeDType::U64 => DType::UInt64,
         NativeDType::Bool => DType::Bool,
     }
 }
@@ -550,6 +564,44 @@ mod tests {
         check::<RunResult>();
         check::<Task<RunResult>>();
     }
+    #[test]
+    #[ignore = "requires permitted native Core AI"]
+    fn native_cpu_rejects_empty_16_bit_integers_as_a_typed_error() {
+        // Reviewed reference behavior (fixtures/parity-v04/scalar-types): CPU-only
+        // Core AI fails empty int16/uint16 x+x; GPU preference returns [0, 3].
+        let fixtures =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join("../../fixtures/parity-v04/scalar-types");
+        let runtime = Runtime::new().unwrap();
+        for dtype in [DType::Int16, DType::UInt16] {
+            let model_path = fixtures.join(format!("{}_empty/model.aimodel", dtype.name()));
+            let inputs = || TensorMap::from([("x", Tensor::zeros(dtype, [0, 3]).unwrap())]);
+            let cpu = runtime
+                .load_model(&model_path, Compute::CpuOnly)
+                .wait()
+                .unwrap();
+            let function = cpu.load_function("main").wait().unwrap();
+            assert_eq!(
+                function.run(inputs(), TensorMap::new()).wait().unwrap_err(),
+                Error::Native {
+                    operation: "run",
+                    type_name: "CoreAIRuntime.InferenceError".into(),
+                }
+            );
+            let gpu = runtime
+                .load_model(&model_path, Compute::GpuPreferred)
+                .wait()
+                .unwrap();
+            let result = gpu
+                .load_function("main")
+                .wait()
+                .unwrap()
+                .run(inputs(), TensorMap::new())
+                .wait();
+            let y = result.unwrap().outputs.remove("y").unwrap();
+            assert_eq!((y.dtype(), y.shape()), (dtype, &[0, 3][..]));
+        }
+    }
+
     #[test]
     #[ignore = "requires native Core AI services; CORSAIRS_TEST_MODEL points to a float32[2,3] x+x asset"]
     fn native_dropped_futures_release_model_and_function_handles() {

@@ -15,10 +15,14 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "fixtures" / "parity-v01"
 OUTPUT = ROOT / "target" / "v01-check"
-# Original frozen CPU/GPU grid plus separately frozen supplementary backends.
-GOLDENS = ("backend-goldens.json", "backend-goldens-neural-engine-preferred.json")
+# (directory relative to FIXTURES, goldens file): the original frozen CPU/GPU
+# grid, the separately frozen Neural Engine grid, and the v0.4 scalar types.
+GOLDEN_SETS = ((".", "backend-goldens.json"), (".", "backend-goldens-neural-engine-preferred.json"),
+               ("../parity-v04/scalar-types", "backend-goldens.json"))
 COMPUTE = {"cpu": "CpuOnly", "gpu-preferred": "GpuPreferred", "neural-engine-preferred": "NeuralEnginePreferred"}
-DTYPES = {"float16": "Float16", "float32": "Float32", "int32": "Int32", "int64": "Int64", "bool": "Bool"}
+DTYPES = {"float16": "Float16", "float32": "Float32", "float64": "Float64", "int8": "Int8", "int16": "Int16",
+          "int32": "Int32", "int64": "Int64", "uint8": "UInt8", "uint16": "UInt16", "uint32": "UInt32",
+          "uint64": "UInt64", "bool": "Bool"}
 
 
 def quoted(value):
@@ -26,67 +30,75 @@ def quoted(value):
     return json.dumps(value, ensure_ascii=True)
 
 
-def specs(values, *, order=None):
+def relative(prefix, path):
+    """A set-relative fixture path, expressed relative to FIXTURES for drivers."""
+    return path if prefix == "." else f"{prefix}/{path}"
+
+
+def specs(values, prefix, *, order=None):
     rendered = []
     for name in order or values:
         value = values[name]
         shape = ",".join(str(n) for n in value["shape"])
         strides = ",".join(str(n) for n in value.get("strides", []))
         rendered.append("Spec { name: %s, dtype: DType::%s, shape: &[%s], strides: &[%s], file: %s }" %
-                        (quoted(name), DTYPES[value["dtype"]], shape, strides, quoted(value["file"])))
+                        (quoted(name), DTYPES[value["dtype"]], shape, strides, quoted(relative(prefix, value["file"]))))
     return "&[" + ",\n".join(rendered) + "]"
 
 
 def prepare_data():
-    suite = json.loads((FIXTURES / "suite.json").read_text())
     expected_wheel = "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9"
-    cases, negatives = [], []
-    for name in GOLDENS:
-        goldens = json.loads((FIXTURES / name).read_text())
+    rendered, negatives, backends, identities = [], [], [], {}
+    tensor_count = 0
+    for prefix, name in GOLDEN_SETS:
+        directory = FIXTURES / prefix
+        suite = json.loads((directory / "suite.json").read_text())
+        goldens = json.loads((directory / name).read_text())
         if goldens["reference"]["wheel_sha256"] != expected_wheel:
             raise RuntimeError("Unexpected reference wheel")
-        initial = FIXTURES / goldens["source_observations"]
+        initial = directory / goldens["source_observations"]
         if hashlib.sha256(initial.read_bytes()).hexdigest() != goldens["source_observations_sha256"]:
             raise RuntimeError("Original native reference observations changed")
-        cases += goldens["cases"]
+        for path, digest in suite["sha256"].items():
+            if hashlib.sha256((directory / path).read_bytes()).hexdigest() != digest:
+                raise RuntimeError(f"Fixture bytes changed: {relative(prefix, path)}")
+        set_backends = list(dict.fromkeys(golden["backend"] for golden in goldens["cases"]))
+        # Every (case, backend) is either a frozen success or a reviewed native error.
+        if (len(goldens["cases"]) + len(goldens.get("native_errors", [])) != len(suite["cases"]) * len(set_backends)
+                or len(goldens["negative_cases"]) != len(suite["negative_cases"]) * len(set_backends)):
+            raise RuntimeError(f"Incomplete reference grid: {relative(prefix, name)}")
+        backends += [backend for backend in set_backends if backend not in backends]
         negatives += goldens["negative_cases"]
-    backends = list(dict.fromkeys(golden["backend"] for golden in cases))
-    for path, digest in suite["sha256"].items():
-        if hashlib.sha256((FIXTURES / path).read_bytes()).hexdigest() != digest:
-            raise RuntimeError(f"Fixture bytes changed: {path}")
-    by_name = {case["name"]: case for case in suite["cases"]}
-    rendered = []
-    tensor_count = 0
-    for golden in cases:
-        case = by_name[golden["case"]]
-        original_steps = case.get("steps", [{"inputs": case["inputs"]}])
-        if len(original_steps) != len(golden["steps"]):
-            raise RuntimeError("Fixture/golden step counts differ")
-        steps = []
-        for original, expected in zip(original_steps, golden["steps"]):
-            for group in expected.values():
-                for tensor in group.values():
-                    if hashlib.sha256((FIXTURES / tensor["file"]).read_bytes()).hexdigest() != tensor["sha256"]:
-                        raise RuntimeError(f"Frozen backend output changed: {tensor['file']}")
-                    tensor_count += 1
-            steps.append("Step { inputs: %s, outputs: %s, states: %s }" %
-                         (specs(original["inputs"], order=golden["descriptor"]["inputs"]),
-                          specs(expected["outputs"], order=golden["descriptor"]["outputs"]), specs(expected["state_after"])))
-        rendered.append("Case { name: %s, backend: %s, compute: Compute::%s, model: %s, inputs: %s, initial_state: %s, steps: &[%s] }" %
-                        (quoted(case["name"]), quoted(golden["backend"]), COMPUTE[golden["backend"]],
-                         quoted(case["model"]), specs(case["inputs"], order=golden["descriptor"]["inputs"]),
-                         specs(case.get("state", {}), order=golden["descriptor"]["state"]), ",\n".join(steps)))
-    if len(rendered) != 16 * len(backends) or len(negatives) != 8 * len(backends):
-        raise RuntimeError("Each reference backend must contain 16 positive and 8 negative configurations")
+        identities[relative(prefix, name)] = hashlib.sha256((directory / name).read_bytes()).hexdigest()
+        identities[relative(prefix, "suite.json")] = hashlib.sha256((directory / "suite.json").read_bytes()).hexdigest()
+        by_name = {case["name"]: case for case in suite["cases"]}
+        for golden in goldens["cases"]:
+            case = by_name[golden["case"]]
+            original_steps = case.get("steps", [{"inputs": case["inputs"]}])
+            if len(original_steps) != len(golden["steps"]):
+                raise RuntimeError("Fixture/golden step counts differ")
+            steps = []
+            for original, expected in zip(original_steps, golden["steps"]):
+                for group in expected.values():
+                    for tensor in group.values():
+                        if hashlib.sha256((directory / tensor["file"]).read_bytes()).hexdigest() != tensor["sha256"]:
+                            raise RuntimeError(f"Frozen backend output changed: {relative(prefix, tensor['file'])}")
+                        tensor_count += 1
+                steps.append("Step { inputs: %s, outputs: %s, states: %s }" %
+                             (specs(original["inputs"], prefix, order=golden["descriptor"]["inputs"]),
+                              specs(expected["outputs"], prefix, order=golden["descriptor"]["outputs"]),
+                              specs(expected["state_after"], prefix)))
+            rendered.append("Case { name: %s, backend: %s, compute: Compute::%s, model: %s, inputs: %s, initial_state: %s, steps: &[%s] }" %
+                            (quoted(case["name"]), quoted(golden["backend"]), COMPUTE[golden["backend"]],
+                             quoted(relative(prefix, case["model"])), specs(case["inputs"], prefix, order=golden["descriptor"]["inputs"]),
+                             specs(case.get("state", {}), prefix, order=golden["descriptor"]["state"]), ",\n".join(steps)))
     generated = OUTPUT / "cases.rs"
     generated.parent.mkdir(parents=True, exist_ok=True)
     generated.write_text("// Generated from pinned fixtures and native Python backend goldens.\nconst CASES: &[Case] = &[\n" + ",\n".join(rendered) + "\n];\n"
                          "#[allow(dead_code, reason = \"shared by drivers that do not all iterate backends\")]\n"
                          "const BACKENDS: &[(&str, Compute)] = &[" + ", ".join(f"({quoted(name)}, Compute::{COMPUTE[name]})" for name in backends) + "];\n")
     return {"cases": len(rendered), "negative_cases": len(negatives), "backends": backends, "golden_tensors": tensor_count,
-            "generated_sha256": hashlib.sha256(generated.read_bytes()).hexdigest(),
-            "suite_sha256": hashlib.sha256((FIXTURES / "suite.json").read_bytes()).hexdigest(),
-            "goldens_sha256": {name: hashlib.sha256((FIXTURES / name).read_bytes()).hexdigest() for name in GOLDENS}}
+            "generated_sha256": hashlib.sha256(generated.read_bytes()).hexdigest(), "inputs_sha256": identities}
 
 
 def tool(name):

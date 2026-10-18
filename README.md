@@ -13,7 +13,7 @@ v0.3 raises the [checked storage and CPU boundary](docs/v0.3-large-tensors.md) t
 **v0.3.0 is [published on crates.io](https://crates.io/crates/corsairs/0.3.0); all 23 release
 gates pass and a fresh registry consumer passes native chaining.**
 
-[v0.3.1](docs/v0.3.1-release.md) is a patch release with the [codebase review](CODEBASE-REVIEW.md)
+[v0.3.1](docs/v0.3.1-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.3.1), is a patch release with the [codebase review](CODEBASE-REVIEW.md)
 fixes: native chain provenance stays bounded and waker callbacks no longer run under the
 task result lock.
 

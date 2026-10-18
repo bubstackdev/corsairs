@@ -2,7 +2,8 @@ use crate::api_error::Error;
 use std::collections::{BTreeMap, VecDeque};
 use std::future::Future;
 use std::pin::Pin;
-use std::sync::{Arc, Mutex, mpsc};
+use std::sync::atomic::{AtomicU8, Ordering};
+use std::sync::{Arc, Mutex, Weak, mpsc};
 use std::task::{Context, Poll, Waker};
 
 struct ResultState<T> {
@@ -10,12 +11,101 @@ struct ResultState<T> {
     waker: Option<Waker>,
 }
 
+fn resolve<T>(state: &Mutex<ResultState<T>>, result: Result<T, Error>) {
+    let waker = {
+        let mut state = state.lock().unwrap_or_else(|e| e.into_inner());
+        state.result = Some(result);
+        state.waker.take()
+    };
+    // Waking outside the lock permits a reentrant executor poll.
+    if let Some(waker) = waker {
+        waker.wake();
+    }
+}
+
+// A request moves from QUEUED to exactly one of STARTED (claimed by the worker,
+// or resolved without running) or CANCELLED (claimed by a cancel handle).
+const QUEUED: u8 = 0;
+const STARTED: u8 = 1;
+const CANCELLED: u8 = 2;
+
 /// A runtime-independent future. Dropping it does not cancel native work or
 /// release that work's inputs; the worker owns the request until completion.
+/// Use [`Task::cancel_handle`] to prevent a request that has not started.
 #[must_use = "the request has been submitted; await or wait for its result"]
 pub struct Task<T> {
     state: Arc<Mutex<ResultState<T>>>,
+    phase: Arc<AtomicU8>,
     worker_thread: std::thread::ThreadId,
+}
+
+/// The outcome of [`CancelHandle::cancel`].
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Cancel {
+    /// The request had not started and never will. Its task resolves to
+    /// [`Error::Cancelled`]; the worker later drops its inputs in order.
+    Prevented,
+    /// The request had already started or finished. Core AI cannot stop
+    /// running work, so the task resolves normally.
+    TooLate,
+}
+
+trait Cancellable: Send + Sync {
+    fn cancel(&self) -> Cancel;
+}
+struct Target<T> {
+    phase: Arc<AtomicU8>,
+    // Weak: a handle must never keep a request's result alive.
+    state: Weak<Mutex<ResultState<T>>>,
+}
+impl<T: Send> Cancellable for Target<T> {
+    fn cancel(&self) -> Cancel {
+        match self
+            .phase
+            .compare_exchange(QUEUED, CANCELLED, Ordering::AcqRel, Ordering::Acquire)
+        {
+            Ok(_) => {
+                // No result can exist: publishing requires claiming first.
+                if let Some(state) = self.state.upgrade() {
+                    resolve(&state, Err(Error::Cancelled));
+                }
+                Cancel::Prevented
+            }
+            Err(CANCELLED) => Cancel::Prevented,
+            Err(_) => Cancel::TooLate,
+        }
+    }
+}
+
+/// Cancels a submitted request if it has not yet reached Core AI.
+///
+/// Requests on one runtime execute in submission order. Cancelling one does
+/// not cancel later requests, including ones that depend on its effects.
+/// Handles are cheap to clone, may be sent to other threads, and do not retain
+/// the request or its result.
+#[derive(Clone)]
+pub struct CancelHandle(Arc<dyn Cancellable>);
+impl CancelHandle {
+    /// Prevent the request if it is still queued. Calling this again, or from
+    /// a clone, reports the same outcome.
+    pub fn cancel(&self) -> Cancel {
+        self.0.cancel()
+    }
+}
+impl std::fmt::Debug for CancelHandle {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("CancelHandle").finish_non_exhaustive()
+    }
+}
+
+impl<T: Send + 'static> Task<T> {
+    /// A handle that can prevent this request before it starts.
+    pub fn cancel_handle(&self) -> CancelHandle {
+        CancelHandle(Arc::new(Target {
+            phase: Arc::clone(&self.phase),
+            state: Arc::downgrade(&self.state),
+        }))
+    }
 }
 
 impl<T> Task<T> {
@@ -76,22 +166,30 @@ impl<T> Future for Task<T> {
 
 struct Complete<T> {
     state: Option<Arc<Mutex<ResultState<T>>>>,
+    phase: Arc<AtomicU8>,
 }
 impl<T> Complete<T> {
+    /// Claim the request for execution or resolution. False if cancelled; the
+    /// cancel handle has then already resolved the task, so disarm this.
+    fn claim(&mut self) -> bool {
+        let claimed = !matches!(
+            self.phase
+                .compare_exchange(QUEUED, STARTED, Ordering::AcqRel, Ordering::Acquire),
+            Err(CANCELLED)
+        );
+        if !claimed {
+            self.state = None;
+        }
+        claimed
+    }
     fn finish(mut self, result: Result<T, Error>) {
         self.publish(result);
     }
     fn publish(&mut self, result: Result<T, Error>) {
-        if let Some(state) = self.state.take() {
-            let waker = {
-                let mut state = state.lock().unwrap_or_else(|e| e.into_inner());
-                state.result = Some(result);
-                state.waker.take()
-            };
-            // Waking outside the lock permits a reentrant executor poll.
-            if let Some(waker) = waker {
-                waker.wake();
-            }
+        if self.claim()
+            && let Some(state) = self.state.take()
+        {
+            resolve(&state, result);
         }
     }
 }
@@ -116,8 +214,13 @@ where
     fn execute(self: Box<Self>, session: &mut S) {
         let Self {
             operation,
-            completion,
+            mut completion,
         } = *self;
+        if !completion.claim() {
+            // Cancelled while queued. Dropping the operation here releases its
+            // captures under this request's causal root, as execution would.
+            return;
+        }
         let result = operation(session);
         completion.finish(result);
     }
@@ -194,7 +297,13 @@ fn run<S>(
                     return;
                 }
             }
-            Message::Drain { cutoff, completion } => {
+            Message::Drain {
+                cutoff,
+                mut completion,
+            } => {
+                if !completion.claim() {
+                    continue;
+                }
                 while submissions
                     .lock()
                     .unwrap_or_else(|e| e.into_inner())
@@ -306,8 +415,10 @@ impl<S: 'static> Worker<S> {
             result: None,
             waker: None,
         }));
+        let phase = Arc::new(AtomicU8::new(QUEUED));
         let completion = Complete {
             state: Some(Arc::clone(&state)),
+            phase: Arc::clone(&phase),
         };
         let request: Box<dyn Work<S>> = Box::new(Request {
             operation,
@@ -341,6 +452,7 @@ impl<S: 'static> Worker<S> {
         drop(rejected);
         Task {
             state,
+            phase,
             worker_thread: self.thread,
         }
     }
@@ -349,8 +461,10 @@ impl<S: 'static> Worker<S> {
             result: None,
             waker: None,
         }));
+        let phase = Arc::new(AtomicU8::new(QUEUED));
         let completion = Complete {
             state: Some(Arc::clone(&state)),
+            phase: Arc::clone(&phase),
         };
         let rejected = {
             let submissions = self.submissions.lock().unwrap_or_else(|e| e.into_inner());
@@ -364,6 +478,7 @@ impl<S: 'static> Worker<S> {
         drop(rejected);
         Task {
             state,
+            phase,
             worker_thread: self.thread,
         }
     }
@@ -441,6 +556,7 @@ mod tests {
         };
         let mut task = Task {
             state: Arc::clone(&state),
+            phase: Arc::new(AtomicU8::new(QUEUED)),
             worker_thread: std::thread::current().id(),
         };
         assert!(
@@ -518,6 +634,105 @@ mod tests {
             .expect("waker cleanup deadlocked the polling thread and worker")
             .unwrap();
         thread.join().unwrap();
+    }
+
+    #[test]
+    fn cancelling_a_queued_request_skips_it_and_resolves_immediately() {
+        let worker = Worker::start(|| Ok(0usize)).unwrap();
+        let (started, observed) = mpsc::sync_channel(0);
+        let (unblock, gate) = mpsc::sync_channel(0);
+        let blocking = worker.submit(move |_| {
+            started.send(()).unwrap();
+            gate.recv().unwrap();
+            Ok(())
+        });
+        observed.recv().unwrap();
+        let queued = worker.submit(|state| {
+            *state += 1;
+            Ok(())
+        });
+        let handle = queued.cancel_handle();
+        assert_eq!(handle.cancel(), Cancel::Prevented);
+        assert_eq!(handle.clone().cancel(), Cancel::Prevented);
+        // Resolution does not wait for the blocked worker to reach the request.
+        assert_eq!(queued.wait(), Err(Error::Cancelled));
+        assert_eq!(blocking.cancel_handle().cancel(), Cancel::TooLate);
+        unblock.send(()).unwrap();
+        blocking.wait().unwrap();
+        assert_eq!(worker.submit(|state| Ok(*state)).wait().unwrap(), 0);
+    }
+
+    #[test]
+    fn started_and_finished_requests_are_too_late_to_cancel() {
+        let worker = Worker::start(|| Ok(())).unwrap();
+        let (started, observed) = mpsc::sync_channel(0);
+        let (unblock, gate) = mpsc::sync_channel(0);
+        let running = worker.submit(move |_| {
+            started.send(()).unwrap();
+            gate.recv().unwrap();
+            Ok(7)
+        });
+        observed.recv().unwrap();
+        assert_eq!(running.cancel_handle().cancel(), Cancel::TooLate);
+        unblock.send(()).unwrap();
+        let finished = worker.submit(|_| Ok(8));
+        let handle = finished.cancel_handle();
+        assert_eq!(running.wait(), Ok(7));
+        assert_eq!(finished.wait(), Ok(8));
+        assert_eq!(handle.cancel(), Cancel::TooLate);
+    }
+
+    #[test]
+    fn cancelled_request_releases_captures_within_a_later_drain() {
+        let worker = Worker::start(|| Ok(0usize)).unwrap();
+        let releases = Arc::new(AtomicUsize::new(0));
+        let cascade = Cascade {
+            worker: worker.clone(),
+            remaining: 32,
+            releases: Arc::clone(&releases),
+        };
+        let (unblock, gate) = mpsc::sync_channel(0);
+        drop(worker.submit(move |_| {
+            gate.recv().unwrap();
+            Ok(())
+        }));
+        let queued = worker.submit(move |_| Ok(cascade));
+        assert_eq!(queued.cancel_handle().cancel(), Cancel::Prevented);
+        drop(queued);
+        let drain = worker.drain();
+        unblock.send(()).unwrap();
+        drain.wait().unwrap();
+        assert_eq!(releases.load(Ordering::SeqCst), 32);
+        assert_eq!(worker.submit(|state| Ok(*state)).wait().unwrap(), 32);
+    }
+
+    #[test]
+    fn cancel_handles_do_not_retain_results() {
+        let worker = Worker::start(|| Ok(())).unwrap();
+        let sentinel = Arc::new(());
+        let result = Arc::clone(&sentinel);
+        let task = worker.submit(move |_| Ok(result));
+        let handle = task.cancel_handle();
+        drop(task);
+        worker.drain().wait().unwrap();
+        assert_eq!(Arc::strong_count(&sentinel), 1);
+        assert_eq!(handle.cancel(), Cancel::TooLate);
+    }
+
+    #[test]
+    fn a_queued_drain_can_be_cancelled() {
+        let worker = Worker::start(|| Ok(())).unwrap();
+        let (unblock, gate) = mpsc::sync_channel(0);
+        let blocking = worker.submit(move |_| {
+            gate.recv().unwrap();
+            Ok(())
+        });
+        let drain = worker.drain();
+        assert_eq!(drain.cancel_handle().cancel(), Cancel::Prevented);
+        assert_eq!(drain.wait(), Err(Error::Cancelled));
+        unblock.send(()).unwrap();
+        blocking.wait().unwrap();
+        worker.drain().wait().unwrap();
     }
 
     struct Cascade {

@@ -32,7 +32,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-Loading and execution return `Task<T>`, which implements `Future<Output = Result<T, Error>>`. Use `.await` inside an async application or `.wait()` in synchronous code. Submission starts immediately; dropping the task discards interest in its result while its owned request and native storage remain alive through completion. It does not cancel native work.
+Loading and execution return `Task<T>`, which implements `Future<Output = Result<T, Error>>`. Use `.await` inside an async application or `.wait()` in synchronous code. Submission starts immediately; dropping the task discards interest in its result while its owned request and native storage remain alive through completion. It does not cancel native work. To prevent a request that has not started, call `task.cancel_handle().cancel()`: `Cancel::Prevented` means it will never reach Core AI and the task resolves to `Error::Cancelled`; `Cancel::TooLate` means it already started or finished. Core AI provides no way to stop running work.
 
 ## Tensors and state
 
@@ -80,7 +80,7 @@ Stateless owned/native GPU calls use one private persistent Metal queue and Core
 
 `Runtime::metal_queue` creates a persistent Metal queue and Core AI stream. Shared `MetalBuffer` values provide checked tensor storage and explicit output/state bindings for `Function::encode`. Unsafe import/export methods connect application-owned queues and buffers under documented lifetime, aliasing, and synchronization contracts. Each encoded call currently fences and checks throwing readiness before returning; submission pipelining is deferred. Explicit mutable bindings require fixed descriptor shapes. Dynamic outputs can be allocated by Core AI. Private/managed buffer host access remains unsupported.
 
-Graph authoring, application Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, explicit Neural Engine control, and native cancellation remain outside the general inference API. Applications own model-specific schedules, kernels, tokenization, and asset/cache policy.
+Graph authoring, application Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, explicit Neural Engine control, and cancellation of running native work remain outside the general inference API. Applications own model-specific schedules, kernels, tokenization, and asset/cache policy.
 
 The default feature set is empty. `abi-research` exposes unsafe experimental probes for development; it is outside the ordinary safe API. Native framework initialization and model specialization need an execution environment that permits Core AI allocation/cache access.
 

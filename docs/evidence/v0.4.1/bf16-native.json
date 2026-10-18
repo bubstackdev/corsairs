@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "scope": "Rust BF16 parity driver run directly; its verdict compares every value against the finite-arithmetic fixtures. The v0.3 Swift oracle and LLDB observation were not rerun.",
+  "profiles": {
+    "debug": {
+      "binary_sha256": "ee55924aba4fdef1b8812c114d0785e5802a2078830162655586a62635e25a56",
+      "exit_status": 0,
+      "complete": {
+        "event": "complete",
+        "configurations": 46,
+        "passed": true,
+        "chained_backends": 2,
+        "abandoned_iterations": 20
+      },
+      "raw": {
+        "event": "bf16_raw",
+        "encodings": 65536,
+        "native_exact": true,
+        "metal_exact": true,
+        "clone_drop": true
+      },
+      "values": 104,
+      "all_values_exact": true
+    },
+    "release": {
+      "binary_sha256": "3ad9d424dff481db646821454b033143938dc2bbc7d5320f440b7469946f645a",
+      "exit_status": 0,
+      "complete": {
+        "event": "complete",
+        "configurations": 46,
+        "passed": true,
+        "chained_backends": 2,
+        "abandoned_iterations": 20
+      },
+      "raw": {
+        "event": "bf16_raw",
+        "encodings": 65536,
+        "native_exact": true,
+        "metal_exact": true,
+        "clone_drop": true
+      },
+      "values": 104,
+      "all_values_exact": true
+    }
+  }
+}

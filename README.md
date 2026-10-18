@@ -17,7 +17,7 @@ gates pass and a fresh registry consumer passes native chaining.**
 fixes: native chain provenance stays bounded and waker callbacks no longer run under the
 task result lock.
 
-[v0.4](docs/v0.4-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.0), adds [queued-request cancellation](docs/cancellation.md), [Neural Engine preference](docs/compute-units.md), [read-only asset inspection](docs/asset-metadata.md), and [`f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64` tensors](docs/scalar-types.md). `Compute` and `DType` are now non-exhaustive.
+[v0.4](docs/v0.4-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.0), adds [queued-request cancellation](docs/cancellation.md), [Neural Engine preference](docs/compute-units.md), [read-only asset inspection](docs/asset-metadata.md), and [`f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64` tensors](docs/scalar-types.md). `Compute` and `DType` are now non-exhaustive. [v0.4.1](docs/v0.4.1-release.md) adds `Float8E4M3Fn` and `Float8E5M2` tensors and `DType::all()`, and fixes the v0.4 review findings.
 
 ## Use
 
@@ -26,7 +26,7 @@ Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.
 Add [Corsairs from crates.io](https://crates.io/crates/corsairs) to a Rust project:
 
 ```sh
-cargo add corsairs@0.4.0
+cargo add corsairs@0.4.1
 ```
 
 Source: [bubstackdev/corsairs](https://github.com/bubstackdev/corsairs).
@@ -70,7 +70,7 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 | Area | v0.3 behavior |
 | --- | --- |
 | Models | Existing assets, named functions, input/output/state descriptors; [asset metadata and summary](docs/asset-metadata.md) without loading |
-| Tensor elements | `Float16`, `BFloat16`, `f32`, `i32`, `i64`, `bool`, [`f64`, `i8`, `i16`, `u8`, `u16`, `u32`, `u64`](docs/scalar-types.md); [`Float8E4M3Fn`, `Float8E5M2`](docs/scalar-types.md#float8) on `main` |
+| Tensor elements | `Float16`, `BFloat16`, `f32`, `i32`, `i64`, `bool`, [`f64`, `i8`, `i16`, `u8`, `u16`, `u32`, `u64`](docs/scalar-types.md); [`Float8E4M3Fn`, `Float8E5M2`](docs/scalar-types.md#float8) |
 | Storage | Owned tensors, retained native handles, and shared Metal buffers |
 | Shape limits | Static/dynamic signatures; rank 64; storage/CPU 4 GiB; GPU inference 2 GiB |
 | Execution | Named inputs/outputs and caller-supplied named state, with updated state returned for the next step |

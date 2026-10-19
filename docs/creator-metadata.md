@@ -1,7 +1,7 @@
 # Creator-defined asset metadata
 
 Recorded 2026-10-18 on macOS 27.0.1 (26A434), Xcode/SDK 27, device architecture `h17c`.
-Targets v0.5.0.
+Added in v0.5.0.
 
 `Runtime::inspect_asset` now also returns Core AI's
 `AIModelAsset.Metadata.creatorDefinedMetadata`, read-only, as

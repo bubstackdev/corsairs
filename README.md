@@ -19,6 +19,8 @@ task result lock.
 
 [v0.4](docs/v0.4-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.0), adds [queued-request cancellation](docs/cancellation.md), [Neural Engine preference](docs/compute-units.md), [read-only asset inspection](docs/asset-metadata.md), and [`f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64` tensors](docs/scalar-types.md). `Compute` and `DType` are now non-exhaustive. [v0.4.1](docs/v0.4.1-release.md), [published on crates.io](https://crates.io/crates/corsairs/0.4.1), adds `Float8E4M3Fn` and `Float8E5M2` tensors and `DType::all()`, and fixes the v0.4 review findings.
 
+[v0.5](docs/v0.5-release.md) adds [image and pixel-buffer I/O](docs/image-io.md) for packed `24RGB`, `32ARGB` and `32BGRA` images and [creator-defined asset metadata](docs/creator-metadata.md), and removes the deprecated `DType::ALL`. `FunctionDescriptor` and `RunResult` are now non-exhaustive.
+
 ## Use
 
 Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.0.1 (26A434) with Rust 1.99.0. Xcode/SDK 27, Apple Swift 6.4, and Python are development/reference tools.
@@ -26,7 +28,7 @@ Requires Apple Silicon, macOS 27, and Rust 1.99+. The recorded host is macOS 27.
 Add [Corsairs from crates.io](https://crates.io/crates/corsairs) to a Rust project:
 
 ```sh
-cargo add corsairs@0.4.1
+cargo add corsairs@0.5.0
 ```
 
 Source: [bubstackdev/corsairs](https://github.com/bubstackdev/corsairs).
@@ -67,7 +69,7 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 
 ## Supported subset
 
-| Area | v0.3 behavior |
+| Area | v0.5 behavior |
 | --- | --- |
 | Models | Existing assets, named functions, input/output/state descriptors; [asset metadata and summary](docs/asset-metadata.md), including [creator-defined metadata](docs/creator-metadata.md), without loading |
 | Tensor elements | `Float16`, `BFloat16`, `f32`, `i32`, `i64`, `bool`, [`f64`, `i8`, `i16`, `u8`, `u16`, `u32`, `u64`](docs/scalar-types.md); [`Float8E4M3Fn`, `Float8E5M2`](docs/scalar-types.md#float8) |
@@ -80,7 +82,7 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 
 Scalar and empty tensors are supported. For empty tensors, the corresponding size guard also applies to the product of nonzero dimensions and scalar width. Packed image values are supported as described below; other value kinds are rejected. Dynamic outputs are bounded only after completion; stateful owned/native GPU signatures retain a fixed 1 GiB envelope. GPU preference permits fallback choices and does not prove which device executed an operation.
 
-[Image I/O](docs/image-io.md) (targeting v0.5.0) runs functions with packed `24RGB`, `32ARGB` and `32BGRA` image inputs and outputs through `Function::run_with_images` with owned `Image` values, on every compute preference, byte-exact against Swift-oracle and b3 goldens. Bytes stay in CoreVideo memory order. Planar 4:2:0 traps Core AI, so such functions are described but every run is rejected before dispatch. v0.5 breaking changes: `FunctionDescriptor` and `RunResult` gain image fields and become `#[non_exhaustive]`, and `load_function` now succeeds on image signatures.
+[Image I/O](docs/image-io.md) (v0.5) runs functions with packed `24RGB`, `32ARGB` and `32BGRA` image inputs and outputs through `Function::run_with_images` with owned `Image` values, on every compute preference, byte-exact against Swift-oracle and b3 goldens. Bytes stay in CoreVideo memory order. Planar 4:2:0 traps Core AI, so such functions are described but every run is rejected before dispatch. v0.5 breaking changes: `FunctionDescriptor` and `RunResult` gain image fields and become `#[non_exhaustive]`, and `load_function` now succeeds on image signatures.
 
 Graph authoring, custom Metal kernels, planar images, image chaining through native handles or Metal, packed low-bit formats, profiling callbacks, and restricting execution to the Neural Engine (Core AI exposes only a preference) are deferred. Core AI cannot stop running work; `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
 

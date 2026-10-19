@@ -106,7 +106,7 @@ cargo run --example metal_chain
 cargo run --bin corsairs -- --help
 ```
 
-`Runtime::inspect_asset(path, statistics)` reads an asset's author, license, description, creation date, declared functions and, optionally, operation and storage statistics without loading a model. A path that is not a valid asset returns `Error::InvalidAsset`. `Runtime::device_architecture()` reports Core AI's device architecture name.
+`Runtime::inspect_asset(path, statistics)` reads an asset's author, license, description, creation date, creator-defined metadata (`CreatorValue` trees), declared functions and, optionally, operation and storage statistics without loading a model. A path that is not a valid asset returns `Error::InvalidAsset`. `Runtime::device_architecture()` reports Core AI's device architecture name.
 
 The `corsairs` CLI supports `inspect`, `run`, and `bench`; run `--help` for exact arguments. Input files contain contiguous little-endian scalar bytes. The CLI accepts an explicit `cpu`, `gpu-preferred`, or `neural-engine-preferred` compute selection.
 

@@ -69,7 +69,7 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 
 | Area | v0.3 behavior |
 | --- | --- |
-| Models | Existing assets, named functions, input/output/state descriptors; [asset metadata and summary](docs/asset-metadata.md) without loading |
+| Models | Existing assets, named functions, input/output/state descriptors; [asset metadata and summary](docs/asset-metadata.md), including [creator-defined metadata](docs/creator-metadata.md), without loading |
 | Tensor elements | `Float16`, `BFloat16`, `f32`, `i32`, `i64`, `bool`, [`f64`, `i8`, `i16`, `u8`, `u16`, `u32`, `u64`](docs/scalar-types.md); [`Float8E4M3Fn`, `Float8E5M2`](docs/scalar-types.md#float8) |
 | Storage | Owned tensors, retained native handles, and shared Metal buffers |
 | Shape limits | Static/dynamic signatures; rank 64; storage/CPU 4 GiB; GPU inference 2 GiB |

@@ -27,6 +27,7 @@ fn main() -> Result<(), corsairs::Error> {
 | Rust | Core AI |
 | --- | --- |
 | `AssetMetadata { author, license, description, created }` | `AIModelAsset.Metadata` fields; `created` from `creationDate` |
+| `AssetMetadata::creator_defined` (`CreatorValue`) | `creatorDefinedMetadata`; see [creator-metadata.md](creator-metadata.md) |
 | `AssetSummary::functions` (`AssetFunction` with `AssetValue { name, type_name }`) | `Summary.functions` |
 | `AssetSummary::{storage_types, compute_types, operations}` | `Summary.storageTypes`, `computeTypes`, `operationDistribution`; empty unless `statistics` |
 | `Error::InvalidAsset` | `AIModelAsset.isValid(at:)` is false |
@@ -60,8 +61,6 @@ pairs, `Array` words, and the `Double` from `Date.timeIntervalSince1970` in d0
 
 ## Not covered
 
-- `creatorDefinedMetadata`, a `[String: CreatorDefinedValue]` recursive enum.
-  It needs Dictionary iteration and enum payload projection.
 - Writing metadata (`updateMetadata`) and `removeDerivedArtifacts()`.
 - The asset JSON's `producer` and `assetVersion` keys, which have no public
   accessor.

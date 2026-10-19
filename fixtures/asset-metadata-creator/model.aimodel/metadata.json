@@ -1,0 +1,170 @@
+{
+  "producer" : "coreai-core 1.0.0b2",
+  "assetVersion" : "2.0",
+  "creatorDefinedMetadata" : {
+    "string" : "plain",
+    "integer_negative" : -42,
+    "number" : 0.10000000000000001,
+    "number_subnormal" : 4.9406564584124654e-324,
+    "number_whole" : 3,
+    "integer_min" : -9223372036854775808,
+    "number_negative_zero" : -0,
+    "integer_two" : 2,
+    "" : "empty top-level key",
+    "nested_40" : [
+      [
+        [
+          [
+            [
+              [
+                [
+                  [
+                    [
+                      [
+                        [
+                          [
+                            [
+                              [
+                                [
+                                  [
+                                    [
+                                      [
+                                        [
+                                          [
+                                            [
+                                              [
+                                                [
+                                                  [
+                                                    [
+                                                      [
+                                                        [
+                                                          [
+                                                            [
+                                                              [
+                                                                [
+                                                                  [
+                                                                    [
+                                                                      [
+                                                                        [
+                                                                          [
+                                                                            [
+                                                                              [
+                                                                                [
+                                                                                  [
+                                                                                    {
+                                                                                      "leaf" : "bottom",
+                                                                                      "depth" : 40
+                                                                                    }
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    "string_unicode" : "Zoë 🏴‍☠️ \"quoted\"\nline\t× 日本語 \u0000nul",
+    "number_large" : 1.0000000000000001e+300,
+    "bool_true" : true,
+    "number_max" : 1.7976931348623157e+308,
+    "日本語キー" : [
+      "配列",
+      7,
+      {
+        "キー" : false
+      }
+    ],
+    "dictionary_empty" : {
+
+    },
+    "bool_false" : false,
+    "array_mixed" : [
+      "a",
+      7,
+      1.5,
+      true,
+      [
+
+      ],
+      {
+
+      },
+      [
+        [
+          [
+            "deep"
+          ]
+        ]
+      ],
+      {
+        "k" : "v"
+      }
+    ],
+    "integer_max" : 9223372036854775807,
+    "dictionary_decomposed" : {
+      "é" : "decomposed e-acute key"
+    },
+    "string_empty" : "",
+    "integer_one" : 1,
+    "dictionary" : {
+      "nested" : {
+        "inner" : {
+          "list" : [
+            1,
+            2,
+            {
+
+            },
+            [
+
+            ]
+          ]
+        }
+      },
+      "🔑" : "emoji key",
+      "" : "empty key",
+      "é" : "precomposed e-acute key",
+      "ключ" : "значение"
+    },
+    "number_min_normal" : 2.2250738585072014e-308,
+    "array_empty" : [
+
+    ],
+    "integer_zero" : 0,
+    "number_negative" : -2.5
+  },
+  "creationDate" : "20261015T145749Z",
+  "author" : "Creator metadata fixture"
+}

@@ -47,7 +47,9 @@ pub use dtype::{
 #[cfg(feature = "abi-research")]
 pub use facade::FunctionBatchLoadReport;
 pub use facade::FunctionLoadRequest;
-pub use facade::{AssetCount, AssetFunction, AssetInfo, AssetMetadata, AssetSummary, AssetValue};
+pub use facade::{
+    AssetCount, AssetFunction, AssetInfo, AssetMetadata, AssetSummary, AssetValue, CreatorValue,
+};
 #[cfg(feature = "abi-research")]
 pub use facade::{BatchLoadMetrics, BatchLoadReport};
 pub use facade::{

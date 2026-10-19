@@ -1,0 +1,2401 @@
+{
+ "schema": 1,
+ "passed": true,
+ "generated_utc": "2026-10-18T23:36:31.769464+00:00",
+ "macos": "27.0.1",
+ "swiftc": "swift-driver version: 1.168.6",
+ "calibration": {
+  "sdk_symbols": [
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV014creatorDefinedE0SDySSAE07CreatorG5ValueOGvg",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueOMa",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO6stringyAGSScAGmFWC",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO7integeryAGSicAGmFWC",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO6numberyAGSdcAGmFWC",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO4boolyAGSbcAGmFWC",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO5arrayyAGSayAGGcAGmFWC",
+   "$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO10dictionaryyAGSDySSAGGcAGmFWC",
+   "$sSD5countSivg",
+   "$sSD4keysSD4KeysVyxq__Gvg",
+   "$sSD4KeysV12makeIteratorAB0C0Vyxq___GyF",
+   "$sSD4KeysV8IteratorV4nextxSgyF",
+   "$sSD4KeysV8IteratorVMa",
+   "$sSDyq_Sgxcig",
+   "$sSSSHsWP",
+   "$sSSN"
+  ],
+  "optimized_ir": [
+   "declare swiftcc ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV014creatorDefinedE0SDySSAE07CreatorG5ValueOGvg\"(ptr noalias swiftself) local_unnamed_addr #1",
+   "declare swiftcc %swift.metadata_response @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueOMa\"(i64) local_unnamed_addr #1",
+   "%GetEnumTag = load ptr, ptr %8, align 8, !invariant.load !51",
+   "%8 = getelementptr inbounds nuw i8, ptr %.valueWitnesses, i64 88",
+   "%28 = getelementptr inbounds nuw i8, ptr %.valueWitnesses, i64 96",
+   "%DestructiveProjectEnumData2 = load ptr, ptr %28, align 8, !invariant.load !51",
+   "%._guts._object._object = getelementptr inbounds nuw i8, ptr %5, i64 8",
+   "%14 = load i1, ptr %5, align 16",
+   "%10 = load i32, ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO6stringyAGSScAGmFWC\", align 4",
+   "%13 = load i32, ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO7integeryAGSicAGmFWC\", align 4",
+   "%16 = load i32, ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO6numberyAGSdcAGmFWC\", align 4",
+   "%19 = load i32, ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO4boolyAGSbcAGmFWC\", align 4",
+   "%22 = load i32, ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO5arrayyAGSayAGGcAGmFWC\", align 4",
+   "%25 = load i32, ptr @\"$s11CoreAIAsset12AIModelAssetV8MetadataV19CreatorDefinedValueO10dictionaryyAGSDySSAGGcAGmFWC\", align 4"
+  ],
+  "unoptimized_ir": [
+   "declare swiftcc i64 @\"$sSD5countSivg\"(ptr, ptr, ptr, ptr) #1",
+   "declare swiftcc ptr @\"$sSD4keysSD4KeysVyxq__Gvg\"(ptr, ptr, ptr, ptr) #1",
+   "declare swiftcc void @\"$sSD4KeysV12makeIteratorAB0C0Vyxq___GyF\"(ptr noalias sret(%TSD4KeysV8IteratorV) captures(none), ptr, ptr, ptr, ptr) #1",
+   "declare swiftcc void @\"$sSD4KeysV8IteratorV4nextxSgyF\"(ptr noalias sret(%swift.opaque), ptr, ptr swiftself captures(none) dereferenceable(40)) #1",
+   "declare swiftcc %swift.metadata_response @\"$sSD4KeysV8IteratorVMa\"(i64, ptr, ptr, ptr) #1",
+   "declare swiftcc void @\"$sSDyq_Sgxcig\"(ptr noalias sret(%swift.opaque), ptr noalias, ptr, ptr, ptr, ptr) #1",
+   "declare swiftcc i64 @\"$sSa5countSivg\"(ptr, ptr) #1",
+   "declare swiftcc void @\"$sSayxSicig\"(ptr noalias sret(%swift.opaque), i64, ptr, ptr) #1",
+   "%2 = call swiftcc %swift.metadata_response @\"$sSD4KeysV8IteratorVMa\"(i64 0, ptr %K, ptr %V, ptr %K.Hashable) #15",
+   "%8 = call swiftcc ptr @\"$s4main9entryKeysySD0C0Vyxq__GSDyxq_GSHRzr0_lF\"(ptr %0, ptr @\"$sSSN\", ptr %7, ptr @\"$sSSSHsWP\")"
+  ],
+  "sil_ownership": [
+   "sil [available 27.0] @$s11CoreAIAsset12AIModelAssetV8MetadataV014creatorDefinedE0SDySSAE07CreatorG5ValueOGvg : $@convention(method) (@in_guaranteed AIModelAsset.Metadata) -> @owned Dictionary<String, AIModelAsset.Metadata.CreatorDefinedValue>",
+   "sil @$sSD5countSivg : $@convention(method) <Key, Value where Key : Hashable> (@guaranteed Dictionary<Key, Value>) -> Int",
+   "sil @$sSD4keysSD4KeysVyxq__Gvg : $@convention(method) <Key, Value where Key : Hashable> (@guaranteed Dictionary<Key, Value>) -> @owned Dictionary<Key, Value>.Keys",
+   "sil [heuristic_always_inline] @$sSD4KeysV12makeIteratorAB0C0Vyxq___GyF : $@convention(method) <Key, Value where Key : Hashable> (@owned Dictionary<Key, Value>.Keys) -> @owned Dictionary<Key, Value>.Keys.Iterator",
+   "sil [heuristic_always_inline] @$sSD4KeysV8IteratorV4nextxSgyF : $@convention(method) <Key, Value where Key : Hashable> (@inout Dictionary<Key, Value>.Keys.Iterator) -> @out Optional<Key>",
+   "sil @$sSDyq_Sgxcig : $@convention(method) <Key, Value where Key : Hashable> (@in_guaranteed Key, @guaranteed Dictionary<Key, Value>) -> @out Optional<Value>",
+   "sil @$sSayxSicig : $@convention(method) <Element> (Int, @guaranteed Array<Element>) -> @out Element"
+  ]
+ },
+ "fixture_regenerated_identically": true,
+ "debug_cli": {
+  "deep-511": "match",
+  "deep-511-dictionaries": "match",
+  "deep-511-alternating": "match"
+ },
+ "assets": [
+  {
+   "asset": "crates/corsairs-abi/models/accumulator.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "crates/corsairs-abi/models/feedforward.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/asset-metadata/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/asset-metadata-creator/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 27,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/accumulator/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/double_float16/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/double_float32/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/double_int32/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/double_int64/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/feedforward/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/float_edges/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/gather/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/int64_edges/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/matmul/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/named_add/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/not_bool/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/reduce_sum/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/reshape/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v01/scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/bfloat16/accumulator/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/bfloat16/double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/bfloat16/dynamic/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/bfloat16/empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/bfloat16/scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/bfloat16/transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v02/dynamic-double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/gpu-rejections/empty-at-gpu-limit/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/gpu-rejections/empty-over-gpu-limit/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/gpu-rejections/nonempty-output-over-gpu-limit/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/large-tensors/gpu-limit-f32/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/large-tensors/h3-hidden/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/large-tensors/h3-rgb124/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/large-tensors/h3-rgb173/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v03/large-tensors/limit-f32/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e4m3fn_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e4m3fn_edges/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e4m3fn_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e4m3fn_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e4m3fn_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e5m2_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e5m2_edges/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e5m2_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e5m2_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/float8/float8_e5m2_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/float64_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/float64_edges/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/float64_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/float64_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/float64_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int16_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int16_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int16_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int16_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int16_wrap/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int8_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int8_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int8_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int8_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/int8_wrap/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint16_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint16_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint16_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint16_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint16_wrap/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint32_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint32_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint32_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint32_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint32_wrap/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint64_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint64_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint64_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint64_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint64_wrap/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint8_double/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint8_empty/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint8_scalar/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint8_transpose/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "fixtures/parity-v04/scalar-types/uint8_wrap/model.aimodel",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match"
+  },
+  {
+   "asset": "deep-511",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      13888
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "deep-512",
+   "oracle_error": "NSError",
+   "rust_error": "Core AI load_model failed: NSError",
+   "outcome": "both_rejected",
+   "inspect_asset": {
+    "error": "not a valid Core AI model asset: target/creator-metadata/assets/deep-512.aimodel"
+   }
+  },
+  {
+   "asset": "deep-511-dictionaries",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      15024
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "deep-512-dictionaries",
+   "oracle_error": "NSError",
+   "rust_error": "Core AI load_model failed: NSError",
+   "outcome": "both_rejected",
+   "inspect_asset": {
+    "error": "not a valid Core AI model asset: target/creator-metadata/assets/deep-512-dictionaries.aimodel"
+   }
+  },
+  {
+   "asset": "deep-511-alternating",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      14512
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "wide-65535",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      32192
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "wide-65536",
+   "oracle_error": null,
+   "rust_error": "unsupported: creator metadata holds more than 65536 values",
+   "outcome": "rust_limit",
+   "inspect_asset": {
+    "error": "unsupported: creator metadata holds more than 65536 values"
+   }
+  },
+  {
+   "asset": "wide-65537",
+   "oracle_error": null,
+   "rust_error": "unsupported: creator metadata holds more than 65536 values",
+   "outcome": "rust_limit",
+   "inspect_asset": {
+    "error": "unsupported: creator metadata holds more than 65536 values"
+   }
+  },
+  {
+   "asset": "string-value-1100000",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      17776
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "string-key-1100000",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      17792
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "string-bytes-over-budget",
+   "oracle_error": null,
+   "rust_error": "unsupported: creator metadata holds more than 16777216 string bytes",
+   "outcome": "rust_limit",
+   "inspect_asset": {
+    "error": "unsupported: creator metadata holds more than 16777216 string bytes"
+   }
+  },
+  {
+   "asset": "hand-written-canonical-keys",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "oracle_values": {
+    "value": {
+     "dictionary": {
+      "é": {
+       "string": "decomposed"
+      }
+     }
+    }
+   },
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      13440
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "null",
+   "oracle_error": "CoreAIAsset.AssetError",
+   "rust_error": "Core AI load_model failed: CoreAIAsset.AssetError",
+   "outcome": "both_rejected",
+   "inspect_asset": {
+    "error": "not a valid Core AI model asset: target/creator-metadata/assets/null.aimodel"
+   }
+  },
+  {
+   "asset": "uint64-max",
+   "oracle_error": "CoreAIAsset.AssetError",
+   "rust_error": "Core AI load_model failed: CoreAIAsset.AssetError",
+   "outcome": "both_rejected",
+   "inspect_asset": {
+    "error": "not a valid Core AI model asset: target/creator-metadata/assets/uint64-max.aimodel"
+   }
+  },
+  {
+   "asset": "overflow-1e999",
+   "oracle_error": "NSError",
+   "rust_error": "Core AI load_model failed: NSError",
+   "outcome": "both_rejected",
+   "inspect_asset": {
+    "error": "not a valid Core AI model asset: target/creator-metadata/assets/overflow-1e999.aimodel"
+   }
+  },
+  {
+   "asset": "hand-written-numbers",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 1,
+   "outcome": "match",
+   "oracle_values": {
+    "value": {
+     "dictionary": {
+      "exponent": {
+       "integer": 100
+      },
+      "half": {
+       "number_bits": "3fe0000000000000"
+      },
+      "huge": {
+       "number_bits": "43e158e460913d00"
+      },
+      "minus_zero": {
+       "bool": false
+      },
+      "one": {
+       "bool": true
+      },
+      "one_point_zero": {
+       "bool": true
+      },
+      "two_point_zero": {
+       "integer": 2
+      },
+      "zero_point_zero": {
+       "bool": false
+      }
+     }
+    }
+   },
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 1,
+    "rss_kib": [
+     [
+      0,
+      13376
+     ]
+    ]
+   }
+  },
+  {
+   "asset": "not-a-dictionary",
+   "oracle_error": null,
+   "rust_error": null,
+   "entries": 0,
+   "outcome": "match",
+   "inspect_asset": {
+    "inspections": 0,
+    "creator_entries": 0,
+    "rss_kib": [
+     [
+      0,
+      13424
+     ]
+    ]
+   }
+  }
+ ],
+ "repository_assets": 83,
+ "repository_assets_with_creator_metadata": [
+  "fixtures/asset-metadata-creator/model.aimodel"
+ ],
+ "soak": {
+  "inspections": 20000,
+  "creator_entries": 27,
+  "rss_kib": [
+   [
+    0,
+    13840
+   ],
+   [
+    1000,
+    14960
+   ],
+   [
+    2000,
+    14960
+   ],
+   [
+    3000,
+    14976
+   ],
+   [
+    4000,
+    14976
+   ],
+   [
+    5000,
+    14976
+   ],
+   [
+    6000,
+    14976
+   ],
+   [
+    7000,
+    14976
+   ],
+   [
+    8000,
+    14976
+   ],
+   [
+    9000,
+    14976
+   ],
+   [
+    10000,
+    14096
+   ],
+   [
+    11000,
+    13808
+   ],
+   [
+    12000,
+    13792
+   ],
+   [
+    13000,
+    13808
+   ],
+   [
+    14000,
+    13840
+   ],
+   [
+    15000,
+    13840
+   ],
+   [
+    16000,
+    13856
+   ],
+   [
+    17000,
+    13856
+   ],
+   [
+    18000,
+    13856
+   ],
+   [
+    19000,
+    13856
+   ],
+   [
+    20000,
+    13856
+   ]
+  ],
+  "growth_kib_after_warmup": -1120,
+  "window": [
+   4000,
+   20000
+  ]
+ },
+ "failures": [],
+ "commands": [
+  {
+   "command": [
+    "sw_vers",
+    "-productVersion"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "--version"
+   ],
+   "returncode": 0,
+   "stderr_tail": "swift-driver version: 1.168.6 "
+  },
+  {
+   "command": [
+    "xcrun",
+    "--show-sdk-path"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-module-cache-path",
+    "target/creator-metadata/module-cache",
+    "-O",
+    "-emit-ir",
+    "experiments/swift/CreatorMetadataReference.swift",
+    "-o",
+    "target/creator-metadata/reference-O.ll"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-module-cache-path",
+    "target/creator-metadata/module-cache",
+    "-Onone",
+    "-emit-ir",
+    "experiments/swift/CreatorMetadataReference.swift",
+    "-o",
+    "target/creator-metadata/reference-Onone.ll"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-module-cache-path",
+    "target/creator-metadata/module-cache",
+    "-Onone",
+    "-emit-sil",
+    "experiments/swift/CreatorMetadataReference.swift",
+    "-o",
+    "target/creator-metadata/reference-Onone.sil"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-module-cache-path",
+    "target/creator-metadata/module-cache",
+    "-O",
+    "-emit-sil",
+    "experiments/swift/CreatorMetadataReference.swift",
+    "-o",
+    "target/creator-metadata/reference-O.sil"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-module-cache-path",
+    "target/creator-metadata/module-cache",
+    "-O",
+    "experiments/swift/CreatorMetadataReference.swift",
+    "-o",
+    "target/creator-metadata/oracle"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "xcrun",
+    "swiftc",
+    "-parse-as-library",
+    "-module-cache-path",
+    "target/creator-metadata/module-cache",
+    "-O",
+    "experiments/swift/CreatorMetadataWriter.swift",
+    "-o",
+    "target/creator-metadata/writer"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/writer",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+    "target/creator-metadata/regenerated.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "/opt/homebrew/bin/cargo",
+    "build",
+    "--offline",
+    "-p",
+    "corsairs",
+    "--bin",
+    "corsairs",
+    "--release"
+   ],
+   "returncode": 0,
+   "stderr_tail": "   Compiling corsairs v0.4.1 (crates/corsairs-abi)\n    Finished `release` profile [optimized] target(s) in 2.70s\n"
+  },
+  {
+   "command": [
+    "target/creator-metadata/oracle",
+    "crates/corsairs-abi/models/accumulator.aimodel",
+    "crates/corsairs-abi/models/feedforward.aimodel",
+    "fixtures/asset-metadata/model.aimodel",
+    "fixtures/asset-metadata-creator/model.aimodel",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel",
+    "fixtures/parity-v01/accumulator/model.aimodel",
+    "fixtures/parity-v01/double_float16/model.aimodel",
+    "fixtures/parity-v01/double_float32/model.aimodel",
+    "fixtures/parity-v01/double_int32/model.aimodel",
+    "fixtures/parity-v01/double_int64/model.aimodel",
+    "fixtures/parity-v01/empty/model.aimodel",
+    "fixtures/parity-v01/feedforward/model.aimodel",
+    "fixtures/parity-v01/float_edges/model.aimodel",
+    "fixtures/parity-v01/gather/model.aimodel",
+    "fixtures/parity-v01/int64_edges/model.aimodel",
+    "fixtures/parity-v01/matmul/model.aimodel",
+    "fixtures/parity-v01/named_add/model.aimodel",
+    "fixtures/parity-v01/not_bool/model.aimodel",
+    "fixtures/parity-v01/reduce_sum/model.aimodel",
+    "fixtures/parity-v01/reshape/model.aimodel",
+    "fixtures/parity-v01/scalar/model.aimodel",
+    "fixtures/parity-v02/bfloat16/accumulator/model.aimodel",
+    "fixtures/parity-v02/bfloat16/double/model.aimodel",
+    "fixtures/parity-v02/bfloat16/dynamic/model.aimodel",
+    "fixtures/parity-v02/bfloat16/empty/model.aimodel",
+    "fixtures/parity-v02/bfloat16/scalar/model.aimodel",
+    "fixtures/parity-v02/bfloat16/transpose/model.aimodel",
+    "fixtures/parity-v02/dynamic-double/model.aimodel",
+    "fixtures/parity-v03/gpu-rejections/empty-at-gpu-limit/model.aimodel",
+    "fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel",
+    "fixtures/parity-v03/gpu-rejections/empty-over-gpu-limit/model.aimodel",
+    "fixtures/parity-v03/gpu-rejections/nonempty-output-over-gpu-limit/model.aimodel",
+    "fixtures/parity-v03/large-tensors/gpu-limit-f32/model.aimodel",
+    "fixtures/parity-v03/large-tensors/h3-hidden/model.aimodel",
+    "fixtures/parity-v03/large-tensors/h3-rgb124/model.aimodel",
+    "fixtures/parity-v03/large-tensors/h3-rgb173/model.aimodel",
+    "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel",
+    "fixtures/parity-v03/large-tensors/limit-f32/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e4m3fn_double/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e4m3fn_edges/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e4m3fn_empty/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e4m3fn_scalar/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e4m3fn_transpose/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e5m2_double/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e5m2_edges/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e5m2_empty/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e5m2_scalar/model.aimodel",
+    "fixtures/parity-v04/float8/float8_e5m2_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/float64_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/float64_edges/model.aimodel",
+    "fixtures/parity-v04/scalar-types/float64_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/float64_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/float64_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int16_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int16_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int16_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int16_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int16_wrap/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int8_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int8_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int8_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int8_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/int8_wrap/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint16_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint16_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint16_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint16_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint16_wrap/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint32_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint32_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint32_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint32_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint32_wrap/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint64_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint64_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint64_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint64_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint64_wrap/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint8_double/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint8_empty/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint8_scalar/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint8_transpose/model.aimodel",
+    "fixtures/parity-v04/scalar-types/uint8_wrap/model.aimodel",
+    "target/creator-metadata/assets/deep-511.aimodel",
+    "target/creator-metadata/assets/deep-512.aimodel",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel",
+    "target/creator-metadata/assets/deep-512-dictionaries.aimodel",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel",
+    "target/creator-metadata/assets/wide-65535.aimodel",
+    "target/creator-metadata/assets/wide-65536.aimodel",
+    "target/creator-metadata/assets/wide-65537.aimodel",
+    "target/creator-metadata/assets/string-value-1100000.aimodel",
+    "target/creator-metadata/assets/string-key-1100000.aimodel",
+    "target/creator-metadata/assets/string-bytes-over-budget.aimodel",
+    "target/creator-metadata/assets/hand-written-canonical-keys.aimodel",
+    "target/creator-metadata/assets/null.aimodel",
+    "target/creator-metadata/assets/uint64-max.aimodel",
+    "target/creator-metadata/assets/overflow-1e999.aimodel",
+    "target/creator-metadata/assets/hand-written-numbers.aimodel",
+    "target/creator-metadata/assets/not-a-dictionary.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "crates/corsairs-abi/models/accumulator.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "crates/corsairs-abi/models/feedforward.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/asset-metadata/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/asset-metadata-creator/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/double_f32_2x3/double_f32_2x3.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/accumulator/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/double_float16/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/double_float32/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/double_int32/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/double_int64/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/feedforward/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/float_edges/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/gather/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/int64_edges/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/matmul/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/named_add/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/not_bool/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/reduce_sum/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/reshape/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v01/scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/bfloat16/accumulator/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/bfloat16/double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/bfloat16/dynamic/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/bfloat16/empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/bfloat16/scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/bfloat16/transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v02/dynamic-double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/gpu-rejections/empty-at-gpu-limit/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/gpu-rejections/empty-output-over-gpu-limit/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/gpu-rejections/empty-over-gpu-limit/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/gpu-rejections/nonempty-output-over-gpu-limit/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/large-tensors/gpu-limit-f32/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/large-tensors/h3-hidden/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/large-tensors/h3-rgb124/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/large-tensors/h3-rgb173/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/large-tensors/h3-rgb345/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v03/large-tensors/limit-f32/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e4m3fn_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e4m3fn_edges/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e4m3fn_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e4m3fn_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e4m3fn_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e5m2_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e5m2_edges/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e5m2_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e5m2_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/float8/float8_e5m2_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/float64_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/float64_edges/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/float64_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/float64_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/float64_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int16_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int16_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int16_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int16_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int16_wrap/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int8_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int8_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int8_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int8_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/int8_wrap/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint16_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint16_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint16_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint16_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint16_wrap/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint32_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint32_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint32_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint32_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint32_wrap/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint64_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint64_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint64_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint64_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint64_wrap/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint8_double/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint8_empty/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint8_scalar/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint8_transpose/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "fixtures/parity-v04/scalar-types/uint8_wrap/model.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-512.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"Core AI load_model failed: NSError\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-512-dictionaries.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"Core AI load_model failed: NSError\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/wide-65535.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/wide-65536.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"unsupported: creator metadata holds more than 65536 values\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/wide-65537.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"unsupported: creator metadata holds more than 65536 values\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/string-value-1100000.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/string-key-1100000.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/string-bytes-over-budget.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"unsupported: creator metadata holds more than 16777216 string bytes\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/hand-written-canonical-keys.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/null.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"Core AI load_model failed: CoreAIAsset.AssetError\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/uint64-max.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"Core AI load_model failed: CoreAIAsset.AssetError\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/overflow-1e999.aimodel"
+   ],
+   "returncode": 1,
+   "stderr_tail": "{\"error\":\"Core AI load_model failed: NSError\"}\n"
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/hand-written-numbers.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/release/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/not-a-dictionary.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "/opt/homebrew/bin/cargo",
+    "build",
+    "--offline",
+    "-p",
+    "corsairs",
+    "--lib",
+    "--release"
+   ],
+   "returncode": 0,
+   "stderr_tail": "    Finished `release` profile [optimized] target(s) in 0.00s\n"
+  },
+  {
+   "command": [
+    "/opt/homebrew/bin/rustc",
+    "--edition=2024",
+    "-Dwarnings",
+    "-C",
+    "opt-level=3",
+    "experiments/rust/creator_metadata_soak.rs",
+    "--extern",
+    "corsairs=target/release/libcorsairs.rlib",
+    "-L",
+    "dependency=target/release/deps",
+    "-o",
+    "target/creator-metadata/creator-metadata-soak"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-511.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-512.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-512-dictionaries.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/wide-65535.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/wide-65536.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/wide-65537.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/string-value-1100000.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/string-key-1100000.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/string-bytes-over-budget.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/hand-written-canonical-keys.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/null.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/uint64-max.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/overflow-1e999.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/hand-written-numbers.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "target/creator-metadata/assets/not-a-dictionary.aimodel",
+    "0"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "/opt/homebrew/bin/cargo",
+    "build",
+    "--offline",
+    "-p",
+    "corsairs",
+    "--bin",
+    "corsairs"
+   ],
+   "returncode": 0,
+   "stderr_tail": "   Compiling corsairs v0.4.1 (crates/corsairs-abi)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.58s\n"
+  },
+  {
+   "command": [
+    "target/debug/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/debug/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-dictionaries.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/debug/corsairs",
+    "inspect",
+    "target/creator-metadata/assets/deep-511-alternating.aimodel"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  },
+  {
+   "command": [
+    "target/creator-metadata/creator-metadata-soak",
+    "fixtures/asset-metadata-creator/model.aimodel",
+    "20000"
+   ],
+   "returncode": 0,
+   "stderr_tail": ""
+  }
+ ]
+}

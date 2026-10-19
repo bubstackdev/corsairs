@@ -12,7 +12,9 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 mod asset;
-pub use asset::{AssetCount, AssetFunction, AssetInfo, AssetMetadata, AssetSummary, AssetValue};
+pub use asset::{
+    AssetCount, AssetFunction, AssetInfo, AssetMetadata, AssetSummary, AssetValue, CreatorValue,
+};
 mod function_batch;
 #[cfg(feature = "abi-research")]
 pub use function_batch::FunctionBatchLoadReport;

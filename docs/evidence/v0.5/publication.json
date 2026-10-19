@@ -1,0 +1,25 @@
+{
+ "version": "0.5.0",
+ "published": true,
+ "source_commit": "414e7c13f01266717c0e3671628c959286d96d08",
+ "tag": "v0.5.0",
+ "crate_url": "https://crates.io/crates/corsairs/0.5.0",
+ "github_release_url": "https://github.com/bubstackdev/corsairs/releases/tag/v0.5.0",
+ "registry_published_at": "2026-10-19T00:25:36.799976Z",
+ "registry_published_by": "zak-keown",
+ "registry_archive_sha256": "1c0124742e29b0e29bf389415f7d9eae0e8c850ec10249198098053e9b2f715c",
+ "archive_bytes": 137879,
+ "registry_checksum_verified": true,
+ "registry_download_identical_to_dist_archive": true,
+ "dist_archive": "dist/corsairs-0.5.0/corsairs-0.5.0.crate",
+ "pre_commit_candidate_sha256": "935e390af0428e9440bae01c1c6d08379bf8a20e60f7d2d1c27547b28c9f5b75",
+ "changed_archive_members": [
+  ".cargo_vcs_info.json"
+ ],
+ "package_verification": "check_package_v03.py --native passed for the clean merge commit before upload",
+ "upload_method": "cargo publish --locked -p corsairs, run by the owner from the clean main checkout; Cargo packaged 57 files, verified the build and reported successful publication.",
+ "incidents": [
+  "A v0.5.0 tag was first pushed at bfd2740, before the release PR merged. It was deleted before any publish succeeded; a cargo publish attempt from that checkout was refused because 0.4.1 already existed. The final tag points at the merge commit."
+ ],
+ "consumer": "Fresh crates.io dependency =0.5.0 downloaded with Cargo; native run recorded in registry-consumer.json."
+}

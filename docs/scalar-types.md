@@ -8,8 +8,11 @@ by the Rust primitives `f64`, `i8`, `i16`, `u8`, `u16`, `u32` and `u64`. Each ma
 matching `NDArray.ScalarType` case. Storage is little-endian, and float64 NaN
 payloads are kept bit for bit. `DType` is now `#[non_exhaustive]`.
 `DType::all()` (added in v0.4.1) returns every supported type as a slice that
-can grow. The fixed-length `DType::ALL` array keeps its v0.4.0 contents (13 types,
-no float8) so its type stays stable, and is deprecated.
+can grow.
+
+Breaking change in v0.5: the fixed-length `DType::ALL: [DType; 13]` array,
+deprecated in v0.4.1, is removed. It held only the v0.4.0 types (no float8);
+use `DType::all()`, which returns every supported type.
 
 Core AI defines 35 scalar types. The packed sub-byte types (`int2`–`int7`,
 `uint1`–`uint7`, `float4e2m1fn`), `float8e8m0fn`, the 128-bit integers and the

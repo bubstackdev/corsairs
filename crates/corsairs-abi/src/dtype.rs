@@ -59,26 +59,6 @@ impl DType {
     pub const fn all() -> &'static [Self] {
         &SUPPORTED
     }
-    /// The 13 scalar types of v0.4.0, kept so this array's type does not change.
-    #[deprecated(
-        since = "0.4.1",
-        note = "omits newer types such as float8; use `DType::all()`"
-    )]
-    pub const ALL: [Self; 13] = [
-        Self::Float16,
-        Self::BFloat16,
-        Self::Float32,
-        Self::Float64,
-        Self::Int8,
-        Self::Int16,
-        Self::Int32,
-        Self::Int64,
-        Self::UInt8,
-        Self::UInt16,
-        Self::UInt32,
-        Self::UInt64,
-        Self::Bool,
-    ];
     /// Number of bytes in one scalar.
     pub const fn byte_width(self) -> usize {
         match self {
@@ -777,13 +757,6 @@ mod tests {
         assert_eq!(bits, nan.to_bits(), "NaN payloads are stored verbatim");
         let names: std::collections::HashSet<_> = DType::all().iter().map(|d| d.name()).collect();
         assert_eq!(names.len(), DType::all().len());
-        #[allow(deprecated, reason = "the v0.4.0 array keeps its published contents")]
-        let published = DType::ALL;
-        assert_eq!(published.len(), 13);
-        assert!(published.iter().all(|dtype| DType::all().contains(dtype)));
-        assert!(
-            !published.contains(&DType::Float8E4M3Fn) && !published.contains(&DType::Float8E5M2)
-        );
     }
 
     #[test]

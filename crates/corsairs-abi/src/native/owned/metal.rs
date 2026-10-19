@@ -665,6 +665,11 @@ impl NativeSession {
                 .functions
                 .get(&function)
                 .ok_or_else(|| invalid("function", function))?;
+            if function.descriptor.has_images() {
+                return Err(NativeFailure::Unsupported(
+                    "Metal encode does not bind image values; use Function::run_with_images".into(),
+                ));
+            }
             if gpu {
                 super::run_stream::gpu_descriptors(&function.descriptor)?;
             }

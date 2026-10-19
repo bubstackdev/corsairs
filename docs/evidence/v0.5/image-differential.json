@@ -1,0 +1,496 @@
+{
+ "schema": 1,
+ "summary": {
+  "compared": 27,
+  "agree": 27,
+  "not_comparable": 30
+ },
+ "rows": [
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_from_tensor",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "RGB24 unchanged",
+   "agree": true
+  },
+  {
+   "model": "RGB24_from_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "RGB24 unchanged",
+   "agree": true
+  },
+  {
+   "model": "RGB24_from_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "RGB24 unchanged",
+   "agree": true
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 24"
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_from_tensor",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "b3 decodes 32-bit output as BGRA: swap_rb(Swift buffer)",
+   "agree": true
+  },
+  {
+   "model": "ARGB32_from_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "b3 decodes 32-bit output as BGRA: swap_rb(Swift buffer)",
+   "agree": true
+  },
+  {
+   "model": "ARGB32_from_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "b3 decodes 32-bit output as BGRA: swap_rb(Swift buffer)",
+   "agree": true
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "cpu",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "threw",
+   "swift_outcome": "completed",
+   "agree": null,
+   "rule": "b3 always supplies 32BGRA; not comparable",
+   "b3_error": "x has an invalid pixel format: 1111970369, expected: 32"
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_from_tensor",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "b3 decodes 32-bit output as BGRA: swap_rb(Swift buffer)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_from_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "b3 decodes 32-bit output as BGRA: swap_rb(Swift buffer)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_from_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "b3 decodes 32-bit output as BGRA: swap_rb(Swift buffer)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "image output decodes to Swift bytes",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "image output decodes to Swift bytes",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "image output decodes to Swift bytes",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "image output decodes to Swift bytes",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "image output decodes to Swift bytes",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "image output decodes to Swift bytes",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "swap_rb(Swift tensor)",
+   "agree": true
+  },
+  {
+   "model": "uint8_invert_tensor",
+   "backend": "cpu",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "identical tensor bytes",
+   "agree": true
+  },
+  {
+   "model": "uint8_invert_tensor",
+   "backend": "gpu-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "identical tensor bytes",
+   "agree": true
+  },
+  {
+   "model": "uint8_invert_tensor",
+   "backend": "neural-engine-preferred",
+   "b3_outcome": "completed",
+   "swift_outcome": "completed",
+   "rule": "identical tensor bytes",
+   "agree": true
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+  "model" : "BGRA32_identity",
+  "soak" : {
+    "cpu_only" : {
+      "inexact_or_failed" : 0,
+      "iterations" : 20000,
+      "rss_samples" : [
+        {
+          "iteration" : 0,
+          "rss" : 11616256
+        },
+        {
+          "iteration" : 2000,
+          "rss" : 12435456
+        },
+        {
+          "iteration" : 4000,
+          "rss" : 12550144
+        },
+        {
+          "iteration" : 6000,
+          "rss" : 12632064
+        },
+        {
+          "iteration" : 8000,
+          "rss" : 12632064
+        },
+        {
+          "iteration" : 10000,
+          "rss" : 12632064
+        },
+        {
+          "iteration" : 12000,
+          "rss" : 12648448
+        },
+        {
+          "iteration" : 14000,
+          "rss" : 12648448
+        },
+        {
+          "iteration" : 16000,
+          "rss" : 12648448
+        },
+        {
+          "iteration" : 18000,
+          "rss" : 12648448
+        },
+        {
+          "iteration" : 20000,
+          "rss" : 12648448
+        }
+      ]
+    }
+  }
+}

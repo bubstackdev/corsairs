@@ -78,9 +78,11 @@ Both examples forbid unsafe code and include tiny model assets. The CLI supports
 | Ownership | Native values stay on one worker per runtime; cloned handles share its serialized queue |
 | Errors | Checked tensor construction/signatures and typed native, binding, and worker errors |
 
-Scalar and empty tensors are supported. For empty tensors, the corresponding size guard also applies to the product of nonzero dimensions and scalar width. Non-tensor values are rejected. Dynamic outputs are bounded only after completion; stateful owned/native GPU signatures retain a fixed 1 GiB envelope. GPU preference permits fallback choices and does not prove which device executed an operation.
+Scalar and empty tensors are supported. For empty tensors, the corresponding size guard also applies to the product of nonzero dimensions and scalar width. Packed image values are supported as described below; other value kinds are rejected. Dynamic outputs are bounded only after completion; stateful owned/native GPU signatures retain a fixed 1 GiB envelope. GPU preference permits fallback choices and does not prove which device executed an operation.
 
-Graph authoring, custom Metal kernels, images/pixel buffers, packed low-bit formats, profiling callbacks, and restricting execution to the Neural Engine (Core AI exposes only a preference) are deferred. Core AI cannot stop running work; `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
+[Image I/O](docs/image-io.md) (targeting v0.5.0) runs functions with packed `24RGB`, `32ARGB` and `32BGRA` image inputs and outputs through `Function::run_with_images` with owned `Image` values, on every compute preference, byte-exact against Swift-oracle and b3 goldens. Bytes stay in CoreVideo memory order. Planar 4:2:0 traps Core AI, so such functions are described but every run is rejected before dispatch. v0.5 breaking changes: `FunctionDescriptor` and `RunResult` gain image fields and become `#[non_exhaustive]`, and `load_function` now succeeds on image signatures.
+
+Graph authoring, custom Metal kernels, planar images, image chaining through native handles or Metal, packed low-bit formats, profiling callbacks, and restricting execution to the Neural Engine (Core AI exposes only a preference) are deferred. Core AI cannot stop running work; `Task::cancel_handle` prevents requests that are still queued ([investigation](docs/cancellation.md)). The default feature set is empty; the native module is private. `abi-research` exposes unsafe development probes outside the normal API.
 
 ## Verification
 

@@ -25,6 +25,8 @@ pub use batch::ModelLoadRequest;
 pub use batch::{BatchLoadMetrics, BatchLoadReport};
 mod handles;
 pub use handles::{NativeRunResult, TensorHandle, TensorHandleMap};
+mod image;
+pub use image::{Image, ImageDescriptor, ImageMap, PixelFormat};
 mod metal;
 pub use metal::{
     MetalBuffer, MetalBufferMap, MetalObject, MetalQueue, MetalRunResult, MetalValue, MetalValueMap,
@@ -98,7 +100,11 @@ pub struct TensorDescriptor {
 }
 
 /// The named signature of a loaded function.
+///
+/// Tensor and image values are listed separately, so `inputs` and `outputs`
+/// contain only tensors. Since v0.5 this struct is `#[non_exhaustive]`.
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[non_exhaustive]
 pub struct FunctionDescriptor {
     /// Native function name.
     pub name: String,
@@ -108,6 +114,10 @@ pub struct FunctionDescriptor {
     pub outputs: Vec<TensorDescriptor>,
     /// Required named state tensors.
     pub states: Vec<TensorDescriptor>,
+    /// Required named input images; pass them to [`Function::run_with_images`].
+    pub image_inputs: Vec<ImageDescriptor>,
+    /// Named output images, returned in [`RunResult::images`].
+    pub image_outputs: Vec<ImageDescriptor>,
 }
 
 /// An owned collection of tensors indexed by native operand name.
@@ -183,12 +193,16 @@ impl<const N: usize, K: Into<String>> From<[(K, Tensor); N]> for TensorMap {
 }
 
 /// Owned outputs and the updated state after one completed inference call.
+/// Since v0.5 this struct is `#[non_exhaustive]`.
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[non_exhaustive]
 pub struct RunResult {
     /// Function outputs copied into contiguous Rust-owned storage.
     pub outputs: TensorMap,
     /// State tensors after execution; pass these into the next step.
     pub states: TensorMap,
+    /// Image outputs, copied with tight rows in CoreVideo memory order.
+    pub images: ImageMap,
 }
 
 /// A Core AI session backed by one dedicated native worker.
@@ -367,18 +381,38 @@ impl Function {
     }
     /// Submit inference with owned named inputs and state. Updated state is
     /// returned in RunResult; calls on this runtime execute in submission order.
+    ///
+    /// Image outputs are returned in [`RunResult::images`]. A function with
+    /// image inputs requires [`Function::run_with_images`].
     pub fn run(&self, inputs: TensorMap, states: TensorMap) -> Task<RunResult> {
+        self.run_with_images(inputs, ImageMap::new(), states)
+    }
+    /// Submit inference with owned named tensor and image inputs.
+    ///
+    /// Images must match their descriptor's pixel format and size exactly;
+    /// Corsairs copies them into memory-backed CVPixelBuffers, honoring row
+    /// padding, without converting pixels. Functions whose image formats are
+    /// not a [`PixelFormat`] fail with [`Error::Unsupported`] before dispatch.
+    pub fn run_with_images(
+        &self,
+        inputs: TensorMap,
+        images: ImageMap,
+        states: TensorMap,
+    ) -> Task<RunResult> {
         let function = self.clone();
         self.0.model.0.runtime.worker.submit(move |session| {
-            validate(&function.0.descriptor.inputs, &inputs, "input")?;
-            validate(&function.0.descriptor.states, &states, "state")?;
+            let descriptor = &function.0.descriptor;
+            validate(&descriptor.inputs, &inputs, "input")?;
+            image::validate_images(&descriptor.image_inputs, &descriptor.image_outputs, &images)?;
+            validate(&descriptor.states, &states, "state")?;
             // SAFETY: Owned inputs/state and a retained function live inside
             // this request until native completion, even if its future is dropped.
             let result = unsafe {
                 session
-                    .run(
+                    .run_with_images(
                         function.0.id,
                         inputs.into_native(),
+                        images.into_native(),
                         states.into_native(),
                         Vec::new(),
                     )
@@ -387,6 +421,7 @@ impl Function {
             Ok(RunResult {
                 outputs: TensorMap::from_native(result.outputs)?,
                 states: TensorMap::from_native(result.states)?,
+                images: ImageMap::from_native(result.images)?,
             })
         })
     }
@@ -492,6 +527,16 @@ fn descriptor(value: NativeFunctionDescriptor) -> FunctionDescriptor {
         inputs: value.inputs.into_iter().map(tensor).collect(),
         outputs: value.outputs.into_iter().map(tensor).collect(),
         states: value.states.into_iter().map(tensor).collect(),
+        image_inputs: value
+            .image_inputs
+            .into_iter()
+            .map(ImageDescriptor::from_native)
+            .collect(),
+        image_outputs: value
+            .image_outputs
+            .into_iter()
+            .map(ImageDescriptor::from_native)
+            .collect(),
     }
 }
 fn native_error(error: NativeFailure) -> Error {
@@ -568,6 +613,8 @@ mod tests {
         check::<Tensor>();
         check::<TensorMap>();
         check::<RunResult>();
+        check::<Image>();
+        check::<ImageMap>();
         check::<Task<RunResult>>();
     }
     #[test]

@@ -1,0 +1,753 @@
+{
+ "backends": {
+  "cpu": {
+   "ARGB32_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_from_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_identity": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_identity_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_invert": {
+    "y": {
+     "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+     "matches_expected": true,
+     "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_from_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_identity": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_identity_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_invert": {
+    "y": {
+     "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+     "matches_expected": true,
+     "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_from_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_identity": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_identity_3x5": {
+    "y": {
+     "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+     "matches_expected": true,
+     "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_invert": {
+    "y": {
+     "hex": "fefbf8f3f0ede8e5e2dddad7d9d6d3cecbc8c3c0bdb8b5b2",
+     "matches_expected": true,
+     "sha256": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_to_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+     "matches_expected": true,
+     "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "mixed_bgra32": {
+    "y": {
+     "hex": "504d4a4745423f3c3a3734312f2c29262b282522201d1a1715120f0c0a070401",
+     "matches_expected": true,
+     "sha256": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
+     "sources": [
+      "b3"
+     ]
+    },
+    "z": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3"
+     ]
+    }
+   }
+  },
+  "gpu-preferred": {
+   "ARGB32_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_from_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_identity": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_identity_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_invert": {
+    "y": {
+     "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+     "matches_expected": true,
+     "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_from_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_identity": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_identity_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_invert": {
+    "y": {
+     "hex": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af",
+     "matches_expected": true,
+     "sha256": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_from_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_identity": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_identity_3x5": {
+    "y": {
+     "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+     "matches_expected": true,
+     "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_invert": {
+    "y": {
+     "hex": "fefbf8f3f0ede8e5e2dddad7d9d6d3cecbc8c3c0bdb8b5b2",
+     "matches_expected": true,
+     "sha256": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_to_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+     "matches_expected": true,
+     "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "mixed_bgra32": {
+    "y": {
+     "hex": "504d4a4745423f3c3a3734312f2c29262b282522201d1a1715120f0c0a070401",
+     "matches_expected": true,
+     "sha256": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
+     "sources": [
+      "b3"
+     ]
+    },
+    "z": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3"
+     ]
+    }
+   }
+  },
+  "neural-engine-preferred": {
+   "ARGB32_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_from_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_identity": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_identity_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_invert": {
+    "y": {
+     "hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+     "matches_expected": false,
+     "reviewed": "Neural Engine preference returns 255 for uint8 255 - x; reproduced without images by the tensor-only uint8_invert_tensor control (docs/image-io.md)",
+     "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "ARGB32_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_from_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_identity": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_identity_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_invert": {
+    "y": {
+     "hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+     "matches_expected": false,
+     "reviewed": "Neural Engine preference returns 255 for uint8 255 - x; reproduced without images by the tensor-only uint8_invert_tensor control (docs/image-io.md)",
+     "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_to_tensor": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "BGRA32_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+     "matches_expected": true,
+     "sha256": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_aligned_to_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_from_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "b3",
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_identity": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_identity_3x5": {
+    "y": {
+     "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+     "matches_expected": true,
+     "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_invert": {
+    "y": {
+     "hex": "ffffffffffffffffffffffffffffffffffffffffffffffff",
+     "matches_expected": false,
+     "reviewed": "Neural Engine preference returns 255 for uint8 255 - x; reproduced without images by the tensor-only uint8_invert_tensor control (docs/image-io.md)",
+     "sha256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_to_tensor": {
+    "y": {
+     "hex": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+     "matches_expected": true,
+     "sha256": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "RGB24_to_tensor_3x5": {
+    "y": {
+     "hex": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+     "matches_expected": true,
+     "sha256": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365",
+     "sources": [
+      "swift-oracle"
+     ]
+    }
+   },
+   "mixed_bgra32": {
+    "y": {
+     "hex": "504d4a4745423f3c3a3734312f2c29262b282522201d1a1715120f0c0a070401",
+     "matches_expected": true,
+     "sha256": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
+     "sources": [
+      "b3"
+     ]
+    },
+    "z": {
+     "hex": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+     "matches_expected": true,
+     "sha256": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861",
+     "sources": [
+      "b3"
+     ]
+    }
+   }
+  }
+ },
+ "reviewed": [
+  {
+   "backend": "neural-engine-preferred",
+   "case": "ARGB32_invert",
+   "output": "y",
+   "reason": "Neural Engine preference returns 255 for uint8 255 - x; reproduced without images by the tensor-only uint8_invert_tensor control (docs/image-io.md)",
+   "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
+  },
+  {
+   "backend": "neural-engine-preferred",
+   "case": "BGRA32_invert",
+   "output": "y",
+   "reason": "Neural Engine preference returns 255 for uint8 255 - x; reproduced without images by the tensor-only uint8_invert_tensor control (docs/image-io.md)",
+   "sha256": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
+  },
+  {
+   "backend": "neural-engine-preferred",
+   "case": "RGB24_invert",
+   "output": "y",
+   "reason": "Neural Engine preference returns 255 for uint8 255 - x; reproduced without images by the tensor-only uint8_invert_tensor control (docs/image-io.md)",
+   "sha256": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6"
+  }
+ ],
+ "schema": 1,
+ "sources": {
+  "b3": "4cfdc47643ba9f3eb15bc0533f4a45a6c73084f231987734e44f60317c18f398",
+  "swift-oracle": "5932a43a014db14fe27b6b8e90ef47b90c858482d88f76c174a7b7abfa0bb6de"
+ },
+ "suite_sha256": "69577707878089f75f25a9099616785435f15340a97ab48072ffb29b53490724"
+}

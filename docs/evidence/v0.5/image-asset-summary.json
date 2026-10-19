@@ -1,0 +1,477 @@
+{
+  "assets" : [
+    {
+      "is_valid" : true,
+      "metadata" : {
+        "author" : "",
+        "creation_unix_seconds" : 1792364811,
+        "description" : "",
+        "license" : ""
+      },
+      "path" : "RGB24_identity\/model.aimodel",
+      "summary_false" : {
+        "compute_types" : [
+
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 24RGB)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 24RGB)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+
+        ],
+        "storage_types" : [
+
+        ]
+      },
+      "summary_true" : {
+        "compute_types" : [
+          "UInt8",
+          "image"
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 24RGB)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 24RGB)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+          {
+            "count" : 1,
+            "name" : "image_to_tensor"
+          },
+          {
+            "count" : 1,
+            "name" : "tensor_to_image"
+          }
+        ],
+        "storage_types" : [
+
+        ]
+      }
+    },
+    {
+      "is_valid" : true,
+      "metadata" : {
+        "author" : "",
+        "creation_unix_seconds" : 1792364811,
+        "description" : "",
+        "license" : ""
+      },
+      "path" : "ARGB32_identity\/model.aimodel",
+      "summary_false" : {
+        "compute_types" : [
+
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 32ARGB)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 32ARGB)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+
+        ],
+        "storage_types" : [
+
+        ]
+      },
+      "summary_true" : {
+        "compute_types" : [
+          "UInt8",
+          "image"
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 32ARGB)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 32ARGB)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+          {
+            "count" : 1,
+            "name" : "image_to_tensor"
+          },
+          {
+            "count" : 1,
+            "name" : "tensor_to_image"
+          }
+        ],
+        "storage_types" : [
+
+        ]
+      }
+    },
+    {
+      "is_valid" : true,
+      "metadata" : {
+        "author" : "",
+        "creation_unix_seconds" : 1792364811,
+        "description" : "",
+        "license" : ""
+      },
+      "path" : "BGRA32_identity\/model.aimodel",
+      "summary_false" : {
+        "compute_types" : [
+
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 32BGRA)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 32BGRA)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+
+        ],
+        "storage_types" : [
+
+        ]
+      },
+      "summary_true" : {
+        "compute_types" : [
+          "UInt8",
+          "image"
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 32BGRA)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 32BGRA)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+          {
+            "count" : 1,
+            "name" : "image_to_tensor"
+          },
+          {
+            "count" : 1,
+            "name" : "tensor_to_image"
+          }
+        ],
+        "storage_types" : [
+
+        ]
+      }
+    },
+    {
+      "is_valid" : true,
+      "metadata" : {
+        "author" : "",
+        "creation_unix_seconds" : 1792364811,
+        "description" : "",
+        "license" : ""
+      },
+      "path" : "YpCbCr8420Planar_identity\/model.aimodel",
+      "summary_false" : {
+        "compute_types" : [
+
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 420YpCbCr8Planar)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 420YpCbCr8Planar)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+
+        ],
+        "storage_types" : [
+
+        ]
+      },
+      "summary_true" : {
+        "compute_types" : [
+          "UInt8",
+          "image"
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 420YpCbCr8Planar)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "Image (4 × 2, 420YpCbCr8Planar)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+          {
+            "count" : 1,
+            "name" : "image_to_tensor"
+          },
+          {
+            "count" : 1,
+            "name" : "tensor_to_image"
+          }
+        ],
+        "storage_types" : [
+
+        ]
+      }
+    },
+    {
+      "is_valid" : true,
+      "metadata" : {
+        "author" : "",
+        "creation_unix_seconds" : 1792364811,
+        "description" : "",
+        "license" : ""
+      },
+      "path" : "BGRA32_to_tensor_3x5\/model.aimodel",
+      "summary_false" : {
+        "compute_types" : [
+
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (5 × 3, 32BGRA)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "NDArray (UInt8, 3 × 5 × 4)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+
+        ],
+        "storage_types" : [
+
+        ]
+      },
+      "summary_true" : {
+        "compute_types" : [
+          "UInt8",
+          "image"
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (5 × 3, 32BGRA)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "NDArray (UInt8, 3 × 5 × 4)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+          {
+            "count" : 1,
+            "name" : "image_to_tensor"
+          }
+        ],
+        "storage_types" : [
+
+        ]
+      }
+    },
+    {
+      "is_valid" : true,
+      "metadata" : {
+        "author" : "",
+        "creation_unix_seconds" : 1792364811,
+        "description" : "",
+        "license" : ""
+      },
+      "path" : "BGRA32_aligned_to_tensor\/model.aimodel",
+      "summary_false" : {
+        "compute_types" : [
+
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 32BGRA)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "NDArray (UInt8, 2 × 4 × 4)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+
+        ],
+        "storage_types" : [
+
+        ]
+      },
+      "summary_true" : {
+        "compute_types" : [
+          "UInt8",
+          "image"
+        ],
+        "functions" : [
+          {
+            "inputs" : [
+              {
+                "name" : "x",
+                "type_name" : "Image (4 × 2, 32BGRA)"
+              }
+            ],
+            "name" : "main",
+            "outputs" : [
+              {
+                "name" : "y",
+                "type_name" : "NDArray (UInt8, 2 × 4 × 4)"
+              }
+            ],
+            "states" : [
+
+            ]
+          }
+        ],
+        "operations" : [
+          {
+            "count" : 1,
+            "name" : "image_to_tensor"
+          }
+        ],
+        "storage_types" : [
+
+        ]
+      }
+    }
+  ],
+  "device_architecture" : "h17c"
+}

@@ -44,8 +44,9 @@ pub use owned::NativeBatchMetrics;
 pub use owned::{NativeAssetFunction, NativeAssetInfo, NativeAssetValue, NativeCreatorValue};
 pub use owned::{
     NativeBatchOutcome, NativeCompute, NativeDType, NativeFailure, NativeFunctionBatchOutcome,
-    NativeFunctionDescriptor, NativeLoadOptions, NativeMetalInput, NativeMetalObject,
-    NativeMetalTensor, NativeSession, NativeTensor, NativeTensorDescriptor, NativeTensorHandle,
+    NativeFunctionDescriptor, NativeImage, NativeImageDescriptor, NativeLoadOptions,
+    NativeMetalInput, NativeMetalObject, NativeMetalTensor, NativeSession, NativeTensor,
+    NativeTensorDescriptor, NativeTensorHandle,
 };
 #[cfg(feature = "abi-research")]
 pub use owned::{NativeFunction, NativeModel, NativeRunResult};
@@ -55,6 +56,7 @@ pub use task::TaskReport;
 pub use tensor::TensorReport;
 
 use loader::Library;
+pub(crate) use owned::image;
 use std::ffi::CStr;
 
 /// Holds the framework open for the lifetime of every native call and value.

@@ -1,0 +1,553 @@
+{
+ "schema": 1,
+ "ir": "target/image/image.ll",
+ "sdk": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+ "swiftc": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+ "symbols": {
+  "image_case_tag": {
+   "symbol": "$s13CoreAIRuntime14InferenceValueV10DescriptorO5imageyAeA05ImageE0VcAEmFWC",
+   "declaration": "@\"$s13CoreAIRuntime14InferenceValueV10DescriptorO5imageyAeA05ImageE0VcAEmFWC\" = external local_unnamed_addr constant i32, align 4",
+   "call_sites": [
+    {
+     "wrapper": "$s5image0A10Descriptory13CoreAIRuntime05ImageB0VSgAC14InferenceValueV0B0OnF",
+     "ir": "%14 = load i32, ptr @\"$s13CoreAIRuntime14InferenceValueV10DescriptorO5imageyAeA05ImageE0VcAEmFWC\", align 4"
+    },
+    {
+     "wrapper": "$s5image8describeyyp13CoreAIRuntime14InferenceValueV10DescriptorOSgF",
+     "ir": "%32 = load i32, ptr @\"$s13CoreAIRuntime14InferenceValueV10DescriptorO5imageyAeA05ImageE0VcAEmFWC\", align 4"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "image_descriptor_metadata": {
+   "symbol": "$s13CoreAIRuntime15ImageDescriptorVMa",
+   "declaration": "declare swiftcc %swift.metadata_response @\"$s13CoreAIRuntime15ImageDescriptorVMa\"(i64)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image0A10Descriptory13CoreAIRuntime05ImageB0VSgAC14InferenceValueV0B0OnF",
+     "ir": "%18 = call swiftcc %swift.metadata_response @\"$s13CoreAIRuntime15ImageDescriptorVMa\"(i64 0) #45"
+    },
+    {
+     "wrapper": "$s5image0A10Descriptory13CoreAIRuntime05ImageB0VSgAC14InferenceValueV0B0OnF",
+     "ir": "%25 = call swiftcc %swift.metadata_response @\"$s13CoreAIRuntime15ImageDescriptorVMa\"(i64 0) #45"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "image_width": {
+   "symbol": "$s13CoreAIRuntime15ImageDescriptorV5widthSivg",
+   "declaration": "declare swiftcc i64 @\"$s13CoreAIRuntime15ImageDescriptorV5widthSivg\"(ptr noalias swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image0A5WidthySi13CoreAIRuntime15ImageDescriptorVF",
+     "ir": "%1 = tail call swiftcc i64 @\"$s13CoreAIRuntime15ImageDescriptorV5widthSivg\"(ptr noalias swiftself %0)"
+    },
+    {
+     "wrapper": "$s5image9signatureyAA4CaseVSg13CoreAIRuntime17InferenceFunctionVF",
+     "ir": "%69 = call swiftcc i64 @\"$s13CoreAIRuntime15ImageDescriptorV5widthSivg\"(ptr noalias nonnull swiftself %12)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "image_height": {
+   "symbol": "$s13CoreAIRuntime15ImageDescriptorV6heightSivg",
+   "declaration": "declare swiftcc i64 @\"$s13CoreAIRuntime15ImageDescriptorV6heightSivg\"(ptr noalias swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image0A6HeightySi13CoreAIRuntime15ImageDescriptorVF",
+     "ir": "%1 = tail call swiftcc i64 @\"$s13CoreAIRuntime15ImageDescriptorV6heightSivg\"(ptr noalias swiftself %0)"
+    },
+    {
+     "wrapper": "$s5image9signatureyAA4CaseVSg13CoreAIRuntime17InferenceFunctionVF",
+     "ir": "%70 = call swiftcc i64 @\"$s13CoreAIRuntime15ImageDescriptorV6heightSivg\"(ptr noalias nonnull swiftself %12)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "image_pixel_format": {
+   "symbol": "$s13CoreAIRuntime15ImageDescriptorV15pixelFormatTypes6UInt32Vvg",
+   "declaration": "declare swiftcc i32 @\"$s13CoreAIRuntime15ImageDescriptorV15pixelFormatTypes6UInt32Vvg\"(ptr noalias swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image0A6Formatys6UInt32V13CoreAIRuntime15ImageDescriptorVF",
+     "ir": "%1 = tail call swiftcc i32 @\"$s13CoreAIRuntime15ImageDescriptorV15pixelFormatTypes6UInt32Vvg\"(ptr noalias swiftself %0)"
+    },
+    {
+     "wrapper": "$s5image9signatureyAA4CaseVSg13CoreAIRuntime17InferenceFunctionVF",
+     "ir": "%68 = call swiftcc i32 @\"$s13CoreAIRuntime15ImageDescriptorV15pixelFormatTypes6UInt32Vvg\"(ptr noalias nonnull swiftself %12)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "mutable_metadata": {
+   "symbol": "$s9CoreVideo20CVMutablePixelBufferVMa",
+   "declaration": "declare swiftcc %swift.metadata_response @\"$s9CoreVideo20CVMutablePixelBufferVMa\"(i64)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image18insertMutableInputyy9CoreVideo20CVMutablePixelBufferV_SStF",
+     "ir": "%8 = call swiftcc %swift.metadata_response @\"$s9CoreVideo20CVMutablePixelBufferVMa\"(i64 0) #45"
+    },
+    {
+     "wrapper": "$s5image18insertMutableImageyy9CoreVideo20CVMutablePixelBufferVz_SStF",
+     "ir": "%8 = call swiftcc %swift.metadata_response @\"$s9CoreVideo20CVMutablePixelBufferVMa\"(i64 0) #45"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "mutable_init_unsafe_buffer": {
+   "symbol": "$s9CoreVideo20CVMutablePixelBufferV06unsafeE0ACSo11CVBufferRefan_tcfC",
+   "declaration": "declare swiftcc void @\"$s9CoreVideo20CVMutablePixelBufferV06unsafeE0ACSo11CVBufferRefan_tcfC\"(ptr noalias sret(%swift.opaque), ptr)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image13mutableBuffery9CoreVideo014CVMutablePixelC0VSo11CVBufferRefanF",
+     "ir": "tail call swiftcc void @\"$s9CoreVideo20CVMutablePixelBufferV06unsafeE0ACSo11CVBufferRefan_tcfC\"(ptr noalias sret(%swift.opaque) %0, ptr %1)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "mutable_with_unsafe_buffer": {
+   "symbol": "$s9CoreVideo20CVMutablePixelBufferV010withUnsafeE0yxxSo11CVBufferRefaKYTXEKRi_zlF",
+   "declaration": "declare swiftcc void @\"$s9CoreVideo20CVMutablePixelBufferV010withUnsafeE0yxxSo11CVBufferRefaKYTXEKRi_zlF\"(ptr noalias sret(%swift.opaque), ptr, ptr, ptr, ptr noalias swiftself, ptr noalias swifterror captures(none) dereferenceable(8))",
+   "call_sites": [
+    {
+     "wrapper": "$s5image13unwrapMutableySo11CVBufferRefa9CoreVideo20CVMutablePixelBufferVF",
+     "ir": "call swiftcc void @\"$s9CoreVideo20CVMutablePixelBufferV010withUnsafeE0yxxSo11CVBufferRefaKYTXEKRi_zlF\"(ptr noalias nonnull sret(%swift.opaque) %1, ptr nonnull @\"$s5image13unwrapMutableySo11CVBufferRefa9CoreVideo20CVMutablePixelBufferVFA2DYTXEfU_\", ptr null, ptr %3, ptr noalias swiftself %0, ptr noalias nonnull swifterror captures(none) dereferenceable(8) %swifterror)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "read_only_metadata": {
+   "symbol": "$s9CoreVideo21CVReadOnlyPixelBufferCMa",
+   "declaration": "declare swiftcc %swift.metadata_response @\"$s9CoreVideo21CVReadOnlyPixelBufferCMa\"(i64)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image14readOnlyBuffery9CoreVideo06CVReadc5PixelD0CSo11CVBufferRefanF",
+     "ir": "%1 = tail call swiftcc %swift.metadata_response @\"$s9CoreVideo21CVReadOnlyPixelBufferCMa\"(i64 0) #45"
+    },
+    {
+     "wrapper": "$s5image6freezey9CoreVideo21CVReadOnlyPixelBufferCAC09CVMutablegH0VnF",
+     "ir": "%1 = tail call swiftcc %swift.metadata_response @\"$s9CoreVideo21CVReadOnlyPixelBufferCMa\"(i64 0) #45"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "read_only_init_unsafe_buffer": {
+   "symbol": "$s9CoreVideo21CVReadOnlyPixelBufferC06unsafeF0ACSo11CVBufferRefan_tcfc",
+   "declaration": "declare swiftcc ptr @\"$s9CoreVideo21CVReadOnlyPixelBufferC06unsafeF0ACSo11CVBufferRefan_tcfc\"(ptr, ptr swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image14readOnlyBuffery9CoreVideo06CVReadc5PixelD0CSo11CVBufferRefanF",
+     "ir": "%10 = tail call swiftcc ptr @\"$s9CoreVideo21CVReadOnlyPixelBufferC06unsafeF0ACSo11CVBufferRefan_tcfc\"(ptr %0, ptr swiftself %9)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "read_only_from_mutable": {
+   "symbol": "$s9CoreVideo21CVReadOnlyPixelBufferCyAcA09CVMutableeF0Vcfc",
+   "declaration": "declare swiftcc ptr @\"$s9CoreVideo21CVReadOnlyPixelBufferCyAcA09CVMutableeF0Vcfc\"(ptr noalias, ptr swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image6freezey9CoreVideo21CVReadOnlyPixelBufferCAC09CVMutablegH0VnF",
+     "ir": "%10 = tail call swiftcc ptr @\"$s9CoreVideo21CVReadOnlyPixelBufferCyAcA09CVMutableeF0Vcfc\"(ptr noalias %0, ptr swiftself %9)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "read_only_with_unsafe_buffer": {
+   "symbol": "$s9CoreVideo21CVReadOnlyPixelBufferC010withUnsafeF0yxxSo11CVBufferRefaKYTXEKRi_zlF",
+   "declaration": "declare swiftcc void @\"$s9CoreVideo21CVReadOnlyPixelBufferC010withUnsafeF0yxxSo11CVBufferRefaKYTXEKRi_zlF\"(ptr noalias sret(%swift.opaque), ptr, ptr, ptr, ptr swiftself, ptr noalias swifterror captures(none) dereferenceable(8))",
+   "call_sites": [
+    {
+     "wrapper": "$s5image14unwrapReadOnlyySo11CVBufferRefa9CoreVideo06CVReadD11PixelBufferCF",
+     "ir": "call swiftcc void @\"$s9CoreVideo21CVReadOnlyPixelBufferC010withUnsafeF0yxxSo11CVBufferRefaKYTXEKRi_zlF\"(ptr noalias nonnull sret(%swift.opaque) %1, ptr nonnull @\"$s5image14unwrapReadOnlyySo11CVBufferRefa9CoreVideo06CVReadD11PixelBufferCFA2DYTXEfU_\", ptr null, ptr %3, ptr swiftself %0, ptr noalias nonnull swifterror captures(none) dereferenceable(8) %swifterror)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "mutable_view_representable": {
+   "symbol": "$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV17ViewRepresentableADWP",
+   "declaration": "@\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\" = external global ptr, align 8",
+   "call_sites": [
+    {
+     "wrapper": "$s5image18insertMutableInputyy9CoreVideo20CVMutablePixelBufferV_SStF",
+     "ir": "call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias %0, i64 %1, ptr %2, ptr %9, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\", ptr nonnull swiftself %7)"
+    },
+    {
+     "wrapper": "$s5image7runOnce__5model9ioSurface10outputView13inputOverride12mutableInput13viewIOSurfaceSDySSypG13CoreAIRuntime17InferenceFunctionV_AA4CaseVSSS2bs6UInt32V_S2itSgS2btYaFTY0_",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias %.reload429, i64 %76, ptr %77, ptr nonnull %.reload420, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\", ptr swiftself %.reload411)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "mutable_mutable_view_representable": {
+   "symbol": "$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV24MutableViewRepresentableADWP",
+   "declaration": "@\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV24MutableViewRepresentableADWP\" = external global ptr, align 8",
+   "call_sites": [
+    {
+     "wrapper": "$s5image18insertMutableImageyy9CoreVideo20CVMutablePixelBufferVz_SStF",
+     "ir": "call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryxz_SStAA0C5ValueV0E17ViewRepresentableRzRi_zlF\"(ptr %0, i64 %1, ptr %2, ptr %9, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV24MutableViewRepresentableADWP\", ptr nonnull swiftself %7)"
+    },
+    {
+     "wrapper": "$s5image7execute___10outputView13viewIOSurface_y13CoreAIRuntime17InferenceFunctionV_AG6InputsVAA4CaseVS2bSDySSypGztYaKFTY0_",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryxz_SStAA0C5ValueV0E17ViewRepresentableRzRi_zlF\"(ptr %.reload210, i64 %9, ptr %10, ptr nonnull %.reload201, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV24MutableViewRepresentableADWP\", ptr swiftself %.reload190)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "read_only_view_representable": {
+   "symbol": "$s9CoreVideo21CVReadOnlyPixelBufferC0A9AIRuntime14InferenceValueV17ViewRepresentableADWP",
+   "declaration": "@\"$s9CoreVideo21CVReadOnlyPixelBufferC0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\" = external global ptr, align 8",
+   "call_sites": [
+    {
+     "wrapper": "$s5image11insertImageyy9CoreVideo21CVReadOnlyPixelBufferC_SStF",
+     "ir": "call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias nonnull %3, i64 %1, ptr %2, ptr %10, ptr nonnull @\"$s9CoreVideo21CVReadOnlyPixelBufferC0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\", ptr nonnull swiftself %8)"
+    },
+    {
+     "wrapper": "$s5image7runOnce__5model9ioSurface10outputView13inputOverride12mutableInput13viewIOSurfaceSDySSypG13CoreAIRuntime17InferenceFunctionV_AA4CaseVSSS2bs6UInt32V_S2itSgS2btYaFTY0_",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias nonnull %84, i64 %87, ptr %88, ptr %90, ptr nonnull @\"$s9CoreVideo21CVReadOnlyPixelBufferC0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\", ptr swiftself %.reload391)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "inputs_insert_view_representable": {
+   "symbol": "$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF",
+   "declaration": "declare swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias, i64, ptr, ptr, ptr, ptr swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image11insertImageyy9CoreVideo21CVReadOnlyPixelBufferC_SStF",
+     "ir": "call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias nonnull %3, i64 %1, ptr %2, ptr %10, ptr nonnull @\"$s9CoreVideo21CVReadOnlyPixelBufferC0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\", ptr nonnull swiftself %8)"
+    },
+    {
+     "wrapper": "$s5image18insertMutableInputyy9CoreVideo20CVMutablePixelBufferV_SStF",
+     "ir": "call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV6InputsV6insert_3foryx_SStAA0C5ValueV17ViewRepresentableRzRi_zlF\"(ptr noalias %0, i64 %1, ptr %2, ptr %9, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV17ViewRepresentableADWP\", ptr nonnull swiftself %7)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "mutable_views_insert_representable": {
+   "symbol": "$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryxz_SStAA0C5ValueV0E17ViewRepresentableRzRi_zlF",
+   "declaration": "declare swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryxz_SStAA0C5ValueV0E17ViewRepresentableRzRi_zlF\"(ptr, i64, ptr, ptr, ptr, ptr swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image18insertMutableImageyy9CoreVideo20CVMutablePixelBufferVz_SStF",
+     "ir": "call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryxz_SStAA0C5ValueV0E17ViewRepresentableRzRi_zlF\"(ptr %0, i64 %1, ptr %2, ptr %9, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV24MutableViewRepresentableADWP\", ptr nonnull swiftself %7)"
+    },
+    {
+     "wrapper": "$s5image7execute___10outputView13viewIOSurface_y13CoreAIRuntime17InferenceFunctionV_AG6InputsVAA4CaseVS2bSDySSypGztYaKFTY0_",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV12MutableViewsV6insert_3foryxz_SStAA0C5ValueV0E17ViewRepresentableRzRi_zlF\"(ptr %.reload210, i64 %9, ptr %10, ptr nonnull %.reload201, ptr nonnull @\"$s9CoreVideo20CVMutablePixelBufferV0A9AIRuntime14InferenceValueV24MutableViewRepresentableADWP\", ptr swiftself %.reload190)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "value_kind": {
+   "symbol": "$s13CoreAIRuntime14InferenceValueV4kindAC4KindOvg",
+   "declaration": "declare swiftcc void @\"$s13CoreAIRuntime14InferenceValueV4kindAC4KindOvg\"(ptr noalias sret(%swift.opaque), ptr noalias swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image9valueKindy13CoreAIRuntime14InferenceValueV0C0OAEF",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime14InferenceValueV4kindAC4KindOvg\"(ptr noalias sret(%swift.opaque) %0, ptr noalias swiftself %1)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "kind_image_case_tag": {
+   "symbol": "$s13CoreAIRuntime14InferenceValueV4KindO5imageyA2EmFWC",
+   "declaration": "@\"$s13CoreAIRuntime14InferenceValueV4KindO5imageyA2EmFWC\" = external local_unnamed_addr constant i32, align 4",
+   "call_sites": [
+    {
+     "wrapper": "$s5image11isImageKindySb13CoreAIRuntime14InferenceValueV0D0OF",
+     "ir": "%6 = load i32, ptr @\"$s13CoreAIRuntime14InferenceValueV4KindO5imageyA2EmFWC\", align 4"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "value_pixel_buffer": {
+   "symbol": "$s13CoreAIRuntime14InferenceValueV11pixelBuffer0A5Video014CVMutablePixelF0VSgvg",
+   "declaration": "declare swiftcc void @\"$s13CoreAIRuntime14InferenceValueV11pixelBuffer0A5Video014CVMutablePixelF0VSgvg\"(ptr noalias sret(%swift.opaque), ptr noalias swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image16valuePixelBuffery9CoreVideo09CVMutablecD0VSg0E9AIRuntime14InferenceValueVnF",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime14InferenceValueV11pixelBuffer0A5Video014CVMutablePixelF0VSgvg\"(ptr noalias sret(%swift.opaque) %0, ptr noalias swiftself %1)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "value_from_pixel_buffer": {
+   "symbol": "$s13CoreAIRuntime14InferenceValueVyAC0A5Video20CVMutablePixelBufferVcfC",
+   "declaration": "declare swiftcc void @\"$s13CoreAIRuntime14InferenceValueVyAC0A5Video20CVMutablePixelBufferVcfC\"(ptr noalias sret(%swift.opaque), ptr noalias)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image0A5Valuey13CoreAIRuntime09InferenceB0V0C5Video20CVMutablePixelBufferVnF",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime14InferenceValueVyAC0A5Video20CVMutablePixelBufferVcfC\"(ptr noalias sret(%swift.opaque) %0, ptr noalias %1)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "async_value_from_read_only": {
+   "symbol": "$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAE0A5Video21CVReadOnlyPixelBufferCcfc",
+   "declaration": "declare swiftcc ptr @\"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAE0A5Video21CVReadOnlyPixelBufferCcfc\"(ptr, ptr swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image15asyncImageInputy13CoreAIRuntime17InferenceFunctionV10AsyncValueC0E5Video21CVReadOnlyPixelBufferCF",
+     "ir": "%11 = tail call swiftcc ptr @\"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueCyAE0A5Video21CVReadOnlyPixelBufferCcfc\"(ptr %0, ptr swiftself %9)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "async_mutable_value_from_mutable": {
+   "symbol": "$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVyAE0A5Video20CVMutablePixelBufferVcfC",
+   "declaration": "declare swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVyAE0A5Video20CVMutablePixelBufferVcfC\"(ptr noalias sret(%swift.opaque), ptr noalias)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image16asyncImageOutputy13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueV0E5Video20CVMutablePixelBufferVnF",
+     "ir": "tail call swiftcc void @\"$s13CoreAIRuntime17InferenceFunctionV17AsyncMutableValueVyAE0A5Video20CVMutablePixelBufferVcfC\"(ptr noalias sret(%swift.opaque) %0, ptr noalias %1)"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "async_value_pixel_buffer": {
+   "symbol": "$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC11pixelBuffer0A5Video015CVReadOnlyPixelH0CSgvg",
+   "declaration": "declare swifttailcc void @\"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC11pixelBuffer0A5Video015CVReadOnlyPixelH0CSgvg\"(ptr swiftasync, ptr swiftself)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image16asyncPixelBuffery9CoreVideo010CVReadOnlycD0CSg0E9AIRuntime17InferenceFunctionV10AsyncValueCYaKF",
+     "ir": "musttail call swifttailcc void @\"$s13CoreAIRuntime17InferenceFunctionV10AsyncValueC11pixelBuffer0A5Video015CVReadOnlyPixelH0CSgvg\"(ptr nonnull swiftasync %4, ptr swiftself %1) #3"
+    }
+   ],
+   "exported_by": [
+    "CoreAIRuntime"
+   ]
+  },
+  "CVPixelBufferCreate": {
+   "symbol": "CVPixelBufferCreate",
+   "declaration": "declare i32 @CVPixelBufferCreate(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image6create___9ioSurfaceSo11CVBufferRefaSg_s5Int32Vts6UInt32V_S2iSbtF",
+     "ir": "%23 = call i32 @CVPixelBufferCreate(ptr null, i64 %1, i64 %2, i32 %0, ptr %22, ptr nonnull %4)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferLockBaseAddress": {
+   "symbol": "CVPixelBufferLockBaseAddress",
+   "declaration": "declare i32 @CVPixelBufferLockBaseAddress(ptr noundef, i64 noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image4fillyySo11CVBufferRefa_Says5UInt8VGtF",
+     "ir": "%2 = tail call i32 @CVPixelBufferLockBaseAddress(ptr %0, i64 0)"
+    },
+    {
+     "wrapper": "$s5image7inspectySDySSypGSo11CVBufferRefaF",
+     "ir": "%4 = tail call i32 @CVPixelBufferLockBaseAddress(ptr %0, i64 1)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferUnlockBaseAddress": {
+   "symbol": "CVPixelBufferUnlockBaseAddress",
+   "declaration": "declare i32 @CVPixelBufferUnlockBaseAddress(ptr noundef, i64 noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image4fillyySo11CVBufferRefa_Says5UInt8VGtF",
+     "ir": "%61 = tail call i32 @CVPixelBufferUnlockBaseAddress(ptr %0, i64 0)"
+    },
+    {
+     "wrapper": "$s5image7inspectySDySSypGSo11CVBufferRefaF",
+     "ir": "%120 = call i32 @CVPixelBufferUnlockBaseAddress(ptr %0, i64 1)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetBaseAddress": {
+   "symbol": "CVPixelBufferGetBaseAddress",
+   "declaration": "declare ptr @CVPixelBufferGetBaseAddress(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image9planeInfoySaySvSg4base_Si8rowBytesSi5widthSi6heighttGSo11CVBufferRefaF",
+     "ir": "%38 = tail call ptr @CVPixelBufferGetBaseAddress(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetBytesPerRow": {
+   "symbol": "CVPixelBufferGetBytesPerRow",
+   "declaration": "declare i64 @CVPixelBufferGetBytesPerRow(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image9planeInfoySaySvSg4base_Si8rowBytesSi5widthSi6heighttGSo11CVBufferRefaF",
+     "ir": "%40 = tail call i64 @CVPixelBufferGetBytesPerRow(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetWidth": {
+   "symbol": "CVPixelBufferGetWidth",
+   "declaration": "declare i64 @CVPixelBufferGetWidth(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image9planeInfoySaySvSg4base_Si8rowBytesSi5widthSi6heighttGSo11CVBufferRefaF",
+     "ir": "%41 = tail call i64 @CVPixelBufferGetWidth(ptr %0)"
+    },
+    {
+     "wrapper": "$s5image4fillyySo11CVBufferRefa_Says5UInt8VGtF",
+     "ir": "%4 = tail call i64 @CVPixelBufferGetWidth(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetHeight": {
+   "symbol": "CVPixelBufferGetHeight",
+   "declaration": "declare i64 @CVPixelBufferGetHeight(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image9planeInfoySaySvSg4base_Si8rowBytesSi5widthSi6heighttGSo11CVBufferRefaF",
+     "ir": "%42 = tail call i64 @CVPixelBufferGetHeight(ptr %0)"
+    },
+    {
+     "wrapper": "$s5image4fillyySo11CVBufferRefa_Says5UInt8VGtF",
+     "ir": "%5 = tail call i64 @CVPixelBufferGetHeight(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetPixelFormatType": {
+   "symbol": "CVPixelBufferGetPixelFormatType",
+   "declaration": "declare i32 @CVPixelBufferGetPixelFormatType(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image4fillyySo11CVBufferRefa_Says5UInt8VGtF",
+     "ir": "%3 = tail call i32 @CVPixelBufferGetPixelFormatType(ptr %0)"
+    },
+    {
+     "wrapper": "$s5image7inspectySDySSypGSo11CVBufferRefaF",
+     "ir": "%5 = tail call i32 @CVPixelBufferGetPixelFormatType(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferIsPlanar": {
+   "symbol": "CVPixelBufferIsPlanar",
+   "declaration": "declare zeroext i8 @CVPixelBufferIsPlanar(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image9planeInfoySaySvSg4base_Si8rowBytesSi5widthSi6heighttGSo11CVBufferRefaF",
+     "ir": "%2 = tail call zeroext i8 @CVPixelBufferIsPlanar(ptr %0)"
+    },
+    {
+     "wrapper": "$s5image7inspectySDySSypGSo11CVBufferRefaF",
+     "ir": "%99 = call zeroext i8 @CVPixelBufferIsPlanar(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetIOSurface": {
+   "symbol": "CVPixelBufferGetIOSurface",
+   "declaration": "declare ptr @CVPixelBufferGetIOSurface(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image7inspectySDySSypGSo11CVBufferRefaF",
+     "ir": "%108 = call ptr @CVPixelBufferGetIOSurface(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  },
+  "CVPixelBufferGetDataSize": {
+   "symbol": "CVPixelBufferGetDataSize",
+   "declaration": "declare i64 @CVPixelBufferGetDataSize(ptr noundef)",
+   "call_sites": [
+    {
+     "wrapper": "$s5image7inspectySDySSypGSo11CVBufferRefaF",
+     "ir": "%113 = call i64 @CVPixelBufferGetDataSize(ptr %0)"
+    }
+   ],
+   "exported_by": [
+    "CoreVideo"
+   ]
+  }
+ },
+ "missing_from_ir": [],
+ "not_exported": [],
+ "core_ai_runtime_corevideo_iosurface_imports": [
+  "_CVPixelBufferGetBaseAddress",
+  "_CVPixelBufferGetBytesPerRow",
+  "_CVPixelBufferGetDataSize",
+  "_CVPixelBufferGetHeight",
+  "_CVPixelBufferGetPixelFormatType",
+  "_CVPixelBufferGetWidth",
+  "_CVPixelBufferLockBaseAddress",
+  "_CVPixelBufferUnlockBaseAddress",
+  "_IOSurfaceCreate",
+  "_IOSurfaceGetAllocSize",
+  "_IOSurfaceGetBaseAddress",
+  "_IOSurfaceLock",
+  "_kIOSurfaceAllocSize",
+  "_kIOSurfaceClientAddress"
+ ]
+}

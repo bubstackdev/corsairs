@@ -1,0 +1,2660 @@
+{
+ "schema": 1,
+ "reference": {
+  "coreai_core": "1.0.0b3",
+  "wheel_filename": "coreai_core-1.0.0b3-cp312-cp312-macosx_26_0_arm64.whl",
+  "wheel_sha256": "8db70074eb049b0a86bd263e137ea173f3298f7f1b60ec1a7f7c592f4c26c4a9",
+  "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+  "executable": "/Users/zakkeown/.local/bin/python3.12",
+  "dependencies": {
+   "numpy": "2.3.5",
+   "ml-dtypes": "0.6.0",
+   "pillow": "12.3.0",
+   "typing-extensions": "4.16.0",
+   "yuvio": "1.6",
+   "psutil": "7.2.2"
+  },
+  "package_roots": [
+   "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-3/.local/reference/coreai-b3",
+   "/Users/zakkeown/.cache/uv/archive-v0/DhD_Ey_vrIsX1X33",
+   "/Users/zakkeown/.cache/uv/archive-v0/EGNgvXto1myrK9QG",
+   "/Users/zakkeown/.cache/uv/archive-v0/4f4vnLjS7NMs1SIx",
+   "/Users/zakkeown/.cache/uv/archive-v0/Z3Unk8ytqsnf75ew",
+   "/Users/zakkeown/.cache/uv/archive-v0/xmyuyphpTmMgbH8w",
+   "/Users/zakkeown/.cache/uv/archive-v0/6nwX0VHcZt1XHq5g"
+  ]
+ },
+ "runs": [
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_from_tensor",
+   "backend": "cpu",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGB",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_from_tensor",
+   "backend": "gpu-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGB",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_from_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGB",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "RGB24_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 24",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_from_tensor",
+   "backend": "cpu",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_from_tensor",
+   "backend": "gpu-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_from_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "ARGB32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 32",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff2c2926ff373431ff423f3cff4d4a47ff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff2c2926ff373431ff423f3cff4d4a47ff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff2c2926ff373431ff423f3cff4d4a47ff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_from_tensor",
+   "backend": "cpu",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_from_tensor",
+   "backend": "gpu-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_from_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "010407ff0c0f12ff171a1dff222528ff26292cff313437ff3c3f42ff474a4dff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "010407ff0c0f12ff171a1dff222528ff26292cff313437ff3c3f42ff474a4dff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "010407ff0c0f12ff171a1dff222528ff26292cff313437ff3c3f42ff474a4dff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "fefbf800f3f0ed00e8e5e200dddad700d9d6d300cecbc800c3c0bd00b8b5b200"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "fefefe00f3f3f300e8e8e800dddddd00d9d9d900cecece00c3c3c300b8b8b800"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "fefbf800f3f0ed00e8e5e200dddad700d9d6d300cecbc800c3c0bd00b8b5b200"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "fefefe00f3f3f300e8e8e800dddddd00d9d9d900cecece00c3c3c300b8b8b800"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "PIL.Image",
+    "mode": "RGBA",
+    "size": [
+     4,
+     2
+    ],
+    "bytes": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff2c2926ff373431ff423f3cff4d4a47ff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff2c2926ff373431ff423f3cff4d4a47ff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff2c2926ff373431ff423f3cff4d4a47ff"
+   },
+   "input_bytes": "0104070c0f12171a1d22252826292c3134373c3f42474a4d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b2c29262f3734313a423f3c454d4a4750"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b26292c2f3134373a3c3f4245474a4d50",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff262626ff313131ff3c3c3cff474747ff"
+   },
+   "input_bytes": "010c172226313c47",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff33302dff2c2926ff373431ff423f3cff4d4a47ff585552ff514e4bff5c5956ff676461ff726f6cff7d7a77ff"
+   },
+   "input_bytes": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b33302d362c29262f3734313a423f3c454d4a47505855525b514e4b545c59565f6764616a726f6c757d7a7780"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff2d2d2dff262626ff313131ff3c3c3cff474747ff525252ff4b4b4bff565656ff616161ff6c6c6cff777777ff"
+   },
+   "input_bytes": "010c17222d26313c47524b56616c77",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff33302dff2c2926ff373431ff423f3cff4d4a47ff585552ff514e4bff5c5956ff676461ff726f6cff7d7a77ff"
+   },
+   "input_bytes": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b33302d362c29262f3734313a423f3c454d4a47505855525b514e4b545c59565f6764616a726f6c757d7a7780"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff2d2d2dff262626ff313131ff3c3c3cff474747ff525252ff4b4b4bff565656ff616161ff6c6c6cff777777ff"
+   },
+   "input_bytes": "010c17222d26313c47524b56616c77",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "070401ff120f0cff1d1a17ff282522ff33302dff2c2926ff373431ff423f3cff4d4a47ff585552ff514e4bff5c5956ff676461ff726f6cff7d7a77ff"
+   },
+   "input_bytes": "0104070c0f12171a1d2225282d303326292c3134373c3f42474a4d5255584b4e5156595c6164676c6f72777a7d",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "0704010a120f0c151d1a17202825222b33302d362c29262f3734313a423f3c454d4a47505855525b514e4b545c59565f6764616a726f6c757d7a7780"
+   },
+   "input_bytes": "0104070a0c0f1215171a1d202225282b2d30333626292c2f3134373a3c3f4245474a4d505255585b4b4e515456595c5f6164676a6c6f7275777a7d80",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "BGRA32_to_tensor_3x5",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     3,
+     5,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "010101ff0c0c0cff171717ff222222ff2d2d2dff262626ff313131ff3c3c3cff474747ff525252ff4b4b4bff565656ff616161ff6c6c6cff777777ff"
+   },
+   "input_bytes": "010c17222d26313c47524b56616c77",
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_from_tensor",
+   "backend": "cpu",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "(loc: unknown, error: KernelError(kernelName: \"coreai.tensor_to_image\", kind: CoreAIRuntime.KernelError.Kind.invalidParameters(\"NDArray must have rank 3 for image copy (height, width, channels)\")))",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_from_tensor",
+   "backend": "gpu-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "(loc: unknown, error: KernelError(kernelName: \"coreai.tensor_to_image\", kind: CoreAIRuntime.KernelError.Kind.invalidParameters(\"NDArray must have rank 3 for image copy (height, width, channels)\")))",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_from_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "(loc: unknown, error: KernelError(kernelName: \"coreai.tensor_to_image\", kind: CoreAIRuntime.KernelError.Kind.invalidParameters(\"NDArray must have rank 3 for image copy (height, width, channels)\")))",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_identity",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_invert",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_aligned_to_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "cpu",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "cpu",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "cpu",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "gpu-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "gpu-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "gpu-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "neural-engine-preferred",
+   "mode": "RGB",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "neural-engine-preferred",
+   "mode": "RGBA",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "YpCbCr8420Planar_to_tensor_16x16",
+   "backend": "neural-engine-preferred",
+   "mode": "L",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "outcome": "threw",
+   "error_type": "RuntimeError",
+   "error": "x has an invalid pixel format: 1111970369, expected: 2033463856",
+   "returncode": 0
+  },
+  {
+   "model": "uint8_invert_tensor",
+   "backend": "cpu",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "uint8_invert_tensor",
+   "backend": "gpu-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "fefbf8f5f3f0edeae8e5e2dfdddad7d4d9d6d3d0cecbc8c5c3c0bdbab8b5b2af"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  },
+  {
+   "model": "uint8_invert_tensor",
+   "backend": "neural-engine-preferred",
+   "mode": "tensor",
+   "os_backed": true,
+   "descriptor": "main\n\tInputs:  [\"x\"]\n\tOutputs: [\"y\"]\n\tStates:  []",
+   "output": {
+    "kind": "NDArray",
+    "shape": [
+     2,
+     4,
+     4
+    ],
+    "dtype": "uint8",
+    "bytes": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   },
+   "input_bytes": null,
+   "outcome": "completed",
+   "returncode": 0
+  }
+ ]
+}

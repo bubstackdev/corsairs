@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Check Corsairs image I/O byte for byte against fixtures/parity-v05/images.
 
-Builds the corsairs library and experiments/rust/image_parity.rs, runs every
+First verifies that the fixtures are the frozen ones: every file against
+sha256.json (whose own digest is pinned here), suite.json's payload digests,
+and backend-goldens.json against suite.json, the reference results and the
+expected bytes. Then builds the corsairs library and
+experiments/rust/image_parity.rs, runs every
 case on every backend (image inputs both tight and with padded rows), every
 negative, a soak and drop/cancel cycles, then compares each output's SHA-256
 with backend-goldens.json. The image set does not fit check_v01.py's tensor
@@ -29,6 +33,10 @@ NEGATIVE_ERRORS = {"planar_420_run": "Unsupported", "planar_420_run_without_imag
                    "wrong_format": "DescriptorMismatch", "wrong_size": "DescriptorMismatch",
                    "transposed_size": "DescriptorMismatch", "missing_image": "MissingTensor",
                    "unexpected_image": "UnexpectedTensor"}
+# Digest of fixtures/parity-v05/images/sha256.json, frozen by
+# scripts/reference/freeze_image_goldens.py. It covers every model, payload,
+# suite, result and golden file, so no fixture byte changes without this line.
+MANIFEST_SHA256 = "75fcc3de7d93d577bfb9170e2bc2113045439686d1e864bb668469322137deb4"
 # RSS growth allowed between the 10% sample and the end of a soak.
 SOAK_RSS_GROWTH_KIB = 2048
 
@@ -161,6 +169,65 @@ def compare(suite, goldens, report, backends, out):
     return failures
 
 
+def fixture_files(directory):
+    # Must list the same set as freeze_image_goldens.fixture_files.
+    return sorted(str(p.relative_to(directory)) for p in directory.rglob("*") if p.is_file()
+                  and p.name not in {"sha256.json", "README.md"} and not p.name.startswith("."))
+
+
+def verify_fixtures(directory=FIXTURES, manifest_sha256=MANIFEST_SHA256):
+    """Return failures unless the set's bytes are exactly the frozen ones."""
+    manifest_bytes = (directory / "sha256.json").read_bytes()
+    if sha256(manifest_bytes) != manifest_sha256:
+        return ["sha256.json is not the pinned manifest"]
+    frozen = json.loads(manifest_bytes)["files"]
+    present = fixture_files(directory)
+    failures = [f"fixture file changed: {name}" for name in present
+                if name in frozen and sha256((directory / name).read_bytes()) != frozen[name]]
+    failures += [f"fixture file missing: {name}" for name in sorted(set(frozen) - set(present))]
+    failures += [f"fixture file added: {name}" for name in sorted(set(present) - set(frozen))]
+    suite_bytes = (directory / "suite.json").read_bytes()
+    suite = json.loads(suite_bytes)
+    goldens = json.loads((directory / "backend-goldens.json").read_text())
+    if goldens["suite_sha256"] != sha256(suite_bytes):
+        failures.append("backend-goldens.json was frozen from a different suite.json")
+    runs = {}
+    for source, name in {"swift-oracle": "results/swift-oracle.json", "b3": "results/b3.json"}.items():
+        data = (directory / name).read_bytes()
+        runs[source] = json.loads(data)
+        if goldens["sources"].get(source) != sha256(data):
+            failures.append(f"backend-goldens.json was frozen from a different {name}")
+        if runs[source]["suite_sha256"] != sha256(suite_bytes):
+            failures.append(f"{name} ran a different suite.json")
+    for case in suite["cases"]:
+        for group in ["inputs", "outputs"]:
+            for name, spec in case[group].items():
+                value = spec.get("image") or spec["tensor"]
+                if sha256((directory / value["file"]).read_bytes()) != value["sha256"]:
+                    failures.append(f"{case['name']} {name}: {value['file']} digest")
+    # Each golden is what its references produced, and equals the expected
+    # bytes unless the freezer reviewed that exact digest.
+    reviewed = {(r["backend"], r["case"], r["output"]): r["sha256"] for r in goldens["reviewed"]}
+    for backend in suite["backends"]:
+        for case in suite["cases"]:
+            for name, spec in case["outputs"].items():
+                golden = goldens["backends"][backend][case["name"]][name]
+                where = f"{backend} {case['name']} {name}"
+                if sha256(bytes.fromhex(golden["hex"])) != golden["sha256"]:
+                    failures.append(f"{where}: golden hex and sha256 differ")
+                for source in golden["sources"]:
+                    row = runs[source]["results"].get(backend, {}).get(case["name"], {}).get(name)
+                    if row is None or row["hex"] != golden["hex"]:
+                        failures.append(f"{where}: golden differs from {source}")
+                expected = sha256((directory / (spec.get("image") or spec["tensor"])["file"]).read_bytes())
+                if golden.get("reviewed"):
+                    if reviewed.get((backend, case["name"], name)) != golden["sha256"]:
+                        failures.append(f"{where}: reviewed digest not in the review list")
+                elif golden["sha256"] != expected or not golden["matches_expected"]:
+                    failures.append(f"{where}: unreviewed golden differs from the expected bytes")
+    return failures
+
+
 def check_goldens(suite, goldens, backends):
     failures = []
     for backend in backends:
@@ -191,6 +258,11 @@ def main():
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
+    # Refuse to compare against anything but the frozen fixtures and goldens.
+    failures = verify_fixtures()
+    if failures:
+        print(json.dumps({"passed": False, "failures": failures[:20]}, indent=1))
+        raise SystemExit(1)
     suite = json.loads((FIXTURES / "suite.json").read_text())
     goldens = json.loads((FIXTURES / "backend-goldens.json").read_text())
     log = []
@@ -211,7 +283,7 @@ def main():
                           "drop": driver["drop"]},
               "sources": {str(p.relative_to(ROOT)): sha256(p.read_bytes()) for p in [
                   ROOT / "experiments/rust/image_parity.rs", ROOT / "scripts/check_images.py",
-                  FIXTURES / "suite.json", FIXTURES / "backend-goldens.json",
+                  FIXTURES / "suite.json", FIXTURES / "backend-goldens.json", FIXTURES / "sha256.json",
                   *sorted((ROOT / "crates/corsairs-abi/src").rglob("*.rs"))]},
               "driver": driver, "commands": log}
     (output / "report.json").write_text(json.dumps(report, indent=1) + "\n")

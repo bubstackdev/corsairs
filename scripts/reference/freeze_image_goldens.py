@@ -6,7 +6,10 @@ results/b3.json (BGRA32 and tensor inputs). Where both ran a case they must
 agree byte for byte. A golden that differs from the analytic expected bytes is
 accepted only if this file reviews that exact (backend, case, output) digest.
 Once written, backend-goldens.json is immutable: rerunning with different
-results fails instead of overwriting. Stdlib only; run with python3 -B.
+results fails instead of overwriting. It then freezes sha256.json, a digest of
+every file in the set (models, payloads, suite, results, goldens), which
+scripts/check_images.py pins and verifies before running. Stdlib only; run
+with python3 -B.
 """
 from pathlib import Path
 import hashlib
@@ -16,6 +19,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURES = ROOT / "fixtures/parity-v05/images"
 GOLDENS = FIXTURES / "backend-goldens.json"
+MANIFEST = FIXTURES / "sha256.json"
 
 
 def sha256(data):
@@ -33,6 +37,23 @@ REVIEWED = {
     ("neural-engine-preferred", "ARGB32_invert", "y"): (sha256(b"\xff" * 32), INVERT_REASON),
     ("neural-engine-preferred", "BGRA32_invert", "y"): (sha256(b"\xff" * 32), INVERT_REASON),
 }
+
+
+def fixture_files(directory):
+    # Every fixture file except the manifest itself and the prose README.
+    # check_images.fixture_files must list the same set.
+    return sorted(str(p.relative_to(directory)) for p in directory.rglob("*") if p.is_file()
+                  and p.name not in {"sha256.json", "README.md"} and not p.name.startswith("."))
+
+
+def freeze(path, text):
+    if path.exists():
+        if path.read_text() != text:
+            sys.exit(f"{path} is frozen and differs from these results; refusing to overwrite")
+        print(f"{path} unchanged")
+        return False
+    path.write_text(text)
+    return True
 
 
 def pattern(width, height, channels):
@@ -105,16 +126,13 @@ def main():
               "reviewed": [{"backend": b, "case": c, "output": o, "sha256": REVIEWED[(b, c, o)][0],
                             "reason": REVIEWED[(b, c, o)][1]} for b, c, o in sorted(REVIEWED)],
               "backends": backends}
-    text = json.dumps(record, indent=1, sort_keys=True) + "\n"
-    if GOLDENS.exists():
-        if GOLDENS.read_text() != text:
-            sys.exit(f"{GOLDENS} is frozen and differs from these results; refusing to overwrite")
-        print(f"{GOLDENS} unchanged")
-        return
-    GOLDENS.write_text(text)
-    counts = {b: sum(len(v) for v in t.values()) for b, t in backends.items()}
-    both = sum(len(g["sources"]) == 2 for t in backends.values() for v in t.values() for g in v.values())
-    print(f"froze {counts} outputs ({both} confirmed by both references, {len(REVIEWED)} reviewed) to {GOLDENS}")
+    if freeze(GOLDENS, json.dumps(record, indent=1, sort_keys=True) + "\n"):
+        counts = {b: sum(len(v) for v in t.values()) for b, t in backends.items()}
+        both = sum(len(g["sources"]) == 2 for t in backends.values() for v in t.values() for g in v.values())
+        print(f"froze {counts} outputs ({both} confirmed by both references, {len(REVIEWED)} reviewed) to {GOLDENS}")
+    manifest = {"schema": 1, "files": {name: sha256((FIXTURES / name).read_bytes()) for name in fixture_files(FIXTURES)}}
+    if freeze(MANIFEST, json.dumps(manifest, indent=1, sort_keys=True) + "\n"):
+        print(f"froze {len(manifest['files'])} file digests to {MANIFEST}")
 
 
 if __name__ == "__main__":

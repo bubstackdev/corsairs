@@ -163,7 +163,7 @@ wrong size, transposed size, missing image and unexpected image.
 | --- | --- | --- |
 | Swift oracle | `run_image_suite.py --source swift` | all 21 single-input cases on 3 backends; every completed oracle variant (IOSurface/memory input, read-only/mutable wrapper, with/without view, `encode`) agrees per case |
 | b3 | `run_image_suite.py --source b3` | 10 comparable cases per backend (BGRA32 and tensor inputs); 12 RGB24/ARGB32-input cases per backend are not comparable because b3 always supplies 32BGRA |
-| Freeze | `freeze_image_goldens.py` | 69 goldens; 27 confirmed by both references, 0 disagreements; 3 reviewed digests |
+| Freeze | `freeze_image_goldens.py` | 69 goldens; 27 confirmed by both references, 0 disagreements; 3 reviewed digests; `sha256.json` digests of all 142 fixture files |
 | Rust | `scripts/check_images.py` | 123 runs, 30 checks, all byte-exact; [report](evidence/v0.5/image-parity.json) |
 
 b3's comparable subset follows its documented conversions: a BGRA32 input is
@@ -188,24 +188,33 @@ The Rust driver ([`image_parity.rs`](../experiments/rust/image_parity.rs)):
   `Image` construction with `InvalidImage`.
 - Soaks 10,000 `BGRA32_identity` runs per backend with a fresh,
   iteration-dependent image each time. All outputs are exact. RSS growth from
-  the 10% sample to the end: 96 KiB on CPU, 128 KiB on GPU preference and 0
+  the 10% sample to the end: 208 KiB on CPU, 96 KiB on GPU preference and 0
   on Neural Engine preference.
 - Drop/cancel: 100 abandoned and 100 cancelled requests per backend, then
   `drain` and a successful run. Every cancellation was prevented, and RSS
-  changed by at most 224 KiB (CPU) across the cycle.
+  changed by at most 208 KiB (CPU) across the cycle.
 
-`scripts/check_images.py` pins the set's shape (22 cases, 19 with image
-inputs, 7 negatives, 23 goldens per backend, and the reviewed cases) and the
-full run grid. The set does not fit `check_v01.py`'s tensor grid, so it is not
+Before running anything, `scripts/check_images.py` verifies that the set is
+the frozen one. It pins the digest of `sha256.json`, which the freezer writes
+once and which covers every model file, payload, `suite.json`, both reference
+results and `backend-goldens.json`. It checks each file against it, and that no
+file was added or removed. It also checks `suite.json`'s payload digests, the
+goldens' `suite_sha256` and `sources`, that each golden equals its references'
+bytes, and that every unreviewed golden equals its `expected-*.bin`. A swapped
+model or an edited input with a matching golden therefore fails the gate
+(`scripts/reference/tests/test_image_fixtures.py`). It also pins the set's
+shape (22 cases, 19 with image inputs, 7 negatives, 23 goldens per backend,
+and the reviewed cases) and the full run grid. The set does not fit `check_v01.py`'s tensor grid, so it is not
 in `GOLDEN_SETS`. A crate test, `native_images_round_trip_on_every_backend`,
 covers padded input, `run` with image outputs and planar rejection under
 `cargo test -- --include-ignored`.
 
 A [100,000-iteration soak](evidence/v0.5/image-soak-rust-100000.json) per
 backend (`--soak 100000 --drop 0`) is exact throughout. CPU RSS rises from
-37,008 to 37,248 KiB by iteration 20,000 and stays there to 100,000; GPU
-preference stays at 37,328 KiB, and Neural Engine preference at 37,344 KiB
-after iteration 10,000. Steady-state calls take about 17 µs. The Rust path
+30,800 to 31,104 KiB by iteration 20,000 and stays there to 100,000; GPU
+preference stays at 31,168 KiB throughout, and Neural Engine preference falls
+from 31,168 to 31,072 KiB at iteration 60,000 and stays there. Calls take
+about 21 µs. The Rust path
 levels off like the Swift oracle's. The autorelease pool scoped around every
 image call is kept; this record did not measure the path without it.
 

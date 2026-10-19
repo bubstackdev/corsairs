@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "passed": true,
- "generated_utc": "2026-10-18T23:48:07.438165+00:00",
+ "generated_utc": "2026-10-19T00:06:51.379886+00:00",
  "host": {
   "macos": "27.0.1",
   "machine": "arm64"
@@ -34,21 +34,21 @@
     "backend": "cpu",
     "iterations": 10000,
     "mismatches": 0,
-    "seconds": 0.183707875,
-    "rss_growth_after_warmup_kib": 96
+    "seconds": 0.209036208,
+    "rss_growth_after_warmup_kib": 208
    },
    {
     "backend": "gpu-preferred",
     "iterations": 10000,
     "mismatches": 0,
-    "seconds": 0.184112917,
-    "rss_growth_after_warmup_kib": 128
+    "seconds": 0.20553975,
+    "rss_growth_after_warmup_kib": 96
    },
    {
     "backend": "neural-engine-preferred",
     "iterations": 10000,
     "mismatches": 0,
-    "seconds": 0.184981291,
+    "seconds": 0.202478708,
     "rss_growth_after_warmup_kib": 0
    }
   ],
@@ -58,8 +58,8 @@
     "iterations": 100,
     "cancel_prevented": 100,
     "cancel_too_late": 0,
-    "rss_before_kib": 37344,
-    "rss_after_kib": 37568,
+    "rss_before_kib": 31360,
+    "rss_after_kib": 31568,
     "run_after_drain": true
    },
    {
@@ -67,8 +67,8 @@
     "iterations": 100,
     "cancel_prevented": 100,
     "cancel_too_late": 0,
-    "rss_before_kib": 37584,
-    "rss_after_kib": 37584,
+    "rss_before_kib": 31584,
+    "rss_after_kib": 31600,
     "run_after_drain": true
    },
    {
@@ -76,17 +76,18 @@
     "iterations": 100,
     "cancel_prevented": 100,
     "cancel_too_late": 0,
-    "rss_before_kib": 37600,
-    "rss_after_kib": 37616,
+    "rss_before_kib": 31600,
+    "rss_after_kib": 31600,
     "run_after_drain": true
    }
   ]
  },
  "sources": {
   "experiments/rust/image_parity.rs": "24ac65cbae3e23620084e572afae56b95aa317cbb21e2fdb690adaec0a34bcfc",
-  "scripts/check_images.py": "00ff6d1843d11fba9f4014bc71d800eac840f20d7af0fc2c2935ff8a0aa7b4fe",
+  "scripts/check_images.py": "5a253036972d2117cf4b6199d1e440124589291e0c869301d2c8b95329c1976d",
   "fixtures/parity-v05/images/suite.json": "69577707878089f75f25a9099616785435f15340a97ab48072ffb29b53490724",
   "fixtures/parity-v05/images/backend-goldens.json": "42ec4f95e3a089829a6e0febb56dd851512370e1e502a33645c33c66f8c1afd4",
+  "fixtures/parity-v05/images/sha256.json": "75fcc3de7d93d577bfb9170e2bc2113045439686d1e864bb668469322137deb4",
   "crates/corsairs-abi/src/api_error.rs": "3e83f8364a151a75d61872776a352ae03ef1a1beea4181fc6006f32f09f4d350",
   "crates/corsairs-abi/src/bin/corsairs.rs": "55bf7f0103ca3180f36e3177fe05fdb92fe72664ee70a1b887aa5759c7947811",
   "crates/corsairs-abi/src/dtype.rs": "b52c63164797f32323700ac9bc7fc8a75cbbb3be3da74f4d899445ab4054ffb3",
@@ -159,7 +160,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.001266959,
+    "seconds": 0.002865375,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -197,7 +198,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000126666,
+    "seconds": 0.000168875,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -238,7 +239,7 @@
       }
      ]
     },
-    "seconds": 0.000252417,
+    "seconds": 0.000236917,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -279,7 +280,7 @@
       }
      ]
     },
-    "seconds": 0.000102167,
+    "seconds": 0.000151333,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -314,7 +315,7 @@
       }
      ]
     },
-    "seconds": 0.001867041,
+    "seconds": 0.001993167,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -352,7 +353,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000143375,
+    "seconds": 0.000140958,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -360,1645 +361,6 @@
    {
     "case": "RGB24_aligned_to_tensor",
     "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       3
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000110916,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_invert",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000119708,
-    "sha256": {
-     "y": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
-    }
-   },
-   {
-    "case": "RGB24_invert",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 9.1292e-05,
-    "sha256": {
-     "y": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
-    }
-   },
-   {
-    "case": "RGB24_to_tensor_3x5",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       3,
-       5,
-       3
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000116708,
-    "sha256": {
-     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
-    }
-   },
-   {
-    "case": "RGB24_to_tensor_3x5",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       3,
-       5,
-       3
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.0001155,
-    "sha256": {
-     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
-    }
-   },
-   {
-    "case": "RGB24_identity_3x5",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 5,
-      "height": 3
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000121791,
-    "sha256": {
-     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
-    }
-   },
-   {
-    "case": "RGB24_identity_3x5",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 5,
-      "height": 3
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 8.7792e-05,
-    "sha256": {
-     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
-    }
-   },
-   {
-    "case": "ARGB32_to_tensor",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000163334,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_to_tensor",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 9.4e-05,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_identity",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000106542,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_identity",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000107958,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_from_tensor",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [
-      "x"
-     ],
-     "outputs": [],
-     "image_inputs": [],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000179458,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_aligned_to_tensor",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000131,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_aligned_to_tensor",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 7.9625e-05,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "ARGB32_invert",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000105042,
-    "sha256": {
-     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
-    }
-   },
-   {
-    "case": "ARGB32_invert",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 7.8e-05,
-    "sha256": {
-     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
-    }
-   },
-   {
-    "case": "ARGB32_to_tensor_3x5",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       3,
-       5,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000105834,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "ARGB32_to_tensor_3x5",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       3,
-       5,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 8.0125e-05,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "ARGB32_identity_3x5",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 5,
-      "height": 3
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000110792,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "ARGB32_identity_3x5",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 32,
-      "width": 5,
-      "height": 3
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 32,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 32,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 8.1375e-05,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "BGRA32_to_tensor",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000100459,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_to_tensor",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 7.9959e-05,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_identity",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000102875,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_identity",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 7.9791e-05,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_from_tensor",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [
-      "x"
-     ],
-     "outputs": [],
-     "image_inputs": [],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000147084,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_aligned_to_tensor",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000113416,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_aligned_to_tensor",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 8.4792e-05,
-    "sha256": {
-     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "BGRA32_invert",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000148834,
-    "sha256": {
-     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
-    }
-   },
-   {
-    "case": "BGRA32_invert",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000108667,
-    "sha256": {
-     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
-    }
-   },
-   {
-    "case": "BGRA32_to_tensor_3x5",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       3,
-       5,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000144542,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "BGRA32_to_tensor_3x5",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       3,
-       5,
-       4
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000101,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "BGRA32_identity_3x5",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 5,
-      "height": 3
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000154542,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "BGRA32_identity_3x5",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 5,
-      "height": 3
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 5,
-       "height": 3,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000107709,
-    "sha256": {
-     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
-    }
-   },
-   {
-    "case": "mixed_bgra32",
-    "backend": "cpu",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "z",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     },
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [
-      "t"
-     ],
-     "outputs": [
-      "z"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000185,
-    "sha256": {
-     "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
-     "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "mixed_bgra32",
-    "backend": "cpu",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "z",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       4
-      ]
-     },
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 1111970369,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [
-      "t"
-     ],
-     "outputs": [
-      "z"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 1111970369,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000153959,
-    "sha256": {
-     "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
-     "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
-    }
-   },
-   {
-    "case": "RGB24_to_tensor",
-    "backend": "gpu-preferred",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       3
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000211333,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_to_tensor",
-    "backend": "gpu-preferred",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       3
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000116333,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_identity",
-    "backend": "gpu-preferred",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000157667,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_identity",
-    "backend": "gpu-preferred",
-    "variant": "padded",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 9.8542e-05,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_from_tensor",
-    "backend": "gpu-preferred",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "image",
-      "os_type": 24,
-      "width": 4,
-      "height": 2
-     }
-    ],
-    "descriptor": {
-     "inputs": [
-      "x"
-     ],
-     "outputs": [],
-     "image_inputs": [],
-     "image_outputs": [
-      {
-       "name": "y",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ]
-    },
-    "seconds": 0.000283875,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_aligned_to_tensor",
-    "backend": "gpu-preferred",
-    "variant": "tight",
-    "outcome": "completed",
-    "outputs": [
-     {
-      "name": "y",
-      "kind": "tensor",
-      "dtype": "uint8",
-      "shape": [
-       2,
-       4,
-       3
-      ]
-     }
-    ],
-    "descriptor": {
-     "inputs": [],
-     "outputs": [
-      "y"
-     ],
-     "image_inputs": [
-      {
-       "name": "x",
-       "os_type": 24,
-       "width": 4,
-       "height": 2,
-       "supported": true
-      }
-     ],
-     "image_outputs": []
-    },
-    "seconds": 0.000151166,
-    "sha256": {
-     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
-    }
-   },
-   {
-    "case": "RGB24_aligned_to_tensor",
-    "backend": "gpu-preferred",
     "variant": "padded",
     "outcome": "completed",
     "outputs": [
@@ -2036,6 +398,1452 @@
    },
    {
     "case": "RGB24_invert",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000124375,
+    "sha256": {
+     "y": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
+    }
+   },
+   {
+    "case": "RGB24_invert",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000101084,
+    "sha256": {
+     "y": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
+    }
+   },
+   {
+    "case": "RGB24_to_tensor_3x5",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       3,
+       5,
+       3
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000133,
+    "sha256": {
+     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+    }
+   },
+   {
+    "case": "RGB24_to_tensor_3x5",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       3,
+       5,
+       3
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 8.1791e-05,
+    "sha256": {
+     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+    }
+   },
+   {
+    "case": "RGB24_identity_3x5",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 5,
+      "height": 3
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000123083,
+    "sha256": {
+     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+    }
+   },
+   {
+    "case": "RGB24_identity_3x5",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 5,
+      "height": 3
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 9.7667e-05,
+    "sha256": {
+     "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
+    }
+   },
+   {
+    "case": "ARGB32_to_tensor",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000142084,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_to_tensor",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 9.2416e-05,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_identity",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000170375,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_identity",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000119833,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_from_tensor",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [
+      "x"
+     ],
+     "outputs": [],
+     "image_inputs": [],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000204584,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_aligned_to_tensor",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000136375,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_aligned_to_tensor",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 9.8667e-05,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "ARGB32_invert",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000124125,
+    "sha256": {
+     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+    }
+   },
+   {
+    "case": "ARGB32_invert",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 9.8167e-05,
+    "sha256": {
+     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+    }
+   },
+   {
+    "case": "ARGB32_to_tensor_3x5",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       3,
+       5,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000136875,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "ARGB32_to_tensor_3x5",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       3,
+       5,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 9.4333e-05,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "ARGB32_identity_3x5",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 5,
+      "height": 3
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000111959,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "ARGB32_identity_3x5",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 32,
+      "width": 5,
+      "height": 3
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 32,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 32,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 8.5709e-05,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "BGRA32_to_tensor",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000114208,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_to_tensor",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 8.0959e-05,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_identity",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000134083,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_identity",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000112875,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_from_tensor",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [
+      "x"
+     ],
+     "outputs": [],
+     "image_inputs": [],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000241125,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_aligned_to_tensor",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000124375,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_aligned_to_tensor",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 9.5167e-05,
+    "sha256": {
+     "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "BGRA32_invert",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000144541,
+    "sha256": {
+     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+    }
+   },
+   {
+    "case": "BGRA32_invert",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000104541,
+    "sha256": {
+     "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
+    }
+   },
+   {
+    "case": "BGRA32_to_tensor_3x5",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       3,
+       5,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000142125,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "BGRA32_to_tensor_3x5",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       3,
+       5,
+       4
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000104209,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "BGRA32_identity_3x5",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 5,
+      "height": 3
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000131167,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "BGRA32_identity_3x5",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 5,
+      "height": 3
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 5,
+       "height": 3,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 9.55e-05,
+    "sha256": {
+     "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
+    }
+   },
+   {
+    "case": "mixed_bgra32",
+    "backend": "cpu",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "z",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [
+      "t"
+     ],
+     "outputs": [
+      "z"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000216167,
+    "sha256": {
+     "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
+     "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "mixed_bgra32",
+    "backend": "cpu",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "z",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 1111970369,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [
+      "t"
+     ],
+     "outputs": [
+      "z"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 1111970369,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000173167,
+    "sha256": {
+     "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
+     "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
+    }
+   },
+   {
+    "case": "RGB24_to_tensor",
+    "backend": "gpu-preferred",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       3
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000218125,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_to_tensor",
+    "backend": "gpu-preferred",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       3
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000135875,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_identity",
     "backend": "gpu-preferred",
     "variant": "tight",
     "outcome": "completed",
@@ -2070,7 +1878,200 @@
       }
      ]
     },
-    "seconds": 0.011547208,
+    "seconds": 0.000121,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_identity",
+    "backend": "gpu-preferred",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.00010775,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_from_tensor",
+    "backend": "gpu-preferred",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [
+      "x"
+     ],
+     "outputs": [],
+     "image_inputs": [],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.000221167,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_aligned_to_tensor",
+    "backend": "gpu-preferred",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       3
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000122791,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_aligned_to_tensor",
+    "backend": "gpu-preferred",
+    "variant": "padded",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "tensor",
+      "dtype": "uint8",
+      "shape": [
+       2,
+       4,
+       3
+      ]
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [
+      "y"
+     ],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": []
+    },
+    "seconds": 0.000111125,
+    "sha256": {
+     "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
+    }
+   },
+   {
+    "case": "RGB24_invert",
+    "backend": "gpu-preferred",
+    "variant": "tight",
+    "outcome": "completed",
+    "outputs": [
+     {
+      "name": "y",
+      "kind": "image",
+      "os_type": 24,
+      "width": 4,
+      "height": 2
+     }
+    ],
+    "descriptor": {
+     "inputs": [],
+     "outputs": [],
+     "image_inputs": [
+      {
+       "name": "x",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ],
+     "image_outputs": [
+      {
+       "name": "y",
+       "os_type": 24,
+       "width": 4,
+       "height": 2,
+       "supported": true
+      }
+     ]
+    },
+    "seconds": 0.097570833,
     "sha256": {
      "y": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
     }
@@ -2111,7 +2112,7 @@
       }
      ]
     },
-    "seconds": 0.002487542,
+    "seconds": 0.002265167,
     "sha256": {
      "y": "694b3f179237fe03705e0119435c70833ac3a9e5d1ff3947e4d6711341bade0f"
     }
@@ -2149,7 +2150,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000132333,
+    "seconds": 0.000145917,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -2187,7 +2188,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000124375,
+    "seconds": 0.000126542,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -2228,7 +2229,7 @@
       }
      ]
     },
-    "seconds": 0.000121834,
+    "seconds": 0.000137375,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -2269,7 +2270,7 @@
       }
      ]
     },
-    "seconds": 8.8166e-05,
+    "seconds": 0.000145708,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -2307,7 +2308,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000114333,
+    "seconds": 0.000127292,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2345,7 +2346,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 8.15e-05,
+    "seconds": 8.4709e-05,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2386,7 +2387,7 @@
       }
      ]
     },
-    "seconds": 0.000151042,
+    "seconds": 0.000134833,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2427,7 +2428,7 @@
       }
      ]
     },
-    "seconds": 0.000118209,
+    "seconds": 0.00011125,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2462,7 +2463,7 @@
       }
      ]
     },
-    "seconds": 0.000186667,
+    "seconds": 0.000205125,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2500,7 +2501,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000149833,
+    "seconds": 0.000132625,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2538,7 +2539,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000124458,
+    "seconds": 0.000104958,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2579,7 +2580,7 @@
       }
      ]
     },
-    "seconds": 0.003006583,
+    "seconds": 0.01136675,
     "sha256": {
      "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
     }
@@ -2620,7 +2621,7 @@
       }
      ]
     },
-    "seconds": 0.001690292,
+    "seconds": 0.002260833,
     "sha256": {
      "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
     }
@@ -2658,7 +2659,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000131208,
+    "seconds": 0.000137833,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -2696,7 +2697,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 8.75e-05,
+    "seconds": 0.000109375,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -2737,7 +2738,7 @@
       }
      ]
     },
-    "seconds": 0.000150333,
+    "seconds": 0.000137,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -2778,7 +2779,7 @@
       }
      ]
     },
-    "seconds": 9.1708e-05,
+    "seconds": 0.000102041,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -2816,7 +2817,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000135,
+    "seconds": 0.000128167,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2854,7 +2855,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 8.8416e-05,
+    "seconds": 9.4958e-05,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2895,7 +2896,7 @@
       }
      ]
     },
-    "seconds": 0.000127542,
+    "seconds": 0.000114375,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2936,7 +2937,7 @@
       }
      ]
     },
-    "seconds": 9.8583e-05,
+    "seconds": 0.000111208,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -2971,7 +2972,7 @@
       }
      ]
     },
-    "seconds": 0.000185375,
+    "seconds": 0.000195292,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -3009,7 +3010,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000141667,
+    "seconds": 0.000113542,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -3047,7 +3048,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000121083,
+    "seconds": 8.625e-05,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -3088,7 +3089,7 @@
       }
      ]
     },
-    "seconds": 0.002340166,
+    "seconds": 0.002155708,
     "sha256": {
      "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
     }
@@ -3129,7 +3130,7 @@
       }
      ]
     },
-    "seconds": 0.001561417,
+    "seconds": 0.002248375,
     "sha256": {
      "y": "e12390be3da2e000ee583c905655f6033abb9f32e2dc439bcdc12d6d7aebe717"
     }
@@ -3167,7 +3168,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000114166,
+    "seconds": 0.000123834,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -3205,7 +3206,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 8.3e-05,
+    "seconds": 9.225e-05,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -3246,7 +3247,7 @@
       }
      ]
     },
-    "seconds": 0.000124958,
+    "seconds": 0.0001265,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -3287,7 +3288,7 @@
       }
      ]
     },
-    "seconds": 9.4792e-05,
+    "seconds": 8.3417e-05,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -3342,7 +3343,7 @@
       }
      ]
     },
-    "seconds": 0.000239375,
+    "seconds": 0.000216916,
     "sha256": {
      "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
      "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
@@ -3398,7 +3399,7 @@
       }
      ]
     },
-    "seconds": 0.000158084,
+    "seconds": 0.000201375,
     "sha256": {
      "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
      "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
@@ -3437,7 +3438,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.0002425,
+    "seconds": 0.000190583,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3475,7 +3476,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000128125,
+    "seconds": 0.00012075,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3516,7 +3517,7 @@
       }
      ]
     },
-    "seconds": 0.00014725,
+    "seconds": 0.000118834,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3557,7 +3558,7 @@
       }
      ]
     },
-    "seconds": 0.000107209,
+    "seconds": 0.0001085,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3592,7 +3593,7 @@
       }
      ]
     },
-    "seconds": 0.000168208,
+    "seconds": 0.000168833,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3630,7 +3631,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000127042,
+    "seconds": 0.000131209,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3668,7 +3669,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 8.4042e-05,
+    "seconds": 0.000105166,
     "sha256": {
      "y": "cd710f53fa9442f70d3b6ac70285e1532fafbbea8b255786f5cc46dd8ffdf79e"
     }
@@ -3709,7 +3710,7 @@
       }
      ]
     },
-    "seconds": 0.000461417,
+    "seconds": 0.000717667,
     "sha256": {
      "y": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6"
     }
@@ -3750,7 +3751,7 @@
       }
      ]
     },
-    "seconds": 0.000262125,
+    "seconds": 0.000288792,
     "sha256": {
      "y": "44a5f7891570e5631e8c91c85186e6633f4ab5364f644040b2a00126a07985b6"
     }
@@ -3788,7 +3789,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000142292,
+    "seconds": 0.000137292,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -3826,7 +3827,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 9.7667e-05,
+    "seconds": 9.3208e-05,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -3867,7 +3868,7 @@
       }
      ]
     },
-    "seconds": 0.000122541,
+    "seconds": 0.000142834,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -3908,7 +3909,7 @@
       }
      ]
     },
-    "seconds": 9.1042e-05,
+    "seconds": 0.000113333,
     "sha256": {
      "y": "1fdb0e8e8ae1852f73766fe3f09005a96e0f6da0f7101d226fca54cf5cac0365"
     }
@@ -3946,7 +3947,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000118458,
+    "seconds": 0.000122208,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -3984,7 +3985,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 9.6875e-05,
+    "seconds": 0.000111083,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4025,7 +4026,7 @@
       }
      ]
     },
-    "seconds": 0.000112834,
+    "seconds": 0.000140375,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4066,7 +4067,7 @@
       }
      ]
     },
-    "seconds": 8.2333e-05,
+    "seconds": 9.9416e-05,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4101,7 +4102,7 @@
       }
      ]
     },
-    "seconds": 0.000160625,
+    "seconds": 0.000178042,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4139,7 +4140,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000111542,
+    "seconds": 0.000136042,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4177,7 +4178,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000107959,
+    "seconds": 0.000100791,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4218,7 +4219,7 @@
       }
      ]
     },
-    "seconds": 0.000352166,
+    "seconds": 0.000365583,
     "sha256": {
      "y": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
     }
@@ -4259,7 +4260,7 @@
       }
      ]
     },
-    "seconds": 0.000248,
+    "seconds": 0.000252625,
     "sha256": {
      "y": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
     }
@@ -4297,7 +4298,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000114459,
+    "seconds": 0.0001185,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4335,7 +4336,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 7.9e-05,
+    "seconds": 0.000113083,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4376,7 +4377,7 @@
       }
      ]
     },
-    "seconds": 0.000115792,
+    "seconds": 0.000121583,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4417,7 +4418,7 @@
       }
      ]
     },
-    "seconds": 8.0292e-05,
+    "seconds": 0.000103416,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4455,7 +4456,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000127375,
+    "seconds": 0.000113792,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4493,7 +4494,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 8.0917e-05,
+    "seconds": 0.000110125,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4534,7 +4535,7 @@
       }
      ]
     },
-    "seconds": 0.000106125,
+    "seconds": 0.0001155,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4575,7 +4576,7 @@
       }
      ]
     },
-    "seconds": 7.9208e-05,
+    "seconds": 0.000104,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4610,7 +4611,7 @@
       }
      ]
     },
-    "seconds": 0.000144708,
+    "seconds": 0.000197,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4648,7 +4649,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000123958,
+    "seconds": 0.000127709,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4686,7 +4687,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000115,
+    "seconds": 0.000101459,
     "sha256": {
      "y": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
     }
@@ -4727,7 +4728,7 @@
       }
      ]
     },
-    "seconds": 0.000335917,
+    "seconds": 0.000332666,
     "sha256": {
      "y": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
     }
@@ -4768,7 +4769,7 @@
       }
      ]
     },
-    "seconds": 0.000261292,
+    "seconds": 0.000267167,
     "sha256": {
      "y": "af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
     }
@@ -4806,7 +4807,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 0.000141458,
+    "seconds": 0.000117375,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4844,7 +4845,7 @@
      ],
      "image_outputs": []
     },
-    "seconds": 9.9042e-05,
+    "seconds": 9.2875e-05,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4885,7 +4886,7 @@
       }
      ]
     },
-    "seconds": 0.000142416,
+    "seconds": 0.000121,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4926,7 +4927,7 @@
       }
      ]
     },
-    "seconds": 0.000106083,
+    "seconds": 9.5667e-05,
     "sha256": {
      "y": "a766cac7ef761f09c3e7456ef32e768730313e31c372d89235c143acd110d190"
     }
@@ -4981,7 +4982,7 @@
       }
      ]
     },
-    "seconds": 0.000194833,
+    "seconds": 0.000255209,
     "sha256": {
      "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
      "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
@@ -5037,7 +5038,7 @@
       }
      ]
     },
-    "seconds": 0.000162125,
+    "seconds": 0.000190958,
     "sha256": {
      "y": "e0accae8ff8c73de49d4837b0f444fd41f2690edff3d7cd60322ad0e5911690a",
      "z": "2efb39b34216c708701881eae27808ef2d0bc1e82eb6ec5b01e52259c27d6861"
@@ -5727,159 +5728,159 @@
     "model": "BGRA32_identity/model.aimodel",
     "iterations": 10000,
     "mismatches": 0,
-    "seconds": 0.183707875,
+    "seconds": 0.209036208,
     "rss_samples": [
      {
       "iteration": 0,
-      "rss_kib": 37008
+      "rss_kib": 31008
      },
      {
       "iteration": 1000,
-      "rss_kib": 37040
+      "rss_kib": 31008
      },
      {
       "iteration": 2000,
-      "rss_kib": 37056
+      "rss_kib": 31088
      },
      {
       "iteration": 3000,
-      "rss_kib": 37088
+      "rss_kib": 31136
      },
      {
       "iteration": 4000,
-      "rss_kib": 37088
+      "rss_kib": 31152
      },
      {
       "iteration": 5000,
-      "rss_kib": 37088
+      "rss_kib": 31152
      },
      {
       "iteration": 6000,
-      "rss_kib": 37104
+      "rss_kib": 31152
      },
      {
       "iteration": 7000,
-      "rss_kib": 37104
+      "rss_kib": 31152
      },
      {
       "iteration": 8000,
-      "rss_kib": 37136
+      "rss_kib": 31168
      },
      {
       "iteration": 9000,
-      "rss_kib": 37136
+      "rss_kib": 31216
      },
      {
       "iteration": 10000,
-      "rss_kib": 37136
+      "rss_kib": 31216
      }
     ],
-    "rss_growth_after_warmup_kib": 96
+    "rss_growth_after_warmup_kib": 208
    },
    {
     "backend": "gpu-preferred",
     "model": "BGRA32_identity/model.aimodel",
     "iterations": 10000,
     "mismatches": 0,
-    "seconds": 0.184112917,
+    "seconds": 0.20553975,
     "rss_samples": [
      {
       "iteration": 0,
-      "rss_kib": 37168
+      "rss_kib": 31232
      },
      {
       "iteration": 1000,
-      "rss_kib": 37168
+      "rss_kib": 31232
      },
      {
       "iteration": 2000,
-      "rss_kib": 37168
+      "rss_kib": 31232
      },
      {
       "iteration": 3000,
-      "rss_kib": 37168
+      "rss_kib": 31232
      },
      {
       "iteration": 4000,
-      "rss_kib": 37168
+      "rss_kib": 31232
      },
      {
       "iteration": 5000,
-      "rss_kib": 37184
+      "rss_kib": 31248
      },
      {
       "iteration": 6000,
-      "rss_kib": 37216
+      "rss_kib": 31248
      },
      {
       "iteration": 7000,
-      "rss_kib": 37296
+      "rss_kib": 31328
      },
      {
       "iteration": 8000,
-      "rss_kib": 37296
+      "rss_kib": 31328
      },
      {
       "iteration": 9000,
-      "rss_kib": 37296
+      "rss_kib": 31328
      },
      {
       "iteration": 10000,
-      "rss_kib": 37296
+      "rss_kib": 31328
      }
     ],
-    "rss_growth_after_warmup_kib": 128
+    "rss_growth_after_warmup_kib": 96
    },
    {
     "backend": "neural-engine-preferred",
     "model": "BGRA32_identity/model.aimodel",
     "iterations": 10000,
     "mismatches": 0,
-    "seconds": 0.184981291,
+    "seconds": 0.202478708,
     "rss_samples": [
      {
       "iteration": 0,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 1000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 2000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 3000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 4000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 5000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 6000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 7000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 8000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 9000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      },
      {
       "iteration": 10000,
-      "rss_kib": 37344
+      "rss_kib": 31360
      }
     ],
     "rss_growth_after_warmup_kib": 0
@@ -5891,8 +5892,8 @@
     "iterations": 100,
     "cancel_prevented": 100,
     "cancel_too_late": 0,
-    "rss_before_kib": 37344,
-    "rss_after_kib": 37568,
+    "rss_before_kib": 31360,
+    "rss_after_kib": 31568,
     "run_after_drain": true
    },
    {
@@ -5900,8 +5901,8 @@
     "iterations": 100,
     "cancel_prevented": 100,
     "cancel_too_late": 0,
-    "rss_before_kib": 37584,
-    "rss_after_kib": 37584,
+    "rss_before_kib": 31584,
+    "rss_after_kib": 31600,
     "run_after_drain": true
    },
    {
@@ -5909,8 +5910,8 @@
     "iterations": 100,
     "cancel_prevented": 100,
     "cancel_too_late": 0,
-    "rss_before_kib": 37600,
-    "rss_after_kib": 37616,
+    "rss_before_kib": 31600,
+    "rss_after_kib": 31600,
     "run_after_drain": true
    }
   ]
@@ -5928,20 +5929,20 @@
     "--release"
    ],
    "exit_status": 0,
-   "stderr_tail": "    Finished `release` profile [optimized] target(s) in 0.00s\n"
+   "stderr_tail": "    Finished `release` profile [optimized] target(s) in 0.03s\n"
   },
   {
    "command": [
     "rustc",
     "--edition=2024",
     "-Dwarnings",
-    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/experiments/rust/image_parity.rs",
+    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/experiments/rust/image_parity.rs",
     "--extern",
-    "corsairs=/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/target/release/libcorsairs.rlib",
+    "corsairs=/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/target/release/libcorsairs.rlib",
     "-L",
-    "dependency=/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/target/release",
+    "dependency=/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/target/release",
     "-o",
-    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/target/images/image-parity",
+    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/target/images/image-parity",
     "-C",
     "opt-level=3"
    ],
@@ -5950,9 +5951,9 @@
   },
   {
    "command": [
-    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/target/images/image-parity",
-    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/target/images/plan.txt",
-    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-6/target/images/outputs"
+    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/target/images/image-parity",
+    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/target/images/plan.txt",
+    "/Users/zakkeown/Code/bubstackdev/corsairs/.claude/worktrees/wf_9fd89f60-801-9/target/images/outputs"
    ],
    "exit_status": 0,
    "stderr_tail": ""

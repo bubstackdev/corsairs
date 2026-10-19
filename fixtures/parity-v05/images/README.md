@@ -10,7 +10,10 @@ analytic results. `suite.json` also lists seven negative requests.
 single-input case) and `results/b3.json` (BGRA32 and tensor inputs only) are
 the reference runs on CPU-only, GPU-preferred and Neural Engine-preferred
 options. `backend-goldens.json` is frozen from them by
-`freeze_image_goldens.py`, which refuses to overwrite it. 27 goldens are
+`freeze_image_goldens.py`, which refuses to overwrite it. It also freezes
+`sha256.json`, the digest of every other file here except this README;
+`check_images.py` pins that manifest's digest and verifies every file against
+it before running. 27 goldens are
 confirmed by both references. The only goldens that differ from the expected
 bytes are the reviewed Neural Engine `invert` digests (every byte 255). See
 [image I/O](../../../docs/image-io.md).

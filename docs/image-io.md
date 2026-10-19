@@ -1,8 +1,7 @@
 # Image and pixel-buffer I/O (v0.5)
 
 Recorded 2026-10-18 on macOS 27.0.1 (26A434), Xcode/SDK 27 (Swift 6.4), device
-architecture `h17c`, against the pinned `coreai-core 1.0.0b3`. Targets v0.5.0;
-the crate version is unchanged.
+architecture `h17c`, against the pinned `coreai-core 1.0.0b3`. Added in v0.5.0.
 
 Functions whose inputs or outputs are packed `24RGB`, `32ARGB` or `32BGRA`
 images now load and run on CPU-only, GPU-preferred and Neural Engine-preferred
